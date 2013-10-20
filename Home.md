@@ -1,8 +1,6 @@
-# Introduction
-
 If you are completely new to openHAB and you prefer listening over reading, you can start with our presentation at Devoxx in 2012, which is available on Parleys:
 
-[http://wiki.openhab.googlecode.com/hg/images/parleys.jpg](http://parleys.com/play/5148922b0364bc17fc56c8c3/chapter10/agenda)
+[![Parleys](http://wiki.openhab.googlecode.com/hg/images/parleys.jpg)](http://parleys.com/play/5148922b0364bc17fc56c8c3/chapter10/agenda)
 
 # Overview
 
@@ -14,7 +12,7 @@ The openHAB project is split into two parts
 
 The openHAB runtime is a set of OSGi bundles deployed on an OSGi framework (Equinox). It is therefore a pure Java solution and needs a JVM to run. Being based on OSGi, it provides a highly modular architecture, which even allows adding and removing functionality during runtime without stopping the service. Here is an overview over the main bundles and how they depend on each other:
 
-http://wiki.openhab.googlecode.com/hg/images/architecture.png
+![architecture](http://wiki.openhab.googlecode.com/hg/images/architecture.png)
 
 ## Communication
 
@@ -45,7 +43,7 @@ The Item Repository avoids each bundle to cache states themselves for there inte
 
 The following diagram shows how these communication channels are used:
 
-http://wiki.openhab.googlecode.com/hg/images/events.png
+![events](http://wiki.openhab.googlecode.com/hg/images/events.png)
 
 ### Sitemap
 
