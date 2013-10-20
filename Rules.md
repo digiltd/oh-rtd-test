@@ -1,0 +1,141 @@
+# How to work with automation rules
+
+# Introduction
+
+openHAB has a highly integrated, lightweight but yet powerful rule engine included.
+On this page you will learn how to leverage its functionality to do *real* home automation.
+
+# Defining Rules
+
+## File Location
+
+Rules are placed in the folder {{{${openhab.home}/configurations/rules}}}. The runtime already comes with a demo file called {{{demo.rules}}}, which has a couple of examples, which can be a good starting point.
+
+A rule file can contain multiple rules. All rules of a file share a common execution context, i.e. they can access and exchange variables with each other. It therefore makes sense, to have different rule files for different use-cases or categories.
+
+## IDE Support
+
+The openHAB Designer offers full IDE support for rules, which includes syntax checks and coloring, validation with error markers, content assist (Ctrl+Space) incl. templates etc. This makes the creation of rules very easy!
+
+http://wiki.openhab.googlecode.com/hg/images/screenshots/designer-rules.png
+
+## The Syntax
+
+Note: The rule syntax is based on [Xbase](http://www.eclipse.org/Xtext/#xbase) and as a result it is sharing many details with [Xtend](http://www.eclipse.org/xtend/), which is built on top of Xbase as well. As a result, we will often point to the Xtend documentation for details.
+
+A rule file is a text file with the following structure:
+    [Imports]
+    
+    [Variable Declarations]
+    
+    [Rules]
+
+
+The ***Imports*** section contains import statement just like in Java. As in Java, they make the imported types available without having to use the fully qualified name for them. For further details, please see the [Xtend documentation for imports](http://www.eclipse.org/xtend/documentation.html#imports).
+
+Example:
+    import org.openhab.core.library.types.*
+
+The ***Variable Declarations*** section can be used to declare variables that should be accessible to all rules in this file. You can declare variables with or without initial values and modifiable or read-only. For further details, please see the [Xtend documentation for variable declarations](http://www.eclipse.org/xtend/documentation.html#variableDeclaration).
+
+Example: 
+    // a variable with an initial value. Note that the variable type is automatically inferred
+    var counter = 0 
+    
+    // a read-only value, again the type is automatically inferred
+    val msg = "This is a message" 
+    
+    // an uninitialized variable where we have to provide the type (as it cannot be inferred from an initial value)
+    var Number x 
+
+The ***Rules*** section contains a list of rules. Each rule has the following syntax:
+    rule "rule name"
+    when
+        <TRIGGER CONDITION1> or 
+        <TRIGGER_CONDITION2> or 
+        <TRIGGER_CONDITION3>
+        ...
+    then
+        <EXECUTION_BLOCK>
+    end
+
+A rule can have any number of trigger conditions, but must at least have one.
+The _EXECUTION_BLOCK_ contains the code that should be executed, when a trigger condition is met. The content of the _EXECUTION_BLOCK_ is in fact a script, so please refer to the [[Scripts|scripts documentation]] for details.
+
+## Rule Triggers
+
+There are different categories of rule triggers:
+- **Item**(-Event)-based triggers: They react on events on the openHAB event bus, i.e. commands and status updates for items
+- **Time**-based triggers: They react at special times, e.g. at midnight, every hour, etc.
+- **System**-based triggers: They react on certain system statuses.
+
+Here are the details for each category:
+
+### Item- / Event-based Triggers
+
+You can listen to commands for a specific item, on status updates or on status changes (an update might leave the status unchanged). You can decide whether you want to catch only a specific command/status or any. Here is the syntax for all these cases (parts in square brackets are optional):
+    Item <item> received command [<command>]
+    Item <item> received update [<state>]
+    Item <item> changed [from <state>] [to <state>]
+
+### Time-based Triggers
+
+You can either use some pre-defined expressions for timers or use a [cron expression](http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/tutorial-lesson-06) instead:
+    Time is midnight
+    Time is noon
+    Time cron "<cron expression>"
+
+### System-based Triggers
+
+Currently, you schedule rules to be executed either at system startup or shutdown. Note that newly added or modified startup rules are executed once, even if openHAB is already up and running. They are simply executed once as soon as the system is aware of them. Here's the syntax for system triggers:
+    System started
+    System shuts down
+
+## Implicit Variables inside the Execution Block
+
+Besides the implicitly available variables for items and commands/states (see the [[Scripts|script documentation]]), rules can have additional pre-defined variables, depending on their triggers:
+
+- Every rule that has at least one command event trigger, will have the variable {{{receivedCommand}}} available, which can be used inside the execution block.
+- Every rule that has at least one status change event trigger, will have the variable {{{previousState}}} available, which can be used inside the execution block.
+
+## Example
+
+Taking all the information together, an example rule file could look like this:
+    // import the decimal type as we refer to it in a rule
+    import org.openhab.core.library.types.DecimalType
+    
+    var Number counter
+    
+    // setting the counter to some initial value
+    // we could have done this in the variable declaration already
+    rule Startup
+    when 
+    	System started
+    then
+    	counter = 0
+    end
+    
+    // increase the counter at midnight
+    rule "Increase counter"
+    when
+    	Time cron "0 0 0 * * ?"
+    then
+    	counter = counter + 1
+    end
+    
+    // tell the number of days either at noon or if a button is pressed
+    rule "Announce number of days up"
+    when
+    	Time is noon or 
+    	Item AnnounceButton received command ON
+    then
+    	say("The system is up since " + counter + " days")
+    end
+    
+    // sets the counter to the value of a received command
+    rule "Set the counter"
+    when
+    	Item SetCounterItem received command
+    then
+    	counter = receivedCommand as DecimalType
+    end

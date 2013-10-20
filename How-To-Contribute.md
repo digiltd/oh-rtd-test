@@ -1,0 +1,41 @@
+# How to contribute to the project
+
+# Introduction
+
+As for almost all open-source projects, contributions to the project are always welcome!
+If you interested in doing a contribution - be it a simple bug report or a big chunk of code for a new feature - this page will give you the details of how to achieve this.
+
+# Best Practices for Contributors
+
+The simplest way of contributing is probably to report bugs. You can do so using the [issue tracker](http://code.google.com/p/openhab/issues/entry). 
+
+If you are in doubt whether it is a bug or not, you can also first refer to [the forum](http://groups.google.com/group/openhab) instead of entering a bug report.
+
+The same is true if you intend to implement/contribute a new feature. Please always first discuss your idea in the group as this will ensure a clear project direction and avoid the situation that different people unknowingly work on the same feature.
+
+# Code Handling
+
+To make code changes to the openHAB code base yourself, all you have to do is to create a local clone of the repository (git clone https://github.com/openhab/openhab/). See [on how to set up a development environment and read [HowToImplementABinding](IDESetup]) if you plan to implement a new binding.
+
+If you want to contribute your code or just want to share it with others, you can [create a fork of the official repository](https://github.com/openhab/openhab/fork) at any time, for which you will have full access so that your local changesets can be pushed to it.
+
+Once your code is ready and accepted (see code style section below), it is then easy for the project owners to pull your changesets into the official repository - all you have to do is to [create a pull request](https://help.github.com/articles/creating-a-pull-request).
+
+# Licensing
+
+As openHAB is licensed under the Eclipse Public License (EPL), your code should include the [standard openHAB license headers](https://github.com/openhab/openhab/blob/master/src/etc/header.txt) as well. To automatically add it to your code, you can run {{{mvn license:format}}}.
+
+By contributing code to openHAB, we therefore implicitly assume your approval to make it available under the EPL and that you have the right to give us the approval (i.e. the code does not contain any intellectual property that belongs to somebody else).
+By attaching code to the issue tracker or posting code in the discussion groups, the contributor implicitly grants rights to use the code under the above mentioned terms and conditions. 
+
+# Code Style & Conventions
+
+To ensure code quality in our official repository, the project owners do code reviews before merging contributions into the main repository. There are some rules that every contribution should follow:
+
+- [Java naming conventions](http://java.about.com/od/javasyntax/a/nameconventions.htm) should be used.
+- Code formatting should be done according to the Eclipse built-in code formatter (preconfigured in the openHAB Yoxos profile)
+- Every Java file should have the standard [license header](http://openhab.googlecode.com/hg/src/etc/header.txt)
+- Every class, interface and enumeration should have !JavaDoc describing its purpose and usage. @author and @since tags should be given here.
+- Every constant, field and method with default, protected or public visibility should have !JavaDoc as well (optional, but encouraged for private visibility as well)
+- !ImportPackage should be used in the manifest rather than !RequireBundle
+ 

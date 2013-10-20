@@ -1,0 +1,143 @@
+# Documentation of the KNX Binding Bundle
+
+# Content of this page
+
+<wiki:toc max_depth="2" />
+
+# Introduction
+
+The openHAB KNX binding allows to connect to [KNX Home Automation](http://www.knx.org/,) installations. Switching lights on and off, activating your roller shutters or changing room temperatures are only some examples.
+
+To access your KNX bus you either need an KNX IP gateway (like e.g. the [Gira KNX IP Router](http://www.gira.com/en/produkte/knxeib-ip-router.html)) or a PC running [EIBD](http://www.auto.tuwien.ac.at/~mkoegler/index.php/eibd) (free open source component that enables communication with the KNX bus).
+
+For installation of the binding, please see Wiki page [[Bindings]].´
+
+# Binding Configuration in openhab.cfg
+
+You can find the configuration section for the KNX binding in file configurations/openhab.cfg, section "KNX Binding". 
+
+For your convenience you can see the relevant section as follows:
+
+{{{ 
+# KNX gateway IP address 
+# (optional, if serialPort or connection type 'ROUTER' is specified)
+knx:ip=
+
+# KNX IP connection type. Could be either TUNNEL or ROUTER (optional, defaults to TUNNEL)
+# Note: If you cannot get the ROUTER mode working (even if it claims it is connected), 
+# use TUNNEL mode instead with setting both the ip of the KNX gateway and the localIp.
+knx:type=
+
+# KNX gateway port (optional, defaults to 3671)
+knx:port=
+
+# Local endpoint to specify the multicast interface, no port is used (optional)
+knx:localIp=
+
+# Serial port of FT1.2 KNX interface (ignored, if ip is specified)
+# Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux
+knx:serialPort=
+
+# Pause in milliseconds between two read requests on the KNX bus during
+# initialization (optional, defaults to 50)
+knx:pause=
+
+# Timeout in milliseconds to wait for a response from the KNX bus (optional, 
+# defaults to 10000)
+knx:timeout=
+
+# Number of read retries while initialization items from the KNX bus (optional,
+# defaults to 3)
+knx:readRetries=
+
+# Seconds between connect retries when KNX link has been lost
+# 0 means never retry, it will only reconnect on next write or read request
+# Note: without periodic retries all events will be lost up to the next read/write request
+# (optional, default is 0)
+knx:autoReconnectPeriod=
+}}}
+
+A sample configuration could look like:
+    knx:ip=192.168.1.10
+    knx:type=ROUTER
+
+# Bind Items to KNX
+
+## Description
+
+In order to bind an item to a KNX device you need to provide configuration settings. The easiest way to do so is to add  binding information in your 'item file' (in the folder configurations/items`). The syntax for the KNX binding configuration string is explained here:
+
+    knx="[<][<dptId>:]<mainGA>[[+[<]<listeningGA>]+[<]<listeningGA>..], [<][<dptId>:]<mainGA>[[+[<]<listeningGA>]+[<]<listeningGA>..]"
+where parts in brackets [signify an optional information.
+ 
+Each comma-separated section corresponds to an KNX datapoint. There is usually one datapoint defined per accepted command type of an openHAB item. If no datapoint type id is defined for the datapoint, this is automatically derived from the list of accepted command types of the item - i.e. the second datapoint definition is mapped to the second accepted command type of the item.
+
+The optional '<' sign tells whether the group address of the datapoint accepts read requests on the KNX bus (it does, if the sign is there).
+
+Each itemtype (see page [Items#itemtype Items Defintion](])) accepts different command types. When binding a item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
+
+mainGAs are used for updating the status of an openHAB items via KNX. There can only be one mainGA for an openHAB item (Highlander principle :-)
+listeningGAs are used for obtaining status changes from KNX. There can be multiple listeningGAs for one item.
+
+## Example
+
+Given we want to bind a Dimmer Item to KNX, we have first to check which commands an openHAB dimmer item does accept:
+
+On page [Items](Items#itemtypes) we that an openHAB Dimmer Item accepts three types of commands:
+||Itemname||Description||Command Types||
+||Dimmer||Item carrying a percentage value for dimmers||OnOff, IncreaseDecrease, Percent||
+
+Also [in the sources](http://code.google.com/p/openhab/source/browse/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/DimmerItem.java), we can find this information:
+    acceptedCommandTypes.add(OnOffType.class);
+    acceptedCommandTypes.add(IncreaseDecreaseType.class);
+    acceptedCommandTypes.add(PercentType.class);
+
+So, we first have to bind the OnOff command to the respective KNX group addresses, then the IncreaseDecrease command and finally the Percentage command. Please note that the sequence of these commands is relevant.
+
+In our example we assign the following KNX group addresses to the different commands:
+||Command Type||Main Group Address||Listening Address(es)||Comment||
+||OnOff command||1/3/20||0/3/20||-||
+||IncreaseDecreaseCommand||1/3/21||-||no listening GAs here as INCREASE and DECREASE are only commands but not valid states||
+||PercentCommand||1/3/22||0/3/22 and 0/8/15||||
+
+
+The respective line in the items definition file would therefore look like this:
+    Dimmer TestDimmer (Lights) { knx="1/3/20+0/3/20, 1/3/21, 1/3/22+0/3/22+0/8/15" }
+
+If you have a dimmer that does not support INCREASE/DECREASE commands and you thus do not have a GA to provide in the middle, you can also directly define the datapoint types (DPTs) in the configuration. The above example would then look like this (without INCREASE/DECREASE support):
+
+    Dimmer TestDimmer (Lights) { knx="1.001:1/3/20+0/3/20, 5.004:1/3/22+0/3/22+0/8/15" }
+
+## Command types for items
+
+For identifying the different command types for items, please either have a look into the [openHAB source code](http://code.google.com/p/openhab/source/browse/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/) or see Wiki page [Items](Items#itemtypes).
+
+## Further examples
+
+Here are some further examples for valid binding configuration strings:
+
+For an !SwitchItem:
+    knx="1/1/10"
+    knx="1.001:1/1/10"
+    knx="<1/1/10"
+    knx="<1/1/10+0/1/13+0/1/14+0/1/15"
+    knx="1/1/10+<0/1/13+0/1/14+0/1/15"
+
+For a !RollershutterItem:
+    knx="4/2/10"
+    knx="4/2/10, 4/2/11"
+    knx="1.008:4/2/10, 5.006:4/2/11"
+    knx="<4/2/10+0/2/10, 5.006:4/2/11+0/2/11"
+
+As a result, your lines in the items file might look like the following:
+    /* Lights */
+    Switch Light_GF_Living_Table "Table" (GF_Living, Lights) { knx="1/1/10+0/1/5" }
+    
+    /* Rollershutters */
+    Rollershutter Shutter_GF_Living "Shutter" (GF_Living, Shutters) { knx="4/2/10, 4/2/11" }
+    
+    /* Indoor Temperatures */
+    Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) { knx="<5/2/12" }
+
+Further KNX binding examples can be found in our openhab-samples WIKI:
+[KNX Binding Examples](https://code.google.com/p/openhab-samples/wiki/BindingConfig#KNX)
