@@ -1,3 +1,17 @@
+August 22, 2013 -- We are happy to announce that we now have an official [project proposal at Eclipse](http://eclipse.org/proposals/technology.smarthome/). 
+
+June 28, 2013 -- openHAB is the foundation of the [research project IEM](http://www.oberberg-aktuell.de/index.php?id=144&tx_ttnews%5Btt_news%5D=147147) of the university of applied science in cologne (campus Gummersbach).
+
+June 04, 2013 -- openHAB won the first [IoT Challenge Award](http://iotevent.eu/announcement-the-winner-of-the-iot-challenge-2013/). Thanks to all contributors to make that possible!
+
+May 28, 2013 -- Our talk ["Home Automation for Geeks"](http://parleys.com/play/5148922b0364bc17fc56c8c3) at Devoxx 2012 is now publicly available on Parleys.
+
+May 21, 2013 -- openHAB is now finalist of the IoT Challenge. Thanks to all of you for [226 votes](http://challenge.iotevent.eu).
+
+April 25, 2013 -- The [openHAB-Samples Wiki](https://code.google.com/p/openhab-samples/) has been created. We'd love to grant access to all of you!
+
+April 16, 2013 -- Read the press coverage about the openHAB 1.2 release: [Heise Developer](http://www.heise.de/developer/meldung/30-Bindings-fuer-openHAB-1-2-1842540.html), [Automated Home](http://www.automatedhome.co.uk/software/latest-open-home-automation-bus-openhab-update-brings-raft-of-new-features.html), [The H-Open](http://www.h-online.com/open/news/item/30-bindings-for-openHAB-1-2-1843052.html), [HomeMatic INSIDE](http://www.homematic-inside.de/software/java/item/openhab), [JAXenter](http://it-republik.de/jaxenter/news/Licht-Pflanzen-Raumtemperatur-Heim-Automatisierung-mit-openHAB-067041.html), [Under Linux](https://under-linux.org/content.php?r=6201-Lançado-openHAB-1-2), [KV:\](http://www.kv.by/content/324564-novosti-svobodnogo-po) ([translated](http://www.google.com/translate?hl=en&ie=UTF8&sl=auto&tl=en&u=http%3A%2F%2Fwww.kv.by%2Fcontent%2F324564-novosti-svobodnogo-po))
+
 April 14, 2013 -- openHAB 1.2 has been released! Read the [release notes](ReleaseNotes12) to learn what cool new features it brings.
 
 March 6, 2013 -- Pablo created a brief tutorial about domotics and openHAB which is published on [FAQ-MAC](http://www.faq-mac.com/tutoriales/smarthome-tu-propio-sistema-domotico-ios-mac-pablo-romeu/49653) ([translated](http://t.co/RXs4eRQSBb)).
