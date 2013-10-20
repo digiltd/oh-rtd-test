@@ -1,5 +1,3 @@
-# News Archive
-
 April 14, 2013 -- openHAB 1.2 has been released! Read the [release notes](ReleaseNotes12) to learn what cool new features it brings.
 
 March 6, 2013 -- Pablo created a brief tutorial about domotics and openHAB which is published on [FAQ-MAC](http://www.faq-mac.com/tutoriales/smarthome-tu-propio-sistema-domotico-ios-mac-pablo-romeu/49653) ([translated](http://t.co/RXs4eRQSBb)).
