@@ -1,1 +1,1 @@
-The official openHAB Wiki is located at [Google Code](http://code.google.com/p/openhab/wiki).
+The official openHAB Wiki is located at [Google Code](https://code.google.com/p/openhab/wiki/Architecture).
