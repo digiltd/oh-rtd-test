@@ -1,7 +1,3 @@
-# How to contribute to the project
-
-# Introduction
-
 As for almost all open-source projects, contributions to the project are always welcome!
 If you interested in doing a contribution - be it a simple bug report or a big chunk of code for a new feature - this page will give you the details of how to achieve this.
 
