@@ -1,5 +1,3 @@
-# Archived News
-
 # News Archive
 
 April 14, 2013 -- openHAB 1.2 has been released! Read the [release notes](ReleaseNotes12) to learn what cool new features it brings.
