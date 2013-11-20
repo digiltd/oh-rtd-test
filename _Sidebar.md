@@ -1,5 +1,3 @@
-[[Architecture]]
-
 Installation
  * [[Configuration]]
  * [[Items]]
