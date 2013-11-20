@@ -2,7 +2,7 @@ Installation
  * [Configuration](Configuring-the-openHAB-runtime)
  * [Items](Explanation-of-Items)
  * [Sitemaps](Explanation-of-Sitemaps)
- * [Quick Setup](Setup)
+ * [Quick Setup](Quick-Setup-an-openHAB-Server)
  * [[Addons]]
  * [Hardware FAQ](Hardware-FAQ)
 
