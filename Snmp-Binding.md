@@ -50,13 +50,13 @@ The following configuration items can be set in the openhab file -:
 
 # Binding Port
 
-By default the SNMP binding binds to localhost on Port {{{162}}} which is the SNMP default port. However on `*`nix Systems this port can only be bind by privileged users (root, sudo). Since openHAB won't be run under a privileged user a !BindException will be thrown.
+By default the SNMP binding binds to localhost on Port _162_ which is the SNMP default port. However on `*`nix Systems this port can only be bind by privileged users (root, sudo). Since openHAB won't be run under a privileged user a !BindException will be thrown.
 
-As a workaround one could forward all traps to a port of your choice using {{{snmptrapd}}}. You should install {{{snmptrapd}}} (on Ubuntu as part of the {{{snmpd}}}-package) somewhere on your network and run it under a privileged user. {{{snmptrapd}}} forwards all traps to the machine openHAB is listening.
+As a workaround one could forward all traps to a port of your choice using _snmptrapd_. You should install _snmptrapd_ (on Ubuntu as part of the _snmpd_-package) somewhere on your network and run it under a privileged user. _snmptrapd_ forwards all traps to the machine openHAB is listening.
 
-The {{{/etc/snmp/snmptrapd.conf}}} should be enhanced like this
+The _/etc/snmp/snmptrapd.conf_ should be enhanced like this
 
     disableAuthorization yes
     forward default udp:<ip of openhab machine>:<port which is configured in openhab.cfg>
 
-Don't forget to restart {{{snmpd}}} after reconfiguring by issuing {{{/etc/init.d/snmpd restart}}}
+Don't forget to restart _snmpd_ after reconfiguring by issuing _/etc/init.d/snmpd restart_
