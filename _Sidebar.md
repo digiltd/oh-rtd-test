@@ -75,7 +75,7 @@
    * [[Actions]]
   * Misc
    * [[REST-API]]
-   * [[Security]
+   * [[Security]]
    * [Google Calendar Support](GCal-Binding)
    * [Twitter Action](Twitter-Action)
    * [Service Discovery](Service-Discovery)
