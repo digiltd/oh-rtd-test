@@ -1,5 +1,3 @@
-# Explanation of Sitemaps
-
 # Sitemap Definition
 
 ## Introduction
