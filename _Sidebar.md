@@ -1,5 +1,3 @@
-[[Architecture]]
-
 Installation
  * [[Configuring-the-openHAB-runtime]]
  * [[Explanation-of-Items]]
