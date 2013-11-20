@@ -2,18 +2,18 @@
 
 Installation
  * [[Configuration]]
-  * [[Items]]
-  * [[Sitemaps]]
-  * [Setup Quick Setup](Setup-Quick-Setup)
-  * [[Addons]]
-  * [Hardware FAQ](Hardware-FAQ)
+ * [[Items]]
+ * [[Sitemaps]]
+ * [Quick Setup](Setup)
+ * [[Addons]]
+ * [Hardware FAQ](Hardware-FAQ)
 
 [[Features]]
  * User Interfaces
-   * [Classic UI](Web-AppUI)
-   * [iOS Client](iOS-UI)
-   * [Android Client](HABDroid)
-   * [GreenT UI](TouchUI)
+  * [Classic UI](Web-AppUI)
+  * [iOS Client](iOS-UI)
+  * [Android Client](HABDroid)
+  * [GreenT UI](TouchUI)
  * [[Bindings]]
    * [Asterisk Binding](Asterisk-Binding)
    * [Bluetooth Binding](Bluetooth-Binding)
@@ -83,20 +83,22 @@ Installation
    * [Service Discovery](Service-Discovery)
    * [Dropbox Bundle](Dropbox-IO)
    * [CometVisu](Comet-Visu)
+
 Release Notes
-   * [Version 1.3](Release-Notes-13)
-   * [Version 1.2](Release-Notes-12)
-   * [Version 1.1](Release-Notes-11)
-   * [Version 1.0](Release-Notes-10)
-   * [Version 0.9](Release-Notes-09)
-   * [Version 0.8](Release-Notes-08)
-   * [Version 0.7](ReleaseNotes-07)
-   * [Version 0.6](ReleaseNotes-06)
+ * [Version 1.3](Release-Notes-13)
+ * [Version 1.2](Release-Notes-12)
+ * [Version 1.1](Release-Notes-11)
+ * [Version 1.0](Release-Notes-10)
+ * [Version 0.9](Release-Notes-09)
+ * [Version 0.8](Release-Notes-08)
+ * [Version 0.7](ReleaseNotes-07)
+ * [Version 0.6](ReleaseNotes-06)
+
 Community
-   * [[Support]]
-   * [News Archive](News-Archive)
-   * [[Presentations]]
-   * [How to Contribute](How-To-Contribute)
-   * [IDE Setup](IDE-Setup)
-   * [How to Implement a Binding](How-To-Implement-A-Binding)
-   * [How to Implement an Actions](How-To-Implement-An-Action)
+ * [[Support]]
+ * [News Archive](News-Archive)
+ * [[Presentations]]
+ * [How to Contribute](How-To-Contribute)
+ * [IDE Setup](IDE-Setup)
+ * [How to Implement a Binding](How-To-Implement-A-Binding)
+ * [How to Implement an Actions](How-To-Implement-An-Action)
