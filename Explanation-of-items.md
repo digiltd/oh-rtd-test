@@ -1,5 +1,3 @@
-# Explanation of items
-
 # Items Definition
 
 ## Introduction
