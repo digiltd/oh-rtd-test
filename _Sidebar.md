@@ -1,18 +1,18 @@
- * [[Architecture]]
- * Installation
-  * [[Configuration]]
-   * [[Items]]
-   * [[Sitemaps]]
+[[Architecture]]
+Installation
+ * [[Configuration]]
+  * [[Items]]
+  * [[Sitemaps]]
   * [Setup Quick Setup](Setup-Quick-Setup)
   * [[Addons]]
   * [Hardware FAQ](Hardware-FAQ)
- * [[Features]]
-  * User Interfaces
+[[Features]]
+ * User Interfaces
    * [Classic UI](Web-AppUI)
    * [iOS Client](iOS-UI)
    * [Android Client](HABDroid)
    * [GreenT UI](TouchUI)
-  * [[Bindings]]
+ * [[Bindings]]
    * [Asterisk Binding](Asterisk-Binding)
    * [Bluetooth Binding](Bluetooth-Binding)
    * [Comfo Air Binding](Comfo-Air-Binding)
@@ -61,7 +61,7 @@
    * [VDR Binding](VDR-Binding)
    * [Wake-on-LAN Binding](WoL-Binding)
    * [Z-Wave Binding](Z-Wave-Binding)
-  * [[Persistence]]
+ * [[Persistence]]
    * [db4o Persistence](db4o-Persistence)
    * [rrd4j Persistence](rrd4j-Persistence)
    * [Sql Persistence](Sql-Persistence)
@@ -69,11 +69,11 @@
    * [Cosm Persistence](Cosm-Persistence)
    * [Logging Persistence](Logging-Persistence)
    * [Exec Persistence](Exec-Persistence)
-  * Automation
+ * Automation
    * [[Scripts]]
    * [[Rules]]
    * [[Actions]]
-  * Misc
+ * Misc
    * [[REST-API]]
    * [[Security]]
    * [Google Calendar Support](GCal-Binding)
@@ -81,7 +81,7 @@
    * [Service Discovery](Service-Discovery)
    * [Dropbox Bundle](Dropbox-IO)
    * [CometVisu](Comet-Visu)
-  * Release Notes
+Release Notes
    * [Version 1.3](Release-Notes-13)
    * [Version 1.2](Release-Notes-12)
    * [Version 1.1](Release-Notes-11)
@@ -90,7 +90,7 @@
    * [Version 0.8](Release-Notes-08)
    * [Version 0.7](ReleaseNotes-07)
    * [Version 0.6](ReleaseNotes-06)
-  * Community
+Community
    * [[Support]]
    * [News Archive](News-Archive)
    * [[Presentations]]
