@@ -47,7 +47,7 @@ Examples, how to configure your items:
      Switch  AV_Mute  { pioneeravr="INIT:livingroom:MUTE_QUERY, ON:livingroom:MUTE, OFF:livingroom:UNMUTE" }
      Dimmer  AV_Volume { pioneeravr="INIT:livingroom:VOLUME_QUERY, INCREASE:livingroom:VOLUME_UP, DECREASE:livingroom:VOLUME_DOWN, *:livingroom:VOLUME_SET" }
 
-
+_Note: The "INIT" action will be called once upon initialization of the binding. Its purpose is to query the current state of the receiver, so the item state represents the receiver state when the binding is running. Without that command, the initial values will be uninitialized until a corresponding command is performed to change the setting, or the receiver sends an update on his own._
 
 ## List of predefined Pioneer AV receiver commands 
 
@@ -303,7 +303,7 @@ A list of all commands that are supported by the pioneer receiver can be found h
      			Switch item=AV_Source  mappings=[5=TV, 4=DVD, 26=HMG, 15=DVR, 2=FM ] 
      			Setpoint item=AV_Volume_perc
      			Switch item=AV_HMG_Num  mappings=[1="WDR2", 2="1Live", 3="DLF" ]
-                        Switch item=AV_Tuner_Preset  mappings=[1="WDR2", 2="1Live", 3="DLF" ]
+     			Switch item=AV_Tuner_Preset  mappings=[1="WDR2", 2="1Live", 3="DLF" ]
      		}
      	}
 
@@ -335,3 +335,8 @@ The mapping of the source channels (AV_Source) to enumation numbers is as follow
 * 31: HDMI (cyclic)
 
 Further information for specific receivers can be found here: [http://www.pioneerelectronics.com/PUSA/Support/Home-Entertainment-Custom-Install/RS-232+&+IP+Codes](http://www.pioneerelectronics.com/PUSA/Support/Home-Entertainment-Custom-Install/RS-232+&+IP+Codes)
+
+## Troubleshooting
+
+It has been observed that from time to time, the ip-interface of the receiver hangs up and won't accept connections any more or it stops returning results and update. This leads to items not being updated any more. This behaviour seems to be related to use of other network features of the receiver, e.g. music streaming via Airplay.
+Currently there is no solution known to get rid of this other as to power cycle the receiver by plugging out its power cord. 
