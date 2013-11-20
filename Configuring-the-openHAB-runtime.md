@@ -1,7 +1,3 @@
-# Configuring the openHAB runtime
-
-# Configuring the openHAB Runtime
-
 This page describes the different places in which the openHAB runtime can be configured and customized.
 
 ## Main Configuration
