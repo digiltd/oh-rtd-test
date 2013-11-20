@@ -74,7 +74,7 @@
    * [[Rules]]
    * [[Actions]]
   * Misc
-   * [[REST]
+   * [[REST-API]]
    * [[Security]
    * [Google Calendar Support](GCal-Binding)
    * [Twitter Action](Twitter-Action)
