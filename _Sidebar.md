@@ -66,9 +66,9 @@
    * [[rrd4jPersistence rrd4j Persistence]]
    * [[SqlPersistence Sql Persistence]]
    * [[SensePersistence Sen.Se Persistence]]
-   * [[CosmPersistence Cosm Persistence]]
-   * [[LoggingPersistence Logging Persistence]]
-   * [[ExecPersistence Exec Persistence]]
+   * [[Cosm-Persistence Cosm Persistence]]
+   * [[Logging-Persistence Logging Persistence]]
+   * [[Exec-Persistence Exec Persistence]]
   * Automation
    * [[Scripts]]
    * [[Rules]]
