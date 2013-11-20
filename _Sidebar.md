@@ -1,12 +1,12 @@
 Installation
- * [Configuration](wiki/Configuring-the-openHAB-runtime)
- * [Items](wiki/Explanation-of-Items)
- * [Sitemaps](wiki/Explanation-of-Sitemaps)
+ * [Configuration](Configuring-the-openHAB-runtime)
+ * [Items](Explanation-of-Items)
+ * [Sitemaps](Explanation-of-Sitemaps)
  * [Quick Setup](Setup)
  * [[Addons]]
  * [Hardware FAQ](Hardware-FAQ)
 
-[Features](wiki/Feature-Overview)
+[Features](Feature-Overview)
  * User Interfaces
   * [Classic UI](Web-AppUI)
   * [iOS Client](iOS-UI)
@@ -107,7 +107,7 @@ Release Notes
  * [Version 0.6](ReleaseNotes-06)
 
 Community
- * [Support](wiki/Support-options-for-openHAB)
+ * [Support](Support-options-for-openHAB)
  * [News Archive](News-Archive)
  * [[Presentations]]
  * [How to Contribute](How-To-Contribute)
