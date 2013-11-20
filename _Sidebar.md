@@ -1,7 +1,9 @@
+[[Architecture]]
+
 Installation
- * [[Configuration]]
- * [[Items]]
- * [[Sitemaps]]
+ * [[Configuring-the-openHAB-runtime]]
+ * [[Explanation-of-Items]]
+ * [[Explanation-of-Sitemaps]]
  * [Quick Setup](Setup)
  * [[Addons]]
  * [Hardware FAQ](Hardware-FAQ)
