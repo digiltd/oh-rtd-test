@@ -1,11 +1,13 @@
 [[Architecture]]
-* Installation
+
+Installation
  * [[Configuration]]
   * [[Items]]
   * [[Sitemaps]]
   * [Setup Quick Setup](Setup-Quick-Setup)
   * [[Addons]]
   * [Hardware FAQ](Hardware-FAQ)
+
 [[Features]]
  * User Interfaces
    * [Classic UI](Web-AppUI)
