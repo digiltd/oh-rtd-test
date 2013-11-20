@@ -1,5 +1,5 @@
 [[Architecture]]
-Installation
+* Installation
  * [[Configuration]]
   * [[Items]]
   * [[Sitemaps]]
