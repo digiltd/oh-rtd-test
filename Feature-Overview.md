@@ -1,5 +1,3 @@
-# Feature Overview
-
 openHAB has many features and we will try here to give you an overview of them. Please also check the [issue tracker](http://code.google.com/p/openhab/issues/list).
 
 <wiki:toc max_depth="1" />
