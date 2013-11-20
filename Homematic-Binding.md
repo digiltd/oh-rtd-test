@@ -6,6 +6,32 @@
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
+# Hardware
+
+## Controller
+
+The controller "speaks" with the homematic devices through the properiatry wireless protocol of homematic.
+
+### CCU 1
+
+The best supported hardware so far for Homematic is the CCU (1). 
+
+### CCU 2
+
+The second version (beginning with mid 2013) should work in most circumstances, but is not as widely used as the first version. 
+
+### LAN Adapter
+
+One of the cheaper alternatives is to use the Homematic LAN Adapter and the windows daemon. The windows daemon is reported to work under wine as well.
+
+### CUL
+
+The other cheaper alternative is the CUL stick. The CUL is an USB stick that can be used as a wireless transceiver. It ca be programmed to be used with a hughe amount of wireless protocols, under which you can find the homemtic protocol as well.
+Since the CUL is not natively supported by the binding, you need a program to translate the CUL data to the CCU XML RPC interface: homegear
+
+We have reports from users that succesfully use both for their homemtic devices. Apparently security is still not supported.
+
+
 # Homematic Binding Configuration
 
 ## openhab.cfg

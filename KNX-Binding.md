@@ -70,11 +70,11 @@ In order to bind an item to a KNX device you need to provide configuration setti
     knx="[<][<dptId>:]<mainGA>[[+[<]<listeningGA>]+[<]<listeningGA>..], [<][<dptId>:]<mainGA>[[+[<]<listeningGA>]+[<]<listeningGA>..]"
 where parts in brackets [signify an optional information.
  
-Each comma-separated section corresponds to an KNX datapoint. There is usually one datapoint defined per accepted command type of an openHAB item. If no datapoint type id is defined for the datapoint, this is automatically derived from the list of accepted command types of the item - i.e. the second datapoint definition is mapped to the second accepted command type of the item.
+Each comma-separated section corresponds to a KNX datapoint. There is usually one datapoint defined per accepted command type of an openHAB item. If no datapoint type id is defined for the datapoint, this is automatically derived from the list of accepted command types of the item - i.e. the second datapoint definition is mapped to the second accepted command type of the item.
 
 The optional '<' sign tells whether the group address of the datapoint accepts read requests on the KNX bus (it does, if the sign is there).
 
-Each itemtype (see page [Items#itemtype Items Defintion](])) accepts different command types. When binding a item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
+Each itemtype (see page [Items#itemtype Items Defintion](])) accepts different command types. When binding an item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
 
 mainGAs are used for updating the status of an openHAB items via KNX. There can only be one mainGA for an openHAB item (Highlander principle :-)
 listeningGAs are used for obtaining status changes from KNX. There can be multiple listeningGAs for one item.
@@ -126,6 +126,7 @@ For an !SwitchItem:
 For a !RollershutterItem:
     knx="4/2/10"
     knx="4/2/10, 4/2/11"
+    knx="4/2/10, 4/2/11, 4/2/12"
     knx="1.008:4/2/10, 5.006:4/2/11"
     knx="<4/2/10+0/2/10, 5.006:4/2/11+0/2/11"
 
@@ -133,8 +134,11 @@ As a result, your lines in the items file might look like the following:
     /* Lights */
     Switch Light_GF_Living_Table "Table" (GF_Living, Lights) { knx="1/1/10+0/1/5" }
     
-    /* Rollershutters */
+    /* Rollershutters Up/Down, Stop/Move */
     Rollershutter Shutter_GF_Living "Shutter" (GF_Living, Shutters) { knx="4/2/10, 4/2/11" }
+    
+    /* Rollershutters  Up/Down, Stop/Move, Position */
+    Rollershutter Shutter_GF_Living "Shutter" (GF_Living, Shutters) { knx="4/2/10, 4/2/11, 4/2/12" }
     
     /* Indoor Temperatures */
     Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) { knx="<5/2/12" }

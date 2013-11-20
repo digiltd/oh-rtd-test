@@ -22,9 +22,7 @@ f28f499f39ef60839adca05929150952
 ## Items
 
 General format:
-    enocean="{id=<id_of_enocean_device> [, eep = <EEP_name>][, channel = <channelName>][, parameter = <parameterName>]}"
-    The device id is printed on the device package. When the EEP is needed, the eep (e.g. "F6.02.01") is also printed on the device package.
-    All parameters in [] are optional and only used for some devices.
+83b4c031a568c2505c1b46b91e0f4dd8
 
 ## Supported Devices
 
@@ -54,7 +52,7 @@ Be aware that the parameters are still under discussion and can be subject to ch
 ### = Examples =
 
 Standard usage:
-    Switch Button_Up () {enocean="{id=00:00:00:00, eep=F6:02:01, channel=B, parameter=I}}
+118f4c278bd20577e9c323d2a72029c9
 - pressed: ON
 - released: OFF
 
@@ -73,6 +71,11 @@ To control a dimmer (left buttons = channel A):
 - Short press up: Switch light OFF
 - Long press down: Dim light UP as long as the button is pressed (INCREASE every 300ms)
 - Long press up: Dim light DOWN as long as the button is pressed (DECREASE every 300ms)
+
+To us as a normal Switch (supported with 1.4.0):
+    Switch mySwitch () {enocean="{id=00:00:00:00, channel=A, eep=F6:02:01}"}
+- Press down: Switch udated to ON
+- Press up: Switch updated to OFF
 
 ### Environment Sensors
 
@@ -97,3 +100,15 @@ Will work in 1.4.0
 ### = Examples =
 
     tbd
+
+# Controller Hardware
+
+## USB 300
+
+USB stick to control EnOcean devices. Only supported controller for now. Part of the EnOcean Development Kit (EDK).
+
+# System Requirements / Special Installations
+
+## Synology DS213+
+
+See this [Openhab Forum](https://groups.google.com/forum/#!topic/openhab/SVcstuqC8H8) entry for details. 

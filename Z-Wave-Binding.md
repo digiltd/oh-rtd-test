@@ -11,13 +11,15 @@ Please make sure that you have a functioning Z-Wave network prior to using this 
 
 For installation of the binding, please see Wiki page [Bindings](https://code.google.com/p/openhab/wiki/Bindings).
 
+**This wiki page describes the stable binding. For the snapshot (BETA) binding look at [ZWaveBindingSnapshot](https://code.google.com/p/openhab/wiki/ZWaveBindingSnapshot). Use the snapshot binding at your own risk**
+
 ## Supported controllers
 
 The binding supports all controllers that implement the Z-Wave Serial API. A list of confirmed supported controllers is
 
 <table>
   <tr><td>Aeon Labs USB Z-Stick</td><td>No remarks</td></tr>
-  <tr><td>The Razberry-Zwave-Daughterboard</td><td>No remarks</td></tr>
+  <tr><td>The Razberry-Zwave-Daughterboard</td><td>See Known issues</td></tr>
   <tr><td>Vision USB stick Z-wave</td><td>No remarks</td></tr>
 </table>
 
@@ -37,7 +39,7 @@ First of all you need to introduce the port settings of your Z-Wave controller i
     # Z-Wave binding refresh interval threshold (optional, defaults to every 6 times)
     # zwave:refreshThreshold=6
 
-The zwave:port value indicates the serial port on the host system to which the Z-Wave controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
+The zwave:port value indicates the serial port on the host system to which the Z-Wave controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
 
 The zwave:refresh value is optional. It specifies the interval at which the binding refreshes the items in milliseconds. This is the interval for reporting items like the number of frames or the device type of a node. The default value is every 10 seconds.
 
@@ -52,7 +54,7 @@ The format of the binding configuration is simple and looks like this:
 
 where parts in brackets indicate an optional item. Usually only one item is bound to a device, but more items can be bound to a device as well, either for reporting variables, or in case the device consists of multiple endpoints / instances.
 
-The node ID indicates the number (in decimal notation) of the node, to which this item is bound.
+The node ID indicates the number (in decimal notation) of the node, to which this item is bound. To find out your devices nodeIds either look at the startup log of openhab or use other Z-Wave configuration programs like openzwave control panel to detect and configure your setup.
 
 The endpoint ID is optional. In case a node consists of multiple instances or endpoints, the instance number can be specified using this value. The default value is 1. An example of a multi-endpoint device is the Fibaro FGS 221 double relay.
 
@@ -113,6 +115,10 @@ The basic Command Class is a special command class that almost every node implem
 When the basic command class is used, devices support setting values and reporting values when polling. Direct updates from the device on changes will fail however.
 
 To find out which command classes are supported by your Z-Wave device, you can look in the manual or use the list at http://www.pepper1.net/zwavedb/ or http://products.z-wavealliance.org/. In case your command class is supported by the device and binding, but you have a problem, you can create an issue at: https://code.google.com/p/openhab/issues/list. In case you want a command class implemented by the binding, please add it to issue [431](https://code.google.com/p/openhab/issues/detail?id=431).
+
+## Known Issues
+
+There seems to be an issue with the binding running on the latest oracle VM Beta, on ARM based architectures (e.g. raspberry PI). It manifests itself as messages being received multiple times. This issue is currently under investigation.
 
 ## Examples
 

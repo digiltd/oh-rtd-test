@@ -20,51 +20,55 @@ Most of config parameters are related to specific slaves, the only exception is
 
 which sets refresh interval to Modbus polling service. Value is in milliseconds - optional, default is 200
 
-     modbus:<slave-name>:<slave-parameter>
+     modbus:<slave-type>.<slave-name>:<slave-parameter>
 
-{{{ 
- <slave-name> is unique name per slave you are connecting to.
- <slave-parameter> are pairs key=value
-}}}
+     <slave-type> can be either "tcp" or "serial"
+     <slave-name> is unique name per slave you are connecting to.
+     <slave-parameter> are pairs key=value
 
- Valid keys are
- host mandatory
- port TCP port, optional, default 502
- id  slave id, optional, default 1
- start slave start address, optional, default 0
- length number of data item to read, default 0 (but set it to something meaningful :)
- type data type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" is supported
- 
- now the modbus read function in case of {{{type=coil}}} is function 1, 
- in case of {{{type=discrete}}} the read function is 2,
- in case of {{{type=holding}}} the read function is 3,
- in case of {{{type=input}}} the read function ist 4
 
- writing is possible with {{{type=coil}}} the write function in this case is 5
- and with {{{type=holding}}} the write function is 6
+
+Valid keys are
+
+<table>
+  <tr><td>connection</td><td>mandatory</td><td>for tcp connection use form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. For serial connections use just COM port name</td></tr>
+  <tr><td>id</td><td>optional</td><td>slave id, default 1</td></tr>
+  <tr><td>start</td><td>optional</td><td>slave start address, default 0</td></tr>
+  <tr><td>length</td><td>mandatory?</td><td>number of data item to read, default 0 (but set it to something meaningful :)</td></tr>
+  <tr><td>type</td><td>mandatory</td><td>data type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" are supported</td></tr>
+</table>
+
+Modbus read functions 
+- {{{type=coil}}} uses function 1,
+- {{{type=discrete}}} uses function is 2,
+- {{{type=holding}}} uses function is 3,
+- {{{type=input}}} uses function ist 4
+
+Modbus write functions 
+- {{{type=coil}}} uses function 5,
+- {{{type=holding}}} uses function is 6,
  see also http://www.simplymodbus.ca
 
  with {{{type=holding}}} and {{{type=input}}} you can now only operate with datatype byte!!!
- see below point 4
+ see point 4 below
 
- Minimal construction in openhab.config will look like
+ Minimal construction in openhab.config will look like (for TCP connection)
 
 {{{ 
- modbus:slave1.host=192.168.1.50
- modbus:slave1.length=10
- modbus:slave1.type=coil
+ modbus:tcp.slave1.connection=192.168.1.50
+ modbus:tcp.slave1.length=10
+ modbus:tcp.slave1.type=coil
 }}}
  
- connects to slave on ip=192.168.1.51 and reads 10 coils starting from address 0
+ connects to slave at ip=192.168.1.50 and reads 10 coils starting from address 0
  More complex setup could look like
 
-    modbus:slave1.host=192.168.1.50
-    modbus:slave1.port=502
-    modbus:slave1.id=41
+    modbus:tcp.slave1.connection=192.168.1.50:502
+    modbus:tcp.slave1.id=41
     modbus:poll=300
-    modbus:slave1.start=0
-    modbus:slave1.length=32
-    modbus:slave1.type=coil
+    modbus:tcp.slave1.start=0
+    modbus:tcp.slave1.length=32
+    modbus:tcp.slave1.type=coil
 
  example for an moxa e1214 module in simple io mode
  6 output switches starting from modbus address 0 and
@@ -74,33 +78,29 @@ which sets refresh interval to Modbus polling service. Value is in milliseconds 
 
     modbus:poll=300
     
-    modbus:slave1.host=192.168.6.180
-    modbus:slave1.port=502
-    modbus:slave1.id=1
-    modbus:slave1.start=0
-    modbus:slave1.length=6
-    modbus:slave1.type=coil
+    modbus:tcp.slave1.connection=192.168.6.180:502
+    modbus:tcp.slave1.id=1
+    modbus:tcp.slave1.start=0
+    modbus:tcp.slave1.length=6
+    modbus:tcp.slave1.type=coil
     
-    modbus:slave2.host=192.168.6.180
-    modbus:slave2.port=502
-    modbus:slave2.id=1
-    modbus:slave2.start=0
-    modbus:slave2.length=6
-    modbus:slave2.type=discrete
+    modbus:tcp.slave2.connection=192.168.6.180:502
+    modbus:tcp.slave2.id=1
+    modbus:tcp.slave2.start=0
+    modbus:tcp.slave2.length=6
+    modbus:tcp.slave2.type=discrete
     
-    modbus:slave3.host=192.168.6.180
-    modbus:slave3.port=502
-    modbus:slave3.id=1
-    modbus:slave3.start=17
-    modbus:slave3.length=2
-    modbus:slave3.type=input
+    modbus:tcp.slave3.connection=192.168.6.180:502
+    modbus:tcp.slave3.id=1
+    modbus:tcp.slave3.start=17
+    modbus:tcp.slave3.length=2
+    modbus:tcp.slave3.type=input
     
-    modbus:slave4.host=192.168.6.181
-    modbus:slave4.port=502
-    modbus:slave4.id=1
-    modbus:slave4.start=33
-    modbus:slave4.length=2
-    modbus:slave4.type=holding
+    modbus:tcp.slave4.connection=192.168.6.181:502
+    modbus:tcp.slave4.id=1
+    modbus:tcp.slave4.start=33
+    modbus:tcp.slave4.length=2
+    modbus:tcp.slave4.type=holding
 
  here we use the same modbus gateway with ip 192.168.6.180 twice 
  on different modbus address ranges and modbus functions
@@ -121,7 +121,7 @@ There are two ways to bind an item to modbus coils/registers
  2) separate coils for reading and writing
      Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:<6:>7"}
  In this case coil 6 is used as status coil (readonly) and commands are put to coil 7 by setting coil 7 to true.
- You hardware should then set coil 7 back to false to allow further commands processing. 
+ Your hardware should then set coil 7 back to false to allow further commands processing. 
 
  3) input coil only for reading
      Contact Contact1 "Contact1 [MAP(en.map):%s]" (All)   {modbus="slave2:0"}

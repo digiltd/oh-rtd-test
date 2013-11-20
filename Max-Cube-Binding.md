@@ -58,3 +58,11 @@ Instead of values 4.5 and 30.5 the results would look like
 https://dl.dropboxusercontent.com/u/7347332/web/max_on_off_small.png
 
 To apply this mapping you need to copy the [maxcube.map](https://dl.dropboxusercontent.com/u/7347332/web/maxcube.map) mapping file into the configuration/transformation folder within the openHAB directory.
+
+Depending on the correpsonding device the MAX!Cube binding can be used to provide specific information about a device instead of the default information.
+
+To receive the valve position of a heating thermostat, the type for the desired information needs to be specified in the bonding configuration
+
+    Number Heating_Max_Valve "Thermostat Valve Position [%.1f %%]" (MyGroup) { maxcube="JEQ0336148:type=valve" }
+
+https://dl.dropboxusercontent.com/u/7347332/web/max_valve.png

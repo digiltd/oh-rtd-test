@@ -1,3 +1,7 @@
+# Archived News
+
+# News Archive
+
 August 22, 2013 -- We are happy to announce that we now have an official [project proposal at Eclipse](http://eclipse.org/proposals/technology.smarthome/). 
 
 June 28, 2013 -- openHAB is the foundation of the [research project IEM](http://www.oberberg-aktuell.de/index.php?id=144&tx_ttnews%5Btt_news%5D=147147) of the university of applied science in cologne (campus Gummersbach).

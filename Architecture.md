@@ -1,11 +1,14 @@
+# Architecture description of openHAB
+
+# Introduction
+
 If you are completely new to openHAB and you prefer listening over reading, you can start with our presentation at Devoxx in 2012, which is available on Parleys:
 
-[![Parleys](http://wiki.openhab.googlecode.com/hg/images/parleys.jpg)](http://parleys.com/play/5148922b0364bc17fc56c8c3/chapter10/agenda)
+[http://wiki.openhab.googlecode.com/hg/images/parleys.jpg](http://parleys.com/play/5148922b0364bc17fc56c8c3/chapter10/agenda)
 
 # Overview
 
 The openHAB project is split into two parts
-
 1. openhab-runtime: This is the package, which you will actually run on your server and which does the "real" work.
 1. openhab-designer: This is more or less a configuration tool for the openhab-runtime. It comes with user-friendly editors to configure your runtime, to define your UIs and to implement your rules.
 
@@ -13,13 +16,12 @@ The openHAB project is split into two parts
 
 The openHAB runtime is a set of OSGi bundles deployed on an OSGi framework (Equinox). It is therefore a pure Java solution and needs a JVM to run. Being based on OSGi, it provides a highly modular architecture, which even allows adding and removing functionality during runtime without stopping the service. Here is an overview over the main bundles and how they depend on each other:
 
-![architecture](http://wiki.openhab.googlecode.com/hg/images/architecture.png)
+http://wiki.openhab.googlecode.com/hg/images/architecture.png
 
 ## Communication
 
 openHAB has two different internal communication channels:
-
-1. an asynchronous event bus
+1. an asynchronous event b us
 1. a stateful repository, which can be queried
 
 ### The Event Bus
@@ -27,7 +29,6 @@ openHAB has two different internal communication channels:
 The event bus is THE base service of openHAB. All bundles that do not require stateful behaviour should use it to inform other bundles about events and to be updated by other bundles on external events.
 
 There are mainly two types of events: 
-
 1. Commands which trigger an action or a state change of some item/device.
 1. Status updates which inform about a status change of some item/device (often as a response to a command)
 
@@ -46,7 +47,7 @@ The Item Repository avoids each bundle to cache states themselves for there inte
 
 The following diagram shows how these communication channels are used:
 
-![events](http://wiki.openhab.googlecode.com/hg/images/events.png)
+http://wiki.openhab.googlecode.com/hg/images/events.png
 
 ### Sitemap
 

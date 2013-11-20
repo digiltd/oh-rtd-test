@@ -1,9 +1,13 @@
+# How to contribute to the project
+
+# Introduction
+
 As for almost all open-source projects, contributions to the project are always welcome!
 If you interested in doing a contribution - be it a simple bug report or a big chunk of code for a new feature - this page will give you the details of how to achieve this.
 
 # Best Practices for Contributors
 
-The simplest way of contributing is probably to report bugs. You can do so using the [issue tracker](http://code.google.com/p/openhab/issues/entry). 
+The simplest way of contributing is probably to report bugs. You can do so using the [Issue Tracker](https://github.com/openhab/openhab/issues?state=open). 
 
 If you are in doubt whether it is a bug or not, you can also first refer to [the forum](http://groups.google.com/group/openhab) instead of entering a bug report.
 
