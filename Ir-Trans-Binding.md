@@ -15,27 +15,27 @@ The format of the binding configuration is simple and looks like this:
 
     irtrans="<direction>[<command>:<ip address>:<port>:<led>:<device>:<ircommand>], <direction>[<command>:<ip address>:<port>:<led>:<device>:<ircommand>], ..."
 
-where {{{<direction>}}} is one of the following values:
+where `<direction>` is one of the following values:
 - < - for inbound communication
 - > - for outbound communication
-- {{{*}}} - for either inbound or outbound communication, e.g bi-directional
+- `*` - for either inbound or outbound communication, e.g bi-directional
 
-where {{{<ip address>}}} is the hostname or ip address in dotted notation of the remote host
+where `<ip address>` is the hostname or ip address in dotted notation of the remote host
 
-where {{{<led>}}} is the transceiver led to be used to send or receive the infrared command, and is one of the following values:
+where `<led>` is the transceiver led to be used to send or receive the infrared command, and is one of the following values:
 DEFAULT, INTERNAL, EXTERNAL, ALL, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT. **Note:** It is up to the user to check that the led value is valid for the device installed, e.g. not all IrTrans transceivers have the same number of led transmitters or received built-in. See the documentation of your IrTrans device
 
-where {{{<device>}}} is the name of the device (category), as defined in one of the {{{.rem}}} files
+where `<device>` is the name of the device (category), as defined in one of the `.rem` files
 
-and where,finally, {{{<ircommand>}}} is the name of the infrared command, as defined in the {{{.irtrans}}} file that goes with the {{{<device>}}}, to be sent to the transceiver when {{{<command>}}} is received. When an infrared command is received by the transceiver that matches the {{{<device>}}}:{{{<ircommand>}}}, then the Item will be updated with the {{{<command>}}} 
+and where,finally, `<ircommand>` is the name of the infrared command, as defined in the `.irtrans` file that goes with the `<device>`, to be sent to the transceiver when `<command>` is received. When an infrared command is received by the transceiver that matches the `<device>`:`<ircommand>`, then the Item will be updated with the `<command>` 
 
-It is possible to define 'wildcards' for {{{<device>}}} and {{{<ircommand>}}} : if either of them are equal to {{{**}}} then respectively, any device that defines the given {{{<ircommand>}}}, or any {{{<ircommand>}}} for the given {{{<device>}}}, will 'match' and will trigger the status update of the Item. If you would put {{{**}}} for both {{{<device>}}} and {{{<ircommand>}}} then  any infrared command received by the transceiver will cause the Item to be updated.
+It is possible to define 'wildcards' for `<device>` and `<ircommand>` : if either of them are equal to `**` then respectively, any device that defines the given `<ircommand>`, or any `<ircommand>` for the given `<device>`, will 'match' and will trigger the status update of the Item. If you would put `**` for both `<device>` and `<ircommand>` then  any infrared command received by the transceiver will cause the Item to be updated.
 
-**Note:** the IrTrans device does not communicate which {{{<led>}}} a command is received by, so that information can not be used to wildcard infrared commands received
+**Note:** the IrTrans device does not communicate which `<led>` a command is received by, so that information can not be used to wildcard infrared commands received
 
-All communication is checked against the {{{<direction>}}} field, e.g. an Item binding that has ">" will not be able to receive data from the remote host
+All communication is checked against the `<direction>` field, e.g. an Item binding that has ">" will not be able to receive data from the remote host
 
-**Note:** If the Item is of the type String, then any infrared command received by the transceiver will cause the Item to be updated with "{{{<device>}}},{{{<ircommand>}}}". Likewise, any string passed on by the OpenHAB runtime will simply be parsed using the "{{{<device>}}},{{{<ircommand>}}}" pattern. For such Items the {{{<command>}}} element has to be omitted in the configuration string
+**Note:** If the Item is of the type String, then any infrared command received by the transceiver will cause the Item to be updated with "`<device>`,`<ircommand>`". Likewise, any string passed on by the OpenHAB runtime will simply be parsed using the "`<device>`,`<ircommand>`" pattern. For such Items the `<command>` element has to be omitted in the configuration string
 
 Here are some examples of valid binding configuration strings:
 
@@ -51,13 +51,13 @@ As a result, your lines in the items file might look like the following:
 
 # IrTrans .irtrans file format
 
-IrTrans has a proprietary file format to describe and store infrared commands. The format is easy to comprehend and described in the IrTrans documentation. IrTrans also has software to remotely manage, configure etc IrTrans devices, but this software can also be used to 'learn' infrared commands, and consequently store those commands in {{{.irtrans}}} files
+IrTrans has a proprietary file format to describe and store infrared commands. The format is easy to comprehend and described in the IrTrans documentation. IrTrans also has software to remotely manage, configure etc IrTrans devices, but this software can also be used to 'learn' infrared commands, and consequently store those commands in `.irtrans` files
 
-{{{.irtrans}}} are placed in the folder {{{${openhab.home}/configurations/irtrans}}}
+`.irtrans` are placed in the folder `${openhab.home}/configurations/irtrans`
 
 **Note:** RAW infrared codes and CCF (Philips Pronto format) infrared codes are not supported (yet)
 
-IrTrans {{{.irtrans}}} files look like:
+IrTrans `.irtrans` files look like:
 
     [REMOTE]
       [NAME]pioneer
@@ -70,4 +70,4 @@ IrTrans {{{.irtrans}}} files look like:
       [volup][T]0[D]S101001010101101001010000101011110 
       [voldown][T]0[D]S101001010101101011010000001011110
 
-where {{{[denotes the {{{<device>}}} to be used in the binding configuration and the {{{[COMMANDS](NAME]}}})}}} section defines the {{{<ircommand>}}}s
+where `[denotes the `<device>` to be used in the binding configuration and the `[COMMANDS](NAME]`)` section defines the `<ircommand>`s

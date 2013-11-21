@@ -17,18 +17,18 @@ In order to bind an item to a Exec check, you need to provide configuration sett
 
     exec="<openHAB-command>:<commandLine to execute>[,<openHAB-command>:<commandLine to execute>][,...]"
 
-where the parts in {{{[]}}} are optional.
+where the parts in `[]` are optional.
 
-Note: Besides configuring each single openHAB command one could configure the special wildcard command '{{{**}}}' which is called in these cases where no direct match could be found.
+Note: Besides configuring each single openHAB command one could configure the special wildcard command '`**`' which is called in these cases where no direct match could be found.
 
 ### New format:
 
     in:  exec:"<[<commandLine to execute>:<refreshintervalinmilliseconds>:<transformationrule>]"
     out: exec:">[<openHAB-command>:<commandLine to execute>] (>[<openHAB-command>:<commandLine to execute>]) (>[...])"
 
-where the parts in {{{()}}} are optional.
+where the parts in `()` are optional.
 
-Note: Besides configuring each single openHAB command one could configure the special wildcard command '{{{**}}}' which is called in these cases where no direct match could be found.
+Note: Besides configuring each single openHAB command one could configure the special wildcard command '`**`' which is called in these cases where no direct match could be found.
 
 ### General
 

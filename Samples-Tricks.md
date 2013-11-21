@@ -667,7 +667,7 @@ However the RXTX serial connection library used in openHAB is unable to 'see' th
 
 You can either add the property to the Java command line by adding the following (device names delimited by :);
 
-{{{-Dgnu.io.rxtx.SerialPorts=/dev/rfxcom:/dev/zwave}}}
+`-Dgnu.io.rxtx.SerialPorts=/dev/rfxcom:/dev/zwave`
 
 Or add a gnu.io.rxtx.properties file which is accessible in the Java classpath. See http://create-lab-commons.googlecode.com/svn/trunk/java/lib/rxtx/README.txt for more details.
 
@@ -677,16 +677,16 @@ This applies to any openHAB binding that uses the RXTX serial connection library
 ## Use URL to manipulate items
 
 When you have a device unable to send REST requests (f.e. Webcams), you may use
-{{{ http://<openhab-host>:8080/CMD?<item>=<state> }}}
+` http://<openhab-host>:8080/CMD?<item>=<state> `
 
 Example:
-{{{ http://<openhab-host>:8080/CMD?Light=ON }}}
+` http://<openhab-host>:8080/CMD?Light=ON `
 
 ## Extract caller and called number from Fritzbox Call object
 
 If you define an item like the following in your site.items config
 
-{{{Call	Incoming_Call_No  "Caller No. [%2$s]"  (Phone)  { fritzbox="inbound" } }}}
+`Call	Incoming_Call_No  "Caller No. [%2$s]"  (Phone)  { fritzbox="inbound" } `
 
 the Type CallType with its associated methods can be used to extract the caller and called number of the call. The following rule sends an email with both numbers in the subject line.
 

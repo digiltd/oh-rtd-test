@@ -10,7 +10,7 @@ In order to bind an item to the Fritz!Box, you need to provide configuration set
 
 The format of the binding configuration is simple and looks like this:
     fritzbox="<eventType>"
-where {{{<eventType>}}} is one of the following values:
+where `<eventType>` is one of the following values:
 - inbound - for incoming calls
 - outbound - for placed calls
 - active - for currently active calls

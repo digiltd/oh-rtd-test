@@ -17,11 +17,11 @@ Additionally, a commit interval can be configured for the database, so that you 
 
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
-Additionally, place a persistence file called db4o.persist in the {{{${openhab.home}/configuration/persistence}}} folder.
+Additionally, place a persistence file called db4o.persist in the `${openhab.home}/configuration/persistence` folder.
 
 # Configuration
 
-This persistence service can be configured in the "Db4o Persistence Service" section in {{{openhab.cfg}}}.
+This persistence service can be configured in the "Db4o Persistence Service" section in `openhab.cfg`.
 You can choose the backup interval, the number of backups to keep and the commit interval.
 
 All item and event related configuration is done in the db4o.persist file. Aliases do not have any special meaning for the db4o persistence service.

@@ -18,7 +18,7 @@ You can find the configuration section for the KNX binding in file configuration
 
 For your convenience you can see the relevant section as follows:
 
-{{{ 
+` 
 # KNX gateway IP address 
 # (optional, if serialPort or connection type 'ROUTER' is specified)
 knx:ip=
@@ -55,7 +55,7 @@ knx:readRetries=
 # Note: without periodic retries all events will be lost up to the next read/write request
 # (optional, default is 0)
 knx:autoReconnectPeriod=
-}}}
+`
 
 A sample configuration could look like:
     knx:ip=192.168.1.10

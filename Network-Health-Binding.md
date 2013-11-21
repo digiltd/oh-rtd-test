@@ -10,7 +10,7 @@ In order to bind an item to a NetworkHealth check, you need to provide configura
 
     nh="<hostname>[:port][:timeout]"
 
-where the parts in {{{[]}}} are optional. If no port is configured a simple ping is issued. If no timeout is configured the query defaults to '5000' milliseconds.
+where the parts in `[]` are optional. If no port is configured a simple ping is issued. If no timeout is configured the query defaults to '5000' milliseconds.
 
 Here are some examples of valid binding configuration strings:
 

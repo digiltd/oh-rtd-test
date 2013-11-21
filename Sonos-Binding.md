@@ -26,24 +26,24 @@ for Items that trigger action or commands on the Sonos Player, and
 
 for either Number or String Items that rather store a status variable or other from the Sonos Player
 
-where the {{{<sonos id>}}} corresponds with the UDN (UPNP Unique Device Name)  - or - the configuration in openhab.cfg where one can configure the Sonos players, which looks like this
+where the `<sonos id>` corresponds with the UDN (UPNP Unique Device Name)  - or - the configuration in openhab.cfg where one can configure the Sonos players, which looks like this
 
     sonos:<sonos id>.udn=[UDN]
 
-where {{{<direction>}}} is one of the following values:
+where `<direction>` is one of the following values:
 - < - for inbound communication
 - > - for outbound communication
-- {{{*}}} - for either inbound or outbound communication, e.g bi-directional
+- `*` - for either inbound or outbound communication, e.g bi-directional
 
-and where {{{<sonos command>}}} is the command to be sent to the Sonos Player when {{{<command>}}} is received. Some {{{<sonos commands>}}} take input variables, which are taken from the current Item variable. In case status variables are used then any value received from the Sonos Player for the defined {{{<sonos variable>}}} is used to update the Item
+and where `<sonos command>` is the command to be sent to the Sonos Player when `<command>` is received. Some `<sonos commands>` take input variables, which are taken from the current Item variable. In case status variables are used then any value received from the Sonos Player for the defined `<sonos variable>` is used to update the Item
 
-All communication is checked against the {{{<direction>}}} field, e.g. an Item binding that has ">" will not be able to receive data from the Sonos Player
+All communication is checked against the `<direction>` field, e.g. an Item binding that has ">" will not be able to receive data from the Sonos Player
 
 # Sonos Commands
 
 The Sonos Player is very complete but also complex device. For a perfect integration within OpenHAB it is assumed that the user will be using the Sonos Desktop Controller software to define playlists, browse music and so forth, e.g. anything which requires user input or interactivity. Therefore the Sonos Commands supported from within openHAB are mostly limited to those actions that require little or no user interaction
 
-Valid {{{<sonos command>}}}s are:
+Valid `<sonos command>`s are:
 
 <table>
   <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
@@ -75,7 +75,7 @@ New since v1.3
 
 # Sonos Status Variables
 
-Valid {{{<sonos variable>}}}s are:
+Valid `<sonos variable>`s are:
 
 <table>
   <tr><td>**Variable**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>

@@ -16,7 +16,7 @@ The purpose of a binding is to translate between events on the openHAB event bus
 
 # Creating a Bundle Skeleton
 
-As explained above, a binding should correspond to one bundle. The naming convention for the binding bundle is "{{{org.openhab.binding.<name>}}}". To create a working binding skeleton one should use the Maven archetype which facilitates the creation process. The following steps have to be performed:
+As explained above, a binding should correspond to one bundle. The naming convention for the binding bundle is "`org.openhab.binding.<name>`". To create a working binding skeleton one should use the Maven archetype which facilitates the creation process. The following steps have to be performed:
 
 1. run a full build (meaning run `mvn clean install` in the topmost directory)
 1. `cd ./bundles/archetype/./org.openhab.archetype.binding`
@@ -31,9 +31,9 @@ Another possibility is to copy an existing binding and do a search&replace for t
 
 # Global Binding Configuration
 
-A binding may require general configuration settings, such as a host and port of the external system to connect to. This can be done through the OSGi Configuration Admin service, i.e. by registering an OSGi service, which implements the interface {{{ManagedService}}}.
+A binding may require general configuration settings, such as a host and port of the external system to connect to. This can be done through the OSGi Configuration Admin service, i.e. by registering an OSGi service, which implements the interface `ManagedService`.
 
-openHAB then allows to add configuration information in openhab.cfg, which is automatically dispatched to your !ManagedService. All you have to make sure is to specify the property "{{{service.pid}}}" in your component declaration as "{{{org.openhab.<name>}}}", where name is the prefix to be used in openhab.cfg.
+openHAB then allows to add configuration information in openhab.cfg, which is automatically dispatched to your !ManagedService. All you have to make sure is to specify the property "`service.pid`" in your component declaration as "`org.openhab.<name>`", where name is the prefix to be used in openhab.cfg.
 
 Please refer to the KNX binding for an example on how to [implement a ManagedService](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/src/main/java/org/openhab/binding/knx/internal/connection/KNXConnection.java) and how to [register it through OSGi Declarative Services](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/OSGI-INF/knxconnection.xml).
 
@@ -53,38 +53,38 @@ A binding can implement the one or the other direction or both. We usually talk 
 
 A good example for such an "Out-Binding" is the Exec-binding. When receiving a command for an item, a configured command is executed on the command line of the host system.
 
-Such bindings can be implemented pretty easily: All you have to do is to extend the class {{{AbstractBinding}}} and override the methods 
+Such bindings can be implemented pretty easily: All you have to do is to extend the class `AbstractBinding` and override the methods 
 
     	public void internalReceiveCommand(String itemName, Command command)
 and / or
     	protected void internalReceiveUpdate(String itemName, State newState)
 As the method signatures suggest, you are passed the name of the item and the command or state that was sent on the openHAB event bus. In these methods, you can then perform whatever code is appropriate for your use case. See the [ExecBinding class](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.exec/src/main/java/org/openhab/binding/exec/internal/ExecBinding.java) as an example.
 
-All there is left to do is to register your class with the OSGi event admin service. To do so, your component has to provide the {{{EventHandler}}} service and define the property {{{event.topics}}}. In your {{{OSGI-INF/binding.xml}}} file, this should look like this:
+All there is left to do is to register your class with the OSGi event admin service. To do so, your component has to provide the `EventHandler` service and define the property `event.topics`. In your `OSGI-INF/binding.xml` file, this should look like this:
        <service>
           <provide interface="org.osgi.service.event.EventHandler"/>
        </service>
        <property name="event.topics" type="String" value="openhab/*"/>
-If you are only interested in commands, you can also choose {{{openhab/command/*}}} as a topic.
+If you are only interested in commands, you can also choose `openhab/command/*` as a topic.
 See the [component descriptor of the ExecBinding](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.exec/OSGI-INF/binding.xml) as an example.
 
 ## External System -> openHAB Event Bus
 
-If you receive information from an external system somewhere in your code and you want to post commands or status updates on the openHAB event bus, you can as well simply extend {{{AbstractBinding}}} for your implementation. Your binding class should then reference the {{{EventPublisher}}} service in the {{{OSGI-INF/binding.xml}}} file. This should look like this:
+If you receive information from an external system somewhere in your code and you want to post commands or status updates on the openHAB event bus, you can as well simply extend `AbstractBinding` for your implementation. Your binding class should then reference the `EventPublisher` service in the `OSGI-INF/binding.xml` file. This should look like this:
        <reference bind="setEventPublisher" cardinality="1..1" interface="org.openhab.core.events.EventPublisher" name="EventPublisher" policy="dynamic" unbind="unsetEventPublisher"/>
 
-In your code, you can then simply refer to the instance variable {{{eventPublisher}}} in order to very easily send events:
+In your code, you can then simply refer to the instance variable `eventPublisher` in order to very easily send events:
     	eventPublisher.postUpdate(itemName, state);
     	eventPublisher.postCommand(itemName, command);
     	eventPublisher.sendCommand(itemName, command);
 
-Please note the difference between {{{sendCommand}}} and {{{postCommand}}}: Sending means a synchronous call, i.e. the method does not return until all event bus subscribers have processed the event. So if you just want to do a fire&forget, use the asynchronous postCommand method instead.
+Please note the difference between `sendCommand` and `postCommand`: Sending means a synchronous call, i.e. the method does not return until all event bus subscribers have processed the event. So if you just want to do a fire&forget, use the asynchronous postCommand method instead.
 
 ### Handling background activities
 
-In order to receive information from an external system, you usually either need some background thread continuously listening to the external system (e.g. on a socket or serial interface) or you need to regularly actively poll the external system. In both cases, choosing to extend the class {{{AbstractActiveBinding}}} will help you.
+In order to receive information from an external system, you usually either need some background thread continuously listening to the external system (e.g. on a socket or serial interface) or you need to regularly actively poll the external system. In both cases, choosing to extend the class `AbstractActiveBinding` will help you.
 
-{{{AbstractActiveBinding}}} extends {{{AbstractBinding}}} so everything said above will still be the same. You will simply get an additional feature: The active binding provides a thread creation and handling and all you have to do is to specify a pause interval between calls of the {{{execute()}}} method. 
+`AbstractActiveBinding` extends `AbstractBinding` so everything said above will still be the same. You will simply get an additional feature: The active binding provides a thread creation and handling and all you have to do is to specify a pause interval between calls of the `execute()` method. 
 See the [NtpBinding class](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.ntp/src/main/java/org/openhab/binding/ntp/internal/NtpBinding.java) for a simple example of such a binding.
 
 ### Lifecycle

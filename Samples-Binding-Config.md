@@ -29,10 +29,10 @@ Instructions:
   [https://lh3.googleusercontent.com/-XdaTtDlzyEU/Ud7_uB4fPCI/AAAAAAAALTY/pmajPpkk6uo/s300/owserver_devices.PNG](https://lh3.googleusercontent.com/-XdaTtDlzyEU/Ud7_uB4fPCI/AAAAAAAALTY/pmajPpkk6uo/w780-h445-no/owserver_devices.PNG)
 1. Add an Number-Item to your items-configuration like this one
 
-  {{{
+  `
 // Example:
 Number Temp_Kitch "Küche [°C](%.1f)" { http="<[Units=\"Centigrade\">(.*?)</Temperature>.*)](http://192.168.1.16/details.xml:60000:REGEX(.*?<ROMId>A7000002CC4D2228</ROMId>.*?<Temperature)" }
-}}}
+`
 
   Replace the ip address and the ROMId-value with your data.
 

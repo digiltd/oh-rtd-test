@@ -8,7 +8,7 @@
 
 - Items can be defined in files in folder `${openhab_home}/configurations/items`.
 
-- All item definition files have to have the file extension {{{.items}}}
+- All item definition files have to have the file extension `.items`
 
 Typically items are defined using the openHAB Designer by editing the items definition files. Doing so you will have full IDE support like syntax checking, contect assist etc.
 
@@ -23,12 +23,12 @@ Parts in square brackets [are optional.
 A proper item definition could like the following:
     Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}
 
-Above example defines a {{{Number}}} item...
-- with name {{{Temperature_GF_Living}}}
-- formatting its output in format {{{xx.y °C}}}
-- displaying icon {{{temperature}}}
-- belonging to group {{{GF_Living}}}
-- bound to openHAB binding {{{knx}}} with write group address {{{1/0/15}}} and listening group address {{{0/0/15}}}
+Above example defines a `Number` item...
+- with name `Temperature_GF_Living`
+- formatting its output in format `xx.y °C`
+- displaying icon `temperature`
+- belonging to group `GF_Living`
+- bound to openHAB binding `knx` with write group address `1/0/15` and listening group address `0/0/15`
 
 ### itemtype
 
@@ -95,13 +95,13 @@ Items can be linked to specific groups by referencing these in a comma separated
 
 An item defined like
     Number MyTemp (gTempOutside, gTemperatures)
-would be member of the groups {{{gTempOutside}}} and {{{gTemperatures}}}
+would be member of the groups `gTempOutside` and `gTemperatures`
 
 ### bindingconfig
 
 Items can be bound to specific openHAB bindings by adding a binding definition in curly brackets at the end of the item definition:
 
-{{{ { ns1="bindingconfig1", ns2="bindingconfig2", ...} }}}
+` { ns1="bindingconfig1", ns2="bindingconfig2", ...} `
 
 where "nsx" is the namespace for a certain binding (e.g. "knx", "bluetooth", "serial" etc.). 
 

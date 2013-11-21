@@ -41,13 +41,13 @@ The given URL can be enhanced using the well known Syntax of the [java.util.Form
 
 To reference these values the indexed format syntax is used. A well prepared URL look like this:
 
-{{{ http://www.domain.org/home/lights/23871/?status=%2$s&date=%1$tY-%1$tm-%1$td }}}
+` http://www.domain.org/home/lights/23871/?status=%2$s&date=%1$tY-%1$tm-%1$td `
 
 Each format string starts with '%' followed by an optional index e.g. '2$' whereas '2' is the index of the parameter arg given to the format(format, args...) method. Besides the index you have to specify the format to be applied to the argument. E.g. 's' to format a String in the given example or 'd' to format an Integer, or '.1f' to format a Float with one decimal fraction.
 
 # HTTP headers
 
-Both !OutBinding and !InBinding provide the possibility to define optional HTTP headers, which will be sent during the HTTP method call. Those optional headers can be added to the url in the form {{{header1=value1&header2=value2....}}} This headers string should be enclosed in curly brackets right after the url itself (before the separation colon).
+Both !OutBinding and !InBinding provide the possibility to define optional HTTP headers, which will be sent during the HTTP method call. Those optional headers can be added to the url in the form `header1=value1&header2=value2....` This headers string should be enclosed in curly brackets right after the url itself (before the separation colon).
 
 Example:
     http="<[https://www.flukso.net/api/sensor/xxxx?interval=daily{X-Token=mytoken&X-version=1.0}:60000:REGEX(.*?<title>(.*?)</title>(.*))]"

@@ -13,11 +13,11 @@ You need a Sen.Se API key and data feed to put data to. Each item being persiste
 
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
-Additionally, place a persistence file called sense.persist in the {{{${openhab.home}/configuration/persistence}}} folder.
+Additionally, place a persistence file called sense.persist in the `${openhab.home}/configuration/persistence` folder.
 
 # Configuration
 
-This persistence service can be configured in the "Sen.Se Persistence Service" section in {{{openhab.cfg}}}. You need to specify your Sen.Se API key as
+This persistence service can be configured in the "Sen.Se Persistence Service" section in `openhab.cfg`. You need to specify your Sen.Se API key as
 
 <code>sense:apikey=your_api_key</code>
 

@@ -30,16 +30,16 @@ In order to bind an item to the device, you need to provide configuration settin
 
     epsonprojector="<direction><device-id>:<device-command>[:<update-interval>]"
 
-where {{{<direction>}}} is one of the following values:
+where `<direction>` is one of the following values:
 - < - for inbound communication
 - > - for outbound communication
-- {{{*}}} - for either inbound or outbound communication, e.g bi-directional
+- `*` - for either inbound or outbound communication, e.g bi-directional
 
-The {{{<device-id>}}} corresponds device which is introduced in openhab.cfg.
+The `<device-id>` corresponds device which is introduced in openhab.cfg.
 
-The {{{<device-command>}}} corresponds Epson projector command. See complite list below.
+The `<device-command>` corresponds Epson projector command. See complite list below.
 
-The {{{<update-interval>}}} corresponds update interval of the item. Update interval is only supported by the inbound and bi-directional items. Some of the commands, projector will only response when projector is running. This situation can be handle with special interval, where interval is started with "ON," prefix. 
+The `<update-interval>` corresponds update interval of the item. Update interval is only supported by the inbound and bi-directional items. Some of the commands, projector will only response when projector is running. This situation can be handle with special interval, where interval is started with "ON," prefix. 
 
 Examples, how to configure your items:
 

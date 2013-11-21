@@ -13,7 +13,7 @@ In order to bind an item to a MPD, you need to provide configuration settings. T
 
     mpd="<openHAB-command>:<player-id>:<player-commandLine>[,<openHAB-command>:<player-id>:<player-commandLine>][,...]"
 
-where the parts in {{{[]}}} are optional.
+where the parts in `[]` are optional.
 
 The Player-Id corresponds whith the configuration in openhab.cfg where one has to configure the MPDs:
 

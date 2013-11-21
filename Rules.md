@@ -9,7 +9,7 @@ On this page you will learn how to leverage its functionality to do *real* home 
 
 ## File Location
 
-Rules are placed in the folder {{{${openhab.home}/configurations/rules}}}. The runtime already comes with a demo file called {{{demo.rules}}}, which has a couple of examples, which can be a good starting point.
+Rules are placed in the folder `${openhab.home}/configurations/rules`. The runtime already comes with a demo file called `demo.rules`, which has a couple of examples, which can be a good starting point.
 
 A rule file can contain multiple rules. All rules of a file share a common execution context, i.e. they can access and exchange variables with each other. It therefore makes sense, to have different rule files for different use-cases or categories.
 
@@ -95,8 +95,8 @@ Currently, you schedule rules to be executed either at system startup or shutdow
 
 Besides the implicitly available variables for items and commands/states (see the [script documentation](Scripts)), rules can have additional pre-defined variables, depending on their triggers:
 
-- Every rule that has at least one command event trigger, will have the variable {{{receivedCommand}}} available, which can be used inside the execution block.
-- Every rule that has at least one status change event trigger, will have the variable {{{previousState}}} available, which can be used inside the execution block.
+- Every rule that has at least one command event trigger, will have the variable `receivedCommand` available, which can be used inside the execution block.
+- Every rule that has at least one status change event trigger, will have the variable `previousState` available, which can be used inside the execution block.
 
 ## Example
 

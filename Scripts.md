@@ -8,7 +8,7 @@ openHAB comes with a very powerful expression language, which can be used to def
 
 ## File Location
 
-Scripts are placed in the folder {{{${openhab.home}/configurations/scripts}}}. The runtime already comes with a demo file called {{{demo.script}}}. The filename defines the name of the script (without its extension) for references.
+Scripts are placed in the folder `${openhab.home}/configurations/scripts`. The runtime already comes with a demo file called `demo.script`. The filename defines the name of the script (without its extension) for references.
 
 ## The Syntax
 
@@ -20,7 +20,7 @@ The syntax is very similar to Java, but has many nice features that allows writi
 
 To be able to do something useful with the scripts, openHAB provides access to 
 - all defined items, so that you can easily access them by their name
-- all enumerated states/commands, e.g. {{{ON, OFF, DOWN, INCREASE}}} etc.
+- all enumerated states/commands, e.g. `ON, OFF, DOWN, INCREASE` etc.
 - all [standard actions](Actions) to make something happen
 
 Combining these features, you can easily write code like
@@ -36,13 +36,13 @@ The openHAB Designer offers full IDE support for scripts, which includes syntax 
 
 # Calling Scripts
 
-A script is identified by its filename. If the filename is {{{demo.script}}}, the script name is simply {{{demo}}}.
-Every script has a return value, which is the result of the last expression in it (and might be {{{null}}}).
+A script is identified by its filename. If the filename is `demo.script`, the script name is simply `demo`.
+Every script has a return value, which is the result of the last expression in it (and might be `null`).
 
 Scripts can be called from different places:
-- From within rules through the *{{{callScript("<scriptname>")}}}* [action](Actions).
-- From a calendar entry in your Google calendar - just put *{{{> callScript("<scriptname>")}}}* in the entry
-- From inside the XMPP console by typing *{{{> callScript("<scriptname>")}}}*
+- From within rules through the *`callScript("<scriptname>")`* [action](Actions).
+- From a calendar entry in your Google calendar - just put *`> callScript("<scriptname>")`* in the entry
+- From inside the XMPP console by typing *`> callScript("<scriptname>")`*
 
 Note that you can put any expression behind the ">" sign, calling a script is just one option. Therefore you could ask for the current temperature in the XMPP console like this:
     > Temperature.state

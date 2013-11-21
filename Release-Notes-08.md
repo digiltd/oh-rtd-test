@@ -11,7 +11,7 @@ Here is what has been implemented in this release:
 ### Version 0.8.0
 
 - added new MAP transformation service to allow easy customization of item status texts (see [issue 26](https://github.com/openhab/openhab/issues#issue/26))
-- added {{{DateTimeItem/Type}}} to support date and time values in items
+- added `DateTimeItem/Type` to support date and time values in items
 - added [[Ntp Binding|NTP binding]] to retrieve current time from external servers
 - [bug fix](http://code.google.com/p/openhab/source/detail?r=caf6fc5518d8ed382511ba90bea1d5e25a5dbbc2) for crashing background services
 - added connection type [ROUTER](http://code.google.com/p/openhab/source/detail?r=4999dcd9ceaf3e891364dc7d4a80d80ed7efc8dc) to KNXConnection

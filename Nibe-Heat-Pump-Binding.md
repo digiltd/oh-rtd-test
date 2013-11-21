@@ -46,7 +46,7 @@ In order to bind an item to the device, you need to provide configuration settin
 
 Where 
 
-{{{<coilAddress>}}} corresponds the MODBUS coil addresses. See complite list below.
+`<coilAddress>` corresponds the MODBUS coil addresses. See complite list below.
 
 # List of supported MODBUS coil addresses (coilAddress)
 

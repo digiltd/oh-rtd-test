@@ -10,7 +10,7 @@ In order to bind an item to a Serial device, you need to provide configuration s
 
 The format of the binding configuration is simple and looks like this:
     serial="<port>"
-where {{{<port>}}} is the identification of the serial port on the host system, e.g. "COM1" on Windows, "/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
+where `<port>` is the identification of the serial port on the host system, e.g. "COM1" on Windows, "/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
 
 Switch items with this binding will receive an ON-OFF update on the bus, when ever data becomes available on the serial interface (or simply by short-cutting pins 2 and 7 on the RS-232 interface)
 

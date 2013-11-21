@@ -433,7 +433,7 @@ items.all
     Dimmer LedG     "LED Green"             <dimmer>        (All) { knx = "11/0/5+11/0/6,   11/0/7,  11/0/8+11/0/9" }
     Dimmer LedB     "LED Blue"              <dimmer>        (All) { knx = "11/0/10+11/0/11, 11/0/12, 11/0/13+11/0/14" }
     Color  RGB      "RGB Light"             <slider>
-Items {{{LedR}}}, {{{LedG}}}, {{{LedB}}} are mapped in DALI-GW to respective light groups with KNX group addresses. 
+Items `LedR`, `LedG`, `LedB` are mapped in DALI-GW to respective light groups with KNX group addresses. 
 
 Explanation of group addresses in above example:
 || Group Address || Description ||
@@ -443,7 +443,7 @@ Explanation of group addresses in above example:
 || 11/0/3 || Percentage value for the red channel for update (writing) ||
 || 11/0/4 || Current percentage value for the red channel (reading) ||
 
-The item {{{RGB}}} is the object to store the current percentage values for each channel (R, G, B).
+The item `RGB` is the object to store the current percentage values for each channel (R, G, B).
 
 sitemap.all
     sitemap all label="Main Menu"
@@ -511,11 +511,11 @@ or, alternatively, if you rely on String Formatter only (e.g. in Persistence fil
     end
 
 If you wonder, how to use the String::format option:<br/>
-The syntax of the format method is format( {{{<String>}}}pattern, {{{<object>}}}obj1, {{{<object>}}}obj2 {{{[In the pattern String, use "%1" for parsing the first object, "%2" for the second object a.s.o.
+The syntax of the format method is format( `<String>`pattern, `<object>`obj1, `<object>`obj2 `[In the pattern String, use "%1" for parsing the first object, "%2" for the second object a.s.o.
 
 e.g. pattern "%1$tY" refers to the first object passed into the format method after the pattern string and treats the input as a (t)imestamp extracting the two-digit (Y)ear.
 
-For more information on how to use the format method please see the [http://docs.oracle.com/javase/6/docs/api/java/util/Formatter.html Java documentation](,...]}}}).).
+For more information on how to use the format method please see the [http://docs.oracle.com/javase/6/docs/api/java/util/Formatter.html Java documentation](,...]`).).
 
 ## Irrigation controller
 

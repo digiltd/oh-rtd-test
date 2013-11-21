@@ -35,9 +35,9 @@ openHAB adds commands to the OSGi console. If you type "help" on the console, yo
 
 With these you can manually send commands and status updates to the event bus, ask for the current status of items and browse the item registry.
 
-The "say" command also supports to include item states in the sentence to say through TTS. If the item {{{Weather_Temperature}}} has the current value 15, you can use the command 
+The "say" command also supports to include item states in the sentence to say through TTS. If the item `Weather_Temperature` has the current value 15, you can use the command 
        openhab say The temperature outside is %Weather_Temperature% degrees celsius.
-where {{{%Weather_Temperature%}}} is automatically replaced by {{{15}}}.
+where `%Weather_Temperature%` is automatically replaced by `15`.
 
 ### XMPP (Jabber) Instant Messaging Console
 
@@ -46,7 +46,7 @@ For this, you require an XMPP account for your house - you can easily create on 
 
 Configure the XMPP-section of your openhab.cfg file accordingly and define, which XMPP users are allowed to use the console.
 
-Next time you start your openHAB runtime, you will see that your house automatically comes online - you can now chat with it just like on the local console (the only difference is that you do not need the "openhab" prefix of the commands, e.g. simply type {{{status Weather_Temperature}}}).
+Next time you start your openHAB runtime, you will see that your house automatically comes online - you can now chat with it just like on the local console (the only difference is that you do not need the "openhab" prefix of the commands, e.g. simply type `status Weather_Temperature`).
 
 http://wiki.openhab.googlecode.com/hg/images/screenshots/xmpp.jpg
 

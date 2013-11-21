@@ -12,58 +12,58 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 In order to bind an item to a remote host:port, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the TCP & UDP binding configuration string is explained here:
 
-**Note:** The examples here below are for the TCP protocol. UDP binding configuration are exactly the same, one only has to substitute {{{"tcp="}}} with {{{"udp="}}}
+**Note:** The examples here below are for the TCP protocol. UDP binding configuration are exactly the same, one only has to substitute `"tcp="` with `"udp="`
 
 The format of the binding configuration is simple and looks like this:
 
     tcp="<direction>[<command>:<ip address>:<port>:<transformationrule>], <direction>[<command>:<ip address>:<port>:<transformationrule>], ..."
 
-where {{{<direction>}}} is one of the following values:
-- < - for inbound-triggered communication, whereby the openHAB runtime will act as a server and listen for incoming connections from the specified {{{<ip address>:<port>}}}
-- > - for outbound-triggered communication, whereby the openHAB runtime will act as a client and establish an outbound connection to the specified {{{<ip address>:<port>}}}
+where `<direction>` is one of the following values:
+- < - for inbound-triggered communication, whereby the openHAB runtime will act as a server and listen for incoming connections from the specified `<ip address>:<port>`
+- > - for outbound-triggered communication, whereby the openHAB runtime will act as a client and establish an outbound connection to the specified `<ip address>:<port>`
 
-where {{{<command>}}} is the openHAB command  
+where `<command>` is the openHAB command  
 
-where {{{<ip address>}}} is the hostname or ip address in dotted notation of the remote host
+where `<ip address>` is the hostname or ip address in dotted notation of the remote host
 
-and where {{{<transformationrule>}}} that will be applied to the {{{<command>}}} received, before the resulting string is to be sent to the remote host. For String Items the received value of the Item will be passed on to the {{{<transformationrule>}}}. When data is received from the remote host, then the Item will be updated with the {{{<command>}}} in so far that the result of the  {{{<transformationrule>}}} applied on the incoming data is valid for the given Item. String items will be updated "as is" using the result of the  {{{<transformationrule>}}}. 
+and where `<transformationrule>` that will be applied to the `<command>` received, before the resulting string is to be sent to the remote host. For String Items the received value of the Item will be passed on to the `<transformationrule>`. When data is received from the remote host, then the Item will be updated with the `<command>` in so far that the result of the  `<transformationrule>` applied on the incoming data is valid for the given Item. String items will be updated "as is" using the result of the  `<transformationrule>`. 
 
  = openHAB Configuration Parameters =
 
-The TCP and UDP bindings are highly configurable through the openhab.cfg . The following parameters can be set (substitute {{{"tcp="}}} with {{{"udp="}}} for the UDP binding):
+The TCP and UDP bindings are highly configurable through the openhab.cfg . The following parameters can be set (substitute `"tcp="` with `"udp="` for the UDP binding):
 The indicated values are the default values used by either binding
 
-{{{tcp:refreshinterval=250}}} - This is a mandatory field in order to start up the binding - Refresh interval for the polling thread, can be used to manage oh Host CPU Load
+`tcp:refreshinterval=250` - This is a mandatory field in order to start up the binding - Refresh interval for the polling thread, can be used to manage oh Host CPU Load
 
-{{{tcp:port=25001}}} - This is a mandatory field when inbound communication ({{{<direction>}}} equals <) are used - Port to listen on for incoming connections. 
+`tcp:port=25001` - This is a mandatory field when inbound communication (`<direction>` equals <) are used - Port to listen on for incoming connections. 
 
-{{{tcp:addressmask=true}}} - Allow masks in ip:port addressing, e.g. 192.168.0.1:`**` etc
+`tcp:addressmask=true` - Allow masks in ip:port addressing, e.g. 192.168.0.1:`**` etc
 
-{{{tcp:reconnectron='0 0 0 ** * ?'}}} - Cron-like string to reconnect remote ends, e.g for unstable connection or remote ends
+`tcp:reconnectron='0 0 0 ** * ?'` - Cron-like string to reconnect remote ends, e.g for unstable connection or remote ends
 
-{{{tcp:retryinterval=5}}} - Interval between reconnection attempts when recovering from a communication error, in seconds
+`tcp:retryinterval=5` - Interval between reconnection attempts when recovering from a communication error, in seconds
 
-{{{tcp:queue=true}}} - Queue data whilst recovering from a connection problem (TCP only)
+`tcp:queue=true` - Queue data whilst recovering from a connection problem (TCP only)
 
-{{{tcp:buffersize=1024}}} - Maximum buffer size whilst reading incoming data
+`tcp:buffersize=1024` - Maximum buffer size whilst reading incoming data
 
-{{{tcp:preamble=''}}} - Pre-amble that will be put in front of data being sent
+`tcp:preamble=''` - Pre-amble that will be put in front of data being sent
 
-{{{tcp:postamble='\r\n'}}} - Post-amble that will be appended to data being sent
+`tcp:postamble='\r\n'` - Post-amble that will be appended to data being sent
 
-{{{tcp:blocking=false}}} - Perform all write/read (send/receive) operations in a blocking mode, e.g. the binding will wait for a reply from the remote end after data has been sent
+`tcp:blocking=false` - Perform all write/read (send/receive) operations in a blocking mode, e.g. the binding will wait for a reply from the remote end after data has been sent
 
-{{{tcp:timeout=3000}}} - Timeout, in milliseconds, to wait for a reply when initiating a blocking write/read operation
+`tcp:timeout=3000` - Timeout, in milliseconds, to wait for a reply when initiating a blocking write/read operation
 
-{{{tcp:updatewithresponse=true}}} - Update the status of Items using the response received from the remote end (if the remote end sends replies to commands)
+`tcp:updatewithresponse=true` - Update the status of Items using the response received from the remote end (if the remote end sends replies to commands)
 
 The parameters here below influence the way the binding will multiplex data over TCP and UDP connections
 
-{{{tcp:itemsharedconnections=true}}} - Share connections within the Item binding configurations
+`tcp:itemsharedconnections=true` - Share connections within the Item binding configurations
 
-{{{tcp:bindingsharedconnections=true}}} - Share connections between Item binding configurations
+`tcp:bindingsharedconnections=true` - Share connections between Item binding configurations
 
-{{{tcp:directionssharedconnections=false}}} - Share connections between inbound and outbound connections
+`tcp:directionssharedconnections=false` - Share connections between inbound and outbound connections
 
  = Examples =
 

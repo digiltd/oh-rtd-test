@@ -38,11 +38,11 @@ In order to bind an item to the device, you need to provide configuration settin
 
 Where 
 
-{{{<commandType>}}} corresponds the command type. See complite list below.
+`<commandType>` corresponds the command type. See complite list below.
 
-{{{<refreshPeriod>}}} corresponds update interval of the item in milliseconds.
+`<refreshPeriod>` corresponds update interval of the item in milliseconds.
 
-{{{<target>}}} corresponds target of the command. Target field is mandatory only for commands, which need target. See further details from supported command list below.
+`<target>` corresponds target of the command. Target field is mandatory only for commands, which need target. See further details from supported command list below.
 
 # List of supported commands (commandType)
 

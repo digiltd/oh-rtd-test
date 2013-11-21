@@ -13,11 +13,11 @@ You need a Cosm API key and data feed to put data to. Each item being persisted 
 
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
-Additionally, place a persistence file called cosm.persist in the {{{${openhab.home}/configuration/persistence}}} folder.
+Additionally, place a persistence file called cosm.persist in the `${openhab.home}/configuration/persistence` folder.
 
 # Configuration
 
-This persistence service can be configured in the "Cosm Persistence Service" section in {{{openhab.cfg}}}.
+This persistence service can be configured in the "Cosm Persistence Service" section in `openhab.cfg`.
 You need to specify your data feed url in the form
 
 <code>cosm:url=http://api.cosm.com/v2/feeds/XXXXX/datastreams/</code>

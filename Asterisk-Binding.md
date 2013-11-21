@@ -12,7 +12,7 @@ In order to bind an item to the Asterisk PBX you need to provide configuration s
 
 The format of the binding configuration is simple and looks like this:
     asterisk=<eventType>
-where {{{<eventType>}}} is of the value *active* for currently active calls. Currently there are no other valid values.
+where `<eventType>` is of the value *active* for currently active calls. Currently there are no other valid values.
 
 Asterisk binding configurations are valid on Switch and String items.
 

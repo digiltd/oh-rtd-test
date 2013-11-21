@@ -26,19 +26,19 @@ for Items that trigger action or commands on the Plugwise device, and
 
 for Items that rather store a status variable or other from the Plugwise device
 
-where the {{{<Plugwise id>}}} corresponds with the 'MAC' address  - or - the configuration in openhab.cfg where one can configure the Plugwise devices, which looks like this
+where the `<Plugwise id>` corresponds with the 'MAC' address  - or - the configuration in openhab.cfg where one can configure the Plugwise devices, which looks like this
 
     plugwise:<Plugwise id>.mac=[MAC]
 
-where {{{<Polling Interval>}}} is the interval in seconds to poll the given variable
+where `<Polling Interval>` is the interval in seconds to poll the given variable
 
-and where {{{<Plugwise command>}}} is the command to be sent to the Plugwise device when {{{<command>}}} is received. In case status variables are used then any value received from the Plugwise device for the defined {{{<Plugwise variable>}}} is used to update the Item
+and where `<Plugwise command>` is the command to be sent to the Plugwise device when `<command>` is received. In case status variables are used then any value received from the Plugwise device for the defined `<Plugwise variable>` is used to update the Item
 
 # Plugwise Commands
 
 The Plugwise device is very simple device. For a perfect integration within OpenHAB it is assumed that the user will be using the Plugwise Source software to define the network, reset devices, perform firmware upgrade, and so forth, e.g. anything which requires user input or interactivity. Therefore the Plugwise Commands supported from within OpenHAB are mostly limited to those actions that require little or no user interaction
 
-Valid {{{<Plugwise command>}}}s are:
+Valid `<Plugwise command>`s are:
 
 <table>
   <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
@@ -47,7 +47,7 @@ Valid {{{<Plugwise command>}}}s are:
 
 # Plugwise Status Variables
 
-Valid {{{<Plugwise variable>}}}s are:
+Valid `<Plugwise variable>`s are:
 
 <table>
   <tr><td>**Variable**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>

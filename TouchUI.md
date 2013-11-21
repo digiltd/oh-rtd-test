@@ -121,7 +121,7 @@ To add a new translation:
 1. Open *${openhab.home}/webapps/app/translations.cfg*
 
 2. Find the following text:
-{{{ 
+` 
 OpenHAB.i18n_strings[= {
         language_name: 'English',
 
@@ -130,7 +130,7 @@ OpenHAB.i18n_strings[= {
 	interfaces: 'Interfaces',
         ...
 }
-}}}
+`
 3. Copy it somewhere below and edit the texts.
 
 *IMPORTANT:* You have to change the language signature in the first line. For example _OpenHAB.i18n_strings['en']('en'])_ becomes _OpenHAB.i18n_strings[Don't forget to change _language_name_ too.

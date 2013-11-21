@@ -17,7 +17,7 @@ Currently, there are the following implementations available:
 
 # Configuration
 
-For every persistence service that you have installed and want to use, you have to put a configuration file named {{{<persistenceservice>.persist}}} (e.g. {{{db4o.persist}}}) in the folder {{{${openhab.home}/configurations/persistence}}}. These files should be edited with the openHAB Designer, which provides syntax checks, auto-completion and more.
+For every persistence service that you have installed and want to use, you have to put a configuration file named `<persistenceservice>.persist` (e.g. `db4o.persist`) in the folder `${openhab.home}/configurations/persistence`. These files should be edited with the openHAB Designer, which provides syntax checks, auto-completion and more.
 
 Before going into the details of the syntax of these files, let us discuss the concept behind it first:
 The basic idea is to provide a simple way to tell openHAB, which items should be persisted when. The persistence configuration defines so called "strategies" for this. These are very similar to the triggers of [[Rules|rules]] as you will most likely also either persist a value when some bus event occurred (i.e. an item state has been updated or changed) or with a fixed schedule as the cron expressions allow to define. 
@@ -42,10 +42,10 @@ The persistence configuration files hence consist out of several sections:
     	<itemlist2> [-> "<alias2>"] : [strategy = <strategyX>, <strategyY>, ...]
             ...
     }
-  where {{{<itemlist>}}} is a comma-separated list of the following options:
-- {{{**}}} - this line should apply to all items in the system.
-- {{{<itemName>}}} - a single item identified by its name. This item can be a group item, but note that only its own (group) value will be persisted, not the states of its members.
-- {{{<groupName>**}}} - all members of this group will be persisted, but not the group itself.
+  where `<itemlist>` is a comma-separated list of the following options:
+- `**` - this line should apply to all items in the system.
+- `<itemName>` - a single item identified by its name. This item can be a group item, but note that only its own (group) value will be persisted, not the states of its members.
+- `<groupName>**` - all members of this group will be persisted, but not the group itself.
   If no strategies are provided, the default strategies that are declared in the first section are used.
   An alias can be optionally provided, if the persistence service requires special names (e.g. a table to use in a database, a feed id for an IoT-service etc.) 
 

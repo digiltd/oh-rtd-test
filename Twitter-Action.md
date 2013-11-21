@@ -4,7 +4,7 @@
 
 Twitter can be used to 'tweet' notifications when certain events take place in openHAB. It is one of the pre-defined Java methods that is automatically statically imported and can be used within rules and scripts. You will need to enable 'tweeting' by adding the following to your openhab.cfg file;
 
-{{{twitter:enabled=true}}}
+`twitter:enabled=true`
 
 After enabling you will then need to authenticate openHAB with Twitter. Typically a new Twitter account would be set up for openHAB, rather than using your personal account, but that is entirely up to you.
 
@@ -23,15 +23,15 @@ You'll have to authorise openHAB to use Twitter. This is done using a two step p
     08:46:10.015 INFO  o.openhab.io.net.actions.Tweet[:143] - # NOTE: You will only have 5 mins before openHAB gives up waiting for the pin!!!
     08:46:10.015 INFO  o.openhab.io.net.actions.Tweet[:144] - ################################################################################################
 
-**Step 2** needs interaction. Copy the given URL to your browser and authorize openHAB to use Twitter. Be aware that the request token is only valid for the next five minutes, so don't wait too long. After successful authorization you will be given an authentication pin which you will need to copy to a new file you create in the `<openhabhome>` directory called {{{twitter.pin}}}.
+**Step 2** needs interaction. Copy the given URL to your browser and authorize openHAB to use Twitter. Be aware that the request token is only valid for the next five minutes, so don't wait too long. After successful authorization you will be given an authentication pin which you will need to copy to a new file you create in the `<openhabhome>` directory called `twitter.pin`.
 
 **Step 3** is handled automatically by openHAB. It will detect the pin file you just created and use it to generate an authentication token which it will store away for future use. openHAB will give up waiting after 5 mins so if you are not quick enough you will have to restart openHAB and begin the authentication process again.
 
 Once authenticated you should see an entry in the log file to indicate authentication was successful.
 
-{{{08:53:53.486 INFO  o.openhab.io.net.actions.Twitter[:94] - TwitterAction has been successfully authenticated > awaiting your Tweets!}}}
+`08:53:53.486 INFO  o.openhab.io.net.actions.Twitter[:94] - TwitterAction has been successfully authenticated > awaiting your Tweets!`
 
-And you will notice a new file is created in `<openhabhome>\etc` called {{{twitter.token}}}. This is where the authentication token is stored for future use. You can now safely delete the {{{twitter.pin}}} file if you wish as it is no longer required.
+And you will notice a new file is created in `<openhabhome>\etc` called `twitter.token`. This is where the authentication token is stored for future use. You can now safely delete the `twitter.pin` file if you wish as it is no longer required.
 
 # Limits
 
@@ -46,8 +46,8 @@ Please beware there are technical limits that apply to your account. The current
 
 To send a tweet simply use the following syntax inside a rule or script;
 
-{{{sendTweet('status update message')}}}
+`sendTweet('status update message')`
 
 To send a direct message simply use the following syntax inside a rule or script;
 
-{{{sendDirectMessage('recipient', 'direct message')}}}
+`sendDirectMessage('recipient', 'direct message')`

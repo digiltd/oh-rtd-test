@@ -10,7 +10,7 @@ In order to bind an item to a NTP query, you need to provide configuration setti
 
     nh="[timeZone][:locale]"
 
-where the parts in {{{[are optional. If no or an incorrect time zone is configured it defaults to {{{TimeZone.getDefault()}}}. If no or an incorrect Locale is configured it defaults to {{{Locale.getDefault()}}}.
+where the parts in `[are optional. If no or an incorrect time zone is configured it defaults to `TimeZone.getDefault()`. If no or an incorrect Locale is configured it defaults to `Locale.getDefault()`.
 
 Here are some examples of valid binding configuration strings:
 
@@ -28,4 +28,4 @@ where 11.001 is the KNX date type and 10.001 is the KNX time type
 
 # Example configurations
 
-Example configurations can be found [https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig here](]}}}).
+Example configurations can be found [https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig here](]`).

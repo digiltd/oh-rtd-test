@@ -76,7 +76,7 @@ General format (since 1.3):
 
 ### About the Documentation
 
-The information at each value in brakets is: {{{(<item type>, <unit>, <min/max or possible values>)}}}
+The information at each value in brakets is: `(<item type>, <unit>, <min/max or possible values>)`
 
 For the German CCU users:
 Die Physical Device Address findet man in der CCU als Seriennummer. Zum Beispiel im Menü aus Einstellungen -> Geräte. Dann hat man eine gute Übersicht über alle Devices.

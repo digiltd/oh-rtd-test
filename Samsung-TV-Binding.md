@@ -20,13 +20,13 @@ First of all you need to introduce your Samsung TV's in the openhab.cfg file (in
     # samsungtv:<TVid2>.host=
     # samsungtv:<TVid2>.port=55000
 
-{{{<TVid1>}}} and {{{<TVid2>}}} can be freely set to whatever name you want to give for a certain TV (e.g. "Livingroom" or "Bedreoom"), thus could be looking like:
+`<TVid1>` and `<TVid2>` can be freely set to whatever name you want to give for a certain TV (e.g. "Livingroom" or "Bedreoom"), thus could be looking like:
 samsungtv:Livingroom
 
 .host and .port specify IP address and port number for accessing your TV:<br/>
-samsungtv:{{{<TVid1>}}}.host={{{<IP address of the TV>}}}
+samsungtv:`<TVid1>`.host=`<IP address of the TV>`
 
-samsungtv:{{{<TVid1>}}}.port={{{<TCP port address of the the TV; optional>}}}
+samsungtv:`<TVid1>`.port=`<TCP port address of the the TV; optional>`
 
 A working example for such configuration could look like:
     ######################## SAMSUNG TV Binding ############################################

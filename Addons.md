@@ -4,7 +4,7 @@
 
 This is an overview over the contents of the [download package]("addons").
 
-This package contains various optional bundles of openHAB, each of which can be installed independently of any other. Simply copy the desired jars to {{{${openhab.home}/addons}}}.
+This package contains various optional bundles of openHAB, each of which can be installed independently of any other. Simply copy the desired jars to `${openhab.home}/addons`.
 
 They are distributed separately in order to keep the core runtime package as small as possible and to allow the user to just pick the features he is really interested in.
 

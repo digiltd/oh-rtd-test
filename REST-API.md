@@ -12,12 +12,12 @@ For each url, you will find the list of supported media types documented below.
 
 If your client cannot correctly set the HTTP accept header, you also have the choice to append the query "?type=xml", "?type=json" or "?type=jsonp" to the URI to request a specific media type for the response.
 
-Each resource that accepts {{{application/x-javascript}}} as a media type returns JSONP results, which can be parameterized by appending {{{?jsoncallback=callback}}} to the URI, e.g.
+Each resource that accepts `application/x-javascript` as a media type returns JSONP results, which can be parameterized by appending `?jsoncallback=callback` to the URI, e.g.
     http://localhost:8080/rest/items/Temperature_FF_Office?jsoncallback=callback
 which yields the following response
     callback({"type":"NumberItem","name":"Temperature_FF_Office","state":"Undefined","link":"http://localhost:8080/rest/items/Temperature_FF_Office"})
 
-The parameter {{{jsoncallback}}} is optional. If not provided, {{{callback}}} will be used as a default.
+The parameter `jsoncallback` is optional. If not provided, `callback` will be used as a default.
 
 # Details
 
@@ -73,7 +73,7 @@ which returns the state as a plain string.
 
 Likewise, you can send a status update using the HTTP verb PUT to the same uri, passing the new state as a plain string argument in the body (encoding text/plain).
 
-In order to send a command to an item, you would use the item uri ({{{http://localhost:8080/rest/items/Temperature_FF_Office}}}) and send an HTTP POST with the according command in the request body as text/plain.
+In order to send a command to an item, you would use the item uri (`http://localhost:8080/rest/items/Temperature_FF_Office`) and send an HTTP POST with the according command in the request body as text/plain.
 
 ## Sitemap Resource
 

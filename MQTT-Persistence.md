@@ -11,12 +11,12 @@ The destination broker, topic and messages are configurable.
 
 For installation of this persistence package please follow the same steps as you would [[Bindings|installing a binding]].
 
-Additionally, create a persistence file '{{{mqtt.persist}}}' in the {{{${openhab.home}/configuration/persistence}}} folder.
+Additionally, create a persistence file '`mqtt.persist`' in the `${openhab.home}/configuration/persistence` folder.
 The file should follow the regular openHAB persistence format.
 
 # Configuration
 
-This persistence service can be configured in the "MQTT Persistence Service" section in {{{openhab.cfg}}}.
+This persistence service can be configured in the "MQTT Persistence Service" section in `openhab.cfg`.
 
 The MQTT persistence can be configured with the following properties:
 
@@ -32,7 +32,7 @@ Both the topic and message values are reformatted using String.format at the tim
 <table>
   <tr><td>**Parameter**</td><td>**Description**</td></tr>
   <tr><td>1$</td><td>Item name.</td></tr>
-  <tr><td>2$</td><td>Item alias as defined in the {{{mqtt.persist}}} file.</td></tr>
+  <tr><td>2$</td><td>Item alias as defined in the `mqtt.persist` file.</td></tr>
   <tr><td>3$</td><td>Item state. A string representation of the item state. ON/OFF, OPEN/CLOSED and UP/DOWN states are transformed to 1/0 values respectively.</td></tr>
   <tr><td>4$</td><td>Current DateTime in long format.</td></tr>
 </table>
@@ -49,20 +49,20 @@ The messages sent to Xively will have the format
 For example:
     light_office, 1
 
-First, we need to define the MQTT broker connection in the {{{openhab.cfg}}} file:
+First, we need to define the MQTT broker connection in the `openhab.cfg` file:
     mqtt:xively.url=tcp://api.xively.com:1883
     mqtt:xively.user=<device key>
 
 As <device key>, use the device/API key you get from Xively.
 
-Next, we need to configure the MQTT persistence service. To do this add the following entries to {{{openhab.cfg}}}:
+Next, we need to configure the MQTT persistence service. To do this add the following entries to `openhab.cfg`:
 
     mqtt-persistence:broker=xively
     mqtt-persistence:topic=/v2/feeds/<feed id>.csv
     mqtt-persistence:message=%1$s, %3$s
 where <feed id> is your Xively feed id.
 
-And finally, add a persistence strategy in the {{{mqtt.persist}}} file:
+And finally, add a persistence strategy in the `mqtt.persist` file:
 
     Strategies {
             everyHour : "0 0 * * * ?"

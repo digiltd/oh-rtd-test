@@ -39,26 +39,26 @@ Valid keys are
 </table>
 
 Modbus read functions 
-- {{{type=coil}}} uses function 1,
-- {{{type=discrete}}} uses function is 2,
-- {{{type=holding}}} uses function is 3,
-- {{{type=input}}} uses function ist 4
+- `type=coil` uses function 1,
+- `type=discrete` uses function is 2,
+- `type=holding` uses function is 3,
+- `type=input` uses function ist 4
 
 Modbus write functions 
-- {{{type=coil}}} uses function 5,
-- {{{type=holding}}} uses function is 6,
+- `type=coil` uses function 5,
+- `type=holding` uses function is 6,
  see also http://www.simplymodbus.ca
 
- with {{{type=holding}}} and {{{type=input}}} you can now only operate with datatype byte!!!
+ with `type=holding` and `type=input` you can now only operate with datatype byte!!!
  see point 4 below
 
  Minimal construction in openhab.config will look like (for TCP connection)
 
-{{{ 
+` 
  modbus:tcp.slave1.connection=192.168.1.50
  modbus:tcp.slave1.length=10
  modbus:tcp.slave1.type=coil
-}}}
+`
  
  connects to slave at ip=192.168.1.50 and reads 10 coils starting from address 0
  More complex setup could look like
@@ -137,7 +137,7 @@ There are two ways to bind an item to modbus coils/registers
   NOTE: if the value goes over a byte this case is fully untested!!!
    this example should write the value to all DO bits of an moxa e1212 as byte value
 
- 5) read only byte register {{{type=input}}}
+ 5) read only byte register `type=input`
       Number MyCounterH "My Counter high [%d]" (All) {modbus="slave3:0"}
  this reads counter 1 high word
       Number MyCounterL "My Counter low [%d]" (All) {modbus="slave3:1"}
