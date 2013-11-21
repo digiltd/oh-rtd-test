@@ -21,7 +21,7 @@ The syntax is very similar to Java, but has many nice features that allows writi
 To be able to do something useful with the scripts, openHAB provides access to 
 - all defined items, so that you can easily access them by their name
 - all enumerated states/commands, e.g. {{{ON, OFF, DOWN, INCREASE}}} etc.
-- all [standard actions](http://code.google.com/p/openhab/wiki/Actions) to make something happen
+- all [standard actions](Actions) to make something happen
 
 Combining these features, you can easily write code like
     if(Temperature.state < 20) {
@@ -32,7 +32,7 @@ Combining these features, you can easily write code like
 
 The openHAB Designer offers full IDE support for scripts, which includes syntax checks and coloring, validation with error markers, content assist (Ctrl+Space) etc. This makes the creation of scripts very easy!
 
-http://wiki.openhab.googlecode.com/hg/images/screenshots/designer-scripts.png
+![](images/screenshots/designer-scripts.png)
 
 # Calling Scripts
 
@@ -40,7 +40,7 @@ A script is identified by its filename. If the filename is {{{demo.script}}}, th
 Every script has a return value, which is the result of the last expression in it (and might be {{{null}}}).
 
 Scripts can be called from different places:
-- From within rules through the *{{{callScript("<scriptname>")}}}* [[Actions|action]].
+- From within rules through the *{{{callScript("<scriptname>")}}}* [action](Actions).
 - From a calendar entry in your Google calendar - just put *{{{> callScript("<scriptname>")}}}* in the entry
 - From inside the XMPP console by typing *{{{> callScript("<scriptname>")}}}*
 
