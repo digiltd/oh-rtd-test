@@ -10,7 +10,7 @@ This persistence service makes use of [Logback](http://logback.qos.ch/) as an un
 
 # Installation
 
-For installation of this persistence package please follow the same steps as if you would [[Bindings|install a binding]].
+For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
 Additionally, place a persistence file called logging.persist in the {{{${openhab_home}/configuration/persistence}}} folder.
 
