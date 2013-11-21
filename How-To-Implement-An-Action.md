@@ -6,13 +6,13 @@
 
 [[Actions]] are simple Java methods (or rather a set of methods) that are made available to scripts and rules. So whenever you want to implement a complex functionality that is reusable and useful in many situations or if you need to access third-party Java libraries, implementing an action is the way to go.
 
-For information about how to setup a development environment, please see the [according wiki page](IDESetup).
+For information about how to setup a development environment, please see the [according wiki page](IDE-Setup).
 
 # General Information about the Architecture
 
 The openHAB runtime distribution comes only with a limited set of actions. All other actions are considered to be "add-ons", which the user can optionally install by putting it in the "addons" folder of the runtime. As a consequence of this, an action should usually be a single file and as a file corresponds to an OSGi bundle, an action should be a single bundle.
 
-As openHAB makes use of the Xbase framework to allow interpreting scripts at runtime, the actions need to be integrated with Xbase. openHAB provides all means for that so that the only thing you have to do is to register an OSGi service which implements the [ActionService](https://code.google.com/p/openhab/source/browse/bundles/core/org.openhab.core.scriptengine/src/main/java/org/openhab/core/scriptengine/action/ActionService.java) interface. This service then only has to provide the action class name and instance. All public static methods of this action class are then automatically made available to the script engine.
+As openHAB makes use of the Xbase framework to allow interpreting scripts at runtime, the actions need to be integrated with Xbase. openHAB provides all means for that so that the only thing you have to do is to register an OSGi service which implements the [ActionService](https://github.com/openhab/openhab/blob/master/bundles/core/org.openhab.core.scriptengine/src/main/java/org/openhab/core/scriptengine/action/ActionService.java) interface. This service then only has to provide the action class name and instance. All public static methods of this action class are then automatically made available to the script engine.
 
 # Creating an Action Skeleton
 
