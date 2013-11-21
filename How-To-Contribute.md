@@ -15,7 +15,7 @@ The same is true if you intend to implement/contribute a new feature. Please alw
 
 # Code Handling
 
-To make code changes to the openHAB code base yourself, all you have to do is to create a local clone of the repository (git clone https://github.com/openhab/openhab/). See [on how to set up a development environment and read [HowToImplementABinding](IDESetup]) if you plan to implement a new binding.
+To make code changes to the openHAB code base yourself, all you have to do is to create a local clone of the repository (git clone https://github.com/openhab/openhab/). See [IDE Setup](IDE-Setup) on how to set up a development environment and read [How to implement a binding](How-To-Implement-A-Binding) if you plan to implement a new binding.
 
 If you want to contribute your code or just want to share it with others, you can [create a fork of the official repository](https://github.com/openhab/openhab/fork) at any time, for which you will have full access so that your local changesets can be pushed to it.
 
