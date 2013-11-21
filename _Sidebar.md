@@ -1,10 +1,10 @@
 Installation
- * [Configuration](Configuring-the-openHAB-runtime)
- * [Items](Explanation-of-Items)
- * [Sitemaps](Explanation-of-Sitemaps)
- * [Quick Setup](Quick-Setup-an-openHAB-Server)
+ * [[Configuring-the-openHAB-runtime|Configuration]
+ * [[Explanation-of-Items|Items]]
+ * [[Explanation-of-Sitemaps|Sitemaps]]
+ * [[Quick-Setup-an-openHAB-Server|Quick Setup]]
  * [[Addons]]
- * [Hardware FAQ](Hardware-FAQ)
+ * [[Hardware-FAQ|Hardware FAQ]]
 
 [Features](Feature-Overview)
  * User Interfaces
