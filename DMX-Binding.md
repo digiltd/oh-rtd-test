@@ -1,6 +1,6 @@
 # Documentation of the DMX binding Bundle
 
-<wiki:video url="http://www.youtube.com/watch?v=o0J4qyyfhio"/>
+http://www.youtube.com/watch?v=o0J4qyyfhio"
 
 # Introduction
 
