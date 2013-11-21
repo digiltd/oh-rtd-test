@@ -54,7 +54,7 @@ The Pulseaudio Binding can be used to e.g. to mute a sink or to change the volum
 
 ### Rule
 
-    rule "Pulseaudio-Printer Queue"
+    rule "mute pulseaudio sink on incoming call"
     when
     	Item Incoming_Call received update
     then
