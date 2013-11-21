@@ -36,7 +36,7 @@ The rrd4j Persistence Service currently does not allow to be queried, because of
 
 # Installation
 
-For installation of this persistence package please follow the same steps as if you would [[Bindings|install a binding]].
+For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
 Additionally, place a persistence file called rrd4j.persist in the {{{${openhab_home}/configuration/persistence}}} folder.
 
