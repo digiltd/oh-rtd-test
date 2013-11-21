@@ -17,7 +17,7 @@ A rule file can contain multiple rules. All rules of a file share a common execu
 
 The openHAB Designer offers full IDE support for rules, which includes syntax checks and coloring, validation with error markers, content assist (Ctrl+Space) incl. templates etc. This makes the creation of rules very easy!
 
-http://wiki.openhab.googlecode.com/hg/images/screenshots/designer-rules.png
+![](images/screenshots/designer-rules.png)
 
 ## The Syntax
 
@@ -60,7 +60,7 @@ The ***Rules*** section contains a list of rules. Each rule has the following sy
     end
 
 A rule can have any number of trigger conditions, but must at least have one.
-The _EXECUTION_BLOCK_ contains the code that should be executed, when a trigger condition is met. The content of the _EXECUTION_BLOCK_ is in fact a script, so please refer to the [[Scripts|scripts documentation]] for details.
+The _EXECUTION_BLOCK_ contains the code that should be executed, when a trigger condition is met. The content of the _EXECUTION_BLOCK_ is in fact a script, so please refer to the [scripts documentation](Scripts) for details.
 
 ## Rule Triggers
 
@@ -93,7 +93,7 @@ Currently, you schedule rules to be executed either at system startup or shutdow
 
 ## Implicit Variables inside the Execution Block
 
-Besides the implicitly available variables for items and commands/states (see the [[Scripts|script documentation]]), rules can have additional pre-defined variables, depending on their triggers:
+Besides the implicitly available variables for items and commands/states (see the [script documentation](Scripts)), rules can have additional pre-defined variables, depending on their triggers:
 
 - Every rule that has at least one command event trigger, will have the variable {{{receivedCommand}}} available, which can be used inside the execution block.
 - Every rule that has at least one status change event trigger, will have the variable {{{previousState}}} available, which can be used inside the execution block.
