@@ -2,7 +2,7 @@ This page describes the different places in which the openHAB runtime can be con
 
 ## Main Configuration
 
-The runtime comes with one core configuration file, the file [openhab_default.cfg](http://code.google.com/p/openhab/source/browse/distribution/openhabhome/configurations/openhab_default.cfg).
+The runtime comes with one core configuration file, the file [openhab_default.cfg](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/openhab_default.cfg).
 The purpose of this file is to define all basic settings, such as IP addresses, mail server, folder locations etc.
 
 The file contains settings for different (possibly optional) bundles. These settings are automatically dispatched to the according bundle. For this, all settings come with a namespace (such as "mail:" or "knx:") to identify the associated bundle.
@@ -21,15 +21,15 @@ Although items can be dynamically added by item providers (as OSGi services), it
 
 These static definition files follow a certain syntax. This syntax will be explained here. (For the technical interested: This syntax is in fact a [Xtext DSL grammar](http://code.google.com/p/openhab/source/browse/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
 
-Please see page [[Items|items]] on how to configure items.
+Please see page [Items](Explanation-of-Items) on how to configure items.
 
 ### Sitemap Definitions
 
 Sitemaps are a declarative UI definition. With a few lines it is possible to define the structure and the content of your UI screens. Sitemap files are stored in ${openhab_home}/configurations/sitemaps.
 
-Please see page [[Sitemaps|sitemaps]] for description on how to create sitemaps.
+Please see page [Sitemaps](Explanation-of-Sitemaps) for description on how to create sitemaps.
 
 ### Automation Rules
 
 Rule files are stored in `${openhab_home}/configurations/rules`.
-The syntax of these files is described [here](http://code.google.com/p/openhab/wiki/Rules) in detail.
+The syntax of these files is described [here](Rules) in detail.
