@@ -2,6 +2,8 @@
 
 This binding allows to remotely control a Pioneer AV receiver equipped with an ethernet interface. It enables OpenHAB to switch ON/OFF the receiver, adjust the volume, set the input source and configure most other parameters.
 
+_Note: This binding will be available in the official release not before version 1.4.0!_
+
 Most common commands are supported directly, special commands can be added manually using the "advanced command" mechanism described below.
 
 ## Binding configuration
@@ -54,18 +56,19 @@ _Note: The "INIT" action will be called once upon initialization of the binding.
 * Power  
     * POWER_OFF  
     * POWER_ON  
-    * POWER_QUERY  
+    * POWER_QUERY _(for reading the current power state) _
 
 * Mute
     * UNMUTE
     * MUTE
-    * MUTE_QUERY
+    * MUTE_QUERY _(for reading the mute state)_
 
 * Volume
     * VOLUME_UP
     * VOLUME_DOWN
-    * VOLUME_QUERY
-    * VOLUME_SET
+    * VOLUME_QUERY _(for reading the volume)_
+    * VOLUME_SET _(Volume range is from 0=mute, 1=-80.0 dB to 185=+12.0 dB in steps of 0.5 dB. _
+                  _When using a dimmer item, 0% is mapped to 0 and 100% is mapped to 185)_
 
 * Source
     * SOURCE_DVD
@@ -91,16 +94,16 @@ _Note: The "INIT" action will be called once upon initialization of the binding.
     * SOURCE_SIRIUS
     * SOURCE_UP
     * SOURCE_DOWN
-    * SOURCE_QUERY
-    * SOURCE_SET
+    * SOURCE_QUERY _(for reading the current source)_
+    * SOURCE_SET _(for list of supported enum values see "Additional protocol info" below)_
     * SOURCE_HDMI_CYCLIC
 
 * Listening mode
-    * LISTENING_MODE
+    * LISTENING_MODE 
     * LISTENING_MODE_QUERY
 
 * Home Media Gallery
-    * HMG_NUMKEY
+    * HMG_NUMKEY _(accepts a number 0 - 9)_
     * HMG_NUMKEY0
     * HMG_NUMKEY1
     * HMG_NUMKEY2
@@ -143,7 +146,7 @@ _Note: The "INIT" action will be called once upon initialization of the binding.
     * TREBLE_QUERY
 
 * Speaker control
-    * SPEAKERS
+    * SPEAKERS      _(0=Speakers off, 1=A on, 2=B on, 3=A+B on, 9=change cyclic)_
     * SPEAKERS_OFF
     * SPEAKERS_A
     * SPEAKERS_B
@@ -261,7 +264,7 @@ _Note: The "INIT" action will be called once upon initialization of the binding.
     * ADAPTER_FWD
 
 * LCD status information text
-    * DISPLAY_INFO_QUERY
+    * DISPLAY_INFO_QUERY _(needs to be mapped to a string item)_
 
 
 
