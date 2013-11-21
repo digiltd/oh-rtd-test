@@ -4,7 +4,7 @@
 
 Actions are predefined Java methods that are automatically statically imported and can be used within scripts and rules to execute openHAB specific operations.
 
-Since openHAB 1.3.0, not all actions are part of the core runtime distribution anymore, but it is possible to easily implement add new actions to your runtime (see the [[How To Implement An Action|developer section]] for details).
+Since openHAB 1.3.0, not all actions are part of the core runtime distribution anymore, but it is possible to easily implement add new actions to your runtime (see the [developer section](How-To-Implement-An-Action) for details).
 
 ## Core Actions
 
