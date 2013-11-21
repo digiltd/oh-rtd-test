@@ -135,18 +135,24 @@ OpenHAB.i18n_strings[= {
 
 *IMPORTANT:* You have to change the language signature in the first line. For example _OpenHAB.i18n_strings['en']('en'])_ becomes _OpenHAB.i18n_strings[Don't forget to change _language_name_ too.
 
-
-
-
 # Screenshots
 
 *Samsung Galaxy Note:*
 
-
-[http://m-design.bg/greent/note1.png http://m-design.bg/greent/note1_small.png]('ru']_.) [http://m-design.bg/greent/note2_small.png](http://m-design.bg/greent/note2.png) [http://m-design.bg/greent/note3_small.png](http://m-design.bg/greent/note3.png) [http://m-design.bg/greent/note4_small.png](http://m-design.bg/greent/note4.png) [http://m-design.bg/greent/note5_small.png](http://m-design.bg/greent/note5.png) [http://m-design.bg/greent/note6_small.png](http://m-design.bg/greent/note6.png) [http://m-design.bg/greent/note7_small.png](http://m-design.bg/greent/note7.png)
-
-
+![](http://m-design.bg/greent/note1_small.png]
+![](http://m-design.bg/greent/note2.png)
+![](http://m-design.bg/greent/note3.png)
+![](http://m-design.bg/greent/note4.png)
+![](http://m-design.bg/greent/note5.png)
+![](http://m-design.bg/greent/note6.png)
+![](http://m-design.bg/greent/note7.png)
 
 **Windows 7 with Google Chrome:**
 
-[http://m-design.bg/greent/chrome1_small.jpg](http://m-design.bg/greent/chrome1.jpg) [http://m-design.bg/greent/chrome2_small.jpg](http://m-design.bg/greent/chrome2.jpg) [http://m-design.bg/greent/chrome3_small.jpg](http://m-design.bg/greent/chrome3.jpg) [http://m-design.bg/greent/chrome4_small.jpg](http://m-design.bg/greent/chrome4.jpg) [http://m-design.bg/greent/chrome5_small.jpg](http://m-design.bg/greent/chrome5.jpg) [http://m-design.bg/greent/chrome6_small.jpg](http://m-design.bg/greent/chrome6.jpg) [http://m-design.bg/greent/chrome7_small.jpg](http://m-design.bg/greent/chrome7.jpg)
+![](http://m-design.bg/greent/chrome1.jpg)
+![](http://m-design.bg/greent/chrome2.jpg)
+![](http://m-design.bg/greent/chrome3.jpg)
+![](http://m-design.bg/greent/chrome4.jpg)
+![](http://m-design.bg/greent/chrome5.jpg)
+![](http://m-design.bg/greent/chrome6.jpg)
+![](http://m-design.bg/greent/chrome7.jpg)
