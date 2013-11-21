@@ -37,7 +37,7 @@ Installation
   * [Network Health Binding](Network-Health-Binding)
   * [Nibe Heatpump Binding](Nibe-Heat-Pump-Binding)
   * [Nikobus Binding](Nikobus-Binding)
-  * [Novelan/Luxtronic Heatpump Binding](Novelan-Heat-PumpB-inding)
+  * [Novelan/Luxtronic Heatpump Binding](Novelan-Heat-Pump-Binding)
   * [NTP Binding](Ntp-Binding)
   * [One-Wire Binding](One-Wire-Binding)
   * [Onkyo AV Receiver Binding](Onkyo-Binding)
