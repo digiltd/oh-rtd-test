@@ -6,61 +6,61 @@ Installation
  * [[Addons]]
  * [[Hardware FAQ|Hardware-FAQ]]
 
-[Features](Feature-Overview)
+[[Features|Feature-Overview]]
  * User Interfaces
   * [[Classic UI|Web-AppUI]]
   * [[iOS Client|iOS-UI]]
   * [[Android Client|HABDroid]]
   * [[GreenT UI|TouchUI]]
  * [[Bindings]]
-  * [Asterisk Binding](Asterisk-Binding)
-  * [Bluetooth Binding](Bluetooth-Binding)
-  * [Comfo Air Binding](Comfo-Air-Binding)
-  * [CUPS Binding](CUPS-Binding)
-  * [digitalSTROM Binding](digitalSTROM-Binding)
-  * [DMX512 Binding](DMX-Binding)
-  * [EnOcean Binding](EnOcean-Binding)
-  * [Epson Projector Binding](Epson-Projector-Binding)
-  * [Exec Binding](Exec-Binding)
-  * [Fritz!Box Binding](Fritz-Box-Binding)
-  * [Fritz AHA Binding](Fritz-AHA-Binding)
-  * [Homematic Binding](Homematic-Binding)
-  * [HTTP Binding](Http-Binding)
-  * [IHC / ELKO Binding](IHC-Binding)
-  * [KNX Binding](KNX-Binding)
-  * [Koubachi Binding](Koubachi-Binding)
-  * [MAX!Cube Binding](Max-Cube-Binding)
-  * [MiLight Binding](Milight-Binding)
-  * [Modbus TCP Binding](Modbus-Tcp-Binding)
-  * [MPD Binding](Mpd-Binding)
-  * [MQTT Binding](MQTT-Binding)
-  * [Network Health Binding](Network-Health-Binding)
-  * [Nibe Heatpump Binding](Nibe-Heat-Pump-Binding)
-  * [Nikobus Binding](Nikobus-Binding)
-  * [Novelan/Luxtronic Heatpump Binding](Novelan-Heat-Pump-Binding)
-  * [NTP Binding](Ntp-Binding)
-  * [One-Wire Binding](One-Wire-Binding)
-  * [Onkyo AV Receiver Binding](Onkyo-Binding)
-  * [OpenSprinkler Binding](Open-Sprinkler)
-  * [OSGi Configuration Admin Binding](Config-Admin-Binding)
-  * [Philips Hue Binding](Hue-Binding)
-  * [Piface Binding](Piface-Binding)
-  * [Plugwise Binding](Plugwise-Binding)
-  * [PLCBus Binding](PLC-Bus-Binding)
-  * [Pulseaudio Binding](Pulseaudio-Binding)
-  * [RFXCOM Binding](RFXCOM-Binding)
-  * [Samsung TV Binding](Samsung-TV-Binding)
-  * [Serial Binding](Serial-Binding)
-  * [Snmp Binding](Snmp-Binding)
-  * [Squeezebox Binding](Squeezebox-Binding)
-  * [System Info Binding](Systeminfo-Binding)
-  * [Somfy URTSI II Binding](URTSI-Binding)
-  * [Sonos Binding](Sonos-Binding)
-  * [TCP/UDP Binding](TCP-Binding)
-  * [TinkerForge Binding](Tinkerforge-Binding)
-  * [VDR Binding](VDR-Binding)
-  * [Wake-on-LAN Binding](WoL-Binding)
-  * [Z-Wave Binding](Z-Wave-Binding)
+  * [[Asterisk Binding|Asterisk-Binding]]
+  * [[Bluetooth Binding|Bluetooth-Binding]]
+  * [[Comfo Air Binding|Comfo-Air-Binding]]
+  * [[CUPS Binding|CUPS-Binding]]
+  * [[digitalSTROM Binding|digitalSTROM-Binding]]
+  * [[DMX512 Binding|DMX-Binding]]
+  * [[EnOcean Binding|EnOcean-Binding]]
+  * [[Epson Projector Binding|Epson-Projector-Binding]]
+  * [[Exec Binding|Exec-Binding]]
+  * [[Fritz!Box Binding|Fritz-Box-Binding]]
+  * [[Fritz AHA Binding|Fritz-AHA-Binding]]
+  * [[Homematic Binding|Homematic-Binding]]
+  * [[HTTP Binding|Http-Binding]]
+  * [[IHC / ELKO Binding|IHC-Binding]]
+  * [[KNX Binding|KNX-Binding]]
+  * [[Koubachi Binding|Koubachi-Binding]]
+  * [[MAX!Cube Binding|Max-Cube-Binding]]
+  * [[MiLight Binding|Milight-Binding]]
+  * [[Modbus TCP Binding|Modbus-Tcp-Binding]]
+  * [[MPD Binding|Mpd-Binding]]
+  * [[MQTT Binding|MQTT-Binding]]
+  * [[Network Health Binding|Network-Health-Binding]]
+  * [[Nibe Heatpump Binding|Nibe-Heat-Pump-Binding]]
+  * [[Nikobus Binding|Nikobus-Binding]]
+  * [[Novelan/Luxtronic Heatpump Binding|Novelan-Heat-Pump-Binding]]
+  * [[NTP Binding|Ntp-Binding]]
+  * [[One-Wire Binding|One-Wire-Binding]]
+  * [[Onkyo AV Receiver Binding|Onkyo-Binding]]
+  * [[OpenSprinkler Binding|Open-Sprinkler]]
+  * [[OSGi Configuration Admin Binding|Config-Admin-Binding]]
+  * [[Philips Hue Binding|Hue-Binding]]
+  * [[Piface Binding|Piface-Binding]]
+  * [[Plugwise Binding|Plugwise-Binding]]
+  * [[PLCBus Binding|PLC-Bus-Binding]]
+  * [[Pulseaudio Binding|Pulseaudio-Binding]]
+  * [[RFXCOM Binding|RFXCOM-Binding]]
+  * [[Samsung TV Binding|Samsung-TV-Binding]]
+  * [[Serial Binding|Serial-Binding]]
+  * [[Snmp Binding|Snmp-Binding]]
+  * [[Squeezebox Binding|Squeezebox-Binding]]
+  * [[System Info Binding|Systeminfo-Binding]]
+  * [[Somfy URTSI II Binding|URTSI-Binding]]
+  * [[Sonos Binding|Sonos-Binding]]
+  * [[TCP/UDP Binding|TCP-Binding]]
+  * [[TinkerForge Binding|Tinkerforge-Binding]]
+  * [[VDR Binding|VDR-Binding]]
+  * [[Wake-on-LAN Binding|WoL-Binding]]
+  * [[Z-Wave Binding|Z-Wave-Binding]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
   * [[rrd4j Persistence|rrd4j-Persistence]]
