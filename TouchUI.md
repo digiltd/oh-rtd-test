@@ -1,6 +1,6 @@
 # Description of GreenT UI
 
-http://m-design.bg/greent/logo.png
+![](http://m-design.bg/greent/logo.png)
 
 ## [GreenT UI Website](http://m-design.bg/greent/)
 
