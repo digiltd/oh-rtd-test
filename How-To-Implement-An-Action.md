@@ -1,5 +1,3 @@
-# This page describes how to implement a new action
-
 **NOTE*: This page is still under construction!!!*
 
 # Introduction
