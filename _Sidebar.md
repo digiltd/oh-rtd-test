@@ -99,7 +99,7 @@ Samples
 Release Notes
  * [[Version 1.3|Release-Notes-13]]
  * [[Version 1.2|Release-Notes-12]]
- * [Version 1.1|Release-Notes-11]]
+ * [[Version 1.1|Release-Notes-11]]
  * [[Version 1.0|Release-Notes-10]]
  * [[Version 0.9|Release-Notes-09]]
  * [[Version 0.8|Release-Notes-08]]
