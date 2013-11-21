@@ -10,7 +10,7 @@ This persistence service supports writing information to the command line.
 
 # Installation
 
-For installation of this persistence package please follow the same steps as if you would [[Bindings|install a binding]].
+For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
 Additionally, place a persistence file called exec.persist in the {{{${openhab.home}/configuration/persistence}}} folder.
 
