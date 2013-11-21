@@ -1,5 +1,3 @@
-# This page describes how to implement a new binding
-
 **NOTE*: This page is still under construction!!!*
 
 # Introduction
@@ -8,7 +6,7 @@ Bindings are the most interesting bit for people to get into coding for openHAB 
 
 This page tries to give you a starting point, if you intent to implement (and hopefully contribute) your own binding.
 
-For information about how to setup a development environment, please see the [according wiki page](IDESetup).
+For information about how to setup a development environment, please see the [according wiki page](IDE-Setup).
 
 # General Information about the Architecture
 
@@ -37,7 +35,7 @@ A binding may require general configuration settings, such as a host and port of
 
 openHAB then allows to add configuration information in openhab.cfg, which is automatically dispatched to your !ManagedService. All you have to make sure is to specify the property "{{{service.pid}}}" in your component declaration as "{{{org.openhab.<name>}}}", where name is the prefix to be used in openhab.cfg.
 
-Please refer to the KNX binding for an example on how to [implement a ManagedService](http://code.google.com/p/openhab/source/browse/bundles/binding/org.openhab.binding.knx/src/main/java/org/openhab/binding/knx/internal/connection/KNXConnection.java) and how to [register it through OSGi Declarative Services](http://code.google.com/p/openhab/source/browse/bundles/binding/org.openhab.binding.knx/OSGI-INF/knxconnection.xml).
+Please refer to the KNX binding for an example on how to [implement a ManagedService](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/src/main/java/org/openhab/binding/knx/internal/connection/KNXConnection.java) and how to [register it through OSGi Declarative Services](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/OSGI-INF/knxconnection.xml).
 
 more t.b.d.
 
@@ -60,7 +58,7 @@ Such bindings can be implemented pretty easily: All you have to do is to extend 
     	public void internalReceiveCommand(String itemName, Command command)
 and / or
     	protected void internalReceiveUpdate(String itemName, State newState)
-As the method signatures suggest, you are passed the name of the item and the command or state that was sent on the openHAB event bus. In these methods, you can then perform whatever code is appropriate for your use case. See the [ExecBinding class](http://code.google.com/p/openhab/source/browse/bundles/binding/org.openhab.binding.exec/src/main/java/org/openhab/binding/exec/internal/ExecBinding.java) as an example.
+As the method signatures suggest, you are passed the name of the item and the command or state that was sent on the openHAB event bus. In these methods, you can then perform whatever code is appropriate for your use case. See the [ExecBinding class](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.exec/src/main/java/org/openhab/binding/exec/internal/ExecBinding.java) as an example.
 
 All there is left to do is to register your class with the OSGi event admin service. To do so, your component has to provide the {{{EventHandler}}} service and define the property {{{event.topics}}}. In your {{{OSGI-INF/binding.xml}}} file, this should look like this:
        <service>
@@ -68,7 +66,7 @@ All there is left to do is to register your class with the OSGi event admin serv
        </service>
        <property name="event.topics" type="String" value="openhab/*"/>
 If you are only interested in commands, you can also choose {{{openhab/command/*}}} as a topic.
-See the [component descriptor of the ExecBinding](http://code.google.com/p/openhab/source/browse/bundles/binding/org.openhab.binding.exec/OSGI-INF/binding.xml) as an example.
+See the [component descriptor of the ExecBinding](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.exec/OSGI-INF/binding.xml) as an example.
 
 ## External System -> openHAB Event Bus
 
@@ -87,7 +85,7 @@ Please note the difference between {{{sendCommand}}} and {{{postCommand}}}: Send
 In order to receive information from an external system, you usually either need some background thread continuously listening to the external system (e.g. on a socket or serial interface) or you need to regularly actively poll the external system. In both cases, choosing to extend the class {{{AbstractActiveBinding}}} will help you.
 
 {{{AbstractActiveBinding}}} extends {{{AbstractBinding}}} so everything said above will still be the same. You will simply get an additional feature: The active binding provides a thread creation and handling and all you have to do is to specify a pause interval between calls of the {{{execute()}}} method. 
-See the [NtpBinding class](http://code.google.com/p/openhab/source/browse/bundles/binding/org.openhab.binding.ntp/src/main/java/org/openhab/binding/ntp/internal/NtpBinding.java) for a simple example of such a binding.
+See the [NtpBinding class](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.ntp/src/main/java/org/openhab/binding/ntp/internal/NtpBinding.java) for a simple example of such a binding.
 
 ### Lifecycle
 
