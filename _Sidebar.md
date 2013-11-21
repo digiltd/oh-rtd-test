@@ -8,10 +8,10 @@ Installation
 
 [Features](Feature-Overview)
  * User Interfaces
-  * [Classic UI](Web-AppUI)
-  * [iOS Client](iOS-UI)
-  * [Android Client](HABDroid)
-  * [GreenT UI](TouchUI)
+  * [[Classic UI|Web-AppUI]]
+  * [[iOS Client|iOS-UI]]
+  * [[Android Client|HABDroid]]
+  * [[GreenT UI|TouchUI]]
  * [[Bindings]]
   * [Asterisk Binding](Asterisk-Binding)
   * [Bluetooth Binding](Bluetooth-Binding)
@@ -62,13 +62,13 @@ Installation
   * [Wake-on-LAN Binding](WoL-Binding)
   * [Z-Wave Binding](Z-Wave-Binding)
  * [[Persistence]]
-  * [db4o Persistence](db4o-Persistence)
-  * [rrd4j Persistence](rrd4j-Persistence)
-  * [Sql Persistence](Sql-Persistence)
-  * [Sen.Se Persistence](Sense-Persistence)
-  * [Cosm Persistence](Cosm-Persistence)
-  * [Logging Persistence](Logging-Persistence)
-  * [Exec Persistence](Exec-Persistence)
+  * [[db4o Persistence|db4o-Persistence]]
+  * [[rrd4j Persistence|rrd4j-Persistence]]
+  * [[Sql Persistence|Sql-Persistence]]
+  * [[Sen.Se Persistence|Sense-Persistence]]
+  * [[Cosm Persistence|Cosm-Persistence]]
+  * [[Logging Persistence|Logging-Persistence]]
+  * [[Exec Persistence|Exec-Persistence]]
  * Automation
   * [[Scripts]]
   * [[Rules]]
@@ -76,41 +76,41 @@ Installation
  * Misc
   * [[REST-API]]
   * [[Security]]
-  * [Google Calendar Support](GCal-Binding)
-  * [Twitter Action](Twitter-Action)
-  * [Service Discovery](Service-Discovery)
-  * [Dropbox Bundle](Dropbox-IO)
-  * [CometVisu](Comet-Visu)
+  * [[Google Calendar Support|GCal-Binding]]
+  * [[Twitter Action|Twitter-Action]]
+  * [[Service Discovery|Service-Discovery]]
+  * [[Dropbox Bundle|Dropbox-IO]]
+  * [[CometVisu|Comet-Visu]]
 
 Samples
- * [Item definitions](Samples-Item-Definitions)
- * [Sitemap definitions](Samples-Sitemap-Definitions)
- * [Binding configurations](Samples-Binding-Config)
- * [Rules](Samples-Rules)
- * [REST Examples](Samples-REST)
- * [Tips & Tricks](Samples-Tricks)
+ * [[Item definitions|Samples-Item-Definitions]]
+ * [[Sitemap definitions|Samples-Sitemap-Definitions]]
+ * [[Binding configurations|Samples-Binding-Config]]
+ * [[Rules|Samples-Rules]]
+ * [[REST Examples|Samples-REST]]
+ * [[Tips & Tricks|Samples-Tricks]]
  * [[FAQ]]
- * [XSL Transforms](Samples-XSLT-Transformations)
- * [Scripts](Samples-Scripts)
- * [Integration with other applications](Samples-Integration)
- * [Syntax highlighting for external editors](Syntax-Highlighting)
- * [Update-Scripts](openhab-Get-Snapshot)
+ * [[XSLT Transforms|Samples-XSLT-Transformations]]
+ * [[Scripts|Samples-Scripts]]
+ * [[Integration with other applications|Samples-Integration]]
+ * [[Syntax highlighting for external editors|Syntax-Highlighting]]
+ * [[Update-Scripts|openhab-Get-Snapshot]]
 
 Release Notes
- * [Version 1.3](Release-Notes-13)
- * [Version 1.2](Release-Notes-12)
- * [Version 1.1](Release-Notes-11)
- * [Version 1.0](Release-Notes-10)
- * [Version 0.9](Release-Notes-09)
- * [Version 0.8](Release-Notes-08)
- * [Version 0.7](ReleaseNotes-07)
- * [Version 0.6](ReleaseNotes-06)
+ * [[Version 1.3|Release-Notes-13]]
+ * [[Version 1.2|Release-Notes-12]]
+ * [Version 1.1|Release-Notes-11]]
+ * [[Version 1.0|Release-Notes-10]]
+ * [[Version 0.9|Release-Notes-09]]
+ * [[Version 0.8|Release-Notes-08]]
+ * [[Version 0.7|ReleaseNotes-07]]
+ * [[Version 0.6|ReleaseNotes-06]]
 
 Community
- * [Support](Support-options-for-openHAB)
- * [News Archive](News-Archive)
+ * [[Support|Support-options-for-openHAB]]
+ * [[News Archive|News-Archive]]
  * [[Presentations]]
- * [How to Contribute](How-To-Contribute)
- * [IDE Setup](IDE-Setup)
- * [How to Implement a Binding](How-To-Implement-A-Binding)
- * [How to Implement an Actions](How-To-Implement-An-Action)
+ * [[How to Contribute|How-To-Contribute]]
+ * [[IDE Setup|IDE-Setup]]
+ * [[How to Implement a Binding|How-To-Implement-A-Binding]]
+ * [[How to Implement an Actions|How-To-Implement-An-Action]]
