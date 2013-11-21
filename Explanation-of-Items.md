@@ -105,7 +105,7 @@ Items can be bound to specific openHAB bindings by adding a binding definition i
 
 where "nsx" is the namespace for a certain binding (e.g. "knx", "bluetooth", "serial" etc.). 
 
-For detailed binding configutation syntax of openHAB bindings please see [[Bindings|the openHAB bindings configuration section]].
+For detailed binding configutation syntax of openHAB bindings please see the openHAB [[Bindings]] configuration section.
 
 Here is an example of how your items file might look like with binding configuration added to it:
 
@@ -115,7 +115,7 @@ Here is an example of how your items file might look like with binding configura
 
 ## Examples
 
-The openHAB runtime comes with a [demo items file](http://code.google.com/p/openhab/source/browse/distribution/openhabhome/configurations/items/demo.items), here is a short excerpt from it:
+The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/items/demo.items), here is a short excerpt from it:
 
     Group All
     Group gGF 	(All)
@@ -132,6 +132,4 @@ The openHAB runtime comes with a [demo items file](http://code.google.com/p/open
     /* Indoor Temperatures */
     Number Temperature_GF_Living 	"Temperature [%.1f °C]"	<temperature>	(GF_Living)
 
-Further examples for defining items can be found in our openHAB-samples WIKI:
-[Source code for item objects can be found here:
-[https://code.google.com/p/openhab/source/browse/#hg%2Fbundles%2Fcore%2Forg.openhab.core.library%2Fsrc%2Fmain%2Fjava%2Forg%2Fopenhab%2Fcore%2Flibrary%2Fitems](https://code.google.com/p/openhab-samples/wiki/ItemDef])
+Further examples for defining items can be found in our [openHAB-samples section](Samples-Item-Definitions). The currently implemented item types can be found in [source code](https://github.com/openhab/openhab/tree/master/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/types).
