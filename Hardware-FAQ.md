@@ -5,7 +5,7 @@
 This page summarizes helpful information on how to get openHAB working on specific hardware.
 Users are very welcome to provide tips&tricks here, e.g. on JVM experiences, embedded systems etc.
 
-Please note: This page is NOT about home automation hardware - we expect that you either already have hardware or consult other websites for such questions; there are simply far too many different options you could possibly consider. For what systems openHAB can connect to, please see the list of [available bindings](http://code.google.com/p/openhab/wiki/Features#Bindings).
+Please note: This page is NOT about home automation hardware - we expect that you either already have hardware or consult other websites for such questions; there are simply far too many different options you could possibly consider. For what systems openHAB can connect to, please see the list of [available bindings](Bindings).
 
 ## General Hardware Requirements
 
