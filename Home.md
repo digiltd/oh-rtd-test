@@ -1,5 +1,3 @@
-# Introduction
-
 If you are completely new to openHAB and you prefer listening over reading, you can start with our presentation at Devoxx in 2012, which is available on Parleys:
 
 [ [[images/parleys.jpg]]](http://parleys.com/play/5148922b0364bc17fc56c8c3/chapter10/agenda)
