@@ -14,7 +14,7 @@ As openHAB makes use of the Xbase framework to allow interpreting scripts at run
 
 # Creating an Action Skeleton
 
-As explained above, an action should correspond to one bundle. The naming convention for the action bundle is "{{{org.openhab.action.<name>}}}". To create a working action skeleton one should use the maven archetype which facilitates the creation process. The following steps have to be performed:
+As explained above, an action should correspond to one bundle. The naming convention for the action bundle is "`org.openhab.action.<name>`". To create a working action skeleton one should use the maven archetype which facilitates the creation process. The following steps have to be performed:
 
 1. run a full build (meaning run `mvn clean install` in the topmost directory)
 1. `cd ./bundles/archetype/./org.openhab.archetype.action`
@@ -29,7 +29,7 @@ Another possibility is to copy an existing action and do a search&replace for th
 
 # Action Configuration
 
-Many actions might require configuration data. The generated action service class therefore already implements the !ManagedService interface and registers as such an OSGi service. This has the effect that you can add configuration data like {{{<action-name-in-small-caps>:<property>=<value>}}} in your openhab.cfg, which will then be automatically passed into the {{{updated()}}} method of your action service. In there you can store the configuration data and make it available to your action class.
+Many actions might require configuration data. The generated action service class therefore already implements the !ManagedService interface and registers as such an OSGi service. This has the effect that you can add configuration data like `<action-name-in-small-caps>:<property>=<value>` in your openhab.cfg, which will then be automatically passed into the `updated()` method of your action service. In there you can store the configuration data and make it available to your action class.
  
 
 # Building and Packaging
