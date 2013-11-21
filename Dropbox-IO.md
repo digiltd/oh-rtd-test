@@ -24,7 +24,7 @@ You'll have to authorize openHAB to connect to your Dropbox. This is done in a t
 
 **Step 3** needs interaction, too. Please copy the token shown on the Dropbox Webpage and issue the following command `finishAuthentication "lsdfgkj03lewkfd987349z3kjh222"` on the OSGi console.
 
-http://wiki.openhab.googlecode.com/hg/images/screenshots/dropbox-authorization.png
+![](images/screenshots/dropbox-authorization.png)
 
 
 # Sync Modes
