@@ -104,18 +104,19 @@ on different modbus address ranges and modbus functions
 
 NOTE: the moxa e1200 modules give by reading with function 02 from start=0 the content of register 10000 aka DI-00, an reading with function code 1 gives the address 00000 this is a little bit scary, reading from other plc can be different! 
 
-
 ## Item Binding Configuration
 
 ModbusBindingProvider provides binding for Openhab Items
 There are two ways to bind an item to modbus coils/registers
 
  1) single coil/register per item
+
      Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}
 
  This binds MySwitch to modbus slave defined as "slave1" in openhab.config reading/writing to the coil 5
 
  2) separate coils for reading and writing
+
      Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:<6:>7"}
  In this case coil 6 is used as status coil (readonly) and commands are put to coil 7 by setting coil 7 to true.
  Your hardware should then set coil 7 back to false to allow further commands processing. 
@@ -134,8 +135,8 @@ There are two ways to bind an item to modbus coils/registers
  and in sitemap
 
       Setpoint item=Dimmer1 minValue=0 maxValue=100 step=5
-  NOTE: if the value goes over a byte this case is fully untested!!!
-   this example should write the value to all DO bits of an moxa e1212 as byte value
+**NOTE:** if the value goes over a byte this case is fully untested!!!
+this example should write the value to all DO bits of an moxa e1212 as byte value
 
  5) read only byte register `type=input`
 
