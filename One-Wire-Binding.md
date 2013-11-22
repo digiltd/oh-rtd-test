@@ -2,7 +2,7 @@
 
 # Introduction
 
-The !OneWire bus system is a lightweight and cheap bus system mostly used for sensors like, temperature, humidity and presence but there are also switches available. The binding is designed to work as client of the [ow-server](http://owfs.org/index.php?page=owserver_protocol) which implements the [owserver-protocol](http://owfs.org/index.php?page=owserver-protocol). The !OneWire devices could be connected to the machine running ow-server by a [USB-Adapter](http://shop.wiregate.de/wiregate/usb-produkte/ds9490r-1-wire-usb-adapter.html). For detailed information on !OneWire please refer to http://en.wikipedia.org/wiki/One_wire or http://owfs.org.
+The OneWire bus system is a lightweight and cheap bus system mostly used for sensors like, temperature, humidity and presence but there are also switches available. The binding is designed to work as client of the [ow-server](http://owfs.org/index.php?page=owserver_protocol) which implements the [owserver-protocol](http://owfs.org/index.php?page=owserver-protocol). The OneWire devices could be connected to the machine running ow-server by a [USB-Adapter](http://shop.wiregate.de/wiregate/usb-produkte/ds9490r-1-wire-usb-adapter.html). For detailed information on OneWire please refer to http://en.wikipedia.org/wiki/One_wire or http://owfs.org.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -27,11 +27,12 @@ Here are some examples of valid binding configuration strings:
 
 
 As a result, your lines in the items file might look like the following:
+
     Number Temperature_FF_Office 	"Temperature [%.1f ¬∞C]"	<temperature>	(FF_Office)		{ onewire="26.AF9C32000000#temperature" }
 
 # Known Limitations
 
-The !OneWire binding currently accepts only items of type Number which is good enough for temperature and humidity sensors. But for other sensors (e.g. Door contact) it would be good to support Contact items as well. Though you can use Number items with door contacts as well but you have to convert the resulting '0' to CLOSED and the '1' to OPEN with the help of rules.
+The OneWire binding currently accepts only items of type Number which is good enough for temperature and humidity sensors. But for other sensors (e.g. Door contact) it would be good to support Contact items as well. Though you can use Number items with door contacts as well but you have to convert the resulting '0' to CLOSED and the '1' to OPEN with the help of rules.
 
 # Roadmap & wishlist
 
