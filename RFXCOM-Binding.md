@@ -85,9 +85,9 @@ Examples, how to configure your items:
   <tr><td>TEMPERATUREHUMIDITY.RTGR328</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.THGR328</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.WTGR800</td><td>Untested</td><td></td></tr>
-  <tr><td>TEMPERATUREHUMIDITY.THGR918_THGRN228_THGN50</td><td>Untested</td><td></td></tr>
+  <tr><td>TEMPERATUREHUMIDITY.<br>THGR918_THGRN228_THGN50</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.TFA_TS34C__CRESTA</td><td>Untested</td><td></td></tr>
-  <tr><td>TEMPERATUREHUMIDITY.WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
+  <tr><td>TEMPERATUREHUMIDITY.<br>WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Untested</td><td></td></tr>
 </table>
 
