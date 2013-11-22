@@ -17,7 +17,7 @@ These are the bundles that are contained in the package:
 - [Network Health Binding](Network-Health-Binding): Monitor your server availability
 - [Exec Binding](Exec-Binding): Execute any command on the host
 - [Serial Binding](Serial-Binding): Access devices connected via USB/RS-232
-- [Http Binding[(HTTP-Binding): Get data from the internet or send out requests
+- [Http Binding](HTTP-Binding): Get data from the internet or send out requests
 - [Fritz Box Binding](Fritz-Box-Binding): React on call notifications from your !FritzBox
 - [Ntp Binding](NTP-Binding): Get the precise time from NTP servers
 - [Mpd Binding](MPD-Binding): Control music playback on Music Player Deamon (MPD) clients
