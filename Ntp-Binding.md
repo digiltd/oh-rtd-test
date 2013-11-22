@@ -1,10 +1,8 @@
-# Documentation of the NTP binding Bundle
-
-# Introduction
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a NTP query, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the NTP binding configuration string is explained here:
 
@@ -26,6 +24,6 @@ If you like to post the quried time to the knx-bus your line might looke like:
 49ab0754c9ad1691acbbc634e4b41a78
 where 11.001 is the KNX date type and 10.001 is the KNX time type
 
-# Example configurations
+## Example configurations
 
 Example configurations can be found [https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig here](]`).
