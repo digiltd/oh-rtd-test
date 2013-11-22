@@ -12,6 +12,7 @@ At first it's required to set your serialport device in the main config file 'co
 
     plcbus:port=/dev/ttyUSB0
 or
+
     plcbus:port=COM1
 
 ## Generic Item Binding Configuration
