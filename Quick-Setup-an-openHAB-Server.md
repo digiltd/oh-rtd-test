@@ -47,8 +47,8 @@ In this file we define groups and items. Groups might be into groups, and items 
 
 The items may include the KNX group address to use them. They might be actively read by openHAB or not. They look like this:
 
-- `Number Lighting_Room_Sensor "Lighting in the Room [Lux](%.2f)"     <switch>        (Room,Lighting) { knx = "<0/1/1" }`: This is a sensor item. It uses the 0/1/1 group address and openHAB will ask for its value periodically because there is a "<" sign before the address. It is a number item, called Lighting_Room_Sensor, and belongs to Room and Lighting groups.
-- `Switch Light_Room_Table       "Table Light"               (Room, Lights) { knx = "<0/1/10+0/1/30"}`: This is a switch item that has two addresses. openHAB may respond to events in any of them, but may actively read the first one.
+- `Number Lighting_Room_Sensor "Lighting in the Room [Lux](%.2f)"  <switch> (Room,Lighting) { knx = "<0/1/1" }`: This is a sensor item. It uses the 0/1/1 group address and openHAB will ask for its value periodically because there is a "<" sign before the address. It is a number item, called Lighting_Room_Sensor, and belongs to Room and Lighting groups.
+- `Switch Light_Room_Table  "Table Light" (Room, Lights) { knx = "<0/1/10+0/1/30"}`: This is a switch item that has two addresses. openHAB may respond to events in any of them, but may actively read the first one.
 
 For more info about other options have a look at the demo.items file.
 
@@ -59,7 +59,7 @@ In this file we tell openHAB how we want the items to be shown in the user inter
 - `sitemap demo label="Main Menu"`: This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.
 - You may find descriptions like:
 
-    Frame label="Demo" {
+```    Frame label="Demo" {
                     Text label="Group Demo" icon="1stfloor" {
                             Switch item=Lights mappings=[OFF="All Off"]
                             Group item=Heating
@@ -71,7 +71,7 @@ In this file we tell openHAB how we want the items to be shown in the user inter
                             Slider item=Volume
                     }
             }
-
+```
 - This means that you want a frame with a visual label "Demo". Then, inside you want two elements:
 - An item called Group Demo with 1stfloor icon that contains 4 items.
 - The first one is the group Lights, that has a mapping. It means that when it receives a value of OFF, it might show a "All off" text.
