@@ -1,3 +1,5 @@
+Documentation of the Samsung TV binding Bundle
+
 ## Introduction
 
 Binding should be compatible with Samsung TV models which support Apple and Android remote applications.
