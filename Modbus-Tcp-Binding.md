@@ -1,14 +1,14 @@
-# Documentation of the Modbus TCP binding Bundle
+Documentation of the Modbus TCP binding Bundle
 
-# Introduction
+## Introduction
 
 The modbus TCP binding polls the bus in an configurable interval for a configurable length.  
 
 For installation of the binding, please see Wiki page [[Bindings]].
  
-# Details
+## Details
 
-# Binding Configuration
+## Binding Configuration
 
 add to `${openhab_home}/configuration/`
 
@@ -25,7 +25,6 @@ which sets refresh interval to Modbus polling service. Value is in milliseconds 
      <slave-type> can be either "tcp" or "serial"
      <slave-name> is unique name per slave you are connecting to.
      <slave-parameter> are pairs key=value
-
 
 
 Valid keys are
@@ -49,19 +48,17 @@ Modbus write functions
 - `type=holding` uses function is 6,
  see also http://www.simplymodbus.ca
 
- with `type=holding` and `type=input` you can now only operate with datatype byte!!!
- see point 4 below
+with `type=holding` and `type=input` you can now only operate with datatype byte!!!
+see point 4 below
 
- Minimal construction in openhab.config will look like (for TCP connection)
+Minimal construction in openhab.config will look like (for TCP connection)
 
-` 
- modbus:tcp.slave1.connection=192.168.1.50
- modbus:tcp.slave1.length=10
- modbus:tcp.slave1.type=coil
-`
+    modbus:tcp.slave1.connection=192.168.1.50
+    modbus:tcp.slave1.length=10
+    modbus:tcp.slave1.type=coil
  
- connects to slave at ip=192.168.1.50 and reads 10 coils starting from address 0
- More complex setup could look like
+connects to slave at ip=192.168.1.50 and reads 10 coils starting from address 0
+More complex setup could look like
 
     modbus:tcp.slave1.connection=192.168.1.50:502
     modbus:tcp.slave1.id=41
@@ -70,11 +67,11 @@ Modbus write functions
     modbus:tcp.slave1.length=32
     modbus:tcp.slave1.type=coil
 
- example for an moxa e1214 module in simple io mode
- 6 output switches starting from modbus address 0 and
- 6 inputs from modbus address 10000 (the function 2 implizits the modbus 10000 address range)
- you only read 6 input bits and say start from 0
- the moxa manual ist not right clear in this case 
+example for an moxa e1214 module in simple io mode
+6 output switches starting from modbus address 0 and
+6 inputs from modbus address 10000 (the function 2 implizits the modbus 10000 address range)
+you only read 6 input bits and say start from 0
+the moxa manual ist not right clear in this case 
 
     modbus:poll=300
     
@@ -102,13 +99,13 @@ Modbus write functions
     modbus:tcp.slave4.length=2
     modbus:tcp.slave4.type=holding
 
- here we use the same modbus gateway with ip 192.168.6.180 twice 
- on different modbus address ranges and modbus functions
+here we use the same modbus gateway with ip 192.168.6.180 twice 
+on different modbus address ranges and modbus functions
 
 NOTE: the moxa e1200 modules give by reading with function 02 from start=0 the content of register 10000 aka DI-00, an reading with function code 1 gives the address 00000 this is a little bit scary, reading from other plc can be different! 
 
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 ModbusBindingProvider provides binding for Openhab Items
 There are two ways to bind an item to modbus coils/registers
@@ -124,6 +121,7 @@ There are two ways to bind an item to modbus coils/registers
  Your hardware should then set coil 7 back to false to allow further commands processing. 
 
  3) input coil only for reading
+
      Contact Contact1 "Contact1 [MAP(en.map):%s]" (All)   {modbus="slave2:0"}
  In this case regarding to moxa example coil 0 is used as discrete input (in Moxa naming DI-00)
 
@@ -131,13 +129,16 @@ There are two ways to bind an item to modbus coils/registers
  counter values in most cases 16bit values, now we must do math: in rules to deal with them ...
 
  4) read write byte register
+
       Number Dimmer1 "Dimmer1 [%d]" (ALL) {modbus="slave4:0"}
-  and in sitemap
+ and in sitemap
+
       Setpoint item=Dimmer1 minValue=0 maxValue=100 step=5
   NOTE: if the value goes over a byte this case is fully untested!!!
    this example should write the value to all DO bits of an moxa e1212 as byte value
 
  5) read only byte register `type=input`
+
       Number MyCounterH "My Counter high [%d]" (All) {modbus="slave3:0"}
  this reads counter 1 high word
       Number MyCounterL "My Counter low [%d]" (All) {modbus="slave3:1"}
