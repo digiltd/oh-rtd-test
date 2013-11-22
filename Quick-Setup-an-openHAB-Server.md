@@ -1,6 +1,6 @@
 **WARNING**: this quick setup is an example for a KNX environment. You may need additional addons and configurations for other bindings.
 
-# What do you need
+## What do you need
 
 1. You will need to install Java if not already installed. Go to http://java.com/ to get it.
 1. `openhab-runtime-<version>.zip`. This is the server.
