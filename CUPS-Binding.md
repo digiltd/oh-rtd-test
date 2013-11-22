@@ -19,9 +19,11 @@ Here are some examples of valid binding configuration strings:
     cups="http://127.0.0.1:631/printers/MX-870"
 
 As a result, your lines in the items file might look like the following: 
-    Number Print_Jobs_Queued    "Unfinished print jobs"   (FF_Office)             { cups="MX-870#NOT_COMPLETED" }
+
+    Number  Print_Jobs_Queued   "Unfinished print jobs"   (FF_Office)   { cups="MX-870#NOT_COMPLETED" }
 
 In order to find out the name/url of your printer on the CUPS-Server you can download the current `cups4j.runnable-x.x.x.jar` file from http://www.cups4j.org/ and query the printers by using the following command
+
     java -jar cups4j.runnable-x.x.x.jar -h <CUPS-Server name> getPrinters
 
 ## Example Use Case
