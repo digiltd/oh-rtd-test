@@ -1,3 +1,5 @@
+Documentation of the Somfy URTSI II binding Bundle
+
 ## Introduction
 
 The **Somfy URTSI II binding bundle** is available as a separate (optional) download. If you want to communicate with a Somfy URTSI II device, please place this bundle in the folder ${openhab_home}/addons and add binding information to your configuration. See the following sections on how to do this.
@@ -33,6 +35,6 @@ The **channelId** is the configured RTS channel you want the item to bind to. Ea
 Only rollershutter items are allowed to use this binding. The binding is able to handle UP, DOWN and MOVE commands.
 
 As a result, your lines in the items file might look like the following:
-    Rollershutter RollershutterKitchen   		"Kitchen"               { urtsi="device1:1" }
-    
-    Rollershutter RollershutterLivingRoom   	"Living room"           { urtsi="device1:2" }
+
+    Rollershutter RollershutterKitchen   	"Kitchen"            { urtsi="device1:1" }
+    Rollershutter RollershutterLivingRoom   	"Living room"        { urtsi="device1:2" }
