@@ -1,3 +1,5 @@
+Documentation for the Piface binding
+
 ## Introduction
 
 A Piface extension board is attached to a Raspberry Pi via the GPIO connector. It has 8 digital input and 8 digital output pins. It is not possible to set the value of input pins, or read the value of output pins. There is plenty of documentation on the web about the Piface board and how it can be used.
