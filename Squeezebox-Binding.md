@@ -35,6 +35,15 @@ The syntax of an item configuration is shown in the following line in general:
 Where `player-id` matches one of the ids defined in your openhab.cfg file.
 
 ## Squeezebox commands
+| Command     | Purpose                   |
+| ----------- |:-------------------------:|
+| power       | Power on/off your device  |
+| mute        | Mute/unmute your device   |
+| volume      | Change volume by 5%       |
+| play        | Play the current title    |
+| pause       | Pause the current title   |
+| stop        | Stop the current title    |
+| http:stream | Play the given http stream (obsolete as there is now a new playUrlSqueezebox() action for handling this inside rules directly) |
 
 <table>
   <tr><td>**Command**</td><td>**Purpose**</td></tr>
