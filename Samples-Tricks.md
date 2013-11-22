@@ -226,7 +226,7 @@ Create a new file in /etc/init.d/openhab using your preferred editor (e.g. nano)
 Make the script executable and configure it to run on boot.
 
     sudo chmod a+x /etc/init.d/openhab
-    sudo update-rc.d /etc/init.d/openhab defaults
+    sudo update-rc.d openhab defaults
 
 Now whenever your Linux machine boots openHAB will be automatically started.
 
