@@ -81,6 +81,7 @@ To create a new theme:
     	 'black',
     	 'black-glass'
     ];
+
 4. Add 'my_theme' to this list.
 
 Done! We have a new theme, named "my_theme" and you can choose it from the Settings window.
@@ -115,7 +116,6 @@ To add a new translation:
  
     OpenHAB.i18n_strings[= {
         language_name: 'English',
-
         // -------- Interface texts ---------
         back: 'Back',
 	interfaces: 'Interfaces',
