@@ -114,7 +114,7 @@ To add a new translation:
 
 2. Find the following text:
  
-    OpenHAB.i18n_strings[= {
+    OpenHAB.i18n_strings['en'] = {
         language_name: 'English',
         // -------- Interface texts ---------
         back: 'Back',
@@ -124,7 +124,7 @@ To add a new translation:
 
 3. Copy it somewhere below and edit the texts.
 
-**IMPORTANT:** You have to change the language signature in the first line. For example `OpenHAB.i18n_strings['en']('en'])` becomes `OpenHAB.i18n_strings['ru']` Don't forget to change `language_name` too.
+**IMPORTANT:** You have to change the language signature in the first line. For example `OpenHAB.i18n_strings['en']` becomes `OpenHAB.i18n_strings['ru']` Don't forget to change `language_name` too.
 
 ## Screenshots
 
