@@ -1,3 +1,5 @@
+Documentation of the OpenSprinkler binding Bundle
+
 ## Introduction
 
 https://www.youtube.com/watch?v=lT0uxFlwu9s <br/>
