@@ -1,22 +1,23 @@
-# Documentation of the Novelan (Siemens) HeatPump binding Bundle
+Documentation of the Novelan (Siemens) HeatPump binding Bundle
 
-# Introduction
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
 This Binding was created for Novelan Heatpump. Novelan is identical in construction to Luxtronic (Alpha Innotec). So this bundle can be used with Loxtronic, too.
 
-# Disclaimer
+## Disclaimer
 
 The whole functionality was reverse engineered via tcpdump, so use it at your own risk. 
 
-# Precondition
+## Precondition
 
 The Heatpump bundle connects to your Heatpump via network. Make sure your Heatpump is connected to your network and the network settings are configured. To excess the network settings go in the Heatpump Service menu -> system control -> IP address.
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 The binding configurations format is simple and looks like this:
+
     novelanheatpump ="<eventType>"
 
 where eventType is one of the following values:
@@ -90,14 +91,15 @@ As a result, your lines in the items file might look like the following:
     Number HeatPump_Massflow 	"Massentrom [%.1f L/h]"	<energy> (Heatpump) { novelanheatpump="massflow" }
     String HeatPump_State   "Status [%s]"   <temperature> (Heatpump) { novelanheatpump="extended_state" }
 
-# Gallery
+## Gallery
 
-The following charts are created via the rrd4j chart and heatpump bundle. 
+The following charts are created via the rrd4j chart and heatpump bundle. <br/>
 
-http://wiki.openhab.googlecode.com/hg/images/screenshots/noveleanheatpump_rrdchart_d.png
-http://wiki.openhab.googlecode.com/hg/images/screenshots/noveleanheatpump_rrdchart_w.png
+![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/noveleanheatpump_rrdchart_d.png "RRD Chart")
 
-# Further planned features (not yet implemented)
+![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/noveleanheatpump_rrdchart_w.png "RRD Chart")
+
+## Further planned features (not yet implemented)
 
 - accesc the errorlog
 - change state of Heatpump  (on/off/party)
