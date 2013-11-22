@@ -44,7 +44,7 @@ The following configuration items can be set in the openhab file -:
 - retries: Sets the number of retries before giving up. The retries will be sent every *timeout* milliseconds. Defaults to 0 (no retries).
 
 
-# Binding Port
+## Binding Port
 
 By default the SNMP binding binds to localhost on Port _162_ which is the SNMP default port. However on `*`nix Systems this port can only be bind by privileged users (root, sudo). Since openHAB won't be run under a privileged user a !BindException will be thrown.
 
