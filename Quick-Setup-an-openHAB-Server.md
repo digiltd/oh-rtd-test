@@ -16,7 +16,6 @@ To install it, follow these simple steps:
 1. Copy the bindings you have downloaded -`knx-binding-<version>.jar` and `http-binding-<version>.jar`- to the "addons" directory.
 1. Create a personal configuration file by copying the file `configurations/openhab_default.cfg` to `configurations/openhab.cfg`.
  
-
 ## OPTIONAL: Installing the openHAB designer
 
 The openHAB designer comes as a platform-*dependent* zip, so choose the right one for your platform.
@@ -25,7 +24,6 @@ To install it, follow these simple steps:
 1. Unzip the `openhab-designer-<platform>-<version>.zip` to some directory, e.g. `C:\openhab-designer` resp. `/opt/openhab-designer`
 1. Launch it by the executable `openHAB-Designer.exe` (resp. `openHAB-Designer` if you are on a Mac or Linux)
 1. Select the "configurations" folder of your runtime installation in the folder dialog that is shown when selecting the "open folder" toolbar icon.
-
 
 ## Configuring the server
 
@@ -59,18 +57,19 @@ In this file we tell openHAB how we want the items to be shown in the user inter
 - `sitemap demo label="Main Menu"`: This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.
 - You may find descriptions like:
 
-```    Frame label="Demo" {
-                    Text label="Group Demo" icon="1stfloor" {
-                            Switch item=Lights mappings=[OFF="All Off"]
-                            Group item=Heating
-                            Group item=Windows
-                            Text item=Temperature
-                    }
-                    Text label="Multimedia" icon="video" {
-                            Selection item=Radio_Station mappings=[0=off, 1=HR3, 2=SWR3, 3=FFH, 4=Charivari]
-                            Slider item=Volume
-                    }
+```    
+    Frame label="Demo" {
+         Text label="Group Demo" icon="1stfloor" {
+                Switch item=Lights mappings=[OFF="All Off"]
+                Group item=Heating
+                Group item=Windows
+                Text item=Temperature
+         }
+         Text label="Multimedia" icon="video" {
+                Selection item=Radio_Station mappings=[0=off, 1=HR3, 2=SWR3, 3=FFH, 4=Charivari]
+                Slider item=Volume
             }
+    }
 ```
 - This means that you want a frame with a visual label "Demo". Then, inside you want two elements:
 - An item called Group Demo with 1stfloor icon that contains 4 items.
