@@ -1,6 +1,4 @@
-# Documentation of the SNMP binding Bundle
-
-# Introduction
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -8,19 +6,18 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 The SNMP binding allows SNMP GET (polling) and SNMP SET (commanding), and the reception of SNMP TRAPs (asynchronous events). SNMP is often found in network equipment, and the binding can be used to ensure your network is operating correctly. The out binding can be used to configure network settings.
 
-
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a SNMP OID (to be precise an OID prefix), you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the SNMP binding configuration string is explained here:
 
     in:   snmp="<[address:community:oid:update]"
     out:  snmp=">[cmd:address:community:oid:value]"
     trap: snmp="<[address:community:oid:0]"
+
 - Address is the IP address of the SNMP device
 - Community is the SNMP community string
 - OID is the object id to GET or SET
 - Value is the number to SET. This can only be an integer value.
-
 
 Here are some examples of valid binding configuration strings:
 
@@ -37,8 +34,7 @@ As a result, your lines in the items file might look like the following:
 
 The above configuration allows reading the state of the Power over Ethernet on a Netgear switch, and to change the state of the power. In this configuration, it allows reading back the status, and turning on and off the power of a powered WiFi Access Point.
 
-
-# openhab.cfg configuration
+## openhab.cfg configuration
 
 The following configuration items can be set in the openhab file -:
 
