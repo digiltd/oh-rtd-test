@@ -1,30 +1,28 @@
-# Documentation of the Homematic binding bundle
+http://www.youtube.com/watch?v=F0ImuuIPjYk
 
-<wiki:video url="http://www.youtube.com/watch?v=F0ImuuIPjYk"/>
-
-# Introduction
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Hardware
+## Hardware
 
-## Controller
+### Controller
 
 The controller "speaks" with the homematic devices through the properiatry wireless protocol of homematic.
 
-### CCU 1
+#### CCU 1
 
 The best supported hardware so far for Homematic is the CCU (1). 
 
-### CCU 2
+#### CCU 2
 
 The second version (beginning with mid 2013) should work in most circumstances, but is not as widely used as the first version. 
 
-### LAN Adapter
+#### LAN Adapter
 
 One of the cheaper alternatives is to use the Homematic LAN Adapter and the windows daemon. The windows daemon is reported to work under wine as well.
 
-### CUL
+#### CUL
 
 The other cheaper alternative is the CUL stick. The CUL is an USB stick that can be used as a wireless transceiver. It ca be programmed to be used with a hughe amount of wireless protocols, under which you can find the homemtic protocol as well.
 Since the CUL is not natively supported by the binding, you need a program to translate the CUL data to the CCU XML RPC interface: homegear
@@ -32,9 +30,9 @@ Since the CUL is not natively supported by the binding, you need a program to tr
 We have reports from users that succesfully use both for their homemtic devices. Apparently security is still not supported.
 
 
-# Homematic Binding Configuration
+## Homematic Binding Configuration
 
-## openhab.cfg
+### openhab.cfg
 
 The following config params are used for the homematic binding.
 
@@ -60,19 +58,24 @@ Port number for the callback server. Defaults to 9123.
     # Port number for the callback server. (optional, defaults to 9123)
     homematic:callback.port=9123
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
-## Items
+### Items
 
-### Format
+#### Format
 
 General format (since 1.3):
+
     homematic="{<device config>}"
-    The device config consists of several name/value pairs seperated by a equal sign ("="). The format is derived from the JSON format. 
+The device config consists of several name/value pairs seperated by a equal sign ("="). The format is derived from the JSON format. 
     
-    Normal parameters: id=<physicalDeviceAddress / serial number>, channel=<channel in the devices>, parameter=<parameterKey>. 
+Normal parameters: 
+
+    id=<physicalDeviceAddress / serial number>, channel=<channel in the devices>, parameter=<parameterKey>. 
     
-    Advanced parameters: converter=<Class name of the converter to use>, admin: For admin commands.
+Advanced parameters: 
+
+    converter=<Class name of the converter to use>, admin: For admin commands.
 
 ### About the Documentation
 
@@ -81,14 +84,14 @@ The information at each value in brakets is: `(<item type>, <unit>, <min/max or 
 For the German CCU users:
 Die Physical Device Address findet man in der CCU als Seriennummer. Zum Beispiel im Menü aus Einstellungen -> Geräte. Dann hat man eine gute Übersicht über alle Devices.
 
-## Supported Datapoints
+### Supported Datapoints
 
 The current binding does support the following datapoint:
 PRESS_LONG, PRESS_LONG_RELEASE, TEMPERATURE, PRESS_SHORT, HUMIDITY, LEVEL, STATE, BRIGHTNESS, MOTION, SETPOINT, VALVE_STATE, STOP, WORKING, INSTALL_TEST, PRESS_CONT, ERROR, UNREACH, LOWBAT, MODE_TEMPERATUR_VALVE
 
 A documentation which device is proving which datapoint, please check the documentation from eQ3: http://www.eq-3.de/Downloads/PDFs/Dokumentation_und_Tutorials/HM_Script_Teil_4_Datenpunkte_1_503.pdf
 
-## Supported Devices
+### Supported Devices
 
 These devices are already supported or will be in near future since we own them. 
 If your device is not listed, please add an issue for it.
@@ -134,7 +137,6 @@ See [[Homematic Admin Items|homematic admin items]] on howto get information abo
 - HM-LC-Bl1PBU-FM (Roller Shutter actor (1-port))
 - HM-LC-Bl1-SM (Roller Shutter actor (1-port))
   
- 
 For a complete list with translations (en - de) see http://www.elv.de/controller.aspx?cid=824&detail=10&detail2=2850.
 
 ### Remote Control
@@ -231,7 +233,6 @@ Valid parameter keys:
 
 ### = Examples =
 
-    
 
 ### Water Sensor
 
