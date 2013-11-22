@@ -114,13 +114,13 @@ To add a new translation:
 
 2. Find the following text:
  
-    OpenHAB.i18n_strings[= {
+    `OpenHAB.i18n_strings[= {
         language_name: 'English',
         // -------- Interface texts ---------
         back: 'Back',
 	interfaces: 'Interfaces',
         ...
-    }
+    }`
 
 3. Copy it somewhere below and edit the texts.
 
