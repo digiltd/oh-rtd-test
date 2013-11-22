@@ -1,18 +1,18 @@
-# Introduction
+## Introduction
 
 digitalSTROM binding bundle is available as a separate (optional) download. If you want to let openHAB communicate with digitalSTROM DSS11 server, please place this bundle in the folder ${openhab_home}/addons and add binding information to your configuration.
  
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Preliminaries
+## Preliminaries
 
-## digitalSTROM server add-on =
+### digitalSTROM server add-on
 
 - Unzip [DigitalSTROM_OPENHAB_ADD-ON.zip](http://wiki.openhab.googlecode.com/hg/resources/DigitalSTROM_OPENHAB_ADD-ON.zip)
 - copy "openhab/openhab.js" to your dss server "/usr/share/dss/add-ons/"
 - copy "openhab.xml" to your dss server "/usr/share/dss/data/subscriptions.d/"
 
-## digitalSTROM server certificate =
+### digitalSTROM server certificate =
 
 DigitalSTROM JSON service interface is limited to HTTPS protocol. 
 For security reason, we need to create a self signed cetificate with correct given hostname. To do so, follow these steps:
@@ -49,16 +49,17 @@ Copy the newly generated certificate onto your digitalSTROM server and
 import it to java trusted store of your openHAB server by using java keytool.
 
 Keytool usage:
+
     $JAVA_HOME/bin/keytool -importcert -alias <some descriptive name> -keystore <path to keystore> -file <certificate file>
 
 Keytool usage example (OS X):
+
     sudo keytool -importcert -alias DSS -keystore /System/Library/Java/Support/CoreDeploy.bundle/Contents/Home/lib/security/cacerts -file dss.local.pem
 
 
+## digitalSTROM Binding Configuration
 
-# digitalSTROM Binding Configuration
-
-## openhab.cfg
+### openhab.cfg
 
 The following config params are used for the digitalSTROM binding.
 
@@ -111,9 +112,9 @@ System -> Zugriffsberechtigung
     digitalstrom:password=dssadmin
 
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
-## Syntax
+### Syntax
 
 In order to bind an item to a digitalSTROM device you need to provide configuration settings. 
 The simplest way is:
