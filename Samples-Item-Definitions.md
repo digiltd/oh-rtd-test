@@ -52,7 +52,7 @@ transform/contact.map:
     Text item=corBright
 I dont like that the motion switch is "writeable". Maybe someone can post a proper rendering object for the motion detector.
 
-## How to configure a switch to be a pushbutton:
+### How to configure a switch to be a pushbutton:
 
 [German Thread](http://knx-user-forum.de/openhab/27123-einfacher-taster-openhab.html)
 
@@ -65,13 +65,13 @@ Sitemap:
     Switch item=Garage_Gate label="Garage" mappings=[ON="Go!"]
 The magic happens with autoupdate="false" which keeps the state even an ON command has been received. This way, it's always off unless you explicitly post an update to this item.
 
-## How to control a homematic roller shutter with an EnOcean Rocker
+### How to control a homematic roller shutter with an EnOcean Rocker
 
 Item:
 
     Rollershutter Blinds_Left <rollershutter> (Shutters) {homematic="id=JEQXXXXXX, channel=1, parameter=LEVEL", enocean="{id=00:00:00:00, eep=F6:02:01}"}
 
-## How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)
+### How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)
 
 Item:
 
