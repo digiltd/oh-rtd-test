@@ -19,7 +19,7 @@ The following devices are supported for now:
 - Ambient Light Bricklet
 - LCD 20×4 Bricklet (LCD, backlight and 4 buttons)
 
-The !TinkerForge binding bundle is available as a separate (optional) download. For installation of the binding, please see Wiki page [[Bindings]].
+The TinkerForge binding bundle is available as a separate (optional) download. For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Generic Item Binding Configuration
 
@@ -77,10 +77,10 @@ The following table lists the available properties, a description of the propert
 <tr><td>acceleration</td><td>The acceleration</td><td>brick_dc, servo[0,6]</td></tr>
 </table>
 
-The following table lists !TinkerForge devices, their device type name recognized by the binding, the subid name, if the device is a sub device and if it is an actor. The value is "out" for outbound actors and "in" for inbound actors).
+The following table lists TinkerForge devices, their device type name recognized by the binding, the subid name, if the device is a sub device and if it is an actor. The value is "out" for outbound actors and "in" for inbound actors.
 
 <table>
-  <tr><td>*device*</td><td>*type name*</td><td>*subid*</td><td>*actor*</td></tr>
+  <tr><td><b>device</b></td><td><b>type name</b></td><td><b>subid</b></td><td><b>actor</b></td></tr>
   <tr><td>Servo housed on a Servo Brick</td><td>servo</td><td>servo[0-6](0-6])</td><td>out</td></tr>
   <tr><td>DC Brick</td><td>brick_dc</td><td></td><td>out</td></tr>
   <tr><td>Relay housed on a Dual Relay Bricklet</td><td>dual_relay</td><td>relay[<tr><td>Humidity Bricklet</td><td>bricklet_humidity</td><td></td><td></td></tr>
@@ -89,7 +89,7 @@ The following table lists !TinkerForge devices, their device type name recognize
   <tr><td>Temperature sensor housed on a Barometer Bricklet</td><td>barometer_temperature</td><td>temperature</td><td></td></tr>
   <tr><td>Ambient Light Bricklet</td><td>bricklet_ambient_light</td><td></td><td></td></tr>
   <tr><td>LCD20x4 Bricklet</td><td>bricklet_LCD20x4</td><td></td><td>out</td></tr>
-  <tr><td>Button housed on a LCD20x4 Bricklet</td><td>lcd_button</td><td>button[0-3](1-2]</td><td>out</td></tr>)</td><td>in</td></tr>
+  <tr><td>Button housed on a LCD20x4 Bricklet</td><td>lcd_button</td><td>button[0-3](1-2]</td><td>out</td></tr>
 </table>
 
 ### Bricklet DistanceIR, Temperature, Barometer and AmbientLight
