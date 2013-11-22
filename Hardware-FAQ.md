@@ -1,6 +1,6 @@
-# FAQ about hardware for the openHAB runtime
+FAQ about hardware for the openHAB runtime
 
-# Introduction
+## Introduction
 
 This page summarizes helpful information on how to get openHAB working on specific hardware.
 Users are very welcome to provide tips&tricks here, e.g. on JVM experiences, embedded systems etc.
@@ -13,7 +13,7 @@ The openHAB Runtime is almost 100% pure Java, so all it requires is a JVM (>=1.6
 
 Please note that openHAB has not (yet) been optimized for low-end embedded devices such as the Raspberry Pi. Still, if you are interested in using it on such hardware, you will find some tipps and tricks in the next sections.
 
-## Raspberry Pi
+### Raspberry Pi
 
 ### Basic Setup
 
