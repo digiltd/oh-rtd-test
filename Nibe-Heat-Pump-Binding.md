@@ -53,22 +53,21 @@ Where
 
 ## List of supported MODBUS coil addresses (coilAddress)
 
-<table>
-  <tr><td>**Address**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
-</table>
-|| 47332 || Number || Cooling supply temp at 20C || || 
-|| 47333 || Number || Cooling supply temp at 40C || || 
-|| 47334 || Number || Cooling close mixing valves || || 
-|| 47335 || Number || Time between switch heat/cooling || || 
-|| 47329 || Number || Cooling 2-pipe accessory || || 
-|| 47330 || Number || Cooling 4-pipe accessory || || 
-|| 47331 || Number || Min cooling supply temp || || 
-|| 47340 || Number || Cooling with room sensor || || 
-|| 47336 || Number || Heat at room under temp || || 
-|| 47337 || Number || Cool at room over temp || || 
-|| 47338 || Number || Cooling mixing valve amp || || 
-|| 47339 || Number || Cooling mixing valve step delay || || 
-|| 47319 || Number || Shunt controlled add min runtime || || 
+| Address | Item Type | Purpose                     | Note |
+| ------- | --------- | --------------------------- | ---- |
+| 47332   | Number    | Cooling supply temp at 20C  |      | 
+| 47333   | Number    | Cooling supply temp at 40C  |      | 
+| 47334   | Number    | Cooling close mixing valves |      | 
+| 47335   | Number    | Time between switch heat/cooling | | 
+| 47329   | Number    | Cooling 2-pipe accessory         | | 
+| 47330   | Number    | Cooling 4-pipe accessory         | | 
+| 47331   | Number    | Min cooling supply temp          | | 
+| 47340   | Number    | Cooling with room sensor | | 
+| 47336   | Number    | Heat at room under temp | | 
+| 47337 || Number || Cool at room over temp || || 
+| 47338 || Number || Cooling mixing valve amp || || 
+| 47339 || Number || Cooling mixing valve step delay || || 
+| 47319 || Number || Shunt controlled add min runtime || || 
 || 47318 || Number || Shunt controlled add min temp || || 
 || 47317 || Number || Shunt controlled addition accessory || || 
 || 40152 || Number || BT71 ext return temp || || 
