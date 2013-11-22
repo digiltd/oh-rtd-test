@@ -25,13 +25,13 @@ The basic idea is to provide a simple way to tell openHAB, which items should be
 The persistence configuration files hence consist out of several sections:
 - Strategies section: This allows to define strategies and to declare a set of default strategies to use (for this persistence service). The syntax is the following:
 ```
-    Strategies {
-    	<strategyName1> : "<cronexpression1>"
-    	<strategyName2> : "<cronexpression2>"
-            ...
+Strategies {
+    <strategyName1> : "<cronexpression1>"
+    <strategyName2> : "<cronexpression2>"
+    ...
     
-    	default = <strategyNameX>, <strategyNameY>
-    }
+    default = <strategyNameX>, <strategyNameY>
+}
 ```
 The following strategies are already statically defined (and thus do not need to be listed here, but can be declared as a default):
 - everyChange: persist the state whenever its state has changed
@@ -40,11 +40,11 @@ The following strategies are already statically defined (and thus do not need to
 
 - Items section: This defines, which items should be persisted with which strategy. The syntax is:
 ```
-    Items {
-    	<itemlist1> [-> "<alias1>"] : [strategy = <strategy1>, <strategy2>, ...]
-    	<itemlist2> [-> "<alias2>"] : [strategy = <strategyX>, <strategyY>, ...]
-            ...
-    }
+Items {
+    <itemlist1> [-> "<alias1>"] : [strategy = <strategy1>, <strategy2>, ...]
+    <itemlist2> [-> "<alias2>"] : [strategy = <strategyX>, <strategyY>, ...]
+    ...
+}
 ```
 where `<itemlist>` is a comma-separated list of the following options:
 - `**` - this line should apply to all items in the system.
