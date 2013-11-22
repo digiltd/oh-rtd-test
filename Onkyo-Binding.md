@@ -473,7 +473,7 @@ onkyo.sitemap:
         }
     }
 
-Screenshots:
+###Screenshots
 Main: 
 ![alt text](http://wiki.openhab-samples.googlecode.com/hg/screenshots/onkyo_main.png "Onkyo Main")
 
