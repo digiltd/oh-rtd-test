@@ -1,6 +1,4 @@
-# Documentation of the Sonos binding Bundle
-
-# Introduction
+## Introduction
 
 **Note:** The Sonos binding communicates with the Sonos devices through the UPNP (Universal Plug And Play) protocol. Users of this binding might wish to familiarise them with the protocol and slang. UPNP defines a subscription model whereby a UPNP client can subscribe to UPNP Events that are transmitted by a UPNP device. Sonos Players do emit quite a bit of Events and some are used to capture status variables (see below). 
 
@@ -12,7 +10,7 @@ Sonos !ZoneBridges are not supported.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a Sonos Player, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Sonos binding configuration string is explained here:
 
@@ -39,11 +37,11 @@ and where `<sonos command>` is the command to be sent to the Sonos Player when `
 
 All communication is checked against the `<direction>` field, e.g. an Item binding that has ">" will not be able to receive data from the Sonos Player
 
-# Sonos Commands
+## Sonos Commands
 
 The Sonos Player is very complete but also complex device. For a perfect integration within OpenHAB it is assumed that the user will be using the Sonos Desktop Controller software to define playlists, browse music and so forth, e.g. anything which requires user input or interactivity. Therefore the Sonos Commands supported from within openHAB are mostly limited to those actions that require little or no user interaction
 
-Valid `<sonos command>`s are:
+Valid `<sonos command>`'s are:
 
 <table>
   <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
@@ -73,9 +71,9 @@ New since v1.3
   <tr><td>playlist</td><td>String</td><td>play the named playlist from favorites</td><td>the playlist has to be defined in the list of Sonos Favorites</td></tr>
 </table>
 
-# Sonos Status Variables
+## Sonos Status Variables
 
-Valid `<sonos variable>`s are:
+Valid `<sonos variable>`'s are:
 
 <table>
   <tr><td>**Variable**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
@@ -100,7 +98,7 @@ New since v1.3
 </table>
 
 
-# Examples
+## Examples
 
 Here are some examples of valid binding configuration strings:
 
@@ -108,6 +106,7 @@ Here are some examples of valid binding configuration strings:
     sonos="<[office:getcurrenttrack]"
 
 As a result, your lines in the items file might look like the following:
+
     Switch ledstatus	      "LedStatus" 	(Sonos) {sonos="<[ON:living:led], <[OFF:living:led]" autoupdate="false"}
     String currenttrack 	      "CurrentTrack" 	(Sonos) {sonos="<[RINCON_000E581369DC01400:currenttrack]" autoupdate="false"}
     String radiostation	      "RadioStation"    (Sonos) {sonos=">[living:radio]" autoupdate="false"}
