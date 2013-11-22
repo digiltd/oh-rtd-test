@@ -1,6 +1,4 @@
-# Documentation of the Plugwise binding Bundle
-
-# Introduction
+## Introduction
 
 Please note that in version 1.1 you also have to add the Serial binding, so that the libraries for serial communication are present.
 
@@ -12,7 +10,7 @@ Plugwise's system consists of a Plug - a ZigBee USB controller -, a Circle+ - ma
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a Plugwise device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Plugwise binding configuration string is explained here:
 
@@ -34,7 +32,7 @@ where `<Polling Interval>` is the interval in seconds to poll the given variable
 
 and where `<Plugwise command>` is the command to be sent to the Plugwise device when `<command>` is received. In case status variables are used then any value received from the Plugwise device for the defined `<Plugwise variable>` is used to update the Item
 
-# Plugwise Commands
+## Plugwise Commands
 
 The Plugwise device is very simple device. For a perfect integration within OpenHAB it is assumed that the user will be using the Plugwise Source software to define the network, reset devices, perform firmware upgrade, and so forth, e.g. anything which requires user input or interactivity. Therefore the Plugwise Commands supported from within OpenHAB are mostly limited to those actions that require little or no user interaction
 
@@ -45,7 +43,7 @@ Valid `<Plugwise command>`s are:
   <tr><td>state</td><td>OnOff</td><td>switch the internal relay On or Off</td><td></td></tr>
 </table>
 
-# Plugwise Status Variables
+## Plugwise Status Variables
 
 Valid `<Plugwise variable>`s are:
 
@@ -59,7 +57,7 @@ Valid `<Plugwise variable>`s are:
   <tr><td>realtime-clock</td><td>DateTime</td><td>Date/Time as indicated by the internal clock of the Circle+</td><td>only for Circle+</td></tr>
 </table>
 
-# Examples
+## Examples
 
 Here are some examples of valid binding configuration strings, as defined in the items configuration file:
 
