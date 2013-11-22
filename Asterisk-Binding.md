@@ -4,7 +4,7 @@ The Asterisk binding is used to enable communication between openhab and the fre
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to the Asterisk PBX you need to provide configuration settings. The easiest way to do this is to add binding information in your item file (in the folder configurations/items`). 
 
