@@ -8,7 +8,7 @@ Sitemaps are a declarative UI definition. With a few lines it is possible to def
 
 The openHAB runtime comes with a [demo sitemap file](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/sitemaps/demo.sitemap), which should let you easily understand its structure. 
 
-For easy editing, the openHAB Designer brings full IDE support for these files, so you can easily check the syntax and find out about the options you have. (Again, for the technically interested, this is also an [Xtext DSL](http://code.google.com/p/openhab/source/browse/bundles/model/org.openhab.model.sitemap/src/org/openhab/model/Sitemap.xtext).)
+For easy editing, the openHAB Designer brings full IDE support for these files, so you can easily check the syntax and find out about the options you have. (Again, for the technically interested, this is also an [Xtext DSL](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.sitemap/src/org/openhab/model/Sitemap.xtext).)
 
 ## Syntax
 
