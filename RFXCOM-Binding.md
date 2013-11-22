@@ -1,6 +1,6 @@
-# Documentation of the RFXCOM binding Bundle
+Documentation of the RFXCOM binding Bundle
 
-# Introduction
+## Introduction
 
 Binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, which contains both receiver and transmitter functions. 
 
@@ -10,7 +10,7 @@ RFXCOM binding support currently TemperatureHumidity, Lighting1, Lighting2 and C
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Binding Configuration
+## Binding Configuration
 
 First of all you need to configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations').
 
@@ -24,16 +24,16 @@ First of all you need to configure the following values in the openhab.cfg file 
     # E.g. rfxcom:setMode=0D000000035300000C2F00000000 
     rfxcom:setMode=
 
-The rfxcom:serialPort value is the identification of the serial port on the host system where RFXCOM controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
+The `rfxcom:serialPort` value is the identification of the serial port on the host system where RFXCOM controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
 
-The rfxcom:setMode value is is optional. Set mode command can be used to configure RFXCOM controller to listening various receiver protocols. This is very useful because the receiver will become more sensitive when protocols not used are disabled. You can use RFXmngr application to configure controller and get valid configuration command. Command must be 28 characters (14 bytes) hexadecimal string.
+The `rfxcom:setMode` value is is optional. Set mode command can be used to configure RFXCOM controller to listening various receiver protocols. This is very useful because the receiver will become more sensitive when protocols not used are disabled. You can use RFXmngr application to configure controller and get valid configuration command. Command must be 28 characters (14 bytes) hexadecimal string.
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to RFXCOM device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). The syntax of the binding configuration strings accepted is the following:
 
-    in:  rfxcom="<DeviceId:ValueSelector"`
-    out: rfxcom=">DeviceId:PacketType.SubType:ValueSelector"`
+    in:  rfxcom="<DeviceId:ValueSelector"
+    out: rfxcom=">DeviceId:PacketType.SubType:ValueSelector"
 
 where `DeviceID` is a valid wireless device identifier.
 
@@ -67,7 +67,7 @@ Examples, how to configure your items:
 `PacketType.SubType` specify packet and sub type information ...
 
 <table>
-  <tr><td>**PacketType.SubType**</td><td>**Description**</td><td>**ValueSelector**</td></tr>
+  <tr><td><b>PacketType.SubType</b></td><td><b>Description</b></td><td><b>ValueSelector</b></td></tr>
   <tr><td>LIGHTING1.X10</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.ARC</td><td>tested and working</td><td>Command</td></tr>
   <tr><td>LIGHTING1.AB400D</td><td>Untested</td><td></td></tr>
@@ -91,11 +91,10 @@ Examples, how to configure your items:
   <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Untested</td><td></td></tr>
 </table>
 
-
 `ValueSelector` specify ...
 
 <table>
-  <tr><td>**Value selector**</td><td>**Valid OpenHAB data type**</td><td>**Information**</td></tr>
+  <tr><td><b>Value selector</b></td><td><b>Valid OpenHAB data type</b></td><td><b>Information</b></td></tr>
   <tr><td>RawData</td><td>StringItem</td><td></td></tr>
   <tr><td>Command</td><td>SwitchItem</td><td>ON, OFF, GROUP_ON, GROUP_OFF</td></tr>
   <tr><td>SignalLevel</td><td>NumberItem</td><td></td></tr>
