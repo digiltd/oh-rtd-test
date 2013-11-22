@@ -14,8 +14,8 @@ Although WebApp.Net is a pure HTML/JS solution, it mimicks an iPhone app and is 
 
 See here some examples of its look:
 
-![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-homescreen.jpg "Homescreen") &nbsp; 
-![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-room.jpg "Room") &nbsp; 
+![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-homescreen.jpg "Homescreen") 
+![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-room.jpg "Room") 
 ![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-widgets.jpg "Widget")
 
 # Technical Implementation
