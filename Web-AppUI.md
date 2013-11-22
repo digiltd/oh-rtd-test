@@ -1,20 +1,21 @@
-# Technical description for the WebApp UI
+Technical description for the WebApp UI
 
-# Introduction
+## Introduction
 
 The standard user interface for openHAB is based on the [WebApp.Net](http://webapp-net.com/) framework and can be accessed through any (webkit-based) web browser. 
 
 You can directly [try it out on our demo server](http://demo.openhab.org:8080/openhab.app?sitemap=demo)!
 
-# Details on !WebApp.Net
+## Details on WebApp.Net
 
-!WebApp.Net is consists mainly out of Javascript and CSS files. Thus it runs on top of the embedded Jetty HTTP server of the openHAB runtime. Simple HTTP access to the openHAB server is therefore enough to use this user interface (e.g. also remotely through a dynamic DNS service).
+WebApp.Net is consists mainly out of Javascript and CSS files. Thus it runs on top of the embedded Jetty HTTP server of the openHAB runtime. Simple HTTP access to the openHAB server is therefore enough to use this user interface (e.g. also remotely through a dynamic DNS service).
 
-Although !WebApp.Net is a pure HTML/JS solution, it mimicks an iPhone app and is optimized for touch operation. It not only works on iPhone/iPod touch, but also perfectly on Android. Even Symbian and Blackberrys are supported, and of course the !WebKit-based web browsers. So where ever you are and whatever device you have available, you should be able to access the UI to operate your home. 
+Although WebApp.Net is a pure HTML/JS solution, it mimicks an iPhone app and is optimized for touch operation. It not only works on iPhone/iPod touch, but also perfectly on Android. Even Symbian and Blackberrys are supported, and of course the !WebKit-based web browsers. So where ever you are and whatever device you have available, you should be able to access the UI to operate your home. 
 
 See here some examples of its look:
 
-http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-homescreen.jpg http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-room.jpg http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-widgets.jpg
+![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-homescreen.jpg "Homescreen") ![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-room.jpg "Room")
+![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-widgets.jpg "Widget")
 
 # Technical Implementation
 
