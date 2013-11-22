@@ -1,12 +1,10 @@
-# Documentation of the Samsung TV binding Bundle
-
-# Introduction
+## Introduction
 
 Binding should be compatible with Samsung TV models which support Apple and Android remote applications.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Binding Configuration
+## Binding Configuration
 
 First of all you need to introduce your Samsung TV's in the openhab.cfg file (in the folder '${openhab_home}/configurations').
 
@@ -21,14 +19,16 @@ First of all you need to introduce your Samsung TV's in the openhab.cfg file (in
     # samsungtv:<TVid2>.port=55000
 
 `<TVid1>` and `<TVid2>` can be freely set to whatever name you want to give for a certain TV (e.g. "Livingroom" or "Bedreoom"), thus could be looking like:
-samsungtv:Livingroom
+
+    samsungtv:Livingroom
 
 .host and .port specify IP address and port number for accessing your TV:<br/>
-samsungtv:`<TVid1>`.host=`<IP address of the TV>`
 
-samsungtv:`<TVid1>`.port=`<TCP port address of the the TV; optional>`
+    samsungtv:`<TVid1>`.host=`<IP address of the TV>`
+    samsungtv:`<TVid1>`.port=`<TCP port address of the the TV; optional>`
 
 A working example for such configuration could look like:
+
     ######################## SAMSUNG TV Binding ############################################
     
     # Host and port of the first TV to control
@@ -39,7 +39,7 @@ A working example for such configuration could look like:
     # samsungtv:Bedroom.host=192.168.0.13
     # samsungtv:Bedroom.port=55000
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
@@ -52,7 +52,6 @@ The **openHAB-command** corresponds OpenHAB command.
 The **device-id** corresponds device which is introduced in openhab.cfg.
 
 The **device-command** corresponds TV command. See complite list below.
-
 
 Examples, how to configure your items:
 
