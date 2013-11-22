@@ -1,13 +1,11 @@
-# Documentation of the VDR Binding Bundle
-
-# Introduction
+## Introduction
 
 If you have any suggestions or questions don't hesitate to contact me ([iwow](http://groups.google.com/groups/profile?enc_user=2fum3R0AAACkAo_xkzjYxXMLRwdKLvZ72A6NcFQ3yZH-XCKBlyRD_Q)) or use the [openHAB google group](http://groups.google.com/group/openhab).
 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a VDR, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). The syntax for the VDR binding configuration string is explained here:
 
@@ -50,11 +48,11 @@ As a result, your lines in the items file might look like the following:
     
     Switch VDR_LivingroomRecording	        "VDR (livingroom) Recording"        (VDR)   {vdr="LivingRoom:recording"}
 
-# Relationship to other openHAB modules
+## Relationship to other openHAB modules
 
 Together with other bindings (e.g. NetworkHealthBinding, WoLBinding) and the openHAB rule engine you can realize different use-cases.
 
-## Switch VDR PC on if TV switch on:
+### Switch VDR PC on if TV switch on:
 
 (requires TV with LAN connection)
 
@@ -73,7 +71,7 @@ A rule for the openHAB rule engine (not drools) can look like this:
     end
  
 
-## Switch VDR PC off if TV switch off:
+### Switch VDR PC off if TV switch off:
 
 Same requirements and prerequisites as VDR PC on use-case above.
 
