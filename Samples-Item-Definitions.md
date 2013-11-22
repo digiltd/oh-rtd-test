@@ -54,7 +54,7 @@ I dont like that the motion switch is "writeable". Maybe someone can post a prop
 
 ## How to configure a switch to be a pushbutton:
 
-[German|Thread](http://knx-user-forum.de/openhab/27123-einfacher-taster-openhab.html)
+[German Thread](http://knx-user-forum.de/openhab/27123-einfacher-taster-openhab.html)
 
 Item:
 
