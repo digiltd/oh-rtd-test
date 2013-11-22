@@ -32,6 +32,7 @@ The next step is to configure buttons and switch modules in the binding.  For th
 ### Configuring Buttons
 
 The configuration of a button uses the following format:
+
     Switch myItem {nikobus="<address>:<pressType>"}
 
 <table>
