@@ -12,10 +12,11 @@ For installation of the binding, please see Wiki page [[Bindings]].
 - copy "openhab/openhab.js" to your dss server "/usr/share/dss/add-ons/"
 - copy "openhab.xml" to your dss server "/usr/share/dss/data/subscriptions.d/"
 
-### digitalSTROM server certificate =
+### digitalSTROM server certificate
 
 DigitalSTROM JSON service interface is limited to HTTPS protocol. 
 For security reason, we need to create a self signed cetificate with correct given hostname. To do so, follow these steps:
+
     1. openssl genrsa -out privkey.pem 1024
     
     2. chmod 400 privkey.pem
