@@ -1,3 +1,5 @@
+Documentation of the digitalSTROM binding bundle
+
 ## Introduction
 
 digitalSTROM binding bundle is available as a separate (optional) download. If you want to let openHAB communicate with digitalSTROM DSS11 server, please place this bundle in the folder ${openhab_home}/addons and add binding information to your configuration.
