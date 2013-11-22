@@ -31,8 +31,9 @@ The rfxcom:setMode value is is optional. Set mode command can be used to configu
 # Item Binding Configuration
 
 In order to bind an item to RFXCOM device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). The syntax of the binding configuration strings accepted is the following:
-`    in:  rfxcom="<DeviceId:ValueSelector"`
-`    out: rfxcom=">DeviceId:PacketType.SubType:ValueSelector"`
+
+    in:  rfxcom="<DeviceId:ValueSelector"`
+    out: rfxcom=">DeviceId:PacketType.SubType:ValueSelector"`
 
 where `DeviceID` is a valid wireless device identifier.
 
@@ -49,6 +50,7 @@ where `DeviceID` is a valid wireless device identifier.
     e.g. 2561
 
 Examples, how to configure your items:
+
     Number OutdoorTemperature { rfxcom="<2561:Temperature" }
     Number OutdoorHumidity { rfxcom="<2561:Humidity" }
     Switch Btn1 { rfxcom="<636602.1:Command" }
