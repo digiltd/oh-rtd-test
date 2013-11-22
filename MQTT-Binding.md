@@ -137,7 +137,6 @@ The properties indicated by '<...>' need to be replaced with an actual value.  T
   <tr><td>commandSubscribeTopic</td><td>When available, all commands received on this topic will be posted to the openHAB event bus. The message content is assumed to be a string representation of the command. The topic should include the variable ${item} to indicate which part of the topic contains the item name which can be used for posting the received value to the event bus.</td></tr>
 </table>
 
-
 ### Example Configurations
 
 Example configuration for a event bus binding, which sends all commands to an MQTT broker and receives status updates from that broker.
@@ -147,8 +146,7 @@ This scenario could be used for example to link 2 openHAB instances together whe
     mqtt-eventbus:commandPublishTopic=/openHAB/out/${item}/command
     mqtt-eventbus:stateSubscribeTopic=/openHAB/in/${item}/state
 
-
-# Using the org.openhab.io.transport.mqtt bundle
+## Using the org.openhab.io.transport.mqtt bundle
 
 When the default MQTT binding configuration options are not sufficient for your needs, you can also use the MQTT transport bundle directly from within your own binding.
 
