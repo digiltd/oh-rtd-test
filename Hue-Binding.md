@@ -1,8 +1,8 @@
 ## Introduction
-[See Philips Hue Binding video](http://www.youtube.com/watch?v=Q4_LkXIRBWc)
+[See Philips Hue Binding video](http://www.youtube.com/watch?v=Q4_LkXIRBWc) <br/>
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Configuring the binding
+## Configuring the binding
 
 First of all you need to configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations'). 
 
@@ -85,8 +85,7 @@ Here are some examples of valid binding configuration strings for brightness dim
 
 ### Color temperature dimmer items
 
-70286e44c908cc7c7539f7d8b41d05dd
-
+    hue="<bulb number>;colorTemperature[;<step size>]"
 where the part in `[](]`)` is optional.
 
 The step size defines how fast the dimmer changes the color temperature. If no value is defined the default value of 25 is used.
@@ -109,13 +108,12 @@ As a result, your lines in the items file might look like the following:
     Color Color_2         "center bulb"	(Colorize)	{hue="2"}
     Color Color_3 	  "right bulb" 	(Colorize)	{hue="3"}
     
-    Dimmer Dimm_1 		"left bulb" 	(WhiteDimmer)		        {hue="1;brightness;30"}
-    Dimmer Dimm_2 		"center bulb" 	(WhiteDimmer)		        {hue="2;brightness;30"}
-    Dimmer Dimm_3 		"right bulb" 	(WhiteDimmer)		        {hue="3;brightness;30"}
+    Dimmer Dimm_1 	  "left bulb" 	(WhiteDimmer)	{hue="1;brightness;30"}
+    Dimmer Dimm_2 	  "center bulb" (WhiteDimmer)	{hue="2;brightness;30"}
+    Dimmer Dimm_3 	  "right bulb" 	(WhiteDimmer)	{hue="3;brightness;30"}
     
-    Dimmer CT_Dimm_1 	"left bulb" 	(CTDimmer)			{hue="1;colorTemperature;30"}
-    Dimmer CT_Dimm_2 	"center bulb" 	(CTDimmer)			{hue="2;colorTemperature;30"}
-    Dimmer CT_Dimm_3 	"right bulb" 	(CTDimmer)			{hue="3;colorTemperature;30"}
+    Dimmer CT_Dimm_1 	  "left bulb" 	(CTDimmer)	{hue="1;colorTemperature;30"}
+    Dimmer CT_Dimm_2 	  "center bulb" (CTDimmer)	{hue="2;colorTemperature;30"}
+    Dimmer CT_Dimm_3 	  "right bulb" 	(CTDimmer)	{hue="3;colorTemperature;30"}
     
-
 For more information on the used API see the following link: http://developers.meethue.com/
