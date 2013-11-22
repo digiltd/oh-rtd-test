@@ -1,8 +1,9 @@
-# Introduction
+Documentation of the CUPS binding Bundle
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a CUPS printer, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the CUPS binding configuration string is explained here: 
 
@@ -23,7 +24,7 @@ As a result, your lines in the items file might look like the following:
 In order to find out the name/url of your printer on the CUPS-Server you can download the current `cups4j.runnable-x.x.x.jar` file from http://www.cups4j.org/ and query the printers by using the following command
     java -jar cups4j.runnable-x.x.x.jar -h <CUPS-Server name> getPrinters
 
-# Example Use Case
+## Example Use Case
 
 The CUPS Binding can be used to switch on a printer if there are print jobs in the queue and switch it off if the queue is empty.
 
