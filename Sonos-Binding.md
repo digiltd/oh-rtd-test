@@ -48,21 +48,21 @@ Valid `<sonos command>`'s are:
 <table>
   <tr><td><b>Command</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>add</td><td>String</td><td>add another Sonos Player to this Player's group</td><td>String is the id of the player to add</td></tr>
-  <tr><td>alarm</td><td>!OnOff</td><td>set the first occurring alarm either ON or OFF</td><td>Alarms have to be first defined through the Sonos Desktop Controller</td></tr>
-  <tr><td>led</td><td>!OnOff</td><td>get or set the white led on the front of the Player</td><td></td></tr>
+  <tr><td>alarm</td><td>OnOff</td><td>set the first occurring alarm either ON or OFF</td><td>Alarms have to be first defined through the Sonos Desktop Controller</td></tr>
+  <tr><td>led</td><td>OnOff</td><td>get or set the white led on the front of the Player</td><td></td></tr>
   <tr><td>mute</td><td>!OnOff</td><td>get or set the mute state of the Master volume of the Player</td><td></td></tr>
-  <tr><td>next</td><td>!OnOff</td><td>skip to next track</td><td>both ON and OFF can be used to trigger this command</td></tr>
-  <tr><td>pause</td><td>!OnOff</td><td>pause playing music</td><td>both ON and OFF can be used to trigger this command</td></tr>
-  <tr><td>play</td><td>!OnOff</td><td>play music</td><td>both ON and OFF can be used to trigger this command</td></tr>
-  <tr><td>previous</td><td>!OnOff</td><td>skip to previous track</td><td>both ON and OFF can be used to trigger this command</td></tr>
-  <tr><td>publicaddress</td><td>!OnOff</td><td>put all Players in one group, and stream audio from the line-in from the Player that triggered the command</td><td>both ON and OFF can be used to trigger this command</td></tr>
+  <tr><td>next</td><td>OnOff</td><td>skip to next track</td><td>both ON and OFF can be used to trigger this command</td></tr>
+  <tr><td>pause</td><td>OnOff</td><td>pause playing music</td><td>both ON and OFF can be used to trigger this command</td></tr>
+  <tr><td>play</td><td>OnOff</td><td>play music</td><td>both ON and OFF can be used to trigger this command</td></tr>
+  <tr><td>previous</td><td>OnOff</td><td>skip to previous track</td><td>both ON and OFF can be used to trigger this command</td></tr>
+  <tr><td>publicaddress</td><td>OnOff</td><td>put all Players in one group, and stream audio from the line-in from the Player that triggered the command</td><td>both ON and OFF can be used to trigger this command</td></tr>
   <tr><td>radio</td><td>String</td><td>play the named radio station</td><td>the station has to be defined in the list of Favorite Stations in the Sonos Desktop Controller</td></tr>
   <tr><td>remove</td><td>String</td><td>remove the named Sonos Player from this Player's group</td><td>String is the id of the player to remove</td></tr>
-  <tr><td>restore</td><td>!OnOff</td><td>restore the state of all Players</td><td>both ON and OFF can be used to trigger this command</td></tr>
-  <tr><td>standalone</td><td>!OnOff</td><td>make the Sonos Player 'leave' its group and become a standalone Player</td><td></td></tr>
-  <tr><td>save</td><td>!OnOff</td><td>save the state (group membership, current track, position in track, volume) of all the Players</td><td>both ON and OFF can be used to trigger this command</td></tr>
+  <tr><td>restore</td><td>OnOff</td><td>restore the state of all Players</td><td>both ON and OFF can be used to trigger this command</td></tr>
+  <tr><td>standalone</td><td>OnOff</td><td>make the Sonos Player 'leave' its group and become a standalone Player</td><td></td></tr>
+  <tr><td>save</td><td>OnOff</td><td>save the state (group membership, current track, position in track, volume) of all the Players</td><td>both ON and OFF can be used to trigger this command</td></tr>
   <tr><td>snooze</td><td>Decimal</td><td>snooze the alarm, if running, with x minutes</td><td></td></tr>
-  <tr><td>stop</td><td>!OnOff</td><td>stop playing</td><td>both ON and OFF can be used to trigger this command</td></tr>
+  <tr><td>stop</td><td>OnOff</td><td>stop playing</td><td>both ON and OFF can be used to trigger this command</td></tr>
   <tr><td>volume</td><td>Decimal</td><td>get or set the volume of the Player</td><td></td></tr>
 </table>
 
@@ -80,10 +80,10 @@ Valid `<sonos variable>`'s are:
 <table>
   <tr><td><b>Variable</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>alarmproperties</td><td>String</td><td>Properties of the alarm currently running</td><td></td></tr>
-  <tr><td>alarmrunning</td><td>!OnOff</td><td>set to ON if the alarm was triggered</td><td></td></tr>
+  <tr><td>alarmrunning</td><td>OnOff</td><td>set to ON if the alarm was triggered</td><td></td></tr>
   <tr><td>currenttrack</td><td>String</td><td>the track or radio station currently playing</td><td></td></tr>
-  <tr><td>linein</td><td>!OnOff</td><td>set to ON if the line-in of the Player is connected</td><td></td></tr>
-  <tr><td>localcoordinator</td><td>!OnOff</td><td>set to ON if this Player is the zone group coordinator</td><td></td></tr>
+  <tr><td>linein</td><td>OnOff</td><td>set to ON if the line-in of the Player is connected</td><td></td></tr>
+  <tr><td>localcoordinator</td><td>OnOff</td><td>set to ON if this Player is the zone group coordinator</td><td></td></tr>
   <tr><td>transportstate</td><td>String</td><td>the transport state of the Player (STOPPED, PLAYING,…)</td><td></td></tr>
   <tr><td>zonename</td><td>String</td><td>Name of the Zone the Sonos Player belongs to</td><td></td></tr>
   <tr><td>zonegroup</td><td>String</td><td>XML formatted string with the current zonegroup configuration</td><td></td></tr>
