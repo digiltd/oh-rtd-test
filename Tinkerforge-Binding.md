@@ -135,7 +135,7 @@ TFNUM is just a flag to signal the binding that some position information is pas
     tinkerforge:relay_coffee_machine.subid=relay1
 
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to a device, you need to provide configuration settings. The easiest way to do so is to add binding information in your item file (in the folder '${openhab_home}/configurations/items'). 
 
@@ -145,11 +145,10 @@ The configuration of the !TinkerForge binding item looks like this:
 
 The configuration is quite simple. You either have to set a value for the uid and optionally for the subid of the device, or - if the device is configured in openhab.cfg - the "symbolic name" of the device.
 
-|| **Property** || **Description** || 
-|| uid || !TinkerForge uid of the device (Use the Brick Viewer to get this value) ||
-|| subid || optional subid of the device||
-|| name || **symbolic name** of the device. The name is only available if there is some configuration for the device in openhab.cfg. ||
-
+| Property | Description | 
+| uid      | TinkerForge uid of the device (Use the Brick Viewer to get this value) |
+| subid    | optional subid of the device|
+| name     | **symbolic name** of the device. The name is only available if there is some configuration for the device in openhab.cfg. |
 
     tinkerforge="uid=6GN"
     tinkerforge="uid=c21, subid=relay2"
@@ -165,11 +164,11 @@ The LCD20x4 is a bit special as it acts as outbound actor which can receive text
 
 ## Example Configuration
 
-    Number Tinkerforge_DistanceIR              "Tinkerforge5 DistanceIR [%.1f ]" { tinkerforge="uid=6GN" }
+    Number Tinkerforge_DistanceIR         "Tinkerforge5 DistanceIR [%.1f ]" { tinkerforge="uid=6GN" }
     Switch TinkerforgeServo0              "TinkerforgeServo0" { tinkerforge="uid=6Crt5W, subid=servo0" }
     Switch TinkerforgeServo6              "TinkerforgeServo6" { tinkerforge="uid=6Crt5W, subid=servo6" }
     Switch TinkerforgeDualRelay1          "TinkerforgeDualRelay1" { tinkerforge="name=relay_coffee_machine" }
     Switch TinkerforgeDualRelay2          "TinkerforgeDualRelay2" { tinkerforge="uid=c21, subid=relay2" }
     
-    String TF_LCD         "LCD" { tinkerforge="uid=d4j"}
-    Switch TF_Button0         "Button0" { tinkerforge="uid=d4j, subid=button0"}
+    String TF_LCD                         "LCD" { tinkerforge="uid=d4j"}
+    Switch TF_Button0                     "Button0" { tinkerforge="uid=d4j, subid=button0"}
