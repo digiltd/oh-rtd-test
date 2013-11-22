@@ -1,3 +1,5 @@
+Documentation of the Fritz!Box binding bundle
+
 ## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
