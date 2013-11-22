@@ -1,6 +1,4 @@
-# Documentation of the Exec binding Bundle
-
-# Introduction
+## Introduction
 
 The Exec binding bundle is available as a separate (optional) download.
 If you want to enhance openHAB with a "swiss-army-knife-binding" which executes given commands on the commandline, please place this bundle in the folder `${openhab_home}/addons` and add binding information to your configuration. See the following sections on how to do this. 
@@ -9,7 +7,7 @@ The Exec binding could act as the opposite of WoL and sends a shutdown command t
 
 Note: when using 'ssh' you should use private key authorization since the password cannot be read from commandline. The given user should have the necessary permissions.
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a Exec check, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Exec binding configuration string is explained here:
 
@@ -55,9 +53,11 @@ Here are some examples of valid binding configuration strings:
 
 
 As a result, your lines in the items file might look like the following:
+
     Switch Network_NAS	"NAS"	(Network, Status)	{ nh="192.168.1.100", exec="OFF:ssh user@host shutdown -p now"}
 
 or like this:
+
     Switch Network_NAS	"NAS"	(Network, Status)	{ nh="192.168.1.100", knx="<2/0/0", exec="OFF:ssh user@host shutdown -p now"}
 
 The example above combines three bindings to incorporate the following behavior: query the current state of the NAS with the given IP address. When receiving an OFF command over KNX or the user switches to OFF manually then send the given command line via the exec binding.
