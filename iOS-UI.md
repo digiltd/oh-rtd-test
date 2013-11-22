@@ -28,5 +28,5 @@ The iOS native interface allows the users to have a native iOS app to control op
 
 **openHAB UI on iPhone**
 
-![](http://wiki.openhab.googlecode.com/hg/images/screenshots/iOS_iPhone.png "iPhone")
+![](http://wiki.openhab.googlecode.com/hg/images/screenshots/iOS_iPhone.png "iPhone") <br>
 ![](http://wiki.openhab.googlecode.com/hg/images/screenshots/iOS_iPhone2.png "iPhone")
