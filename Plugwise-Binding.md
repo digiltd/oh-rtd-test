@@ -39,7 +39,7 @@ The Plugwise device is very simple device. For a perfect integration within Open
 Valid `<Plugwise command>`'s are:
 
 <table>
-  <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
+  <tr><td><b>Command</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>state</td><td>OnOff</td><td>switch the internal relay On or Off</td><td></td></tr>
 </table>
 
@@ -48,7 +48,7 @@ Valid `<Plugwise command>`'s are:
 Valid `<Plugwise variable>`s are:
 
 <table>
-  <tr><td>**Variable**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
+  <tr><td><b>Variable</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>clock</td><td>String</td><td>Time as indicated by the internal clock of the device</td><td></td></tr>
   <tr><td>lasthour</td><td>Number</td><td>Energy consumption over the last hour, in kWh</td><td></td></tr>
   <tr><td>lasthour-stamp</td><td>DateTime</td><td>Date/Time stamp of the last hourly energy consumption history entry</td><td></td></tr>
@@ -61,6 +61,6 @@ Valid `<Plugwise variable>`s are:
 
 Here are some examples of valid binding configuration strings, as defined in the items configuration file:
 
-    Switch Switch1	"Switch1" <plugwise> { plugwise="[ON:000D6F000099675B:state:15], [OFF:000D6F000099675B:state:15]"}
-    Number Item1	"Item1" <plugwise> { plugwise="[multimedia:power:3]"}
-    DateTime Time1  "Time1" <plugwise> { plugwise="[circleplus:realtime-clock:10]"}
+    Switch Switch1  "Switch1"  <plugwise>  { plugwise="[ON:000D6F000099675B:state:15], [OFF:000D6F000099675B:state:15]"}
+    Number Item1    "Item1"    <plugwise>  { plugwise="[multimedia:power:3]"}
+    DateTime Time1  "Time1"    <plugwise>  { plugwise="[circleplus:realtime-clock:10]"}
