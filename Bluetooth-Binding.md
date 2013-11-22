@@ -1,3 +1,5 @@
+Documentation of the Bluetooth Binding Bundle
+
 ## Introduction
 
 The Bluetooth binding is used to connect openhab with a Bluetooth device. By its help you can make openhab e.g. react on bluetooth devices that get in range of your network.
