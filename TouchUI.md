@@ -1,10 +1,10 @@
-# Description of GreenT UI
+Description of GreenT UI
 
 ![](http://m-design.bg/greent/logo.png)
 
 ## [GreenT UI Website](http://m-design.bg/greent/)
 
-# Introduction
+## Introduction
 
 The GreenT UI is a web-app developed with Sencha 2.0 !JavaScript Framework. 
 
@@ -12,8 +12,7 @@ The communication between the GreenT UI and the openHAB runtime is achieved via 
 
 To see what we are talking about, you can directly [try it out on our demo server](http://demo.openhab.org:8080/greent/)!
 
-
-# Features
+## Features
 
 - Runs on Safari, Chrome, iOS, Android OS, other Webkit browsers and systems
 - Instantaneous communication between the GreenT UI and the openHAB runtime.
@@ -21,30 +20,24 @@ To see what we are talking about, you can directly [try it out on our demo serve
 - All widget types are supported, including Switch, Selection (using mappings), Slider, List (using mappings), Text, Group, Image, Frame, Chart, Spinner, Video, Webview.
 - Internationalization (i18n) is supported. All interface texts are translatable. Current translations are: English, Spanish, German and Bulgarian. New translations can be added by editing "settings.cfg" file, located in ${openhab.home}/webapps/greent/.
 - Per device settings:
-1. Choosing default sitemap to load automatically on app start-up
-1. Choosing device type
-1. Choosing interface language
-1. Choosing interface theme
-1. Choosing desired transport protocol
-1. Turn ON/OFF page transition animations (keep "OFF" for for low-end devices)
+  1. Choosing default sitemap to load automatically on app start-up
+  2. Choosing device type
+  3. Choosing interface language
+  4. Choosing interface theme
+  5. Choosing desired transport protocol
+  6. Turn ON/OFF page transition animations (keep "OFF" for for low-end devices)
 - Full support on openHAB security (authentication and HTTPS encrypted connection)
 - 3 different transport interfaces supported - websockets, HTTP streaming and HTTP long-polling. The transport interface is choosen automatically by the app. If the browser doesn't support websockets, it falls back to HTTP streaming or HTTP long-polling for Android 2.3 and below.
 
-
-# Known Bugs
+## Known Bugs
 
 None. Be a discoverer and find some :-)
 
-
-
-# How to Install
+## How to Install
 
 1. Download the [GreenT UI](http://m-design.bg/greent/download.php).
-
 2. Unzip and put the folder "greent" in ***${openhab.home}/webapps/***.
-
 3. Install openHAB Exec binding.
-
 4. Place ***${openhab.home}/webapps/greent/greent.items*** file in ***${openhab.home}/configurations/items*** folder.
 
 5. If necessary edit ***${openhab.home}/webapps/greent/configs/settings.cfg***
@@ -55,8 +48,7 @@ None. Be a discoverer and find some :-)
 
 Notice: You have to replace "server" with the address of the server where openHAB is installed, for example "localhost".
 
-
-# Updates
+## Updates
 
 GreenT UI has built-in update facility. Every time GreenT starts, it checks if a new version is available. You can enable, disable or password protect the access to GreenT update by editing the **UPDATES section** in ***${openhab.home}/webapps/greent/configs/settings.cfg***
 
@@ -67,7 +59,7 @@ Before every update, GreenT makes a backup of itself and place it in
 If anything goes wrong, **you can always restore the previous version**!
 
 
-# Theming
+## Theming
 
 GreenT UI supports interface theming. There are **5 preset themes**, but anyone can create his own theme relatively easy.
 Themes are found under this path:
@@ -81,6 +73,7 @@ To create a new theme:
 2. Open *${openhab.home}/webapps/greent/app/themes.cfg*
 
 3. Find the following text:
+
      OpenHAB.themes = [
              'GreenT',
              'blue',
@@ -106,13 +99,11 @@ After you're done with modifying the style.scss file, it needs to be compiled to
 
 And done means DONE! The new theme is compiled and ready to be used.
 
-
-# Pictogram Icons
+## Pictogram Icons
 
 GreenT UI supports pictogram style icons. These are PNG icons used as masks. There is no official openHAB pictogram icon set yet, but there are plans to provide one soon. To enable pictogram icons, open *${openhab.home}/webapps/greent/configs/settings.cfg* and find the text **OpenHAB.usePictogramIcons = false;**. Change it's value to **true**, save and refresh the browser.
 
-
-# Interface translations
+## Interface translations
 
 GreenT UI supports full internationalization. All interface texts can be translated to any language. 
 
@@ -121,21 +112,21 @@ To add a new translation:
 1. Open *${openhab.home}/webapps/app/translations.cfg*
 
 2. Find the following text:
-` 
-OpenHAB.i18n_strings[= {
+ 
+    OpenHAB.i18n_strings[= {
         language_name: 'English',
 
         // -------- Interface texts ---------
         back: 'Back',
 	interfaces: 'Interfaces',
         ...
-}
-`
+    }
+
 3. Copy it somewhere below and edit the texts.
 
 *IMPORTANT:* You have to change the language signature in the first line. For example _OpenHAB.i18n_strings['en']('en'])_ becomes _OpenHAB.i18n_strings[Don't forget to change _language_name_ too.
 
-# Screenshots
+## Screenshots
 
 *Samsung Galaxy Note:*
 
