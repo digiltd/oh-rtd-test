@@ -1,11 +1,11 @@
-# Links to Presentations about openHAB
+Links to Presentations about openHAB
 
-# Introduction
+## Introduction
 
 A couple of talks and other publications have been done about openHAB. Find the according links below.
 
 
-# Talks
+## Talks
 
 - May 16, 2013 -- openHAB presentation at [GeeCON](http://2013.geecon.org/schedule) Conference in Krakow (Poland). Download the [slides here](http://s3-eu-west-1.amazonaws.com/presentations2013/1_presentation.pdf).
 
@@ -33,7 +33,7 @@ A couple of talks and other publications have been done about openHAB. Find the 
 
 - July 14, 2010 -- openHAB presentation at [Eclipse DemoCamp Helios](http://wiki.eclipse.org/Eclipse_DemoCamps_Helios_2010/Darmstadt) in Darmstadt. View [the slides](http://www.slideshare.net/xthirtynine/openhab-eclipse-democamp-darmstadt) online.
 
-# Media
+## Media
 
 - September 21, 2012 -- News Flash about openHAB in the German [Eclipse Magazin 6/2012](http://it-republik.de/jaxenter/news/openHAB-1.0-Heimautomatisierung-%E0-la-Open-Source-064295.html) ([PDF version](http://wiki.openhab.googlecode.com/hg/resources/ECM_6.12_FrischvonJAXenter_S.6-7.pdf)).
 
