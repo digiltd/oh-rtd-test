@@ -146,6 +146,7 @@ The configuration of the !TinkerForge binding item looks like this:
 The configuration is quite simple. You either have to set a value for the uid and optionally for the subid of the device, or - if the device is configured in openhab.cfg - the "symbolic name" of the device.
 
 | Property | Description | 
+| -------- | ----------- |
 | uid      | TinkerForge uid of the device (Use the Brick Viewer to get this value) |
 | subid    | optional subid of the device|
 | name     | **symbolic name** of the device. The name is only available if there is some configuration for the device in openhab.cfg. |
