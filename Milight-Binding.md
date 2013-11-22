@@ -1,3 +1,5 @@
+Documentation of the Milight binding bundle
+
 ## Introduction
 
 The openHAB Milight binding allows to send commands to multiple Milight bridges.
