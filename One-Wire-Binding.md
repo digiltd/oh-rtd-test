@@ -16,7 +16,7 @@ If your 1-Wire Bus System is physically connected to your server and working pro
 
 # Generic Item Binding Configuration
 
-In order to bind an item to a !OneWire device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the !OneWire binding configuration string is explained here:
+In order to bind an item to a OneWire device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the OneWire binding configuration string is explained here:
 
     onewire="<sensorId>#<unitId>"
 
