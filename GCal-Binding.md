@@ -1,11 +1,10 @@
-# Documentation of the Google Calendar IO-Bundle
+Documentation of the Google Calendar IO-Bundle
 
-# Introduction
+## Introduction
 
 If you want to administer events in Google Calendar that will be executed by openHAB this bundle will do the job. See the following sections on how to configure the necessary data and how to obtain the GCal URL. 
 
-
-# Calendar Event Configuration
+## Calendar Event Configuration
 
 The format of Calendar event content is simple and looks like this:
 
@@ -37,7 +36,7 @@ or just
     send Pump_Garden ON
 
 
-# Obtain the calendar URL
+## Obtain the calendar URL
 
 openHAB must be configured with your google calendar of choice. The URL has to be configured in your openhab.cfg. To obtain the google calendar URL please walk through the following steps:
 
@@ -46,7 +45,7 @@ openHAB must be configured with your google calendar of choice. The URL has to b
 - copy the given url and replace "basic" with "full"
 
 
-# Full text query
+## Full text query
 
 In order to reduce the amount of events one may want to filter them. Please enhance the calendar URL with the query parameter "q" with the fulltext to be searched in the events.
 
