@@ -2,10 +2,6 @@
 [See Philips Hue Binding video](http://www.youtube.com/watch?v=Q4_LkXIRBWc) <br/>
 For installation of the binding, please see Wiki page [[Bindings]].
 
-<iframe width="425" height="344" frameborder="0"
- src="https://www.youtube.com/embed/Q4_LkXIRBWc">
-</iframe>
-
 ## Configuring the binding
 
 First of all you need to configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations'). 
