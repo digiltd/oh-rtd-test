@@ -1,6 +1,4 @@
-# Documentation of the Koubachi binding bundle
-
-# Introduction
+## Introduction
 
 The [Koubachi](http://www.koubachi.com) Services help everybody without a green thumb to be a perfect gardener. All plants can be registered on their really nice website (or through iPhone/iPad App) to tell you when and how to care for your plants. Furthermore they offer a dedicated hardware, the WIFI Plant Sensor. This wireless device measures vital parameters and determines the vitality of your plants.
 
@@ -8,13 +6,13 @@ Koubachis' slogan "give your plants a voice" becomes reality with this binding. 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Registration
+## Registration
 
 Before using the Koubachi services one has to register free of charge at [Koubachi-Labs](http://labs.koubachi.com) website for API access. Once the account is created the credentials and personal appKey can be obtained from the portal. Both values have to be specified in openhab.cfg.
 
-# Binding Configuration
+## Binding Configuration
 
-## openhab.cfg
+### openhab.cfg
 
 The following config parameters have to be set for using Koubachi binding:
 
@@ -24,7 +22,7 @@ The following config parameters have to be set for using Koubachi binding:
 - koubachi:credentials - The single access token configured obtained from http://labs.koubachi.com
 - koubachi:appkey - The personal appKey obtained from http://labs.koubachi.com
 
-## Example
+### Example
 
     ################################ Koubachi Binding #####################################
     
@@ -34,7 +32,7 @@ The following config parameters have to be set for using Koubachi binding:
     # The personal appKey obtained from http://labs.koubachi.com
     koubachi:appkey=KLABPLQP365CNQRIG0HY2DEX
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a Koubachi resource query you need to provide configuration settings. The easiest way to do this is to add some binding information in your item file (in the folder configurations/items`). The syntax for the NTP binding configuration string is as follows:
 
@@ -47,9 +45,9 @@ Here are some examples for valid binding configuration strings:
     plant:129892:vdmMistLevel
     plant:129892:vdmWaterInstruction
 
-## Valid property names are
+### Valid property names are
 
-### for Device Resource type
+#### for Device Resource type
 
 - virtualBatteryLevel (Number)
 - ssid (String)
@@ -64,7 +62,7 @@ Here are some examples for valid binding configuration strings:
 - recentLightReadingValue (String)
 - recentLightReadingTime (!DateTime)
 
-### for Plant Resource type
+#### for Plant Resource type
 
 - name (String)
 - location (String)
@@ -88,6 +86,7 @@ Here are some examples for valid binding configuration strings:
 - vdmLightLevel (Number)
 
 As a result, your lines in the items file might look like as follows:
+
     DateTime	Device_00066680190e_AssociatedSince	"Assoc. since [%1$td.%1$tm.%1$tY %1$tT]"	<grass>	(Device_00066680190e)	{ koubachi="device:00066680190e:associatedSince" }
     String		Device_00066680190e_Soilmoisture	"Soilmoisture [%s]"				<grass>	(Device_00066680190e)	{ koubachi="device:00066680190e:recentSoilmoistureReadingValue" }
     String		Device_00066680190e_Temperature		"Temperature [%s]"				<grass>	(Device_00066680190e)	{ koubachi="device:00066680190e:recentTemperatureReadingValue" }
