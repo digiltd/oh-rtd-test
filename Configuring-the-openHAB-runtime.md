@@ -19,7 +19,7 @@ For specific topics, there exist dedicated configurations files. These can be fo
 
 Although items can be dynamically added by item providers (as OSGi services), it is usually very practical to statically define most of the items that should be used in the UI or in automation rules. 
 
-These static definition files follow a certain syntax. This syntax will be explained here. (For the technical interested: This syntax is in fact a [Xtext DSL grammar](http://code.google.com/p/openhab/source/browse/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
+These static definition files follow a certain syntax. This syntax will be explained here. (For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
 
 Please see page [Items](Explanation-of-Items) on how to configure items.
 
