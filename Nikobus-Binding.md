@@ -1,10 +1,7 @@
-# Documentation of the Nikobus binding Bundle
-
-<wiki:video url="https://www.youtube.com/watch?v=QiNb-8QxXpo"/>
-
-# Introduction
+## Introduction
 
 The nikobus binding bundle is available as a separate (optional) download.
+https://www.youtube.com/watch?v=QiNb-8QxXpo <br/>
 
 This binding allows openHAB to interact with the [nikobus](http://www.niko.eu/enus/niko/products/home-automation-with-nikobus/) home automation system. 
 
@@ -19,7 +16,7 @@ This binding has been tested with the following hardware:
 - 12 channel switch module (05-000-02)
 - PC-link module (05-200)
 
-# Installation
+## Installation
 
 To install, place the nikobus binding bundle in the folder ${openhab_home}/addons.  
 In the logback_debug.xml file, add an entry to enable DEBUG logging for the nikobus binding:
@@ -31,7 +28,6 @@ In the openHAB.cfg file, define which serial port is connected to your PC-Link m
       nikobus:serial.port=/dev/ttyUSB0
 
 The next step is to configure buttons and switch modules in the binding.  For this, you should start openHAB in debug mode. This will allow you to capture address values from the nikobus in the OSGI console.
-
 
 ### Configuring Buttons
 
@@ -49,6 +45,7 @@ Once an openHAB item has been configured as a nikobus button, it will receive a 
 Button press type detection intentionally works different from the standard niko behaviour.  A button which is configured as LONG, will *NOT* be triggered by any SHORT presses of that button. Vice versa, a button which is configured as SHORT will *NOT* be triggered by any LONG button presses.
 
 Examples of Button Configurations:
+
     Switch Office_Top_Left_S "Office Light On/Off Short Press" {nikobus="#N003334:SHORT"}
     Switch Office_Top_Left_L "Office Light On/Off Long Press" {nikobus="#N003334:LONG"}
     Switch Kitchen "Kitchen Light On/Off" {nikobus="#N003333"}
@@ -56,7 +53,6 @@ Examples of Button Configurations:
     Switch AnyLightSwitchLong "Any Light Switch" {nikobus="*:LONG"}
 
 When an item receives the ON command from openHAB, it will send a simulated button press to the nikobus. This means you could also define a virtual buttons in openHAB with non-existing addresses e.g. #N000001 and use those in the programmation of your nikobus.
-
 
 ### Configuring a Switch Module
 
@@ -93,13 +89,13 @@ On your OSGI console, enter the following command to scan your switch module:
     nikobus analyze '<address>' <group>
 
 e.g.
-
     
     nikobus analyze '6C94' 1
     
 Where address is the 4 character address you discovered above and group 1 indicates the first channel group for channels 1-6 and 2 indicates the second channel group for channels 7-12.
 
 After the scanning is completed (which takes approximately an 30 minutes or so per 6 channels), you can verify the result of the scan using the following command:
+
     nikobus <count> '<address>' <group>
 
 If not all combinations where detected during the first attempt, you can restart the scanning to detect the missing combinations. It will not rescan any combinations which were found previously.
