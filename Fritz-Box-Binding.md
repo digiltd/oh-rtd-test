@@ -1,10 +1,8 @@
-# Documentation of the Fritz!Box binding bundle
-
-# Introduction
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to the Fritz!Box, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). 
 
