@@ -62,8 +62,6 @@ Port number for the callback server. Defaults to 9123.
 
 ### Items
 
-#### Format
-
 General format (since 1.3):
 
     homematic="{<device config>}"
