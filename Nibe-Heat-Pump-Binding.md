@@ -119,12 +119,12 @@ Where
 | 47265 | Number | Exhaust fan speed normal | |
 | 40110 | Number | EB100-BT21 vented air temp | |
 | 40111 | Number | EB100-BT21 vented air temp | |
-|| 40108 || Number || EB100-BT20 exhaust air temp || || 
-|| 40109 || Number || EB100-BT20 exhaust air temp || || 
-|| 47271 || Number || Fan return time 4 || || 
-|| 43416 || Number || Compressor starts EB100-EP14 || || 
-|| 47272 || Number || Fan return time 3 || || 
-|| 47273 || Number || Fan return time 2 || || 
+| 40108 | Number | EB100-BT20 exhaust air temp | | 
+| 40109 | Number | EB100-BT20 exhaust air temp | | 
+| 47271 | Number | Fan return time 4 |  | 
+| 43416 | Number | Compressor starts EB100-EP14 |  | 
+| 47272 | Number | Fan return time 3 |  | 
+| 47273 | Number | Fan return time 2 |  | 
 || 47274 || Number || Fan return time 1 || || 
 || 47275 || Number || Filter reminder period || || 
 || 43420 || Number || Total operation time compressor || || 
@@ -523,40 +523,40 @@ Where
 || 43024 || Number || Status cooling || || 
 || 47399 || Number || Room sensor factor S4 || || 
 || 47398 || Number || Room sensor setpoint S1 || || 
-|| 47397 || Number || Room sensor setpoint S2 || || 
-|| 47396 || Number || Room sensor setpoint S3 || || 
-|| 47418 || Number || Speed brine pump || || 
-|| 47048 || Number || Stop temperature hot water normal || || 
-|| 47049 || Number || Stop temperature hot water economy || || 
-|| 47416 || Number || Speed circ pump economy || || 
-|| 47050 || Number || Periodic hot water || || 
-|| 47417 || Number || Speed circ pump cooling || || 
-|| 47051 || Number || Periodic hot water interval || || 
-|| 43010 || Number || Calculated cooling supply temp || || 
-|| 47041 || Number || Hot water mode || || 
-|| 43008 || Number || Calculated supply temp S2 || || 
-|| 43009 || Number || Calculated supply temp S1 || || 
-|| 47043 || Number || Start temperature hot water luxury || || 
-|| 47414 || Number || Speed circ pump heat || || 
-|| 47044 || Number || Start temperature hot water normal || || 
-|| 47415 || Number || Speed circ pump pool || || 
-|| 47045 || Number || Start temperature hot water economy || || 
-|| 47046 || Number || Stop temperature periodic hot water || || 
-|| 47413 || Number || Speed circ pump hot water || || 
-|| 43013 || Number || Freeze protection status || || 
-|| 47047 || Number || Stop temperature hot water luxury || || 
-|| 47384 || Number || Date format || || 
-|| 47385 || Number || Time format || || 
-|| 47387 || Number || Hot water production || || 
-|| 47388 || Number || Alarm lower room temp || || 
-|| 47389 || Number || Alarm lower HW temp || || 
-|| 47391 || Number || Use room sensor S4 || || 
-|| 47378 || Number || Max diff comp || || 
-|| 47379 || Number || Max diff add || || 
-|| 47380 || Number || Low brine out autoreset || || 
-|| 47381 || Number || Low brine out temp || || 
-|| 47382 || Number || High brine in || || 
-|| 47383 || Number || High brine in temp || || 
+|| 47397 || Number | Room sensor setpoint S2 |  | 
+|| 47396 || Number | Room sensor setpoint S3 |  | 
+|| 47418 || Number | Speed brine pump |  | 
+|| 47048 || Number | Stop temperature hot water normal |  | 
+| 47049 | Number | Stop temperature hot water economy |  | 
+| 47416 | Number | Speed circ pump economy |  | 
+| 47050 | Number | Periodic hot water |  | 
+| 47417 | Number | Speed circ pump cooling |  | 
+| 47051 | Number | Periodic hot water interval |  | 
+| 43010 | Number | Calculated cooling supply temp |  | 
+| 47041 | Number | Hot water mode |  | 
+| 43008 | Number | Calculated supply temp S2 |  | 
+| 43009 | Number | Calculated supply temp S1 |  | 
+| 47043 | Number | Start temperature hot water luxury |  | 
+| 47414 | Number | Speed circ pump heat |  | 
+| 47044 | Number | Start temperature hot water normal |  | 
+| 47415 | Number | Speed circ pump pool |  | 
+| 47045 | Number | Start temperature hot water economy |  | 
+| 47046 | Number | Stop temperature periodic hot water |  | 
+| 47413 | Number | Speed circ pump hot water |  | 
+| 43013 | Number | Freeze protection status |  | 
+| 47047 | Number | Stop temperature hot water luxury |  | 
+| 47384 | Number | Date format |  | 
+| 47385 | Number | Time format |  | 
+| 47387 | Number | Hot water production |  | 
+| 47388 | Number | Alarm lower room temp |  | 
+| 47389 | Number | Alarm lower HW temp | | 
+| 47391 | Number | Use room sensor S4 | | 
+| 47378 | Number | Max diff comp | |
+| 47379 | Number | Max diff add | | 
+| 47380 | Number | Low brine out autoreset | |
+| 47381 | Number | Low brine out temp |  | 
+| 47382 | Number | High brine in |  | 
+| 47383 | Number | High brine in temp |  | 
 
 ## Examples
 
