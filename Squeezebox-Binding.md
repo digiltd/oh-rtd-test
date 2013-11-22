@@ -35,28 +35,17 @@ The syntax of an item configuration is shown in the following line in general:
 Where `player-id` matches one of the ids defined in your openhab.cfg file.
 
 ## Squeezebox commands
-| Command     | Purpose                   |
-| ----------- |:-------------------------:|
-| power       | Power on/off your device  |
-| mute        | Mute/unmute your device   |
-| volume      | Change volume by 5%       |
-| play        | Play the current title    |
-| pause       | Pause the current title   |
-| stop        | Stop the current title    |
-| http:stream | Play the given http stream (obsolete as there is now a new playUrlSqueezebox() action for handling this inside rules directly) |
-
-<table>
-  <tr><td>**Command**</td><td>**Purpose**</td></tr>
-  <tr><td>power</td><td>Power on/off your device</td></tr>
-  <tr><td>mute</td><td>Mute/unmute your device</td></tr>
-  <tr><td>volume</td><td>Change volume by 5%</td></tr>
-  <tr><td>play</td><td>Play the current title</td></tr>
-  <tr><td>pause</td><td>Pause the current title</td></tr>
-  <tr><td>stop</td><td>Stop the current title</td></tr>
-  <tr><td>http:stream</td><td>Play the given http stream (obsolete as there is now a new playUrlSqueezebox() action for handling this inside rules directly)</td></tr>
-  <tr><td>file:file</td><td>Play the given file on your server (obsolete as there is now a new playUrlSqueezebox() action for handling this inside rules directly)</td></tr>
-  <tr><td>sync:player-id2</td><td>Add `player-id2` to your device for synced playback</td></tr>
-</table>
+| Command         | Purpose                   |
+| --------------- | ------------------------- |
+| power           | Power on/off your device  |
+| mute            | Mute/unmute your device   |
+| volume          | Change volume by 5%       |
+| play            | Play the current title    |
+| pause           | Pause the current title   |
+| stop            | Stop the current title    |
+| http:stream     | Play the given http stream (obsolete as there is now a new playUrlSqueezebox() action for handling this inside rules directly) |
+| file:file       | Play the given file on your server (obsolete as there is now a new playUrlSqueezebox() action for handling this inside rules directly) |
+| sync:player-id2 | Add `player-id2` to your device for synced playback |
 
 ## Squeezebox variables
 
