@@ -35,7 +35,7 @@ The syntax of an item configuration is shown in the following line in general:
 Where `player-id` matches one of the ids defined in your openhab.cfg file.
 
 ## Squeezebox commands
-| Command         | Purpose                   |
+| :Command        | :Purpose                   |
 | --------------- | ------------------------- |
 | power           | Power on/off your device  |
 | mute            | Mute/unmute your device   |
