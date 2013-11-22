@@ -1,11 +1,10 @@
-# This page describes what the service discovery feature is and how it can be used by UIs
+This page describes what the service discovery feature is and how it can be used by UIs
 
-# Introduction
+## Introduction
 
 The Service Discovery bundle provides Multicast DNS/Bonjour functionality to openHAB. It is available in openHAB since version 1.0.0. This bundle is based on a well known java MDNS library - [jmDNS](http://jmdns.sourceforge.net/). The library is included into the bundle so no additional actions are needed to make this bundle work.
 
-
-# How to use Service Discovery
+## How to use Service Discovery
 
 The Service Discovery bundle was created mainly to simplify interaction between User Interface applications on different platforms (Android, iOS, etc) and openHAB. It provides service interface to register and announce different services, provided by openHAB to MDNS/Bonjour. 
 
@@ -17,7 +16,7 @@ Both service announcements include additional **uri** attribute which shows the 
 
 The same java library ([jmDNS](http://jmdns.sourceforge.net/)) can be used to discover openHAB on local network from java applications, including Android applications. MDNS/Bonjour is built in iOS application development framework. Plenty of examples can be found in corresponding platform developers documentation and on the internet ([Android example](http://home.heeere.com/tech-androidjmdns.html), [iOS example](http://mobileorchard.com/tutorial-networking-and-bonjour-on-iphone/) for MDNS/Bonjour usage).
 
-# Example
+## Example
 
 To discover HTTP REST interface application must resolve `*`openhab-server.`*`tcp.local. service.
 
@@ -28,7 +27,7 @@ Service discovery will return several parameters of openHAB:
 
 The base URL for openHAB will look like this: **http://192.168.1.20:8080/rest **
 
-# Tools
+## Tools
 
 We recommend using MDNS/Bonjour tools to check if openHAB announcement is available on the network for developers:
 
