@@ -1,12 +1,10 @@
-# Documentation of the Epson projector binding Bundle
-
-# Introduction
+## Introduction
 
 Binding should be compatible with Epson projectors which support ESC/VP21 protocol over serial port.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Binding Configuration
+## Binding Configuration
 
 First of all you need to introduce your Epson projector's in the openhab.cfg file (in the folder '${openhab_home}/configurations').
 
@@ -24,7 +22,7 @@ Examples, how to configure your receiver device:
 
     epsonprojector:hometheater.serialPort=/dev/tty.usbserial
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
@@ -104,6 +102,7 @@ ftp://download.epson-europe.com/pub/download/3756/epson375633eu.xlsx
 ## Demo
 
 epson.items
+
     Switch epsonPower                          { epsonprojector="hometheater:Power:60000" }
     String epsonSource        "Source [%s]"    { epsonprojector="hometheater:Source:ON,60000" }
     Number epsonDirectSource  "Direct Source"  { epsonprojector="hometheater:DirectSource:ON,60000"}
@@ -122,6 +121,7 @@ epson.items
     String epsonErrMessage  "ErrMessage [%s]"   <"siren-off">  { epsonprojector="<hometheater:ErrMessage:ON,60000" }
 
 epson.sitemap
+
     sitemap epson label="Epson Projector Demo"
     {
         Frame label="Controls" {
