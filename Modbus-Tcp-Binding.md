@@ -109,39 +109,40 @@ NOTE: the moxa e1200 modules give by reading with function 02 from start=0 the c
 ModbusBindingProvider provides binding for Openhab Items
 There are two ways to bind an item to modbus coils/registers
 
- 1) single coil/register per item
+1) single coil/register per item
 
      Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:5"}
 
- This binds MySwitch to modbus slave defined as "slave1" in openhab.config reading/writing to the coil 5
+This binds MySwitch to modbus slave defined as "slave1" in openhab.config reading/writing to the coil 5
 
- 2) separate coils for reading and writing
+2) separate coils for reading and writing
 
      Switch MySwitch "My Modbus Switch" (ALL) {modbus="slave1:<6:>7"}
- In this case coil 6 is used as status coil (readonly) and commands are put to coil 7 by setting coil 7 to true.
- Your hardware should then set coil 7 back to false to allow further commands processing. 
+In this case coil 6 is used as status coil (readonly) and commands are put to coil 7 by setting coil 7 to true.
+Your hardware should then set coil 7 back to false to allow further commands processing. 
 
- 3) input coil only for reading
+3) input coil only for reading
 
      Contact Contact1 "Contact1 [MAP(en.map):%s]" (All)   {modbus="slave2:0"}
- In this case regarding to moxa example coil 0 is used as discrete input (in Moxa naming DI-00)
+In this case regarding to moxa example coil 0 is used as discrete input (in Moxa naming DI-00)
 
- following examples are relatively useless, if you know better one let us know!
- counter values in most cases 16bit values, now we must do math: in rules to deal with them ...
+following examples are relatively useless, if you know better one let us know!
+counter values in most cases 16bit values, now we must do math: in rules to deal with them ...
 
- 4) read write byte register
+4) read write byte register
 
       Number Dimmer1 "Dimmer1 [%d]" (ALL) {modbus="slave4:0"}
- and in sitemap
+and in sitemap
 
       Setpoint item=Dimmer1 minValue=0 maxValue=100 step=5
 **NOTE:** if the value goes over a byte this case is fully untested!!!
 this example should write the value to all DO bits of an moxa e1212 as byte value
 
- 5) read only byte register `type=input`
+5) read only byte register `type=input`
 
       Number MyCounterH "My Counter high [%d]" (All) {modbus="slave3:0"}
- this reads counter 1 high word
+this reads counter 1 high word
+
       Number MyCounterL "My Counter low [%d]" (All) {modbus="slave3:1"}
- this reads counter 1 low word
+this reads counter 1 low word
  
