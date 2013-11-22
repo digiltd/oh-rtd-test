@@ -1,6 +1,6 @@
-# Release Notes of openHAB version 1.3
+Release Notes of openHAB version 1.3
 
-# openHAB Release 1.3
+## openHAB Release 1.3
 
 Version 1.3 includes many new features, improvements and bug fixes.
 
@@ -25,9 +25,9 @@ Shortly after the 1.3 release we decided to deliver the 1.3.1 bugfix release sol
 
 ### Version 1.3.0
 
-### = openHAB Runtime =
+### openHAB Runtime
 
-Major features:
+**Major features:**
 - Issue 20: [[Systeminfo Binding|System Info Binding (for cpu/memory/system stats)]]
 - Issue 78: [digitalSTROM Binding](digitalSTROMBinding)
 - Issue 168: [[Piface Binding|Raspberry PI Binding (with PiFace)]]
@@ -49,7 +49,7 @@ Major features:
 - Issue 385: [[Nikobus Binding|Nikobus Binding]]
 - Issue 392: [[Open Sprinkler|OpenSprinkler Binding]]
 
-Enhancements:
+**Enhancements:**
 - Issue 42: Allow caching of urls of in the HTTP binding
 - Issue 107: Enhance SNMP-Binding (Out-Binding)
 - Issue 177: Lower logging level of Plugwise Stick to DEBUG
@@ -69,7 +69,7 @@ Enhancements:
 - sendHttp methods now have return type 'String' rather than 'void'
 - Issue 240: mpd-Binding sends wrong Command.
 
-Bugfixes:
+**Bugfixes:**
 - Issue 141: !ItemProvider and binding bundle startup synchronization
 - Issue 188: Commands are sent twice in GreenT UI
 - Issue 213: Hue binding should not send status updates for dimmer items on color temperature change
@@ -94,7 +94,7 @@ Bugfixes:
 - Issue 433: Sonos binding polling thread is not started on startup
 - Made color picker widget work offline
 
-Removals:
+**Removals:**
 - Please note that the Drools addon is not available in the 1.3 release. There is a good chance that it will come back in 1.4, for details please see [this thread](https://groups.google.com/d/msg/openhab/DB1AlyC9ooo/6Qhynv7syj4J).
 - Please note, the Dropbox addon is not available in the 1.3 release because it is currently blocked by Issue 395. Please subscribe to this issue to be informed about the progress.
 
