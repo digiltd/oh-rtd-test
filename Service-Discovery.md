@@ -18,14 +18,14 @@ The same java library ([jmDNS](http://jmdns.sourceforge.net/)) can be used to di
 
 ## Example
 
-To discover HTTP REST interface application must resolve `*`openhab-server.`*`tcp.local. service.
+To discover HTTP REST interface application must resolve `_openhab-server._tcp.local.` service.
 
 Service discovery will return several parameters of openHAB:
 - IP address (like **192.168.1.20**)
 - TCP port (like **8080**)
 - uri attribute (like **/rest**)
 
-The base URL for openHAB will look like this: **http://192.168.1.20:8080/rest **
+The base URL for openHAB will look like this: **http://192.168.1.20:8080/rest**
 
 ## Tools
 
