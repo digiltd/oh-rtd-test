@@ -1,16 +1,14 @@
-# Documentation for the Piface binding
-
-# Introduction
+## Introduction
 
 A Piface extension board is attached to a Raspberry Pi via the GPIO connector. It has 8 digital input and 8 digital output pins. It is not possible to set the value of input pins, or read the value of output pins. There is plenty of documentation on the web about the Piface board and how it can be used.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Prerequisites
+## Prerequisites
 
 In order to communicate with the Raspberry Pi carrying the PiFace daughter board please install the scripts that can be found here: https://code.google.com/p/openhab/source/browse/bundles/binding/org.openhab.binding.piface/scripts/
 
-# Binding Configuration
+## Binding Configuration
 
 The binding supports multiple Piface devices by specifying a unique PifaceId in the binding configuration. The PifaceId is used in the item configuration to identify which device it is associated with.
 
@@ -30,7 +28,7 @@ The binding supports multiple Piface devices by specifying a unique PifaceId in 
     # Watchdog polling interval (optional, defaults to 60000) (since v1.4.0)
     #piface:watchdog.interval=
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 The binding supports SWITCH and CONTACT item types only. In order to associate an item with a particular Piface pin/port you must first define the PifaceId, as configured in the binding config, and then specify the pin type and number.
 
@@ -52,7 +50,7 @@ A new feature added in version 1.4.0 is a WATCHDOG monitor to ensure your Pi is 
 
     Switch  PiFaceWatchDog1        "Watchdog 1"  { piface="pifaceid1:WATCHDOG" }
 
-# Examples
+## Examples
 
 Below is an example of my setup. I am using one of the output relays to control my underfloor heating system, and the other to activate my garage door opener. I also have 3 inputs configured, one from the underfloor thermostat controller, one from a reed switch on my garage door, and one attached to a homemade water sensor (just two pieces of aluminium foil wrapped around a piece of plastic with a 5mm gap).
 
