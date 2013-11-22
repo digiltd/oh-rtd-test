@@ -33,7 +33,7 @@ The following properties can be configured to define a brickd connection:
 The properties indicated by '<...>' need to be replaced with an actual value. Properties surrounded by square brackets are optional.
 
 <table>
-  <tr><td>**Property**</td><td>**Description**</td></tr>
+  <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
   <tr><td>IP address</td><td>IP address of the brickd</td></tr>
   <tr><td>port</td><td>The listening port of of the brickd (optional, default 4223)</td></tr>
 </table>
@@ -65,17 +65,17 @@ The *symbolic name* string can be used in the items configuration as an alternat
 The following table lists the available properties, a description of the property and the devices which will accept a value for this property.
 
 <table>
-  <tr><td>*Property*</td><td>*Description*</td><td>*Device*</td></tr>
+  <tr><td><b>Property</b></td><td><b>Description</b></td><td><b>Device</b></td></tr>
   <tr><td>uid</td><td>!TinkerForge uid of the device (use the Brick Viewer to get this value)</td><td>mandatory for all devices</td></tr>
   <tr><td>subid</td><td>optional subid of the device, subid's are used if a bricklet houses more then one device (e.g. the Dual Relay Bricklet)</td><td>mandatory for sub devices</td></tr>
   <tr><td>type</td><td>The device type.</td><td>mandatory for all devices</td></tr>
   <tr><td>callbackPeriod</td><td>callback period of the !CallbackListener in milliseconds (default: 1000)</td><td>bricklet_distance_ir, bricklet_humidity, bricklet_temperature, bricklet_barometer, bricklet_ambient_light</td></tr>
   <tr><td>threshold</td><td>threshold value (default: 0)</td><td>bricklet_distance_ir, bricklet_humidity, bricklet_temperature, bricklet_barometer, bricklet_ambient_light</td></tr>
+<tr><td>switchOnVelocity</td><td>The velocity.</td><td>brick_dc, servo[0-6](:port])</td></tr> 
+<tr><td>pwmFrequency</td><td>The pwm frequency</td><td>brick_dc</td></tr>
+<tr><td>driveMode</td><td>The drive mode: break=0, coast=1.</td><td>brick_dc</td></tr>
+<tr><td>acceleration</td><td>The acceleration</td><td>brick_dc, servo[0,6]</td></tr>
 </table>
-|| switchOnVelocity || The velocity. || brick_dc, servo[0-6](:port]) || 
-|| pwmFrequency || The pwm frequency || brick_dc ||
-|| driveMode || The drive mode: break=0, coast=1. || brick_dc ||
-|| acceleration || The acceleration || brick_dc, servo[||
 
 The following table lists !TinkerForge devices, their device type name recognized by the binding, the subid name, if the device is a sub device and if it is an actor. The value is "out" for outbound actors and "in" for inbound actors).
 
