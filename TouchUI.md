@@ -110,7 +110,7 @@ GreenT UI supports full internationalization. All interface texts can be transla
 
 To add a new translation:
 
-1. Open *${openhab.home}/webapps/app/translations.cfg*
+1. Open `${openhab.home}/webapps/app/translations.cfg`
 
 2. Find the following text:
  
