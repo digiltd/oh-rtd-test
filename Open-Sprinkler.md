@@ -1,14 +1,11 @@
-# Documentation of the OpenSprinkler binding Bundle
+## Introduction
 
-<wiki:video url="https://www.youtube.com/watch?v=lT0uxFlwu9s"/>
-
-# Introduction
-
+https://www.youtube.com/watch?v=lT0uxFlwu9s <br/>
 In the OpenHAB 1.3.0 release, this binding is compatible with with both the [OpenSprinkler](http://opensprinkler.com) and [OpenSprinkler Pi](http://pi.opensprinkler.com) hardware. In other words, this binding supports communicating to the !OpenSprinkler and !OpenSprinkler Pi using http (as long as you have the interval program installed), or directly via GPIO when using the !OpenSprinkler Pi.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Binding Configuration
+## Binding Configuration
 
 !OpenSprinkler stations are numbered 0 through 7 for the default number of stations, but for some users of the !OpenSprinkler and !OpenSprinkler Pi, they will have extension boards in use. This requires that the openhab.cfg file be edited to specify how many stations are available (by default there are 8, so if you are not using an extension board then you don't need to do this step).
 
@@ -35,7 +32,7 @@ Additionally, if you are wanting to connect via http to your !OpenSprinkler (mos
     # installed this number will can be incremented by 8. Default value is 8.
     # openSprinkler:numberOfStations=8
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to switch a station open or shut using the binding, you must firstly define a switch item in your item file (in the folder configurations/items). The syntax (by way of example) of the item configuration is shown below:
 
@@ -43,5 +40,5 @@ In order to switch a station open or shut using the binding, you must firstly de
     Switch Sprinkler_Station_0 	"Station 0" { openSprinkler="0" }
     Switch Sprinkler_Station_1 	"Station 1" { openSprinkler="1" }
 
-You can see in this example that two stations are exposed as items. The first station exposed is the 0th port (i.e. the left-most pin on the !OpenSprinkler Pi), and the second station is the 1st port (the second-to-left-most pin on the !OpenSprinkler Pi). Note that there is no requirement to use the stations in order - you can open and close any station.
+You can see in this example that two stations are exposed as items. The first station exposed is the 0th port (i.e. the left-most pin on the OpenSprinkler Pi), and the second station is the 1st port (the second-to-left-most pin on the OpenSprinkler Pi). Note that there is no requirement to use the stations in order - you can open and close any station.
  
