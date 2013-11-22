@@ -1,10 +1,4 @@
-# Documentation of the KNX Binding Bundle
-
-# Content of this page
-
-<wiki:toc max_depth="2" />
-
-# Introduction
+## Introduction
 
 The openHAB KNX binding allows to connect to [KNX Home Automation](http://www.knx.org/,) installations. Switching lights on and off, activating your roller shutters or changing room temperatures are only some examples.
 
@@ -12,7 +6,7 @@ To access your KNX bus you either need an KNX IP gateway (like e.g. the [Gira KN
 
 For installation of the binding, please see Wiki page [[Bindings]].´
 
-# Binding Configuration in openhab.cfg
+## Binding Configuration in openhab.cfg
 
 You can find the configuration section for the KNX binding in file configurations/openhab.cfg, section "KNX Binding". 
 
