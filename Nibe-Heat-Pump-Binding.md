@@ -1,6 +1,4 @@
-# Documentation of the Nibe Heatpump binding Bundle
-
-# Introduction
+## Introduction
 
 Nibe heat pump binding is used to get live data from from Nibe heat pumps without modbus adapter. Binding should be compatible at least F1145 and F1245 heat pump models.
 
@@ -8,26 +6,29 @@ When modbus adapter support is enabled from heat pump UI, heat pump will start t
 
 Unfortunately Nibe has made this tricky, telegram from heat pump should be acknowledged, otherwise pump will raise an alarm and go in alarm state. Acknowledge (ACK or NAK) should be sent accurately. This is resolved by simple C program **nibegw** which can be run on unix/linux (e.g raspberry pi). 
 
-# Nibe gateway
+## Nibe gateway
 
 **nibegw** C application read telegram from serial port (need RS-485 adapter), send ACK/NAK to the heat pump and relay untouched telegram to openhab via UDP packet. Nibe heat pump binding will listening UDP port and parse register data from UDP telegrams.
 
 C code is available on [here](http://code.google.com/r/paulianttila-ihc-binding/source/browse/bundles/binding/org.openhab.binding.nibeheatpump/NibeGW/nibegw.c)  
 
 build command: 
+
     gcc -std=gnu99 -o nibegw nibegw.c
 
 execution:
+
     nibegw -v -d /dev/ttyUSB0 -a 192.168.1.10
 
 Nibegw help is avail be by command
 execution:
+
     nibegw -h
 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Binding Configuration
+## Binding Configuration
 
 openhab.cfg file (in the folder '${openhab_home}/configurations').
 
@@ -38,7 +39,7 @@ openhab.cfg file (in the folder '${openhab_home}/configurations').
 
 The `nibeheatpump:udpPort` value specify UDP port which binding will listening. Configuration is optional, by default binding listening UDP port 9999.
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
@@ -48,7 +49,7 @@ Where
 
 `<coilAddress>` corresponds the MODBUS coil addresses. See complite list below.
 
-# List of supported MODBUS coil addresses (coilAddress)
+## List of supported MODBUS coil addresses (coilAddress)
 
 <table>
   <tr><td>**Address**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
@@ -556,7 +557,7 @@ Where
 || 47382 || Number || High brine in || || 
 || 47383 || Number || High brine in temp || || 
 
-# Examples
+## Examples
 
     Number	DegreeMinutes	{ nibeheatpump="43005" }
     Number	BT1_OutdoorTemp	{ nibeheatpump="40004" }
