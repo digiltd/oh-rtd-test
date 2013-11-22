@@ -1,10 +1,10 @@
-# Documentation of the ConfigAdmin binding Bundle
+Documentation of the ConfigAdmin binding Bundle
 
-# Introduction
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 With this binding it is possible to dynamically change settings that are defined in openhab.cfg. The openhab.cfg file is as such used to define the initial configuration, while you can use this binding to change values during runtime, simply by sending an item command.
 
@@ -21,5 +21,6 @@ Here are some examples of valid binding configuration strings:
 
 
 As a result, your lines in the items file might look like the following:
+
     Switch	Dropbox_OnOff		"Activate Sync"	(State)	{ configadmin="dropbox:activate" }
     String	Dropbox_SyncMode	"Syncmode"	(State)	{ configadmin="dropbox:syncmode" }
