@@ -11,7 +11,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 At first it's required to set your serialport device in the main config file 'configurations/openhab.cfg':
 
     plcbus:port=/dev/ttyUSB0
-    or
+or
     plcbus:port=COM1
 
 ## Generic Item Binding Configuration
