@@ -1,12 +1,10 @@
-# Documentation of the Onkyo binding Bundle
-
-# Introduction
+## Introduction
 
 Binding should be compatible with Onkyo AV receivers which support ISCP protocol over Ethernet (eISCP).
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Binding Configuration
+## Binding Configuration
 
 First of all you need to introduce your Onkyo AV receiver's in the openhab.cfg file (in the folder '${openhab_home}/configurations').
 
@@ -31,7 +29,7 @@ Examples, how to configure your receiver device:
     onkyo:hometheater.host=192.168.1.100
     onkyo:hometheater.port=60128
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
@@ -52,7 +50,7 @@ Examples, how to configure your items:
     Dimmer onkyoVolume {onkyo="INCREASE:hometheater:VOLUME_UP, DECREASE:hometheater:VOLUME_DOWN"}
 
 
-## List of predefined Onkyo AV receiver commands
+### List of predefined Onkyo AV receiver commands
 
 - Main zone
 - Power
@@ -284,25 +282,28 @@ openhab send volume DECREASE -> binding send VOLUME_DOWN (eISCP command=MVLDOWN)
 
 openhab send volume 30 -> binding send eISCP command MVL1E (set volume level to 30)
 
-
 example 2:
-    Number zone4Selector { onkyo="*:hometheater:#SL4%02X" }
-example 3:
-    Switch onkyoPower { onkyo="*:hometheater:#PWR%02X" }
 
+    Number zone4Selector { onkyo="*:hometheater:#SL4%02X" }
+
+example 3:
+
+    Switch onkyoPower { onkyo="*:hometheater:#PWR%02X" }
 
 A list of all commands that are supported by Onkyo's eISCP can be found here:
 http://blog.siewert.net/?cat=18
 
 Be aware that openhab uses decimal numbers but ISCP uses hex.
 For example: The documentation says "NET" (as a source) is the value "2B". You need to translate this from HEX to DEC for openhab. (2B = 43)
-    items:
+items:
+
     Number onkyoZ2Selector "Source [%d]" {onkyo="INIT:avr:#SLZQSTN, *:avr:#SLZ%02X"}
     
-    sitemap:
+sitemap:
+
     Selection item=onkyoZ2Selector label="Source" mappings=[127=OFF, 43=NET, 1=SAT]
 
-# Limitations
+## Limitations
 
 - NETUSB_SONG_ELAPSEDTIME_QUERY - NET/USB Time Info
 - Elapsed time/Track Time Max 99:59
@@ -311,9 +312,10 @@ For example: The documentation says "NET" (as a source) is the value "2B". You n
 - NJA - NET/USB Jacket Art
 - Album Cover cannot be processed yet.
 
-# Demo
+## Demo
 
 onkyo.items:
+
     //
     // Main
     //
@@ -340,7 +342,6 @@ onkyo.items:
     // Display
     Number onkyoDisplayMode    "Display Mode"            {onkyo="INIT:hometheater:#DIFQSTN, INCREASE:hometheater:#DIFTG, *:hometheater:#DIF%02X"}
     Number onkyoDimmerLevel    "Display Dimmer Level"    {onkyo="INIT:hometheater:#DIMQSTN, INCREASE:hometheater:#DIMDIM, *:hometheater:#DIM%02X"}
-    
     
     //
     // Zone 2
@@ -388,6 +389,7 @@ onkyo.items:
     String onkyoNETPlayStatus "Play Status [%s]" {onkyo="INIT:hometheater:NETUSB_PLAY_STATUS_QUERY"}
 
 onkyo.sitemap:
+
     sitemap onkyo label="Onkyo Demo"
     {
         Frame label="Zones" {
@@ -472,9 +474,11 @@ onkyo.sitemap:
     }
 
 Screenshots:
+Main: 
+![alt text](http://wiki.openhab-samples.googlecode.com/hg/screenshots/onkyo_main.png "Onkyo Main")
 
-http://wiki.openhab-samples.googlecode.com/hg/screenshots/onkyo_main.png
+Zone: 
+![alt text](http://wiki.openhab-samples.googlecode.com/hg/screenshots/onkyo_zone2.PNG "Onkyo Zone")
 
-http://wiki.openhab-samples.googlecode.com/hg/screenshots/onkyo_zone2.PNG
-
-http://wiki.openhab-samples.googlecode.com/hg/screenshots/onkyo_net.PNG
+Net: 
+![alt text](http://wiki.openhab-samples.googlecode.com/hg/screenshots/onkyo_net.PNG "Onkyo Net")
