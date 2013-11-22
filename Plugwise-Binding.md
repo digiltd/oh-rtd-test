@@ -36,7 +36,7 @@ and where `<Plugwise command>` is the command to be sent to the Plugwise device 
 
 The Plugwise device is very simple device. For a perfect integration within OpenHAB it is assumed that the user will be using the Plugwise Source software to define the network, reset devices, perform firmware upgrade, and so forth, e.g. anything which requires user input or interactivity. Therefore the Plugwise Commands supported from within OpenHAB are mostly limited to those actions that require little or no user interaction
 
-Valid `<Plugwise command>`s are:
+Valid `<Plugwise command>`'s are:
 
 <table>
   <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
