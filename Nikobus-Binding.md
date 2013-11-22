@@ -1,3 +1,5 @@
+Documentation of the Nikobus binding Bundle
+
 ## Introduction
 
 The nikobus binding bundle is available as a separate (optional) download.
@@ -36,7 +38,7 @@ The configuration of a button uses the following format:
     Switch myItem {nikobus="<address>:<pressType>"}
 
 <table>
-  <tr><td>**Parameter**</td><td>**Description**</td></tr>
+  <tr><td><b>Parameter</b></td><td><b>Description</b></td></tr>
   <tr><td>address</td><td>Address of the button. Could also be `*` to indicate any button.</td></tr>
   <tr><td>pressType</td><td>Optional. Indication for a SHORT (<1 sec) or LONG (>1 sec) button press. Defaults to SHORT.</td></tr>
 </table>
