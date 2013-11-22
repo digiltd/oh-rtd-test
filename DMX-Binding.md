@@ -106,7 +106,7 @@ The SFADE (Suspending Fade) command is very similar to the FADE command.  It dif
 
     Switch all_living_room_leds "Doorbell Flash"	{dmx="CHANNEL[1/18], ON[FADE|0:255,255,255:125|0:0,0,255:125|0:255,255,255:125|0:0,0,255:125|0:255,255,255:125|0:0,0,255:125|0:255,255,255:125|0:0,0,255:125|0:255,255,255:125|0:0,0,255:125|0:0,0,255:-1]"}
 
-# Installing OLA
+## Installing OLA
 
 As a quick reference, an example installation is described below on how to install OLA on a Raspberry Pi running Raspbian Wheezy and configure it for use with an Entec Open DMX USB dongle.
 
