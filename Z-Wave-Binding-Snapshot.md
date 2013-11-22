@@ -3,13 +3,13 @@
 # Introduction
 
 The OpenHAB Z-Wave binding allows you to connect to your Z-Wave wireless mesh network.  A Z-Wave network typically consists of one primary controller “stick”, zero or more additional controllers and zero or more Z-Wave enabled devices, e.g. dimmers, switches, sensors et cetera.
-Connection to the Z-Wave controller is done through the serial port of your host system. USB controllers typically create a virtual COM port to connect to the stick. Please write down the port name before configuring this binding. In case your port name changes dynamically and you want to use a symlink, see [Tricks](https://code.google.com/p/openhab-samples/wiki/Tricks). A list of supported controllers is listed below.
+Connection to the Z-Wave controller is done through the serial port of your host system. USB controllers typically create a virtual COM port to connect to the stick. Please write down the port name before configuring this binding. In case your port name changes dynamically and you want to use a symlink, see [Tricks](Tricks). A list of supported controllers is listed below.
 
 Initialization of the binding typically takes several seconds to minutes depending on the number of devices in the network. When battery operated devices are used the binding tries to reach the device first. After one minute the node is marked sleeping. On wake up of the device initialization will continue.
 
 Please make sure that you have a functioning Z-Wave network prior to using this binding. The binding currently provides no functionality to add or remove devices etc. The [open-zwave control panel](https://code.google.com/p/openzwave-control-panel/) is a good choice to set up your network. Commercial software like Homeseer can be used as well.
 
-For installation of the binding, please see Wiki page [Bindings](https://code.google.com/p/openhab/wiki/Bindings).
+For installation of the binding, please see Wiki page [Bindings](Bindings).
 
 The snapshot version of the binding can be downloaded, together with the rest of openhab, from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
 
@@ -97,7 +97,7 @@ You can force a device to work with the basic command set (or any specific comma
     Switch    ZwaveDevice        { zwave="3:1:command=BASIC" }
 
 
-To find out which command classes are supported by your Z-Wave device, you can look in the manual or use the list at http://www.pepper1.net/zwavedb/ or http://products.z-wavealliance.org/. In case your command class is supported by the device and binding, but you have a problem, you can create an issue at: https://code.google.com/p/openhab/issues/list. In case you want a command class implemented by the binding, please add it to issue [431](https://code.google.com/p/openhab/issues/detail?id=431).
+To find out which command classes are supported by your Z-Wave device, you can look in the manual or use the list at http://www.pepper1.net/zwavedb/ or http://products.z-wavealliance.org/. In case your command class is supported by the device and binding, but you have a problem, you can create an issue at: https://github.com/openhab/openhab/issues. In case you want a command class implemented by the binding, please add it to issue [431](https://github.com/openhab/openhab/issues/431).
 
 ## Known Issues
 
