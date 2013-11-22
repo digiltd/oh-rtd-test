@@ -1,9 +1,6 @@
-# Documentation of the DMX binding Bundle
+## Introduction
 
-http://www.youtube.com/watch?v=o0J4qyyfhio"
-
-# Introduction
-
+http://www.youtube.com/watch?v=o0J4qyyfhio
 The DMX binding is available as a separate download. 
 
 Using this binding, you can control DMX devices like RGB led strips, dimmers and more from within openHAB.  
@@ -19,7 +16,7 @@ To use the DMX binding, install the core bundle and ONE device interface bundle 
 If you use the OLA interface, you will also need to configure OLA.  
 More information on configuring the binding and installing OLA is available in the next sections.
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a DMX channel, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). 
 
@@ -77,20 +74,27 @@ The FADE command accepts the following parameter structure(s):
 ### = Example Fade Configurations: =
 
 1) A wake up light which takes 60 seconds to fade from nothing to full brightness.
+
     Dimmer light_bed_room “Light Bedroom” {dmx="CHANNEL[20:1000], ON[FADE|60000:255,255,255:-1]"}
+
 2) A light which switches on to full brightness immediately and then fades out after 30 seconds
+
     Dimmer light_hall “Light Stairway Hall” {dmx="CHANNEL[25:1000], ON[FADE|0:255,255,255:30000|5000:0,0,0:-1]"}
+
 3) An alternating green yellow fade on 2 RGB led strips.
+
     Switch xmas_leds "Start Yellow-Green Fade Loop" {dmx="CHANNEL[7/6], ON[FADE|500:127,36,0,0,36,0:2000|500:0,36,0,127,36,0:2000]"}
 
 ### = SFADE Command =
 
 The SFADE (Suspending Fade) command is very similar to the FADE command.  It differs from the FADE command in that it suspend any active fades before executing a new fade.  After the fade has completed, the original fade which was running before the SFADE started is resumed. It accepts the following parameter structure(s):
+
     <fade-time>:<target-channel-value>,<target-channel-value>,...:<hold-time>
 
 ### = Example Suspending Fade Configurations: =
 
 1) A short blue white flash pattern on the first 18 dmx channels, which will temporarily replace the active fades on those channels.
+
     Switch all_living_room_leds "Doorbell Flash"	{dmx="CHANNEL[1/18], ON[FADE|0:255,255,255:125|0:0,0,255:125|0:255,255,255:125|0:0,0,255:125|0:255,255,255:125|0:0,0,255:125|0:255,255,255:125|0:0,0,255:125|0:255,255,255:125|0:0,0,255:125|0:0,0,255:-1]"}
 
 # Installing OLA
@@ -102,10 +106,13 @@ For detailed instructions on how to install and configure OLA on different platf
 ### Installing OLA binaries
 
 To install OLA, you’ll need to add a software repository. Edit your software repository list, using the following command:
+
     sudo nano /etc/apt/sources.list
 And add the following line to the list:
+
     deb   http://apt.openlighting.org/raspbian  wheezy main
 After saving the file, install the binaries with the following commands:
+
     sudo apt-get update
     sudo apt-get install ola
 When prompted if you want to start OLA at boot, select Yes.
@@ -119,8 +126,10 @@ Depending on how OLA was installed, you can find the OLA configuration files for
 The ola-ftdidmx.conf configuration file is needed for the Open DMX USB.  Disable all other configurations by editing the configuration files and changing the value of the property ‘enabled’ to ‘false’.
 
 Next, open the following USB device rule file:
+
     sudo nano /etc/udev/rules.d/30-ftdidmx.rules
 and add the following rule:
+
     ACTION=="add", BUS=="usb", SYSFS{idVendor}=="0403", SYSFS{idProduct}=="6001", GROUP:="dialout", MODE:="0660"
 
 Restart the Raspberry to start OLA.
