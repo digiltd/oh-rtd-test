@@ -13,6 +13,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 # Binding Configuration
 
 First of all you need to configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations').
+
     ############################### RFXCOM Binding #########################################
     
     # Serial port of RFXCOM interface
