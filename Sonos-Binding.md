@@ -46,7 +46,7 @@ The Sonos Player is very complete but also complex device. For a perfect integra
 Valid `<sonos command>`'s are:
 
 <table>
-  <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
+  <tr><td><b>Command</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>add</td><td>String</td><td>add another Sonos Player to this Player's group</td><td>String is the id of the player to add</td></tr>
   <tr><td>alarm</td><td>!OnOff</td><td>set the first occurring alarm either ON or OFF</td><td>Alarms have to be first defined through the Sonos Desktop Controller</td></tr>
   <tr><td>led</td><td>!OnOff</td><td>get or set the white led on the front of the Player</td><td></td></tr>
@@ -69,7 +69,7 @@ Valid `<sonos command>`'s are:
 New since v1.3
 
 <table>
-  <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
+  <tr><td><b>Command</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>playlist</td><td>String</td><td>play the named playlist from favorites</td><td>the playlist has to be defined in the list of Sonos Favorites</td></tr>
 </table>
 
@@ -78,7 +78,7 @@ New since v1.3
 Valid `<sonos variable>`'s are:
 
 <table>
-  <tr><td>**Variable**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
+  <tr><td><b>Variable</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>alarmproperties</td><td>String</td><td>Properties of the alarm currently running</td><td></td></tr>
   <tr><td>alarmrunning</td><td>!OnOff</td><td>set to ON if the alarm was triggered</td><td></td></tr>
   <tr><td>currenttrack</td><td>String</td><td>the track or radio station currently playing</td><td></td></tr>
@@ -93,7 +93,7 @@ Valid `<sonos variable>`'s are:
 New since v1.3
 
 <table>
-  <tr><td>**Variable**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
+  <tr><td><b>Variable</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>currenttitle</td><td>String</td><td>title of currently playing song</td><td></td></tr>
   <tr><td>currentartist</td><td>String</td><td>artist of currently playing song</td><td></td></tr>
   <tr><td>currentalbum</td><td>String</td><td>album of currently playing song</td><td></td></tr>
@@ -109,6 +109,6 @@ Here are some examples of valid binding configuration strings:
 
 As a result, your lines in the items file might look like the following:
 
-    Switch ledstatus	      "LedStatus" 	(Sonos) {sonos="<[ON:living:led], <[OFF:living:led]" autoupdate="false"}
-    String currenttrack 	      "CurrentTrack" 	(Sonos) {sonos="<[RINCON_000E581369DC01400:currenttrack]" autoupdate="false"}
-    String radiostation	      "RadioStation"    (Sonos) {sonos=">[living:radio]" autoupdate="false"}
+    Switch ledstatus     "LedStatus"     (Sonos)   {sonos="<[ON:living:led], <[OFF:living:led]" autoupdate="false"}
+    String currenttrack  "CurrentTrack"  (Sonos)   {sonos="<[RINCON_000E581369DC01400:currenttrack]" autoupdate="false"}
+    String radiostation  "RadioStation"  (Sonos)   {sonos=">[living:radio]" autoupdate="false"}
