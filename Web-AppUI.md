@@ -18,7 +18,7 @@ See here some examples of its look:
 ![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-room.jpg "Room") 
 ![alt text](http://wiki.openhab.googlecode.com/hg/images/screenshots/openhab-widgets.jpg "Widget")
 
-# Technical Implementation
+## Technical Implementation
 
 The UI can be found in the bundle org.openhab.ui.webapp. It registers a servlet with Jetty (usually openhab.app) and processes incoming requests. The UI makes use of the Sitemap definition file in order to render the pages.
 
