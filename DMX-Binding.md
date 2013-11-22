@@ -24,6 +24,7 @@ In order to bind an item to a DMX channel, you need to provide configuration set
 DMX channels can be linked to switch, dimmer and color items.
 
 The DMX binding configuration contains a channel configuration and 0 or more command configurations. It has the following structure:
+
     dmx="CHANNEL[<channel-config>], <OPENHAB-COMMAND>[<dmx-command>], <OPENHAB-COMMAND>[<dmx-command>], ..."
 
 ### Channel Configuration
