@@ -33,7 +33,7 @@ The following properties can be configured to define a brickd connection:
 The properties indicated by '<...>' need to be replaced with an actual value. Properties surrounded by square brackets are optional.
 
 <table>
-  <th><td>Property</td><td>Description</td></th>
+  <tr><td>**Property**</td><td>**Description**</td></tr>
   <tr><td>IP address</td><td>IP address of the brickd</td></tr>
   <tr><td>port</td><td>The listening port of of the brickd (optional, default 4223)</td></tr>
 </table>
