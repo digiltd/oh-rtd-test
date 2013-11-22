@@ -29,6 +29,7 @@ Here are some examples of valid binding configuration strings:
 
 
 As a result, your lines in the items file might look like the following:
+
     Number Weather_Temperature "Temperature [%.1f ¬∞C]"  <temperature>  (Wetter) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(demo_yahoo_weather.xsl)]" }
     
 
@@ -50,6 +51,7 @@ Each format string starts with '%' followed by an optional index e.g. '2$' where
 Both !OutBinding and !InBinding provide the possibility to define optional HTTP headers, which will be sent during the HTTP method call. Those optional headers can be added to the url in the form `header1=value1&header2=value2....` This headers string should be enclosed in curly brackets right after the url itself (before the separation colon).
 
 Example:
+
     http="<[https://www.flukso.net/api/sensor/xxxx?interval=daily{X-Token=mytoken&X-version=1.0}:60000:REGEX(.*?<title>(.*?)</title>(.*))]"
 
 
@@ -76,9 +78,11 @@ The `http:<cacheItemName1>.updateInterval` value is update interval in milliseco
 Examples, how to configure your HTTP cache item:
 
 Configuration:
+
     http:weatherCache.url=http://weather.yahooapis.com/forecastrss?w=566473&u=c
     http:weatherCache.updateInterval=60000
 
 Items:
+
     Number temperature { http="<[weatherCache:10000:XSLT(demo_yahoo_weather_temperature.xsl)]" }
     Number windSpeed { http="<[weatherCache:10000:XSLT(demo_yahoo_weather_wind_speed.xsl)]" }
