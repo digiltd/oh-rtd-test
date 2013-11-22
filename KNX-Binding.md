@@ -12,46 +12,45 @@ You can find the configuration section for the KNX binding in file configuration
 
 For your convenience you can see the relevant section as follows:
 
-` 
-# KNX gateway IP address 
-# (optional, if serialPort or connection type 'ROUTER' is specified)
-knx:ip=
+    # KNX gateway IP address 
+    # (optional, if serialPort or connection type 'ROUTER' is specified)
+    knx:ip=
 
-# KNX IP connection type. Could be either TUNNEL or ROUTER (optional, defaults to TUNNEL)
-# Note: If you cannot get the ROUTER mode working (even if it claims it is connected), 
-# use TUNNEL mode instead with setting both the ip of the KNX gateway and the localIp.
+    # KNX IP connection type. Could be either TUNNEL or ROUTER (optional, defaults to TUNNEL)
+    # Note: If you cannot get the ROUTER mode working (even if it claims it is connected), 
+    # use TUNNEL mode instead with setting both the ip of the KNX gateway and the localIp.
 knx:type=
 
-# KNX gateway port (optional, defaults to 3671)
-knx:port=
+    # KNX gateway port (optional, defaults to 3671)
+    knx:port=
 
-# Local endpoint to specify the multicast interface, no port is used (optional)
-knx:localIp=
+    # Local endpoint to specify the multicast interface, no port is used (optional)
+    knx:localIp=
 
-# Serial port of FT1.2 KNX interface (ignored, if ip is specified)
-# Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux
-knx:serialPort=
+    # Serial port of FT1.2 KNX interface (ignored, if ip is specified)
+    # Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux
+    knx:serialPort=
 
-# Pause in milliseconds between two read requests on the KNX bus during
-# initialization (optional, defaults to 50)
-knx:pause=
+    # Pause in milliseconds between two read requests on the KNX bus during
+    # initialization (optional, defaults to 50)
+    knx:pause=
 
-# Timeout in milliseconds to wait for a response from the KNX bus (optional, 
-# defaults to 10000)
-knx:timeout=
+    # Timeout in milliseconds to wait for a response from the KNX bus (optional, 
+    # defaults to 10000)
+    knx:timeout=
 
-# Number of read retries while initialization items from the KNX bus (optional,
-# defaults to 3)
-knx:readRetries=
+    # Number of read retries while initialization items from the KNX bus (optional,
+    # defaults to 3)
+    knx:readRetries=
 
-# Seconds between connect retries when KNX link has been lost
-# 0 means never retry, it will only reconnect on next write or read request
-# Note: without periodic retries all events will be lost up to the next read/write request
-# (optional, default is 0)
-knx:autoReconnectPeriod=
-`
+    # Seconds between connect retries when KNX link has been lost
+    # 0 means never retry, it will only reconnect on next write or read request
+    # Note: without periodic retries all events will be lost up to the next read/write request
+    # (optional, default is 0)
+    knx:autoReconnectPeriod=
 
 A sample configuration could look like:
+
     knx:ip=192.168.1.10
     knx:type=ROUTER
 
@@ -78,10 +77,12 @@ listeningGAs are used for obtaining status changes from KNX. There can be multip
 Given we want to bind a Dimmer Item to KNX, we have first to check which commands an openHAB dimmer item does accept:
 
 On page [Items](Items#itemtypes) we that an openHAB Dimmer Item accepts three types of commands:
+
 ||Itemname||Description||Command Types||
 ||Dimmer||Item carrying a percentage value for dimmers||OnOff, IncreaseDecrease, Percent||
 
 Also [in the sources](http://code.google.com/p/openhab/source/browse/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/DimmerItem.java), we can find this information:
+
     acceptedCommandTypes.add(OnOffType.class);
     acceptedCommandTypes.add(IncreaseDecreaseType.class);
     acceptedCommandTypes.add(PercentType.class);
@@ -96,6 +97,7 @@ In our example we assign the following KNX group addresses to the different comm
 
 
 The respective line in the items definition file would therefore look like this:
+
     Dimmer TestDimmer (Lights) { knx="1/3/20+0/3/20, 1/3/21, 1/3/22+0/3/22+0/8/15" }
 
 If you have a dimmer that does not support INCREASE/DECREASE commands and you thus do not have a GA to provide in the middle, you can also directly define the datapoint types (DPTs) in the configuration. The above example would then look like this (without INCREASE/DECREASE support):
@@ -110,14 +112,16 @@ For identifying the different command types for items, please either have a look
 
 Here are some further examples for valid binding configuration strings:
 
-For an !SwitchItem:
+For a SwitchItem:
+
     knx="1/1/10"
     knx="1.001:1/1/10"
     knx="<1/1/10"
     knx="<1/1/10+0/1/13+0/1/14+0/1/15"
     knx="1/1/10+<0/1/13+0/1/14+0/1/15"
 
-For a !RollershutterItem:
+For a RollershutterItem:
+
     knx="4/2/10"
     knx="4/2/10, 4/2/11"
     knx="4/2/10, 4/2/11, 4/2/12"
@@ -125,6 +129,7 @@ For a !RollershutterItem:
     knx="<4/2/10+0/2/10, 5.006:4/2/11+0/2/11"
 
 As a result, your lines in the items file might look like the following:
+
     /* Lights */
     Switch Light_GF_Living_Table "Table" (GF_Living, Lights) { knx="1/1/10+0/1/5" }
     
