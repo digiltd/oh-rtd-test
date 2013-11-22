@@ -1,6 +1,4 @@
-# Documentation of the Bluetooth Binding Bundle
-
-# Introduction
+## Introduction
 
 The Bluetooth binding is used to connect openhab with a Bluetooth device. By its help you can make openhab e.g. react on bluetooth devices that get in range of your network.
 
@@ -14,7 +12,7 @@ It is possible to define for each bound item if only paired, unpaired or all dev
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a Bluetooth event you need to provide configuration settings. The easiest way to do this is to add binding information in your item file (in the folder configurations/items`). The syntax for the Bluetooth binding configuration string is as follows:
 
@@ -31,8 +29,8 @@ Here are some examples for valid binding configuration strings:
     bluetooth="!"
     bluetooth="?"
 
-
 As a result, your lines in the items file might look like follows:
+
     Switch MyMobile     	                                  { bluetooth="EC935BD417C5!" }
     String UnknownDevices    "Unknown devices in range: [%s]" { bluetooth="?" }
     Number NoOfPairedDevices "Paired devices in range: [%d]"  { bluetooth="!" }
