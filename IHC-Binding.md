@@ -1,12 +1,10 @@
-# Documentation of the IHC / ELKO binding Bundle
-
-# Introduction
+## Introduction
 
 This binding is for the "Intelligent Home Control" building automation system originally made by LK, but now owned by Schneider Electric and sold as "IHC Intelligent Home Control". It is based on a star configured topology with wires to each device. The system is made up of a central controller and up to 8 input modules and 16 output modules. Each input module can have 16 digital inputs and each output module 8 digital outputs, resulting in a total of 128 input and 128 outputs per controller.
 
 For installation of the binding, please see Wiki page [[Bindings]].
  
-# Binding Configuration
+## Binding Configuration
 
 add to ${openhab_home}/configuration/
 
@@ -30,15 +28,16 @@ IHC / ELKO LS controller communication interface is SOAP (Simple Object Access P
 You can download controller TLS certificate e.g. by Firefox browser; just open HTTPS connection to your controller IP address (https://192.168.1.2), click "lock" icon (just before URL box) -> more information -> security tab -> view certificate -> details tab -> export.
 
 Keytool usage:
+
     $JAVA_HOME/bin/keytool -importcert -alias <some descriptive name> -keystore <path to keystore> -file <certificate file>
 
 See more information about the keytool from [here](http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html).
 
-
 Keytool usage example (OS X):
+
     sudo keytool -importcert -alias ELKO -keystore /System/Library/Java/Support/CoreDeploy.bundle/Contents/Home/lib/security/cacerts -file ELKOLivingSystemController.pem
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 IHC / ELKO LS binding use resource ID's to control and listening notification to/from the controller. You can find correct resource ID's from your IHC / ELKO LS project file. Binding support both decimal and hexadecimal values for resource ID's values. Hexadecimal value need to be specified with 0x prefix.
 
@@ -53,7 +52,6 @@ The optional '>' sign tells whether resource is out binding only, where internal
 Refresh interval could be used for forcefully synchronous resource values from controller.
 
 Binding will automatically enable runtime value notifications from controller for all configured resources.
-
 
 Currently OpenHAB's Number, Switch, Contact, String and DateTime items are supported.
 
@@ -72,7 +70,9 @@ Weather temperature is download from internet and updated to IHC controller obje
     Number Weather_Temperature "Outside Temp. (Yahoo) [%.1f °C]" <temperature> (Weather_Chart) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(demo_yahoo_weather.xsl)]", ihc=">1234567" }
 
 Binding listens all state changes from controller's resource id 9953290 and update state changes to OpenHAB Light_Kitchen item. All state changes from OpenHAB will be also transmitted to the controller (e.g. command from OpenHAB console 'openhab send Light_Kitchen ON').
+
     Switch Light_Kitchen {ihc="9953290"}
 
 Such as previous example, but resource value will additionally asked from controller ones per every minute.
+
     Number Temperature_Kitchen "Temperature [%.1f °C]" <temperature> (Temperature, FF_Kitchen) { ihc="0x97E00A:60" }
