@@ -124,11 +124,11 @@ To add a new translation:
 
 3. Copy it somewhere below and edit the texts.
 
-*IMPORTANT:* You have to change the language signature in the first line. For example _OpenHAB.i18n_strings['en']('en'])_ becomes _OpenHAB.i18n_strings[Don't forget to change _language_name_ too.
+**IMPORTANT:** You have to change the language signature in the first line. For example `OpenHAB.i18n_strings['en']('en'])` becomes `OpenHAB.i18n_strings['ru']` Don't forget to change `language_name` too.
 
 ## Screenshots
 
-*Samsung Galaxy Note:*
+**Samsung Galaxy Note:**
 
 ![](http://m-design.bg/greent/note1_small.png]
 ![](http://m-design.bg/greent/note2.png)
