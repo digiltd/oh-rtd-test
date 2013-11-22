@@ -1,7 +1,8 @@
+Documentation of the VDR Binding Bundle
+
 ## Introduction
 
 If you have any suggestions or questions don't hesitate to contact me ([iwow](http://groups.google.com/groups/profile?enc_user=2fum3R0AAACkAo_xkzjYxXMLRwdKLvZ72A6NcFQ3yZH-XCKBlyRD_Q)) or use the [openHAB google group](http://groups.google.com/group/openhab).
-
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
