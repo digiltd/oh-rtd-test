@@ -41,17 +41,22 @@ There can be only one channel configuration structure per openHAB item.  The cha
 ### = Example Channel Configurations: =
 
 1) RGB led strip of which the first channel is 7 and which receives a maximum of 1 status update per second.
+
     Color rgb_strip_living_room "RGB Ledstrip Living Room" {dmx="CHANNEL[7:1000]"}
 The same binding could also be written as:
+
     Color rgb_strip_living_room "RGB Ledstrip Living Room" {dmx="CHANNEL[7,8,9:1000]"}
 2) A binding to a dimmer item which is linked to only the blue channel of the RGB strip above:
+
     Dimmer rgb_strip_living_room_blue_only "Living Room Blue" {dmx="CHANNEL[9]"}
 3) An RGBW led strip starting at channel 20.
+
     Color rgbw_strip_kitchen "RGBW Ledstrip Kitchen" {dmx="CHANNEL[20/4:1000]"}
 
 ### Command Configuration
 
 Using the command configuration, you can override behavior of the default openHAB commands for the DMX devices. The command configuration has the following generic structure:
+
     <OPENHAB-COMMAND>[<dmx-command>|<command-parameters>|<command-parameters>|..]
 
 <table>
@@ -63,6 +68,7 @@ Using the command configuration, you can override behavior of the default openHA
 ### = FADE Command =
 
 The FADE command accepts the following parameter structure(s):
+
     <fade-time>:<target-channel-value>,<target-channel-value>,...:<hold-time>
 
 <table>
