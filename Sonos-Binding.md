@@ -1,3 +1,5 @@
+Documentation of the Sonos binding Bundle
+
 ## Introduction
 
 **Note:** The Sonos binding communicates with the Sonos devices through the UPNP (Universal Plug And Play) protocol. Users of this binding might wish to familiarise them with the protocol and slang. UPNP defines a subscription model whereby a UPNP client can subscribe to UPNP Events that are transmitted by a UPNP device. Sonos Players do emit quite a bit of Events and some are used to capture status variables (see below). 
