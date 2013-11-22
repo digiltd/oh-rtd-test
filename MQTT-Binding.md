@@ -1,3 +1,5 @@
+Documentation of the MQTT binding Bundle
+
 ## Introduction
 
 The **MQTT binding bundle** is available as a separate (optional) download.
