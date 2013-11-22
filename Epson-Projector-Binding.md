@@ -1,3 +1,5 @@
+Documentation of the Epson projector binding Bundle
+
 ## Introduction
 
 Binding should be compatible with Epson projectors which support ESC/VP21 protocol over serial port.
@@ -47,47 +49,46 @@ Examples, how to configure your items:
 
 # List of supported commands
 
-<table>
-  <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
-</table>
-|| Power || Switch ||  ||  || 
-|| PowerState || String ||  ||  || 
-|| LampTime || Number ||  ||  || 
-|| KeyCode || Number ||  ||  || 
-|| VerticalKeystone || Number ||  ||  || 
-|| HorizontalKeystone || Number ||  ||  || 
-|| AutoKeystone || Number ||  ||  || 
-|| AspectRatio || String ||  ||  || 
-|| Luminance || String ||  ||  || 
-|| Source || String ||  ||  || 
-|| DirectSource || Number ||  ||  || 
-|| Brightness || Number ||  ||  || 
-|| Contrast || Number ||  ||  || 
-|| Density || Number ||  ||  || 
-|| Tint || Number ||  ||  || 
-|| Sharpness || Number ||  ||  || 
-|| ColorTemperature || Number ||  ||  || 
-|| FleshTemperature || Number ||  ||  || 
-|| ColorMode || String ||  ||  || 
-|| HorizontalPosition || Number ||  ||  || 
-|| VerticalPosition || Number ||  ||  || 
-|| Tracking || Number ||  ||  || 
-|| Sync || Number ||  ||  || 
-|| OffsetRed || Number ||  ||  || 
-|| OffsetGreen || Number ||  ||  || 
-|| OffsetBlue || Number ||  ||  || 
-|| GainRed || Number ||  ||  || 
-|| GainGreen || Number ||  ||  || 
-|| GainBlue || Number ||  ||  || 
-|| Gamma || String ||  ||  || 
-|| GammaStep || Number ||  ||  || 
-|| Color || String ||  ||  || 
-|| Mute || Switch ||  ||  || 
-|| HorizontalReverse || Switch ||  ||  || 
-|| VerticalReverse || Switch ||  ||  || 
-|| Background || String ||  ||  || 
-|| ErrCode || Number ||  ||  || 
-|| ErrMessage || String ||  ||  || 
+| Command       | Item Type           | Purpose  | Note  |
+| ------------- | ------------------- | -------- | ----- |
+| Power | Switch |  |  | 
+| PowerState | String |  |  | 
+| LampTime | Number |  |  | 
+| KeyCode | Number |  |  | 
+| VerticalKeystone | Number |  |  | 
+| HorizontalKeystone | Number |  |  | 
+| AutoKeystone | Number |  |  | 
+| AspectRatio | String |  |  | 
+| Luminance | String |  |  | 
+| Source | String |  |  | 
+| DirectSource | Number |  |  | 
+| Brightness | Number |  |  | 
+| Contrast | Number |  |  | 
+| Density | Number |  |  | 
+| Tint | Number |  |  | 
+| Sharpness | Number |  |  | 
+| ColorTemperature | Number |  |  | 
+| FleshTemperature | Number |  |  | 
+| ColorMode | String |  |  | 
+| HorizontalPosition | Number |  |  | 
+| VerticalPosition | Number |  |  | 
+| Tracking | Number |  |  | 
+| Sync | Number |  |  | 
+| OffsetRed | Number |  |  | 
+| OffsetGreen | Number |  |  | 
+| OffsetBlue | Number |  |  | 
+| GainRed | Number |  |  | 
+| GainGreen | Number |  |  | 
+| GainBlue | Number |  |  | 
+| Gamma | String |  |  | 
+| GammaStep | Number |  |  | 
+| Color | String |  |  | 
+| Mute | Switch |  |  | 
+| HorizontalReverse | Switch |  |  | 
+| VerticalReverse | Switch |  |  | 
+| Background | String |  |  | 
+| ErrCode | Number |  |  | 
+| ErrMessage | String |  |  | 
 
 ## ESC/VP21 Command User’s Guide for Home Projectors Projectors Projector
 
