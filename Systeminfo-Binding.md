@@ -1,6 +1,4 @@
-# Documentation of the Systeminfo binding Bundle
-
-# Introduction
+## Introduction
 
 System information binding provides operating system monitoring data including:
 
@@ -13,7 +11,7 @@ Binding use Hyperic SIGAR API to access system information regardless of the und
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 openhab.cfg file (in the folder '${openhab_home}/configurations').
 
@@ -26,11 +24,11 @@ openhab.cfg file (in the folder '${openhab_home}/configurations').
     # Data Storage Unit, where B=Bytes, K=kB, M=MB, T=TB (optional, defaults to M)
     #systeminfo:units=
 
-# Hyperic SIGAR Native libraries
+## Hyperic SIGAR Native libraries
 
 The SystemInformation binding does not include SIGAR native libraries currently. The platform dependent Sigar native libraries needs to be moved into the ${openhabhome]/lib folder. Pre builded libraries can be found [here](http://sourceforge.net/projects/sigar/files/sigar/1.6/hyperic-sigar-1.6.4.tar.gz/download) for several platforms (see sugar-bin/lib folder).
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
@@ -44,7 +42,7 @@ Where
 
 `<target>` corresponds target of the command. Target field is mandatory only for commands, which need target. See further details from supported command list below.
 
-# List of supported commands (commandType)
+## List of supported commands (commandType)
 
 <table>
   <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
