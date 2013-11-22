@@ -54,7 +54,7 @@ The third console is using Google calendar entries - with this cool feature, you
 
 ### REST-API
 
-The RESTful interface opens up openHAB to any other system that might want to tightly interact with openHAB. Not only gives it direct access to items, but also to sitemaps.This API can hence be used as a communication channel for user interfaces. Read [all the details about the REST-API](REST).
+The RESTful interface opens up openHAB to any other system that might want to tightly interact with openHAB. Not only gives it direct access to items, but also to sitemaps.This API can hence be used as a communication channel for user interfaces. Read [all the details about the REST-API](REST-API).
 
 ## Designer
 
@@ -63,13 +63,13 @@ The openHAB Designer, which is the configuration tool for the openHAB Runtime, i
 ## Automation Rules / Scripts / Actions
 
 openHAB comes with a highly integrated rule engine to allow users to write automation rules.
-Read about the [[Rules|details on this wiki page]].
+Read about the [details on this wiki page](Rules).
 
-Optionally, you can also use JBoss Drools, see the [[Drools|details here]].
+Optionally, you can also use JBoss Drools, see the [details here](Drools).
 
 Rules can make use of user-defined [[Scripts|scripts]], but those scripts can also be called directly from consoles. They make it very easy to define macros.
 
-openHAB defines a useful [[Actions|set of actions]] that can be used from within rules and scripts. They can be used to send e-mails and do other kinds of notifications as well as other common things.
+openHAB defines a useful [set of actions](Actions) that can be used from within rules and scripts. They can be used to send e-mails and do other kinds of notifications as well as other common things.
 
 ## Bindings
 
