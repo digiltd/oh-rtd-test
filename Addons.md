@@ -1,6 +1,6 @@
-# An overview of the contents of the "addons" download package
+An overview of the contents of the "addons" download package
 
-# openHAB Add-ons
+## openHAB Add-ons
 
 This is an overview over the contents of the [download package]("addons").
 
