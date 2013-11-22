@@ -145,5 +145,4 @@ epson.sitemap
     }
 
 Screenshot:
-
-http://wiki.openhab-samples.googlecode.com/hg/screenshots/epsonprojector_demo.png
+![alt text](https://wiki.openhab-samples.googlecode.com/hg/screenshots/epsonprojector_demo.png "Epson Projector demo")
