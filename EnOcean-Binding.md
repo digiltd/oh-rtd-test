@@ -10,18 +10,24 @@ For installation of the binding, please see Wiki page [[Bindings]].
 The following config params are used for the !EnOcean binding.
 
 - enocean:serialPort
+
 The serial port (can be a virtual one) where the enocean transceiver is connected to. An USB adapter creates a virtual serial port (normally /dev/ttyUSB0 under linux)
 
 ### Example
 
-f28f499f39ef60839adca05929150952
+    ######################## EnOcean Binding ###########################
+    enocean:serialPort=/dev/ttyUSB0
 
 ## Generic Item Binding Configuration
 
 ### Items
 
 General format:
-83b4c031a568c2505c1b46b91e0f4dd8
+
+    enocean="{id=<id_of_enocean_device> [, eep = <EEP_name>][, channel = <channelName>][, parameter = <parameterName>]}"
+
+The device id is printed on the device package. When the EEP is needed, the eep (e.g. "F6.02.01") is also printed on the device package.
+All parameters in [] are optional and only used for some devices.
 
 ## Supported Devices
 
