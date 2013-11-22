@@ -38,7 +38,7 @@ Examples, how to configure your receiver device:
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
     milight="<deviceId>;<channelNumber>;<commandType>"
-where `commandType` is optional for switch items.
+where `<commandType>` is optional for switch items.
 
 The device-id corresponds to the bridge which is defined in openhab.cfg.
 
