@@ -87,6 +87,7 @@ The 4 characters following $18 are the switch module address.
 The next step is to let the binding scan your module to determine the correct checksums for all possible switch combinations. 
 
 On your OSGI console, enter the following command to scan your switch module:
+
     nikobus analyze '<address>' <group>
 
 e.g.
