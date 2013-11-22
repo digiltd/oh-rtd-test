@@ -1,6 +1,4 @@
-# Documentation of the TCP & UDP binding Bundle
-
-# Introduction
+## Introduction
 
 The TCP part of the binding has a built-in mechanism to keep connections to remote hosts alive, and will reset connections at regular intervals to overcome the limitation of "stalled" connections or remote hosts.
 
@@ -8,7 +6,7 @@ The TCP & UDP binding bundle acts as a network client, and not as a server. It w
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a remote host:port, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the TCP & UDP binding configuration string is explained here:
 
@@ -28,7 +26,7 @@ where `<ip address>` is the hostname or ip address in dotted notation of the rem
 
 and where `<transformationrule>` that will be applied to the `<command>` received, before the resulting string is to be sent to the remote host. For String Items the received value of the Item will be passed on to the `<transformationrule>`. When data is received from the remote host, then the Item will be updated with the `<command>` in so far that the result of the  `<transformationrule>` applied on the incoming data is valid for the given Item. String items will be updated "as is" using the result of the  `<transformationrule>`. 
 
- = openHAB Configuration Parameters =
+##Configuration Parameters
 
 The TCP and UDP bindings are highly configurable through the openhab.cfg . The following parameters can be set (substitute `"tcp="` with `"udp="` for the UDP binding):
 The indicated values are the default values used by either binding
@@ -65,7 +63,7 @@ The parameters here below influence the way the binding will multiplex data over
 
 `tcp:directionssharedconnections=false` - Share connections between inbound and outbound connections
 
- = Examples =
+##Examples
 
 Here are some examples of valid binding configuration strings:
 
