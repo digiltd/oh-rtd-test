@@ -1,10 +1,8 @@
-# Documentation of the Somfy URTSI II binding Bundle
+## Introduction
 
-# Introduction
+The **Somfy URTSI II binding bundle** is available as a separate (optional) download. If you want to communicate with a Somfy URTSI II device, please place this bundle in the folder ${openhab_home}/addons and add binding information to your configuration. See the following sections on how to do this.
 
-The Somfy URTSI II binding bundle is available as a separate (optional) download. If you want to communicate with a Somfy URTSI II device, please place this bundle in the folder ${openhab_home}/addons and add binding information to your configuration. See the following sections on how to do this.
-
-# Binding Configuration
+## Binding Configuration
 
 First of all you need to introduce your Somfy URTSI II devices in the openhab.cfg file (in the folder '${openhab_home}/configurations').
 
@@ -20,11 +18,12 @@ First of all you need to introduce your Somfy URTSI II devices in the openhab.cf
 The `urtsi:<deviceId>.port` value is the identification of the serial port on the host system, e.g. "COM1" on Windows, "/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
 
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to an URTSI II device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`).
 
 The format of the binding configuration is simple and looks like this:
+
     urtsi="\<deviceId\>:\<channelId\>"
 
 The **deviceId** corresponds device which is introduced in openhab.cfg.
