@@ -1,4 +1,4 @@
-# Sitemap Definition
+Sitemap Definition
 
 ## Introduction
 
@@ -17,7 +17,7 @@ Sitemaps can be composed by grouping various user interface elements into areas,
 The following elements can be used in a sitemap definition file (alphabetical order):
 
 <table>
-  <tr><td>**Element name**</td><td>**Description**</td></tr>
+  <tr><td><b>Element name</b></td><td><b>Description</b></td></tr>
   <tr><td>Colorpicker</td><td></td></tr>
   <tr><td>Chart</td><td></td></tr>
   <tr><td>Frame</td><td>Area with either various other sitemap elements or further nested frames</td></tr>
@@ -36,6 +36,7 @@ The following elements can be used in a sitemap definition file (alphabetical or
 ### Element 'Colorpicker'
 
 Syntax:
+
     Colorpicker [item="<itemname>"] [label="<labelname>"] [icon="<iconname>"] [sendFrequency=""]
 
 ### Element 'Frame'
@@ -43,6 +44,7 @@ Syntax:
 Frames are used to create a visually separated area of items.
 
 Syntax:
+
     Frame [label="<labelname>"] [icon="<icon>"] [item="<item">]
     {
     	[additional sitemap elements]
@@ -51,56 +53,67 @@ Syntax:
 ### Element 'Group'
 
 Syntax:
+
     Group [item="<itemname>"] [label="<labelname>"] [icon="<iconname>"]
 
 ### Element 'Image'
 
 Syntax:
+
     Image [item="<itemname>"] [icon="<iconname>"] url="<url of image>" [label="<labelname>"] [refresh=xxxx]
 refresh is the refresh period of the image in milliseconds
 
 ### Element 'Chart'
 
 Syntax:
+
     Image [item="<itemname>"] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
 refresh is the refresh period of the image in milliseconds
 
 ### Element 'Switch'
 
 Syntax:
+
     Switch item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
 
 ### Element 'Selection'
 
 Syntax:
+
     Selection item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
 
 ### Element 'Setpoint'
 
 Syntax:
+
     Setpoint item="<itemname>" [label="<labelname>"] [icon="<iconname>"] minValue="<min value>" maxValue="<max value>" step="<step value>"
 
 ### Element 'Slider'
 
 Syntax:
+
     Slider item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [sendFrequency="frequency"] [switchEnabled="switchSupport"]
 
 ### Element 'List'
 
 Syntax:
+
     List item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [separator=""]
 
 ### Element 'Text'
 
 Syntax:
+
     Text item="<itemname>" [label="<labelname>"] [icon="<iconname>"]
 
 ### Element 'Video'
 
 Syntax:
+
     Video item="<itemname>"  [icon="<iconname>"] url="<url of video to embed>"
 
 ### Element 'Webview'
 
 Syntax:
+
     Webview item="<itemname>" [label="<labelname>"] [icon="<iconname>"] url="<url>" [height="<heightvalue"]
