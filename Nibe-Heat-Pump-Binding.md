@@ -64,61 +64,61 @@ Where
 | 47331   | Number    | Min cooling supply temp          | | 
 | 47340   | Number    | Cooling with room sensor | | 
 | 47336   | Number    | Heat at room under temp | | 
-| 47337 || Number || Cool at room over temp || || 
-| 47338 || Number || Cooling mixing valve amp || || 
-| 47339 || Number || Cooling mixing valve step delay || || 
-| 47319 || Number || Shunt controlled add min runtime || || 
-|| 47318 || Number || Shunt controlled add min temp || || 
-|| 47317 || Number || Shunt controlled addition accessory || || 
-|| 40152 || Number || BT71 ext return temp || || 
-|| 47313 || Number || FLM defrost || || 
-|| 47312 || Number || FLM pump || || 
-|| 47327 || Number || Ground water pump accessory || || 
-|| 47326 || Number || Step controlled add mode || || 
-|| 47324 || Number || Step controlled add diff DM || || 
-|| 47323 || Number || Step controlled add start DM || || 
-|| 47322 || Number || Step controlled add accessory || || 
-|| 47321 || Number || Shunt controlled add mix valve wait || || 
-|| 47320 || Number || Shunt controlled add mix valve amp || || 
-|| 47302 || Number || Climate system 2 accessory || || 
-|| 47303 || Number || Climate system 3 accessory || || 
-|| 47310 || Number || Climate system 2 shunt wait || || 
-|| 43516 || Number || PCA-Power relayes EP14 || || 
-|| 47308 || Number || Climate system 4 shunt wait || || 
-|| 47309 || Number || Climate system 3 shunt wait || || 
-|| 43514 || Number || PCA-Base relayes EP14 || || 
-|| 40128 || Number || EB22-BT3 return temp S3 || || 
-|| 47306 || Number || Climate system 3 mixing valve amp || || 
-|| 40129 || Number || EB21-BT3 return temp S2 || || 
-|| 47307 || Number || Climate system 2 mixing valve amp || || 
-|| 47304 || Number || Climate system 4 accessory || || 
-|| 47305 || Number || Climate system 4 mixing valve amp || || 
-|| 47281 || Number || Floor drying period 3 || || 
-|| 47280 || Number || Floor drying period 4 || || 
-|| 43395 || Number || HPAC relays || || 
-|| 47283 || Number || Floor drying period 1 || || 
-|| 47282 || Number || Floor drying period 2 || || 
-|| 40127 || Number || EB23-BT3 return temp S4 || || 
-|| 47285 || Number || Floor drying temp 6 || || 
-|| 47284 || Number || Floor drying temp 7 || || 
-|| 47287 || Number || Floor drying temp 4 || || 
-|| 47286 || Number || Floor drying temp 5 || || 
-|| 40115 || Number || AZ1-BT26 temp collector in FLM 2 || || 
-|| 47289 || Number || Floor drying temp 2 || || 
-|| 40114 || Number || AZ1-BT26 temp collector in FLM 3 || || 
-|| 47288 || Number || Floor drying temp 3 || || 
-|| 40113 || Number || AZ1-BT26 temp collector in FLM 4 || || 
-|| 47291 || Number || Floor drying timer || || 
-|| 40112 || Number || EB100-BT21 vented air temp || || 
-|| 47290 || Number || Floor drying temp 1 || || 
-|| 40118 || Number || AZ1-BT27 temp collector out FLM 2 || || 
-|| 40117 || Number || AZ1-BT27 temp collector out FLM 3 || || 
-|| 40116 || Number || AZ1-BT27 temp collector out FLM 4 || || 
-|| 47264 || Number || Exhaust fan speed 1 || || 
-|| 40107 || Number || EB100-BT20 exhaust air temp || || 
-|| 47265 || Number || Exhaust fan speed normal || || 
-|| 40110 || Number || EB100-BT21 vented air temp || || 
-|| 40111 || Number || EB100-BT21 vented air temp || || 
+| 47337   | Number | Cool at room over temp | | 
+| 47338 | Number | Cooling mixing valve amp | | 
+| 47339 | Number | Cooling mixing valve step delay | | 
+| 47319 | Number | Shunt controlled add min runtime | | 
+| 47318 | Number | Shunt controlled add min temp | | 
+| 47317 | Number | Shunt controlled addition accessory | | 
+| 40152 | Number | BT71 ext return temp | | 
+| 47313 | Number | FLM defrost | | 
+| 47312 | Number | FLM pump | | 
+| 47327 | Number | Ground water pump accessory | | 
+| 47326 | Number | Step controlled add mode | | 
+| 47324 | Number | Step controlled add diff DM | | 
+| 47323 | Number | Step controlled add start DM | | 
+| 47322 | Number | Step controlled add accessory | | 
+| 47321 | Number | Shunt controlled add mix valve wait | |
+| 47320 | Number | Shunt controlled add mix valve amp | | 
+| 47302 | Number | Climate system 2 accessory | | 
+| 47303 | Number | Climate system 3 accessory | | 
+| 47310 | Number | Climate system 2 shunt wait | | 
+| 43516 | Number | PCA-Power relayes EP14 | | 
+| 47308 | Number | Climate system 4 shunt wait | | 
+| 47309 | Number | Climate system 3 shunt wait | | 
+| 43514 | Number | PCA-Base relayes EP14 | | 
+| 40128 | Number | EB22-BT3 return temp S3 | | 
+| 47306 | Number | Climate system 3 mixing valve amp | | 
+| 40129 | Number | EB21-BT3 return temp S2 | | 
+| 47307 | Number | Climate system 2 mixing valve amp | | 
+| 47304 | Number | Climate system 4 accessory | | 
+| 47305 | Number | Climate system 4 mixing valve amp | | 
+| 47281 | Number | Floor drying period 3 | | 
+| 47280 | Number | Floor drying period 4 | |  
+| 43395 | Number | HPAC relays  | | 
+| 47283 | Number | Floor drying period 1  | | 
+| 47282 | Number | Floor drying period 2  | | 
+| 40127 | Number | EB23-BT3 return temp S4  | |  
+| 47285 | Number | Floor drying temp 6  | |  
+| 47284 | Number | Floor drying temp 7  | | 
+| 47287 | Number | Floor drying temp 4  | |  
+| 47286 | Number | Floor drying temp 5 | | 
+| 40115 | Number | AZ1-BT26 temp collector in FLM 2 | | 
+| 47289 | Number | Floor drying temp 2 | | 
+| 40114 | Number | AZ1-BT26 temp collector in FLM 3 | | 
+| 47288 | Number | Floor drying temp 3 | | 
+| 40113 | Number | AZ1-BT26 temp collector in FLM 4 | | 
+| 47291 | Number | Floor drying timer  | | 
+| 40112 | Number | EB100-BT21 vented air temp  | | 
+| 47290 | Number | Floor drying temp 1 || || 
+| 40118 | Number | AZ1-BT27 temp collector out FLM 2  | |  
+| 40117 | Number | AZ1-BT27 temp collector out FLM 3  | | 
+| 40116 | Number | AZ1-BT27 temp collector out FLM 4  | | 
+| 47264 | Number | Exhaust fan speed 1  | | 
+| 40107 | Number | EB100-BT20 exhaust air temp  | | 
+| 47265 | Number | Exhaust fan speed normal | |
+| 40110 | Number | EB100-BT21 vented air temp | |
+| 40111 | Number | EB100-BT21 vented air temp | |
 || 40108 || Number || EB100-BT20 exhaust air temp || || 
 || 40109 || Number || EB100-BT20 exhaust air temp || || 
 || 47271 || Number || Fan return time 4 || || 
