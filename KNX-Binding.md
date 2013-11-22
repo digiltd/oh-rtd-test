@@ -19,7 +19,7 @@ For your convenience you can see the relevant section as follows:
     # KNX IP connection type. Could be either TUNNEL or ROUTER (optional, defaults to TUNNEL)
     # Note: If you cannot get the ROUTER mode working (even if it claims it is connected), 
     # use TUNNEL mode instead with setting both the ip of the KNX gateway and the localIp.
-knx:type=
+    knx:type=
 
     # KNX gateway port (optional, defaults to 3671)
     knx:port=
@@ -54,9 +54,9 @@ A sample configuration could look like:
     knx:ip=192.168.1.10
     knx:type=ROUTER
 
-# Bind Items to KNX
+## Bind Items to KNX
 
-## Description
+### Description
 
 In order to bind an item to a KNX device you need to provide configuration settings. The easiest way to do so is to add  binding information in your 'item file' (in the folder configurations/items`). The syntax for the KNX binding configuration string is explained here:
 
@@ -72,7 +72,7 @@ Each itemtype (see page [Items#itemtype Items Defintion](])) accepts different c
 mainGAs are used for updating the status of an openHAB items via KNX. There can only be one mainGA for an openHAB item (Highlander principle :-)
 listeningGAs are used for obtaining status changes from KNX. There can be multiple listeningGAs for one item.
 
-## Example
+### Example
 
 Given we want to bind a Dimmer Item to KNX, we have first to check which commands an openHAB dimmer item does accept:
 
@@ -104,11 +104,11 @@ If you have a dimmer that does not support INCREASE/DECREASE commands and you th
 
     Dimmer TestDimmer (Lights) { knx="1.001:1/3/20+0/3/20, 5.004:1/3/22+0/3/22+0/8/15" }
 
-## Command types for items
+### Command types for items
 
 For identifying the different command types for items, please either have a look into the [openHAB source code](http://code.google.com/p/openhab/source/browse/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/) or see Wiki page [Items](Items#itemtypes).
 
-## Further examples
+### Further examples
 
 Here are some further examples for valid binding configuration strings:
 
