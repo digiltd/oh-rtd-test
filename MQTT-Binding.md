@@ -11,7 +11,7 @@ See the following sections on how to do this.
 OpenHAB provides MQTT support on different levels. The table below gives a quick overview:
 
 <table>
-  <tr><td>**Level**</td><td>**Description**</td><td>**Usage**</td><td>**Bundle**</td></tr>
+  <tr><td><b>Level</b></td><td><b>Description</b></td><td><b>Usage</b></td><td><b>Bundle</b></td></tr>
   <tr><td>Transport</td><td>Shared transport functions for setting up MQTT broker connections.</td><td>Ideal if you want to roll your own binding using MQTT as the transport.</td><td>org.openhab.io.transport.mqtt</td></tr>
   <tr><td>Item binding</td><td>Allows MQTT publish/subscribe configuration on item level</td><td>Ideal for highly customized in and outbound message scenarios.</td><td>org.openhab.binding.mqtt</td></tr>
   <tr><td>Event bus binding</td><td>Publish/receive all states/commmands directly on the openHAB eventbus.</td><td>Perfect for integrating multiple openHAB instances or broadcasting all events.</td><td>org.openhab.binding.mqtt</td></tr>
@@ -37,7 +37,7 @@ The following properties can be configured to define a broker connection:
 The properties indicated by '<...>' need to be replaced with an actual value.  The table below lists the meaning of the different properties.
 
 <table>
-  <tr><td>**Property**</td><td>**Description**</td></tr>
+  <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
   <tr><td>broker</td><td>Alias name for the MQTT broker.  This is the name you can use in the item binding configurations afterwards.</td></tr>
   <tr><td>url</td><td>URL to the MQTT broker, e.g. tcp://localhost:1883 or ssl://localhost:8883</td></tr>
   <tr><td>clientId</td><td>Optional. Client id (max 23 chars) to use when connecting to the broker. If not provided a default one is generated.</td></tr>
@@ -72,7 +72,7 @@ Every item is allowed to have multiple inbound (or outbound) configurations.
     Item myItem {mqtt="<direction>[<broker>:<topic>:<type>:<transformer>], <direction>[<broker>:<topic>:<type>:<transformation>], ..."} 
 
 <table>
-  <tr><td>**Property**</td><td>**Description**</td></tr>
+  <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
   <tr><td>direction</td><td>This is always '<' for inbound messages.</td></tr>
   <tr><td>broker</td><td>The broker alias as it is defined in the openHab configuration.</td></tr>
   <tr><td>topic</td><td>The MQTT Topic to subscribe to.</td></tr>
@@ -96,7 +96,7 @@ Below you can see the structure of the outbound mqtt configuration string.  Outb
     Item itemName {mqtt="<direction>[<broker>:<topic>:<type>:<trigger>:<transformation>]" }
 
 <table>
-  <tr><td>**Property**</td><td>**Description**</td></tr>
+  <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
   <tr><td>direction</td><td>This is always '>' for outbound messages.</td></tr>
   <tr><td>broker</td><td>The broker alias as it was defined in the openHAB configuration.</td></tr>
   <tr><td>topic</td><td>The MQTT Topic to publish messages to.</td></tr>
@@ -129,7 +129,7 @@ The following properties can be used to configure MQTT for the openHAB event bus
 The properties indicated by '<...>' need to be replaced with an actual value.  The table below lists the meaning of the different properties.
 
 <table>
-  <tr><td>**Property**</td><td>**Description**</td></tr>
+  <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
   <tr><td>broker</td><td>Name of the broker as it is defined in the openhab.cfg. If this property is not available, no event bus MQTT binding will be created.</td></tr>
   <tr><td>statePublishTopic</td><td>When available, all status updates which occur on the openHAB event bus are published to the provided topic. The message content will be the status. The variable ${item} will be replaced during publishing with the item name for which the state was received.</td></tr>
   <tr><td>commandPublishTopic</td><td>When available, all commands which occur on the openHAB event bus are published to the provided topic. The message content will be the command. The variable ${item} will be replaced during publishing with the item name for which the command was received.</td></tr>
