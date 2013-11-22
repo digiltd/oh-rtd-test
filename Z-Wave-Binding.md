@@ -1,6 +1,4 @@
-# Documentation of the Z-Wave binding Bundle
-
-# Introduction
+## Introduction
 
 The OpenHAB Z-Wave binding allows you to connect to your Z-Wave wireless mesh network.  A Z-Wave network typically consists of one primary controller “stick”, zero or more additional controllers and zero or more Z-Wave enabled devices, e.g. dimmers, switches, sensors et cetera.
 Connection to the Z-Wave controller is done through the serial port of your host system. USB controllers typically create a virtual COM port to connect to the stick. Please write down the port name before configuring this binding. In case your port name changes dynamically and you want to use a symlink, see [Tricks](https://code.google.com/p/openhab-samples/wiki/Tricks). A list of supported controllers is listed below.
