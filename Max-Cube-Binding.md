@@ -1,8 +1,4 @@
-# Documentation of the MAX!Cube Binding Bundle
-
-## Content of this page
-
-<wiki:toc max_depth="2" />
+Documentation of the MAX!Cube Binding Bundle
 
 ## Introduction
 
@@ -45,7 +41,7 @@ For a heating thermostat, an identical configuration will provide the setpoint t
 
 The above examples would be shown as 
 
-https://dl.dropboxusercontent.com/u/7347332/web/maxcube.png
+![MAX! Binding](https://dl.dropboxusercontent.com/u/7347332/web/maxcube.png)
 
 MAX heating thermostat devices show OFF when turned to the minimum or On when turned to the maximum. The openHAB MAX!Cube binding would show the values 4.5 for OFF and 30.5 for On instead. 
 
@@ -55,7 +51,7 @@ If you would like to display OFF and on instead, you can apply a mapping and  ch
 
 Instead of values 4.5 and 30.5 the results would look like
 
-https://dl.dropboxusercontent.com/u/7347332/web/max_on_off_small.png
+![MAX! Binding](https://dl.dropboxusercontent.com/u/7347332/web/max_on_off_small.png)
 
 To apply this mapping you need to copy the [maxcube.map](https://dl.dropboxusercontent.com/u/7347332/web/maxcube.map) mapping file into the configuration/transformation folder within the openHAB directory.
 
@@ -65,4 +61,4 @@ To receive the valve position of a heating thermostat, the type for the desired 
 
     Number Heating_Max_Valve "Thermostat Valve Position [%.1f %%]" (MyGroup) { maxcube="JEQ0336148:type=valve" }
 
-https://dl.dropboxusercontent.com/u/7347332/web/max_valve.png
+![MAX! Binding](https://dl.dropboxusercontent.com/u/7347332/web/max_valve.png)
