@@ -1,6 +1,4 @@
-# Documentation of the TinkerForge binding bundle
-
-# Introduction
+## Introduction
 
 [Tinkerforge](http://www.tinkerforge.com) is a system of open source hardware building blocks that allows you to combine sensor and actor blocks by plug and play. You can create your individual hardware system by choosing the necessary building blocks for your project and combine it with other home automation products. There are many blocks available e.g for temperature, humidity or air pressure measurement as well as for I/O, LCDs and motor control. You will find a complete List of available blocks [here](http://www.tinkerforge.com/en/doc/Product_Overview.html).
 
@@ -21,9 +19,9 @@ The following devices are supported for now:
 
 The !TinkerForge binding bundle is available as a separate (optional) download. For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
-## Basic Configuration
+### Basic Configuration
 
 In order to connect openHAB to !TinkerForge devices you need to define all the brickd hosts and ports in the openhab.cfg file.
 The following properties can be configured to define a brickd connection:
@@ -44,10 +42,11 @@ For connecting several brickds, use multiple <IP address>[statements delimited b
 
 Example for a connection to a single brickd:
 
-2c94938a5b7eec45034f11ca0aba4405
+    tinkerforge:hosts=127.0.0.1
 
 Example for several brickd connections using different ports:
-adfa83f902c919dfb32d36dc071c6ff4
+
+    tinkerforge:hosts=127.0.0.1:4224 192.168.1.50 192.168.1.104
 
 ## Advanced Configuration
 
@@ -57,7 +56,7 @@ There are several configuration parameters to control the behavior of the device
 
 A configuration line in openhab.cfg looks like this:
 
-82308ab51b93efb85960c51d26a3feca
+    tinkerforge:<symbolic name>.<property>=<value>
 
 The *symbolic name* string can be used in the items configuration as an alternative for the uid and subid values.
 
@@ -91,7 +90,7 @@ The following table lists !TinkerForge devices, their device type name recognize
   <tr><td>Button housed on a LCD20x4 Bricklet</td><td>lcd_button</td><td>button[0-3](1-2]</td><td>out</td></tr>)</td><td>in</td></tr>
 </table>
 
-### Bricklet DistanceIR, Temperature, Barometer and !AmbientLight
+### Bricklet DistanceIR, Temperature, Barometer and AmbientLight
 
 The binding uses the TF !CallbackListeners to get the sensor values from the bricklets DistanceIR, Temperature, Barometer (pressure value only) and !AmbientLight. These listeners are configured to only return updated sensor values at a given time period (callbackPeriod). The default configuration sets the **callbackPeriod** to 1 second. This value can be changed in openhab.cfg. For now this value must be changed for every single device. The values must be given in milliseconds.
 
@@ -116,6 +115,7 @@ The current implementation is more or less for demo purposes. The servo can only
 A short explanation of how to use the LCD20x4
 
 What’s the meaning of this magic string?
+
     sendCommand(TF_LCD, String::format("TFNUM<213>%4s"TF_Barometer.state.format("%d")
                       ))
 
