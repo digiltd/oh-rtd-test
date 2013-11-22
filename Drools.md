@@ -1,6 +1,6 @@
-# How to use Drools in openHAB
+How to use Drools in openHAB
 
-# Introduction
+## Introduction
 
 Since openHAB 0.9.0, JBoss Drools support is available as a separate download. This can be used as a replacement for the integrated rule engine, if a more powerful rule engine is needed for the definition of automation rules.
 
@@ -11,13 +11,13 @@ Note that in contrast to the integrated rule engine, there is no IDE support in 
 
 Most of the rule code can be written in plain Java, but you should make yourself familiar with the specifics of the [Drools rule syntax](http://docs.jboss.org/drools/release/5.2.0.Final/drools-expert-docs/html/ch05.html).
 
-# Details
+## Details
 
-## Drools Integration in openHAB
+### Drools Integration in openHAB
 
 Rule files can be created in the folder `${openhab.home}/configurations/drools`. They should have the file extension drl for normal Java-based rule files. The runtime distribution already comes with an [example rule file](http://code.google.com/p/openhab/source/browse/distribution/openhabhome/configurations/drools/demo.drl).
 
-## Type System
+### Type System
 
 Most of the time you will be dealing with item states in your rules.
 You will have to refer to the sources to see what type the states of your item are and how these can be transformed into Java primitive types.
@@ -26,7 +26,7 @@ You can find the item definitions [here](http://code.google.com/p/openhab/source
 To get a Java float of a temperature value defined as an `NumberItem`, you could use the following code:
 `((DecimalType)$item.getState()).toBigDecimal().floatValue()`
 
-## Working Memory Objects
+### Working Memory Objects
 
 The working memory of the Drools engine contains the following objects:
 
@@ -62,10 +62,8 @@ The when clause (LHS) of a rule should contain conditions based on the objects i
 
 Here is an example of a when clause:
 
-` 
-	$event : StateEvent(itemName=="Rain", changed==true)
-        $window  : Item(name=="Window", state==OpenClosedType.OPEN)
-`
+    $event  : StateEvent(itemName=="Rain", changed==true)
+    $window : Item(name=="Window", state==OpenClosedType.OPEN)
 
 ## Defining the rule logic (RHS)
 
@@ -74,14 +72,12 @@ Besides normal Java operations, there are some statically imported methods avail
 
 Here is an example of a rule logic for the LHS from above:
 
-` 
-	boolean $isRaining = ((OnOffType)$event.getNewState()).equals(OnOffType.ON);
-	if($isRaining) {
-		say("It has started raining and your window is still open!");
-	} else {
- 		playSound("ICanSeeClearlyNow.mp3");
-	}
-`
+    boolean $isRaining = ((OnOffType)$event.getNewState()).equals(OnOffType.ON);
+    if($isRaining) {
+        say("It has started raining and your window is still open!");
+    } else {
+        playSound("ICanSeeClearlyNow.mp3");
+    }
 
 ## Actions available in the rule logic
 
