@@ -2,9 +2,11 @@
 
 <wiki:video url="http://www.youtube.com/watch?v=GpERJflmJKQ"/>
 
-For installation of the binding, please see Wiki page [# !EnOcean Binding Configuration
+For installation of the binding, please see Wiki page [# !
+For installation of the binding, please see Wiki page [[Bindings]].
 
-## openhab.cfg
+## EnOcean Binding Configuration
+### openhab.cfg
 
 The following config params are used for the !EnOcean binding.
 
@@ -15,9 +17,9 @@ The serial port (can be a virtual one) where the enocean transceiver is connecte
 
 f28f499f39ef60839adca05929150952
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
-## Items
+### Items
 
 General format:
 83b4c031a568c2505c1b46b91e0f4dd8
