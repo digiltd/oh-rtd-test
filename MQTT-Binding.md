@@ -50,9 +50,11 @@ The properties indicated by '<...>' need to be replaced with an actual value.  T
 ### Example Configurations
 
 Example configuration of a simple broker connection:
+
     mqtt:m2m-eclipse.url=tcp://m2m.eclipse.org:1883
 
 Example configuration of a encrypted broker connection with authentication:
+
     mqtt:mosquitto.url=ssl://test.mosquitto.org:8883
     mqtt:mosquitto.user=administrator
     mqtt:mosquitto.pwd=mysecret
