@@ -1,6 +1,6 @@
-# Documentation of the Twitter Action
+Documentation of the Twitter Action
 
-# Introduction
+## Introduction
 
 Twitter can be used to 'tweet' notifications when certain events take place in openHAB. It is one of the pre-defined Java methods that is automatically statically imported and can be used within rules and scripts. You will need to enable 'tweeting' by adding the following to your openhab.cfg file;
 
@@ -8,11 +8,12 @@ Twitter can be used to 'tweet' notifications when certain events take place in o
 
 After enabling you will then need to authenticate openHAB with Twitter. Typically a new Twitter account would be set up for openHAB, rather than using your personal account, but that is entirely up to you.
 
-# Authentication
+## Authentication
 
 You'll have to authorise openHAB to use Twitter. This is done using a two step process, similar to Dropbox authentication. openHAB requests a token which is used as a one-time-password to get hold of an authentication token (second step) which will be used for all future requests to Twitter.
 
 **Step 1** is issued by openHAB automatically. You will find some log entries like this:
+
     08:46:10.013 INFO  o.openhab.io.net.actions.Tweet[:136] - ################################################################################################
     08:46:10.014 INFO  o.openhab.io.net.actions.Tweet[:137] - # Twitter-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
     08:46:10.014 INFO  o.openhab.io.net.actions.Tweet[:138] - # 1. Open URL 'http://api.twitter.com/oauth/authorize?oauth_token=hP9gKIQ4wfMrzpmzqp4NcTJjAxXdwLo9fFEcndkks'
@@ -29,11 +30,11 @@ You'll have to authorise openHAB to use Twitter. This is done using a two step p
 
 Once authenticated you should see an entry in the log file to indicate authentication was successful.
 
-`08:53:53.486 INFO  o.openhab.io.net.actions.Twitter[:94] - TwitterAction has been successfully authenticated > awaiting your Tweets!`
+    08:53:53.486 INFO  o.openhab.io.net.actions.Twitter[:94] - TwitterAction has been successfully authenticated > awaiting your Tweets!
 
 And you will notice a new file is created in `<openhabhome>\etc` called `twitter.token`. This is where the authentication token is stored for future use. You can now safely delete the `twitter.pin` file if you wish as it is no longer required.
 
-# Limits
+## Limits
 
 Please beware there are technical limits that apply to your account. The current limits are:
 
@@ -42,7 +43,7 @@ Please beware there are technical limits that apply to your account. The current
 - Following (daily): The technical follow limit is 1,000 per day. Please note that this is a technical account limit only, and there are additional rules prohibiting aggressive following behavior. Details about following limits and prohibited behavior are on the Follow Limits and Best Practices page.
 - Following (account-based): Once an account is following 2,000 other users, additional follow attempts are limited by account-specific ratios. The Follow Limits and Best Practices page has more information.
 
-# Usage
+## Usage
 
 To send a tweet simply use the following syntax inside a rule or script;
 
