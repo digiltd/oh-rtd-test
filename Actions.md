@@ -46,44 +46,44 @@ Here is the list of available actions in the core runtime:
 The following actions can be found in the "addons" download package. In order to install them to your runtime, simply copy the according jar file to the `${openhab.home}/addons` folder.
 To make these actions available in the Designer as well, you need to copy the jar files into the `addons` folder of the Designer (note that you have to view the package content of the Designer in order to find the addons folder, if you are on Mac OS X). If the `addons` folder does not exist yet, simply create it.
 
-** Mail Action **
+**Mail Action**
 
 This add-on provides SMTP services (please check openhab.cfg for required configuration settings):
 - `sendMail(String to, String subject, String message)`: Sends an email via SMTP
 - `sendMail(String to, String subject, String message, String attachmentUrl)`: Sends an email with attachment via SMTP
 
-** XMPP Action **
+**XMPP Action**
 
 This add-on provides XMPP communication. Besides the action methods itself, it also contains the XMPP console (please check openhab.cfg for required configuration settings):
 - `sendXMPP(String to, String message)`: Sends a message to an XMPP user
 - `sendXMPP(String to, String message, String attachmentUrl)`: Sends a message with an attachment to an XMPP user
 
-** Prowl Action **
+**Prowl Action**
 
 Prowl lets you use push notifications on iOS devices (please check openhab.cfg for required configuration settings):
 - `pushNotification(String subject, String message)`: Pushes a Prowl Notification
 - `pushNotification(String subject, String message, int priority)`: Pushes a Prowl Notification with the given priority
 
-** Twitter Action **
+**Twitter Action**
 
 Connect to Twitter through this action (please check openhab.cfg for required configuration settings):
 - `sendTweet(String message)`: Sends a Tweet via Twitter
 - `sendDirectMessage(String recipient, String message)`: Sends a direct Message via Twitter
 
-** XBMC Action **
+**XBMC Action**
 
 Sends notifications to XBMC
 - `sendXbmcNotification(host, port, title, message)`: Sends a message to a given XBMC instance
 - `sendXbmcNotification(host, port, title, message, image, displayTime)`: Sends a message to a given XBMC instance (image=a URL pointing to an image, displayTime=a display time for the message in milliseconds)
 
-** !NotifyMyAndroid Action **
+**NotifyMyAndroid Action**
 
 Sends push messages to your Android devices. All configuration in openhab.cfg is optional
 - `notifyMyAndroid(String event, String description)`: Send a message to a the pre configured api key (account) and use the configured or default values for the other parameters
 - `notifyMyAndroid(String apiKey, String event, String description)`: Send a message to another api key than the configured or use this method if you have not configured a default api key
 - `notifyMyAndroid(String apiKey, String event, String description, int priority, String url, boolean html)`: Send a message overwriting all configured parameters and using the specified values.
 
-** Squeezebox Action **
+**Squeezebox Action**
 
 Interact directly with your Squeezebox devices from within rules and scripts. In order to use these actions you must also install the **org.openhab.io.squeezeserver** bundle and configure the 'squeeze' properties in openhab.cfg. See the [[Squeezebox Binding|Squeezebox binding]] section for more details. The 'id' you specify in your openhab.cfg is used to identify which player to perform the specified action on.
 
