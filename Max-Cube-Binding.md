@@ -1,10 +1,10 @@
 # Documentation of the MAX!Cube Binding Bundle
 
-# Content of this page
+## Content of this page
 
 <wiki:toc max_depth="2" />
 
-# Introduction
+## Introduction
 
 Please note that the MAX!Cube binding will not be available before openHAB 1.4. 
 
@@ -12,7 +12,7 @@ The openHAB MAX!Cube binding allows to connect to [ELV MAX!Cube Lan Gateway](htt
 
 To communicate with MAX! devices, a already setup MAX! environment including a MAX!Cube Lan Gateway is required. In addition, the binding expects an already set up MAX environment.
 
-# MAX!Cube Binding Configuration
+## MAX!Cube Binding Configuration
 
 You need to configure at least the MAX!Cube Lan Gateway IP address in the openhab.cfg file. If not configured via DHCP, the factory default address of the MAX!Cube is 192.168.0.222.
 
@@ -29,7 +29,7 @@ Additional you can configure the port the MAX!Cube communicates with openHAB. By
 
 Furthermore, you can change the refresh interval openHAB communicates with the MAX!Cube. By default the refresh interval is set to 10 seconds. 
 
-# Item Configuration
+## Item Configuration
 
 In order to bind an generic item to the device, you need to provide MAX!Cube configuration settings in your item file (in the folder configurations/items) containing at least the serial number of the device. The syntax of the binding configuration strings accepted is the following: 
 
