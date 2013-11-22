@@ -24,6 +24,7 @@ The openHAB Designer offers full IDE support for rules, which includes syntax ch
 Note: The rule syntax is based on [Xbase](http://www.eclipse.org/Xtext/#xbase) and as a result it is sharing many details with [Xtend](http://www.eclipse.org/xtend/), which is built on top of Xbase as well. As a result, we will often point to the Xtend documentation for details.
 
 A rule file is a text file with the following structure:
+
     [Imports]
     
     [Variable Declarations]
