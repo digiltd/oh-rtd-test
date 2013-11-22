@@ -1,11 +1,11 @@
 Samples of Item definitions
 
-## Howto use homematic door contact sensors
+### Howto use homematic door contact sensors
 
     Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock) { homematic="HEQ0358465:1#STATE" }
     Text item=corFrontDoor
 
-## Howto use homematic window contact sensors
+### Howto use homematic window contact sensors
 
     Number lrWindowRight "Window Right [MAP(contact.map):%d]" <contact> (gRLvng) { homematic="IEQ0203214:1#STATE" }
     Text item=lrWindowRight
@@ -16,26 +16,26 @@ transform/contact.map:
     2=OPEN
     -=UNKNOWN
 
-## Howto read Homematic heater valve state
+### Howto read Homematic heater valve state
 
     Dimmer lrHeaterRight "Heater Right [%d %%]" <heating> (gRLvng)                { homematic="IEQ0537568:1#VALVE_STATE" }
     Text item=lrHeaterRight
 
-## Howto use Homematic temperature regulator
+### Howto use Homematic temperature regulator
 
     Number lrTempSet "Target Temperature [%d °C]" <temperature> (gRLvng, gRBed) { homematic="IEQ0053616:2#SETPOINT" }
     Setpoint item=lrTempSet step=0.5 minValue=15 maxValue=30
 
-## How to get special characters like "%" in a label text
+### How to get special characters like "%" in a label text
 
     Number Humidity "Humidity [%.1f %%]"
 
-## Howto configure Homematic light switch
+### Howto configure Homematic light switch
 
     Switch brLightCeil "Ceiling" (gRBed, gLight) { homematic="IEQ0001542:1#STATE" }
     Switch item=brLightCeil
 
-## How to configure Homematic temperature and humidity sensor
+### How to configure Homematic temperature and humidity sensor
 
     Number lrTemp "Current Temp [%.1f °C]" <temperature> (gRLvng, gWthrDta) { homematic="IEQ0053616:1#TEMPERATURE" }
     Number lrHumid "Humidity [%d %%]" <waterdrop> (gRLvng, gWthrDta) { homematic="IEQ0053616:1#HUMIDITY" }
@@ -43,7 +43,7 @@ transform/contact.map:
     Text item=lrTemp
     Text item=lrHumid
 
-## How to configure Homematic motion and brightness sensors
+### How to configure Homematic motion and brightness sensors
 
     Switch corMotion "Motion Detected" (gRCor) { homematic="GEQ0128171:1#MOTION" }
     Number corBright "Brightness [%.1f %%]" (gRCor) { homematic="GEQ0128171:1#BRIGHTNESS" }
@@ -54,7 +54,7 @@ I dont like that the motion switch is "writeable". Maybe someone can post a prop
 
 ## How to configure a switch to be a pushbutton:
 
-[[German|Thread http://knx-user-forum.de/openhab/27123-einfacher-taster-openhab.html]]
+[German|Thread](http://knx-user-forum.de/openhab/27123-einfacher-taster-openhab.html)
 
 Item:
 
