@@ -1,8 +1,7 @@
 ## Introduction
 
-<wiki:video url="http://www.youtube.com/watch?v=GpERJflmJKQ"/>
+http://www.youtube.com/watch?v=GpERJflmJKQ
 
-For installation of the binding, please see Wiki page [# !
 For installation of the binding, please see Wiki page [[Bindings]].
 
 ## EnOcean Binding Configuration
