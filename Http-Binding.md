@@ -1,8 +1,9 @@
+Documentation of the HTTP binding Bundle
+
 ## Introduction
 
 The HTTP binding bundle is available as a separate (optional) download.
 If you want to let openHAB request an URL when special events occur or let it poll a given URL frequently, please place this bundle in the folder `${openhab_home}/addons` and add binding information to your configuration. See the following sections on how to do this. 
-
 
 ## Generic Item Binding Configuration
 
