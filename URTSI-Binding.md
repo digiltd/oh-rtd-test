@@ -36,5 +36,5 @@ Only rollershutter items are allowed to use this binding. The binding is able to
 
 As a result, your lines in the items file might look like the following:
 
-    Rollershutter RollershutterKitchen   	"Kitchen"            { urtsi="device1:1" }
-    Rollershutter RollershutterLivingRoom   	"Living room"        { urtsi="device1:2" }
+    Rollershutter RollershutterKitchen       "Kitchen"         { urtsi="device1:1" }
+    Rollershutter RollershutterLivingRoom    "Living room"     { urtsi="device1:2" }
