@@ -30,8 +30,8 @@ The CUPS Binding can be used to switch on a printer if there are print jobs in t
 
 ### Items
 
-    Number Print_Jobs_Queued    "Unfinished print jobs"   (FF_Office)             { cups="MX-870#NOT_COMPLETED" }
-    Switch Printer    "Printer"
+    Number Print_Jobs_Queued  "Unfinished print jobs"  (FF_Office)   { cups="MX-870#NOT_COMPLETED" }
+    Switch Printer            "Printer"
 
 ### Rule
 
