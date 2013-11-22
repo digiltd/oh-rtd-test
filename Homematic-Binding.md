@@ -1,7 +1,8 @@
-http://www.youtube.com/watch?v=F0ImuuIPjYk
+Documentation of the Homematic binding bundle
 
 ## Introduction
 
+http://www.youtube.com/watch?v=F0ImuuIPjYk <br/>
 For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Hardware
