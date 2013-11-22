@@ -1,12 +1,12 @@
-# Overview of avaialble actions
+Overview of avaialble actions
 
-# Actions available in Scripts and Rules
+## Actions available in Scripts and Rules
 
 Actions are predefined Java methods that are automatically statically imported and can be used within scripts and rules to execute openHAB specific operations.
 
 Since openHAB 1.3.0, not all actions are part of the core runtime distribution anymore, but it is possible to easily implement add new actions to your runtime (see the [developer section](How-To-Implement-An-Action) for details).
 
-## Core Actions
+### Core Actions
 
 Here is the list of available actions in the core runtime:
 
@@ -41,7 +41,7 @@ Here is the list of available actions in the core runtime:
 - `executeCommandLine(String commandLine, int timeout)`: Executes a command on the command line with a timeout
 
 
-## Add-on Actions
+### Add-on Actions
 
 The following actions can be found in the "addons" download package. In order to install them to your runtime, simply copy the according jar file to the `${openhab.home}/addons` folder.
 To make these actions available in the Designer as well, you need to copy the jar files into the `addons` folder of the Designer (note that you have to view the package content of the Designer in order to find the addons folder, if you are on Mac OS X). If the `addons` folder does not exist yet, simply create it.
