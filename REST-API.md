@@ -1,27 +1,30 @@
-# Documentation of the REST-API
+Documentation of the REST-API
 
-# Introduction
+## Introduction
 
 The REST API of openHAB serves different purposes. It can be used to integrate openHAB with other system as it allows read access to items and item states as well as status updates or the sending of commands for items. Furthermore, it gives access to the sitemaps, so that it is the interface to be used by remote user interfaces (e.g. fat clients or fully Javascript based web clients).
 
 The REST API furthermore supports server-push, so you can subscribe yourself on change notification for certain resources. Find more about the server-push features in the "Server-Push" section below.
 
 The uris of the REST API support different media types. This means that you can define the format of the response with an additional HTTP header like 
+
     Accept: application/xml
 For each url, you will find the list of supported media types documented below.
 
 If your client cannot correctly set the HTTP accept header, you also have the choice to append the query "?type=xml", "?type=json" or "?type=jsonp" to the URI to request a specific media type for the response.
 
 Each resource that accepts `application/x-javascript` as a media type returns JSONP results, which can be parameterized by appending `?jsoncallback=callback` to the URI, e.g.
+
     http://localhost:8080/rest/items/Temperature_FF_Office?jsoncallback=callback
 which yields the following response
-    callback({"type":"NumberItem","name":"Temperature_FF_Office","state":"Undefined","link":"http://localhost:8080/rest/items/Temperature_FF_Office"})
+       callback({"type":"NumberItem","name":"Temperature_FF_Office","state":"Undefined","link":"http://localhost:8080/rest/items/Temperature_FF_Office"})
 
 The parameter `jsoncallback` is optional. If not provided, `callback` will be used as a default.
 
 # Details
 
 The entry url for the REST API is the following:
+
     http://localhost:8080/rest
 Media types: application/xml, application/json, application/x-javascript
 
@@ -35,6 +38,7 @@ As a response, this will return links to the available resource collections:
 ## Item Resources
 
 The request
+
     http://localhost:8080/rest/items
 Media types: application/xml, application/json, application/x-javascript
 
@@ -64,10 +68,12 @@ returns a collection of all declared items like
 
 
 Single items can hence be accessed like
+
     http://localhost:8080/rest/items/Temperature_FF_Office
 Media types: application/xml, application/json, application/x-javascript
 
 To directly access an item state, you can access
+
     http://localhost:8080/rest/items/Temperature_FF_Office/state
 which returns the state as a plain string.
 
@@ -78,6 +84,7 @@ In order to send a command to an item, you would use the item uri (`http://local
 ## Sitemap Resource
 
 The request
+
     http://localhost:8080/rest/sitemaps
 Media types: application/xml, application/json, application/x-javascript
 
@@ -146,6 +153,7 @@ which returns a result like
 You can see that the sitemap information not only contains the static information that the user has provided in the sitemap file, but that it also holds derived data like icons and labels and dynamic group contents, where the groups structure is not explicitly defined in the sitemap.
 
 Single pages can be accessed by adding a page id (as given in the sitemap response):
+
     http://localhost:8080/rest/sitemaps/demo/FF_Bath
 Media types: application/xml, application/json, application/x-javascript
 
@@ -179,7 +187,7 @@ which returns the widgets contained in this page:
     </page>
 
 
-# Server-Push
+## Server-Push
 
 openHAB makes use of the Atmosphere framework for server-push functionality. 
 By this, you automatically have the option to use long-polling, HTTP streaming or websockets, depending on what your client supports.  
