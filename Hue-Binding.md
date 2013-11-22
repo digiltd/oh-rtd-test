@@ -1,9 +1,5 @@
 ## Introduction
-
-Philips Hue Binding:
-![alt text](http://www.youtube.com/watch?v=Q4_LkXIRBWc "Hue")
-
-http://www.youtube.com/watch?v=Q4_LkXIRBWc <br/>
+[See Philips Hue Binding video](http://www.youtube.com/watch?v=Q4_LkXIRBWc)
 For installation of the binding, please see Wiki page [[Bindings]].
 
 # Configuring the binding
