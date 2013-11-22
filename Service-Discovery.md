@@ -10,8 +10,8 @@ The Service Discovery bundle was created mainly to simplify interaction between 
 
 This interface is currently used by REST bundle to announce available REST interfaces on local network. REST application announces both HTTP and HTTPS connection points depending on their individual availability.
 
-- HTTP is announced as  **`*`openhab-server.`*`tcp.local.** and it's name is **openHAB**
-- HTTPS is announced as  **`*`openhab-server-ssl.`*`tcp.local.** and it's name is **openHAB-ssl**
+- HTTP is announced as  **`_openhab-server._tcp.local.`** and it's name is **openHAB**
+- HTTPS is announced as  **`_openhab-server-ssl._tcp.local.`** and it's name is **openHAB-ssl**
 Both service announcements include additional **uri** attribute which shows the path ("/rest" by default) to REST interface. User Interface applications should use this attribute to form the base URL of REST interface before connecting to openHAB.
 
 The same java library ([jmDNS](http://jmdns.sourceforge.net/)) can be used to discover openHAB on local network from java applications, including Android applications. MDNS/Bonjour is built in iOS application development framework. Plenty of examples can be found in corresponding platform developers documentation and on the internet ([Android example](http://home.heeere.com/tech-androidjmdns.html), [iOS example](http://mobileorchard.com/tutorial-networking-and-bonjour-on-iphone/) for MDNS/Bonjour usage).
