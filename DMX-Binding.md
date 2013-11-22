@@ -40,7 +40,7 @@ There can be only one channel configuration structure per openHAB item.  The cha
 </table>
 
 
-### = Example Channel Configurations: =
+### Example Channel Configurations
 
 1) RGB led strip of which the first channel is 7 and which receives a maximum of 1 status update per second.
 
@@ -67,7 +67,7 @@ Using the command configuration, you can override behavior of the default openHA
   <tr><td>command-parameters</td><td>Repeatable command parameter sections for use with the DMX command</td></tr>
 </table>
 
-### = FADE Command =
+### FADE Command
 
 The FADE command accepts the following parameter structure(s):
 
@@ -79,8 +79,7 @@ The FADE command accepts the following parameter structure(s):
   <tr><td>hold-time</td><td>The time in ms to hold the target values. A value of -1 can be used to hold indefinitely.</td></tr>
 </table>
 
-
-### = Example Fade Configurations: =
+### Example Fade Configurations
 
 1) A wake up light which takes 60 seconds to fade from nothing to full brightness.
 
@@ -94,13 +93,13 @@ The FADE command accepts the following parameter structure(s):
 
     Switch xmas_leds "Start Yellow-Green Fade Loop" {dmx="CHANNEL[7/6], ON[FADE|500:127,36,0,0,36,0:2000|500:0,36,0,127,36,0:2000]"}
 
-### = SFADE Command =
+### SFADE Command
 
 The SFADE (Suspending Fade) command is very similar to the FADE command.  It differs from the FADE command in that it suspend any active fades before executing a new fade.  After the fade has completed, the original fade which was running before the SFADE started is resumed. It accepts the following parameter structure(s):
 
     <fade-time>:<target-channel-value>,<target-channel-value>,...:<hold-time>
 
-### = Example Suspending Fade Configurations: =
+### Example Suspending Fade Configurations
 
 1) A short blue white flash pattern on the first 18 dmx channels, which will temporarily replace the active fades on those channels.
 
@@ -143,8 +142,7 @@ and add the following rule:
 
 Restart the Raspberry to start OLA.
 
-
-### = Using your own device connection interface =
+### Using your own device connection interface
 
 If want to use a custom interface rather than OLA, you can easily achieve this by creating a new osgi bundle, which implements a org.openhab.binding.dmx.DmxConnection interface.
 
