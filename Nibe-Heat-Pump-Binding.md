@@ -1,3 +1,5 @@
+Documentation of the Nibe Heatpump binding Bundle
+
 ## Introduction
 
 Nibe heat pump binding is used to get live data from from Nibe heat pumps without modbus adapter. Binding should be compatible at least F1145 and F1245 heat pump models.
