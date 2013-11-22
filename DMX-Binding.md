@@ -1,9 +1,10 @@
 ## Introduction
 
-http://www.youtube.com/watch?v=o0J4qyyfhio
 The DMX binding is available as a separate download. 
 
-Using this binding, you can control DMX devices like RGB led strips, dimmers and more from within openHAB.  
+Using this binding, you can control DMX devices like RGB led strips, dimmers and more from within openHAB.
+
+http://www.youtube.com/watch?v=o0J4qyyfhio  
 
 The DMX binding consists out of 2 bundles: the core binding bundle (org.openhab.binding.dmx.jar), which is responsible for managing the openhab items and commands and the device interface bundle, which is responsible for sending commands to a DMX device.
 
