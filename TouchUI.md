@@ -92,7 +92,7 @@ We assume you have working Compass now. Open the file _${openhab.home}/webapps/g
 
 Under "THEME SETTINGS" are found the SASS variables used in this theme. You can modify them, as well as add other SASS variables. A full list of all Sencha Touch SASS variables and mixins is found [HERE](http://docs.sencha.com/touch/theme/).
 
-After you're done with modifying the style.scss file, it needs to be compiled to CSS. To do that, just run _${openhab.home}/webapps/compass/themes/my_theme/scss/compile.sh_ script (for Linux and Mac. I didn't succeed to compile SASS under Windows, seems there is a path issue with Sencha SCSS files). You will see something like this:
+After you're done with modifying the style.scss file, it needs to be compiled to CSS. To do that, just run `${openhab.home}/webapps/compass/themes/my_theme/scss/compile.sh` script (for Linux and Mac. I didn't succeed to compile SASS under Windows, seems there is a path issue with Sencha SCSS files). You will see something like this:
 
     Compiling SCSS...
     overwrite style.css
@@ -102,7 +102,7 @@ And done means DONE! The new theme is compiled and ready to be used.
 
 ## Pictogram Icons
 
-GreenT UI supports pictogram style icons. These are PNG icons used as masks. There is no official openHAB pictogram icon set yet, but there are plans to provide one soon. To enable pictogram icons, open *${openhab.home}/webapps/greent/configs/settings.cfg* and find the text **OpenHAB.usePictogramIcons = false;**. Change it's value to **true**, save and refresh the browser.
+GreenT UI supports pictogram style icons. These are PNG icons used as masks. There is no official openHAB pictogram icon set yet, but there are plans to provide one soon. To enable pictogram icons, open `${openhab.home}/webapps/greent/configs/settings.cfg` and find the text **OpenHAB.usePictogramIcons = false;**. Change it's value to **true**, save and refresh the browser.
 
 ## Interface translations
 
@@ -114,13 +114,13 @@ To add a new translation:
 
 2. Find the following text:
  
-    `OpenHAB.i18n_strings[= {
+    OpenHAB.i18n_strings[= {
         language_name: 'English',
         // -------- Interface texts ---------
         back: 'Back',
 	interfaces: 'Interfaces',
         ...
-    }`
+    }
 
 3. Copy it somewhere below and edit the texts.
 
