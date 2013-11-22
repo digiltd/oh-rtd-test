@@ -81,4 +81,4 @@ Here is an example of a rule logic for the LHS from above:
 
 ## Actions available in the rule logic
 
-In general, Drools can call any kind of static Java methods that are available on the classpath. openHAB comes with a [set of useful actions](http://code.google.com/p/openhab/wiki/Actions) for different use cases.
+In general, Drools can call any kind of static Java methods that are available on the classpath. openHAB comes with a [set of useful actions](Actions) for different use cases.
