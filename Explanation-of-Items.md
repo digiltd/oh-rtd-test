@@ -79,7 +79,7 @@ These map files have to be structured as simple key/value pairs:
     UNDEFINED=unknown
 
 See the sample map files in the source code repository online here:
-https://code.google.com/p/openhab/source/browse/distribution/openhabhome/configurations/transform/
+https://github.com/openhab/openhab/tree/master/distribution/openhabhome/configurations/transform
 
 ### iconname
 
