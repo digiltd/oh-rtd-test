@@ -12,7 +12,7 @@ In order to bind an item to a configuration value, you need to provide configura
 
     configadmin="<pid>:<command>"
 
-Note: `<pid`> can be configured either fully qualified with preceding 'org.openhab' or without it as a shortcut. In case no '.' is found within the pid it is prefixed with 'org.openhab '.
+Note: `<pid>` can be configured either fully qualified with preceding 'org.openhab' or without it as a shortcut. In case no '.' is found within the pid it is prefixed with 'org.openhab '.
 
 Here are some examples of valid binding configuration strings:
 
@@ -22,5 +22,5 @@ Here are some examples of valid binding configuration strings:
 
 As a result, your lines in the items file might look like the following:
 
-    Switch	Dropbox_OnOff		"Activate Sync"	(State)	{ configadmin="dropbox:activate" }
-    String	Dropbox_SyncMode	"Syncmode"	(State)	{ configadmin="dropbox:syncmode" }
+    Switch    Dropbox_OnOff      "Activate Sync"   (State)   { configadmin="dropbox:activate" }
+    String    Dropbox_SyncMode   "Syncmode"        (State)   { configadmin="dropbox:syncmode" }
