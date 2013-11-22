@@ -1,8 +1,6 @@
-# Documentation of the MQTT binding Bundle
+## Introduction
 
-# Introduction
-
-The MQTT binding bundle is available as a separate (optional) download.
+The **MQTT binding bundle** is available as a separate (optional) download.
 This binding allows openHAB to act as an MQTT client, so that openHAB items can send and receive [MQTT](http://mqtt.org/) messages to/from an MQTT broker. It does not provide MQTT broker functionality, for this you may want to have a look at [Mosquitto](http://mosquitto.org/). There are test servers available at m2m.eclipse.org and test.mosquitto.org. 
 To install, place this bundle in the folder ${openhab_home}/addons and add binding information to your configuration. 
 See the following sections on how to do this.
@@ -19,9 +17,9 @@ OpenHAB provides MQTT support on different levels. The table below gives a quick
 </table>
 
 
-# Configuration
+## Configuration
 
-## Transport Configuration
+### Transport Configuration
 
 In order to consume or publish messages to an MQTT broker, you need to define all the brokers which you want to connect to, in your openhab.cfg file.
 The following properties can be configured to define a broker connection:
@@ -79,7 +77,7 @@ Every item is allowed to have multiple inbound (or outbound) configurations.
 </table>
 
 
-### =Example Inbound Configurations=
+### Example Inbound Configurations
 
     Number temperature {mqtt="<[publicweatherservice:/london-city/temperature:state:default]"}
     Number waterConsumption {mqtt="<[mybroker:/myHome/watermeter:state:XSLT(parse_water_message.xslt)]"} 
@@ -108,7 +106,7 @@ When the message content for an outbound message is created, the following varia
 - ${state} : current state of the item
 - ${command} : command which triggered the sending of the message
 
-### =Example Outbound Configurations=
+### Example Outbound Configurations
 
     Switch mySwitch {mqtt=">[mybroker:/myhouse/office/light:command:ON:1],>[mybroker:/myhouse/office/light:command:OFF:0]"}
 
@@ -144,7 +142,6 @@ This scenario could be used for example to link 2 openHAB instances together whe
     mqtt-eventbus:broker=m2m-eclipse
     mqtt-eventbus:commandPublishTopic=/openHAB/out/${item}/command
     mqtt-eventbus:stateSubscribeTopic=/openHAB/in/${item}/state
-
 
 
 # Using the org.openhab.io.transport.mqtt bundle
