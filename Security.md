@@ -1,6 +1,6 @@
-# Documentation of openHAB's security features
+Documentation of openHAB's security features
 
-# Introduction
+## Introduction
 
 To secure the communication with openHAB there are currently two mechanisms in place
 
@@ -11,7 +11,7 @@ Authentication is implemented by `SecureHttpContext` which in turn implements `H
 
 The `SecureHttpContext` is currently used by the `WebAppServlet` and the `CmdServlet` which constitutes the default iPhone UI as well as the `RESTApplication` which provides the REST functionality.
 
-# HTTPS
+## HTTPS
 
 openHAB supports HTTPS out of the box. Just point your browser to 
 
@@ -19,18 +19,18 @@ openHAB supports HTTPS out of the box. Just point your browser to
 
 and the HTTP communication will be encrypted by SSL. If one would like to add his own certificates please refer to http://wiki.eclipse.org/Jetty/Howto/Configure_SSL for more information.
 
-# Authentication
+## Authentication
 
 In order to activate Authentication one has to add the following parameters to the openHAB start command line
 
 - `-Djava.security.auth.login.config=./etc/login.conf` - the configuration file of the JAAS !LoginModules
 
-By default the command line references the file `<openhabhome>/etc/login.conf` which in turn configures a !PropertyFileLoginModule that references the user configuration file `login.properties`. One should use all available !LoginModule implementation here as well (see http://wiki.eclipse.org/Jetty/Tutorial/JAAS for further information).
+By default the command line references the file `<openhabhome>/etc/login.conf` which in turn configures a PropertyFileLoginModule that references the user configuration file `login.properties`. One should use all available LoginModule implementation here as well (see http://wiki.eclipse.org/Jetty/Tutorial/JAAS for further information).
 
 The default configuration for login credentials for openHAB is the file  `<openhabhome>/configuration/users.cfg`. In this file, you can put a simple list of "user=pwd" pairs, which will then be used for the authentication.
 Note that you could optionally add roles after a comma, but there is currently no support for different roles in openHAB.
 
-# Security Options
+## Security Options
 
 The security options can be configured through `openhab.cfg`. One can choose between
 
