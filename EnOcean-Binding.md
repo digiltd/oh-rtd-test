@@ -1,3 +1,5 @@
+Documentation of the EnOcean binding bundle
+
 ## Introduction
 
 http://www.youtube.com/watch?v=GpERJflmJKQ
@@ -54,7 +56,7 @@ Soon supported:
 
 Be aware that the parameters are still under discussion and can be subject to change.
 
-### = Examples =
+### Examples
 
 Standard usage:
 118f4c278bd20577e9c323d2a72029c9
@@ -102,7 +104,7 @@ To us as a normal Switch (supported with 1.4.0):
 
 Will work in 1.4.0
 
-### = Examples =
+### Examples
 
     tbd
 
