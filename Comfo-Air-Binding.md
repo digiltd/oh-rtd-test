@@ -1,13 +1,11 @@
-# Documentation of the ComfoAir binding Bundle
-
-# Introduction
+## Introduction
 
 Binding should be compatible with the Zehnder ComfoAir 350 ventilation system. ComfoAir 550 is untested but should supposedly use the same protocol. The same is true for the device WHR930 of StorkAir, G90-380 by Wernig and Santos 370 DC to Paul.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
 
-# Binding Configuration
+## Binding Configuration
 
 First of all you need to introduce your ComfoAir in the openhab.cfg file (in the folder '${openhab_home}/configurations').
 
@@ -28,7 +26,7 @@ Examples, how to configure your ComfoAir device:
     comfoair:port=/dev/ttyS0
     #comfoair:refresh=
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
@@ -67,7 +65,7 @@ Only **"activate"**, **"fan_level"** and **"target_temperature"** are writeable.
 
 **"target_temperature"** is a double value between 15.0 and 25.0 in 0.5 steps
 
-# Limitations
+## Limitations
 
 - Either the ComfoAir binding or the CCEase Comfocontrol can be active
 - You must implement auto mode by yourself with rules. But it is more powerful
