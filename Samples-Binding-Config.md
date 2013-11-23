@@ -1,6 +1,6 @@
 This page contains samples for binding configurations. These samples are sorted by binding.
 
-## How to send Date and Time from NTP to KNX
+### How to send Date and Time from NTP to KNX
 
 This example sends the current date and time from the NTP to the KNX binding
 
@@ -14,7 +14,7 @@ This example sends the current date and time from the NTP to the KNX binding
 Additional information on date and time formatting can be found 
 [here](http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Formatter.html#syntax)
 
-## How to get temperatures from OW-SERVER via HTTP binding
+### How to get temperatures from OW-SERVER via HTTP binding
 
 Requirements:
 - [OW-SERVER with Ethernet](http://www.embeddeddatasystems.com/OW-SERVER-1-Wire-to-Ethernet-Server-Revision-2_p_152.html)
@@ -32,7 +32,7 @@ Number Temp_Kitch "Küche [°C](%.1f)" { http="<[Units=\"Centigrade\">(.*?)</Tem
 
 Replace the ip address and the ROMId-value with your data.
 
-## How to get humidity from OW-SERVER via HTTP binding
+### How to get humidity from OW-SERVER via HTTP binding
 
 Device: OW-ENV-TH (EDS0065)
 
@@ -40,7 +40,7 @@ Example:
 
     Number Humidity "Humidity [%.1f %%]" { http="<[http://192.168.1.16/details.xml:5000:REGEX(.*?<ROMId>C30010000027767E</ROMId>.*?<Humidity Units=\"PercentRelativeHumidity\">(.*?)</Humidity>.*)]" }
 
-## How to get contact from OW-SERVER via HTTP binding
+### How to get contact from OW-SERVER via HTTP binding
 
 Device: D2C (DS2406)
 
@@ -85,7 +85,7 @@ To turn the switch on or off you need to define two rules:
     	sendHttpGetRequest("http://192.168.1.16/devices.htm?rom=BD0000009D93DC12&variable=FlipFlop_B&value=1")
     end
 
-## How to read the status from a OneWire sensor DS2413 (2 port I/O)
+### How to read the status from a OneWire sensor DS2413 (2 port I/O)
 
 item definition:
 
@@ -104,7 +104,7 @@ map file contact.map
 
 Sample output for this definition would then be "Window 1 is opened" or "Window 2 is closed".
 
-## How to get data from Kostal Piko solar inverter via HTTP binding
+### How to get data from Kostal Piko solar inverter via HTTP binding
 
 [https://lh4.googleusercontent.com/-pa3EqaUPe_E/Ud8lK56J_-I/AAAAAAAALT0/KNOfi7gWe_c/s300/openhab_kostal_piko_screenshot.PNG](https://lh4.googleusercontent.com/-pa3EqaUPe_E/Ud8lK56J_-I/AAAAAAAALT0/KNOfi7gWe_c/w563-h634-no/openhab_kostal_piko_screenshot.PNG)
 ```
@@ -134,7 +134,7 @@ Sample output for this definition would then be "Window 1 is opened" or "Window 
 ```
 Make sure you replace "password" with your password and edit the ip address.
 
-## How to send commands to Telldus Tellstick
+### How to send commands to Telldus Tellstick
 
 This a simple example of how to command your tellstick devices from Openhab. For event triggered inbound integration, check the [Integration with other applications](https://code.google.com/p/openhab-samples/wiki/integration#Telldus_Tellstick) page.
 
@@ -144,23 +144,40 @@ Item definition:
 
     Switch td_device_5 "Tellstick device 5" {exec=">[ON:tdtool --on 5] >[OFF:tdtool --off 5]"}
 
-## How to get power on a TV connected to HDMI with exec binding and update the status automatically
+### How to get power on a TV connected to HDMI with exec binding and update the status automatically
 
 This is an example of how to power on a TV connected to the openhab server via HDMI. First you have to install cec-client utility on your host (you can see more details in [page)
 
 The next thing is use the exec and the samsung binding (I can't switch on the TV with the samsung binding, and I can't switch off with the cec-client). My item definition shows like:
 
-524546160a290670bf49dbd8049627ae
+    Switch  TV_GF_Living_TV_power  "Power"  (GF_Living_TV)  { exec="ON:/usr/local/bin/samsungTvStart.sh, OFF:/bin/true", samsungtv="OFF:Livingroom:KEY_POWEROFF, ON:Livingroom:KEY_POWERON" }
 
 And the script /usr/local/bin/samsungTvStart.sh is
-aeca1ce6aa669e26d80d13ce7735bf08
+
+    echo 'on 0' | cec-client -s
 
 The next thing is automatically check and update the status. I use a shell script that I run every minute with cron. The script /usr/local/bin/samsungTvCheck.sh is 
+```
+#!/bin/bash
+OH_URL=[OPENHAB_URL]
+OH_USER=[OPENHAB_USER]
+OH_PASS=[OPENHAB_PASS]
+OH_ITEM=[OPENHAB_ITEM]
+RESULT=`echo pow 0 | cec-client -d 1 -s | grep "power status:" | awk '{ print $3; }'`
 
-175bbdfbe02077d98c182b2db3fdbe00
-
+case $RESULT in
+        on)
+                curl --user $OH_USER:$OH_PASS --max-time 2 --connect-timeout 2 --header "Content-Type: text/plain" --request PUT --data "ON" $OH_URL/rest/items/$OH_ITEM/state
+                exit 0
+                ;;
+        *)
+                curl --user $OH_USER:$OH_PASS --max-time 2 --connect-timeout 2 --header "Content-Type: text/plain" --request PUT --data "OFF" $OH_URL/rest/items/$OH_ITEM/state
+                exit 1
+esac
+```
 and you can add a line to your cron (in linux systems) with the command 
 
-acbe2674511923eb8be60227383a1b20
+    crontab -e
+    */1 * * * * /usr/local/bin/samsungTvCheck.sh
 
 Note that you have to change [OPENHAB_URL](http://blog.endpoint.com/2012/11/using-cec-client-to-control-hdmi-devices.html]), [[OPENHAB_PASS](OPENHAB_USER],) and [OPENHAB_ITEM] according to your installation. This script update the status of the item, and you can see if your childs has switch on the tv ;)
