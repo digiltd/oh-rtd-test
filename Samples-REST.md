@@ -1,11 +1,11 @@
-# Examples for accessing REST API
+Examples for accessing REST API
 
-# Introduction
+## Introduction
 
 Please see below sample code for accessing openhab's REST API.
 
 
-# jquery
+### jquery
 
 Accessing REST API via jquery (tested with jquery 2.0 and Chrome v26.0
 
@@ -54,6 +54,7 @@ Set state of an item:
     }
 
 Send command to an item:
+
     function sendCommand( txtCommand )
     {
     	var request = $.ajax
@@ -75,24 +76,28 @@ Send command to an item:
     	});
     }
 
-# cURL
+### cURL
 
 Accessing REST API via [cURL](http://curl.haxx.se). cURL is useful on shell scripts (Win/Linux/OS X) or e.g. on Automator (OS X).
 
 Get state:
+
     curl http://192.168.100.21:8080/rest/items/MyLight/state
 
 Set state:
+
     curl --header "Content-Type: text/plain" --request PUT --data "OFF" http://192.168.100.21:8080/rest/items/MyLight/state
 
 Send command:
+
     curl --header "Content-Type: text/plain" --request POST --data "ON" http://192.168.100.21:8080/rest/items/MyLight
 
-# PHP
+### PHP
 
 Simple PHP function to set a switch state using the REST interface.
 
 Set state:
+
     function doPostRequest($item, $data) {
       $url = "http://192.168.1.121:8080/rest/items/" . $item;
     
@@ -111,6 +116,7 @@ Set state:
     }
 
 Example function use:
+
     doPostRequest("doorbellSwitch", "ON");
 
 If the post was successful the function will return the state you set, EG above returns "ON"
