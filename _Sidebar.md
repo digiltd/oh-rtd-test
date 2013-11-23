@@ -93,7 +93,7 @@ Samples
  * [[XSLT Transforms|Samples-XSLT-Transformations]]
  * [[Scripts|Samples-Scripts]]
  * [[Integration with other applications|Samples-Integration]]
- * [[Syntax highlighting for external editors|Syntax-Highlighting]]
+ * [[Syntax highlighting for external editors|Syntax-Highlighting-for-external-editors]]
  * [[Update-Scripts|openhab-Get-Snapshot]]
 
 Release Notes
