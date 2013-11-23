@@ -10,10 +10,18 @@ Using this binding, you can control DMX devices like RGB led strips, dimmers and
 The DMX binding consists out of 2 bundles: the core binding bundle (org.openhab.binding.dmx.jar), which is responsible for managing the openhab items and commands and the device interface bundle, which is responsible for sending commands to a DMX device.
 
 The following device interface bundles are available:
+- org.openhab.binding.dmx.artnet : An interface using Artnet (Available as of 1.4.0. only!)
 - org.openhab.binding.dmx.ola : An interface using [OLA](http://opendmx.net/index.php/OLA) as a bridge
 - org.openhab.binding.dmx.lib485 : This interface will provide an interface to the [dmx485 library](http://dmx485.sourceforge.net/). This interface is currently in an experimental stage and should not be used.
 
-To use the DMX binding, install the core bundle and ONE device interface bundle in the folder ${openhab_home}/addons and add binding information to your configuration.
+To use the DMX binding, install the core bundle and ONE device interface bundle in the folder ${openhab_home}/addons and add binding information to your configuration. Depending on which interface bundle you use, you will need to define appropriate connection details in the openhab.cfg file. The table below lists some sample configurations:
+
+<table>
+<tr><th>Interface</th><th>Example Configuration</th><th>Comment</th></tr>
+<tr><td>Artnet</td><td>dmx:connection=192.168.2.151,192.168.2.201</td><td></td></tr>
+<tr><td>OLA</td><td>dmx:connection=localhost:9010</td><td></td></tr>
+<tr><td>Lib485</td><td>dmx:connection=localhost:9020</td><td></td></tr>
+</table>
 
 If you use the OLA interface, you will also need to configure OLA.  
 More information on configuring the binding and installing OLA is available in the next sections.
