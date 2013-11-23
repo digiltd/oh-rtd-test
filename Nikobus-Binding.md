@@ -1,5 +1,5 @@
-Documentation of the Nikobus binding Bundle<br/>
-[Demo Video](http://www.youtube.com/watch?v=QiNb-8QxXpo)
+Documentation of the Nikobus binding Bundle
+
 ## Introduction
 [![Demo Video Nikobus](http://img.youtube.com/vi/QiNb-8QxXpo/0.jpg)](http://www.youtube.com/watch?v=QiNb-8QxXpo) <br/>
 This binding allows openHAB to interact with the [nikobus](http://www.niko.eu/enus/niko/products/home-automation-with-nikobus/) home automation system. 
