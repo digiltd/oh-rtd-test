@@ -1,8 +1,8 @@
-Documentation of the DMX binding Bundle
+Documentation of the DMX binding Bundle<br/>
+[View Binding Demo Video](http://www.youtube.com/watch?v=o0J4qyyfhio)
 
 ## Introduction
 
-http://www.youtube.com/watch?v=o0J4qyyfhio <br/>
 The DMX binding is available as a separate download. 
 
 Using this binding, you can control DMX devices like RGB led strips, dimmers and more from within openHAB.  
