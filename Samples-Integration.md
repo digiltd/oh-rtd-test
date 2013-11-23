@@ -1,10 +1,10 @@
-# Integrating openHAB with other applications.
+Integrating openHAB with other applications.
 
-# Integration
+## Integration
 
 Sometimes you can easily integrate openHAB with other applications without creating specific bindings. This page collects recipes for doing that.
 
-# Asterisk
+### Asterisk
 
 In some cases it is very useful to make call routing decisions in Asterisk based on openHAB Items states. As an example, if nobody is home (away mode is on) route my doorphone calls to mobile, in other case route them to local phones inside the house. To do that AGI (Asterisk application gateway interface) can be used to obtain Item state value into an Asterisk variable and then a routing decision can be performed based on this variable value. Here is a small python script which, when called from Asterisk AGI makes an http request to openHAB REST API, gets specific item state and puts it into specified Asterisk variable:
 
@@ -57,7 +57,7 @@ In AGI call arguments are:
 - openhab Item name
 - Asterisk variable to put state to
 
-# Zoneminder
+### Zoneminder
 
 I appreciate Zoneminder has the Zoneminder.pm api.  I attempted to use it but with most things zoneminder I found the documentation totally out of date and zero comments in the code.  So instead I achieved my goal by accessing the zoneminder mySQL database direct.  It works rather well.
 
@@ -182,7 +182,7 @@ READ THE COMMENTS IN THE SOURCE CODE BELOW to set it up.  Hope this helps someon
     }
     ?>
 
-# Telldus Tellstick
+### Telldus Tellstick
 
 Below is an example of how to capture events from Telldus Tellstick and forward them to the openhab bus as events through REST. The example works for on/off switches and wireless sensors but can easily be extended to dimmers, etc. Events are sent to openhab regardless if a telldus state change originates from a wireless remote or from other software (e. g. Switchking or Telldus Center). In other word, the script keeps openhab in sync with telldus states.
 
