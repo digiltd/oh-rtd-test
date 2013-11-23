@@ -28,11 +28,11 @@ This example gets the weather information from the Wunderground online api servi
  
 - in the items file, create a string as follows:
 
-      String w   "Today [%s]"   <w>  { http="<[http://api.wunderground.com/api/<your api key>/forecast/q/Luxembourg/Luxembourg.xml:3600000:XSLT(wunderground_icon_forecast.xsl)]"} 
+    String w   "Today [%s]"   <w>  { http="<[http://api.wunderground.com/api/<your api key>/forecast/q/Luxembourg/Luxembourg.xml:3600000:XSLT(wunderground_icon_forecast.xsl)]"} 
 
 - copy the weather icons to your images folder and rename and convert them to png, e.g. "w-partly_cloudy.png". The weather icon sets can be found here:
 
-  http://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets 
+    http://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets 
 
 - create a stylesheet named wunderground_icon_forecast.xsl containing the following lines (place it under configurations/transform):
 
@@ -50,7 +50,7 @@ This example gets the weather information from the Wunderground online api servi
 
 - display the string in the .sitemap file:
 
-      Text item=w 
+    Text item=w 
 
 ### How to configure openHAB to start automatically on Linux
 
