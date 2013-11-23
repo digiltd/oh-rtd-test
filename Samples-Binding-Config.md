@@ -22,7 +22,8 @@ Requirements:
 
 Instructions:
 1. Go to http://`<ow-server-IP>`/devices.htm and look for the ROMId-Value
-  [https://lh3.googleusercontent.com/-XdaTtDlzyEU/Ud7_uB4fPCI/AAAAAAAALTY/pmajPpkk6uo/s300/owserver_devices.PNG](https://lh3.googleusercontent.com/-XdaTtDlzyEU/Ud7_uB4fPCI/AAAAAAAALTY/pmajPpkk6uo/w780-h445-no/owserver_devices.PNG)
+![OW Server](https://lh3.googleusercontent.com/-XdaTtDlzyEU/Ud7_uB4fPCI/AAAAAAAALTY/pmajPpkk6uo/w780-h445-no/owserver_devices.PNG "OW Server")
+
 1. Add an Number-Item to your items-configuration like this one
 
 ```
