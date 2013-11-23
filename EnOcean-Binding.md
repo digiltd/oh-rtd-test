@@ -8,7 +8,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 ## EnOcean Binding Configuration
 ### openhab.cfg
 
-The following config params are used for the !EnOcean binding.
+The following config params are used for the EnOcean binding.
 
 - enocean:serialPort
 
@@ -43,7 +43,6 @@ If your device is not listed, please add an issue for it at openhab.
 Soon supported: 
 - Contact Sensors
 - D5:00:01 (Single Input Contact)
-  
  
 ### Rocker Switches
 
@@ -58,18 +57,23 @@ Be aware that the parameters are still under discussion and can be subject to ch
 ### Examples
 
 Standard usage:
-118f4c278bd20577e9c323d2a72029c9
+
+    Switch Button_Up () {enocean="{id=00:00:00:00, eep=F6:02:01, channel=B, parameter=I}"}
+
 - pressed: ON
 - released: OFF
 
 To control a roller shutter:
-0067df86ebf36144276dda80762257fe
+    Rollershutter myShutters () {enocean="{id=00:00:00:00, eep=F6:02:01}"}
+
 - Short press down: Close roller shutter or stop it when it was started shortly ago
 - Short press up: Open roller shutter or stop it when it was started shortly ago
 - Long press down: Close roller shutter as long as the button is pressed
 - Long press up: Open roller shutter as long as the button is pressed
 
-See [https://code.google.com/p/openhab-samples/wiki/ItemDef#How_to_control_a_homematic_roller_shutter_with_an_Rocker Example of roller shutter controlling](https://code.google.com/p/openhab/wiki/Bindings].)
+See [Example of roller shutter controlling](Samples-Item-Definitions#how-to-control-a-homematic-roller-shutter-with-an-enocean-rocker)
+
+[https://code.google.com/p/openhab-samples/wiki/ItemDef#How_to_control_a_homematic_roller_shutter_with_an_Rocker Example of roller shutter controlling](https://code.google.com/p/openhab/wiki/Bindings].)
 
 To control a dimmer (left buttons = channel A):
     Dimmer myLights () {enocean="{id=00:00:00:00, channel=A, eep=F6:02:01}"}
