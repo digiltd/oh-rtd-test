@@ -1,12 +1,11 @@
-# Miscellaneous Tips & Tricks
+Miscellaneous Tips & Tricks
 
-<wiki:toc max_depth="2" />
-
-## How to redirect your log entries to the syslog
+### How to redirect your log entries to the syslog
 
 You just need to add some lines to your logback.xml.
 
 Like:
+
     <appender name="SYSLOG" class="ch.qos.logback.classic.net.SyslogAppender">
      <syslogHost>localhost</syslogHost>
      <facility>AUTH</facility>
@@ -17,12 +16,13 @@ Like:
      <appender-ref ref="SYSLOG" />
     </root>
 
-## How to do a proper ICMP ping on Linux
+### How to do a proper ICMP ping on Linux
 
 Java is not capable to open a raw socket to do a ICMP ping (see https://code.google.com/p/openhab/issues/detail?id=134). As a workaround, you can use the exec binding on Linux:
+
     Switch PingedItem { exec="<[/bin/sh@@-c@@ping -c 1 192.168.0.1 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
 
-## How to add current or forecast weather icons to your sitemap
+### How to add current or forecast weather icons to your sitemap
 
 This example gets the weather information from the Wunderground online api service (for details see http://www.wunderground.com/weather/api/) and shows the current weather icon and weather state (such as partly cloudy) in one line like it would show any other Openhab item.
  
@@ -52,7 +52,7 @@ This example gets the weather information from the Wunderground online api servi
 
       Text item=w 
 
-## How to configure openHAB to start automatically on Linux
+### How to configure openHAB to start automatically on Linux
 
 Create a new file in /etc/init.d/openhab using your preferred editor (e.g. nano) and copy the code below. 
 
@@ -230,14 +230,15 @@ Make the script executable and configure it to run on boot.
 
 Now whenever your Linux machine boots openHAB will be automatically started.
 
-## Use cheap bluetooth dongles on remote PCs to detect your phone/watch
+### Use cheap bluetooth dongles on remote PCs to detect your phone/watch
 
 This is more an idea really but consider that openhab can know your home by picking up on the bluetooth on your phone, using cheap 3 euro bluetooth dongles connected to the various PCs and media centres you may have.
 
 EG On an ubuntu/debian based PC.
 
 1) Install the "bluez" bluetooth stack.
-apt-get install bluez
+
+    apt-get install bluez
 
 2) Use the bash script below to do a simple scan several times per min.  This script looks for my phone "jon-phone".  Its made no real difference to the battery life on my android 4.x phone.  The script updates a switch in openhab called "zoneOneState".  You could have as many zones as you need/want to cover your house.
 
@@ -304,7 +305,7 @@ apt-get install bluez
     		}
     	}
 
-## Get connection status of all network devices from Fritz!Box, eg for presence detection
+### Get connection status of all network devices from Fritz!Box, eg for presence detection
 
 For cases where bluetooth detection described above or network health binding is not suitable.
 
@@ -328,7 +329,7 @@ For cases where bluetooth detection described above or network health binding is
 
 **How-To**
 
-### On the Fritz!Box
+#### On the Fritz!Box
 
 The Fritz!Box shows a reliable status of devices connected to the network using the built-in _ctlmgr_ctl r landevice_ command (see http://www.wehavemorefun.de/fritzbox/Landevice). 
 
@@ -382,7 +383,7 @@ The commented out for loop shows all possible subcommands, so it is also possibl
 
 If required, use the Fritz!Box GUI to give the devices some reasonable names in order to easily assign phones/laptops etc to people or media devices to floors/rooms. Using the _ctlmgr_ctl_ command it would also be possible to only query for specific devices (go through the full list and look for either name or mac or both), but any change in the output of this script requires changes on the other end as well.
 
-### On the Linux server
+#### On the Linux server
 
 Create a *expect* script in a folder on your Linux Server and make it executable. The only purpose of this script is only to connect to your Fritz!Box through a telnet session and call the script created there.
 
@@ -491,17 +492,17 @@ Another validation of the scripts created so far:
     curl --silent -H "Content-Type: text/plain" http://localhost:8080/rest/items/landevice_MomPhone -d "OFF"
     ReadyNAS:~#
 
-### Configuration in openHAB
+#### Configuration in openHAB
 
 Now it is time to create the required items in openHAB - One Switch for each landevice that is supposed to be used later. In case you don't configure all landevices as items you will get error messages in openHAB logs, however these can be ignored. Just to have a "clean" configuration you might want to add all devices.
 
-    Switch landevice_KGOfficeReadyNAS	"ReadyNAS"		<network> (KG_TEC1, gNetworkServer)
-    Switch landevice_EGEntranceAP		"Airport Erdgeschoss"	<network> (gWZ, gNetworkServer)
-    Switch landevice_EGWZAP			"Airport Repeater Erdgeschoss"	<network> (gWZ, gNetworkServer)
-    Switch landevice_KGTEC1AP		"Airport Keller TEC1"	<network> (KG_TEC1, gNetworkServer)		
-    Switch landevice_KGTEC2AP		"Airport Keller TEC2"	<network> (KG_TEC2, gNetworkServer)
-    Switch landevice_DGOfficePrinter	"Drucker Dachgeschoss"	<network> (DG_GUEST, gNetworkMedia)
-    Switch landevice_KGOfficePrinter	"Drucker Keller"	<network> (KG_TEC1, gNetworkMedia)
+    Switch landevice_KGOfficeReadyNAS  "ReadyNAS"                       <network> (KG_TEC1, gNetworkServer)
+    Switch landevice_EGEntranceAP      "Airport Erdgeschoss"            <network> (gWZ, gNetworkServer)
+    Switch landevice_EGWZAP            "Airport Repeater Erdgeschoss"   <network> (gWZ, gNetworkServer)
+    Switch landevice_KGTEC1AP          "Airport Keller TEC1"            <network> (KG_TEC1, gNetworkServer)		
+    Switch landevice_KGTEC2AP          "Airport Keller TEC2"            <network> (KG_TEC2, gNetworkServer)
+    Switch landevice_DGOfficePrinter   "Drucker Dachgeschoss"           <network> (DG_GUEST, gNetworkMedia)
+    Switch landevice_KGOfficePrinter   "Drucker Keller"                 <network> (KG_TEC1, gNetworkMedia)
     Switch landevice_DGTVRasPlex		"RasPLEX Dachgeschoss"	<network> (DG_TV, gNetworkMedia)
     Switch landevice_EGTVRasPlex		"RasPLEX Erdgeschoss"	<network> (EG_TV, gNetworkMedia)
     Switch landevice_DGTVWii		"Wii"			<network> (DG_TV, gNetworkMedia)
@@ -524,7 +525,7 @@ Now it is time to create the required items in openHAB - One Switch for each lan
 
 As you can see the devices are assigned to various groups in the config, the interesting ones are the "_PRESENT" ones for the phones. Based on these with rules the status of each person's presence in the house can be defined. In my case when at least one phone per kid/guest is active in the network this person is seen as "present", for mom and dad both devices have to be present (on the weekends the work phones usually stay connected at home). Adding all devices here also offers some other capabilities... For example lower the download speed of the download server based on the number of active laptops in case the internet connection is not lighting fast.
 
-### Final steps on the Linux server
+#### Final steps on the Linux server
 
 Another test: Now execute one of the *curl* statements created in the previous step on the Linux server in the shell:
 
@@ -590,7 +591,7 @@ When everything is working fine the cronjob can be set up, but avoid calling the
     # m h  dom mon dow   command
     * * * * * /root/fritzbox_devices.sh
 
-### (Yet) incomplete snipplets with additional functionalities for the Fritz!Box
+#### (Yet) incomplete snipplets with additional functionalities for the Fritz!Box
 
 *wlandevices.sh* is just dumping all devices connected directly to the wlan of the Fritz!Box (not those attached through LAN ports, but including the guest WLAN). For example to show devices connected to the guest WLAN with their remaining time in the openHAB GUI:
 
@@ -655,7 +656,7 @@ The output looks as follows:
 This script might be used together with another (yet to do) guest wlan on/off script to offer kids the possibility to enable/disable the guest wlan with a randomly generated password (eg  *echo `tr -dc A-Za-z0-9* < /dev/urandom | head -c 16`_) in order to not have to do this yourself each time.
 
 
-## How to configure openHAB to connect to device symlinks (on Linux)
+### How to configure openHAB to connect to device symlinks (on Linux)
 
 When connecting serial devices to Linux (i.e. USB) they are assigned arbitrary device names - usually something like /dev/ttyUSB0. There is no way to know exactly what name will be assigned each time you plug in the device however.
 
@@ -673,20 +674,21 @@ Or add a gnu.io.rxtx.properties file which is accessible in the Java classpath. 
 
 This applies to any openHAB binding that uses the RXTX serial connection library - i.e. RFXCOM, ZWave etc.
 
-
-## Use URL to manipulate items
+### Use URL to manipulate items
 
 When you have a device unable to send REST requests (f.e. Webcams), you may use
-` http://<openhab-host>:8080/CMD?<item>=<state> `
+
+    http://<openhab-host>:8080/CMD?<item>=<state>
 
 Example:
-` http://<openhab-host>:8080/CMD?Light=ON `
+
+    http://<openhab-host>:8080/CMD?Light=ON
 
 ## Extract caller and called number from Fritzbox Call object
 
 If you define an item like the following in your site.items config
 
-`Call	Incoming_Call_No  "Caller No. [%2$s]"  (Phone)  { fritzbox="inbound" } `
+    Call   Incoming_Call_No   "Caller No. [%2$s]"   (Phone)   { fritzbox="inbound" }
 
 the Type CallType with its associated methods can be used to extract the caller and called number of the call. The following rule sends an email with both numbers in the subject line.
 
@@ -700,10 +702,8 @@ the Type CallType with its associated methods can be used to extract the caller 
       "Anruf von Nummer " + call.origNum + " -> " + call.destNum
       sendMail( "us...@domain.de" , mailSubject , "");
     end
-    
-    
-
-## Item loops with delay
+   
+### Item loops with delay
 
 Some integrations don't like to be rushed with a cascade of simultaneous commands. This can be an issue if you, for instance want to implement a rule which loops through a list of group members (items) and send a command to all of them, e. g. OFF. The solution is to add a small delay between each command. The example below executes OFF for all members at a one second interval. Use `now.plusMillis(i*`*n*`)` for *n* millisecond intervals.
 
