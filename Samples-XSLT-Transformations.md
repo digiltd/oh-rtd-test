@@ -11,7 +11,6 @@ Yahoo Weather - temperature
                     <xsl:value-of select="//item/yweather:condition/@temp" /> 
             </xsl:template>
     
-    
     </xsl:stylesheet>
 
 Yahoo Weather - feels like temperature
@@ -25,8 +24,7 @@ Yahoo Weather - feels like temperature
     
             <xsl:template match="/">
                     <xsl:value-of select="//yweather:wind/@chill" /> 
-            </xsl:template>
-    
+            </xsl:template>  
     
     </xsl:stylesheet>
 
@@ -125,8 +123,7 @@ Yahoo Weather - forecast tomorrow
                     <xsl:value-of select="//item/yweather:forecast[1]/@high" /> 
                     <xsl:text>°C</xsl:text>
             </xsl:template>
-    
-    
+       
     </xsl:stylesheet>
 
 Yahoo Weather - forecast day after tomorrow
@@ -146,6 +143,5 @@ Yahoo Weather - forecast day after tomorrow
                     <xsl:value-of select="//item/yweather:forecast[2]/@high" /> 
                     <xsl:text>°C</xsl:text>
             </xsl:template>
-    
     
     </xsl:stylesheet>
