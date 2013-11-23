@@ -12,10 +12,10 @@ OpenHAB provides MQTT support on different levels. The table below gives a quick
 
 <table>
   <tr><td><b>Level</b></td><td><b>Description</b></td><td><b>Usage</b></td><td><b>Bundle</b></td></tr>
-  <tr><td>Transport</td><td>Shared transport functions for setting up MQTT broker connections.</td><td>Ideal if you want to roll your own binding using MQTT as the transport.</td><td>org.openhab.io.transport.mqtt</td></tr>
-  <tr><td>Item binding</td><td>Allows MQTT publish/subscribe configuration on item level</td><td>Ideal for highly customized in and outbound message scenarios.</td><td>org.openhab.binding.mqtt</td></tr>
-  <tr><td>Event bus binding</td><td>Publish/receive all states/commmands directly on the openHAB eventbus.</td><td>Perfect for integrating multiple openHAB instances or broadcasting all events.</td><td>org.openhab.binding.mqtt</td></tr>
-  <tr><td>[Persistence](MQTTPersistence)</td><td>Uses persistent strategies to push messages on change or a regular interval.</td><td>Perfect for persisting time series to a public service like Xively.</td><td>org.openhab.persistence.mqtt</td></tr>
+  <tr><td>Transport</td><td>Shared transport functions for setting up MQTT broker connections.</td><td>Ideal if you want to roll your own binding using MQTT as the transport.</td><td>o.o.io.transport.mqtt</td></tr>
+  <tr><td>Item binding</td><td>Allows MQTT publish/subscribe configuration on item level</td><td>Ideal for highly customized in and outbound message scenarios.</td><td>o.o.binding.mqtt</td></tr>
+  <tr><td>Event bus binding</td><td>Publish/receive all states/commmands directly on the openHAB eventbus.</td><td>Perfect for integrating multiple openHAB instances or broadcasting all events.</td><td>o.o.binding.mqtt</td></tr>
+  <tr><td>[Persistence](MQTTPersistence)</td><td>Uses persistent strategies to push messages on change or a regular interval.</td><td>Perfect for persisting time series to a public service like Xively.</td><td>o.o.persistence.mqtt</td></tr>
 </table>
 
 
