@@ -1,8 +1,7 @@
 Documentation of the EnOcean binding bundle
 
 ## Introduction
-
-http://www.youtube.com/watch?v=GpERJflmJKQ
+[![EnOcean Binding](http://img.youtube.com/vi/GpERJflmJKQ/0.jpg)](http://www.youtube.com/watch?v=GpERJflmJKQ) <br/>
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
