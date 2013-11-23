@@ -1,4 +1,4 @@
-Documentation of the Nikobus binding Bundle <br/>]
+Documentation of the Nikobus binding Bundle <br/>
 [![Demo Video Nikobus](http://img.youtube.com/vi/QiNb-8QxXpo/0.jpg)](http://www.youtube.com/watch?v=QiNb-8QxXpo)
 
 ## Introduction
