@@ -1,10 +1,11 @@
-# Samples for Rules
+Samples for Rules
 
 <wiki:toc max_depth="2" />
 
-## How to turn on light when motion detected and is dark?
+### How to turn on light when motion detected and is dark?
 
 Light is turned on when there is motion detected (corMotion) and brightness is below threshold. Every 1min it is checked whether there was motion since the last check. If not: turn light back off.
+
     var Number counter = 0
     var Number lastCheck = 0
     
@@ -34,7 +35,7 @@ Light is turned on when there is motion detected (corMotion) and brightness is b
     end
     
 
-## How to create a rule, which only executes some code, if a value does not change for a certain period of time
+### How to create a rule, which only executes some code, if a value does not change for a certain period of time
 
     var Timer timer
     
@@ -54,7 +55,7 @@ Light is turned on when there is motion detected (corMotion) and brightness is b
     	}
     end
 
-## How to calculate the sun position
+### How to calculate the sun position
 
     import org.openhab.core.library.types.*
     import java.lang.Math
@@ -135,13 +136,15 @@ Light is turned on when there is motion detected (corMotion) and brightness is b
     
     end
 
-## How to calculate public holidays
+### How to calculate public holidays
 
 Items: 
-    Switch Holiday					"Public Holiday"
-    String SpecialDay				"Day [MAP(holidays_de.map):%s]"
+
+    Switch Holiday	"Public Holiday"
+    String SpecialDay	"Day [MAP(holidays_de.map):%s]"
 
 Transformation (holidays_de.map):
+
     undefined=undefiniert
     new_years_day=Neujahr
     holy_trinity=Heilige 3 Könige
@@ -167,6 +170,7 @@ Transformation (holidays_de.map):
     new_years_eve=Silvester
 
 Rule:
+
     rule "Public Holiday"
     when
         Time cron "0 0 0 * * ?" or
@@ -176,6 +180,7 @@ Rule:
     end
 
 Script (holiday.script):
+
     var int year = now.getYear
     
     var int a = year % 19
@@ -320,15 +325,17 @@ Script (holiday.script):
         postUpdate(Holiday,OFF)
     }
 
-## Create a timer for sunset
+### Create a timer for sunset
 
 This example gets the sunset from an online api service (in this case www.wunderground.com). The sunset time is parsed into a timer to switch on lights (or any other action)
 
 **Items**: 
+
     String strSunset "Sunset" <clock> (gWeather) { http="<[http://api.wunderground.com/api/<api_code>/astronomy/q/NL/rijswijk.xml:21600000:XSLT(wunderground_sunset.xsl)]" }
 Replace <api_code> with your own API code (sign up for a developers account). Find a location near your home. The http refresh option can be set to once or twice a day.
 
 **Stylesheet** (wunderground_sunset.xsl)
+
     <?xml version="1.0"?>
     <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
     	
@@ -342,6 +349,7 @@ Replace <api_code> with your own API code (sign up for a developers account). Fi
     </xsl:stylesheet>
 
 **Rules**
+
     import org.joda.time.*
     
     var Timer tIndoorLights
@@ -374,24 +382,25 @@ Replace <api_code> with your own API code (sign up for a developers account). Fi
         ]
     end
 
-## Send an image from your webcam by e-mail
+### Send an image from your webcam by e-mail
 
 If your webcam offers a still picture in your local LAN e.g. at http://192.168.0.2/jpg/image.jpg, you can simply send it as an attachment in a rule by e-mail with a line like:
     sendMail("me@domain.com", "Frontdoor", "There is motion at the frontdoor", "http://192.168.0.2/jpg/image.jpg")
 
-## How to display the minimum and maximum values of an item in a given period
+### How to display the minimum and maximum values of an item in a given period
 
 This example displays the minimum and maximum values and the time they where measured of the item "Temperature_Garden" for the current day. Other periods can be selected by modifying the parameter of minimumSince() and maximuSince() in the rule below.
 
 **Items**: 
+
     Number Temperature_Garden "Garden [%.1f °C]" <temperature> ( gGarden) 	{ knx="9.001:1/2/3" }
     String Temperature_Garden_Min_Formatted "- Min. Temp [%s]" <temperature>
     String Temperature_Garden_Max_Formatted "- Max. Temp [%s]" <temperature>
 
 The string items hold the formatted String to be displayed in the UI. The number item holds the current temperature, it must be updated periodically and persistence must be configured for this item. This example assumes, that the rrd4h persistence service is used, for other services the string "rrd4j" in the rule below must be modified accordingly.
- 
 
 **Rules**
+
     rule "Update Temperature Min- and Max values"
     when
     	Item  Temperature_Garden received update
@@ -414,6 +423,7 @@ The string items hold the formatted String to be displayed in the UI. The number
     end
 
 **Includes**
+
     import org.openhab.core.library.types.*
     import org.openhab.model.script.actions.*
     import java.lang.Math
@@ -424,11 +434,12 @@ The string items hold the formatted String to be displayed in the UI. The number
 
 The rules file probably needs the includes listened above.
 
-## How to use Colorpicker widget with KNX/DALI RGB LED STRIPE
+### How to use Colorpicker widget with KNX/DALI RGB LED STRIPE
 
 The openHAB Colorpicker widget was primarily developed for being used with the DMX binding. The following example shows how to make it work with DALI (or any other technology) via KNX.
 
 items.all
+
     Dimmer LedR     "LED Red"               <dimmer>        (All) { knx = "11/0/0+11/0/1,   11/0/2,  11/0/3+11/0/4" }
     Dimmer LedG     "LED Green"             <dimmer>        (All) { knx = "11/0/5+11/0/6,   11/0/7,  11/0/8+11/0/9" }
     Dimmer LedB     "LED Blue"              <dimmer>        (All) { knx = "11/0/10+11/0/11, 11/0/12, 11/0/13+11/0/14" }
@@ -436,16 +447,18 @@ items.all
 Items `LedR`, `LedG`, `LedB` are mapped in DALI-GW to respective light groups with KNX group addresses. 
 
 Explanation of group addresses in above example:
-|| Group Address || Description ||
-|| 11/0/0 || ON/OFF for red channel ||
-|| 11/0/1 || Current status (ON/OFF) for red channel ||
-|| 11/0/2 || Dim value for red channel ||
-|| 11/0/3 || Percentage value for the red channel for update (writing) ||
-|| 11/0/4 || Current percentage value for the red channel (reading) ||
+| Group Address | Description |
+| ------------- | ----------- |
+| 11/0/0 | ON/OFF for red channel |
+| 11/0/1 | Current status (ON/OFF) for red channel |
+| 11/0/2 | Dim value for red channel |
+| 11/0/3 | Percentage value for the red channel for update (writing) |
+| 11/0/4 | Current percentage value for the red channel (reading) |
 
 The item `RGB` is the object to store the current percentage values for each channel (R, G, B).
 
 sitemap.all
+
     sitemap all label="Main Menu"
     {
             Frame label="RGB"
@@ -455,6 +468,7 @@ sitemap.all
     }
 
 RGB.rules
+
     import org.openhab.core.library.types.*
     
     var HSBType hsbValue
@@ -479,9 +493,10 @@ RGB.rules
 
 Any change in value of the RGB Colorpicker item fires this rule. The HSB value of the item is determined and split to percentage values for red, green and blue which then get sent to the individual KNX items LedR, LedG and LedB.
 
-## How to log current timestamp to the openHAB log file
+### How to log current timestamp to the openHAB log file
 
 mytimestamp.rules
+
     import org.openhab.core.library.types.*
     import java.util.Date
     import java.text.SimpleDateFormat
@@ -510,14 +525,14 @@ or, alternatively, if you rely on String Formatter only (e.g. in Persistence fil
             logInfo( "FILE", Timestamp )
     end
 
-If you wonder, how to use the String::format option:<br/>
+If you wonder, how to use the `String::format` option:<br/>
 The syntax of the format method is format( `<String>`pattern, `<object>`obj1, `<object>`obj2 `[In the pattern String, use "%1" for parsing the first object, "%2" for the second object a.s.o.
 
 e.g. pattern "%1$tY" refers to the first object passed into the format method after the pattern string and treats the input as a (t)imestamp extracting the two-digit (Y)ear.
 
 For more information on how to use the format method please see the [http://docs.oracle.com/javase/6/docs/api/java/util/Formatter.html Java documentation](,...]`).).
 
-## Irrigation controller
+### Irrigation controller
 
 This assumes you have some way of turning your irrigation zones on/off. I use a 4 way relay board connected to the GPIO pins on a Raspberry Pi running my PiFace binding. Note: by using an external relay board I don't need the PiFace extension board but you could use one if you only had 2 zones (since the PiFace only has two relays).
 
@@ -528,6 +543,7 @@ I haven't worked out a way to allow the 'start time' to be edited in the openHAB
 The last rule will disable the irrigation system if there is any rain detected in the last 24 hours, or any rain in the forecast.
 
 Items
+
     Group 		Irrigation
     Group 		Weather
     
@@ -550,6 +566,7 @@ Items
     String 		Weather_TomorrowIcon		"Tomorrow [%s]"     			<w>  			(Weather) 				{ http="<[http://api.wunderground.com/api/<YOUR_API_KEY>/forecast/q/pws:<YOUR_PWS_ID>.xml:3600000:XSLT(<YOUR_TRANSFORM>.xsl)]" } 
 
 Rules
+
     import org.openhab.core.library.types.*
     import org.openhab.core.persistence.*
     import org.openhab.model.script.actions.*
