@@ -44,7 +44,7 @@ Yahoo Weather - humidity
    </xsl:template>
     
 </xsl:stylesheet>
-```    
+```
 
 Yahoo Weather - sunrise
 ```xml
@@ -76,7 +76,7 @@ Yahoo Weather - sunset
             </xsl:template>
     
     </xsl:stylesheet>
-``` 
+```
 
 Yahoo Weather - weather text
 ```xml
@@ -92,7 +92,7 @@ Yahoo Weather - weather text
             </xsl:template>
     
     </xsl:stylesheet>
-```    
+```
 
 Yahoo Weather - wind speed
 ```xml
