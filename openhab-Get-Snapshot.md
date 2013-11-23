@@ -1,13 +1,13 @@
-# Shell-scripts to update to a snapshot-build
+Shell-scripts to update to a snapshot-build
 
-# Introduction
+## Introduction
 
 If you are experimenting with the latest openHAB-snapshots, it can be quit annoying to download all nightly-packages, extract them, update all files and addons and copy/replace the configuration files, every time.
 
 
 To automate this process there are two shell-scripts for Linux available.
 
-## Script 1
+### Script 1
 
 the script [openhab_get_snapshot.sh](http://code.google.com/p/openhab-samples/source/browse/scripts/openhab_get_snapshot.sh?repo=wiki) is a quick-and-dirty-script to download a new openHAB Snapshot to a new folder.
 
@@ -33,8 +33,7 @@ which makes it necessary to move or copy the data first (only once).
 
 All delivered `configurations/` are moved to `configurations_old/`, just as `etc/` is moved to `etc_old/` and `webapps/images/` is moved to `webapps/images_old/`, so no data is lost (e.g. new openhab.cfg-entrys)
 
-
-## Script 2
+### Script 2
 
 This script overwrites all files of the defined openhab-folder.
 The packages you want to update can be specified in the script. (see filelist, addonlist).
