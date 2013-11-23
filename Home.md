@@ -33,10 +33,10 @@ There are mainly two types of events:
 
 All protocol bindings (which provide the link to the real hardware devices) should be communicating via the Event Bus. This makes sure that there is a very low coupling between the bundles, which facilitates the dynamic nature of openHAB.
 
-As a technical foundation, the OSGi !EventAdmin service is used by openHAB. This is a light-weight and ready-to-use pub-sub implementation, which perfectly meets the requirements.
+As a technical foundation, the OSGi EventAdmin service is used by openHAB. This is a light-weight and ready-to-use pub-sub implementation, which perfectly meets the requirements.
 
 It is important to note that openHAB is not meant to reside on (or near) actual hardware devices and as thus to remotely communicate with many other distributed openHAB instances. Instead, openHAB rather serves as an integration hub between such devices and as a mediator between different protocols that are spoken between these devices.
-In a typical installation there will therefore be usually just one instance of openHAB running on some central server. Nonetheless, as the OSGi !EventAdmin service can also be used as a remote service, it is possible to connect several distributed openHAB instances via the Event Bus.
+In a typical installation there will therefore be usually just one instance of openHAB running on some central server. Nonetheless, as the OSGi EventAdmin service can also be used as a remote service, it is possible to connect several distributed openHAB instances via the Event Bus.
 
 ### Item Repository
 
