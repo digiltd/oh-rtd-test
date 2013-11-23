@@ -1,5 +1,3 @@
-# Syntax highlighting for external editors
-
 OpenHAB has a great development environment with the "openHAB Designer".
 But in some cases you want to use another editor to make changes to the configuration files of openHAB.
 To make this more effectiv there are some files to enable syntax highlighting for openHAB-files in these editors.
