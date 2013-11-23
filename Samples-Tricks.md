@@ -27,15 +27,15 @@ Java is not capable to open a raw socket to do a ICMP ping (see https://code.goo
 This example gets the weather information from the Wunderground online api service (for details see http://www.wunderground.com/weather/api/) and shows the current weather icon and weather state (such as partly cloudy) in one line like it would show any other Openhab item.
  
 - in the items file, create a string as follows:
-
+```
     String w   "Today [%s]"   <w>  { http="<[http://api.wunderground.com/api/<your api key>/forecast/q/Luxembourg/Luxembourg.xml:3600000:XSLT(wunderground_icon_forecast.xsl)]"} 
-
+```
 - copy the weather icons to your images folder and rename and convert them to png, e.g. "w-partly_cloudy.png". The weather icon sets can be found here:
 
     http://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets 
 
 - create a stylesheet named wunderground_icon_forecast.xsl containing the following lines (place it under configurations/transform):
-
+```
     <?xml version="1.0"?>
     <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
             
@@ -47,10 +47,10 @@ This example gets the weather information from the Wunderground online api servi
             </xsl:template>
     
     </xsl:stylesheet>
-
+```
 - display the string in the .sitemap file:
 
-    Text item=w 
+`Text item=w `
 
 ### How to configure openHAB to start automatically on Linux
 
