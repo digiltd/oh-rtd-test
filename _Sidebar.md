@@ -6,6 +6,15 @@ Installation
  * [[Addons]]
  * [[Hardware FAQ|Hardware-FAQ]]
 
+Community
+ * [[Support|Support-options-for-openHAB]]
+ * [[News Archive|News-Archive]]
+ * [[Presentations]]
+ * [[How to Contribute|How-To-Contribute]]
+ * [[IDE Setup|IDE-Setup]]
+ * [[How to Implement a Binding|How-To-Implement-A-Binding]]
+ * [[How to Implement an Actions|How-To-Implement-An-Action]]
+
 [[Features|Feature-Overview]]
  * User Interfaces
   * [[Classic UI|Web-AppUI]]
@@ -105,12 +114,3 @@ Release Notes
  * [[Version 0.8|Release-Notes-08]]
  * [[Version 0.7|ReleaseNotes-07]]
  * [[Version 0.6|ReleaseNotes-06]]
-
-Community
- * [[Support|Support-options-for-openHAB]]
- * [[News Archive|News-Archive]]
- * [[Presentations]]
- * [[How to Contribute|How-To-Contribute]]
- * [[IDE Setup|IDE-Setup]]
- * [[How to Implement a Binding|How-To-Implement-A-Binding]]
- * [[How to Implement an Actions|How-To-Implement-An-Action]]
