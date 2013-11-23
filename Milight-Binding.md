@@ -1,7 +1,7 @@
 Documentation of the Milight binding bundle
 
 ## Introduction
-[![openHAB Milight](http://img.youtube.com/vi/zNe9AkQbfmc/0.jpg)](http://www.youtube.com/watch?v=zNe9AkQbfmc)
+[![openHAB Milight](http://img.youtube.com/vi/zNe9AkQbfmc/0.jpg)](http://www.youtube.com/watch?v=zNe9AkQbfmc)<br/>
 The openHAB Milight binding allows to send commands to multiple Milight bridges.
 For installation of the binding, please see Wiki page [[Bindings]].
 
