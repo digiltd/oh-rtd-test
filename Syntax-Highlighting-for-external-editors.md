@@ -15,6 +15,7 @@ mcedit is an editor which comes with mc (Midnight Commander).
 - https://code.google.com/p/openhab-samples/source/browse/syntaxhl/mc/?repo=wiki
 
 - insert the following lines to the file *Syntax* in */usr/share/mc/syntax/*
+
     file ..\*\\.(items)$ openHAB\sItems 
     include openhab-items.syntax  
      
@@ -26,17 +27,19 @@ mcedit is an editor which comes with mc (Midnight Commander).
      
     file ..\*\\.(rules)$ openHAB\sRules
     include openhab-rules.syntax 
+
 - edit the Debian-line from
+
     file (rules|rocks)$ Debian\srules
   to 
+
     file (rocks)$ Debian\srules
-  because it interferes with openHABs rules-files.
+because it interferes with openHABs rules-files.
 
 ### Screenshots
-
-http://wiki.openhab-samples.googlecode.com/hg/screenshots/syntaxhl_mc_items.png
-http://wiki.openhab-samples.googlecode.com/hg/screenshots/syntaxhl_mc_rules.png
-http://wiki.openhab-samples.googlecode.com/hg/screenshots/syntaxhl_mc_sitemap.png
+![Items](http://wiki.openhab-samples.googlecode.com/hg/screenshots/syntaxhl_mc_items.png "Items")
+![Rules](http://wiki.openhab-samples.googlecode.com/hg/screenshots/syntaxhl_mc_rules.png "Rules")
+![Sitemap](http://wiki.openhab-samples.googlecode.com/hg/screenshots/syntaxhl_mc_sitemap.png "Sitemap")
 
 ## Notepad++
 
@@ -58,7 +61,6 @@ http://notepad-plus-plus.org/news/notepad-6.2-release-udl2.html
 - Done.
 
 http://wiki.openhab-samples.googlecode.com/hg/screenshots/syntaxhl_npp_import_udl2.png
-
 
 ### Screenshots
 
