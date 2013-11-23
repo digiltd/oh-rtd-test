@@ -1,4 +1,5 @@
 ## Introduction
+**Video:**
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Q4_LkXIRBWc" target="_blank"><img src="http://img.youtube.com/vi/Q4_LkXIRBWc/0.jpg" alt="openHAB Hue binding" width="300" height="220" border="10" /></a>
 
 For installation of the binding, please see Wiki page [[Bindings]].
