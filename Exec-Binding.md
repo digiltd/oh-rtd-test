@@ -28,7 +28,7 @@ Note: Besides configuring each single openHAB command one could configure the sp
 
 where the parts in `()` are optional.
 
-Note: Besides configuring each single openHAB command one could configure the special wildcard command '`**`' which is called in these cases where no direct match could be found.
+Note: Besides configuring each single openHAB command one could configure the special wildcard command '`*`' which is called in these cases where no direct match could be found.
 
 ### General
 
@@ -36,11 +36,11 @@ The given commandLine can be enhanced using the well known Syntax of the java.ut
 
 The binding currently adds to parameters to the String.format() automatically:
 
-1. the current date (as java.util.Date, example: %1$tY-%1$tm-%1$td)
-1. the current Command or State (out binding only, example: %2$s)
-1. the current item name (example: %3$s)
+1. the current date (as java.util.Date, example: `%1$tY-%1$tm-%1$td`)
+1. the current Command or State (out binding only, example: `%2$s`)
+1. the current item name (example: `%3$s`)
 
-Sometimes the commandLine isn't executed properly. In that cases another exec-method can be used. To accomplish this please use the special delimiter **@@** to split command line parameters.
+Sometimes the commandLine isn't executed properly. In that cases another exec-method can be used. To accomplish this please use the special delimiter @@ to split command line parameters.
 
 Here are some examples of valid binding configuration strings:
 
