@@ -73,9 +73,8 @@ To control a roller shutter:
 
 See [Example of roller shutter controlling](Samples-Item-Definitions#how-to-control-a-homematic-roller-shutter-with-an-enocean-rocker)
 
-[https://code.google.com/p/openhab-samples/wiki/ItemDef#How_to_control_a_homematic_roller_shutter_with_an_Rocker Example of roller shutter controlling](https://code.google.com/p/openhab/wiki/Bindings].)
-
 To control a dimmer (left buttons = channel A):
+
     Dimmer myLights () {enocean="{id=00:00:00:00, channel=A, eep=F6:02:01}"}
 - Short press down: Switch light ON
 - Short press up: Switch light OFF
@@ -83,6 +82,7 @@ To control a dimmer (left buttons = channel A):
 - Long press up: Dim light DOWN as long as the button is pressed (DECREASE every 300ms)
 
 To us as a normal Switch (supported with 1.4.0):
+
     Switch mySwitch () {enocean="{id=00:00:00:00, channel=A, eep=F6:02:01}"}
 - Press down: Switch udated to ON
 - Press up: Switch updated to OFF
@@ -94,7 +94,7 @@ To us as a normal Switch (supported with 1.4.0):
 - parameter =
 - TEMPERATURE: The current temperature (Number, unit=°C)
 
-### = Examples =
+### Examples
 
     Number UG_Flur_Temp "Temperature [%.1f °C]" <temperature> () {enocean="{id=00:00:00:00, eep=A5:02:05, parameter=TEMPERATURE}"}
 
@@ -117,7 +117,7 @@ Will work in 1.4.0
 
 USB stick to control EnOcean devices. Only supported controller for now. Part of the EnOcean Development Kit (EDK).
 
-# System Requirements / Special Installations
+## System Requirements / Special Installations
 
 ## Synology DS213+
 
