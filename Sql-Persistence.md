@@ -1,8 +1,8 @@
-Documentation of the SQL Persistence Service
+Documentation of the MYSQL Persistence Service
 
 ## Introduction
 
-This service allows you to persist state updates by using standard SQL queries. Currently the mySQL-Driver is being delivered as well.
+This service allows you to persist state updates using the mySQL database. Note that other SQL databases need a separate binding due to incompatibilities between different SQL databases.
 
 ## Features
 
@@ -17,3 +17,19 @@ Additionally, place a persistence file called sql.persist in the _${openhab.home
 ## Configuration
 
 This persistence service can be configured in the "SQL Persistence Service" section in openhab.cfg.
+```
+############################ mySQL Persistence Service ##################################
+
+# the database url like 'jdbc:mysql://<host>:<port>/<user>'
+mysql:url=jdbc:mysql://127.0.0.1/openhab
+
+# the database user
+mysql:user=<your user here>
+
+# the database password
+mysql:password=<your password here>
+```
+The database location, user and password need to be modified as per your database.
+
+## Database overview
+The service will create a mapping table to link each item to a table, and a separate table is generated for each item. The item data tables include the time and data - the data type is dependent on the item type and allows the item state to be recovered back into openHAB in the same way it was stored.
