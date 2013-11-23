@@ -5,6 +5,7 @@ If you are completely new to openHAB and you prefer listening over reading, you 
 # Overview
 
 The openHAB project is split into two parts
+
 1. openhab-runtime: This is the package, which you will actually run on your server and which does the "real" work.
 1. openhab-designer: This is more or less a configuration tool for the openhab-runtime. It comes with user-friendly editors to configure your runtime, to define your UIs and to implement your rules.
 
@@ -26,6 +27,7 @@ openHAB has two different internal communication channels:
 The event bus is THE base service of openHAB. All bundles that do not require stateful behaviour should use it to inform other bundles about events and to be updated by other bundles on external events.
 
 There are mainly two types of events: 
+
 1. Commands which trigger an action or a state change of some item/device.
 1. Status updates which inform about a status change of some item/device (often as a response to a command)
 
