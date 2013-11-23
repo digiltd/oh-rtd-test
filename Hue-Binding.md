@@ -1,7 +1,6 @@
 ## Introduction
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=Q4_LkXIRBWc" target="_blank"><img src="http://img.youtube.com/vi/Q4_LkXIRBWc/0.jpg" alt="openHAB Hue binding" width="240" height="180" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Q4_LkXIRBWc" target="_blank"><img src="http://img.youtube.com/vi/Q4_LkXIRBWc/0.jpg" alt="openHAB Hue binding" width="300" height="220" border="10" /></a>
 
-[See Philips Hue Binding video](http://www.youtube.com/watch?v=Q4_LkXIRBWc) <br/>
 For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Configuring the binding
