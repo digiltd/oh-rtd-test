@@ -35,7 +35,7 @@ Above example defines a `Number` item...
 The following item types are currently available (alphabetical order):
 
 <table>
-  <tr><td>Itemname</td><td>Description</td><td>Command Types</td></tr>
+  <tr><td><b>Itemname</b></td><td><b>Description</b></td><td><b>Command Types</b></td></tr>
   <tr><td>Color</td><td>Color information (RGB)</td><td>OnOff, IncreaseDecrease, Percent, HSB</td></tr>
   <tr><td>Contact</td><td>Item storing status of e.g. door/window contacts</td><td>-</td></tr>
   <tr><td>DateTime</td><td>Stores date and time</td><td></td></tr>
