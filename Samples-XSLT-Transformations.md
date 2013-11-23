@@ -1,4 +1,5 @@
 Yahoo Weather - temperature 
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -14,6 +15,7 @@ Yahoo Weather - temperature
     </xsl:stylesheet>
 
 Yahoo Weather - feels like temperature
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -29,6 +31,7 @@ Yahoo Weather - feels like temperature
     </xsl:stylesheet>
 
 Yahoo Weather - humidity
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -44,6 +47,7 @@ Yahoo Weather - humidity
     
 
 Yahoo Weather - sunrise
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -58,6 +62,7 @@ Yahoo Weather - sunrise
     </xsl:stylesheet>
 
 Yahoo Weather - sunset
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -73,6 +78,7 @@ Yahoo Weather - sunset
     
 
 Yahoo Weather - weather text
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -88,6 +94,7 @@ Yahoo Weather - weather text
     
 
 Yahoo Weather - wind speed
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -102,6 +109,7 @@ Yahoo Weather - wind speed
     </xsl:stylesheet>
 
 Yahoo Weather - forecast tomorrow
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -122,6 +130,7 @@ Yahoo Weather - forecast tomorrow
     </xsl:stylesheet>
 
 Yahoo Weather - forecast day after tomorrow
+
     <?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
