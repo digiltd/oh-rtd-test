@@ -1,5 +1,5 @@
 Documentation of the DMX binding Bundle<br/>
-[View Binding Demo Video](http://www.youtube.com/watch?v=o0J4qyyfhio)
+[Demo Video](http://www.youtube.com/watch?v=o0J4qyyfhio)
 
 ## Introduction
 
