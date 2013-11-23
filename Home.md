@@ -17,7 +17,8 @@ The openHAB runtime is a set of OSGi bundles deployed on an OSGi framework (Equi
 ## Communication
 
 openHAB has two different internal communication channels:
-1. an asynchronous event b us
+
+1. an asynchronous event bus
 1. a stateful repository, which can be queried
 
 ### The Event Bus
