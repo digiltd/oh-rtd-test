@@ -1,36 +1,37 @@
 Yahoo Weather - temperature 
 ```xml
-    <?xml version="1.0"?>
-    <xsl:stylesheet 
-            xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-            xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
+<?xml version="1.0"?>
+<xsl:stylesheet 
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
     
-            <xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
+   <xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
     
-            <xsl:template match="/">
-                    <xsl:value-of select="//item/yweather:condition/@temp" /> 
-            </xsl:template>
+   <xsl:template match="/">
+      <xsl:value-of select="//item/yweather:condition/@temp" /> 
+   </xsl:template>
     
-    </xsl:stylesheet>
+</xsl:stylesheet>
 ```
 Yahoo Weather - feels like temperature
-
-    <?xml version="1.0"?>
-    <xsl:stylesheet 
-            xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-            xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
+```xml
+<?xml version="1.0"?>
+<xsl:stylesheet 
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
     
-            <xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
+   <xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
     
-            <xsl:template match="/">
-                    <xsl:value-of select="//yweather:wind/@chill" /> 
-            </xsl:template>  
+   <xsl:template match="/">
+      <xsl:value-of select="//yweather:wind/@chill" /> 
+   </xsl:template>  
     
-    </xsl:stylesheet>
+</xsl:stylesheet>
+```
 
 Yahoo Weather - humidity
-
-    <?xml version="1.0"?>
+```xml
+<?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
             xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
@@ -42,11 +43,11 @@ Yahoo Weather - humidity
             </xsl:template>
     
     </xsl:stylesheet>
-    
+```    
 
 Yahoo Weather - sunrise
-
-    <?xml version="1.0"?>
+```xml
+<?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
             xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
@@ -58,10 +59,11 @@ Yahoo Weather - sunrise
             </xsl:template>
     
     </xsl:stylesheet>
+```
 
 Yahoo Weather - sunset
-
-    <?xml version="1.0"?>
+```xml
+<?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
             xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
@@ -73,11 +75,11 @@ Yahoo Weather - sunset
             </xsl:template>
     
     </xsl:stylesheet>
-    
+``` 
 
 Yahoo Weather - weather text
-
-    <?xml version="1.0"?>
+```xml
+<?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
             xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
@@ -89,11 +91,11 @@ Yahoo Weather - weather text
             </xsl:template>
     
     </xsl:stylesheet>
-    
+```    
 
 Yahoo Weather - wind speed
-
-    <?xml version="1.0"?>
+```xml
+<?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
             xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
@@ -105,10 +107,11 @@ Yahoo Weather - wind speed
             </xsl:template>
     
     </xsl:stylesheet>
+```
 
 Yahoo Weather - forecast tomorrow
-
-    <?xml version="1.0"?>
+```xml
+<?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
             xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
@@ -125,10 +128,10 @@ Yahoo Weather - forecast tomorrow
             </xsl:template>
        
     </xsl:stylesheet>
-
+```
 Yahoo Weather - forecast day after tomorrow
-
-    <?xml version="1.0"?>
+```xml
+<?xml version="1.0"?>
     <xsl:stylesheet 
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
             xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
@@ -145,3 +148,4 @@ Yahoo Weather - forecast day after tomorrow
             </xsl:template>
     
     </xsl:stylesheet>
+```
