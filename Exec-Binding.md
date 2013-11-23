@@ -19,7 +19,7 @@ In order to bind an item to a Exec check, you need to provide configuration sett
 
 where the parts in `[]` are optional.
 
-Note: Besides configuring each single openHAB command one could configure the special wildcard command '`**`' which is called in these cases where no direct match could be found.
+Note: Besides configuring each single openHAB command one could configure the special wildcard command '`*`' which is called in these cases where no direct match could be found.
 
 ### New format:
 
