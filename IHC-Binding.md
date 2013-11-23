@@ -58,7 +58,7 @@ Binding will automatically enable runtime value notifications from controller fo
 Currently OpenHAB's Number, Switch, Contact, String and DateTime items are supported.
 
 <table>
-  <tr><td>**OpenHAB data type**</td><td>**IHC / ELKO LS data type(s)**</td></tr>
+  <tr><td><b>OpenHAB data type</b></td><td><b>IHC / ELKO LS data type(s)</b></td></tr>
   <tr><td>Number</td><td>WSFloatingPointValue, WSIntegerValue, WSBooleanValue, WSTimerValue, WSWeekdayValue</td></tr>
   <tr><td>Switch</td><td>WSBooleanValue</td></tr>
   <tr><td>Contact</td><td>WSBooleanValue</td></tr>
@@ -69,6 +69,7 @@ Currently OpenHAB's Number, Switch, Contact, String and DateTime items are suppo
 Examples, how to configure your items (e.g. demo.items):
 
 Weather temperature is download from internet and updated to IHC controller object where resource id is 1234567:
+
     Number Weather_Temperature "Outside Temp. (Yahoo) [%.1f °C]" <temperature> (Weather_Chart) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(demo_yahoo_weather.xsl)]", ihc=">1234567" }
 
 Binding listens all state changes from controller's resource id 9953290 and update state changes to OpenHAB Light_Kitchen item. All state changes from OpenHAB will be also transmitted to the controller (e.g. command from OpenHAB console 'openhab send Light_Kitchen ON').
