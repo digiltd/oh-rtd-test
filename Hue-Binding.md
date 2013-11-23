@@ -1,5 +1,7 @@
-## Introduction
+Documentation of the Philips Hue Binding <br/>
 [![openHAB Hue binding](http://img.youtube.com/vi/Q4_LkXIRBWc/0.jpg)](http://www.youtube.com/watch?v=Q4_LkXIRBWc)
+
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
