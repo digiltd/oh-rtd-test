@@ -1,6 +1,8 @@
+Documentation of the Fritz AHA binding Bundle <br/>
+[![Fritz AHA](http://img.youtube.com/vi/qYrpPrLY868/0.jpg)](http://www.youtube.com/watch?v=qYrpPrLY868)
+
 ## Introduction
 
-[![Fritz AHA](http://img.youtube.com/vi/qYrpPrLY868/0.jpg)](http://www.youtube.com/watch?v=qYrpPrLY868)<br/>
 This binding provides access to AVM Home Automation devices, such as the Fritz!DECT 200 connected to a Fritz!Box or the Fritz!Powerline 546E. It is designed to allow for multiple hosts, for instance using both a Fritz!Box and a Fritz!Powerline.
 
 The binding interfaces with hosts using a choice of two different interfaces, the query script used in the Fritz!OS UI and a webservice designed for interfacing with external applications.
