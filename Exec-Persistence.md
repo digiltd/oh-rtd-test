@@ -1,20 +1,20 @@
-# Documentation of the Exec Persistence Service
+Documentation of the Exec Persistence Service
 
-# Introduction
+## Introduction
 
 This service allows you to execute commands in the underlying OS to persist. It could be used to call e.g. the original rrdtool API.
 
-# Features
+## Features
 
 This persistence service supports writing information to the command line.
 
-# Installation
+## Installation
 
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
 Additionally, place a persistence file called exec.persist in the `${openhab.home}/configuration/persistence` folder.
 
-# Configuration
+## Configuration
 
 There is nothing to configure in the openhab.cfg file for this persistence service.
 
