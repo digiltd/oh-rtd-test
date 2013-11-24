@@ -72,7 +72,7 @@ Every item is allowed to have multiple inbound (or outbound) configurations.
 
 <table>
   <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
-  <tr><td>direction</td><td>This is always `<` for inbound messages.</td></tr>
+  <tr><td>direction</td><td>This is always "<" for inbound messages.</td></tr>
   <tr><td>broker</td><td>The broker alias as it is defined in the openHab configuration.</td></tr>
   <tr><td>topic</td><td>The MQTT Topic to subscribe to.</td></tr>
   <tr><td>type</td><td>Describes what the message content contains: a status update or command. Allowed values are 'state' or 'command'.</td></tr>
@@ -94,7 +94,7 @@ Below you can see the structure of the outbound mqtt configuration string.  Outb
 
 <table>
   <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
-  <tr><td>direction</td><td>This is always `>` for outbound messages.</td></tr>
+  <tr><td>direction</td><td>This is always ">" for outbound messages.</td></tr>
   <tr><td>broker</td><td>The broker alias as it was defined in the openHAB configuration.</td></tr>
   <tr><td>topic</td><td>The MQTT Topic to publish messages to.</td></tr>
   <tr><td>type</td><td>'state' or 'command'. Indicates whether the receiving of a status update or command triggers the sending of an outbound message.</td></tr>
