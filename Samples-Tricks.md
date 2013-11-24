@@ -5,17 +5,17 @@ Miscellaneous Tips & Tricks
 You just need to add some lines to your logback.xml.
 
 Like:
-
-    <appender name="SYSLOG" class="ch.qos.logback.classic.net.SyslogAppender">
-     <syslogHost>localhost</syslogHost>
-     <facility>AUTH</facility>
-     <suffixPattern>{}openhab: [%thread] %logger %msg</suffixPattern>
-    </appender>
+```xml
+<appender name="SYSLOG" class="ch.qos.logback.classic.net.SyslogAppender">
+   <syslogHost>localhost</syslogHost>
+   <facility>AUTH</facility>
+   <suffixPattern>{}openhab: [%thread] %logger %msg</suffixPattern>
+</appender>
     
-    <root level="INFO">
-     <appender-ref ref="SYSLOG" />
-    </root>
-
+<root level="INFO">
+   <appender-ref ref="SYSLOG" />
+</root>
+```
 ### How to do a proper ICMP ping on Linux
 
 Java is not capable to open a raw socket to do a ICMP ping (see https://code.google.com/p/openhab/issues/detail?id=134). As a workaround, you can use the exec binding on Linux:
