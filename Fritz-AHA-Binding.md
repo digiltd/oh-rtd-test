@@ -56,7 +56,7 @@ describe the switch on a Fritz!DECT device with AIN 01234 5678910 connected to t
 Meters for current voltage, current and power are available as number items. The syntax is
 
     fritzaha="<hostID>,<ain>,<meterType>"
-where `<hostID`> is the ID assigned in the openhab.cfg file, `<ain`> is the actor ID number as listed on the device and `<meterType`> is the type of meter (either power or energy).
+where `<hostID>` is the ID assigned in the openhab.cfg file, `<ain>` is the actor ID number as listed on the device and `<meterType>` is the type of meter (either power or energy).
 
 Example:
 
@@ -74,7 +74,7 @@ Using the query script, items are accessed using their internal ID, which can be
 Switches can be addressed by simply specifying the host and the device:
 
     fritzaha="<hostID>,<deviceID>"
-where `<hostID`> is the ID assigned in the openhab.cfg file and `<deviceID`> is the internal ID number of the device as assigned by the host.
+where `<hostID>` is the ID assigned in the openhab.cfg file and `<deviceID>` is the internal ID number of the device as assigned by the host.
 
 For example:
 
@@ -87,7 +87,7 @@ describes the switch on a Fritz!DECT device with internal ID 16 connected to the
 Meters for current voltage, current and power are available as number items. The syntax is
 
     fritzaha="<hostID>,<deviceID>,<meterType>"
-where `<hostID`> is the ID assigned in the openhab.cfg file, `<deviceID`> is the internal ID number of the device as assigned by the host and `<meterType`> is the type of meter (either voltage, current or power).
+where `<hostID>` is the ID assigned in the openhab.cfg file, `<deviceID>` is the internal ID number of the device as assigned by the host and `<meterType`> is the type of meter (either voltage, current or power).
 
 Example:
 
