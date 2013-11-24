@@ -18,7 +18,6 @@ OpenHAB provides MQTT support on different levels. The table below gives a quick
   <tr><td>Persistence</td><td>Uses persistent strategies to push messages on change or a regular interval.</td><td>Perfect for persisting time series to a public service like Xively.</td><td>o.o.persistence.mqtt</td></tr>
 </table>
 
-
 ## Configuration
 
 ### Transport Configuration
@@ -34,7 +33,7 @@ The following properties can be configured to define a broker connection:
     mqtt:<broker>.retain=<retain>
     mqtt:<broker>.async=<async>
 
-The properties indicated by '<...>' need to be replaced with an actual value.  The table below lists the meaning of the different properties.
+The properties indicated by `<...>` need to be replaced with an actual value.  The table below lists the meaning of the different properties.
 
 <table>
   <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
@@ -73,13 +72,12 @@ Every item is allowed to have multiple inbound (or outbound) configurations.
 
 <table>
   <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
-  <tr><td>direction</td><td>This is always '<' for inbound messages.</td></tr>
+  <tr><td>direction</td><td>This is always `<` for inbound messages.</td></tr>
   <tr><td>broker</td><td>The broker alias as it is defined in the openHab configuration.</td></tr>
   <tr><td>topic</td><td>The MQTT Topic to subscribe to.</td></tr>
   <tr><td>type</td><td>Describes what the message content contains: a status update or command. Allowed values are 'state' or 'command'.</td></tr>
   <tr><td>transformation</td><td>Rule defining how to transform the received message content into something openHab recognizes. Transformations are defined in the format of TRANSFORMATION_NAME(transformation_function).  Allowed values are 'default' or any of the transformers provided in the org.openhab.core.transform bundle. Custom transformations can be contributed directly to the transform bundle by making the Transformation available through Declarative Services. Any other value than the above types will be interpreted as static text, in which case the actual content of the message is ignored.</td></tr>
 </table>
-
 
 ### Example Inbound Configurations
 
@@ -87,7 +85,6 @@ Every item is allowed to have multiple inbound (or outbound) configurations.
     Number waterConsumption {mqtt="<[mybroker:/myHome/watermeter:state:XSLT(parse_water_message.xslt)]"} 
     Switch doorbell {mqtt="<[mybroker:/myHome/doorbell:command:ON]"}
     Number mfase1 {mqtt="<[flukso:/sensor/9cf3d75543fa82a4662fe70df5bf4fde/gauge:state:REGEX(.*,(.*),.*)]"}
-
 
 ## Item Binding Configuration for Outbound Messages
 
@@ -97,7 +94,7 @@ Below you can see the structure of the outbound mqtt configuration string.  Outb
 
 <table>
   <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
-  <tr><td>direction</td><td>This is always '>' for outbound messages.</td></tr>
+  <tr><td>direction</td><td>This is always `>` for outbound messages.</td></tr>
   <tr><td>broker</td><td>The broker alias as it was defined in the openHAB configuration.</td></tr>
   <tr><td>topic</td><td>The MQTT Topic to publish messages to.</td></tr>
   <tr><td>type</td><td>'state' or 'command'. Indicates whether the receiving of a status update or command triggers the sending of an outbound message.</td></tr>
@@ -126,7 +123,7 @@ The following properties can be used to configure MQTT for the openHAB event bus
     mqtt-eventbus:stateSubscribeTopic=<stateSubscribeTopic>
     mqtt-eventbus:commandSubscribeTopic=<commandSubscribeTopic>
 
-The properties indicated by '<...>' need to be replaced with an actual value.  The table below lists the meaning of the different properties.
+The properties indicated by `<...>` need to be replaced with an actual value.  The table below lists the meaning of the different properties.
 
 <table>
   <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
