@@ -1,4 +1,4 @@
-# Items Definition
+Items Definition
 
 ## Introduction
 
