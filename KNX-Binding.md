@@ -93,6 +93,7 @@ Also [in the sources](https://github.com/openhab/openhab/tree/master/bundles/cor
 So, we first have to bind the OnOff command to the respective KNX group addresses, then the IncreaseDecrease command and finally the Percentage command. Please note that the sequence of these commands is relevant.
 
 In our example we assign the following KNX group addresses to the different commands:
+
 |Command Type|Main Group Address|Listening Address(es)|Comment|
 |------------|------------------|---------------------|-------|
 |OnOff command|1/3/20|0/3/20|-|
