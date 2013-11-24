@@ -6,7 +6,7 @@ The openHAB KNX binding allows to connect to [KNX Home Automation](http://www.kn
 
 To access your KNX bus you either need an KNX IP gateway (like e.g. the [Gira KNX IP Router](http://www.gira.com/en/produkte/knxeib-ip-router.html)) or a PC running [EIBD](http://www.auto.tuwien.ac.at/~mkoegler/index.php/eibd) (free open source component that enables communication with the KNX bus).
 
-For installation of the binding, please see Wiki page [[Bindings]].´
+For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Binding Configuration in openhab.cfg
 
@@ -63,13 +63,13 @@ A sample configuration could look like:
 In order to bind an item to a KNX device you need to provide configuration settings. The easiest way to do so is to add  binding information in your 'item file' (in the folder configurations/items`). The syntax for the KNX binding configuration string is explained here:
 
     knx="[<][<dptId>:]<mainGA>[[+[<]<listeningGA>]+[<]<listeningGA>..], [<][<dptId>:]<mainGA>[[+[<]<listeningGA>]+[<]<listeningGA>..]"
-where parts in brackets [signify an optional information.
+where parts in brackets `[]` signify an optional information.
  
 Each comma-separated section corresponds to a KNX datapoint. There is usually one datapoint defined per accepted command type of an openHAB item. If no datapoint type id is defined for the datapoint, this is automatically derived from the list of accepted command types of the item - i.e. the second datapoint definition is mapped to the second accepted command type of the item.
 
 The optional '<' sign tells whether the group address of the datapoint accepts read requests on the KNX bus (it does, if the sign is there).
 
-Each itemtype (see page [Items#itemtype Items Defintion](])) accepts different command types. When binding an item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
+Each itemtype (see page [Items](Explanation-of-Items)) accepts different command types. When binding an item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
 
 mainGAs are used for updating the status of an openHAB items via KNX. There can only be one mainGA for an openHAB item (Highlander principle :-)
 listeningGAs are used for obtaining status changes from KNX. There can be multiple listeningGAs for one item.
