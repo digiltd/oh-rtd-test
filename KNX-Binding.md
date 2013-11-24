@@ -69,7 +69,7 @@ Each comma-separated section corresponds to a KNX datapoint. There is usually on
 
 The optional '<' sign tells whether the group address of the datapoint accepts read requests on the KNX bus (it does, if the sign is there).
 
-Each itemtype (see page [Items](Explanation-of-Items)) accepts different command types. When binding an item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
+Each itemtype (see page [Items](Explanation-of-Items#itemtype)) accepts different command types. When binding an item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
 
 mainGAs are used for updating the status of an openHAB items via KNX. There can only be one mainGA for an openHAB item (Highlander principle :-)
 listeningGAs are used for obtaining status changes from KNX. There can be multiple listeningGAs for one item.
