@@ -95,7 +95,7 @@ The action is optional. Besides the normal action of reporting the value of a no
 Each node in the network provides functionality in the form of Command Classes. The OpenHAB Z-Wave binding implements the same Command Classes to be able to use the nodes in the network. Not all Z-Wave Command classes are currently supported by the binding. The supported command classes are listed in the table below.
 
 <table>
-  <tr><td>**Command Class**</td><td>** Remarks **</td></tr>
+  <tr><td><b>Command Class</b></td><td><b>Remarks</b></td></tr>
   <tr><td>NO_OPERATION</td><td>Used by the binding during initialization</td></tr>
   <tr><td>BASIC</td><td>Provides basic SET and GET of the default node value</td></tr>
   <tr><td>SWITCH_BINARY</td><td>Used to bind directly to a SWITCH</td></tr>
@@ -164,23 +164,23 @@ Here are some examples of valid binding configuration strings, as defined in the
 The ZWave binding can generate a lot of debug/trace logging when enabled so it is advisable to generate a separate log file for this binding. This also makes it easier for analysis since there is nothing from other bindings/openHAB polluting the logs.
 
 In order to configure logging for this binding to be generated in a separate file add the following to your /configuration/logback.xml file;
-
-            <appender name="ZWAVEFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-                    <file>logs/zwave.log</file>
-                    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                            <!-- weekly rollover and archiving -->
-                            <fileNamePattern>logs/zwave-%d{yyyy-ww}.log.zip</fileNamePattern>
-                            <!-- keep 30 days' worth of history -->
-                            <maxHistory>30</maxHistory>
-                    </rollingPolicy>
-                    <encoder>
-                            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{30}[:%line]- %msg%n%ex{5}</pattern>
-                    </encoder>
-            </appender>
+```xml
+<appender name="ZWAVEFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+   <file>logs/zwave.log</file>
+   <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- weekly rollover and archiving -->
+      <fileNamePattern>logs/zwave-%d{yyyy-ww}.log.zip</fileNamePattern>
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+   </rollingPolicy>
+   <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{30}[:%line]- %msg%n%ex{5}</pattern>
+   </encoder>
+</appender>
     
-            <!-- Change DEBUG->TRACE for even more detailed logging -->
-            <logger name="org.openhab.binding.zwave" level="DEBUG" additivity="false">
-                    <appender-ref ref="ZWAVEFILE" />
-            </logger>
-
+<!-- Change DEBUG->TRACE for even more detailed logging -->
+<logger name="org.openhab.binding.zwave" level="DEBUG" additivity="false">
+   <appender-ref ref="ZWAVEFILE" />
+</logger>
+```
 It is highly recommended to turn on at least DEBUG logging whilst setting up and configuring your ZWave network for the first time. 
