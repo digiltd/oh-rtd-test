@@ -76,7 +76,7 @@ Dimmer items enable you to do two different things:
 
     hue="<bulb number>;brightness[;<step size>]"
 
-where the part in `[is optional.
+where the part in `[]` is optional.
 
 The step size defines how fast the dimmer changes the brightness. If no value is defined the default value of 25 is used.
 
@@ -89,7 +89,7 @@ Here are some examples of valid binding configuration strings for brightness dim
 ### Color temperature dimmer items
 
     hue="<bulb number>;colorTemperature[;<step size>]"
-where the part in `[](]`)` is optional.
+where the part in `[]` is optional.
 
 The step size defines how fast the dimmer changes the color temperature. If no value is defined the default value of 25 is used.
 
