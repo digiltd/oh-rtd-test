@@ -24,7 +24,7 @@ transform/contact.map:
 
 ### Howto read Homematic heater valve state
 
-    Dimmer lrHeaterRight "Heater Right [%d %%]" <heating> (gRLvng)                { homematic="IEQ0537568:1#VALVE_STATE" }
+    Dimmer lrHeaterRight "Heater Right [%d %%]" <heating> (gRLvng)  { homematic="IEQ0537568:1#VALVE_STATE" }
     Text item=lrHeaterRight
 
 ### Howto use Homematic temperature regulator
