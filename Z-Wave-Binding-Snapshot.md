@@ -164,23 +164,23 @@ Here are some examples of valid binding configuration strings, as defined in the
 The ZWave binding can generate a lot of debug/trace logging when enabled so it is advisable to generate a separate log file for this binding. This also makes it easier for analysis since there is nothing from other bindings/openHAB polluting the logs.
 
 In order to configure logging for this binding to be generated in a separate file add the following to your /configuration/logback.xml file;
-
-            <appender name="ZWAVEFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-                    <file>logs/zwave.log</file>
-                    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                            <!-- weekly rollover and archiving -->
-                            <fileNamePattern>logs/zwave-%d{yyyy-ww}.log.zip</fileNamePattern>
-                            <!-- keep 30 days' worth of history -->
-                            <maxHistory>30</maxHistory>
-                    </rollingPolicy>
-                    <encoder>
-                            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{30}[:%line]- %msg%n%ex{5}</pattern>
-                    </encoder>
-            </appender>
+```xml
+<appender name="ZWAVEFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+   <file>logs/zwave.log</file>
+   <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- weekly rollover and archiving -->
+      <fileNamePattern>logs/zwave-%d{yyyy-ww}.log.zip</fileNamePattern>
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+   </rollingPolicy>
+   <encoder>
+     <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{30}[:%line]- %msg%n%ex{5}</pattern>
+   </encoder>
+</appender>
     
-            <!-- Change DEBUG->TRACE for even more detailed logging -->
-            <logger name="org.openhab.binding.zwave" level="DEBUG" additivity="false">
-                    <appender-ref ref="ZWAVEFILE" />
-            </logger>
-
+<!-- Change DEBUG->TRACE for even more detailed logging -->
+<logger name="org.openhab.binding.zwave" level="DEBUG" additivity="false">
+   <appender-ref ref="ZWAVEFILE" />
+</logger>
+```
 It is highly recommended to turn on at least DEBUG logging whilst setting up and configuring your ZWave network for the first time. 
