@@ -87,7 +87,7 @@ describes the switch on a Fritz!DECT device with internal ID 16 connected to the
 Meters for current voltage, current and power are available as number items. The syntax is
 
     fritzaha="<hostID>,<deviceID>,<meterType>"
-where `<hostID>` is the ID assigned in the openhab.cfg file, `<deviceID>` is the internal ID number of the device as assigned by the host and `<meterType`> is the type of meter (either voltage, current or power).
+where `<hostID>` is the ID assigned in the openhab.cfg file, `<deviceID>` is the internal ID number of the device as assigned by the host and `<meterType>` is the type of meter (either voltage, current or power).
 
 Example:
 
