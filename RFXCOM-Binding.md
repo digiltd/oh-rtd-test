@@ -107,5 +107,5 @@ Examples, how to configure your items:
   <tr><td>HumidityStatus</td><td>StringItem</td><td></td></tr>
   <tr><td>BatteryLevel</td><td>NumberItem</td><td></td></tr>
   <tr><td>Shutter</td><td>RollershutterItem</td><td>OPEN, CLOSE, STOP</td></tr>
-  <tr><td>Motion</td><td>SwitchItem</td><td>ON, OFF</td></tr>
+  <tr><td>Motion</td><td>SwitchItem</td><td>MOTION, NO_MOTION</td></tr>
 </table>
