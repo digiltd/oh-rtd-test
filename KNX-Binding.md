@@ -78,10 +78,11 @@ listeningGAs are used for obtaining status changes from KNX. There can be multip
 
 Given we want to bind a Dimmer Item to KNX, we have first to check which commands an openHAB dimmer item does accept:
 
-On page [Items](Items#itemtypes) we that an openHAB Dimmer Item accepts three types of commands:
+On page [Items](Explanation-of-Items#itemtype) we that an openHAB Dimmer Item accepts three types of commands:
 
-||Itemname||Description||Command Types||
-||Dimmer||Item carrying a percentage value for dimmers||OnOff, IncreaseDecrease, Percent||
+|Itemname|Description|Command Types|
+|--------|-----------|-------------|
+|Dimmer|Item carrying a percentage value for dimmers|OnOff, IncreaseDecrease, Percent|
 
 Also [in the sources](http://code.google.com/p/openhab/source/browse/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/DimmerItem.java), we can find this information:
 
