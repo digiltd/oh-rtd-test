@@ -21,6 +21,7 @@ Items are defined in the followng syntax:
 Parts in square brackets [are optional.
 
 A proper item definition could like the following:
+
     Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}
 
 Above example defines a `Number` item...
