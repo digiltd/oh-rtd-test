@@ -1,6 +1,9 @@
 Samples of Item definitions
 * [Howto use homematic door contact sensors](#howto-use-homematic-door-contact-sensors)
 * [Howto use homematic window contact sensors](#howto-use-homematic-window-contact-sensors)
+* [Howto read Homematic heater valve state](#howto-read-homematic-heater-valve-state)
+* [How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)](#how-to-control-a-homematic-dimmer-with-an-enocean-rocker-onoff-profile)
+
 
 ### Howto use homematic door contact sensors
 
