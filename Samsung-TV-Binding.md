@@ -20,7 +20,7 @@ First of all you need to introduce your Samsung TV's in the openhab.cfg file (in
     # samsungtv:<TVid2>.host=
     # samsungtv:<TVid2>.port=55000
 
-`<TVid1>` and `<TVid2>` can be freely set to whatever name you want to give for a certain TV (e.g. "Livingroom" or "Bedreoom"), thus could be looking like:
+`<TVid1>` and `<TVid2>` can be freely set to whatever name you want to give for a certain TV (e.g. "Livingroom" or "Bedroom"), thus could be looking like:
 
     samsungtv:Livingroom
 
