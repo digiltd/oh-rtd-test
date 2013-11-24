@@ -62,9 +62,10 @@ Examples, how to configure your items:
     Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
     
     Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
+
+    Switch swMotion { rfxcom="<4541155:Motion" }
     	
 
-	
 `PacketType.SubType` specify packet and sub type information ...
 
 <table>
@@ -90,7 +91,7 @@ Examples, how to configure your items:
   <tr><td>TEMPERATUREHUMIDITY.TFA_TS34C__CRESTA</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.<br>WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Untested</td><td></td></tr>
-  <tr><td>SECURITY1</td><td>tested and working</td><td>Motion</td></tr>
+  <tr><td>SECURITY1.X10_SECURITY_MOTION</td><td>tested and working</td><td>Motion</td></tr>
 </table>
 
 `ValueSelector` specify ...
