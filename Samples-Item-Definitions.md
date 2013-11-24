@@ -1,9 +1,13 @@
 Samples of Item definitions
-* [Howto use homematic door contact sensors](#howto-use-homematic-door-contact-sensors)
-* [Howto use homematic window contact sensors](#howto-use-homematic-window-contact-sensors)
-* [Howto read Homematic heater valve state](#howto-read-homematic-heater-valve-state)
+* [Howto use homematic door contact sensors](Samples-Item-Definitions#howto-use-homematic-door-contact-sensors)
+* [Howto use homematic window contact sensors](Samples-Item-Definitions#howto-use-homematic-window-contact-sensors)
+* [Howto read Homematic heater valve state](Samples-Item-Definitions#howto-read-homematic-heater-valve-state)
+* [Howto configure Homematic light switch](Samples-Item-Definitions#howto-configure-homematic-light-switch)
+* [How to configure Homematic temperature and humidity sensor](Samples-Item-Definitions#how-to-configure-homematic-temperature-and-humidity-sensor)
+* [How to configure Homematic motion and brightness sensors](Samples-Item-Definitions#how-to-configure-homematic-motion-and-brightness-sensors)
+* [How to configure a switch to be a pushbutton](Samples-Item-Definitions#how-to-configure-a-switch-to-be-a-pushbutton)
+* [How to control a homematic roller shutter with an EnOcean Rocker](Samples-Item-Definitions#how-to-control-a-homematic-roller-shutter-with-an-enocean-rocker)
 * [How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)](Samples-Item-Definitions#how-to-control-a-homematic-dimmer-with-an-enocean-rocker-onoff-profile)
-
 
 ### Howto use homematic door contact sensors
 
