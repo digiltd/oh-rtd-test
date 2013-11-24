@@ -90,6 +90,7 @@ Examples, how to configure your items:
   <tr><td>TEMPERATUREHUMIDITY.TFA_TS34C__CRESTA</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.<br>WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Untested</td><td></td></tr>
+  <tr><td>SECURITY1</td><td>tested and working</td><td>Motion</td></tr>
 </table>
 
 `ValueSelector` specify ...
@@ -105,4 +106,5 @@ Examples, how to configure your items:
   <tr><td>HumidityStatus</td><td>StringItem</td><td></td></tr>
   <tr><td>BatteryLevel</td><td>NumberItem</td><td></td></tr>
   <tr><td>Shutter</td><td>RollershutterItem</td><td>OPEN, CLOSE, STOP</td></tr>
+  <tr><td>Motion</td><td>SwitchItem</td><td>ON, OFF</td></tr>
 </table>
