@@ -1,4 +1,6 @@
 Samples of Item definitions
+* [Howto use homematic door contact sensors](#howto-use-homematic-door-contact-sensors)
+* [Howto use homematic window contact sensors](#howto-use-homematic-window-contact-sensors)
 
 ### Howto use homematic door contact sensors
 
