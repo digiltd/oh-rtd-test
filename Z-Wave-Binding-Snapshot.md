@@ -1,6 +1,6 @@
-# Documentation of the Z-Wave binding Bundle for the Snapshot release.
+Documentation of the Z-Wave binding Bundle for the Snapshot release.
 
-# Introduction
+## Introduction
 
 The OpenHAB Z-Wave binding allows you to connect to your Z-Wave wireless mesh network.  A Z-Wave network typically consists of one primary controller “stick”, zero or more additional controllers and zero or more Z-Wave enabled devices, e.g. dimmers, switches, sensors et cetera.
 Connection to the Z-Wave controller is done through the serial port of your host system. USB controllers typically create a virtual COM port to connect to the stick. Please write down the port name before configuring this binding. In case your port name changes dynamically and you want to use a symlink, see [Tricks](Samples-Tricks). A list of supported controllers is listed below.
@@ -60,7 +60,7 @@ A list with command classes and parameter values is provided below:
 Each node in the network provides functionality in the form of Command Classes. The OpenHAB Z-Wave binding implements the same Command Classes to be able to use the nodes in the network. Not all Z-Wave Command classes are currently supported by the binding. The supported command classes are listed in the table below.
 
 <table>
-  <tr><td>**Command Class**</td><td>** Remarks **</td><td>**Supported parameters**</td></tr>
+  <tr><td><b>Command Class</b></td><td><b>Remarks</b></td><td><b>Supported parameters</b></td></tr>
   <tr><td>NO_OPERATION</td><td>Used by the binding during initialization</td><td></td></tr>
   <tr><td>BASIC</td><td>Provides basic SET and GET of the default node value</td><td></td></tr>
   <tr><td>HAIL</td><td>Used by nodes to indicate that they want to be polled. The binding handles this automatically</td><td></td></tr>
