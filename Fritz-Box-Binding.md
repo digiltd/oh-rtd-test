@@ -23,6 +23,6 @@ Call items will receive the external and the internal phone number in form of a 
 
 As a result, your lines in the items file might look like the following:
 
-    Switch	Incoming_Call		"Ringing"			(Phone)    { fritzbox="inbound" }
-    Call	Active_Call		"Connected to [%1$s from %2$s]"	(Phone)    { fritzbox="active"  }
-    Call	Incoming_Call_No	"Caller No. [%2$s]"		(Phone)    { fritzbox="inbound" } 
+    Switch    Incoming_Call     "Ringing"                        (Phone)    { fritzbox="inbound" }
+    Call      Active_Call       "Connected to [%1$s from %2$s]"  (Phone)    { fritzbox="active"  }
+    Call      Incoming_Call_No  "Caller No. [%2$s]"              (Phone)    { fritzbox="inbound" } 
