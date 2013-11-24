@@ -84,7 +84,7 @@ On page [Items](Explanation-of-Items#itemtype) we that an openHAB Dimmer Item ac
 |--------|-----------|-------------|
 |Dimmer|Item carrying a percentage value for dimmers|OnOff, IncreaseDecrease, Percent|
 
-Also [in the sources](http://code.google.com/p/openhab/source/browse/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/DimmerItem.java), we can find this information:
+Also [in the sources](https://github.com/openhab/openhab/tree/master/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/DimmerItem.java), we can find this information:
 
     acceptedCommandTypes.add(OnOffType.class);
     acceptedCommandTypes.add(IncreaseDecreaseType.class);
@@ -93,11 +93,11 @@ Also [in the sources](http://code.google.com/p/openhab/source/browse/bundles/cor
 So, we first have to bind the OnOff command to the respective KNX group addresses, then the IncreaseDecrease command and finally the Percentage command. Please note that the sequence of these commands is relevant.
 
 In our example we assign the following KNX group addresses to the different commands:
-||Command Type||Main Group Address||Listening Address(es)||Comment||
-||OnOff command||1/3/20||0/3/20||-||
-||IncreaseDecreaseCommand||1/3/21||-||no listening GAs here as INCREASE and DECREASE are only commands but not valid states||
-||PercentCommand||1/3/22||0/3/22 and 0/8/15||||
-
+|Command Type|Main Group Address|Listening Address(es)|Comment|
+|------------|------------------|---------------------|-------|
+|OnOff command|1/3/20|0/3/20|-|
+|IncreaseDecreaseCommand|1/3/21|-|no listening GAs here as INCREASE and DECREASE are only commands but not valid states|
+|PercentCommand|1/3/22|0/3/22 and 0/8/15||||
 
 The respective line in the items definition file would therefore look like this:
 
@@ -109,7 +109,7 @@ If you have a dimmer that does not support INCREASE/DECREASE commands and you th
 
 ### Command types for items
 
-For identifying the different command types for items, please either have a look into the [openHAB source code](http://code.google.com/p/openhab/source/browse/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/) or see Wiki page [Items](Items#itemtypes).
+For identifying the different command types for items, please either have a look into the [openHAB source code](https://github.com/openhab/openhab/tree/master/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/items/) or see Wiki page [Items](Explanation-of-Items#itemtype).
 
 ### Further examples
 
@@ -146,4 +146,4 @@ As a result, your lines in the items file might look like the following:
     Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) { knx="<5/2/12" }
 
 Further KNX binding examples can be found in our openhab-samples WIKI:
-[KNX Binding Examples](https://code.google.com/p/openhab-samples/wiki/BindingConfig#KNX)
+[KNX Binding Examples](Samples-Binding-Config)
