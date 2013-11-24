@@ -1,10 +1,10 @@
-# Documentation of the NetworkHealth binding Bundle
+Documentation of the NetworkHealth binding Bundle
 
-# Introduction
+## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Generic Item Binding Configuration
+## Generic Item Binding Configuration
 
 In order to bind an item to a NetworkHealth check, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the NetworkHealth binding configuration string is explained here:
 
@@ -20,4 +20,5 @@ Here are some examples of valid binding configuration strings:
 
 
 As a result, your lines in the items file might look like the following:
-    Switch Network_OpenhabWebsite	"openHAB Web"	(Status, Network)	{ nh="openhab.org" }
+
+    Switch Network_OpenhabWebsite   "openHAB Web"   (Status, Network)   { nh="openhab.org" }
