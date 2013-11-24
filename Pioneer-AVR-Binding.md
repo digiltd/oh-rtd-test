@@ -1,5 +1,3 @@
-##  Description
-
 This binding allows to remotely control a Pioneer AV receiver equipped with an ethernet interface. It enables OpenHAB to switch ON/OFF the receiver, adjust the volume, set the input source and configure most other parameters.
 
 _Note: This binding will be available in the official release not before version 1.4.0!_
@@ -38,9 +36,9 @@ The syntax of the binding configuration strings accepted is the following:
 
 where parts in brackets signify an optional information.
 
-* The openHAB-command corresponds OpenHAB command.
-* The device-id corresponds the deviceid that was introduced in openhab.cfg.
-* The device-command corresponds Pioneer AV receiver command. See complete list below.
+* The **openHAB-command** corresponds OpenHAB command.
+* The **device-id** corresponds the deviceid that was introduced in openhab.cfg.
+* The **device-command** corresponds Pioneer AV receiver command. See complete list below.
 
 Examples, how to configure your items:
 
@@ -51,7 +49,9 @@ Examples, how to configure your items:
 
 _Note: The "INIT" action will be called once upon initialization of the binding. Its purpose is to query the current state of the receiver, so the item state represents the receiver state when the binding is running. Without that command, the initial values will be uninitialized until a corresponding command is performed to change the setting, or the receiver sends an update on his own._
 
-## List of predefined Pioneer AV receiver commands 
+## Predefined commands 
+
+These command are supported out of the box by the binding.
 
 * Power  
     * POWER_OFF  
@@ -270,13 +270,18 @@ _Note: The "INIT" action will be called once upon initialization of the binding.
 
 ## Advanced commands
 
-If you want to use commands that are not predefined by the binding you can use them with a shape # as a prefix.
+If you want to use commands that are not predefined by the binding you can add them manually using a shape # as a prefix.
 
 Example:
 
      Switch  AV_AdvCmd { pioneeravr="INIT:livingroom:POWER_QUERY, ON:livingroom:#PO, OFF:livingroom:#PF" }
 
-This will act as a power switch.
+This will act as a power switch. Parameter may be added using the java format syntax, e.g.:
+
+     Dimmer  AV_Volume { pioneeravr="*:livingroom:#%03dVL" }
+
+This will set the volume like the predefined VOLUME_SET command does.
+
 A list of all commands that are supported by the pioneer receiver can be found here: [http://www.pioneerelectronics.com/PUSA/Support/Home-Entertainment-Custom-Install/RS-232+&+IP+Codes](http://www.pioneerelectronics.com/PUSA/Support/Home-Entertainment-Custom-Install/RS-232+&+IP+Codes)
 
 
@@ -341,5 +346,5 @@ Further information for specific receivers can be found here: [http://www.pionee
 
 ## Troubleshooting
 
-It has been observed that from time to time, the ip-interface of the receiver hangs up and won't accept connections any more or it stops returning results and update. This leads to items not being updated any more. This behaviour seems to be related to use of other network features of the receiver, e.g. music streaming via Airplay.
-Currently there is no solution known to get rid of this other as to power cycle the receiver by plugging out its power cord. 
+It has been observed that from time to time, the ip-interface of the receiver hangs up and won't accept connections any more or it stops returning results and updates. This leads to items not being updated any more. This behaviour seems to be related to use of other network features of the receiver, e.g. music streaming via Airplay.
+Currently there is no solution known to get rid of this other then to power cycle the receiver by temporary plugging out its power cord (going to standby is not sufficient). 
