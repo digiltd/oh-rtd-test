@@ -16,6 +16,7 @@ Samples of Item definitions
     Text item=lrWindowRight
 
 transform/contact.map:
+
     0=CLOSED
     1=TILTED
     2=OPEN
