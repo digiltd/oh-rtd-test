@@ -74,4 +74,4 @@ Only **"activate"**, **"fan_level"** and **"target_temperature"** are writeable.
 
 **You can find more examples at**
 
-[Samples-Comfo-Air-Binding]
+[Samples-Comfo-Air-Binding][Samples-Comfo-Air-Binding]
