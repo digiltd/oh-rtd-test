@@ -6,13 +6,17 @@ Nibe heat pump binding is used to get live data from from Nibe heat pumps withou
 
 When modbus adapter support is enabled from heat pump UI, heat pump will start to send telegram ones every now and then. Telegram contains max 20 registers. Those 20 registers can be configured via Nibe ModbusManager application. 
 
-Unfortunately Nibe has made this tricky, telegram from heat pump should be acknowledged, otherwise pump will raise an alarm and go in alarm state. Acknowledge (ACK or NAK) should be sent accurately. This is resolved by simple C program **nibegw** which can be run on unix/linux (e.g raspberry pi). 
+Unfortunately Nibe has made this tricky, telegram from heat pump should be acknowledged, otherwise pump will raise an alarm and go in alarm state. Acknowledge (ACK or NAK) should be sent accurately. This can be resolved by **nibegw** which can be run on unix/linux (e.g raspberry pi) or arduino based boards. 
 
 ## Nibe gateway
 
-**nibegw** C application read telegram from serial port (need RS-485 adapter), send ACK/NAK to the heat pump and relay untouched telegram to openhab via UDP packet. Nibe heat pump binding will listening UDP port and parse register data from UDP telegrams.
+**nibegw** is application read telegram from serial port (need RS-485 adapter), send ACK/NAK to the heat pump and relay untouched telegram to openhab via UDP packet. Nibe heat pump binding will listening UDP port and parse register data from UDP telegrams.
 
-C code is available on [here](http://code.google.com/r/paulianttila-ihc-binding/source/browse/bundles/binding/org.openhab.binding.nibeheatpump/NibeGW/nibegw.c)  
+Arduino based solution, tested with arduino uno + RS485 and Ethernet shields.
+
+Arduino code is available [here](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.nibeheatpump/NibeGW/NibeGW.ino)
+
+C code is available on [here](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.nibeheatpump/NibeGW/nibegw.c)  
 
 build command: 
 
@@ -25,8 +29,7 @@ execution:
 Nibegw help is avail be by command
 execution:
 
-    nibegw -h
-
+    nibegw -h 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
