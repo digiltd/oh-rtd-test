@@ -2,6 +2,13 @@ Samples for Rules
 * [How to turn on light when motion detected and is dark?](Samples-Rules#how-to-turn-on-light-when-motion-detected-and-is-dark)
 * [How to create a rule, which only executes some code, if a value does not change for a certain period of time](Samples-Rules#how-to-create-a-rule-which-only-executes-some-code-if-a-value-does-not-change-for-a-certain-period-of-time)
 * [How to calculate the sun position](Samples-Rules#how-to-calculate-the-sun-position)
+* [How to calculate public holidays](Samples-Rules#how-to-calculate-public-holidays)
+* [Create a timer for sunset](Samples-Rules#create-a-timer-for-sunset)
+* [Send an image from your webcam by e-mail](Samples-Rules#send-an-image-from-your-webcam-by-e-mail)
+* [How to display the minimum and maximum values of an item in a given period](Samples-Rules#how-to-display-the-minimum-and-maximum-values-of-an-item-in-a-given-period)
+* [How to use Colorpicker widget with KNX/DALI RGB LED STRIPE](Samples-Rules#how-to-use-colorpicker-widget-with-knxdali-rgb-led-stripe)
+* [How to log current timestamp to the openHAB log file](Samples-Rules#how-to-log-current-timestamp-to-the-openhab-log-file)
+* [Irrigation controller](Samples-Rules#irrigation-controller)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -448,6 +455,7 @@ items.all
 Items `LedR`, `LedG`, `LedB` are mapped in DALI-GW to respective light groups with KNX group addresses. 
 
 Explanation of group addresses in above example:
+
 | Group Address | Description |
 | ------------- | ----------- |
 | 11/0/0 | ON/OFF for red channel |
