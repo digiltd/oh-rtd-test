@@ -1,6 +1,7 @@
 Samples for Rules
-
-<wiki:toc max_depth="2" />
+* [How to turn on light when motion detected and is dark?](Samples-Rules#how-to-turn-on-light-when-motion-detected-and-is-dark)
+* [How to create a rule, which only executes some code, if a value does not change for a certain period of time](Samples-Rules#how-to-create-a-rule-which-only-executes-some-code-if-a-value-does-not-change-for-a-certain-period-of-time)
+* [How to calculate the sun position](Samples-Rules#how-to-calculate-the-sun-position)
 
 ### How to turn on light when motion detected and is dark?
 
