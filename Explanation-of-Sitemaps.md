@@ -33,13 +33,13 @@ The following elements can be used in a sitemap definition file (alphabetical or
   <tr><td>Webview</td><td></td></tr>
 </table>
 
-### Element 'Colorpicker'
+#### Element 'Colorpicker'
 
 Syntax:
 
     Colorpicker [item="<itemname>"] [label="<labelname>"] [icon="<iconname>"] [sendFrequency=""]
 
-### Element 'Frame'
+#### Element 'Frame'
 
 Frames are used to create a visually separated area of items.
 
@@ -50,63 +50,63 @@ Syntax:
     	[additional sitemap elements]
     }
 
-### Element 'Group'
+#### Element 'Group'
 
 Syntax:
 
     Group [item="<itemname>"] [label="<labelname>"] [icon="<iconname>"]
 
-### Element 'Image'
+#### Element 'Image'
 
 Syntax:
 
     Image [item="<itemname>"] [icon="<iconname>"] url="<url of image>" [label="<labelname>"] [refresh=xxxx]
 refresh is the refresh period of the image in milliseconds
 
-### Element 'Chart'
+#### Element 'Chart'
 
 Syntax:
 
     Image [item="<itemname>"] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
 refresh is the refresh period of the image in milliseconds
 
-### Element 'Switch'
+#### Element 'Switch'
 
 Syntax:
 
     Switch item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
 
-### Element 'Selection'
+#### Element 'Selection'
 
 Syntax:
 
     Selection item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
 
-### Element 'Setpoint'
+#### Element 'Setpoint'
 
 Syntax:
 
     Setpoint item="<itemname>" [label="<labelname>"] [icon="<iconname>"] minValue="<min value>" maxValue="<max value>" step="<step value>"
 
-### Element 'Slider'
+#### Element 'Slider'
 
 Syntax:
 
-    Slider item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [sendFrequency="frequency"] [switchEnabled="switchSupport"]
+    Slider item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [sendFrequency="frequency"] [switchEnabled]
 
-### Element 'List'
+#### Element 'List'
 
 Syntax:
 
     List item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [separator=""]
 
-### Element 'Text'
+#### Element 'Text'
 
 Syntax:
 
     Text item="<itemname>" [label="<labelname>"] [icon="<iconname>"]
 
-### Element 'Video'
+#### Element 'Video'
 
 Syntax:
 
@@ -117,3 +117,64 @@ Syntax:
 Syntax:
 
     Webview item="<itemname>" [label="<labelname>"] [icon="<iconname>"] url="<url>" [height="<heightvalue"]
+	
+## Dynamic Sitemaps
+**Note** The following is only available in v1.4 (from Late December 2013)
+
+Sitemaps can be designed to show items dynamically, or add colors depending on their state, or the state of another item. A few use cases for this are -:
+* Hide elements of a heating system depending on its mode
+* Display different charts or URLs depending on the state of an item
+* Show a battery warning of the voltage is low
+* Highlight a value with a warning color if it's above or below limits
+
+All widgets in the sitemap have the following three parameters available -:
+* visibility
+* labelcolor
+* valuecolor
+
+It is important to note that in all cases rules are parsed from left to right, and the first rule that returns _true_ will take priority.
+
+#### Visibility
+To dynamically show or hide an item, the _visibility_ tag is used. By default, an item is visibile if the _visibility_ tag is not provided. If provided, a set of rules are used to indicate the items visibility status. If any of the rules are _true_ then the item will be visible, otherwise it will be hidden.
+
+The format of the _visibility_ tag is as follows -:
+```
+visibility=[item_name operator value, ... ]
+```
+Multiple rules can be provided using a comma as a delimiter. Valid operators are the ==, >=, <=, !=, >, <.
+
+**Examples**
+```
+visibility=[Weather_Chart_Period!=ON]
+visibility=[Weather_Chart_Period=="Today"]
+visibility=[Weather_Chart_Period>1, Weather_Temperature!="Uninitialized"]
+```
+
+#### Colors
+Colors can be used to emphasise an items label or its value. 
+
+The format of the _labelcolor_ and _valuecolor_ tags are as follows -:
+```
+labelcolor=[item_name operator value = "color", ... ]
+```
+Multiple rules can be provided using a comma as a delimiter. Valid operators are the ==, >=, <=, !=, >, <. 
+
+_itemname_ and _operator_ are optional - if not provided, itemname will default to the current item and operator will default to ==. So the following three rules will all do the same thing, and all are valid.
+```
+Text item=Weather_Temperature valuecolor=[22="green"]
+Text item=Weather_Temperature valuecolor=[==22="green"]
+Text item=Weather_Temperature valuecolor=[Weather_Temperature==22="green"]
+```
+
+The _"color"_ is passed directly through to the UI, so its exact implementtion is up to the UI. It is generally expected that valid HTML colors can be used (eg "green", "red", "#334455") but a UI could for example define abstract colors that are defined internally depending on the theme. For example, "warning" could be defined and used in a UI dependant way, but there is currently no standardisation of these terms.
+
+**Examples**
+```
+valuecolor=[>25="orange",>15="green",>5="orange",<5="blue"]
+valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>600="lightgray",>15="green",>=10="orange",<10="red"]
+```
+
+
+#### A note about rule comparisson
+* String comparissons are case sensitive, so `==ON` is not the same a `==on`.
+* DateTime comparissons are relative to the current time and specified in seconds. So a rule >300 will return true if the DateTime item is set to a value that's newer than the past 5 minutes (300 seconds).
