@@ -2,7 +2,9 @@ OpenHAB has a great development environment with the "openHAB Designer".
 But in some cases you want to use another editor to make changes to the configuration files of openHAB.
 To make this more effectiv there are some files to enable syntax highlighting for openHAB-files in these editors.
 
-<wiki:toc max_depth="2" />
+* [mcedit](Syntax-Highlighting-for-external-editors#mcedit)
+* [Notepad++](Syntax-Highlighting-for-external-editors#notepad)
+* [vi](Syntax-Highlighting-for-external-editors#vi)
 
 ## mcedit
 
