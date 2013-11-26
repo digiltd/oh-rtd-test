@@ -1,5 +1,15 @@
 This page contains samples for binding configurations. These samples are sorted by binding.
 
+* [How to send Date and Time from NTP to KNX]
+* [How to get temperatures from OW-SERVER via HTTP binding]
+* [How to get humidity from OW-SERVER via HTTP binding]
+* [How to get contact from OW-SERVER via HTTP binding]
+* [How to turn on/off a switch from OW-SERVER via HTTP binding]
+* [How to read the status from a OneWire sensor DS2413 (2 port I/O)]
+* [How to get data from Kostal Piko solar inverter via HTTP binding]
+* [How to send commands to Telldus Tellstick](Samples-Binding-Config#how-to-send-commands-to-telldus-tellstick)
+* [How to get power on a TV connected to HDMI with exec binding and update the status automatically](Samples-Binding-Config#how-to-get-power-on-a-tv-connected-to-hdmi-with-exec-binding-and-update-the-status-automatically)
+
 ### How to send Date and Time from NTP to KNX
 
 This example sends the current date and time from the NTP to the KNX binding
@@ -57,7 +67,7 @@ contact.map:
     -=UNKNOWN
 ```
 
-## How to turn on/off a switch from OW-SERVER via HTTP binding
+### How to turn on/off a switch from OW-SERVER via HTTP binding
 
 Device: D2C (DS2406)
 
