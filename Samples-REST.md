@@ -1,5 +1,9 @@
 Examples for accessing REST API
 
+* [jquery](Samples-REST#jquery)
+* [cURL](Samples-REST#curl)
+* [PHP](Samples-REST#php)
+
 ## Introduction
 
 Please see below sample code for accessing openhab's REST API.
