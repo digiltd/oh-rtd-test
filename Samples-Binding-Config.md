@@ -1,9 +1,9 @@
 This page contains samples for binding configurations. These samples are sorted by binding.
 
-* [How to send Date and Time from NTP to KNX]
-* [How to get temperatures from OW-SERVER via HTTP binding]
-* [How to get humidity from OW-SERVER via HTTP binding]
-* [How to get contact from OW-SERVER via HTTP binding]
+* [How to send Date and Time from NTP to KNX](Samples-Binding-Config#how-to-send-date-and-time-from-ntp-to-knx)
+* [How to get temperatures from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-temperatures-from-ow-server-via-http-binding)
+* [How to get humidity from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-humidity-from-ow-server-via-http-binding)
+* [How to get contact from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-contact-from-ow-server-via-http-binding)
 * [How to turn on/off a switch from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-turn-onoff-a-switch-from-ow-server-via-http-binding)
 * [How to read the status from a OneWire sensor DS2413 (2 port I/O)](Samples-Binding-Config#how-to-read-the-status-from-a-onewire-sensor-ds2413-2-port-io)
 * [How to get data from Kostal Piko solar inverter via HTTP binding](Samples-Binding-Config#how-to-get-data-from-kostal-piko-solar-inverter-via-http-binding)
