@@ -1,6 +1,6 @@
-# extended ComfoAir binding configs.
+extended ComfoAir binding configs.
 
-# comfoair.items
+## comfoair.items
 
     Group Lueftung 	"Lüftungsanlage"	<pie>
     
