@@ -48,17 +48,14 @@ This example gets the weather information from the Wunderground online api servi
 
 - create a stylesheet named wunderground_icon_forecast.xsl containing the following lines (place it under configurations/transform):
 ```
-    <?xml version="1.0"?>
-    <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
-            
-            <xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
-    
-            <xsl:template match="/">
-                    <!-- format: hh:mm:ss -->
-                    <xsl:value-of select="//response/forecast/txt_forecast/forecastdays/forecastday/icon/text()" />
-            </xsl:template>
-    
-    </xsl:stylesheet>
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">       
+   <xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
+   <xsl:template match="/">
+      <!-- format: hh:mm:ss -->
+      <xsl:value-of select="//response/forecast/txt_forecast/forecastdays/forecastday/icon/text()" />
+   </xsl:template>
+</xsl:stylesheet>
 ```
 - display the string in the .sitemap file:
 
@@ -67,7 +64,7 @@ This example gets the weather information from the Wunderground online api servi
 ### How to configure openHAB to start automatically on Linux
 
 Create a new file in /etc/init.d/openhab using your preferred editor (e.g. nano) and copy the code below. 
-
+```sh
     #! /bin/sh
     ### BEGIN INIT INFO
     # Provides:          openhab
@@ -232,9 +229,8 @@ Create a new file in /etc/init.d/openhab using your preferred editor (e.g. nano)
         exit 3
         ;;
     esac
-    
     :
-
+```
 Make the script executable and configure it to run on boot.
 
     sudo chmod a+x /etc/init.d/openhab
