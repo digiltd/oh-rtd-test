@@ -5,7 +5,7 @@ Some useful Scripts for openHAB
 ### Simple WakeUpLight
 
 With this script you can simulate a simple WakeUP light. Just call it via a rule at a specified time
-```xtext
+```javascript
 var Number wakeUpDimmer
     
     wakeUpDimmer=0
