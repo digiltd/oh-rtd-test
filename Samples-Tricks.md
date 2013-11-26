@@ -1,12 +1,12 @@
 Miscellaneous Tips & Tricks
 
-* [How to redirect your log entries to the syslog]
-* [How to do a proper ICMP ping on Linux]
-* [How to add current or forecast weather icons to your sitemap]
-* [How to configure openHAB to start automatically on Linux]
-* [Use cheap bluetooth dongles on remote PCs to detect your phone/watch]
-* [Get connection status of all network devices from Fritz!Box, eg for presence detection]
-* [How to configure openHAB to connect to device symlinks (on Linux)]()
+* [How to redirect your log entries to the syslog](Samples-Tricks#how-to-redirect-your-log-entries-to-the-syslog)
+* [How to do a proper ICMP ping on Linux](Samples-Tricks#how-to-do-a-proper-icmp-ping-on-linux)
+* [How to add current or forecast weather icons to your sitemap](Samples-Tricks#how-to-add-current-or-forecast-weather-icons-to-your-sitemap)
+* [How to configure openHAB to start automatically on Linux](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux)
+* [Use cheap bluetooth dongles on remote PCs to detect your phone/watch](Samples-Tricks#use-cheap-bluetooth-dongles-on-remote-pcs-to-detect-your-phonewatch)
+* [Get connection status of all network devices from Fritz!Box, eg for presence detection](Samples-Tricks#get-connection-status-of-all-network-devices-from-fritzbox-eg-for-presence-detection)
+* [How to configure openHAB to connect to device symlinks (on Linux)](Samples-Tricks#how-to-configure-openhab-to-connect-to-device-symlinks-on-linux)
 * [Use URL to manipulate items](Samples-Tricks#use-url-to-manipulate-items)
 * [Extract caller and called number from Fritzbox Call object](Samples-Tricks#extract-caller-and-called-number-from-fritzbox-call-object)
 * [Item loops with delay](Samples-Tricks#item-loops-with-delay)
