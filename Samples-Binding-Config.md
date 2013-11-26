@@ -4,9 +4,9 @@ This page contains samples for binding configurations. These samples are sorted 
 * [How to get temperatures from OW-SERVER via HTTP binding]
 * [How to get humidity from OW-SERVER via HTTP binding]
 * [How to get contact from OW-SERVER via HTTP binding]
-* [How to turn on/off a switch from OW-SERVER via HTTP binding]
-* [How to read the status from a OneWire sensor DS2413 (2 port I/O)]
-* [How to get data from Kostal Piko solar inverter via HTTP binding]
+* [How to turn on/off a switch from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-turn-onoff-a-switch-from-ow-server-via-http-binding)
+* [How to read the status from a OneWire sensor DS2413 (2 port I/O)](Samples-Binding-Config#how-to-read-the-status-from-a-onewire-sensor-ds2413-2-port-io)
+* [How to get data from Kostal Piko solar inverter via HTTP binding](Samples-Binding-Config#how-to-get-data-from-kostal-piko-solar-inverter-via-http-binding)
 * [How to send commands to Telldus Tellstick](Samples-Binding-Config#how-to-send-commands-to-telldus-tellstick)
 * [How to get power on a TV connected to HDMI with exec binding and update the status automatically](Samples-Binding-Config#how-to-get-power-on-a-tv-connected-to-hdmi-with-exec-binding-and-update-the-status-automatically)
 
@@ -117,7 +117,7 @@ Sample output for this definition would then be "Window 1 is opened" or "Window 
 
 ### How to get data from Kostal Piko solar inverter via HTTP binding
 
-[https://lh4.googleusercontent.com/-pa3EqaUPe_E/Ud8lK56J_-I/AAAAAAAALT0/KNOfi7gWe_c/s300/openhab_kostal_piko_screenshot.PNG](https://lh4.googleusercontent.com/-pa3EqaUPe_E/Ud8lK56J_-I/AAAAAAAALT0/KNOfi7gWe_c/w563-h634-no/openhab_kostal_piko_screenshot.PNG)
+![Kostal Piko](https://lh4.googleusercontent.com/-pa3EqaUPe_E/Ud8lK56J_-I/AAAAAAAALT0/KNOfi7gWe_c/w563-h634-no/openhab_kostal_piko_screenshot.PNG)
 ```
     /* AC-Leistung */
     Number Solar_Aktuell "aktuell [%.0f W]" { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?aktuell</td>.*? (.*?)</td>.*)]" }
