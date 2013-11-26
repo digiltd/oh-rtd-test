@@ -1,5 +1,7 @@
 Some useful Scripts for openHAB
 
+* [Simple WakeUpLight](Samples-Scripts#simple-wakeuplight)
+
 ### Simple WakeUpLight
 
 With this script you can simulate a simple WakeUP light. Just call it via a rule at a specified time
