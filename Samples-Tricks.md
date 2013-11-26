@@ -714,3 +714,19 @@ Some integrations don't like to be rushed with a cascade of simultaneous command
     then 
     	gLightOffNight?.members.forEach(item,i|createTimer(now.plusSeconds(i)) [|sendCommand(item, OFF)])
     end
+
+### enocean binding on Synology DS213+ (kernel driver package)
+The enocean binding works with the [enocean USB300 usb-stick](http://www.enocean.com/de/enocean_module/usb-300-oem/).
+To enable the USB300 on a [Synology DS213+](https://www.synology.com/en-us/products/overview/DS213+) (probably works also on Synology DS413 - same CPU...) two things are needed:
+
+1. The kernel drivers  
+usbserial, ftdi_sio and cdc-acm are already included in DSM 4.3  
+pl2303 and cp210x are in the package usb-driver-kernel-2.6.32-dh-syno-qoriq-0.001.spk  
+The package is stored at [OpenHAB google groups](https://groups.google.com/d/msg/openhab/tF9Y3wOLYX8/fOlU2lD0q2UJ) and on the package server [https://www.hofrichter.at/sspks](https://www.hofrichter.at/sspks/index.php?fulllist=true)  
+You can install this package in DSM via the package manager -> manual installation or by adding https://www.hofrichter.at/sspks/ to your package sources - there is a [tutorial on the Synology support pages](http://www.synology.com/en-us/support/tutorials/500) about how to do that.
+2. nrjavaserial  
+OpenHab 1.3.1 comes with the latest stable version of [nrjavaserial 3.8.8]
+(https://code.google.com/p/nrjavaserial/) (at the moment (17.11.2013)).  
+It's in {openhab_root}/server/plugins/org.openhab.io.transport.serial  
+The newer **unstable** nrjavaserial **3.9.1** is needed for the qoric cpu of the DS213+ and included in the (otherwise unchanged) [org.openhab.io.transport.serial_1.3.1.201309182025.jar](https://www.hofrichter.at/sspks/packages/org.openhab.io.transport.serial_1.3.1.201309182025.jar).  
+Just put that file in {openhab_root}/server/plugins/ and delete the original file {openhab_root}/server/plugins/org.openhab.io.transport.serial...
