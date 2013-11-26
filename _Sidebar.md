@@ -104,6 +104,7 @@ Samples
  * [[Integration with other applications|Samples-Integration]]
  * [[Syntax highlighting for external editors|Syntax-Highlighting-for-external-editors]]
  * [[Update-Scripts|openhab-Get-Snapshot]]
+ * [[Samples-Comfo-Air-Binding]]
 
 Release Notes
  * [[Version 1.3|Release-Notes-13]]
