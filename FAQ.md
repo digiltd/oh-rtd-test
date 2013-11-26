@@ -1,5 +1,8 @@
 Frequently Asked Questions
 
+* [How to use a serial port under linux](FAQ#how-to-use-a-serial-port-under-linux)
+* [openHAB and the Cubieboard, what you need to know](FAQ#openhab-and-the-cubieboard-what-you-need-to-know)
+
 ### How to use a serial port under linux
 
 If you are usiung a usb-to-serial-adapter your serial-interface might be /dev/ttyUSB0.
