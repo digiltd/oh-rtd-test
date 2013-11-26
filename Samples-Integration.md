@@ -1,5 +1,9 @@
 Integrating openHAB with other applications.
 
+* [Asterisk](Samples-Integration#integration)
+* [Zoneminder](Samples-Integration#zoneminder)
+* [Telldus Tellstick](Samples-Integration#telldus-tellstick)
+
 ## Integration
 
 Sometimes you can easily integrate openHAB with other applications without creating specific bindings. This page collects recipes for doing that.
