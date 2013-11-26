@@ -15,28 +15,28 @@ Please note that openHAB has not (yet) been optimized for low-end embedded devic
 
 ### Raspberry Pi
 
-### Basic Setup
+#### Basic Setup
 
 There are three ways to use Java an Openhab on the Raspberry Pi
 
 1. Soft-float Debian “wheezy”
-- The image is found at [Rasberry download site](http://www.raspberrypi.org/downloads)
-- This image is well proved, but all floating point calculations are done by software rather then using hardware (maybe slower).
-- The only way to use Oracle´s JVM 7 as a stable release (http://raspberrypi.stackexchange.com/questions/1603/how-can-i-get-and-install-oracles-java-jvm-for-raspbian)
-- Java can be downloaded at http://www.oracle.com/technetwork/java/javase/downloads/index.html
-- Use [this](http://www.savagehomeautomation.com/projects/raspberry-pi-installing-oracle-java-runtime-environment-jre.html) guide for basic setup
+    - The image is found at [Rasberry download site](http://www.raspberrypi.org/downloads)
+    - This image is well proved, but all floating point calculations are done by software rather then using hardware (maybe slower).
+    - The only way to use Oracle´s JVM 7 as a stable release (http://raspberrypi.stackexchange.com/questions/1603/how-can-i-get-and-install-oracles-java-jvm-for-raspbian)
+    - Java can be downloaded at http://www.oracle.com/technetwork/java/javase/downloads/index.html
+    - Use [this](http://www.savagehomeautomation.com/projects/raspberry-pi-installing-oracle-java-runtime-environment-jre.html) guide for basic setup
 1. Hard-float Raspberryian
-- The image is found at [Rasberry download site](http://www.raspberrypi.org/downloads)
-- This image uses the hardware for floating point calculations (maybe faster)
-- Only a preview (beta) version of Oracle´s JVM 8 FX available
-- Use [this](http://javafx.steveonjava.com/javafx-on-raspberry-pi-3-easy-steps/) guide for basic setup
+    - The image is found at [Rasberry download site](http://www.raspberrypi.org/downloads)
+    - This image uses the hardware for floating point calculations (maybe faster)
+    - Only a preview (beta) version of Oracle´s JVM 8 FX available
+    - Use [this](http://javafx.steveonjava.com/javafx-on-raspberry-pi-3-easy-steps/) guide for basic setup
 1. Soft-float "wheezy" with tmpfs
-- Very intresting version of the soft-float version. Openhab is used in a tmpfs ramdisk. This will improve performance and stability. The image is still under development.
-- The image is a ready to use image with openhab and eibd based on soft-float java version 7
-- Use [this](https://github.com/cribskip/OpenHABpi/wiki/Getting-Started) guide for setup
-- Based on you bus, set up eibd ([http://knx-user-forum.de/knx-eib-forum/20663-eibd-linknx-cometvisu-auf-raspberry-pi.html]) as connection between openhab and KNX in tunnel mode.
+    - Very interesting version of the soft-float version. Openhab is used in a tmpfs ramdisk. This will improve performance and stability. The image is still under development.
+    - The image is a ready to use image with openhab and eibd based on soft-float java version 7
+    - Use [this](https://github.com/cribskip/OpenHABpi/wiki/Getting-Started) guide for setup
+    - Based on you bus, set up eibd ([http://knx-user-forum.de/knx-eib-forum/20663-eibd-linknx-cometvisu-auf-raspberry-pi.html]) as connection between openhab and KNX in tunnel mode.
 
-### Tweaking Performance
+#### Tweaking Performance
 
 - Stay up to date with rpi-update (https://github.com/Hexxeh/rpi-update/)
 - For headless, use a memory split of 240 (e.g. run `sudo rpi-update 240`)
