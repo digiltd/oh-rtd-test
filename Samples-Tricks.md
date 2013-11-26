@@ -1,5 +1,13 @@
 Miscellaneous Tips & Tricks
 
+* [How to redirect your log entries to the syslog]
+* [How to do a proper ICMP ping on Linux]
+* [How to add current or forecast weather icons to your sitemap]
+* [How to configure openHAB to start automatically on Linux]
+* [Use cheap bluetooth dongles on remote PCs to detect your phone/watch]
+* [Get connection status of all network devices from Fritz!Box, eg for presence detection]
+* [How to configure openHAB to connect to device symlinks (on Linux)]()
+* [Use URL to manipulate items](Samples-Tricks#use-url-to-manipulate-items)
 * [Extract caller and called number from Fritzbox Call object](Samples-Tricks#extract-caller-and-called-number-from-fritzbox-call-object)
 * [Item loops with delay](Samples-Tricks#item-loops-with-delay)
 * [enocean binding on Synology DS213+ (kernel driver package)](Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package)
