@@ -11,7 +11,7 @@ Sometimes you can easily integrate openHAB with other applications without creat
 ### Asterisk
 
 In some cases it is very useful to make call routing decisions in Asterisk based on openHAB Items states. As an example, if nobody is home (away mode is on) route my doorphone calls to mobile, in other case route them to local phones inside the house. To do that AGI (Asterisk application gateway interface) can be used to obtain Item state value into an Asterisk variable and then a routing decision can be performed based on this variable value. Here is a small python script which, when called from Asterisk AGI makes an http request to openHAB REST API, gets specific item state and puts it into specified Asterisk variable:
-
+```sh
     #!/usr/bin/python
     import sys,os,datetime
     import httplib
@@ -43,7 +43,7 @@ In some cases it is very useful to make call routing decisions in Asterisk based
     
     send("SET VARIABLE %s %s"%(varname, item_state))
     sys.stdin.readline()
-
+```
 In Asterisk dialplan (extensions.conf) this AGI script is used in the following way:
 
     exten => 1000,1,Answer()
@@ -74,7 +74,7 @@ It serves two purposes:
 2) The script updates openhab number items.  The items store a count for the number of events in the last 24 hours.
 
 READ THE COMMENTS IN THE SOURCE CODE BELOW to set it up.  Hope this helps someone.
-
+```php
     #!/usr/bin/php
     <?php
     /*
@@ -185,7 +185,7 @@ READ THE COMMENTS IN THE SOURCE CODE BELOW to set it up.  Hope this helps someon
       }
     }
     ?>
-
+```
 ### Telldus Tellstick
 
 Below is an example of how to capture events from Telldus Tellstick and forward them to the openhab bus as events through REST. The example works for on/off switches and wireless sensors but can easily be extended to dimmers, etc. Events are sent to openhab regardless if a telldus state change originates from a wireless remote or from other software (e. g. Switchking or Telldus Center). In other word, the script keeps openhab in sync with telldus states.
@@ -198,7 +198,7 @@ You need:
 See wiki section [Binding configurations](https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1378067942&updated=BindingConfig#How_to_send_commands_to_Telldus_Tellstick) for the outbound example (openhab to tellstick).
 
 Tested on Ubuntu Server 13.04.
-
+```python
     #!/usr/bin/env python
     
     import sys
@@ -265,3 +265,4 @@ Tested on Ubuntu Server 13.04.
             time.sleep(0.5)
     except KeyboardInterrupt:
         pass
+```
