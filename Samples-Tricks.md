@@ -246,10 +246,11 @@ EG On an ubuntu/debian based PC.
 
 1) Install the "bluez" bluetooth stack.
 
-    apt-get install bluez
-
+```sh
+apt-get install bluez
+```
 2) Use the bash script below to do a simple scan several times per min.  This script looks for my phone "jon-phone".  Its made no real difference to the battery life on my android 4.x phone.  The script updates a switch in openhab called "zoneOneState".  You could have as many zones as you need/want to cover your house.
-
+```sh
     #!/bin/bash
     
     while true
@@ -265,7 +266,7 @@ EG On an ubuntu/debian based PC.
     
       sleep 30
     done
-
+```
 3) The rule governing the decision process on if your house is occupied can be as complex or simple as you need.  The rule below is clunky but simple and gets the job done.  It uses three zone switches to decide if it should set a switch called "occupiedState" to on or off.  Then using the occupiedState switch you can make your other openhab rules behave in different ways.  Each zone checked reports true if your bluetooth device has been seen within the last 5 mins (helps stop flap caused by the patchy coverage of bluetooth signals).
 
     //FIGURE IF HOUSE OCCUPIED EVERY 30 SECONDS
@@ -342,7 +343,7 @@ For cases where bluetooth detection described above or network health binding is
 The Fritz!Box shows a reliable status of devices connected to the network using the built-in _ctlmgr_ctl r landevice_ command (see http://www.wehavemorefun.de/fritzbox/Landevice). 
 
 Create the script *landevices.sh* permanently (should not be deleted at reboot), for example in folder */var/media/ftp/Fritz!Box/*. Make it executable. Take care not to indent the script as the Fritz!Box does not like that.
-
+```sh
     #!/bin/sh
     i=0
     count_devices=`ctlmgr_ctl r landevice settings/landevice/count`
@@ -358,9 +359,9 @@ Create the script *landevices.sh* permanently (should not be deleted at reboot),
     echo $device
     i=`expr $i + 1`
     done
-
+```
 The commented out for loop shows all possible subcommands, so it is also possible to output eg the speed or mac adress of all landevices. However this would also require a change on the calling script below. Once created on the Fritz!Box and executed it should provide you all known network devices with their current status:
-
+```sh
     # ./landevices.sh
     landevice=0 name=BoyLaptop active=0
     landevice=1 name=BoyPhone active=0
@@ -388,13 +389,13 @@ The commented out for loop shows all possible subcommands, so it is also possibl
     landevice=23 name=MomLaptop active=0
     landevice=24 name=MomLaptopWork active=0
     landevice=25 name=MomPhone active=0
-
+```
 If required, use the Fritz!Box GUI to give the devices some reasonable names in order to easily assign phones/laptops etc to people or media devices to floors/rooms. Using the _ctlmgr_ctl_ command it would also be possible to only query for specific devices (go through the full list and look for either name or mac or both), but any change in the output of this script requires changes on the other end as well.
 
 #### On the Linux server
 
 Create a *expect* script in a folder on your Linux Server and make it executable. The only purpose of this script is only to connect to your Fritz!Box through a telnet session and call the script created there.
-
+```sh
     #!/usr/bin/expect
     spawn telnet <<<your fritzbox ip here>>>
     expect "user: "
@@ -408,9 +409,9 @@ Create a *expect* script in a folder on your Linux Server and make it executable
     send "/var/media/ftp/Fritz!Box/landevices.sh\r"
     expect "#"
     send "exit 0\r"
-
+```
 Here the IP of the Fritz!Box, your credentials and the path to the script need to be adopted. Furthermore the above script is for the newest version of the Fritz!box firmware where multiple user accounts can be created. In case this is not your case, you have to omit the "user:" and "login" *expect/send* statements in the script above, as in that case the Fritz!Box telnet session only requires the password, not the user. Again, to validate the functionality just execute the script:
-
+```sh
     ReadyNAS:~# ./fritzbox_devices.expect
     spawn telnet 192.168.178.1
     
@@ -456,17 +457,17 @@ Here the IP of the Fritz!Box, your credentials and the path to the script need t
     landevice=24 name=MomLaptopWork active=0
     landevice=25 name=MomPhone active=0
     # ReadyNAS:~#
-
+```
 As you can see here we have the original output of the script plus some "overhead" for the telnet session.
 
 Now create a *sed* script _fritzbox_devices.sed_ that will create *curl* commands to interface with the openHAB server:
-
+```sh
     #!/bin/sed -f
     s#\r$##
     s#landevice=[0-9]* name=#curl --silent -H \"Content-Type: text/plain\" http://localhost:8080/rest/items/landevice_#g
     s#active=0#-d \"OFF\"#g
     s#active=1#-d \"ON\"#g
-
+```
 The first line here is just to eliminate "DOS-like" \r at the end of each line which show up with a ReadyNAS as server and might not be required in your setup, but you can still leave them. The second line replaces the "landevice=....name=...... with a *curl* command. In order to have reasonable variable names again in openHAB the landevices there start with "landevice_", so "DadPhone" on the Fritz!Box gets landevice_DadPhone in openHAB. Furthermore *localhost:8080* needs to be changed to match your openHAB server if is not running on the same machine. The last two lines replace the "active=0" or "active=1" with the correct statements for *curl*.
 
 Another validation of the scripts created so far:
