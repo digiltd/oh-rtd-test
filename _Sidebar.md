@@ -54,6 +54,7 @@ Community
   * [[OSGi Configuration Admin Binding|Config-Admin-Binding]]
   * [[Philips Hue Binding|Hue-Binding]]
   * [[Piface Binding|Piface-Binding]]
+  * [[Pioneer-AVR-Binding]]
   * [[Plugwise Binding|Plugwise-Binding]]
   * [[PLCBus Binding|PLC-Bus-Binding]]
   * [[Pulseaudio Binding|Pulseaudio-Binding]]
