@@ -2,6 +2,60 @@
 
 *Note: This binding will only be available in openHAB version 1.4.0 or higher!*
 
-# Introduction
+## Introduction
 
-t.b.d.
+For installation of the binding, please see Wiki page [[Bindings]].
+
+## Configuring the binding
+
+If you only have one Insteon Hub, configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations'). 
+
+    ################################ Insteon Hub Binding #########################################
+    
+    insteonhub:host=10.0.0.2
+
+
+## Items Configuration
+
+All item configurations require a device property to be defined.  This device property is 3-bytes and is defined in hex notation (example: 12.AB.34).  An easy way to find a device's ID is by using the Insteon app.
+
+In addition to the device, a bindingType property needs to be defined.  Valid types are "dimmer", "switch", "input_percent", "input_ubyte", "input_on_off", and "input_open_closed".  The following sections define these types in greater detail.
+
+
+## dimmer bindingType
+
+The dimmer bindingType supports Dimmer and Rollershutter item types.
+
+Dimmer Item:
+    Dimmer Dim1 "Kitchen Lights" { insteonhub = "device=12.AB.34, bindingType=dimmer" }
+
+Rollershutter Item:
+    Rollershutter RS1 "My Rollershutter" { insteonhub = "device=11.AA.11, bindingType=dimmer" }
+
+
+## switch bindingType
+
+Switch Item:
+    Switch Sw1 "Basement Lights" { insteonhub = "device=22.BB.22, bindingType=switch" }
+
+
+## input_ubyte bindingType
+
+Insteon reports analog device values as a number from 0 to 255.  input_ubyte reports this value of the associated device as a Number to the openhab bus.  This bindingType is read-only.
+
+Number Item:
+    Number Num1 "Depth Sensor" { insteonhub = "device=22.BB.22, bindingType=input_ubyte" }
+
+
+## Multiple Hubs
+
+If you need to support multiple Insteon Hubs, you can optionally configure them in the openhab.cfg file with unique IDs
+
+    ################################ Insteon Hub Binding #########################################
+    
+    insteonhub:FIRST_HUB.host=10.0.0.2
+    insteonhub:HUB_2.host=10.0.0.3
+
+When configuring for multiple hubs, you will need to specify the hub ID in the item configurations.  Here is an example:
+
+    Dimmer Dim1 "Kitchen Lights" { insteonhub = "device=12.AB.34, bindingType=dimmer, hubid=FIRST_HUB" }
