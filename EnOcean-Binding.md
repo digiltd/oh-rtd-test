@@ -27,8 +27,8 @@ General format:
 
     enocean="{id=<id_of_enocean_device> [, eep = <EEP_name>][, channel = <channelName>][, parameter = <parameterName>]}"
 
-The device id is printed on the device package. When the EEP is needed, the eep (e.g. "F6.02.01") is also printed on the device package.
-All parameters in [] are optional and only used for some devices.
+The device id is printed on the device package. When the EEP ([EnOcean Equipment Profile](http://www.enocean-alliance.org/eep/)) is needed, the eep (e.g. "F6.02.01") is also printed on the device package. In OpenHAB the three profile elements of the EEP are separated
+ by colons `:`(e.g. "F6:02:01"). All parameters in [] are optional and only used for some devices.
 
 ## Supported Devices
 
