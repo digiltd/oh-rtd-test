@@ -58,11 +58,8 @@ Examples, how to configure your items:
     Number Btn1SignalLevel { rfxcom="<636602.1:SignalLevel" }
     Dimmer Btn1DimLevel { rfxcom="<636602.1:DimmingLevel" }
     String Btn2RawData { rfxcom="<636602.2:RawData" }
-    
     Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
-    
     Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
-
     Switch swMotion { rfxcom="<4541155:Motion" }
     	
 
@@ -70,7 +67,7 @@ Examples, how to configure your items:
 
 <table>
   <tr><td><b>PacketType.SubType</b></td><td><b>Description</b></td><td><b>ValueSelector</b></td></tr>
-  <tr><td>LIGHTING1.X10</td><td>working</td><td></td></tr>
+  <tr><td>LIGHTING1.X10</td><td>working</td><td>Command</td></tr>
   <tr><td>LIGHTING1.ARC</td><td>tested and working</td><td>Command</td></tr>
   <tr><td>LIGHTING1.AB400D</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.WAVEMAN</td><td>Untested</td><td></td></tr>
