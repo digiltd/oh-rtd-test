@@ -19,7 +19,7 @@ If you only have one Insteon Hub, configure the following values in the openhab.
 
 All item configurations require a device property to be defined.  This device property is 3-bytes and is defined in hex notation (example: 12.AB.34).  An easy way to find a device's ID is by using the Insteon app.
 
-In addition to the device, a bindingType property needs to be defined.  Valid types are "dimmer", "switch", "input_ubyte", "input_percent", "input_on_off", and "input_open_closed".  The following sections define these types in greater detail.
+In addition to the device, a bindingType property needs to be defined.  Valid types are "dimmer", "switch", "input_ubyte", and "input_percent".  The following sections define these types in greater detail.
 
 
 ## dimmer bindingType
@@ -53,20 +53,6 @@ Insteon reports analog device values as a number from 0 to 255.  input_percent s
 
 Example:
     Number Num1 "Depth Sensor" { insteonhub = "device=22.BB.22, bindingType=input_percent" }
-
-
-## input_on_off bindingType
-
-input_on_off is a read-only device that translates the current value of an Insteon device to ON or OFF.  Because Insteon devices contain a value from 0 to 255, the ON or OFF values can be defined by the configuration.
-
-onValue and offValue can each be optionally defined.
-If offValue is defined and onValue is not defined, when the current value of the device equals the offValue, the state is reported as OFF.  For all other values, the state is reported as ON.
-If onValue is defined and offValue is not defined, when the current value of the device equals the onValue, the state is reported as ON.  For all other values, the state is reported as OFF.
-If onValue is defined and offValue is also defined, when the current value of the device equals the onValue, the state is reported as ON.  When the current value of the device equals the offValue, the state is reported as OFF.  For all other values, the state is reported as Undefined.
-If neither onValue or offValue is defined, when the current state of the device equals 0, the state is reported as OFF.  For all other values, the state is reported as ON.
-
-Example:
-    Switch Num1 "Depth Sensor" { insteonhub = "device=22.BB.22, bindingType=input_on_off, offValue=0, onValue=1" }
 
 
 ## Multiple Hubs
