@@ -8,7 +8,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Configuring the binding
 
-If you only have one Insteon Hub, configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations'). 
+If you only have one Insteon Hub, configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations'). If you have multiple Insteon Hubs, please see the section below on configuring multiple hubs.
 
     ################################ Insteon Hub Binding #########################################
     
