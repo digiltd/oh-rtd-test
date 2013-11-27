@@ -19,7 +19,7 @@ If you only have one Insteon Hub, configure the following values in the openhab.
 
 All item configurations require a device property to be defined.  This device property is 3-bytes and is defined in hex notation (example: 12.AB.34).  An easy way to find a device's ID is by using the Insteon app.
 
-In addition to the device, a bindingType property needs to be defined.  Valid types are "dimmer", "switch", "input_ubyte", and "input_percent".  The following sections define these types in greater detail.
+In addition to the device, a bindingType property needs to be defined.  Valid types are "dimmer", "switch", and "input_ubyte".  The following sections define these types in greater detail.
 
 
 ## dimmer bindingType
@@ -44,20 +44,11 @@ Example:
 
 ## input_ubyte bindingType
 
-Insteon reports analog device values as a number from 0 to 255.  input_ubyte reports this value of the associated device as a Number to the openhab bus.  This bindingType is read-only.
+Insteon reports analog device values as a number from 0 to 255.  input_ubyte reports this value of the associated device as a Number to the openhab bus.  This bindingType is read-only.  For input as a percentage from 0 to 100, use the dimmer bindingType.
 
 Example:
 
     Number Num1 "Depth Sensor" { insteonhub = "device=33.CC.33, bindingType=input_ubyte" }
-
-
-## input_percent bindingType
-
-Insteon reports analog device values as a number from 0 to 255.  input_percent scales this number to a range of 0 to 100 and reports this value as a number on the openhab bus.  This bindingType is read-only.
-
-Example:
-
-    Number Num1 "Depth Sensor" { insteonhub = "device=44.DD.44, bindingType=input_percent" }
 
 
 ## Multiple Hubs
