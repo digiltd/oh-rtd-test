@@ -61,7 +61,7 @@ Examples, how to configure your items:
     Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
     Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
     Switch swMotion { rfxcom="<4541155:Motion" }
-    	
+    Number MSensor_Bat {rfxcom="<4541155:BatteryLevel" }    	
 
 `PacketType.SubType` specify packet and sub type information ...
 
