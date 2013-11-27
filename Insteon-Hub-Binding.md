@@ -27,15 +27,18 @@ In addition to the device, a bindingType property needs to be defined.  Valid ty
 The dimmer bindingType supports Dimmer and Rollershutter item types.
 
 Example for Dimmer:
+
     Dimmer Dim1 "Kitchen Lights" { insteonhub = "device=12.AB.34, bindingType=dimmer" }
 
 Example for Rollershutter:
+
     Rollershutter RS1 "My Rollershutter" { insteonhub = "device=11.AA.11, bindingType=dimmer" }
 
 
 ## switch bindingType
 
 Example:
+
     Switch Sw1 "Basement Lights" { insteonhub = "device=22.BB.22, bindingType=switch" }
 
 
@@ -44,6 +47,7 @@ Example:
 Insteon reports analog device values as a number from 0 to 255.  input_ubyte reports this value of the associated device as a Number to the openhab bus.  This bindingType is read-only.
 
 Example:
+
     Number Num1 "Depth Sensor" { insteonhub = "device=33.CC.33, bindingType=input_ubyte" }
 
 
@@ -52,6 +56,7 @@ Example:
 Insteon reports analog device values as a number from 0 to 255.  input_percent scales this number to a range of 0 to 100 and reports this value as a number on the openhab bus.  This bindingType is read-only.
 
 Example:
+
     Number Num1 "Depth Sensor" { insteonhub = "device=44.DD.44, bindingType=input_percent" }
 
 
