@@ -44,7 +44,7 @@ Example:
 Insteon reports analog device values as a number from 0 to 255.  input_ubyte reports this value of the associated device as a Number to the openhab bus.  This bindingType is read-only.
 
 Example:
-    Number Num1 "Depth Sensor" { insteonhub = "device=22.BB.22, bindingType=input_ubyte" }
+    Number Num1 "Depth Sensor" { insteonhub = "device=33.CC.33, bindingType=input_ubyte" }
 
 
 ## input_percent bindingType
@@ -52,7 +52,7 @@ Example:
 Insteon reports analog device values as a number from 0 to 255.  input_percent scales this number to a range of 0 to 100 and reports this value as a number on the openhab bus.  This bindingType is read-only.
 
 Example:
-    Number Num1 "Depth Sensor" { insteonhub = "device=22.BB.22, bindingType=input_percent" }
+    Number Num1 "Depth Sensor" { insteonhub = "device=44.DD.44, bindingType=input_percent" }
 
 
 ## Multiple Hubs
