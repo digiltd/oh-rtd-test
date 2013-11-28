@@ -119,7 +119,7 @@ Syntax:
     Webview item="<itemname>" [label="<labelname>"] [icon="<iconname>"] url="<url>" [height="<heightvalue"]
 	
 ## Dynamic Sitemaps
-**Note** The following is only available in v1.4 (from Late December 2013)
+**Note** The following is only available in v1.4 (not released yet, only available as snapshots)
 
 Sitemaps can be designed to show items dynamically, or add colors depending on their state, or the state of another item. A few use cases for this are -:
 * Hide elements of a heating system depending on its mode
@@ -135,7 +135,7 @@ All widgets in the sitemap have the following three parameters available -:
 It is important to note that in all cases rules are parsed from left to right, and the first rule that returns _true_ will take priority.
 
 #### Visibility
-To dynamically show or hide an item, the _visibility_ tag is used. By default, an item is visibile if the _visibility_ tag is not provided. If provided, a set of rules are used to indicate the items visibility status. If any of the rules are _true_ then the item will be visible, otherwise it will be hidden.
+To dynamically show or hide an item, the _visibility_ tag is used. By default, an item is visible if the _visibility_ tag is not provided. If provided, a set of rules are used to indicate the items visibility status. If any of the rules are _true_ then the item will be visible, otherwise it will be hidden.
 
 The format of the _visibility_ tag is as follows -:
 ```
@@ -166,7 +166,7 @@ Text item=Weather_Temperature valuecolor=[==22="green"]
 Text item=Weather_Temperature valuecolor=[Weather_Temperature==22="green"]
 ```
 
-The _"color"_ is passed directly through to the UI, so its exact implementtion is up to the UI. It is generally expected that valid HTML colors can be used (eg "green", "red", "#334455") but a UI could for example define abstract colors that are defined internally depending on the theme. For example, "warning" could be defined and used in a UI dependant way, but there is currently no standardisation of these terms.
+The _"color"_ is passed directly through to the UI, so its exact implementation is up to the UI. It is generally expected that valid HTML colors can be used (eg "green", "red", "#334455") but a UI could for example define abstract colors that are defined internally depending on the theme. For example, "warning" could be defined and used in a UI dependant way, but there is currently no standardisation of these terms.
 
 **Examples**
 ```
@@ -175,6 +175,6 @@ valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>6
 ```
 
 
-#### A note about rule comparisson
-* String comparissons are case sensitive, so `==ON` is not the same a `==on`.
-* DateTime comparissons are relative to the current time and specified in seconds. So a rule >300 will return true if the DateTime item is set to a value that's newer than the past 5 minutes (300 seconds).
+#### A note about rule comparison
+* String comparisons are case sensitive, so `==ON` is not the same a `==on`.
+* DateTime comparisons are relative to the current time and specified in seconds. So a rule >300 will return true if the DateTime item is set to a value that's newer than the past 5 minutes (300 seconds).
