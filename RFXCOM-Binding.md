@@ -79,7 +79,8 @@ Examples, how to configure your items:
   <tr><td>LIGHTING2.HOME_EASY_EU</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING2.ANSLUT</td><td>Untested</td><td></td></tr>
   <tr><td>CURTAIN1.HARRISON</td><td>Harrison curtain rail, e.g. Neta 12</td><td>Shutter</td></tr>
-  <tr><td>TEMPERATUREHUMIDITY.<br>THGN122_123_132_THGR122_228_238_268</td><td>Untested</td><td></td></tr>
+   <tr><td>TEMPERATURE.La Crosse TX17</td><td>tested and working</td><td></td></tr>
+  <tr><td>TEMPERATUREHUMIDITY.Oregon 2.1<br>THGN122_123_132_THGR122_228_238_268</td><td>tested and working</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.THGN800_THGR810</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.RTGR328</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.THGR328</td><td>Untested</td><td></td></tr>
