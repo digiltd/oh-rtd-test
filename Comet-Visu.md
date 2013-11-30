@@ -10,16 +10,18 @@ This is just a short overview, more details will be added soon!
 
 ## Requirements
 
-- openHAB 1.4 or greater
-- CometVisu 0.8.0 or greater (https://sourceforge.net/projects/openautomation/files/CometVisu/)
+* openHAB 1.4 or greater (until openHAB 1.4 is relased, the latest version can be downloaded from [here](https://openhab.ci.cloudbees.com/job/openHAB/))
+* CometVisu 0.8.0 or greater (https://sourceforge.net/projects/openautomation/files/CometVisu/)
 
 ## Installation
 
-Just extract the release folder of the downloaded CometVisu archive in openHAB´s webapps folder and rename it to, e.g. cometvisu.
+* Copy the addon org.openhab.io.cv*.jar to the openHAB addon folder
+* Then just extract the release folder of the downloaded CometVisu archive in openHAB´s webapps folder and rename it to, e.g. cometVISU.
 
 ## Configuration
 
 An example configuration for openHAB´s demo config will be added here soon.
+A short introduction is given in [this](http://knx-user-forum.de/openhab/31089-openhab-mit-cometvisu.html) thread.
 
 ## Known problems
 
@@ -37,5 +39,5 @@ will be available soon, meanwhile some screenshots can be found here:
 
 ## Links
 
-- German CometVisu Support Forum: http://knx-user-forum.de/cometvisu/
-- Some documentation about CometVisu: http://www.cometvisu.org
+* German CometVisu Support Forum: http://knx-user-forum.de/cometvisu/
+* Some documentation about CometVisu: http://www.cometvisu.org
