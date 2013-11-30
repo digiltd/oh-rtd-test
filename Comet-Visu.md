@@ -21,6 +21,15 @@ Just extract the release folder of the downloaded CometVisu archive in openHAB´
 
 An example configuration for openHAB´s demo config will be added here soon.
 
+## Known problems
+
+Some parts of the CometVisu need a PHP runtime. As this is not included in Jetty, the following parts do not work:
+* Editor
+* Configuration check
+* Configuration upgrade (only needed if you upgrade your CometVisu to a new release)
+
+Currently the only workaround is to build, edit and maintain your CometVisu configuration manually with an XML editor of your choice.
+
 ## Screenshots
 
 will be available soon, meanwhile some screenshots can be found here:
