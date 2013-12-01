@@ -34,8 +34,14 @@ Note: This information ist taken from [here](http://www.cometvisu.de/wiki/index.
 
 ## Configuration
 
-An example configuration for openHAB´s demo config will be added here soon.
-A short introduction is given in [this](http://knx-user-forum.de/openhab/31089-openhab-mit-cometvisu.html) thread.
+This is a first small sample implementation. Actually only the items below are implemented:
+* number
+* switch
+* contact
+* dimmer
+
+Please feel free to add more items.
+
 
 ## Known problems
 
