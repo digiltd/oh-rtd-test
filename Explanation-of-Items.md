@@ -5,6 +5,7 @@ Items Definition
 - Items are objects that can be read from or written to in order to interact with them.
 
 - Items can be bound to bindings i.e. for reading the status from e.g. KNX or for updating them.
+  Read the wiki page for the respective binding for more help and examples.
 
 - Items can be defined in files in folder `${openhab_home}/configurations/items`.
 
@@ -38,7 +39,7 @@ The following item types are currently available (alphabetical order):
 <table>
   <tr><td><b>Itemname</b></td><td><b>Description</b></td><td><b>Command Types</b></td></tr>
   <tr><td>Color</td><td>Color information (RGB)</td><td>OnOff, IncreaseDecrease, Percent, HSB</td></tr>
-  <tr><td>Contact</td><td>Item storing status of e.g. door/window contacts</td><td>-</td></tr>
+  <tr><td>Contact</td><td>Item storing status of e.g. door/window contacts</td><td>OpenClose</td></tr>
   <tr><td>DateTime</td><td>Stores date and time</td><td></td></tr>
   <tr><td>Dimmer</td><td>Item carrying a percentage value for dimmers</td><td>OnOff, IncreaseDecrease, Percent</td></tr>
   <tr><td>Group</td><td>Item to nest other items / collect them in groups</td><td>-</td></tr>
