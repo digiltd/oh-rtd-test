@@ -7,7 +7,7 @@ Binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, 
 Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo (KlikAanKlikUit), Oregon e.o. <br>
 See further information from http://www.rfxcom.com
 
-RFXCOM binding support currently TemperatureHumidity, Lighting1, Lighting2 and Curtain1 packet types. 
+RFXCOM binding support currently TemperatureHumidity, Lighting1, Lighting2 ,Curtain1 & Thermostat1 packet types. 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -25,9 +25,10 @@ First of all you need to configure the following values in the openhab.cfg file 
     # E.g. rfxcom:setMode=0D000000035300000C2F00000000 
     rfxcom:setMode=
 
-The `rfxcom:serialPort` value is the identification of the serial port on the host system where RFXCOM controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
+The `rfxcom:serialPort` value is the identification of the serial port on the host system where RFXCOM controller is connected, e.g. 
+"COM1" on Windows,"/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
 
-The `rfxcom:setMode` value is is optional. Set mode command can be used to configure RFXCOM controller to listening various receiver protocols. This is very useful because the receiver will become more sensitive when protocols not used are disabled. You can use RFXmngr application to configure controller and get valid configuration command. Command must be 28 characters (14 bytes) hexadecimal string.
+The `rfxcom:setMode` value is optional. Set mode command can be used to configure RFXCOM controller to listening to various receiver protocols. This is very useful because the receiver will become more sensitive when none required protocols are disabled. You can use the RFXmngr application to configure the controller and get the valid configuration command. Command must be a 28 characters (14 bytes) hexadecimal string.
 
 ## Item Binding Configuration
 
@@ -60,8 +61,15 @@ Examples, how to configure your items:
     String Btn2RawData { rfxcom="<636602.2:RawData" }
     Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
     Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
+    
+    SECURITY1.X10_SECURITY_MOTION packet example
     Switch swMotion { rfxcom="<4541155:Motion" }
-    Number MSensor_Bat {rfxcom="<4541155:BatteryLevel" }    	
+    Number MSensor_Bat {rfxcom="<4541155:BatteryLevel" }
+
+    THERMOSTAT1 packet example
+    Number RFXTemp_Living { rfxcom=<30515:Temperature" 
+    Number RFXTemp_LivingSP { rfxcom="<30515:SetPoint" }
+    Contact RFXTemp_LivingRoom_Stat { rfxcom="<30515:Contact" }     	
 
 `PacketType.SubType` specify packet and sub type information ...
 
@@ -90,6 +98,7 @@ Examples, how to configure your items:
   <tr><td>TEMPERATUREHUMIDITY.<br>WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Untested</td><td></td></tr>
   <tr><td>SECURITY1.X10_SECURITY_MOTION</td><td>tested and working</td><td>Motion</td></tr>
+  <tr><td>THERMOSTAT1</td><td>Digimax 210 working</td><td>Temperature, SetPoint, Contact</td></tr>
 </table>
 
 `ValueSelector` specify ...
@@ -106,4 +115,6 @@ Examples, how to configure your items:
   <tr><td>BatteryLevel</td><td>NumberItem</td><td></td></tr>
   <tr><td>Shutter</td><td>RollershutterItem</td><td>OPEN, CLOSE, STOP</td></tr>
   <tr><td>Motion</td><td>SwitchItem</td><td>MOTION, NO_MOTION</td></tr>
+  <tr><td>Voltage</td><td>NumberItem</td><td></td></tr>
+  <tr><td>SetPoint</td><td>NumberItem</td><td></td></tr>
 </table>
