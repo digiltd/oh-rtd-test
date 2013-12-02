@@ -21,6 +21,7 @@ Community
   * [[iOS Client|iOS-UI]]
   * [[Android Client|HABDroid]]
   * [[GreenT UI|TouchUI]]
+  * [[CometVisu|Comet-Visu]]
  * [[Bindings]]
   * [[Asterisk Binding|Asterisk-Binding]]
   * [[Bluetooth Binding|Bluetooth-Binding]]
@@ -90,7 +91,6 @@ Community
   * [[Twitter Action|Twitter-Action]]
   * [[Service Discovery|Service-Discovery]]
   * [[Dropbox Bundle|Dropbox-IO]]
-  * [[CometVisu|Comet-Visu]]
 
 Samples
  * [[Item definitions|Samples-Item-Definitions]]
