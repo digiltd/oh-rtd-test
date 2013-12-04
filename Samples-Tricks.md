@@ -756,7 +756,7 @@ Currently there is no openHAB-Binding available which allows for activation or d
 
 **How it works**
 
-In order to control a Fritz!Box WLAN a little Perl program named “fritzwlan.pl” has been written. It can be executed directly from the command line and uses the telnet protocol to retrieve the current status or turn the WLAN on or off.  Of course, the telnet-daemon on your Fritz!Box has to be activated beforehand. Since fritzwlan.pl works like any other shell command, it can be called by openHAB via the Exec-binding. The whole construct is simply like this:
+In order to control a Fritz!Box WLAN a little Perl program named [fritzwlan.pl](http://www.hoerndlein.de/cms/attachments/fritzwlan.pl) has been written. It can be executed directly from the command line and uses the telnet protocol to retrieve the current status or turn the WLAN on or off.  Of course, the telnet-daemon on your Fritz!Box has to be activated beforehand. Since fritzwlan.pl works like any other shell command, it can be called by openHAB via the Exec-binding. The whole construct is simply like this:
 
 _openHAB  &hArr; Exec-Binding &hArr; fritzwlan.pl &hArr; Fritz!Box_
 
