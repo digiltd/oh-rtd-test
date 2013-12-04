@@ -782,5 +782,13 @@ libnet-telnet-perl –package and can be installed with the following command:
 ```sh
 apt-get install libnet-telnet-perl
 ```
- 
+
+**Installation of fritzwlan.pl**
+
+The installation of fritzwlan.pl is quite simple: Just copy it to a path of your choice (e.g. /usr/local/scripts or whatever). Assuming it resides in /usr/local/scripts you can do a quick test by executing the following command:
+```sh
+/usr/local/scripts/fritzwlan.pl –help
+```
+&rArr; Some usage information about its correct invocation is shown.
+
 
