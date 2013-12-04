@@ -3,7 +3,6 @@ Integrating openHAB with other applications.
 * [Asterisk](Samples-Integration#integration)
 * [Zoneminder](Samples-Integration#zoneminder)
 * [Telldus Tellstick](Samples-Integration#telldus-tellstick)
-* [Fritz!Box WLAN](Samples-Integration#fritzbox-wlan)
 
 ## Integration
 
@@ -267,6 +266,3 @@ Tested on Ubuntu Server 13.04.
     except KeyboardInterrupt:
         pass
 ```
-### Fritz!Box WLAN
-
-creation of this article is currently ongoing...
