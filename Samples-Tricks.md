@@ -791,4 +791,15 @@ The installation of fritzwlan.pl is quite simple: Just copy it to a path of your
 ```
 &rArr; Some usage information about its correct invocation is shown.
 
+Now it is time trying to switch on/off  the WLAN or querying the state. Assuming your Fritz!Box is password protected and has the IP 192.168.178.1 you could use the following commands for status/switching on/switching off:
+```sh
+/usr/local/scripts/fritzwlan.pl  192.168.178.1 password status
+/usr/local/scripts/fritzwlan.pl  192.168.178.1 password on
+/usr/local/scripts/fritzwlan.pl  192.168.178.1 password off
+```
+Please note, it might take a few seconds until the WLAN reaches the desired state. For further information check the output of 
+```sh
+/usr/local/scripts/fritzwlan.pl –help
+```
+
 
