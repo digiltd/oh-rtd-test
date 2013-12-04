@@ -745,7 +745,7 @@ Just put that file in {openhab_root}/server/plugins/ and delete the original fil
 
 **Introduction**
 
-Currently there is no openHAB-Binding available which allows for activation or deactivation of a Fritz!Box WLAN. The method here is a kind of workaround which fills this gap. It works reliable and has been tested with openHAB running on Debian-Linux with the following Fritz!Boxes:
+Currently there is no openHAB-Binding available which allows for activation or deactivation of a Fritz!Box WLAN. The method here is a kind of workaround which fills this gap. It works reliably and has been tested with openHAB running on Debian-Linux with the following Fritz!Boxes:
 
 * Fritz!Box 7390
 * Fritz!Box 7170
