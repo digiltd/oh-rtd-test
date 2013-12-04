@@ -267,3 +267,4 @@ Tested on Ubuntu Server 13.04.
     except KeyboardInterrupt:
         pass
 ```
+### Fritz!Box WLAN
