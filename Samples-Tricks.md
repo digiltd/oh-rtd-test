@@ -742,3 +742,45 @@ The newer **unstable** nrjavaserial **3.9.1** is needed for the qoric cpu of the
 Just put that file in {openhab_root}/server/plugins/ and delete the original file {openhab_root}/server/plugins/org.openhab.io.transport.serial...
 
 ### How to use openHAB to activate or deactivate your Fritz!Box-WLAN
+
+Creation of this article is currently ongoing
+
+**Introduction**
+
+Currently there is no openHAB-Binding available which allows for activation or deactivation of a Fritz!Box WLAN. The method here is a kind of workaround which fills this gap. It works reliable and has been tested with openHAB running on Debian-Linux with the following Fritz!Boxes:
+
+* Fritz!Box 7390
+* Fritz!Box 7170
+* fritzed Speedport  W 900V
+* other types might work as well but have not been  tested 
+
+**How it works**
+
+In order to control a Fritz!Box WLAN a little Perl program named “fritzwlan.pl” has been written. It can be executed directly from the command line and uses the telnet protocol to retrieve the current status or turn the WLAN on or off.  Of course, the telnet-daemon on your Fritz!Box has to be activated beforehand. Since fritzwlan.pl works like any other shell command, it can be called by openHAB via the Exec-binding. The whole construct is simply like this:
+
+_openHAB  <=> Exec-Binding <=> fritzwlan.pl <=> Fritz!Box_
+
+So what we need on top of a working openHAB installation is the following:
+* activation of telnetd on the Fritz!Box 
+* installation of Perl module Net::Telnet
+* installation of fritzwlan.pl 
+* installation of openHABs Exec-Binding
+* an entry in the items-File
+* an entry in the sitemap-File (optional)
+
+**Activation of telnetd on the Fritz!Box**
+
+Using your Fritz!Box connected handheld phone is probably the easiest way to activate the telnet daemon on your Fritz!box. Just dial
+
+ #96*7* for activation<br>
+ #96*7* for deactivation
+
+**Installation of Perl module Net::Telnet**
+
+fritzwlan.pl  requires Net::Telnet to function. On Debian systems this module comes with the
+libnet-telnet-perl –package and can be installed with the following command:
+```sh
+apt-get install libnet-telnet-perl
+```
+ 
+
