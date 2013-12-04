@@ -743,8 +743,6 @@ Just put that file in {openhab_root}/server/plugins/ and delete the original fil
 
 ### How to use openHAB to activate or deactivate your Fritz!Box-WLAN
 
-Creation of this article is currently ongoing
-
 **Introduction**
 
 Currently there is no openHAB-Binding available which allows for activation or deactivation of a Fritz!Box WLAN. The method here is a kind of workaround which fills this gap. It works reliable and has been tested with openHAB running on Debian-Linux with the following Fritz!Boxes:
@@ -822,5 +820,6 @@ Optionally you can use entries similar to ones below in your sitemap file to pla
 Switch item=WLAN7390		label="Fritzbox 7390 WLAN"        icon="network"
 Switch item=WLANSpeedport	label="Speedport W900V WLAN"      icon="network"
 ```
+
 
 
