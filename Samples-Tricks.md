@@ -11,6 +11,7 @@ Miscellaneous Tips & Tricks
 * [Extract caller and called number from Fritzbox Call object](Samples-Tricks#extract-caller-and-called-number-from-fritzbox-call-object)
 * [Item loops with delay](Samples-Tricks#item-loops-with-delay)
 * [enocean binding on Synology DS213+ (kernel driver package)](Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package)
+* [How to use openHAB to activate or deactivate your Fritz!Box-WLAN](Samples-Tricks#how-to-use-openhab-to-activate-or-deactivate-your-fritzbox-wlan)
 
 ### How to redirect your log entries to the syslog
 
