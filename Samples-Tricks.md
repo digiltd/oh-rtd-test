@@ -819,7 +819,7 @@ Switch WLANSpeedport            "Speedport WLAN"                <network>       
 
 Optionally you can use entries similar to ones below in your sitemap file to place frontend elements to the desired position or to redefine things like labels or icons:
 ```sh
-Switch item=WLAN7390	 label="Fritzbox 7390 WLAN"             icon="network"
+Switch item=WLAN7390		label="Fritzbox 7390 WLAN"        icon="network"
 Switch item=WLANSpeedport	label="Speedport W900V WLAN"      icon="network"
 ```
 
