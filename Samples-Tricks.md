@@ -739,3 +739,5 @@ OpenHab 1.3.1 comes with the latest stable version of [nrjavaserial 3.8.8]
 It's in {openhab_root}/server/plugins/org.openhab.io.transport.serial  
 The newer **unstable** nrjavaserial **3.9.1** is needed for the qoric cpu of the DS213+ and included in the (otherwise unchanged) [org.openhab.io.transport.serial_1.3.1.201309182025.jar](https://www.hofrichter.at/sspks/packages/org.openhab.io.transport.serial_1.3.1.201309182025.jar).  
 Just put that file in {openhab_root}/server/plugins/ and delete the original file {openhab_root}/server/plugins/org.openhab.io.transport.serial...
+
+### How to use openHAB to activate or deactivate your Fritz!Box-WLAN
