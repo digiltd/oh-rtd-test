@@ -801,5 +801,17 @@ Please note, it might take a few seconds until the WLAN reaches the desired stat
 ```sh
 /usr/local/scripts/fritzwlan.pl –help
 ```
+**Installation of openHABs Exec-Binding**
 
+If not already installed, simply copy the jar file of the Exec-Binding to openHABs addons-directory. 
+
+**An entry in the items-File**
+
+In the following example the lower case words “fritzbox” and “speedport” are resolvable hostnames for respective devices. The second example additionally uses the knx-binding. This allows to turn WLAN for WLANSpeedport on or off via KNX.
+
+```sh
+Switch WLAN7390                 "Fritzbox 7390 WLAN"            <network>       (Netzwerk)              { exec="<[/usr/local/scripts/fritzwlan.pl fritzbox password status:300000:REGEX((.*?))] >[ON:/usr/local/scripts/fritzwlan.pl fritzbox password on] >[OFF:/usr/local/scripts/fritzwlan.pl fritzbox password off]" }
+
+Switch WLANSpeedport            "Speedport WLAN"                <network>       (Netzwerk)              { knx="4/4/0", exec="<[/usr/local/scripts/fritzwlan.pl speedport password status:300000:REGEX((.*?))] >[ON:/usr/local/scripts/fritzwlan.pl speedport password on] >[OFF:/usr/local/scripts/fritzwlan.pl speedport password off]" }
+```
 
