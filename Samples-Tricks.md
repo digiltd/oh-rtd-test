@@ -815,3 +815,12 @@ Switch WLAN7390                 "Fritzbox 7390 WLAN"            <network>       
 Switch WLANSpeedport            "Speedport WLAN"                <network>       (Netzwerk)              { knx="4/4/0", exec="<[/usr/local/scripts/fritzwlan.pl speedport password status:300000:REGEX((.*?))] >[ON:/usr/local/scripts/fritzwlan.pl speedport password on] >[OFF:/usr/local/scripts/fritzwlan.pl speedport password off]" }
 ```
 
+**An entry in the sitemap-File (optional)**
+
+Optionally you can use entries similar to ones below in your sitemap file to place frontend elements to the desired position or to redefine things like labels or icons:
+```sh
+Switch item=WLAN7390	 label="Fritzbox 7390 WLAN"             icon="network"
+Switch item=WLANSpeedport	label="Speedport W900V WLAN"      icon="network"
+```
+
+
