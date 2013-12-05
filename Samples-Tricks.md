@@ -771,7 +771,7 @@ So what we need on top of a working openHAB installation is the following:
 Using your Fritz!Box connected handheld phone is probably the easiest way to activate the telnet daemon on your Fritz!box. Just dial
 
  #96*7* for activation<br>
- #96*7* for deactivation
+ #96*8* for deactivation
 
 **Installation of Perl module Net::Telnet**
 
@@ -785,7 +785,7 @@ apt-get install libnet-telnet-perl
 
 The installation of fritzwlan.pl is quite simple: Just copy it to a path of your choice (e.g. /usr/local/scripts or whatever). Assuming it resides in /usr/local/scripts you can do a quick test by executing the following command:
 ```sh
-/usr/local/scripts/fritzwlan.pl –help
+/usr/local/scripts/fritzwlan.pl help
 ```
 &rArr; Some usage information about its correct invocation is shown.
 
@@ -797,7 +797,7 @@ Now it is time trying to switch on/off  the WLAN or querying the state. Assuming
 ```
 Please note, it might take a few seconds until the WLAN reaches the desired state. For further information check the output of 
 ```sh
-/usr/local/scripts/fritzwlan.pl –help
+/usr/local/scripts/fritzwlan.pl help
 ```
 **Installation of openHABs Exec-Binding**
 
