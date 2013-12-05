@@ -9,6 +9,7 @@ Samples for Rules
 * [How to use Colorpicker widget with KNX/DALI RGB LED STRIPE](Samples-Rules#how-to-use-colorpicker-widget-with-knxdali-rgb-led-stripe)
 * [How to log current timestamp to the openHAB log file](Samples-Rules#how-to-log-current-timestamp-to-the-openhab-log-file)
 * [Irrigation controller](Samples-Rules#irrigation-controller)
+* [Fire detection](Samples-Rules#fire-detection)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -713,4 +714,48 @@ Rules
     			postUpdate(Irrigation_Master, ON)
     		}
     	}
+    end
+
+### Fire detection
+
+This rule will check all temperature sensors in an item group to see if any exceed a specified threshold (in my case 45oC). This means you can add/remove temperature sensors to your config whenever you like and be confident that they will all be monitored by this rule.
+
+If the rule is triggered an alarm item is set, which can send notifications or activate a siren. In my case I turn on all lights in my house, to help any occupants find a way out!
+
+Items
+
+    Group    SensorTemperature    "Temperatures"    <temperature>
+
+    Number   Sensor_Temperature1  "Bedroom [%.1f °C]"    <temperature> (SensorTemperature) { <some-binding> }
+    Number   Sensor_Temperature2  "Kitchen [%.1f °C]"    <temperature> (SensorTemperature) { <some-binding> }
+    Number   Sensor_Temperature3  "Living [%.1f °C]"     <temperature> (SensorTemperature) { <some-binding> }
+
+Rules
+
+    rule "Fire detection"
+    when
+        Item SensorTemperature received update
+    then
+        // check for any temperature sensors in the house that are very high
+        if (SensorTemperature.members.filter(s | s.state > 45).size > 0) {        
+            if (Alarm_Fire.state == OFF) {
+                logInfo("sensor.rules", "Fire alarm tripped by temperature sensor!")
+                Alarm_Fire.postUpdate(ON)
+            }    	
+        }
+    end
+
+    rule "Fire alarm"
+    when
+        Item Alarm_Fire received update ON
+    then
+        // turn on all lights
+        callScript("lights_on")
+    
+        // send notifications
+        notifyMyAndroid("Security", "FIRE alarm has been tripped!!!", 2)
+        sendTweet("*** FIRE alarm - someone call the fire dept!!! ***")
+    
+        // send an email
+        sendMail("ben@home.com", "FIRE ALARM!!", "The fire alarm has been activated!!!")
     end
