@@ -10,6 +10,7 @@ Samples for Rules
 * [How to log current timestamp to the openHAB log file](Samples-Rules#how-to-log-current-timestamp-to-the-openhab-log-file)
 * [Irrigation controller](Samples-Rules#irrigation-controller)
 * [Fire detection](Samples-Rules#fire-detection)
+* [Hager KNX roller shutter actor position feedback](Samples-Rules#hager-knx-roller-shutter-actor-position-feedback)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -761,7 +762,7 @@ Rules
     end
 
 
-### Hager KNX actor roller shutter actor position feedback
+### Hager KNX roller shutter actor position feedback
 
 Some Hager actors have have an unusual feedback object for position and alarms. With this rule the position of the roller shutter is set according to the state of the feedback object:
 
