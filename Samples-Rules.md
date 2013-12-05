@@ -759,3 +759,35 @@ Rules
         // send an email
         sendMail("ben@home.com", "FIRE ALARM!!", "The fire alarm has been activated!!!")
     end
+
+
+### Hager KNX actor roller shutter actor position feedback
+
+Some Hager actors have have an unusual feedback object for position and alarms. With this rule the position of the roller shutter is set according to the state of the feedback object:
+
+Rules
+
+    rule "Set Status Study"
+    when
+        Item Rollershutter_Study_Feedback received update
+    then
+        //Bit 0+1: Position 00=Intermediate position, 01=Upper end position, 10 =Lower end position
+        //Bit 2-4: 000=Normal, 001=Forced control, 010=Wind alarm, 011=Rain alarm, 100=Blocked 
+     
+        var State = Rollershutter_Study_Feedback.state as DecimalType
+        var Pos   = State.toBigDecimal.toBigInteger.intValue.bitwiseAnd(0x03)
+ 
+       if (Pos == 00)  {
+                Rollershutter_Study.state = new PercentType(50)
+        } else if (Pos == 01) {
+                Rollershutter_Study.state = new PercentType(0)
+        } else if (Pos == 02) {
+                Rollershutter_Study.state = new PercentType(100)
+        }
+    end
+
+
+Items
+
+    Rollershutter_Study_Feedback: The feedback object of the KNX actor
+    Rollershutter_Study: The "normal" roller shutter item.
