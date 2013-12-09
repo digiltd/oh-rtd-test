@@ -19,6 +19,7 @@ This example sends the current date and time from the NTP to the KNX binding
 **Items**: 
 
   0/0/1 is the GA for Date
+
   0/0/2 is the GA for Time
 
 Additional information on date and time formatting can be found 
