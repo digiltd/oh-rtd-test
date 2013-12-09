@@ -14,7 +14,7 @@ This page contains samples for binding configurations. These samples are sorted 
 
 This example sends the current date and time from the NTP to the KNX binding
 
-    DateTime Date "Date & Time [%1$td.%1$tm.%1$tY %1$tT]" { ntp="Europe/Berlin:de_DE", knx="11.001:0/7/1, 10.001:0/7/2" } 
+    DateTime Date "Date & Time [%1$td.%1$tm.%1$tY %1$tT]" { ntp="Europe/Berlin:de_DE", knx="11.001:0/0/1, 10.001:0/0/2" } 
 
 **Items**: 
 
