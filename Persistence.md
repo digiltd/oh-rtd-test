@@ -47,9 +47,9 @@ Items {
 }
 ```
 where `<itemlist>` is a comma-separated list of the following options:
-- `**` - this line should apply to all items in the system.
+- `*` - this line should apply to all items in the system.
 - `<itemName>` - a single item identified by its name. This item can be a group item, but note that only its own (group) value will be persisted, not the states of its members.
-- `<groupName>**` - all members of this group will be persisted, but not the group itself.
+- `<groupName>*` - all members of this group will be persisted, but not the group itself.
   If no strategies are provided, the default strategies that are declared in the first section are used.
   An alias can be optionally provided, if the persistence service requires special names (e.g. a table to use in a database, a feed id for an IoT-service etc.) 
 
