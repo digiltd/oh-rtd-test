@@ -22,7 +22,7 @@ First you need to let openHAB know where to find your Squeeze Server and each of
     [squeeze:server.webport=9000]
     
     # Squeezebox players/devices
-    squeeze:<player-id>=<mac-address-of-player A:B:C:D:E:F>
+    squeeze:<player-id>.id=<mac-address-of-player A:B:C:D:E:F>
 
 NOTE: the `player-id` will be used in both the binding item configs and the action calls to defined which of your Squeezebox devices to communicate with.
 
@@ -72,10 +72,10 @@ As a result, your lines in the items file might look like the following:
 
     Dimmer sq_test_volume 	   "Volume [%.1f %%]"	{ squeeze="player1:volume" }
     String sq_test_title	   "Title [%s]"		{ squeeze="player1:title" }
-    Number sq_test_play        "Play"		{ squeeze="player1:play" }
+    Switch sq_test_play        "Play"		{ squeeze="player1:play" }
 
 NOTE: when binding the 'play' command to a switch item you will trigger 'play' when the item receives the ON command. It will also trigger 'stop' when the item receives the OFF command. The same applies for 'stop' and 'pause' except ON=>stop/pause and OFF=>play. This is so you can setup a single item for controlling play/stop by defining mappings in your sitemap:
 
-    Switch item=sq_test_play mapppings=[ON="Play", OFF="Stop"]
+    Switch item=sq_test_play mappings=[ON="Play", OFF="Stop"]
 
 And whenever the player state is changed from outside of openHAB these items will be updated accordingly, since there is now no longer a separate item for 'play' and 'isPlaying'.
