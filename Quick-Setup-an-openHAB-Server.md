@@ -90,4 +90,4 @@ NOTE: Items and sitemap may be changed in runtime as needed.
 
 ## Go test it!
 
-openHAB comes with a built-in user interface. It works on most browsers like Firefox, Chrome, Safari, etc. Point your browser to `http://localhost:8080/openhab.app?sitemap=demo` and you should be looking at your sitemap.
+openHAB comes with a built-in user interface. It works on all webkit-based browsers like Chrome, Safari, etc. Point your browser to `http://localhost:8080/openhab.app?sitemap=demo` and you should be looking at your sitemap.
