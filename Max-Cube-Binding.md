@@ -65,7 +65,7 @@ To receive the valve position of a heating thermostat, the type for the desired 
 
 The battery state of a device can be requested using the _battery_ type in the corresponding binding configuration. 
 
-    Number Heating_Max_Valve "Thermostat Battery [%s]" (MyGroup) { maxcube="JEQ0336148:type=battery" }
+    String Heating_Max_Valve "Thermostat Battery [%s]" (MyGroup) { maxcube="JEQ0336148:type=battery" }
 
 ![MAX! Binding Battery State](https://dl.dropboxusercontent.com/u/7347332/web/max_battery.png)
 
