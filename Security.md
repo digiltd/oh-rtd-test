@@ -17,7 +17,10 @@ openHAB supports HTTPS out of the box. Just point your browser to
 
 `https://127.0.0.1:8443/openhab.app?sitemap=demo#` 
 
-and the HTTP communication will be encrypted by SSL. If one would like to add his own certificates please refer to http://wiki.eclipse.org/Jetty/Howto/Configure_SSL for more information or check out the post at https://gist.github.com/jpmens/8029383 which has a step-by-step guide specifically for openHAB users.
+and the HTTP communication will be encrypted by SSL. 
+
+If you prefer to use your own X.509 certificates, you can. [Configure_SSL](http://wiki.eclipse.org/Jetty/Howto/Configure_SSL) has information on how to do that, and there's a
+[step-by-step guide](https://gist.github.com/jpmens/8029383) specifically for openHAB users.
 
 ## Authentication
 
