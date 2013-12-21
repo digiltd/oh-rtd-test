@@ -37,7 +37,7 @@ Community
   * [[Homematic Binding|Homematic-Binding]]
   * [[HTTP Binding|Http-Binding]]
   * [[IHC / ELKO Binding|IHC-Binding]]
-  * [[Insteon Binding|Insteon-Binding]]
+  * [[Insteon Hub Binding|Insteon-Hub-Binding]]
   * [[KNX Binding|KNX-Binding]]
   * [[Koubachi Binding|Koubachi-Binding]]
   * [[MAX!Cube Binding|Max-Cube-Binding]]
