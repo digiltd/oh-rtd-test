@@ -49,17 +49,17 @@ channelNumber 6 controlls all RGBW bulbs, channelNumber 7 to 10 controlls the ch
 The deviceCommand corresponds to the way you want to control your Milight bulbs.
 
 These are valid command types for white bulbs:
-    brightness		controls the brightness of your bulbs
-    colorTemperature	changes from cold white to warm white and vice versa
-    nightMode		dimms your bulbs to a very low level to use them as a night light
+    brightness	         controls the brightness of your bulbs
+    colorTemperature     changes from cold white to warm white and vice versa
+    nightMode	         dimms your bulbs to a very low level to use them as a night light
 
 And these are the command types for rgb bulbs:
-    rgb			changes the color and brightness of your rgb bulbs
-    discoMode		changes the discoMode for rgb bulbs
-    discoSpeed		changes the speed of your chosen discoMode
+    rgb			 changes the color and brightness of your rgb bulbs
+    discoMode		 changes the discoMode for rgb bulbs
+    discoSpeed		 changes the speed of your chosen discoMode
 
 The following command type will be available with version 1.4.0 :
-    whiteMode           sets RGBW bulbs to white mode
+    whiteMode            sets RGBW bulbs to white mode
 
 Limitations:
 The rgb bulbs do not support changing their saturation, so the colorpicker will only set the hue and brightness of it.
