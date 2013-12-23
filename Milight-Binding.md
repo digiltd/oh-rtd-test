@@ -25,7 +25,7 @@ First of all you need to introduce your Milight bridge(s) in the openhab.cfg fil
 
 The `milight:<MilightId1>.host` value is the ip address of the Milight bridge.
 
-The `milight:<MilightId1>.port` value is UDP port address of the Milight bridge. Port value is an optional parameter.
+The `milight:<MilightId1>.port` value is UDP port address of the Milight bridge. Port value is an optional parameter but has to be changed for the V3.0 version of milight bridge.
 
 Examples, how to configure your receiver device:
 
@@ -37,11 +37,14 @@ Examples, how to configure your receiver device:
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
     milight="<deviceId>;<channelNumber>;<commandType>"
-where `<commandType>` is optional for switch items.
+where `<commandType>` is optional for switch items, unless you want to use commandType nightMode or whiteMode.
 
 The device-id corresponds to the bridge which is defined in openhab.cfg.
 
 The channelNumber corresponds to the bulbs/channels on your bridge, where 0 reflects all white bulbs, 1-4 white bulb channels 1-4 and 5 all rgb bulbs.
+
+With upcoming version 1.4.0 of openHAB, milight binding supports the new API V3.0 and the RGBW bulbs.
+channelNumber 6 controlls all RGBW bulbs, channelNumber 7 to 10 controlls the channels individually.
 
 The deviceCommand corresponds to the way you want to control your Milight bulbs.
 
@@ -54,6 +57,9 @@ And these are the command types for rgb bulbs:
     rgb			changes the color and brightness of your rgb bulbs
     discoMode		changes the discoMode for rgb bulbs
     discoSpeed		changes the speed of your chosen discoMode
+
+The following command type will be available with version 1.4.0 :
+    whiteMode           sets RGBW bulbs to white mode
 
 Limitations:
 The rgb bulbs do not support changing their saturation, so the colorpicker will only set the hue and brightness of it.
@@ -77,3 +83,5 @@ sitemap:
 
     Switch item=DiscoMode mappings=[DECREASE='-', INCREASE='+']
     Switch item=DiscoSpeed mappings=[DECREASE='-', INCREASE='+']
+
+Disco Mode for RGBW bulbs can only be stepped in one direction, so please use INCREASE command only for those with openHAB version 1.4.0.
