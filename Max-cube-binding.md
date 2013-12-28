@@ -1,0 +1,1 @@
+[old documentation](http://code.google.com/p/openhab/wiki/MaxCubeBinding)
