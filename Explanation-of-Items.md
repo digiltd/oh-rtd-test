@@ -57,7 +57,7 @@ The item name is the unique name of the object which is used e.g. in the sitemap
 
 The label text is used on the one hand side to display a description for the specific item e.g. in the sitemap, on the other hand to format the output of number or string item types.
 
-Formatting is done applying [http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html standard Java formatter class syntax](]).
+Formatting is done applying [standard Java formatter class syntax](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html).
 
 **Example:**
 
