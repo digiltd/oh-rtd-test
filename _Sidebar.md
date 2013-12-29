@@ -40,7 +40,7 @@ Community
   * [[Insteon Hub Binding|Insteon-Hub-Binding]]
   * [[KNX Binding|KNX-Binding]]
   * [[Koubachi Binding|Koubachi-Binding]]
-  * [[MAX!Cube Binding|Max-Cube-Binding]]
+  * [[MAX!Cube-Binding]]
   * [[MiLight Binding|Milight-Binding]]
   * [[Modbus TCP Binding|Modbus-Tcp-Binding]]
   * [[MPD Binding|Mpd-Binding]]
