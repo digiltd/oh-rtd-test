@@ -22,7 +22,7 @@ where `<direction>` is one of the following values:
 - < - for inbound-triggered communication, whereby the openHAB runtime will act as a server and listen for incoming connections from the specified `<ip address>:<port>`
 - > - for outbound-triggered communication, whereby the openHAB runtime will act as a client and establish an outbound connection to the specified `<ip address>:<port>`
 
-where `<command>` is the openHAB command  
+where `<command>` is the openHAB command. For String Items `<command>`: can be omitted  
 
 where `<ip address>` is the hostname or ip address in dotted notation of the remote host
 
