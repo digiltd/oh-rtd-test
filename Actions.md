@@ -57,6 +57,7 @@ This add-on provides SMTP services (please check openhab.cfg for required config
 This add-on provides XMPP communication. Besides the action methods itself, it also contains the XMPP console (please check openhab.cfg for required configuration settings):
 - `sendXMPP(String to, String message)`: Sends a message to an XMPP user
 - `sendXMPP(String to, String message, String attachmentUrl)`: Sends a message with an attachment to an XMPP user
+- `chatXMPP(String message)`: Sends a message to an multi user chat
 
 **Prowl Action**
 
