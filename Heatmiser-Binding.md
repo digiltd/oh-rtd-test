@@ -50,3 +50,18 @@ The following parameters, and their associated item types are shown below. The R
 | HEATSTATE     | Switch, String   | RO Returns ON or OFF if the thermostat is currently heating |
 | STATE         | Switch, String   | RO This is a consolidated thermostat state and maybe one of the following - OFF, ON, HOLD, HOLIDAY |
 | ONOFF         | Switch, String   | RW Returns ON or OFF if the thermostat is enabled or not |
+
+
+## Example Sitemap
+Below is an example sitemap for a Heatmiser thermostat. This includes conditional visibility of items dependant on the thermostat state.
+
+    Frame label="Lounge Thermostat" {
+        Switch item=LoungeThermostat_Enable label="Lounge Thermostat Enable" 			
+        Text item=LoungeThermostat_HeatState visibility=[LoungeThermostat_State==ON,LoungeThermostat_State==HOLD]
+        Text item=LoungeThermostat_HolidayTime visibility=[LoungeThermostat_State==HOLIDAY]
+        Setpoint item=LoungeThermostat_FrostTemp label="Lounge Frost Temperature [%d °C]" minValue=10 maxValue=18 step=1 visibility=[LoungeThermostat_State==HOLIDAY]
+        Setpoint item=LoungeThermostat_SetTemp label="Lounge Setpoint [%d °C]" minValue=14 maxValue=25 step=1 visibility=[LoungeThermostat_State==ON,LoungeThermostat_State==HOLD]
+        Text item=LoungeThermostat_FloorTemp valuecolor=[>28="red",>26.5="orange",>18="green", >16="orange", <=16="red"] 
+        Text item=LoungeThermostat_RoomTemp  valuecolor=[>28="red",>26.5="orange",>18="green", >16="orange", <=16="red"]
+        Setpoint item=LoungeThermostat_HolidaySet label="Lounge heating holiday days [%d]" minValue=0 maxValue=30 step=1
+    }
