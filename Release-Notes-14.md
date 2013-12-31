@@ -1,6 +1,4 @@
-## please note these release notes are subject to change
-
-Version 1.4 includes many new features, improvements and bug fixes.
+_**please note these release notes are subject to change**_
 
 Here is a detailed list of what this release brings on top of the previous openHAB 1.3.
 
