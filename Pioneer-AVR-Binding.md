@@ -15,9 +15,14 @@ Before configuring single items, the global device configuration needs to be set
      # Port of the Pioneer device to control (optional, defaults to 23)  
      pioneeravr:<Pioneer1>.port=23
 
-The pioneeravr:<Pioneer1>.host value is the ip address of the Pioneer AV receiver.
-The pioneeravr:<Pioneer1>.port value is TCP port address of the the receiver. Port value is an optional parameter.
+     # Switch for disabling the connection check (optional, defaults to 1)
+     pioneeravr:livingroom.checkconn=1
 
+The pioneeravr:Pioneer1.host value is the ip address of the Pioneer AV receiver.
+
+The pioneeravr:Pioneer1.port value is TCP port address of the the receiver. Port value is an optional parameter.
+
+The pioneeravr:Pioneer1.checkconn value controls wether the binding will check the TCP connection once every minute by polling the receivers power status. When the receiver is connected via a serial-to-ethernet converter, this polling was reported to wake up the receiver from standby mode. In most cases this option can be left away.
 
 Example:
 
