@@ -16,7 +16,7 @@ Before configuring single items, the global device configuration needs to be set
      pioneeravr:<Pioneer1>.port=23
 
      # Switch for disabling the connection check (optional, defaults to 1)
-     pioneeravr:livingroom.checkconn=1
+     pioneeravr:<Pioneer1>.checkconn=1
 
 The pioneeravr:Pioneer1.host value is the ip address of the Pioneer AV receiver.
 
