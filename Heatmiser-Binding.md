@@ -1,5 +1,7 @@
 Documentation of the Heatmiser binding Bundle
 
+_**Note:** This binding has not been released yet. However it is available in the [1.4 Daily Snapshot Builds](http://openhab.ci.cloudbees.com/job/openHAB/)._
+
 ## Introduction
 
 The Heatmiser binding allows you to control Heatmiser RS-422 network thermostats (also sold under other names). The binding communicates via TCP/IP to an RS-422 adaptor that links to the thermostats. 
