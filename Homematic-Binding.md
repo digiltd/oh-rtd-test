@@ -26,7 +26,7 @@ One of the cheaper alternatives is to use the Homematic LAN Adapter and the wind
 #### CUL
 
 The other cheaper alternative is the CUL stick. The CUL is an USB stick that can be used as a wireless transceiver. It ca be programmed to be used with a hughe amount of wireless protocols, under which you can find the homemtic protocol as well.
-Since the CUL is not natively supported by the binding, you need a program to translate the CUL data to the CCU XML RPC interface: homegear
+Since the CUL is not natively supported by the binding, you need a program to translate the CUL data to the CCU XML RPC interface: [Homegear](http://www.homegear.eu)
 
 We have reports from users that succesfully use both for their homemtic devices. Apparently security is still not supported.
 
