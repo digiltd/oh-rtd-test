@@ -45,15 +45,6 @@ openHAB must be configured with your google calendar of choice. The URL has to b
 - copy the given url and replace "basic" with "full"
 
 
-## Full text query
-
-In order to reduce the amount of events one may want to filter them. Please enhance the calendar URL with the query parameter "q" with the fulltext to be searched in the events.
-
-    https://www.google.com/calendar/feeds/jo@gmail.com/private/full?q=openHAB
-
-The URL above returns all events which contain the Text "openHAB"
-
-
 # Presence Simulation
 
 The GCal bundle can be used to realize a simple but effective Presence Simulation feature (thanks Ralf for providing the concept). Every single change of an item that belongs to a certain group is posted as new calendar entry in the future. By default each entry is posted with an offset of 14 days (If you'd like to change the offset please change the parameter `gcal:offset` in your `openhab.cfg`). Each calendar entry looks like the following:
