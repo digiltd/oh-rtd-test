@@ -40,3 +40,9 @@ The packages you want to update can be specified in the script. (see filelist, a
 You can also define file names to be excluded from the update process.
 
 https://code.google.com/p/openhab-samples/source/browse/scripts/openhab_get_snapshot_overwrite.sh?repo=wiki
+
+### Script 3
+
+Add-on to Script 1 to install & configure the latest master of [HABmin](https://github.com/cdjackson/HABmin) as well as the rev of openHAB selected.
+
+[openhab_habmin_get_snapshot.sh](https://code.google.com/p/openhab-samples/source/browse/scripts/openhab_habmin_get_snapshot.sh?repo=wiki)
