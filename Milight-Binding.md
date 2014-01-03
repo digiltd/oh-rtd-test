@@ -7,7 +7,7 @@ Documentation of the Milight binding bundle
 The openHAB Milight binding allows to send commands to multiple Milight bridges.
 For installation of the binding, please see Wiki page [[Bindings]].
 
-#API v3.0 additions for RGBW bulbs are available with openHAB release 1.4.0#
+##API v3.0 additions for RGBW bulbs are available with openHAB release 1.4.0
 
 ## Milight Binding Configuration in openhab.cfg
 
