@@ -1,0 +1,3 @@
+WIKI page for the Mqttitude binding...
+
+https://github.com/openhab/openhab/wiki/MQTT-Binding#transport-configuration
