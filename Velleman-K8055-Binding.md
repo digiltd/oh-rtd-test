@@ -12,8 +12,8 @@ Before configuring single items, the global device configuration needs to be set
 
      ################################# Velleman K8055 Binding ######################################  
 
-     # refresh interval in milliseconds (optional, defaults to 60000ms, 60s)
-     #k8055:refresh=60000
+     # refresh interval in milliseconds (optional, defaults to 1000ms)
+     #k8055:refresh=1000
 
      # Board Number.
      #k8055:boardno=0
@@ -34,10 +34,10 @@ The syntax of the binding configuration strings accepted is the following:
 
 Where 
 * **IO-type** is one of:
-  DIGITAL_IN
-  DIGITAL_OUT
-  ANALOG_IN
-  ANALOG_OUT
+ * DIGITAL_IN - Supports _Contact_ Items
+ * DIGITAL_OUT - Supports _Switch_ Items
+ * ANALOG_IN - Supports _Number_ Items
+ * ANALOG_OUT - Supports _Dimmer_ Items
 
 * **IO-number** is the number (1-8) of the particular IO channel to bind to.
 
