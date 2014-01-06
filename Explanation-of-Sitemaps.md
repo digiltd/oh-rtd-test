@@ -166,7 +166,34 @@ Text item=Weather_Temperature valuecolor=[==22="green"]
 Text item=Weather_Temperature valuecolor=[Weather_Temperature==22="green"]
 ```
 
-The _"color"_ is passed directly through to the UI, so its exact implementation is up to the UI. It is generally expected that valid HTML colors can be used (eg "green", "red", "#334455") but a UI could for example define abstract colors that are defined internally depending on the theme. For example, "warning" could be defined and used in a UI dependant way, but there is currently no standardisation of these terms.
+
+
+openHAB supports a standard set of colors, based on the CSS definitions. This is a set of 17 colors that should be supported by any UI. The colors are defined by name, and within openHAB they are translated to the CSS color format (ie "#xxxxxx"). This should ensure a standard interface for these colors.
+
+Below is a list of the standard colors and their respective CSS definitions. Note that case is not important.
+
+| Name used in sitemap | Color provided in REST interface |
+|----------------------|----------------------------------|
+| MAROON  | #800000
+| RED     | #ff0000
+| ORANGE  | #ffa500
+| YELLOW  | #ffff00
+| OLIVE   | #808000
+| PURPLE  | #800080
+| FUCHSIA | #ff00ff
+| WHITE   | #ffffff
+| LIME    | #00ff00
+| GREEN   | #008000
+| NAVY    | #000080
+| BLUE    | #0000ff
+| AQUA    | #00ffff
+| TEAL    | #008080
+| BLACK   | #000000
+| SILVER  | #c0c0c0
+| GRAY    | #808080
+
+For any color other than those defined above, _"color"_ is passed directly through to the UI, so its exact implementation is up to the UI. It is generally expected that valid HTML colors can be used (eg "green", "red", "#334455") but a UI could for example define abstract colors that are defined internally depending on the theme. For example, "warning" could be defined and used in a UI dependant way, but there is currently no standardisation of these terms.
+
 
 **Examples**
 ```
