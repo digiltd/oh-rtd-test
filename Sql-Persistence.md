@@ -28,6 +28,10 @@ mysql:user=<your user here>
 
 # the database password
 mysql:password=<your password here>
+
+# optional tweaking of mysql datatypes
+# example as described in https://github.com/openhab/openhab/issues/710
+# mysql:sqltype.string=VARCHAR(20000)
 ```
 The database location, user and password need to be modified as per your database.
 
