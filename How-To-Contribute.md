@@ -34,7 +34,7 @@ To ensure code quality in our official repository, the project owners do code re
 
 - [Java naming conventions](http://java.about.com/od/javasyntax/a/nameconventions.htm) should be used.
 - Code formatting should be done according to the Eclipse built-in code formatter (preconfigured in the openHAB Yoxos profile)
-- Every Java file should have the standard [license header](http://openhab.googlecode.com/hg/src/etc/header.txt)
+- Every Java file should have the standard [license header](https://github.com/openhab/openhab/blob/master/src/etc/header.txt)
 - Every class, interface and enumeration should have JavaDoc describing its purpose and usage. @author and @since tags should be given here.
 - Every constant, field and method with default, protected or public visibility should have JavaDoc as well (optional, but encouraged for private visibility as well)
 - ImportPackage should be used in the manifest rather than RequireBundle
