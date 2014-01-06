@@ -82,7 +82,7 @@ NOTE: when binding the 'play' command to a switch item you will trigger 'play' w
 
 And whenever the player state is changed from outside of openHAB these items will be updated accordingly, since there is now no longer a separate item for 'play' and 'isPlaying'.
 
-Squeezebox binding can store the latest IR code (form the infrared remote) in a variable, which can be used to do some actions. Look at this rule:
+v1.4.0: Squeezebox binding can store the latest IR code (form the infrared remote) in a variable, which can be used to do some actions. Look at this rule:
 
     rule "IR Code catched"
     when
