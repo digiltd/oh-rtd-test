@@ -58,6 +58,7 @@ Where `player-id` matches one of the ids defined in your openhab.cfg file.
   <tr><td>genre</td><td>Genre name of the current song</td></tr>
   <tr><td>coverart</td><td>Address to cover art of the current song</td></tr>
   <tr><td>remotetitle</td><td>Title of radio station currently playing</td></tr>
+  <tr><td>ircode</td><td>String of the catched IR code</td></tr>
 </table>
 
 ## Examples
@@ -72,10 +73,28 @@ As a result, your lines in the items file might look like the following:
 
     Dimmer sq_test_volume 	   "Volume [%.1f %%]"	{ squeeze="player1:volume" }
     String sq_test_title	   "Title [%s]"		{ squeeze="player1:title" }
-    Switch sq_test_play        "Play"		{ squeeze="player1:play" }
+    Switch sq_test_play	   	   "Play"		{ squeeze="player1:play" }
+    String sq_test_ircode	   "IR-Code [%s]" 	{ squeeze="player1:ircode" }
 
 NOTE: when binding the 'play' command to a switch item you will trigger 'play' when the item receives the ON command. It will also trigger 'stop' when the item receives the OFF command. The same applies for 'stop' and 'pause' except ON=>stop/pause and OFF=>play. This is so you can setup a single item for controlling play/stop by defining mappings in your sitemap:
 
     Switch item=sq_test_play mappings=[ON="Play", OFF="Stop"]
 
 And whenever the player state is changed from outside of openHAB these items will be updated accordingly, since there is now no longer a separate item for 'play' and 'isPlaying'.
+
+Squeezebox binding can store the latest IR code (form the infrared remote) in a variable, which can be used to do some actions. Look at this rule:
+
+    rule "IR Code catched"
+    when
+        Item sq_test_ircode received update
+    then
+        if (sq_test_ircode.state=="00ff32cd") {
+            sendCommand(Licht_Schlafzimmer, ON)
+            logInfo("IR Code rules", "schalte Schlafzimmerlicht ein")
+        } else if (sq_test_ircode.state=="00ff708f") {
+            sendCommand(Licht_Schlafzimmer, OFF)
+            logInfo("IR Code rules", "schalte Schlafzimmerlicht aus")
+        }
+    end
+
+
