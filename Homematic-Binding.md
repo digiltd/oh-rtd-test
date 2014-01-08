@@ -97,48 +97,48 @@ If your device is not listed, please add an issue for it.
 See [[Homematic Admin Items|homematic admin items]] on howto get information about your devices.
 
 - Remote Controls
-- HM-RC-4 (Wireless 4-button sender)
-- HM-PBI-4-FM (Wireless 4-button sender flush mount)
-- HM-RC-P1 (Single button control)
-- HM-RC-12-B (12 button remote control)
-- HM-SwI-3-FM (with workaround)
-- HM-PB-2-WM (2 channel rocker)
-- HM-PB-2-WM55 (2 channel rocker, new model)
-- BidCoS-RF:1 - BidCoS-RF:50 (Virtual Keys of the CCU)
-- HM-PB-4DIS-WM (Wireless 20 button sender with display)
+ - HM-RC-4 (Wireless 4-button sender)
+ - HM-PBI-4-FM (Wireless 4-button sender flush mount)
+ - HM-RC-P1 (Single button control)
+ - HM-RC-12-B (12 button remote control)
+ - HM-SwI-3-FM (with workaround)
+ - HM-PB-2-WM (2 channel rocker)
+ - HM-PB-2-WM55 (2 channel rocker, new model)
+ - BidCoS-RF:1 - BidCoS-RF:50 (Virtual Keys of the CCU)
+ - HM-PB-4DIS-WM (Wireless 20 button sender with display)
 - Switches
-- HM-LC-Sw1-Pl (Plug switch (1-port))
-- HM-LC-Sw1-Pl-2 (Plug switch (1-port))+
-- HM-LC-Sw1PBU-FM (Flush switch (1-port))
-- HM-LC-Sw1-FM (Flush switch (1-port))+
-- HM-LC-Sw2-FM (Flush switch (2-port))+
-- HM-LC-Sw4-SM (Flush switch (4-port))
+ - HM-LC-Sw1-Pl (Plug switch (1-port))
+ - HM-LC-Sw1-Pl-2 (Plug switch (1-port))+
+ - HM-LC-Sw1PBU-FM (Flush switch (1-port))
+ - HM-LC-Sw1-FM (Flush switch (1-port))+
+ - HM-LC-Sw2-FM (Flush switch (2-port))+
+ - HM-LC-Sw4-SM (Flush switch (4-port))
 - Dim actors
-- HM-LC-Dim2T-SM (Two port dim actor)
-- HM-LC-Dim1T-PI (One port dim actor plug)
-- HM-LC-Dim1T-FM (One port dim actor)
-- HM-LC-Dim1TPBU-FM (1 port dimmer actor flush mount)
+ - HM-LC-Dim2T-SM (Two port dim actor)
+ - HM-LC-Dim1T-PI (One port dim actor plug)
+ - HM-LC-Dim1T-FM (One port dim actor)
+ - HM-LC-Dim1TPBU-FM (1 port dimmer actor flush mount)
 - Environment Sensors
-- HM-WDS40-TH-I (Temperature and Humidity sensor)
-- HM-WDS10-TH-O (Temperature and Humidity sensor)
-- HM-Sec-MDIR (Motion and Brightness Sensor)
-- HM-Sen-MDIR-O (Motion and Brightness Sensor)
-- HM-Sec-WDS (water sensor)
+ - HM-WDS40-TH-I (Temperature and Humidity sensor)
+ - HM-WDS10-TH-O (Temperature and Humidity sensor)
+ - HM-Sec-MDIR (Motion and Brightness Sensor)
+ - HM-Sen-MDIR-O (Motion and Brightness Sensor)
+ - HM-Sec-WDS (water sensor)
 - Contact Sensors
-- HM-Sec-SC (Wireless door / window contact sensor)
-- HM-SCI-3-FM (Shutter Contact)
-- HM-Sec-RHS (Rotary handle sensor)
-- Climate Control
-- HM-CC-VD (Wireless actuator)+
-- HM-CC-TC (Themo control, partly working)
-- Not fully supported: Roller Shutter
-- HM-LC-Bl1-FM (Roller Shutter actor (1-port))
-- HM-LC-Bl1PBU-FM (Roller Shutter actor (1-port))
-- HM-LC-Bl1-SM (Roller Shutter actor (1-port))
+ - HM-Sec-SC (Wireless door / window contact sensor)
+ - HM-SCI-3-FM (Shutter Contact)
+ - HM-Sec-RHS (Rotary handle sensor)
+- Climate Controls
+ - HM-CC-VD (Wireless actuator)+
+ - HM-CC-TC (Themo control, partly working)
+- Not fully supported: Roller Shutters
+ - HM-LC-Bl1-FM (Roller Shutter actor (1-port))
+ - HM-LC-Bl1PBU-FM (Roller Shutter actor (1-port))
+ - HM-LC-Bl1-SM (Roller Shutter actor (1-port))
   
 For a complete list with translations (en - de) see http://www.elv.de/controller.aspx?cid=824&detail=10&detail2=2850.
 
-### Remote Control
+### Remote Controls
 
 Supported Devices:
 - HM-RC-4
@@ -155,13 +155,13 @@ Valid parameter keys:
 - PRESS_LONG: The button was pressed or released (Switch, pressed=Update to ON, released=Update to OFF).
 - PRESS_CONT: Every few ms this is updated to ON while the long press button is pressed. Useful e.g. for dimming. (Switch, button still pressed=Update to ON)
 
-### = Trouble Shoot =
+#### = Trouble Shoot =
 
 If the button is not working and you do not see any PRESS_LONG / SHORT in your log file (when started in debug mode), it could be because of enabled security.
 Try to disable security of your buttons in the Homematic Web GUI and try again.
 If you can't disable security (e.g. HM-SwI-3-FM) try to use key INSTALL_TEST which gets updated to ON for each key press (Switch, pressed=Update to ON)
 
-### = Examples =
+#### = Examples =
 
     Switch LivingRoom_RC_One_Left    "Living Room Light Sofa INCREASE" <rollershutter> (LivingRoom, Light) {homematic="id=IEQ0035141, channel=1, parameter=PRESS_SHORT"}
     Switch LivingRoom_RC_One_Right    "Living Room Light Sofa DECREASE" <rollershutter> (LivingRoom, Light) {homematic="id=IEQ0035141, channel=2, parameter=PRESS_SHORT"}
@@ -182,11 +182,11 @@ Supported Devices:
 Valid parameter keys: 
 - STATE: The current state of the switch (Switch, TRUE=ON, FALSE=OFF). Accepts OPEN / CLOSE as well.
 
-### = Examples =
+#### = Examples =
 
     Switch RF_Plug1 "RF Plug 1" (Light) {homematic="id=JEQxxxxxxxx, channel=1, parameter=STATE"} 
 
-### Dim Actor
+### Dim Actors
 
 Supported Devices:
 - HM-LC-Dim2T-SM
@@ -197,12 +197,12 @@ Supported Devices:
 Valid parameter keys:
 - LEVEL: The energy level (Dimmer, Unit=Percentage, 0%=OFF, 100%=ON)
   
-### = Examples =
+#### = Examples =
 
     Dimmer LivingRoom_Light_TV	    "Living Room Light TV Level [%d %%]" <rollershutter> (LivingRoom, Light) {homematic="id=GEQ0210158, channel=1, parameter=LEVEL"}
     Dimmer LivingRoom_Light_Sofa    "Living Room Light Sofa Level [%d %%]" <rollershutter> (LivingRoom, Light) {homematic="id=GEQ0210158, channel=2, parameter=LEVEL"}
 
-### Temperature / Humidity Sensor
+### Temperature / Humidity Sensors
 
 Supported Devices:
 - HM-WDS10-TH-O
@@ -214,13 +214,13 @@ Valid parameter keys:
 - SETPOINT (HM-CC-TC only): The target temperature (Number, unit=°C)
 - HUMIDITY: The current humidity (Number, Unit=Percentage of humidity, min=0, max=100) or (Dimmer, Unit=Percentage of humidity, min=0%, max=100%)
  
-### = Examples =
+#### = Examples =
 
     Number LivingRoom_Temperature   "Living Room Temperature [%.1f °C]" <temperature> (LivingRoom, Temperature) {homematic="id=IEQ0022806, channel=1, parameter=TEMPERATURE"}
     Number LivingRoom_Humidity   "Living Room Humidity [%d %%]" <temperature> (LivingRoom, Humidity) {homematic="id=IEQ0022806, channel=1, parameter=HUMIDITY"}
     Number LivingRoom_Temperature_Setpoint   "Living Room Temperature SetPoint [%.1f °C]" <temperature> (LivingRoom, Temperature) {homematic="id=IEQ0022806, channel=2, parameter=SETPOINT"}
 
-### Motion and Brightness Sensor
+### Motion and Brightness Sensors
 
 Supported Devices:
 - HM-Sec-MDIR
@@ -230,10 +230,10 @@ Valid parameter keys:
 - MOTION: Motion detected (Switch, ON=Motion detected, OFF (default)=NONE)
 - BRIGHTNESS: Actual brightness (Dimmer, Unit=Percentage, 0%=dark, 100%=bright) or (Number, Unit=Integer Number, 0=dark, 100=bright)
 
-### = Examples =
+#### = Examples =
 
 
-### Water Sensor
+### Water Sensors
 
 Supported Devices:
 - HM-Sec-WDS
@@ -243,11 +243,11 @@ Valid parameter keys:
 - As Number (Number, 0=no water, 1=humid, 2=water)
 - PLANNED: As Switch (Switch, water sensored=Update to ON, no water or just humidity=OFF)
 
-### = Examples =
+#### = Examples =
 
     
 
-### 3 State Contact Sensor Sensor
+### 3 State Contact Sensors
 
 Supported Devices:
 - HM-Sec-RHS
@@ -255,11 +255,11 @@ Supported Devices:
 Valid parameter keys: 
 - STATE: The current state of the handle (Number, 0=open, 1=tilted, 2=closed)
 
-### = Examples =
+#### = Examples =
 
     
 
-### 2 State Contact Sensor
+### 2 State Contact Sensors
 
 Supported Devices:
 - HM-SCI-3-FM
@@ -267,11 +267,11 @@ Supported Devices:
 Valid parameter keys: 
 - STATE: The current state of the handle (Number, 0=open, 1=closed)
 
-### = Examples =
+#### = Examples =
 
     
 
-### 2 State Contact Sensor (Boolean)
+### 2 State Contact Sensors (Boolean)
 
 Supported Devices:
 - HM-Sec-SC (Wireless door / window contact sensor)
@@ -279,11 +279,11 @@ Supported Devices:
 Valid parameter keys: 
 - STATE: The current state of the handle (Number, false=open, true=closed)
 
-### = Examples =
+#### = Examples =
 
     Contact myWindowContact "Contact" {homematic="id=IEQ000000, channel=1, parameter=STATE"}
 
-### Climate Control
+### Climate Controls
 
 Supported Devices:
 - HM-CC-VD (Actuator)
@@ -292,11 +292,11 @@ Supported Devices:
 Valid parameter keys: 
 - VALVE_STATE: The current state of the valve (Dimmer, Unit=Percentage, 0%=closed, 100%=open) or (Switch, Unit=ON/OFF, OFF=closed, ON=open). Read-only value.
 
-### = Examples =
+#### = Examples =
 
     
 
-### Roller Shutter Actor
+### Roller Shutter Actors
 
 The roller shutter support is still not really usable. It mainly mapps to the wrong direction: 100% in homematic is 0% in openHAB which makes all widgets very unusable!
 
@@ -310,16 +310,16 @@ Valid parameter keys:
 
 NOTE: It is a known bug that the direction is incorrect, i.e. if you move your shutter down, it goes up and vice versa. This is due to the fact that Homematic defines 100% as "up" while for openHAB 100% means "down". This will be dealt with in the next release.
 
-### = Examples =
+#### = Examples =
 
     Rollershutter LivingRoom_Rollershutter	    "Living Room Roller Shutter Level [%d %%]" <rollershutter> (LivingRoom, Rollershutter) {homematic="id=JEQ0299993, channel=1, parameter=LEVEL"}
 
 
 ### Detect Low Battery
 
-Sensors and actors  usually provide a datapoint called LOWBAT which can be used if to bind an item.
+Sensors and actors usually provide a datapoint called LOWBAT which can be used if to bind an item.
 
-### = Examples =
+#### = Examples =
 
     Switch Lowbat_GF_Living_Terrace "Empty battery terrace door [%s]" 	<siren> {homematic="id=JEQ1234567, channel=0, parameter=LOWBAT"} 
 
@@ -327,7 +327,7 @@ Sensors and actors  usually provide a datapoint called LOWBAT which can be used 
 
 The most sensors and actors are provide a datapoint which becomes true if the device is not reachable (because of a communication issue).
 
-### = Examples =
+#### = Examples =
 
     Switch Unreach_GF_Living_Terrace "Terrace door unreachable [%s]" <siren>  {homematic="id=JEQ1234567, channel=0, parameter=UNREACH"}  
 
@@ -335,6 +335,6 @@ The most sensors and actors are provide a datapoint which becomes true if the de
 
 Some security devices like motion sensors and contact sensors do provide a datapoint which can be used to detect sabotage of this device.
 
-### = Examples =
+#### = Examples =
 
     Switch Sabotage_GF_Living_Terrace "Sabotage Terrace [MAP(home.map):Sabotage_%s]" <siren> {homematic="id=JEQ1234567, channel=1, parameter=ERROR"} 
