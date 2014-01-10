@@ -1,5 +1,5 @@
-Documentation of the Homematic binding bundle<br/>
-[![Homematic Binding](http://img.youtube.com/vi/F0ImuuIPjYk/0.jpg)](http://www.youtube.com/watch?v=F0ImuuIPjYk)
+Documentation of the HomeMatic binding bundle<br/>
+[![HomeMatic Binding](http://img.youtube.com/vi/F0ImuuIPjYk/0.jpg)](http://www.youtube.com/watch?v=F0ImuuIPjYk)
 
 ## Introduction
 
@@ -9,11 +9,11 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 ### Controller
 
-The controller "speaks" with the homematic devices through the properiatry wireless protocol of homematic.
+The controller "speaks" with the HomeMatic devices through the properiatry wireless protocol of HomeMatic.
 
 #### CCU 1
 
-The best supported hardware so far for Homematic is the CCU (1). 
+The best supported hardware so far for HomeMatic is the CCU 1. 
 
 #### CCU 2
 
@@ -21,7 +21,114 @@ The second version (beginning with mid 2013) should work in most circumstances, 
 
 #### LAN Adapter
 
-One of the cheaper alternatives is to use the Homematic LAN Adapter and the windows daemon. The windows daemon is reported to work under wine as well.
+One of the cheaper alternatives is to use the [HomeMatic LAN Adapter](http://www.eq-3.de/produkt-detail-zentralen-und-gateways/items/hm-cfg-lan.html).
+The LAN Adapter _**requires**_ the BidCos-Service running and listening on a specific port in your LAN. As of this writing the BidCos-Service is only available for Microsoft Windows. If you want to run the BidCos-Service '_natively_' (through Qemu) on Linux without messing around with [Wine](http://www.winehq.org) follow these step by step instructions.
+
+1. Download the latest CCU 2 firmware from [eQ-3 homepage](http://www.eq-3.de/software.html)
+2. Extract the downloaded firmware e.g. HM-CCU2-2.7.8.tar.gz
+```Shell
+mkdir /tmp/firmware
+tar xvzf HM-CCU2-2.7.8.tar.gz -C /tmp/firmware
+```
+You should now have three files under the directory /tmp/firmware
+```Shell
+rootfs.ubi    (<-- this is the firmware inside a UBIFS iamge)
+uImage
+update_script
+```
+2. Create an 256 MiB emulated NAND flash with 2KiB NAND page size
+```Shell
+modprobe nandsim first_id_byte=0x20 second_id_byte=0xaa third_id_byte=0x00 fourth_id_byte=0x15
+```
+You should see a newly created MTD device _/dev/mtd0_ (assume that you do not have other MTD devices)
+3. Copy the contents of the UBIFS image _rootfs.ubi_ to the emulated MTD device
+```Shell
+dd if=rootfs.ubi of=/dev/mtd0 bs=2048
+```
+4. Load UBI kernel module and attach the MTD device mtd0
+```Shell
+modprobe ubi mtd=0,2048
+```
+5. Mount the UBIFS image
+```Shell
+mkdir /mnt/ubifs
+mount -t ubifs /dev/ubi0_0 /mnt/ubifs
+```
+6. Copy the required files to run the BidCos-Service from the UBIFS image
+```Shell
+mkdir -p /etc/rfd-arm /opt/rfd-arm/bin
+cd /mnt/ubifs
+cp /mnt/ubifs/bin/rfd /opt/rfd-arm/bin
+cp /mnt/ubifs/etc/config_templates/rfd.conf /etc/rfd-arm/
+find ./firmware ! -type l -print | cpio -pvdm /opt/rfd-arm
+find ./lib -maxdepth 1 ! -type l -print | cpio -pvdm /opt/rfd-arm
+find ./usr/lib -maxdepth 1 ! -type l -print | cpio -pvdm /opt/rfd-arm
+```
+7. Create a system user and adjust permissions
+```
+adduser --system --home/opt/rfd-arm --shell /bin/false --no-create-home --group rfd-arm
+chown -R rfd-arm:rfd-arm /opt/rfd-arm
+```
+8. Edit and adjust the BidCos-Service configuration rfd.conf
+```
+# TCP Port for XmlRpc connections
+Listen Port = 2001
+
+# Log Level: 1=DEBUG, 2=WARNING, 3=INFO, 4=NOTICE, 5=WARNING, 6=ERROR
+Log Level = 1
+
+# If set to 1 the AES keys are stored in a file. Highly recommended.
+Persist Keys = 1
+
+Address File = /etc/rfd/ids
+Key File = /etc/rfd/keys
+Device Files Dir = /etc/rfd/devices
+
+# These path are relative to QEMU_LD_PREFIX
+Device Description Dir = /firmware/rftypes
+Firmware Dir = /firmware
+Replacemap File = /firmware/rftypes/replaceMap/rfReplaceMap.xml
+
+# Logging
+Log Destination = File
+Log Filename = /var/log/rfd/bidcos.log
+
+[Interface 0]
+Type = Lan Interface
+Serial Number = <HomeMatic ID e.g. JEQ0707164>
+Encryption Key = <your encryption key>
+```
+9. Install QEMU
+
+    In order to run the BidCos-Service daemon 'rfd' under linux you need to install the QEMU arm emulation. If you are using Debian you have to install at least the package qemu-system-arm.
+```
+apt-get install qemu-system-arm
+```
+10. Start the BidCos-Service daemon 'rfd'
+
+    The BidCos-Service daemon 'rfd' can now be started with the following command
+```
+qemu-arm -L /opt/rfd-arm /opt/rfd-arm/bin/rfd -f /etc/rfd-arm/rfd.conf
+```
+    If you are using systemd you can use the following to start the BidCos-Service daemon at system boot.
+Create the following service file 'rfd-arm.service'. If you are on Debian the correct location is '/etc/systemd/system'.
+```
+[Unit]
+Description=BidCos-Service
+
+[Service]
+User=rfd-arm
+ExecStart=/usr/bin/qemu-arm -L /opt/rfd-arm /opt/rfd-arm/bin/rfd -f /etc/rfd-arm/rfd.conf
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
+
+```
+    Enable BidCos-Service daemon at system boot.
+```
+systemctl enable rfd-arm
+```
 
 #### CUL
 
@@ -31,14 +138,14 @@ Since the CUL is not natively supported by the binding, you need a program to tr
 We have reports from users that succesfully use both for their homemtic devices. Apparently security is still not supported.
 
 
-## Homematic Binding Configuration
+## HomeMatic Binding Configuration
 
 ### openhab.cfg
 
-The following config params are used for the homematic binding.
+The following config params are used for the HomeMatic binding.
 
 - homematic:host
-Hostname / IP address of the Homematic CCU
+Hostname / IP address of the HomeMatic CCU
 - (optional) homematic:callback.host
 Hostname / IP address for the callback server. This is normally the IP / hostname of the local host (but not "localhost" or "127.0.0.1"). If not present, it is auto discovered. Will print out an warning / error if not successful.
 - (optional) homematic:callback.port
@@ -46,9 +153,9 @@ Port number for the callback server. Defaults to 9123.
 
 ### Example
 
-    ######################## Homematic Binding ###########################
+    ######################## HomeMatic Binding ###########################
     
-    # Hostname / IP address of the Homematic CCU
+    # Hostname / IP address of the HomeMatic CCU
     homematic:host=homematic
     
     # Hostname / IP address for the callback server (optional, default is auto-discovery)
@@ -94,7 +201,7 @@ A documentation which device is proving which datapoint, please check the docume
 
 These devices are already supported or will be in near future since we own them. 
 If your device is not listed, please add an issue for it.
-See [[Homematic Admin Items|homematic admin items]] on howto get information about your devices.
+See [[HomeMatic Admin Items|homematic admin items]] on howto get information about your devices.
 
 - Remote Controls
  - HM-RC-4 (Wireless 4-button sender)
@@ -158,7 +265,7 @@ Valid parameter keys:
 #### = Trouble Shoot =
 
 If the button is not working and you do not see any PRESS_LONG / SHORT in your log file (when started in debug mode), it could be because of enabled security.
-Try to disable security of your buttons in the Homematic Web GUI and try again.
+Try to disable security of your buttons in the HomeMatic Web GUI and try again.
 If you can't disable security (e.g. HM-SwI-3-FM) try to use key INSTALL_TEST which gets updated to ON for each key press (Switch, pressed=Update to ON)
 
 #### = Examples =
@@ -308,7 +415,7 @@ Supported Devices:
 Valid parameter keys:
 - LEVEL: The roller shutter level (Rollershutter, Unit=Percentage, 0%=OPEN, 100%=CLOSED, stop=STOP, move again=MOVE).
 
-NOTE: It is a known bug that the direction is incorrect, i.e. if you move your shutter down, it goes up and vice versa. This is due to the fact that Homematic defines 100% as "up" while for openHAB 100% means "down". This will be dealt with in the next release.
+NOTE: It is a known bug that the direction is incorrect, i.e. if you move your shutter down, it goes up and vice versa. This is due to the fact that HomeMatic defines 100% as "up" while for openHAB 100% means "down". This will be dealt with in the next release.
 
 #### = Examples =
 
