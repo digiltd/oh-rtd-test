@@ -266,6 +266,158 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>1.3.0</td>
 </tr>
 <tr>
+	<td>Open Sprinkler</td>
+	<td>Device</td>
+	<td>plants</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Open-Sprinkler">openSprinkler</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>Philips Hue</td>
+	<td>Wireless</td>
+	<td>lighting</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Hue-Binding">hue</a></td>
+	<td>1.2.0</td>
+</tr>
+<tr>
+	<td>Piface</td>
+	<td>Device</td>
+	<td></td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Piface-Binding">piface</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>Pioneer AV Receiver</td>
+	<td>Device</td>
+	<td>audio video</td>
+	<td>Release</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Pioneer-AVR-Binding">pioneeravr</a></td>
+	<td>1.4.0</td>
+</tr>
+<tr>
+	<td>Plugwise</td>
+	<td>Wireless</td>
+	<td>lighting metering</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Plugwise-Binding">plugwise</a></td>
+	<td>1.1.0</td>
+</tr>
+<tr>
+	<td>PLC Bus</td>
+	<td>Powerline</td>
+	<td></td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/PLC-Bus-Binding">plcbus</a></td>
+	<td>1.1.0</td>
+</tr>
+<tr>
+	<td>Pulseaudio Server</td>
+	<td>Device</td>
+	<td>audio music</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Pulseaudio-Binding">pulseaudio</a></td>
+	<td>1.2.0</td>
+</tr>
+<tr>
+	<td>RFXCOM</td>
+	<td>Wireless</td>
+	<td>lighting heating security</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/RFXCOM-Binding">rfxcom</a></td>
+	<td>1.2.0</td>
+</tr>
+<tr>
+	<td>Samsung TV</td>
+	<td>Device</td>
+	<td>tv video</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Samsung-TV-Binding">samsungtv</a></td>
+	<td>1.2.0</td>
+</tr>
+<tr>
+	<td>Serial</td>
+	<td>Protocol</td>
+	<td>serial</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Serial-Binding">serial</a></td>
+	<td>0.6.0</td>
+</tr>
+<tr>
+	<td>SNMP</td>
+	<td>Protocol</td>
+	<td>network</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Snmp-Binding">snmp</a></td>
+	<td>0.9.0</td>
+</tr>
+<tr>
+	<td>Squeezebox</td>
+	<td>Device</td>
+	<td>audio music</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Squeezebox-Binding">squeeze</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>System Info</td>
+	<td>Device</td>
+	<td>system network</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Systeminfo-Binding">systeminfo</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>Somfy URTSI</td>
+	<td>Device</td>
+	<td>shades</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/URTSI-Binding">urtsi</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>Sonos</td>
+	<td>Device</td>
+	<td>audio music</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Sonos-Binding">sonos</a></td>
+	<td>1.1.0</td>
+</tr>
+<tr>
+	<td>TCP/UDP</td>
+	<td>Protocol</td>
+	<td>network</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/TCP-Binding">tcp</a></td>
+	<td>1.1.0</td>
+</tr>
+<tr>
+	<td>Tinkerforge</td>
+	<td>Device</td>
+	<td>io diy</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Tinkerforge-Binding">tinkerforge</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>VDR</td>
+	<td>Device</td>
+	<td>video tv</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/VDR-Binding">vdr</a></td>
+	<td>0.9.0</td>
+</tr>
+<tr>
+	<td>Wake on LAN</td>
+	<td>Protocol</td>
+	<td>network</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Wake-on-LAN-Binding-%28WoL%29">wol</a></td>
+	<td>0.6.0</td>
+</tr>
+<tr>
 	<td>Z-Wave</td>
 	<td>Wireless</td>
 	<td>lighting heating shades security metering locks</td>
