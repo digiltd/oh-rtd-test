@@ -8,7 +8,7 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 
 <table>
 <tr>
-	<th>Technology/Device</th>
+	<th>Technology/<br>Device</th>
 	<th>Type</th>
 	<th>Tags</th>
 	<th>Description</th>
