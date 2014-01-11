@@ -46,7 +46,7 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>0.3.0</td>
 </tr>
 <tr>
-	<td>Zehnder ComfoAir</td>
+	<td>ComfoAir Zehnder</td>
 	<td>Device</td>
 	<td>ventilation climate</td>
 	<td>Production</td>
@@ -101,7 +101,7 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 </tr>
 <tr>
 	<td>Exec</td>
-	<td></td>
+	<td>Protocol</td>
 	<td>cli</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Exec-Binding">exec</a></td>
@@ -136,13 +136,58 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>1.4.0</td>
 </tr>
 <tr>
-	<td>EIB/KNX</td>
+	<td>Homematic</td>
+	<td>Wireless</td>
+	<td>lighting heating shades security metering</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Homematic-Binding">homematic</a></td>
+	<td></td>
+	<td>1.2.0</td>
+</tr>
+<tr>
+	<td>Http</td>
+	<td>Protocol</td>
+	<td>http</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Http-Binding">http</a></td>
+	<td></td>
+	<td>0.6.0</td>
+</tr>
+<tr>
+	<td>IHC / ELKO</td>
+	<td>Wired</td>
+	<td>lighting heating shades security metering</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/IHC-Binding">ihc</a></td>
+	<td></td>
+	<td>1.1.0</td>
+</tr>
+<tr>
+	<td>Insteon</td>
+	<td>Powerline</td>
+	<td>lighting shades security</td>
+	<td>Release</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Insteon-Hub-Binding">insteonhub</a></td>
+	<td></td>
+	<td>1.4.0</td>
+</tr>
+<tr>
+	<td>KNX/EIB</td>
 	<td>Wired</td>
 	<td>lighting heating shades security metering ventilation climate</td>
     <td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/KNX-Binding">knx</a></td>
 	<td></td>
 	<td>0.1.0</td>
+</tr>
+<tr>
+	<td>Koubachi</td>
+	<td>Wireless</td>
+	<td>plants</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Koubachi-Binding">koubachi</a></td>
+	<td></td>
+	<td>1.2.0</td>
 </tr>
 <tr>
 	<td>Z-Wave</td>
