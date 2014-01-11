@@ -170,6 +170,102 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>1.2.0</td>
 </tr>
 <tr>
+	<td>MAX!Cube</td>
+	<td>Wireless</td>
+	<td>lighting heating shades security metering ventilation climate</td>
+	<td>Release</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/MAX%21Cube-Binding">maxcube</a></td>
+	<td>1.4.0</td>
+</tr>
+<tr>
+	<td>Milight</td>
+	<td>Wireless</td>
+	<td>lighting</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Milight-Binding">milight</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>Modbus</td>
+	<td>Wired</td>
+	<td>lighting heating metering ventilation climate industrial</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Modbus-Tcp-Binding">modbus</a></td>
+	<td>1.1.0</td>
+</tr>
+<tr>
+	<td>Mpd</td>
+	<td>Protocol</td>
+	<td>audio music</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Mpd-Binding">mpd</a></td>
+	<td>0.8.0</td>
+</tr>
+<tr>
+	<td>MQTT</td>
+	<td>Protocol</td>
+	<td>message bus</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/MQTT-Binding">mqtt</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>Network Health</td>
+	<td>Protocol</td>
+	<td>network ping</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Network-Health-Binding">nh</a></td>
+	<td>0.6.0</td>
+</tr>
+<tr>
+	<td>Nibe Heat Pump</td>
+	<td>Device</td>
+	<td>heating heatpump</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Nibe-Heat-Pump-Binding">nibeheatpump</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>Nikobus</td>
+	<td>Wired</td>
+	<td>lighting shades security</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Nikobus-Binding">nikobus</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
+	<td>Novelan/Luxtronic</td>
+	<td>Device</td>
+	<td>heating heatpump</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Novelan-Heat-Pump-Binding">novelanheatpump</a></td>
+	<td>1.0.0</td>
+</tr>
+<tr>
+	<td>NTP</td>
+	<td>Protocol</td>
+	<td>date time</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Ntp-Binding">ntp</a></td>
+	<td>0.8.0</td>
+</tr>
+<tr>
+	<td>One Wire</td>
+	<td>Wired</td>
+	<td>lighting heating climate</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/One-Wire-Binding">onewire</a></td>
+	<td>0.6.0</td>
+</tr>
+<tr>
+	<td>Onkyo AV Receiver</td>
+	<td>Device</td>
+	<td>audio video</td>
+	<td>Production</td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Onkyo-Binding">onkyo</a></td>
+	<td>1.3.0</td>
+</tr>
+<tr>
 	<td>Z-Wave</td>
 	<td>Wireless</td>
 	<td>lighting heating shades security metering locks</td>
