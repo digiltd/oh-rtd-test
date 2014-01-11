@@ -6,6 +6,9 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 
 ## List of supported technologies and devices
 
+<style type="text/css">
+ .statusproduction { background: #00FF00; }
+</style>
 <table>
 <tr>
 	<th>Technology/<br>Device</th>
@@ -20,7 +23,7 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>EIB/KNX</td>
 	<td>Wired bus</td>
 	<td>lighting heating security metering</td>
-        <td>Production</td>
+        <td class="statusproduction">Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/KNX-Binding">knx</a></td>
 	<td></td>
 	<td>0.9</td>
