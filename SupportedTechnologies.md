@@ -20,13 +20,13 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>EIB/KNX</td>
 	<td>Wired bus</td>
 	<td>lighting heating shades security metering</td>
-    <td>Production</td>
+        <td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/KNX-Binding">knx</a></td>
 	<td></td>
 	<td>0.1</td>
 </tr>
 <tr>
-	<td>Z-Wave<td>
+	<td>Z-Wave</td>
 	<td>Wireless</td>
 	<td>lighting heating shades security metering locks</td>
 	<td>Production</td>
