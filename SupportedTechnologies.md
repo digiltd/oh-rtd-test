@@ -14,7 +14,7 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<th>Status</th>
 	<th>Binding</th>
 	<th>Issue</th>
-	<th>Since version</th>
+	<th>Since</th>
 </tr>
 <tr>
 	<td>EIB/KNX</td>
