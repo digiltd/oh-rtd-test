@@ -19,7 +19,7 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 <tr>
 	<td>EIB/KNX</td>
 	<td>Wired bus</td>
-	<td>lighting heating security metering</td>
+	<td>lights heating security metering</td>
         <td bgcolor="#00FF00">Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/KNX-Binding">knx</a></td>
 	<td></td>
