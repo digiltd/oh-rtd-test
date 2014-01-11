@@ -23,7 +23,7 @@ Every technology or device, integrated into openHAB, is supported by a specific 
         <td class="statusproduction">Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/KNX-Binding">knx</a></td>
 	<td></td>
-	<td>0.9</td>
+	<td>0.1</td>
 </tr>
 </table>
 
