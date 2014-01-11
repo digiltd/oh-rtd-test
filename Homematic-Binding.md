@@ -18,6 +18,7 @@ The best supported hardware so far for HomeMatic is the CCU 1.
 #### CCU 2
 
 The second version (beginning with mid 2013) should work in most circumstances, but is not as widely used as the first version. 
+We need testers here: If you own a CCU2, please try out the latest 1.4.0 nightly releases!
 
 #### LAN Adapter
 
