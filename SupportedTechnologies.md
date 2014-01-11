@@ -13,7 +13,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<th>Tags</th>
 	<th>Status</th>
 	<th>Binding</th>
-	<th>Issue</th>
 	<th>Since</th>
 </tr>
 <!-->
@@ -24,7 +23,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td></td>
 	<td><a href=""></a></td>
 	<td></td>
-	<td></td>
 </tr>
 <-->
 <tr>
@@ -33,7 +31,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>telephony sip</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Asterisk-Binding">asterisk</a></td>
-	<td></td>
 	<td>0.9.0</td>
 </tr>
 <tr>
@@ -42,7 +39,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>presence wearables</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Bluetooth-Binding">bluetooth</a></td>
-	<td></td>
 	<td>0.3.0</td>
 </tr>
 <tr>
@@ -51,7 +47,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>ventilation climate</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Comfo-Air-Binding">comfoair</a></td>
-	<td></td>
 	<td>1.3.0</td>
 </tr>
 <tr>
@@ -60,7 +55,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>printer</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/CUPS-Binding">cups</a></td>
-	<td></td>
 	<td>1.1.0</td>
 </tr>
 <tr>
@@ -69,7 +63,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting metering shades</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/digitalSTROM-Binding">digitalstrom</a></td>
-	<td></td>
 	<td>1.3.0</td>
 </tr>
 <tr>
@@ -78,7 +71,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/DMX-Binding">dmx</a></td>
-	<td></td>
 	<td>1.2.0</td>
 </tr>
 <tr>
@@ -87,7 +79,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting heating metering</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/EnOcean-Binding">enocean</a></td>
-	<td></td>
 	<td>1.3.0</td>
 </tr>
 <tr>
@@ -96,7 +87,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>video projector</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Epson-Projector-Binding">epsonprojector</a></td>
-	<td></td>
 	<td>1.3.0</td>
 </tr>
 <tr>
@@ -105,7 +95,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>cli</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Exec-Binding">exec</a></td>
-	<td></td>
 	<td>0.6.0</td>
 </tr>
 <tr>
@@ -114,7 +103,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>telephony sip</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Fritz-Box-Binding">fritzbox</a></td>
-	<td></td>
 	<td>0.7.0</td>
 </tr>
 <tr>
@@ -123,7 +111,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting metering</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Fritz-AHA-Binding">fritzaha</a></td>
-	<td></td>
 	<td>1.3.0</td>
 </tr>
 <tr>
@@ -132,7 +119,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>heating</td>
 	<td>Release</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Heatmiser-Binding">heatmiser</a></td>
-	<td></td>
 	<td>1.4.0</td>
 </tr>
 <tr>
@@ -141,7 +127,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting heating shades security metering</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Homematic-Binding">homematic</a></td>
-	<td></td>
 	<td>1.2.0</td>
 </tr>
 <tr>
@@ -150,7 +135,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>http</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Http-Binding">http</a></td>
-	<td></td>
 	<td>0.6.0</td>
 </tr>
 <tr>
@@ -159,7 +143,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting heating shades security metering</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/IHC-Binding">ihc</a></td>
-	<td></td>
 	<td>1.1.0</td>
 </tr>
 <tr>
@@ -168,7 +151,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting shades security</td>
 	<td>Release</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Insteon-Hub-Binding">insteonhub</a></td>
-	<td></td>
 	<td>1.4.0</td>
 </tr>
 <tr>
@@ -177,7 +159,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting heating shades security metering ventilation climate</td>
     <td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/KNX-Binding">knx</a></td>
-	<td></td>
 	<td>0.1.0</td>
 </tr>
 <tr>
@@ -186,7 +167,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>plants</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Koubachi-Binding">koubachi</a></td>
-	<td></td>
 	<td>1.2.0</td>
 </tr>
 <tr>
@@ -195,7 +175,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>lighting heating shades security metering locks</td>
 	<td>Production</td>
 	<td><a href="https://github.com/openhab/openhab/wiki/Z-Wave-Binding">zwave</a></td>
-	<td></td>
 	<td>1.3.0</td>
 </tr>
 </table>
