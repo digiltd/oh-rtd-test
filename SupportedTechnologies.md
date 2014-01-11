@@ -6,7 +6,7 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 
 ## List of supported technologies and devices
 
-<table>
+<table style="font-size: 8px">
 <tr>
 	<th>Technology/<br>Device</th>
 	<th>Type</th>
