@@ -6,9 +6,6 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 
 ## List of supported technologies and devices
 
-<style type="text/css">
- .statusproduction { background: #00FF00; }
-</style>
 <table>
 <tr>
 	<th>Technology/<br>Device</th>
