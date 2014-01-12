@@ -1,6 +1,6 @@
 This binding allows to use a [Velleman k8055 USB IO Board](http://www.vellemanusa.com/products/view/?country=us&lang=enu&id=500349) with OpenHab.
 
-_Note: This binding is currently a proposal, and is not yet merged into an openhab release.  However, the  development code can be found on the following fork:  !_
+_Note: This binding is currently a proposal, and is not yet reviewed or merged into an openhab release.  However, for the keen the development code can be found on the following pull request:  https://github.com/openhab/openhab/pull/705_
 
 ## Pre-requisites
 
