@@ -6,7 +6,9 @@ If you want to administer events in Google Calendar that will be executed by ope
 
 ## Calendar Event Configuration
 
-The format of Calendar event content is simple and looks like this:
+The event title can be anything and the event description will have the commands to execute.
+
+The format of Calendar event description is simple and looks like this:
 
     start {
       send|update <item> <state>
@@ -18,6 +20,8 @@ The format of Calendar event content is simple and looks like this:
 or just
 
     send|update <item> <state>
+
+The commands in the `start` section will be executed at the even start time and the `end` section at the event end time. If these sections are not present, the commands will be executed at the event start time.
 
 As a result, your lines in a Calendar event might look like this:
 
@@ -34,7 +38,6 @@ or just
 
     send Light_Garden ON
     send Pump_Garden ON
-
 
 ## Obtain the calendar URL
 
