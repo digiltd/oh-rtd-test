@@ -18,6 +18,7 @@ OpenHAB provides MQTT support on different levels. The table below gives a quick
   <tr><td>Persistence</td><td>Uses persistent strategies to push messages on change or a regular interval.</td><td>Perfect for persisting time series to a public service like Xively.</td><td>o.o.persistence.mqtt</td></tr>
 </table>
 
+The [Mqttitude binding](https://github.com/openhab/openhab/wiki/Mqttitude-Binding) is also available which is an extension of this binding.
 ## Configuration
 
 ### Transport Configuration
