@@ -55,13 +55,13 @@ The GCal bundle can be used to realize a simple but effective Presence Simulatio
 To make use of the Presence Simulation you have to walk through these configuration steps:
 
 - make sure that you are using the correct openHAB release (at least 1.0.0-SNAPSHOT)
-- make sure your items file contains items that belong to the group `PresenceSimulationGroup` - if you would like to change the group name change it at `presence simulation.persist`.
+- make sure your items file contains items that belong to the group `PresenceSimulationGroup` - if you would like to change the group name change it at `gcal.persist`.
 - make sure your items file contains an item called `PresenceSimulation` which is referred by the scripts executed at a certain point in time - if you would like to change the group name please change the parameter `gcal:executescript` in your openhab.cfg`.
 - make sure the referenced gcal calendar is writeable by the given user (google calendar website)
 
 To activate the Presence Simulation simply set `PresenceSimulation` to `ON` and the already downloaded events are being executed. Your smartHome behaves like you did 14 days ago.
 
-A sample simulation.persist file looks like this:
+A sample `gcal.persist` file looks like this:
 
     Strategies {
     	default = everyChange
