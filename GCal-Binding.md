@@ -41,9 +41,14 @@ or just
 openHAB must be configured with your google calendar of choice. The URL has to be configured in your openhab.cfg. To obtain the google calendar URL please walk through the following steps:
 
 - login in to https://www.google.com/calendar/
-- click "Settings" (under "My calendars") -> <your calendar> -> Calendar address "XML"
-- copy the given url and replace "basic" with "full"
+- click "Settings" (under "My calendars") -> \<your calendar\>
+- find the calendar URL in "Private Address:" section -> "XML".
+  The URL will be something like this: `https://www.google.com/calendar/feeds/user@gmail.com/private-b340ec2ca61dbcb29d9bdbce4bfe5419/basic`
+- copy the given url and replace "basic" with "full". 
+- the URL also contains a string to allow access without authentication (after private-), but this will not work for gcal persistence service, so remove it.
 
+The final URL should be something like this:
+`https://www.google.com/calendar/feeds/user@gmail.com/private/full`
 
 # Presence Simulation
 
