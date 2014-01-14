@@ -49,7 +49,7 @@ openHAB must be configured with your google calendar of choice. The URL has to b
 
 The GCal bundle can be used to realize a simple but effective Presence Simulation feature (thanks Ralf for providing the concept). Every single change of an item that belongs to a certain group is posted as new calendar entry in the future. By default each entry is posted with an offset of 14 days (If you'd like to change the offset please change the parameter `gcal:offset` in your `openhab.cfg`). Each calendar entry looks like the following:
 
-- title: `[[Presence|Simulation]] <itemname>`
+- title: `[PresenceSimulation] <itemname>`
 - content: `> if (PresenceSimulation.state == ON) sendCommand(<itemname>,<value>)`
 
 To make use of the Presence Simulation you have to walk through these configuration steps:
