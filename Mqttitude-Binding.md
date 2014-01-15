@@ -41,6 +41,11 @@ Here is an example;
 
 To track the location/presence of a mobile device all you need to do is add a Switch item and specify the MQTT topic that device publishes its location to. 
 
+The binding definition for the two modes of operation are;
+
+    Manual Mode:    { mqttitude="<broker_id>:<mqtt_topic>" }
+    Region Mode:    { mqttitude="<broker_id>:<mqtt_topic>:<region>" }
+
 #### Manual Mode ####
 Here is an example of some 'Manual Mode' item bindings;
 
@@ -57,7 +62,7 @@ Here is an example of some 'Region Mode' item bindings;
     Switch  PresenceBen_PhoneMqttHome   "Ben @ Home"   { mqttitude="mosquitto:/mqttitude/ben:home" }
     Switch  PresenceBen_PhoneMqttWork   "Ben @ Work"   { mqttitude="mosquitto:/mqttitude/ben:work" }
 
-Here you can setup as many 'regions' as you like in your Mqttitude app and track each region in openHAB by creating a different item for each one, with the region name as the optional third parameter in the item binding. All messages are published to the one MQTT topic.
+Here you can setup as many 'regions' as you like in your Mqttitude app and track each region in openHAB by creating a different item for each one, with the region name as the optional third parameter in the item binding.
 
 This is a far more powerful mode and gives greater flexibily. It also stops the issue of location publishes happening just before you get close enough to 'home' and thus being considered outside the geofence, and then no further updates being sent because you don't move far enough to trigger one.
 
