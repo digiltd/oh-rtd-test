@@ -51,6 +51,33 @@ Example:
     Number Num1 "Depth Sensor" { insteonhub = "device=33.CC.33, bindingType=input_ubyte" }
 
 
+## input_percent bindingType
+
+To declare a sensor that is mapped to a read-only percent type, you can use the input_percent binding type.
+
+Example:
+
+    Number Num1 "Some Analog Sensor" { insteonhub = "device=44.DD.44, bindingType=input_percent" }
+
+
+## input_on_off bindingType
+
+To declare a sensor that is mapped to a read-only On/Off type, the input_on_off binding type can be used.
+
+Example:
+
+    Switch TheSwitch "Some Read-Only Switch" { insteonhub = "device=55.EE.55, bindingType=input_on_off" }
+
+
+## input_open_closed bindingType
+
+Used to declare a contact sensor.  This is a read-only type that translates a device's state to Open/Closed events.
+
+Example:
+
+    Contact FrontWindow "Front Window" { insteonhub = "device=66.FF.66, bindingType=input_open_closed" }
+
+
 ## Multiple Hubs
 
 If you need to support multiple Insteon Hubs, you can optionally configure them in the openhab.cfg file with unique IDs
