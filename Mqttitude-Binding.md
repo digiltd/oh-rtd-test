@@ -16,36 +16,53 @@ First you will need to install and configure the [MQTT binding](https://github.c
 
 ## Binding Configuration
 
+There are two modes of operation for the Mqttitude binding. Note: you can have item bindings which are mixture of these two modes.
+
+#### Manual Mode ####
+The first is a manual calculation of your position relative to a single fixed 'home' geofence. In this mode you specify the 'home' geofence in your openhab.cfg file and then configure your item bindings to watch for location publishes from the Mqttitude app. As each location update is received the binding will calculate the distance from 'home' and update the item (ON/OFF) accordingly.
+
+#### Region Mode ####
+The second mode leaves the geofence definition and relative location calculations to the Mqttitude app itself. You can setup any number of 'regions' in your app and give them unique names. Then in openHAB you simply add the region name (optional third parameter of the item binding) and the binding will look for 'enter' or 'leave' events which are published by the app and switch the openHAB item accordingly. This allows you to define as many 'regions' or 'geofences' as you like, and track a phones location relative to many points of interest - e.g. home, work, holiday house. 
+
 ### openhab.cfg Config
 
-You need to define some properties in your openhab.cfg configuration file so the binding knows exactly where 'home' is and what size the [geofence](http://en.wikipedia.org/wiki/Geo-fence) is.
+You only need to define these properties in your openhab.cfg configuration file if you are using one or more 'Manual Mode' item bindings. In this mode you need to let the binding know exactly where 'home' is and what size the [geofence](http://en.wikipedia.org/wiki/Geo-fence) is.
 
 Here is an example;
 
-    # The lat/lon coordinates of 'home' (mandatory)
+    # Optional. The lat/lon coordinates of 'home'
     mqttitude:home.lat=xxx.xxxxx
     mqttitude:home.lon=xxx.xxxxx
 
-    # Distance in metres from 'home' to be considered 'present'
+    # Optional. Distance in metres from 'home' to be considered 'present'
     mqttitude:geofence=100
 
 ### Item bindings
 
-To track the location/presence of a mobile device all you need to do is add a Switch item and specify the MQTT topic that device publishes its location to.
+To track the location/presence of a mobile device all you need to do is add a Switch item and specify the MQTT topic that device publishes its location to. 
 
-Here is an example;
+#### Manual Mode ####
+Here is an example of some 'Manual Mode' item bindings;
 
-    Switch  PresenceBen_PhoneMqtt   "Ben's Phone"   { mqttitude="mosquitto:/mqttitude/ben" }
-    Switch  PresenceSam_PhoneMqtt   "Sam's Phone"   { mqttitude="mosquitto:/mqttitude/sam" }
+    Switch  PresenceBen_PhoneMqtt   "Ben @ Home"   { mqttitude="mosquitto:/mqttitude/ben" }
+    Switch  PresenceSam_PhoneMqtt   "Sam @ Home"   { mqttitude="mosquitto:/mqttitude/sam" }
 
 You can track as many different mobile devices as you like, on the one MQTT broker, just by using a different MQTT topic for each. This is configured in the Mqttitude apps on your mobile devices.
 
 When a device publishes a location the binding will receive it instantly, calculate the distance from your 'home' location, and if inside the 'geofence' radius set the Switch item to ON.
 
+#### Region Mode ###
+Here is an example of some 'Region Mode' item bindings;
+
+    Switch  PresenceBen_PhoneMqttHome   "Ben @ Home"   { mqttitude="mosquitto:/mqttitude/ben:home" }
+    Switch  PresenceBen_PhoneMqttWork   "Ben @ Work"   { mqttitude="mosquitto:/mqttitude/ben:work" }
+
+Here you can setup as many 'regions' as you like in your Mqttitude app and track each region in openHAB by creating a different item for each one, with the region name as the optional third parameter in the item binding. All messages are published to the one MQTT topic.
+
+This is a far more powerful mode and gives greater flexibily. It also stops the issue of location publishes happening just before you get close enough to 'home' and thus being considered outside the geofence, and then no further updates being sent because you don't move far enough to trigger one.
+
+In 'Region Mode' the Mqttitude apps detects when you cross a geofence boundary and ALWAYS sends a location update (either enter or leave), meaning openHAB should never lose track of your position. 
+
 ## Mqttitude Apps
 
-Currently both the iOS and Android versions of the Mqttitude app will periodically publish location updates, based on time and distance traveled (e.g. 500m in the iOS app). This can cause problems however because if the app publishes a location when you are 250m from home (which is outside your geofence) and then you arrive home, you haven't traveled far enough to trigger another location update. Therefore openHAB thinks you are still 'away'.
-
-v5.4 of the iOS app has had region/geofence support added which should alleviate this problem. By specifying your 'home' location the app will ALWAYS send a location update when you enter or leave the specified region.
-
-This hasn't been implemented in the Android app but it is in the pipeline.
+Currently only the iOS app (from v5.5) has region support but the Android version is being updated as we speak and should be available very soon. 
