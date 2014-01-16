@@ -12,7 +12,7 @@ This persistence service supports writing information to mysql relational databa
 
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
-Additionally, place a persistence file called sql.persist in the _${openhab.home}/configuration/persistence_ folder. This has the standard format as described in [[Persistence]].
+Additionally, place a persistence file called mysql.persist in the _${openhab.home}/configuration/persistence_ folder. This has the standard format as described in [[Persistence]].
 
 ## Configuration
 
