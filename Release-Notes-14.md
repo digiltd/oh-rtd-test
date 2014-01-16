@@ -9,12 +9,53 @@ Here is a detailed list of what this release brings on top of the previous openH
 ### openHAB Runtime
 
 **Major features:**
+* #735, #227 - CUL based bindings for FHT, FS20, Intertechno, EM and S300TH 
+* #401 - Implement INSTEON binding
 
 **Enhancements:**
+* #746 - reduced polling intervals to easy problems with ClassicUI on iOS
+* #744 - handle new encoding attribute of video widget in Classic UI
+* #741 - many RFXCOM binding improvements
+* #738 - Issue #374: added optional encoding attribute to video widget
+* #727 - Many many Sonos binding fixes and improvements
+* #721 - Mqttitude update - added support for upcoming 'region' feature in apps
+* #700 - Zwave network functions
+* #699 - MAX!Cube binding improvements
+* #512 - [Habdroid] URL handling 
+* #474 - Update Atmosphere Framework
+* #472 - Add support for new RGB-W bulbs to MiLight binding
+* #448 - Make OpenHAB userfriendly to program (GUI) + device discovery
 
 **Bugfixes:**
+* #756 - MySQL persistence: use correct prefix in openhab_default.cfg
+* #745 - Additional gcal query parameter (fix for #675)
+* #743 - Homematic: A short button press now updated the button state to OFF again
+* #675 - Problem with google calendar binding feed URL with query filter 
+* #570 - XMPP binding with google talk
+* #509 - NullpointerException in org.io.transport.mqtt 
+* #504 - Homematic Binding crashes CCU2 BidCoS-RF 
+* #503 - Classic-UI: Only one Webview-Widget per page
+* #499 - Habdroid discovery does not work with OH server on debian wheezy with IPV
+* #491 - CUPS binding could not connect 
+* #486 - TCP/UDP binding is not started
+* #482 - TCP binding causes 100&#37; cpu load 
+* #478 - TCP Binding high CPU utilisation
+* #471 - Invalid character in images filenames 
+* #458 - HTTP proxy incorrectly handles http/https port in image URL
+* #456 - Plugwise Binding not working in openHAB 1.3
+* #452 - Modified Configuration Files do not get reloaded
+* #450 - systeminfo binding not running on ARM architecture
+* #446 - digitalSTROM binding doesn't work in 1.3.0 b
+* #444 - openhab designer crashing while startup 
+* #443 - NikobusBinding item configurations not unregistered on .items file change
+* #442 - Sonos players not recognized depending on startup sequence
+* #439 - Designer doesn't launch on Mac
+* #436- Order of Items displayed in the openhab.app and greent changed. Possibly a bug?
+* #416 - [Designer] Add "New File" button
 
 **Removals:**
+* #747 - removed version check
+* #742 - removed api analysis builder
 
 ## Updating the openHAB runtime 1.3 to 1.4
 
