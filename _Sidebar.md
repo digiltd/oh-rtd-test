@@ -110,6 +110,7 @@ Samples
  * [[Samples-Comfo-Air-Binding]]
 
 Release Notes
+ * [[Version 1.4|Release-Notes-14]]
  * [[Version 1.3|Release-Notes-13]]
  * [[Version 1.2|Release-Notes-12]]
  * [[Version 1.1|Release-Notes-11]]
