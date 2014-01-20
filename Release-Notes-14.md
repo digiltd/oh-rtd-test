@@ -10,8 +10,10 @@ Here is a detailed list of what this release brings on top of the previous openH
 
 **Major features:**
 * #735, #227 - CUL based bindings for FHT, FS20, Intertechno, EM and S300TH 
+* #607 - Zwave configuration GUI
 * #401 - Implement INSTEON binding
 * #66 - Backend for CometVisu-UI
+* #57 - Sitemap/UI enhancements (dynamic sitemaps / chart servlet)
 
 **Enhancements:**
 * #746 - reduced polling intervals to easy problems with ClassicUI on iOS
@@ -19,19 +21,26 @@ Here is a detailed list of what this release brings on top of the previous openH
 * #741 - many RFXCOM binding improvements
 * #738 - Issue #374: added optional encoding attribute to video widget
 * #727 - Many many Sonos binding fixes and improvements
+* #724 - Zwave scene controller
 * #721 - Mqttitude update - added support for upcoming 'region' feature in apps
 * #700 - Zwave network functions
 * #699 - MAX!Cube binding improvements
+* #690 - ZWave wakeup - set wakeup parameters
 * #512 - [Habdroid] URL handling 
 * #474 - Update Atmosphere Framework
 * #472 - Add support for new RGB-W bulbs to MiLight binding
 * #448 - Make OpenHAB userfriendly to program (GUI) + device discovery
+* #97 - Heatmiser binding added
+* #47 - Add mysql persistence service
+* #44 - Modified "historicState" to return HistoricItem as per other extensions
 
 **Bugfixes:**
+* #761 - Fix NPE if no zwave stick in the machine.
 * #756 - MySQL persistence: use correct prefix in openhab_default.cfg
 * #745 - Additional gcal query parameter (fix for #675)
 * #743 - Homematic: A short button press now updated the button state to OFF again
 * #675 - Problem with google calendar binding feed URL with query filter 
+* #614 - Mysql error handling in event of failure to create table
 * #570 - XMPP binding with google talk
 * #509 - NullpointerException in org.io.transport.mqtt 
 * #504 - Homematic Binding crashes CCU2 BidCoS-RF 
