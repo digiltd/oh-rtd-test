@@ -33,6 +33,7 @@ Here is a detailed list of what this release brings on top of the previous openH
 * #97 - Heatmiser binding added
 * #47 - Add mysql persistence service
 * #44 - Modified "historicState" to return HistoricItem as per other extensions
+* #16 - SNMP Binding Update - include transformation on IN-binding
 
 **Bugfixes:**
 * #761 - Fix NPE if no zwave stick in the machine.
