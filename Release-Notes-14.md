@@ -11,6 +11,7 @@ Here is a detailed list of what this release brings on top of the previous openH
 **Major features:**
 * #735, #227 - CUL based bindings for FHT, FS20, Intertechno, EM and S300TH 
 * #401 - Implement INSTEON binding
+* #66 - Backend for CometVisu-UI
 
 **Enhancements:**
 * #746 - reduced polling intervals to easy problems with ClassicUI on iOS
