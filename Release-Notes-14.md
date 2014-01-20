@@ -42,6 +42,7 @@ Here is a detailed list of what this release brings on top of the previous openH
 * #743 - Homematic: A short button press now updated the button state to OFF again
 * #675 - Problem with google calendar binding feed URL with query filter 
 * #614 - Mysql error handling in event of failure to create table
+* #610 - Rules are not deleted after Rulesfile is deleted 
 * #570 - XMPP binding with google talk
 * #509 - NullpointerException in org.io.transport.mqtt 
 * #504 - Homematic Binding crashes CCU2 BidCoS-RF 
