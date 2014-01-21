@@ -11,7 +11,7 @@ Here is a detailed list of what this release brings on top of the previous openH
 **Major features:**
 * #735, #227 - CUL based bindings for FHT, FS20, Intertechno, EM and S300TH 
 * #607 - Zwave configuration GUI
-* #401 - Implement INSTEON binding
+* #401 - INSTEON Hub binding
 * #66 - Backend for CometVisu-UI
 * #57 - Sitemap/UI enhancements (dynamic sitemaps / chart servlet)
 
