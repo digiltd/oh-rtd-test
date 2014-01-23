@@ -256,8 +256,6 @@ See [[HomeMatic Admin Items|homematic admin items]] on howto get information abo
 - Climate Controls
  - HM-CC-VD (Wireless actuator)+
  - HM-CC-TC (Themo control, partly working)
-- Special Devices
- - HM-OU-CF-PI (Radio chime with light flash)
 - Not fully supported: Roller Shutters
  - HM-LC-Bl1-FM (Roller Shutter actor (1-port))
  - HM-LC-Bl1PBU-FM (Roller Shutter actor (1-port))
@@ -420,22 +418,8 @@ Valid parameter keys:
 - VALVE_STATE: The current state of the valve (Dimmer, Unit=Percentage, 0%=closed, 100%=open) or (Switch, Unit=ON/OFF, OFF=closed, ON=open). Read-only value.
 
 #### = Examples =
+
     
-### Special Devices
-
-#### HM-OU-CF-PI
-
-Valid channels:
-- 1 Flash
-- 2 Chime
-
-Valid parameter keys: 
-- STATE: The current state of channel (ON/OFF)
-
-##### = Examples =
-
-Switch Door_Flash "Front Door Bell" (Door) { homematic="{id=GEQ...,channel=1,parameter=STATE}"}
-Switch Door_Chime "Front Door Bell" (Door) { homematic="{id=GEQ...,channel=2,parameter=STATE}"}
 
 ### Roller Shutter Actors
 
