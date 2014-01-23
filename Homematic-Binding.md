@@ -420,9 +420,7 @@ Valid parameter keys:
 - VALVE_STATE: The current state of the valve (Dimmer, Unit=Percentage, 0%=closed, 100%=open) or (Switch, Unit=ON/OFF, OFF=closed, ON=open). Read-only value.
 
 #### = Examples =
-
     
-
 ### Special Devices
 
 #### HM-OU-CF-PI
@@ -434,7 +432,7 @@ Valid channels:
 Valid parameter keys: 
 - STATE: The current state of channel (ON/OFF)
 
-#### = Examples =
+##### = Examples =
 
 Switch Door_Flash "Front Door Bell" (Door) { homematic="{id=GEQ...,channel=1,parameter=STATE}"}
 Switch Door_Chime "Front Door Bell" (Door) { homematic="{id=GEQ...,channel=2,parameter=STATE}"}
