@@ -5,6 +5,7 @@ Miscellaneous Tips & Tricks
 * [How to add current or forecast weather icons to your sitemap](Samples-Tricks#how-to-add-current-or-forecast-weather-icons-to-your-sitemap)
 * [How to configure openHAB to start automatically on Linux](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux)
 * [Use cheap bluetooth dongles on remote PCs to detect your phone/watch](Samples-Tricks#use-cheap-bluetooth-dongles-on-remote-pcs-to-detect-your-phonewatch)
+* [Check presence by detecting WiFi phones/tablets] (Samples-Tricks#check-presence-by-detecting-wifi-phonestablets)
 * [Get connection status of all network devices from Fritz!Box, eg for presence detection](Samples-Tricks#get-connection-status-of-all-network-devices-from-fritzbox-eg-for-presence-detection)
 * [How to configure openHAB to connect to device symlinks (on Linux)](Samples-Tricks#how-to-configure-openhab-to-connect-to-device-symlinks-on-linux)
 * [Use URL to manipulate items](Samples-Tricks#use-url-to-manipulate-items)
@@ -314,6 +315,63 @@ apt-get install bluez
     			sendCommand("occupiedState", "ON")
     		}
     	}
+
+### Check presence by detecting WiFi phones/tablets
+This is a small modification to the tip above. This time we check, whether somebody is at home by testing if their phone is within WiFi reach.
+All you need is the Network Health Binding.
+
+Your items file could look like this:
+
+    Group gMobiles
+    Switch Presence
+    Switch phone1 (gMobiles) {nh="android-xxxxx"}
+    Switch phone1 (gMobiles) {nh="android-yyyyy"}
+
+My rules file looks like this:
+
+    rule "Periodically check presence"
+    when
+        Time cron "0 */5 * * * ?"
+    then
+            if (Presence.state == ON)
+            {
+                    if(gMobiles.members.filter(s | s.state == ON).size == 0) {
+                            logInfo("PresenceCheck", "No phone within reach, checking for flapping")
+                            if(gMobiles.members.filter(s | s.changedSince(now.minusMinutes(5))).size == 0) {
+                                    logInfo("PresenceCheck", "Nobody is at home")
+                                    sendCommand(Presence, OFF)
+                            }
+                    }
+            }
+            else
+            {
+                    //For initialisation. If Presence is undefined or off, although it should be on.
+                    if(gMobiles.members.filter(s | s.state == ON).size > 0) {
+                            sendCommand(Presence, ON)
+                    }
+                    else if (Presence.state == Undefined || Presence.state == Uninitialized) {
+                            sendCommand(Presence, OFF)
+                    }
+            }
+    
+    end
+    
+    rule "Coming home"
+    when
+            Item gMobiles changed
+    then
+            if (Presence.state != ON) {
+                    if(gMobiles.members.filter(s | s.state == ON).size > 0) {
+                            logInfo("PresenceCheck", "Somebody is home")
+                            sendCommand(Presence, ON)
+                    }
+            }
+    end
+
+Presence is only switched off, if no phone was seen within the last 5 minutes. This avoids flapping, if you
+are just taking out the trash or something.
+
+Additionally to the Network Health items in the gMobiles group, you could add bluetooth devices (like used above) or motion sensors.
 
 ### Get connection status of all network devices from Fritz!Box, eg for presence detection
 
