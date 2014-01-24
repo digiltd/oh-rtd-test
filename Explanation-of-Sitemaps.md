@@ -68,7 +68,10 @@ refresh is the refresh period of the image in milliseconds
 Syntax:
 
     Image [item="<itemname>"] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
-refresh is the refresh period of the image in milliseconds
+* _refresh_ is the refresh period of the image in milliseconds
+* _service_ sets the persistence service to use. If no service is set, openHAB will use the first queryable persistence service it finds. Therefore, for an installation with only a single persistence service, this is not required.
+
+Note that charts are rendered by a chart provider. By default, openHAB provides a default chart provider which will work with all queryable persistence services. Other chart providers can be user to render the chart by changing the `chart:provider=default` configuration in openhab.cfg to the name of the alternative provider. Currently, then only alternative is to use the rrdj4 provider to render the graphs.
 
 #### Element 'Switch'
 
