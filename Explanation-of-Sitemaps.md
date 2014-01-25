@@ -67,7 +67,7 @@ refresh is the refresh period of the image in milliseconds
 
 Syntax:
 
-    Image [item="<itemname>"] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
+    Chart [item="<itemname>"] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
 * _refresh_ is the refresh period of the image in milliseconds
 * _service_ sets the persistence service to use. If no service is set, openHAB will use the first queryable persistence service it finds. Therefore, for an installation with only a single persistence service, this is not required.
 
