@@ -14,7 +14,6 @@ Here is a detailed list of what this release brings on top of the previous openH
 * #101 - initial revision of the binding for pioneer AV receivers
 * #97 - Heatmiser binding added
 * #59 - Initial commit of a Tivo binding for openHAB
-* #57 - Sitemap/UI enhancements (dynamic sitemaps / chart servlet)
 * #49, #401 - INSTEON Hub binding
 * #30 - Initial commit of Netatmo binding
 * #28 - Swegon ventilation system binding
