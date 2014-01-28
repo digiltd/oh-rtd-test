@@ -8,7 +8,7 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 1. Manually change `org.openhab.designer.product/category.xml` file. Replace `1.x.0.qualifier` by `1.x.0`
 1. Execute a Maven build
 
-        mvn -P deploy clean install -Dp2.repo.serverid=cloudbees-public-release-repo -Dp2.repo.url=dav:https://repository-openhab.forge.cloudbees.com/release -Dp2.repo.dir=p2 -Dmaven.repo.id=cloudbees-public-release-repo -Dmaven.repo.url=dav:https://repository-openhab.forge.cloudbees.com/release/maven
+        mvn -P deploy clean deploy -Dp2.repo.serverid=cloudbees-public-release-repo -Dp2.repo.url=dav:https://repository-openhab.forge.cloudbees.com/release -Dp2.repo.dir=p2 -Dmaven.repo.id=cloudbees-public-release-repo -Dmaven.repo.url=dav:https://repository-openhab.forge.cloudbees.com/release/maven
 1. Commit the changed files
 
         git commit -a -m "prepare for 1.x.0 release"
