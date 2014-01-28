@@ -37,7 +37,7 @@ The configuration of a button uses the following format:
 
 <table>
   <tr><td><b>Parameter</b></td><td><b>Description</b></td></tr>
-  <tr><td>address</td><td>Address of the button. Could also be `*` to indicate any button.</td></tr>
+  <tr><td>address</td><td>Address of the button.</td></tr>
   <tr><td>pressType</td><td>Optional. Indication for a SHORT (<1 sec) or LONG (>1 sec) button press. Defaults to SHORT.</td></tr>
 </table>
 
@@ -50,8 +50,6 @@ Examples of Button Configurations:
     Switch Office_Top_Left_S "Office Light On/Off Short Press" {nikobus="#N003334:SHORT"}
     Switch Office_Top_Left_L "Office Light On/Off Long Press" {nikobus="#N003334:LONG"}
     Switch Kitchen "Kitchen Light On/Off" {nikobus="#N003333"}
-    Switch AnyLightSwitchShort "Any Light Switch" {nikobus="*:SHORT"}
-    Switch AnyLightSwitchLong "Any Light Switch" {nikobus="*:LONG"}
 
 When an item receives the ON command from openHAB, it will send a simulated button press to the nikobus. This means you could also define a virtual buttons in openHAB with non-existing addresses e.g. #N000001 and use those in the programmation of your nikobus.
 
