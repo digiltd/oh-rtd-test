@@ -13,6 +13,7 @@ Miscellaneous Tips & Tricks
 * [Item loops with delay](Samples-Tricks#item-loops-with-delay)
 * [enocean binding on Synology DS213+ (kernel driver package)](Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package)
 * [How to use openHAB to activate or deactivate your Fritz!Box-WLAN](Samples-Tricks#how-to-use-openhab-to-activate-or-deactivate-your-fritzbox-wlan)
+* [How to format a Google Maps URL from a Mqttitude Mqtt message](Samples-Tricks#how-to-format-a-google-maps-url-from-a-mqttitude-mqtt-message)
 
 ### How to redirect your log entries to the syslog
 
@@ -879,5 +880,16 @@ Switch item=WLAN7390		label="Fritzbox 7390 WLAN"        icon="network"
 Switch item=WLANSpeedport	label="Speedport W900V WLAN"      icon="network"
 ```
 
+### How to format a Google Maps URL from a Mqttitude Mqtt message
 
+First, create a MQTT entry in your items file that subscribes to the Mqttitude push:
+
+`String Map_Dan_Phone {mqtt="<[home:mqttitude/dan/iphone5s:state:JS(mqttitude-maps.js)]"}`
+
+The transform is a javascript file in the configuration/Transform directory (mqttitude-maps.js).  This file is very simple:
+```
+var location = eval('(' + input + ')');
+result = "http://maps.google.com/maps?z=12&t=m&q=loc:" + location.lat + "+" + location.lon;
+```
+The value of your item (Map_Dan_Phone) will be set to the result value. 
 
