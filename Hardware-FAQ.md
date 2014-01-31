@@ -57,6 +57,8 @@ In the Synology package manager you can
 * uninstall
 
 OpenHAB.  
+This package comes without any demo files - so the UI will not show much without giving OpenHAB some configurations ;-)
+It takes some time after the start of OpenHAB before the UI starts responding (less than a minute on a DS213+).
 
 ####Paths
 OpenHAB is installed at `/var/packages/OpenHAB/target/` (which is linked to `/volume1/@appstore/OpenHAB`).  
@@ -67,6 +69,13 @@ If the directory `/volume1/public/OpenHAB/addons` exists, this directory will be
 ####Ports
 The UI is on port 8081, the console (via telnet) is on port 5555.  
 
+####Demo files
+In the [OpenHAB google groups](https://groups.google.com/d/msg/openhab/lrzcZDYI3Ug/94XD81A9TYAJ) and on the package server https://www.hofrichter.at/sspks is an install-able package of the OpenHAB 1.3.1 demo files (only the demo files!) for Synology NAS. Prerequisite is that the OpenHAB 1.3.1 package is installed.
+
+After the installation of OpenHAB and the demo files http://your.synology.URL:8081/openhab.app?sitemap=demo should show the UI with the demo configuration.
+
+"Text to speech" is disabled in configurations/rules/demo.rules otherwise the demo files are unchanged. This change was necessary (at leased on a DS213+) else OpenHAB stops responding.
+Give OpenHAB a minute or so after the start of OpenHAB before you expect any response in the UI ;-)
 ####Kernel drivers
 Some bindings (e.g. [EnOcean](https://github.com/openhab/openhab/wiki/EnOcean-Binding)) work with USB-sticks that require some kernel drivers. For qoric CPU Diskstations (e.g. DS213+) there is a short guide how to install those drivers at [Samples-Tricks](https://github.com/openhab/openhab/wiki/Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package).  
 
