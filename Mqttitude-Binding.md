@@ -2,7 +2,7 @@ Documentation of the Mqttitude binding bundle.
 
 ## Introduction
 
-[Mqttitude](http://mqttitude.org/) was developed as a replacement for the old Google Latitude service. However it is slightly different (better) in that all your location data is private - i.e. there is no 3rd party server somewhere collecting and storing your data. Instead each time your device publishes its location, it is sent to an [MQTT](http://mqtt.org/) broker of your choice. 
+[OwnTracks](http://owntracks.org), formerly known as _MQTTitude_ was developed as a replacement for the old Google Latitude service. However it is slightly different (better) in that all your location data is private - i.e. there is no 3rd party server somewhere collecting and storing your data. Instead each time your device publishes its location, it is sent to an [MQTT](http://mqtt.org/) broker of your choice. 
 
 This is where openHAB steps in, with the Mqttitude binding. The idea is that the binding will track your location and when you are 'near' to a specified location (usually your home) it will update a Switch item in openHAB, enabling presence detection.
 
@@ -68,6 +68,6 @@ This is a far more powerful mode and gives greater flexibily. It also stops the 
 
 In 'Region Mode' the Mqttitude apps detects when you cross a geofence boundary and ALWAYS sends a location update (either enter or leave), meaning openHAB should never lose track of your position. 
 
-## Mqttitude Apps
+## OwnTracks Apps
 
 Currently only the iOS app (from v5.5) has region support but the Android version is being updated as we speak and should be available very soon. 
