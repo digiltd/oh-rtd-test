@@ -94,6 +94,7 @@ Create a new file in /etc/init.d/openhab using your preferred editor (e.g. nano)
     HTTPPORT=8080
     HTTPSPORT=8443
     TELNETPORT=5555
+    # be sure you are adopting the user to your local OH user 
     RUN_AS=ben
     
     # get path to equinox jar inside $eclipsehome folder
