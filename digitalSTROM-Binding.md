@@ -2,6 +2,10 @@ Documentation of the digitalSTROM binding bundle
 
 ## Introduction
 
+digitalSTROM is the solution for intelligent living. The smart home system represents digital lifestyle and an integrated connectivity concept. Intuitive in use and simple to install, the technology communicates via the existing power lines thus integrating all the electrical appliances as well as broadband devices in a home.
+
+This results in an infrastructure allowing connection of any applications, products and services via open interfaces. Successful miniaturization and digital intelligence make digitalSTROM suitable for both retrofitting and installation in new builds, without interfering in the existing room design. Analogous to the world of smartphones and app stores, digitalSTROM has open interfaces allowing unlimited creativity for solutions in smart living: In addition to apps for additional convenience at home, new marketing opportunities arise for suppliers of products and services. digitalSTROM AG is headquartered in Schlieren-Zurich (CH) and Wetzlar (D).
+
 digitalSTROM binding bundle is available as a separate (optional) download. If you want to let openHAB communicate with digitalSTROM DSS11 server, please place this bundle in the folder ${openhab_home}/addons and add binding information to your configuration.
  
 For installation of the binding, please see Wiki page [[Bindings]].
