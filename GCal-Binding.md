@@ -41,17 +41,34 @@ or just
 
 ## Obtain the calendar URL
 
-openHAB must be configured with your google calendar of choice. The URL has to be configured in your openhab.cfg. To obtain the google calendar URL please walk through the following steps:
+openHAB must be configured with your google calendar of choice. The URL has to be configured in your openhab.cfg. The following cases are supported:
 
+1. URL, username, password (Calendar Address)
+2. URL (Private Address)
+
+
+**Alternative 1:** To obtain the google calendar URL using username/password
+- fill in gcal:url gcal:username, gcal:password in openhab.cfg
 - login in to https://www.google.com/calendar/
 - click "Settings" (under "My calendars") -> \<your calendar\>
-- find the calendar URL in "Private Address:" section -> "XML". The URL will be something like this:
-`https://www.google.com/calendar/feeds/user@gmail.com/private-b340e2/basic`
+- find the calendar URL in in heading "Calendar Address" -> "XML". The URL for will be something like this:
+`https://www.google.com/calendar/feeds/user@gmail.com/private-b340e2/basic` 
 - copy the given url and replace "basic" with "full". 
-- the URL also contains a string to allow access without authentication (after private-), but this will not work for gcal persistence service, so remove it.
 
 The final URL should be similar to:
 `https://www.google.com/calendar/feeds/user@gmail.com/private/full`
+
+**Alternative 2:** To obtain the google calendar URL without password:
+- only gcal:url should be used in openhab.cfg
+- login in to https://www.google.com/calendar/
+- click "Settings" (under "My calendars") -> \<your calendar\>
+- find the calendar URL in in heading "Private Address" -> "XML". The URL for will be something like this:
+`https://www.google.com/calendar/feeds/user@gmail.com/private-da2412ef24124f151214deedbeef1234/basic`
+- copy the given url and replace "basic" with "full". 
+
+The final URL should be similar to:
+`https://www.google.com/calendar/feeds/user@gmail.com/private-da2412ef24124f151214deedbeef1234/basic`
+
 
 # Presence Simulation
 
