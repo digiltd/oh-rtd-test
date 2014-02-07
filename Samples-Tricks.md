@@ -14,6 +14,7 @@ Miscellaneous Tips & Tricks
 * [enocean binding on Synology DS213+ (kernel driver package)](Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package)
 * [How to use openHAB to activate or deactivate your Fritz!Box-WLAN](Samples-Tricks#how-to-use-openhab-to-activate-or-deactivate-your-fritzbox-wlan)
 * [How to format a Google Maps URL from a Mqttitude Mqtt message](Samples-Tricks#how-to-format-a-google-maps-url-from-a-mqttitude-mqtt-message)
+* [How to use Yahoo! weather images](Samples-Tricks#how-to-use-yahoo!-weather-images)
 
 ### How to redirect your log entries to the syslog
 
@@ -894,3 +895,94 @@ result = "http://maps.google.com/maps?z=12&t=m&q=loc:" + location.lat + "+" + lo
 ```
 The value of your item (Map_Dan_Phone) will be set to the result value. 
 
+### How to use Yahoo! weather images
+
+This tip allows you to use Yahoo! weather images in your sitemap. See the [Yahoo! Weather Developer]( http://developer.yahoo.com/weather/) page for more information.
+
+First we need to download a current set of yahoo images to the runtime/webapps/images folder, there are 48 total.  This command assumes you have imagemagick installed. This is included in most linux distros, on mac you can install it using [brew](http://brew.sh/)  like : ` brew install imagemagick `.
+
+```
+for i in `seq 0 47`;do curl http://l.yimg.com/a/i/us/we/52/$i.gif | convert - yahoo_weather-$i.png ;done
+```
+
+Note that we prefix the images with yahoo_weather, this is important as openHAB will append a yahoo weather code later to choose the correct one.
+
+Next add a xml transform file to your configuration/Transform directory, name this yahoo_weather_code.xml
+```
+<?xml version="1.0"?>
+<xsl:stylesheet 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" version="1.0">
+	<xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
+	<xsl:template match="/">
+		<!--<xsl:text>yahoo-weather-</xsl:text>-->
+		<xsl:value-of select="//item/yweather:condition/@code" />
+	</xsl:template>
+</xsl:stylesheet>
+```
+
+This will return the Yahoo! weather code for a selected region.
+
+We can map the weather code to a description so the item has both an image and text.  Name this yahoo_weather_code.map in the Configuration/Transform directory.
+```
+0=tornado
+1=tropical storm
+2=hurricane
+3=severe thunderstorms
+4=thunderstorms
+5=mixed rain and snow
+6=mixed rain and sleet
+7=mixed snow and sleet
+8=freezing drizzle
+9=drizzle
+10=freezing rain
+11=showers
+12=showers
+13=snow flurries
+14=light snow showers
+15=blowing snow
+16=snow
+17=hail
+18=sleet
+19=dust
+20=foggy
+21=haze
+22=smoky
+23=blustery
+24=windy
+25=cold
+26=cloudy
+27=mostly cloudy (night)
+28=mostly cloudy (day)
+29=partly cloudy (night)
+30=partly cloudy (day)
+31=clear (night)
+32=sunny
+33=fair (night)
+34=fair (day)
+35=mixed rain and hail
+36=hot
+37=isolated thunderstorms
+38=scattered thunderstorms
+39=scattered thunderstorms
+40=scattered showers
+41=heavy snow
+42=scattered snow showers
+43=heavy snow
+44=partly cloudy
+45=thundershowers
+46=snow showers
+47=isolated thundershowers
+```
+
+Add a Number item to a items file
+
+```
+Number YahooWeatherCode "Today is [MAP(yahoo_weather_code.map):%s]" (weather) { http="<[http://weather.yahooapis.com/forecastrss?w=2459115:3600000:XSLT(yahoo_weather_code.xsl)]"}
+```
+
+And a Text item to your sitemap
+
+```
+Text item=YahooWeatherCode icon="yahoo_weather"
+```
