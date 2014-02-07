@@ -14,7 +14,7 @@ Miscellaneous Tips & Tricks
 * [enocean binding on Synology DS213+ (kernel driver package)](Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package)
 * [How to use openHAB to activate or deactivate your Fritz!Box-WLAN](Samples-Tricks#how-to-use-openhab-to-activate-or-deactivate-your-fritzbox-wlan)
 * [How to format a Google Maps URL from a Mqttitude Mqtt message](Samples-Tricks#how-to-format-a-google-maps-url-from-a-mqttitude-mqtt-message)
-* [How to use Yahoo! weather images](Samples-Tricks#how-to-use-yahoo!-weather-images)
+* [How to use Yahoo weather images](Samples-Tricks#how-to-use-yahoo-weather-images)
 
 ### How to redirect your log entries to the syslog
 
@@ -895,7 +895,7 @@ result = "http://maps.google.com/maps?z=12&t=m&q=loc:" + location.lat + "+" + lo
 ```
 The value of your item (Map_Dan_Phone) will be set to the result value. 
 
-### How to use Yahoo! weather images
+### How to use Yahoo weather images
 
 This tip allows you to use Yahoo! weather images in your sitemap. See the [Yahoo! Weather Developer]( http://developer.yahoo.com/weather/) page for more information.
 
