@@ -60,7 +60,7 @@ by square brackets are optional.
 
 For connecting several brickds, use multiple &lt;IP address&gt; statements delimited by a space.
 
-Devices which do not support will callbacks will be polled with a configurable interval, the default
+Devices which do not support callbacks will be polled with a configurable interval, the default
  is 60000 milliseconds. This value can be changed in openhab.cfg:
  
     tinkerforge.refresh=<value in milliseconds>
