@@ -1,7 +1,5 @@
 Documentation of the MAX!Cube Binding Bundle
 
-_**Note:** This binding has not been released yet. However it is available in the [1.4 Daily Snapshot Builds](http://openhab.ci.cloudbees.com/job/openHAB/)._
-
 ## Introduction
 
 The openHAB MAX!Cube binding allows to connect to [ELV MAX!Cube Lan Gateway](http://www.elv.de/max-cube-lan-gateway.html,) installations. The binding allows to communicate with the MAX! devices through the MAX!Cube Lan Gateway.
