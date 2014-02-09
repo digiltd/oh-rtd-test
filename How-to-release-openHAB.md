@@ -1,6 +1,6 @@
 Follow these steps if you want to release a new version of openHAB. Later we plan to leverage the Maven Release Plugin to facilitate these steps.
 
-1. Pull the latest state from the repository
+1. Pull the latest state from the repository into a fresh and empty directory
 
         git clone git@github.com:openhab/openhab.git
 1. Open a command-line and go to the `openhab` directory
