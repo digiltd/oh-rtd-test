@@ -1,6 +1,4 @@
-# Documentation of the CUL binding bundle
-
-## *NOTE: This Binding is not yet released but it is available in the [1.4 Snapshot-Builds](https://openhab.ci.cloudbees.com/job/openHAB/).*
+Documentation of the CUL binding bundle
 
 # CUL Binding for openHAB
 
@@ -59,7 +57,7 @@ following parts
 So the address of the FHT80b itself would 3D49. A read binding on the FHT80b would give the measured temperature in regular intervals 
 of about 15 minutes.
 
-### =FHT bindings=
+### FHT bindings
 
 - {cul="TR3D4900"} is binding to receive the valve position in percent. It can be bound to a number item
 - {cul="TR952E90"} is a binding to receive the window state of a FHT window contact.
@@ -68,7 +66,7 @@ Note that these two bindings can only be read only. None of these devices does r
 - {cul="TW3D49"} This binding enables you to send commands to a FHT80b. Currently this will be mostly the desired temperature. But
 	you need also a writeable binding to update the time on your FHT80b.
 
-### =FS20 bindings=
+### FS20 bindings
 
 FS20 devices have always an address constisting of the house code (2 bytes) a group address (upper nibble of third byte) and a device
 address (lower nibble of third byte). So in a binding to receive data from a wall switch could look like this
@@ -76,7 +74,7 @@ address (lower nibble of third byte). So in a binding to receive data from a wal
 - {cul="FWC03B00"} This would enable openHAB to send commands to switch or dimmer. Currently only simple commands are possible.
 	For example it is not possible to control the internal timer.
 
-### =Intertechno bindings=
+### Intertechno bindings
 
 Intertechno is a somehow hackish thing to use. It works quite reliable most of the time, but many vendors have their own subset
 of Intertechno. Therefore it is necessary to specify the exact type of Intertechno device you will be addressing so the binding
