@@ -6,7 +6,7 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 1. Open a command-line and go to the `openhab` directory
 1. Set project version to release version with the Tycho Versions plugin
 
-        mvn -P prepare-release initialize -DnewVersion=1.x.0
+        export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=1024m"; mvn -P prepare-release initialize -DnewVersion=1.x.0
 1. Manually change `org.openhab.designer.product/category.xml` file. Replace `1.x.0.qualifier` by `1.x.0`
 1. Execute a Maven build
 
