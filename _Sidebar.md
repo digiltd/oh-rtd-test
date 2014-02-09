@@ -54,6 +54,7 @@ Community
   * [[NTP Binding|Ntp-Binding]]
   * [[One-Wire Binding|One-Wire-Binding]]
   * [[Onkyo AV Receiver Binding|Onkyo-Binding]]
+  * [[Open Energy Monitor Binding|Open-Energy-Monitor-Binding]]
   * [[OpenSprinkler Binding|Open-Sprinkler]]
   * [[OSGi Configuration Admin Binding|Config-Admin-Binding]]
   * [[Philips Hue Binding|Hue-Binding]]
