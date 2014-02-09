@@ -1,26 +1,23 @@
-_**please note these release notes are subject to change**_
-
 Here is a detailed list of what this release brings on top of the previous openHAB 1.3.
 
 ## New & Noteworthy
 
-### Version 1.4
-
 ### openHAB Runtime
 
 **Major features:**
-* #806 - Initial commit of the HDanywhere binding
+* #806 - HDAnywhere binding
+* #780 - Provide deb files and APT Repository from maven build
 * #599 - Open energy monitor binding
 * #227, #735 - CUL based bindings for FHT, FS20, Intertechno, EM and S300TH 
-* #101 - initial revision of the binding for pioneer AV receivers
-* #97 - Heatmiser binding added
-* #59 - Initial commit of a Tivo binding for openHAB
-* #49, #401 - INSTEON Hub binding
-* #30, #262 - Initial commit of Netatmo binding
-* #28 - Swegon ventilation system binding
-* #22 - added MAX!Cube binding
-* #19 - Implemented new Mqttitude binding for presence detection
-* #7, #14 - Added OpenPaths presence detection binding
+* #101 - Pioneer AV receiver binding
+* #97 - Heatmiser binding
+* #59 - Tivo binding
+* #49, #401 - INSTEON binding
+* #30, #262 - Netatmo binding
+* #28 - Swegon ventilation binding
+* #22 - MAX!Cube binding
+* #19 - MQTTitude binding for presence detection
+* #7, #14 - OpenPaths presence detection binding
 * #6, #66 - Backend for CometVisu-UI
 
 **Enhancements:**
@@ -28,40 +25,27 @@ Here is a detailed list of what this release brings on top of the previous openH
 * #828 - Add controller type/id/manufacturer to node
 * #827 - Standardise logging to allow identification of entries relating to a specific node
 * #825 - Added Fibaro FG-RGBW controller (thanks Surendra)
-* #813 - used name variable instead of fixed name for deb.desc and used formatter
 * #805 - Add initial Aeon MES to product database (no configuration parameters as data not available)
-* #800 - CometVisu-Binding: improved implementation of the BroadcasterCache
 * #798 - Updated Aeon labs door/window sensor config file
 * #794 - Koubachi binding: implement care actions enhancement
 * #793 - Koubachi binding: add missing properties from "plants"
-* #792 - Fix typos and javadoc errors
 * #791 - Koubachi binding: prevent exception when response contains null value
 * #790 - HTTP binding: Added DateTime item support
 * #788 - Changed multilevel switch stop command
 * #785 - Chart servlet updates
 * #783 - GreenT: Added chart servlet support and possibility to select used chart engine (chart or rrdchart)
-* #780 - deb files and apt repository from maven build
-* #748 - MAX!Cube gateway discovery
 * #746 - reduced polling intervals to easy problems with ClassicUI on iOS
 * #744 - handle new encoding attribute of video widget in Classic UI
-* #741 - many RFXCOM binding improvements
-* #727 - Many many Sonos binding fixes and improvements
+* #727 - Sonos binding fixes and improvements
 * #724 - Zwave scene controller
-* #721 - Mqttitude update - added support for upcoming 'region' feature in apps
 * #718 - Zwave wakeup
-* #704 - Nibe heatpump binding gw fixes
-* #703 - RFXCOM binding changes
 * #700 - Zwave network functions
-* #699 - MAX!Cube binding improvements
 * #697 - Implement SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE handling for multilevel switches
 * #690 - ZWave wakeup - set wakeup parameters
 * #679 - Added support to ZWave binding for RollershutterItems
 * #661 - ZWAVE Update serialisation folder to only use the major/minor part of the version
-* #660 - RFXCOM binding: refactoring
 * #655 - Maxcube Binding updates to allow sending of updates to Cube
-* #650 - MAX!Cube binding improvements
-* #630 - Rfxcom binding improvements
-* #617 - Additions to RFXcom Binding
+* #617, #630, #660, #703, #741 - RFXCOM binding improvements
 * #615 - Z-Wave THERMOSTAT_SETPOINT command class implementation
 * #607 - Zwave configuration GUI
 * #605 - added item name to the executed command as the third string format argument for exec persistence binding
@@ -69,13 +53,13 @@ Here is a detailed list of what this release brings on top of the previous openH
 * #474 - Update Atmosphere Framework
 * #472 - Add support for new RGB-W bulbs to MiLight binding
 * #448 - Make OpenHAB userfriendly to program (GUI) + device discovery
+* #416 - [Designer] Add "New File" button
 * #374, #738 - added optional encoding attribute to video widget
 * #355, #824 Support Contact and Switch in One Wire
 * #103 - TinkerforgeBinding enhancements
-* #102 - Nibe heat pump binding: Fixed and improved data parsing
 * #98 - Improved logging when unsupported command class encountered.
 * #95 - Enhanced Fritzbox Binding
-* #68 - Nibe heatpump binding improvements
+* #68, #102, #704 - Nibe heatpump binding improvements
 * #58, #377 - Improved performance of hue binding
 * #57 - Sitemap/UI enhancements (dynamic sitemaps / chart servlet)
 * #56 - Enhancements and bug fixes for Squeezebox binding/action
@@ -94,22 +78,19 @@ Here is a detailed list of what this release brings on top of the previous openH
 
 **Bugfixes:**
 * #835 - Fix error in log causing formatting exception
-* #823 - Plugwise fixes (see email on mailing list)
-* #822 - fix class path files of knx, netatmo and openenergymonitor projects
+* #823 - Various Plugwise fixes
 * #774, #784 - NPE in KNXBinding for unsupported datapoints
-* #764 - TinkerforgeBinding Bugfix reconnect and configuration
+* #764 - Tinkerforge Binding Bugfix reconnect and configuration
 * #761 - Fix NPE if no zwave stick in the machine.
-* #760 - Fix String Encoding for Intertechno Addresses
 * #756 - MySQL persistence: use correct prefix in openhab_default.cfg
 * #751, #769 Twitter Binding Problem
-* #745 - Additional gcal query parameter (fix for #675)
 * #743 - Homematic: A short button press now updated the button state to OFF again
 * #722 - Various Sonos binding fixes and improvements
 * #712 - Translation problem for DTP 5.004
 * #710, #814 - Fix problem with mysql string length (See #710)
 * #706, #818 - WebApp UI renders wrong (obsolete) label for active Groups (withFIX) 
 * #698 - binding nikobus - button config in documentation not working
-* #675 - Problem with google calendar binding feed URL with query filter 
+* #675, #745 - Problem with google calendar binding feed URL with query filter 
 * #673, #818 - Group items not updated in 1.4
 * #669, #817 - NPE with security=external
 * #649, #810 - Plugwise - Pace ZigBeen network load
@@ -125,8 +106,7 @@ Here is a detailed list of what this release brings on top of the previous openH
 * #496, #810 - Plugwise initiatlisation fails at first run 
 * #491 - CUPS binding could not connect 
 * #486 - TCP/UDP binding is not started
-* #482 - TCP binding causes 100&#37; cpu load 
-* #478 - TCP Binding high CPU utilisation
+* #478, #482 - TCP Binding high CPU utilisation
 * #471 - Invalid character in images filenames 
 * #458 - HTTP proxy incorrectly handles http/https port in image URL
 * #452 - Modified Configuration Files do not get reloaded
@@ -137,7 +117,6 @@ Here is a detailed list of what this release brings on top of the previous openH
 * #442 - Sonos players not recognized depending on startup sequence
 * #439 - Designer doesn't launch on Mac
 * #436- Order of Items displayed in the openhab.app and greent changed. Possibly a bug?
-* #416 - [Designer] Add "New File" button
 * #99 - Bugfix: Z-Wave binding: access to the output stream without synchronisation
 * #50 - Fix to include artwork parsing.
 * #46 - Fixed multiple call of processBindingConfiguration
