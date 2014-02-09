@@ -1,4 +1,4 @@
-Documentation of the Z-Wave binding Bundle
+Documentation of the Z-Wave binding Bundle for the Snapshot release.
 
 ## Introduction
 
@@ -11,7 +11,7 @@ Please make sure that you have a functioning Z-Wave network prior to using this 
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
-**This wiki page describes the stable binding. For the snapshot (BETA) binding look at [ZWaveBindingSnapshot](Z-Wave-Binding-Snapshot). Use the snapshot binding at your own risk**
+The snapshot version of the binding can be downloaded, together with the rest of openhab, from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
 
 ## Supported controllers
 
@@ -19,7 +19,7 @@ The binding supports all controllers that implement the Z-Wave Serial API. A lis
 
 <table>
   <tr><td>Aeon Labs USB Z-Stick</td><td>No remarks</td></tr>
-  <tr><td>The Razberry-Zwave-Daughterboard</td><td>See Known issues</td></tr>
+  <tr><td>The Razberry-Zwave-Daughterboard</td><td>See known issues</td></tr>
   <tr><td>Vision USB stick Z-wave</td><td>No remarks</td></tr>
 </table>
 
@@ -33,24 +33,15 @@ First of all you need to introduce the port settings of your Z-Wave controller i
     # Z-Wave controller port
     # Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux
     zwave:port=COM1
-    
-    # Z-Wave binding refresh value (optional, defaults to 10000)
-    # zwave:refresh=10000
-    # Z-Wave binding refresh interval threshold (optional, defaults to every 6 times)
-    # zwave:refreshThreshold=6
 
 The zwave:port value indicates the serial port on the host system to which the Z-Wave controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
-
-The zwave:refresh value is optional. It specifies the interval at which the binding refreshes the items in milliseconds. This is the interval for reporting items like the number of frames or the device type of a node. The default value is every 10 seconds.
-
-The zwave:refreshThreshold value is optional. It specifies the interval threshold in number of refreshes that have to occur before the node values are polled. The nodes are polled at a lower frequency because it generates traffic on the Z-Wave network. Most devices report their values on change anyway, so usually your item values will be updated instantly when one of their values change.
 
 ## Item configuration
 
 In order to bind an item to a Z-Wave device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Z-Wave binding configuration string is explained here:
 The format of the binding configuration is simple and looks like this:
 
-    zwave="<nodeId>[:<endpointId>[:action]]"
+    zwave="<nodeId>[:<endpointId>][:command=<command>[,parameter=<value>][,parameter=<value>]...]"
 
 where parts in brackets indicate an optional item. Usually only one item is bound to a device, but more items can be bound to a device as well, either for reporting variables, or in case the device consists of multiple endpoints / instances.
 
@@ -58,61 +49,53 @@ The node ID indicates the number (in decimal notation) of the node, to which thi
 
 The endpoint ID is optional. In case a node consists of multiple instances or endpoints, the instance number can be specified using this value. The default value is 1. An example of a multi-endpoint device is the Fibaro FGS 221 double relay.
 
-The action is optional. Besides the normal action of reporting the value of a node and/or sending a value to the device, other actions / options can be specified using the action value. The list of possible action values is indicated below.
+The command is optional. Z-Wave nodes support functionality through command classes. A specific command class can be specified to use that specific functionality of the node. A node can contain multiple supported command classes. If the command is omitted, the best suitable command class for the item / node combination is automatically chosen.
 
-## Actions
+Command classes may support parameters. A parameter is a name=value pair that configures some aspect of the command class on the node or in the binding.
 
-<table>
-  <tr><td>NOP</td><td>Default action. Binds to the value of the node / endpoint and if possible sends commands to the node / endpoint.</td></tr>
-  <tr><td>HOMEID</td><td>Reports the home ID of the network.</td></tr>
-  <tr><td>NODEID</td><td>Reports the nodeID of the node.</td></tr>
-  <tr><td>LISTENING</td><td>Reports whether the device is a listening (battery operated) device.</td></tr>
-  <tr><td>SLEEPING_DEAD</td><td>Reports whether the node is sleeping / dead.</td></tr>
-  <tr><td>ROUTING</td><td>Reports whether the node is routing messages to other nodes.</td></tr>
-  <tr><td>VERSION</td><td>Reports the node version.</td></tr>
-  <tr><td>BASIC</td><td>Reports the basic device class number of the node.</td></tr>
-  <tr><td>BASIC_LABEL</td><td>Reports the basic device class name of the node.</td></tr>
-  <tr><td>GENERIC</td><td>Reports the generic device class number of the node.</td></tr>
-  <tr><td>GENERIC_LABEL</td><td>Reports the generic device class name of the node.</td></tr>
-  <tr><td>SPECIFIC</td><td>Reports the specific device class number of the node.</td></tr>
-  <tr><td>SPECIFIC_LABEL</td><td>Reports the specific device class name of the node.</td></tr>
-  <tr><td>MANUFACTURER</td><td>Reports the manufacturer ID of the node.</td></tr>
-  <tr><td>DEVICE_TYPE_ID</td><td>Reports the device ID of the node.</td></tr>
-  <tr><td>DEVICE_TYPE</td><td>Reports the device type of the node.</td></tr>
-  <tr><td>LASTUPDATE</td><td>Reports the last updated time of the node.</td></tr>
-  <tr><td>SOF</td><td>Reports the number of SOF frames. Only valid for the controller node.</td></tr>
-  <tr><td>CAN</td><td>Reports the number of CAN frames. Only valid for the controller node.</td></tr>
-  <tr><td>NAK</td><td>Reports the number of NAK frames. Only valid for the controller node.</td></tr>
-  <tr><td>OOF</td><td>Reports the number of OOF frames. Only valid for the controller node.</td></tr>
-  <tr><td>ACK</td><td>Reports the number of ACK frames. Only valid for the controller node.</td></tr>
-  <tr><td>WAKE_UP_INTERVAL</td><td>Reports the wake up interval for the battery  operated node.</td></tr>
-  <tr><td>BATTERY_LEVEL</td><td>Reports the battery level for a device.</td></tr>
-  <tr><td>RESTORE_LAST_VALUE</td><td>Indicates that the dimmer should restore to it’s last known value on an ON command, instead of setting the value to 100%.</td></tr>
-</table>
+A list with command classes and parameter values is provided below:
 
 ## Supported Command Classes
 
 Each node in the network provides functionality in the form of Command Classes. The OpenHAB Z-Wave binding implements the same Command Classes to be able to use the nodes in the network. Not all Z-Wave Command classes are currently supported by the binding. The supported command classes are listed in the table below.
 
 <table>
-  <tr><td><b>Command Class</b></td><td><b>Remarks</b></td></tr>
-  <tr><td>NO_OPERATION</td><td>Used by the binding during initialization</td></tr>
-  <tr><td>BASIC</td><td>Provides basic SET and GET of the default node value</td></tr>
-  <tr><td>SWITCH_BINARY</td><td>Used to bind directly to a SWITCH</td></tr>
-  <tr><td>SWITCH_MULTILEVEL</td><td>Used to bind directly to a DIMMER</td></tr>
-  <tr><td>SENSOR_BINARY</td><td>Used to bind to a sensor. Use a CONTACT item in OpenHAB</td></tr>
-  <tr><td>SENSOR_MULTILEVEL</td><td>Used to bind to e.g. a temperature sensor. Currently only single sensors are supported.</td></tr>
-  <tr><td>MULTI_INSTANCE</td><td>Used to channel commands to the right endpoint on multi-channel devices. See item configuration.</td></tr>
-  <tr><td>MANUFACTURER_SPECIFIC</td><td>Used to get manufacturer info from the device</td></tr>
-  <tr><td>BATTERY</td><td>Used to get the battery level from battery operated devices. See item configuration.</td></tr>
-  <tr><td>WAKE_UP</td><td>Used to respond to wake-up signals of battery operated devices.</td></tr>
-  <tr><td>VERSION</td><td>Used to get version info from a node.</td></tr>
-  <tr><td>SENSOR_ALARM</td><td>Used to get alarm info from sensors. Use a CONTACT item in OpenHAB</td></tr>
+  <tr><td><b>Command Class</b></td><td><b>Remarks</b></td><td><b>Supported parameters</b></td></tr>
+  <tr><td>NO_OPERATION</td><td>Used by the binding during initialization</td><td></td></tr>
+  <tr><td>BASIC</td><td>Provides basic SET and GET of the default node value</td><td></td></tr>
+  <tr><td>HAIL</td><td>Used by nodes to indicate that they want to be polled. The binding handles this automatically</td><td></td></tr>
+  <tr><td>METER</td><td>Used to get measurements from a node</td><td>*meterScale=value* :  optional parameter to select the meter scale in case the meter supports multiple scales (and types). Value is one of the following textual values:<br/>E_KWh (0, MeterType.ELECTRIC, "kWh", "Energy") <br/>E_KVAh (1, MeterType.ELECTRIC, "kVAh", "Energy")<br/>E_W(2, MeterType.ELECTRIC, "W", "Power")<br/>E_Pulses (3, MeterType.ELECTRIC, "Pulses", "Count")<br/>E_V (4, MeterType.ELECTRIC, "V", "Voltage")<br/>E_A (5, MeterType.ELECTRIC, "A", "Current")<br/>E_Power_Factor (6, MeterType.ELECTRIC, "Power Factor", "Power Factor")<br/>G_Cubic_Meters (0, MeterType.GAS, "Cubic Meters", "Volume")<br/>G_Cubic_Feet (1, MeterType.GAS, "Cubic Feet", "Volume")<br/> G_Pulses(3, MeterType.GAS, "Pulses", "Count")<br/>W_Cubic_Meters (0, MeterType.WATER, "Cubic Meters", "Volume")<br/>W_Cubic_Feet (1, MeterType.WATER, "Cubic Feet", "Volume")<br/>W_Gallons (2, MeterType.WATER, "US gallons", "Volume")<br/>W_Pulses (3, MeterType.WATER, "Pulses", "Count")</td></tr>
+  <tr><td>SWITCH_BINARY</td><td>Used to bind directly to a SWITCH</td><td></td></tr>
+  <tr><td>SWITCH_MULTILEVEL</td><td>Used to bind directly to a DIMMER</td><td>restore_last_value=true : restores the dimmer to it's last value if an ON command is sent to the dimmer (as opposed to setting it's value to 100%)</td></tr>
+  <tr><td>SENSOR_BINARY</td><td>Used to bind to a sensor.</td><td></td></tr>
+  <tr><td>SENSOR_MULTILEVEL</td><td>Used to bind to e.g. a temperature sensor. Currently only single sensors are supported.</td><td>*sensorType=value* : optional parameter to select a sensor in case the node supports multiple sensors. Value is one of the following numerical values:<br/>TEMPERATURE(1,"Temperature")<br/>GENERAL(2,"General")<br/>LUMINANCE(3,"Luminance")<br/>POWER(4,"Power")<br/>RELATIVE_HUMIDITY(5,"RelativeHumidity")<br/>VELOCITY(6,"Velocity")<br/>DIRECTION(7,"Direction")<br/>ATMOSPHERIC_PRESSURE(8,"AtmosphericPressure")<br/>BAROMETRIC_PRESSURE(9,"BarometricPressure")<br/>SOLAR_RADIATION(10,"SolarRadiation")<br/>DEW_POINT(11,"DewPoint")<br/>RAIN_RATE(12,"RainRate")<br/>TIDE_LEVEL(13,"TideLevel")<br/>WEIGHT(14,"Weight")<br/>VOLTAGE(15,"Voltage")<br/>CURRENT(16,"Current")<br/>CO2(17,"CO2")<br/>AIR_FLOW(18,"AirFlow")<br/>TANK_CAPACITY(19,"TankCapacity")<br/>DISTANCE(20,"Distance")<br/>ANGLE_POSITION(21,"AnglePosition")<br/>ROTATION(22,"Rotation")<br/>WATER_TEMPERATURE(23,"WaterTemperature")<br/>SOIL_TEMPERATURE(24,"SoilTemperature")<br/>SEISMIC_INTENSITY(25,"SeismicIntensity")<br/>SEISMIC_MAGNITUDE(26,"SeismicMagnitude")<br/>ULTRAVIOLET(27,"Ultraviolet")<br/>ELECTRICAL_RESISTIVITY(28,"ElectricalResistivity")<br/>ELECTRICAL_CONDUCTIVITY(29,"ElectricalConductivity")<br/>LOUDNESS(30,"Loudness")<br/>MOISTURE(31,"Moisture")<br/>MAX_TYPE(32,"MaxType")</td></tr>
+  <tr><td>MULTI_INSTANCE</td><td>Used to channel commands to the right endpoint on multi-channel devices. See item configuration.</td><td></td></tr>
+  <tr><td>MANUFACTURER_SPECIFIC</td><td>Used to get manufacturer info from the device</td><td></td></tr>
+  <tr><td>BATTERY</td><td>Used to get the battery level from battery operated devices. See item configuration.</td><td></td></tr>
+  <tr><td>WAKE_UP</td><td>Used to respond to wake-up signals of battery operated devices.</td><td></td></tr>
+  <tr><td>VERSION</td><td>Used to get version info from a node.</td><td></td></tr>
+  <tr><td>SENSOR_ALARM</td><td>Used to get alarm info from sensors.</td><td>*alarmType=value* : optional parameter to select an alarm type in case the node supports multiple alarms. Value is one of the following numerical values: <br/>GENERAL(0, "General")<br/>SMOKE(1, "Smoke")<br/>CARBON_MONOXIDE(2, "Carbon Monoxide")<br/>CARBON_DIOXIDE(3, "Carbon Dioxide")<br/>HEAT(4, "Heat")<br/>FLOOD(5, "Flood")</td></tr>
 </table>
+
+## = Parameters that can be added to any item
+
+There are some general parameters that can be added to any command class
+in an item string. These are `refresh_interval=value` and `respond_to_basic=true`
+
+`refresh_interval=value` sets the refresh interval to *value* seconds. 0 indicates that no polling is performed and the node should inform the binding itself on value changes. This is the default value.
+
+`respond_to_basic=true` indicates that the item will respond to basic reports. Some Fibaro contacts and universal sensors report their values as BASIC reports instead of a specific command class. You can add this parameter to an item to indicate that this item should respond to those reports.
+
+### Basic command class
 
 The basic Command Class is a special command class that almost every node implements. It provides functionality to set a value on the device and/or to read back values. It can be used to address devices that are currently not supported by their native command class like thermostats.
 
 When the basic command class is used, devices support setting values and reporting values when polling. Direct updates from the device on changes will fail however.
+
+You can force a device to work with the basic command set (or any specific command set for that matter using a syntax like:
+
+    Switch    ZwaveDevice        { zwave="3:1:command=BASIC" }
+
 
 To find out which command classes are supported by your Z-Wave device, you can look in the manual or use the list at http://www.pepper1.net/zwavedb/ or http://products.z-wavealliance.org/. In case your command class is supported by the device and binding, but you have a problem, you can create an issue at: https://github.com/openhab/openhab/issues. In case you want a command class implemented by the binding, please add it to issue [431](https://github.com/openhab/openhab/issues/431).
 
@@ -124,40 +107,57 @@ There seems to be an issue with the binding running on the latest oracle VM Beta
 
 Here are some examples of valid binding configuration strings, as defined in the items configuration file:
 
-    /* Some dimmers */
-    Dimmer Light_LivingRoom_Dimmer "Living room Dimmer [%d %%]" (GF_Living) {zwave="3"} 
-    Dimmer Light_Corridor_Dimmer "Corridor Dimmer [%d %%]" (GF_Corridor) {zwave="6"}
+    /* Some statistics */
     
-    /* Some multi-endpoint switches */
-    Switch Mech_Vent			"Ventilation middle."	(GF_Kitchen) {zwave="11:1"}
-    Switch Mech_Vent_High		"Ventilation high."	(GF_Kitchen) {zwave="11:2"}
+    Number ZwaveStatsSOF "Number Start of Frames[%s]" (gZwaveStats) {zwave="1:1:command=info,item=sof"}
+    Number ZwaveStatsACK "Number of Acknowledgments [%s]" (gZwaveStats) {zwave="1:1:command=info,item=ack"}
+    Number ZwaveStatsCAN "Number of CAN [%s]" (gZwaveStats) {zwave="1:1:command=info,item=can"}
+    Number ZwaveStatsNAK "Number of NAK [%s]" (gZwaveStats) {zwave="1:1:command=info,item=nak"}
+    Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {zwave="1:1:command=info,item=oof"}
+    Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats) {zwave="1:1:command=info,item=time_out"}
+    String ZwaveNode01HomeID	"Home ID [%s]" (gZwaveNode01) {zwave="1:1:command=info,item=home_id"}
+    Number ZwaveNode01NetworkID	"Node ID [%s]" (gZwaveNode01) {zwave="1:1:command=info,item=node_id"}
     
-    /* A dimmer that restores to it's last value */
-    Dimmer Light_Toilet_Dimmer "Toilet Dimmer [%d %%]" (GF_Toilet) {zwave="10:1:restore_last_value"} 
+    /* A dimmer and a contact */
     
-    /* Controller stick statistics */
-    String ZwaveStatsSOF "Number Start of Frames[%s]" (gZwaveStats) {zwave="1:1:sof"}
-    String ZwaveStatsACK "Number of Acknowledgments [%s]" (gZwaveStats) {zwave="1:1:ack"}
-    String ZwaveStatsCAN "Number of CAN [%s]" (gZwaveStats) {zwave="1:1:can"}
-    String ZwaveStatsNAK "Number of NAK [%s]" (gZwaveStats) {zwave="1:1:nak"}
-    String ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {zwave="1:1:oof"}
+    Dimmer Light_Corridor_Dimmer "Hallway Dimmer [%d %%]" (GF_Corridor) {zwave="6"}
+    Contact Door_Corridor_Switch "Front door sensor [MAP(nl.map):%s]" (GF_Corridor) {zwave="21:command=sensor_binary,respond_to_basic=true"} 
+    Number Door_Corridor_Battery "Front door sensor battery level [%d %%]" (GF_Corridor) { zwave="21:command=battery" }
     
-    /* Controller information */
-    String ZwaveNode01HomeID	"Home ID [%s]" (gZwaveNode01) {zwave="1:1:homeid"}
-    String ZwaveNode01NetworkID	"Network ID [%s]" (gZwaveNode01) {zwave="1:1:nodeid"}
-    String ZwaveNode01LastUpdated	"Last Updated [%s]" (gZwaveNode01) {zwave="1:1:lastupdate"}
-    String ZwaveNode01Listening	"Listening? [%s]" (gZwaveNode01) {zwave="1:1:listening"}
-    String ZwaveNode01Routing	"Routing [%s]" (gZwaveNode01) {zwave="1:1:routing"}
-    String ZwaveNode01Version	"Version [%s]" (gZwaveNode01) {zwave="1:1:version"}
-    String ZwaveNode01BasicCommandClass	"Basic Command Class Label [%s]" (gZwaveNode01) {zwave="1:1:basic_label"}
-    String ZwaveNode01GenericCommandClass	"Generic Command Class Label [%s]" (gZwaveNode01) {zwave="1:1:generic_label"}
-    String ZwaveNode01SpcificCommandClass	"Specific Command Class [%s]" (gZwaveNode01) {zwave="1:1:specific"}
-    String ZwaveNode01SpcificCommandClassLabel	"Specific Command Class Label [%s]" (gZwaveNode01) {zwave="1:1:specific_label"}
+    /* A node with multiple endpoints */
     
-    /* A binary sensor */
-    Contact Flood_Sensor "Flood sensor [MAP(en.map):%s]" (GF_Cellar) {zwave="12"}
+    Switch Mech_Vent			"Mechanical ventilation middle."	(GF_Kitchen) {zwave="11:1"}
+    Switch Mech_Vent_High		"Mechanical ventilation high."	(GF_Kitchen) {zwave="11:2"}
     
-    Number Flood_Sensor_Battery "Flood sensor battery level [%s]" (gZwaveStats) { zwave="12:1:battery_level" }
+    /* A fibaro wall plug with energy meter. */
+    
+    Switch Coffee_Kitchen_Switch "Coffee machine" (GF_Cellar) {zwave="18:command=switch_binary"} 
+    Number Coffee_Kitchen_Power "Coffee machine power consumption [%.1f W]" (GF_Cellar,GF_Energy) { zwave="18:command=sensor_multilevel" }
+    Number Coffee_Kitchen_Energy "Coffee machine total energy usage  [%.2f KWh]" (GF_Cellar) { zwave="18:command=meter" }
+    
+    /* A six node power bar with integrated energy and power meter and different intervals. */
+    
+    Switch Switch_Powerbar_Subwoofer "Subwoofer" (GF_Living) {zwave="26:1:command=switch_binary"} 
+    Switch Switch_Powerbar_Reiceiver "Receiver" (GF_Living) {zwave="26:2:command=switch_binary"} 
+    Switch Switch_Powerbar_DVD "DVD" (GF_Living) {zwave="26:3:command=switch_binary"} 
+    Switch Switch_Powerbar_TV "TV" (GF_Living) {zwave="26:4:command=switch_binary"} 
+    Switch Switch_Powerbar_Xbox "XBOX-360" (GF_Living) {zwave="26:5:command=switch_binary"} 
+    Switch Switch_Powerbar_PC "Mediacenter" (GF_Living) {zwave="26:6:command=switch_binary"} 
+    
+    Number Power_Powerbar_Subwoofer "Subwoofer power consumption  [%d W]" (GF_Living,GF_Energy) {zwave="26:1:command=meter,meter_scale=E_W,refresh_interval=60"} 
+    Number Power_Powerbar_Reiceiver "Receiver power consumption  [%d W]" (GF_Living,GF_Energy) {zwave="26:2:command=meter,meter_scale=E_W,refresh_interval=70"} 
+    Number Power_Powerbar_DVD "DVD power consumption [%d W]" (GF_Living,GF_Energy) {zwave="26:3:command=meter,meter_scale=E_W,refresh_interval=60"} 
+    Number Power_Powerbar_TV "TV power consumption [%d W]" (GF_Living,GF_Energy) {zwave="26:4:command=meter,meter_scale=E_W,refresh_interval=70"} 
+    Number Power_Powerbar_Xbox "XBOX-360 power consumption [%d W]" (GF_Living,GF_Energy) {zwave="26:5:command=meter,meter_scale=E_W,refresh_interval=80"} 
+    Number Power_Powerbar_PC "Mediacenter power consumption [%d W]" (GF_Living,GF_Energy) {zwave="26:6:command=meter,meter_scale=E_W,refresh_interval=80"} 
+    
+    Number Energy_Powerbar_Subwoofer "Subwoofer total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:1:command=meter,meter_scale=E_KWh,refresh_interval=300"} 
+    Number Energy_Powerbar_Reiceiver "Receiver total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:2:command=meter,meter_scale=E_KWh,refresh_interval=310"} 
+    Number Energy_Powerbar_DVD "DVD totaal total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:3:command=meter,meter_scale=E_KWh,refresh_interval=320"} 
+    Number Energy_Powerbar_TV "TV total energy usage [%.4f KWh]" (GF_Living) {zwave="26:4:command=meter,meter_scale=E_KWh,refresh_interval=330"} 
+    Number Energy_Powerbar_Xbox "XBOX-360 total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:5:command=meter,meter_scale=E_KWh,refresh_interval=340"} 
+    Number Energy_Powerbar_PC "Mediacenter total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:6:command=meter,meter_scale=E_KWh,refresh_interval=350"} 
+    
 
 ## Logging
 
@@ -174,7 +174,7 @@ In order to configure logging for this binding to be generated in a separate fil
       <maxHistory>30</maxHistory>
    </rollingPolicy>
    <encoder>
-      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{30}[:%line]- %msg%n%ex{5}</pattern>
+     <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{30}[:%line]- %msg%n%ex{5}</pattern>
    </encoder>
 </appender>
     
