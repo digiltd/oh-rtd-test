@@ -70,6 +70,7 @@ Community
   * [[System Info Binding|Systeminfo-Binding]]
   * [[Somfy URTSI II Binding|URTSI-Binding]]
   * [[Sonos Binding|Sonos-Binding]]
+  * [[Swegon ventilation Binding|Swegon-Ventilation-Binding]]
   * [[TCP/UDP Binding|TCP-Binding]]
   * [[TinkerForge Binding|Tinkerforge-Binding]]
   * [[VDR Binding|VDR-Binding]]
