@@ -30,9 +30,6 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 1. Commit the changes
 
         git commit -a -m "increment to next development version 1.y.0"
-1. Go one directory up to the root of the repository
-
-        cd ..
 1. Push the changes including the tag to the server
 
         git push origin master --tags
