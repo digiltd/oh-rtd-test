@@ -1,7 +1,5 @@
 This binding allows to remotely control a Pioneer AV receiver equipped with an ethernet interface. It enables OpenHAB to switch ON/OFF the receiver, adjust the volume, set the input source and configure most other parameters.
 
-_Note: This binding will be available in the official release not before version 1.4.0!_
-
 Most common commands are supported directly, special commands can be added manually using the "advanced command" mechanism described below.
 
 ## Binding configuration
