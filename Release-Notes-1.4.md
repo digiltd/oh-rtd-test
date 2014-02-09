@@ -7,18 +7,18 @@ Here is a detailed list of what this release brings on top of the previous openH
 **Major features:**
 * #806 - HDAnywhere binding
 * #780 - Provide deb files and APT Repository from maven build
-* #599 - Open energy monitor binding
-* #227, #735 - CUL based bindings for FHT, FS20, Intertechno, EM and S300TH 
-* #101 - Pioneer AV receiver binding
-* #97 - Heatmiser binding
+* #599 - [[Open energy monitor binding|Open-Energy-Monitor-Binding]]
+* #227, #735 - [[CUL based bindings for FHT, FS20, Intertechno, EM and S300TH|CUL-Binding]]
+* #101 - [[Pioneer AV receiver binding|Pioneer-AVR-Binding]]
+* #97 - [[Heatmiser binding|Heatmiser-Binding]]
 * #59 - Tivo binding
-* #49, #401 - INSTEON binding
-* #30, #262 - Netatmo binding
-* #28 - Swegon ventilation binding
-* #22 - MAX!Cube binding
-* #19 - MQTTitude binding for presence detection
+* #49, #401 - [[INSTEON Hub binding|Insteon-Hub-Binding]]
+* #30, #262 - [[Netatmo binding|Netatmo-Binding]]
+* #28 - [[Swegon ventilation binding|Swegon-Ventilation-Binding]]
+* #22 - [[MAX!Cube binding|MAX!Cube-Binding]]
+* #19 - [[MQTTitude binding for presence detection|Mqttitude-Binding]]
 * #7, #14 - OpenPaths presence detection binding
-* #6, #66 - Backend for CometVisu-UI
+* #6, #66 - [[Backend for CometVisu-UI|Comet-Visu]]
 
 **Enhancements:**
 * #833 - Google calendar: Added support for "Private Address" URL without authentication
