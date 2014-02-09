@@ -1,7 +1,9 @@
 Follow these steps if you want to release a new version of openHAB. Later we plan to leverage the Maven Release Plugin to facilitate these steps.
 
 1. Pull the latest state from the repository
-1. Open a command-line and go to the `openHAB` directory
+
+        git clone git@github.com:openhab/openhab.git
+1. Open a command-line and go to the `openhab` directory
 1. Set project version to release version with the Tycho Versions plugin
 
         mvn -P prepare-release initialize -DnewVersion=1.x.0
