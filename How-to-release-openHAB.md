@@ -7,10 +7,12 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 1. Set project version to release version with the Tycho Versions plugin
 
         export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=1024m"; mvn -P prepare-release initialize -DnewVersion=1.x.0
-1. Manually change `org.openhab.designer.product/category.xml` file. Replace `1.x.0.qualifier` by `1.x.0`
+1. Manually change `./products/org.openhab.runtime.product/category.xml` file. Replace `1.x.0.qualifier` by `1.x.0`
+1. Manually change `./products/org.openhab.designer.product/category.xml` file. Replace `1.x.0.qualifier` by `1.x.0`
 1. Execute a Maven build
 
         mvn -P deploy clean deploy -Drepo.id=cloudbees-public-release-repo -Drepo.url=dav:https://repository-openhab.forge.cloudbees.com/release/1.x.0 -Dp2.repo.dir=p2 -Dapt.repo.dir=apt-repo
+1. Install and extensively test the created binaries
 1. Commit the changed files
 
         git commit -a -m "prepare for 1.x.0 release"
@@ -19,8 +21,9 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
         git tag v1.x.0
 1. Increment to next development version
 
-        mvn -P prepare-snapshot initialize -DnewVersion=1.y.0
-1. Manually change `org.openhab.designer.product/category.xml` file. Replace `1.y.0` by `1.y.0.qualifier`
+        mvn -P prepare-next-snapshot initialize -DnewVersion=1.y.0
+1. Manually change `./products/org.openhab.runtime.product/category.xml` file. Replace `1.y.0` by `1.y.0.qualifier`
+1. Manually change `./products/org.openhab.designer.product/category.xml` file. Replace `1.y.0` by `1.y.0.qualifier`
 1. Execute a Maven build with goals clean verify to assure that everything builds
 
         mvn clean verify
@@ -32,8 +35,7 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
         cd ..
 1. Push the changes including the tag to the server
 
-        git --tags push origin master
-        git push origin master
+        git push origin master --tags
 1. Switch to the root directoy of openHAB
 
 to be continued …
