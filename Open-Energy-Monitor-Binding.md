@@ -52,47 +52,42 @@ Where
 
 ## Examples (openhab.cfg)
 
-openenergymonitor:phase1RealPower=10:U16(2|1)
-openenergymonitor:phase1ApparentPower=10:U16(4|3)
-openenergymonitor:phase1Current=10:U16(6|5)
-openenergymonitor:phase1PowerFactor=10:U16(8|7)
-openenergymonitor:phase2RealPower=10:U16(10|9)
-openenergymonitor:phase2ApparentPower=10:U16(12|11)
-openenergymonitor:phase2Current=10:U16(14|13)
-openenergymonitor:phase2PowerFactor=10:U16(16|15)
-openenergymonitor:phase3RealPower=10:U16(18|17)
-openenergymonitor:phase3ApparentPower=10:U16(20|19)
-openenergymonitor:phase3Current=10:U16(22|21)
-openenergymonitor:phase3PowerFactor=10:U16(24|23)
-openenergymonitor:realPower=10:U16(26|25)
-openenergymonitor:apparentPower=10:U16(28|27)
-openenergymonitor:voltage=10:U16(30|29)
-openenergymonitor:pulseCount=10:U32(34|33|32|31)
-openenergymonitor:pulsePower=10:U16(36|35)
+    openenergymonitor:phase1RealPower=10:U16(2|1)
+    openenergymonitor:phase1ApparentPower=10:U16(4|3)
+    openenergymonitor:phase1Current=10:U16(6|5)
+    openenergymonitor:phase1PowerFactor=10:U16(8|7)
+    openenergymonitor:phase2RealPower=10:U16(10|9)
+    openenergymonitor:phase2ApparentPower=10:U16(12|11)
+    openenergymonitor:phase2Current=10:U16(14|13)
+    openenergymonitor:phase2PowerFactor=10:U16(16|15)
+    openenergymonitor:phase3RealPower=10:U16(18|17)
+    openenergymonitor:phase3ApparentPower=10:U16(20|19)
+    openenergymonitor:phase3Current=10:U16(22|21)
+    openenergymonitor:phase3PowerFactor=10:U16(24|23)
+    openenergymonitor:realPower=10:U16(26|25)
+    openenergymonitor:apparentPower=10:U16(28|27)
+    openenergymonitor:voltage=10:U16(30|29)
+    openenergymonitor:pulseCount=10:U32(34|33|32|31)
+    openenergymonitor:pulsePower=10:U16(36|35)
 
 ## Examples (items)
 
-Number RealPower { openenergymonitor="realPower" }
-Number ApparentPower { openenergymonitor="apparentPower" }
-Number Voltage { openenergymonitor="voltage" }
-
-Number Phase1RealPower { openenergymonitor="phase1RealPower" }
-Number Phase1ApparentPower { openenergymonitor="phase1ApparentPower" }
-Number Phase1Current { openenergymonitor="phase1Current:JS(divideby100.js)" }
-Number Phase1PowerFactor { openenergymonitor="phase1PowerFactor" }
-
-Number Phase2RealPower { openenergymonitor="phase2RealPower" }
-Number Phase2ApparentPower { openenergymonitor="phase2ApparentPower" }
-Number Phase2Current { openenergymonitor="phase2Current:JS(divideby100.js)" }
-Number Phase2PowerFactor { openenergymonitor="phase2PowerFactor" }
-
-Number Phase3RealPower { openenergymonitor="phase3RealPower" }
-Number Phase3ApparentPower { openenergymonitor="phase3ApparentPower" }
-Number Phase3Current { openenergymonitor="phase3Current / 100" }
-Number Phase3PowerFactor { openenergymonitor="phase3PowerFactor" }
-
-Number PulseEnergy { openenergymonitor="cumulative(pulseCount):JS(divideby5000.js)" }
-Number PulsePower { openenergymonitor="pulsePower" }
-
-Number Phase123RealPower { openenergymonitor="phase1RealPower+phase2RealPower+phase3RealPower" }
-Number Phase123Current { openenergymonitor="phase1Current+phase2Current+phase3Current:JS(divideby100.js)" }
+    Number RealPower { openenergymonitor="realPower" }
+    Number ApparentPower { openenergymonitor="apparentPower" }
+    Number Voltage { openenergymonitor="voltage" }
+    Number Phase1RealPower { openenergymonitor="phase1RealPower" }
+    Number Phase1ApparentPower { openenergymonitor="phase1ApparentPower" }
+    Number Phase1Current { openenergymonitor="phase1Current:JS(divideby100.js)" }
+    Number Phase1PowerFactor { openenergymonitor="phase1PowerFactor" }
+    Number Phase2RealPower { openenergymonitor="phase2RealPower" }
+    Number Phase2ApparentPower { openenergymonitor="phase2ApparentPower" }
+    Number Phase2Current { openenergymonitor="phase2Current:JS(divideby100.js)" }
+    Number Phase2PowerFactor { openenergymonitor="phase2PowerFactor" }
+    Number Phase3RealPower { openenergymonitor="phase3RealPower" }
+    Number Phase3ApparentPower { openenergymonitor="phase3ApparentPower" }
+    Number Phase3Current { openenergymonitor="phase3Current / 100" }
+    Number Phase3PowerFactor { openenergymonitor="phase3PowerFactor" }
+    Number PulseEnergy { openenergymonitor="cumulative(pulseCount):JS(divideby5000.js)" }
+    Number PulsePower { openenergymonitor="pulsePower" }
+    Number Phase123RealPower { openenergymonitor="phase1RealPower+phase2RealPower+phase3RealPower" }
+    Number Phase123Current { openenergymonitor="phase1Current+phase2Current+phase3Current:JS(divideby100.js)" }
