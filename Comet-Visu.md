@@ -9,7 +9,7 @@ This is just a short overview, more details will be added soon!
 ## Requirements
 
 * openHAB 1.4 or greater<br>
-Note: Until openHAB 1.4 is relased, the latest version can be downloaded from [here](https://openhab.ci.cloudbees.com/job/openHAB/)
+Note: The latest version can be downloaded from [here](https://openhab.ci.cloudbees.com/job/openHAB/)
 * CometVisu 0.8.0 or greater (https://sourceforge.net/projects/openautomation/files/CometVisu/).<br>
 It might be usefull to work with the latest SVN version of CometVisu as well.<br>
 On a Raspberry Pi, the installation of the SVN version works like this:<br>
