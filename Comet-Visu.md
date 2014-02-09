@@ -1,7 +1,5 @@
 Documentation of the CometVisu Backend
 
-**Note: This feature will only be available in openHAB 1.4!**
-
 ## Introduction
 
 This adds a backend for the web based visualization CometVisu (http://www.cometvisu.org). The CometVisu is a highly customizable visualization, that runs in any browser. Despite the existing browser based UI´s in openHAB, the CometVisu does not read the sitemaps. The layout is defined with an XML-based configuration file.
