@@ -47,6 +47,7 @@ Community
   * [[Modbus TCP Binding|Modbus-Tcp-Binding]]
   * [[MPD Binding|Mpd-Binding]]
   * [[MQTT Binding|MQTT-Binding]]
+  * [[MQTTitude binding|Mqttitude-Binding]]
   * [[Netatmo Binding|Netatmo-Binding]]
   * [[Network Health Binding|Network-Health-Binding]]
   * [[Nibe Heatpump Binding|Nibe-Heat-Pump-Binding]]
