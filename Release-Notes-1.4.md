@@ -93,7 +93,7 @@ Here is a detailed list of what this release brings on top of the previous openH
 * Removed version check (#747)
 * Removed api analysis builder (#742)
 
-** API changes **
+**API changes**
 * PersistenceExtensions.historicState() now returns an HistoricItem rather than a State object. Therefore any rules using this interface need to add .state to the end to replicate how it used to work. See ttps://groups.google.com/forum/#!topic/openhab/ZTwbhbwVqKM for more information.
 
 
