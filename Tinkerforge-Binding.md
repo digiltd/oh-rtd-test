@@ -33,6 +33,11 @@ The following devices are supported for now:
 The TinkerForge binding bundle is available as a separate (optional) download. For installation of 
 the binding, please see Wiki page [[Bindings]].
 
+## Upgrading from 1.3
+- LCDBacklight now is a sub device of LCD20x4 Bricklet (items file has to be changed)
+- LCD20x4Button now posts an update not a command anymore (rules has to be changed)
+- IndustrialQuadRelay sub id numbering now starts from zero (items file has to be changed) 
+
 ## General Remarks
 The binding supports the connection to several brickd instances.
 
