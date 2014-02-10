@@ -93,6 +93,10 @@ Here is a detailed list of what this release brings on top of the previous openH
 * Removed version check (#747)
 * Removed api analysis builder (#742)
 
+** API changes **
+* PersistenceExtensions.historicState() now returns an HistoricItem rather than a State object. Therefore any rules using this interface need to add .state to the end to replicate how it used to work. See ttps://groups.google.com/forum/#!topic/openhab/ZTwbhbwVqKM for more information.
+
+
 ## Updating the openHAB runtime 1.3 to 1.4
 
 If you have a running openHAB runtime 1.3 installation, you can easily update it to version 1.4 by following these steps:
