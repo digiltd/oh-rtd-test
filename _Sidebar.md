@@ -88,6 +88,7 @@ Community
   * [[Cosm Persistence|Cosm-Persistence]]
   * [[Logging Persistence|Logging-Persistence]]
   * [[Exec Persistence|Exec-Persistence]]
+  * [[MQTT Persistence|MQTT-Persistence]]
  * Automation
   * [[Scripts]]
   * [[Rules]]
