@@ -8,7 +8,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Prerequisites
 
-In order to communicate with the Raspberry Pi carrying the PiFace daughter board please install the scripts that can be found here: https://code.google.com/p/openhab/source/browse/bundles/binding/org.openhab.binding.piface/scripts/
+In order to communicate with the Raspberry Pi carrying the PiFace daughter board please install the scripts that can be found [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.piface/scripts).
 
 ## Binding Configuration
 
