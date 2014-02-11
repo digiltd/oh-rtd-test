@@ -768,8 +768,8 @@ the Type CallType with its associated methods can be used to extract the caller 
     rule "inbound Call"
       when Item Incoming_Call_No received update
     then 
-      val CallType call = Incoming_Call_No.state as CallType
-      val String mailSubject =
+      var CallType call = Incoming_Call_No.state as CallType
+      var String mailSubject =
       "Anruf von Nummer " + call.origNum + " -> " + call.destNum
       sendMail( "us...@domain.de" , mailSubject , "");
     end
