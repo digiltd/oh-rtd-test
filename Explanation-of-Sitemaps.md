@@ -33,7 +33,7 @@ The following elements can be used in a sitemap definition file (alphabetical or
   <tr><td>Webview</td><td></td></tr>
 </table>
 
-#### Element 'Colorpicker'
+#### <a name="colorpicker"/>Element 'Colorpicker'
 
 Syntax:
 
@@ -78,12 +78,14 @@ Note that charts are rendered by a chart provider. By default, openHAB provides 
 Syntax:
 
     Switch item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
+An explanation for mappings you can find [here](#wiki-mappings).
 
 #### Element 'Selection'
 
 Syntax:
 
     Selection item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
+An explanation for mappings you can find [here](#wiki-mappings).
 
 #### Element 'Setpoint'
 
@@ -121,6 +123,21 @@ encoding is the video encoding. Use "mjpeg" for MJPEG video or leave empty for a
 Syntax:
 
     Webview item="<itemname>" [label="<labelname>"] [icon="<iconname>"] url="<url>" [height="<heightvalue"]
+
+### <a name="mappings"/>Mappings
+
+Mappings can be used to let the user chose an item from a list.
+
+**Syntax:**
+
+     mappings = [ "value1"="name1", "value2"="name2" ]
+Quotes can be omitted if the value string and name string do not contain spaces.
+
+
+**Examples:**
+
+    mappings = [ "1"="ON", "0"="OFF" ]
+    mappings = [ 1="BBC", 2="CNN", 3="BLOOMBERG" ]
 	
 ## Dynamic Sitemaps
 **Note** The following is only available in v1.4 (not released yet, only available as snapshots)
