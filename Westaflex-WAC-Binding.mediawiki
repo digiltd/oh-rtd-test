@@ -1,4 +1,4 @@
-Documentation for the Fresh Air Ventilation Systems Bundle named [WAC systems](http://westaflex.com/produkte/wohnungslueftung/zentralgeraet-mit-waermetauscher) by Westaflex®.
+Documentation for the Fresh Air Ventilation Systems Bundle named * [http://www.westaflex.com Offizielles Internetportal des Unternehmens Westaflex] [WAC systems](http://westaflex.com/produkte/wohnungslueftung/zentralgeraet-mit-waermetauscher) by Westaflex®.
 
 @westaflex Germany
 
