@@ -29,7 +29,7 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fire alarm
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Dirty filter alarm''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 2 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |Küchen- und Trocknerabluft
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Dirty filter alarm''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 2 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Mehrlagiges Rohr. In vielen Rohrquerschnitten. Geringe Logistikkosten.
 |-
