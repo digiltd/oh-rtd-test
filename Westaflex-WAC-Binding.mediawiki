@@ -7,7 +7,7 @@ Documentation for the Fresh Air Ventilation Systems Bundle named [http://westafl
  Gründungsdatum = 1933|
  Sitz = [[Gütersloh]]|
  Leitung = Jan und Peter Westerbarkey|
- Mitarbeiterzahl = ca. 250 (Stand 2007)|
+ Mitarbeiterzahl = ca. 250 (Stand 2012)|
  Produkte = Maschinen zur Rohrfertigung, industrielle Luft- und Klimaführung, Schornstein-Technik, Wasserfiltration, Schalldämpfer, Wohnungslüftung|
  Homepage = [http://www.westaflex.com/ www.westaflex.com]}}
 
