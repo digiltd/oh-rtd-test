@@ -9,9 +9,9 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 ## List of supported MODBUS coil addresses
 
 ***
-- table 1
+> table 1
 ***
-- table 2
+> table 2
 ***
 
 
