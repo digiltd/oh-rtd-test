@@ -1,4 +1,4 @@
-Documentation for the Fresh Air Ventilation Systems Bundle named [http://westaflex.com/lueftung/ = westa air control systems].
+Documentation for the Fresh Air Ventilation Systems Bundle named [http://westaflex.com/lueftung/ WAC = westa air control systems].
 
 {{Infobox_Unternehmen |
  Name = Westaflexwerk|
