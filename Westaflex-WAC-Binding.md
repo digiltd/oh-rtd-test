@@ -8,27 +8,11 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 
 ## List of supported MODBUS coil addresses
 
-{| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
-|-
-! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Rohrform !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Merkmal !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Eigenschaften !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Einsatzbereiche
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Westerflex''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''rotierende Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | vollflexibel || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |Chemie, Pharma
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Mehrlagiges Flexrohr. Aus Kunststoff, Aluminium, Papier oder Inox. Gasdicht. Auch perforiert als Schalldämpfer.
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Westerform''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''vorprofilierte Rollenbahn'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | biegbar || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Automobil- und Flugzeugbau
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Mehrbahniges Rohr. Aus Inox, GFK oder Aluminium. Extrem belastbar. Auch in magnetischer Ausführung.
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Westercompact''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''profilierte Rollenbahn'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | dehn-stauchbar || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |Küchen- und Trocknerabluft
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Mehrlagiges Rohr. In vielen Rohrquerschnitten. Geringe Logistikkosten.
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Westerquadro''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''rotierender Profilkern'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | jede Rohrform || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Waggon- und Schiffbau, Wohnungs- und Gewerbebau
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Jeder Rohrquerschnitt möglich: rund, oval, quadratisch, dreieckig, rautenförmig. Perforiert (für Schalldämpfer) und unperforiert.
-|}
-
+***
+table 1
+***
+table 2
+***
 
 
 
