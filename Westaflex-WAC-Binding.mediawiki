@@ -1,4 +1,14 @@
-Documentation for the Fresh Air Ventilation Systems Bundle named [http://westaflex.com/produkte/wohnungslueftung/zentralgeraet-mit-waermetauscher WAC systems] by Westaflex®.
+Documentation for the Fresh Air Ventilation Systems Bundle named [http://westaflex.com/produkte/wohnungslueftung/zentralgeraet-mit-waermetauscher WAC systems].
+{{Infobox_Unternehmen |
+ Name = Westaflexwerk|
+ Logo = [[Datei:Logo westaflex.svg|250px]]|
+ Unternehmensform = GmbH|
+ Gründungsdatum = 1933|
+ Sitz = [[Gütersloh]]|
+ Leitung = Jan und Peter Westerbarkey|
+ Mitarbeiterzahl = ca. 250 (Stand 2007)|
+ Produkte = Maschinen zur Rohrfertigung, industrielle Luft- und Klimaführung, Schornstein-Technik, Wasserfiltration, Schalldämpfer, Wohnungslüftung|
+ Homepage = [http://www.westaflex.com/ www.westaflex.com]}}
 
 === Introduction ===
 
