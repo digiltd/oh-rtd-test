@@ -19,7 +19,7 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
 |-
-! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Name !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Modbus func !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Data address !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Values
+! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Name !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Modbus function !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Data address !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Values
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Heat''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 0 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-active, 0-passive
 |-
