@@ -81,11 +81,11 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Heater indication
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Speed''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_White_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 16 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0, 1, 2, 3
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Speed''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_Write_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 16 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0, 1, 2, 3
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans speed setting
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''TsetPoint''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 17 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''TsetPoint''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_Write_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 17 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-30
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Supply air temperature set
 ||-
