@@ -21,11 +21,11 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 |-
 ! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Name !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Modbus func !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Data address !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Values
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Westerflex''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''rotierende Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | vollflexibel || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |Chemie, Pharma
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Heat exchanger''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''rotierende Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | vollflexibel || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |Chemie, Pharma
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Mehrlagiges Flexrohr. Aus Kunststoff, Aluminium, Papier oder Inox. Gasdicht. Auch perforiert als Schalldämpfer.
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Westerform''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''vorprofilierte Rollenbahn'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | biegbar || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Automobil- und Flugzeugbau
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fire alarm''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''vorprofilierte Rollenbahn'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | biegbar || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Automobil- und Flugzeugbau
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Mehrbahniges Rohr. Aus Inox, GFK oder Aluminium. Extrem belastbar. Auch in magnetischer Ausführung.
 |-
