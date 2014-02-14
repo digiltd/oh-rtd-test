@@ -8,12 +8,6 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 
 === List of supported MODBUS coil addresses ===
 
-***
-> table 1
-***
-> table 2
-***
-
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
 |-
 ! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Rohrform !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Merkmal !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Eigenschaften !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Einsatzbereiche
