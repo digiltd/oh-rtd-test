@@ -25,7 +25,7 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Plate heat exchanger frost protection function
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fire alarm''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''vorprofilierte Rollenbahn'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | biegbar || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Automobil- und Flugzeugbau
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fire alarm''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Colis'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | biegbar || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Automobil- und Flugzeugbau
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Mehrbahniges Rohr. Aus Inox, GFK oder Aluminium. Extrem belastbar. Auch in magnetischer Ausführung.
 |-
