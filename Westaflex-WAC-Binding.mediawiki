@@ -37,170 +37,91 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 4 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 5 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-||-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 6 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 ||-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 7 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 8 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 9 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 10 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 11 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 12 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 13 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 14 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 15 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 16 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 17 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
+||-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 18 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 19 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 20 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 21 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|
-#|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 22 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 23 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 24 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
-|-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
-|-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fans''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 25 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |}
 
 
