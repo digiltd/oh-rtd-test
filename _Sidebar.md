@@ -79,7 +79,6 @@ Community
   * [[TinkerForge Binding|Tinkerforge-Binding]]
   * [[VDR Binding|VDR-Binding]]
   * [[Wake-on-LAN Binding|Wake-on-LAN-Binding-(WoL)]]
-  * [[Westaflex WAC Binding|Westaflex WAC Binding]]
   * [[Z-Wave Binding|Z-Wave-Binding]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
