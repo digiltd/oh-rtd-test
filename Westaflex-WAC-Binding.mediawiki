@@ -27,7 +27,7 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fire''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 1 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fire alarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fire
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Filter alarm''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 2 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-active, 0-passive
 |-
