@@ -19,7 +19,7 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
 |-
-! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Rohrform !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Merkmal !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Eigenschaften !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Einsatzbereiche
+! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Name !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Modbus func !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Data address !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Values
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Westerflex''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''rotierende Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | vollflexibel || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |Chemie, Pharma
 |-
