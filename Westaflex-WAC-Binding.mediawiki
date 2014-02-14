@@ -39,15 +39,15 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''LowPower''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 5 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Low voltage
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Textract''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 6 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Temperature sensor alarm
 ||-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Texhaust''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 7 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alaram
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Exhaust air temperature sensor alarm
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Timit''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 8 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
