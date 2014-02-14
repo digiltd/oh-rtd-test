@@ -69,11 +69,11 @@ WAC systems with charming technology, use default modbus data provided by Arduin
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans ON
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''InDumpper''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 13 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''InDumpper''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 13 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-90
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Outside air damper actuator
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Preheater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 14 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-90
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Preheater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 14 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Preheater indication
 |-
