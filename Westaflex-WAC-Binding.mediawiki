@@ -149,7 +149,7 @@ modbus_t *mb;
   modbus_close(mb);
   modbus_free(mb);
 
-[https://github.com/westaflex See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate to contact us [github@westaflex.com?Subject=URL%20Encoded%20Subject&body=Body%20Text WAC binding] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
+[http://wiki.openhab-samples.googlecode.com/hg/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [https://github.com/westaflex to contact us] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
 
 
