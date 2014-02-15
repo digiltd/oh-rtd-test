@@ -12,7 +12,7 @@
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Westaflex products are used in a variety of applications including automotive production, train technology (ICE ventilation), for the air supply and ventilation of living spaces, exhaust technology and water treatment.
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Westaflex''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''aluminium, stainless steel, plastic'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | any-shape tube || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |Fittings
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Westaflex''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''aluminium, stainless steel, plastic'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | since 1933 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |SME
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Westaflex products are used in a variety of applications including automotive production, train technology (ICE ventilation), for the air supply and ventilation of living spaces, exhaust technology and water treatment.
 |}
