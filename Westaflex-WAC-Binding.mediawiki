@@ -25,7 +25,7 @@
 Documentation for the Fresh Air Ventilation Systems Bundle named [http://westaflex.com/lueftung/ WAC = westa air control systems].
 WAC systems with charming technology, use default modbus data provided by Arduino or Rasberry server kit all year long. Binding is compatible with latest models since 2013. 
 
-=== List of supported MODBUS coil addresses ===
+=== Feature Dashboard ===
 
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
 |-
