@@ -26,6 +26,8 @@ A Modbus command contains the Modbus address of the device it is intended for. O
 
 [https://github.com/westaflex See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate to contact us [mailto:github@westaflex.com?Subject=URL%20Encoded%20Subject&body=Body%20Text WACbinding] or use [https://github.com/westaflex the openHAB google group].
 
+[mailto:info@example.org email me]
+
 Westaflex [https://play.google.com/store/apps/developer?id=westaflex genuine Apps] bring lots useful features form the Modbus (Utilities, SCADA, and Statistics like Min/Average/Max). “We believe that the days of monologue on the Internet-of-Things have ultimately given way to dialogue, which, on the other hand, means that we have to react correspondingly.”
 
 === Feature Dashboard ===
