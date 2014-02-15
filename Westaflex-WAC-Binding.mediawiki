@@ -6,7 +6,7 @@
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''WAC''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 0 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-active, 0-passive
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Plate heat exchanger frost protection function
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | New generation of ERV Energy Recovery Ventilation Systems in multi-zone modular or ceiling installation
 |}
 
 === Foreword ===
