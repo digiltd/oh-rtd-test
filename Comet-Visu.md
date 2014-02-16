@@ -40,6 +40,14 @@ Note: This information ist taken from [here](http://www.cometvisu.de/wiki/index.
 
 Please feel free to add more items.
 
+Some basic examples:
+* ColorItem (will be supported in the next CometVisu-Release 0.8.2) => 
+`<colorchooser>
+  <label>Color</label>
+  <address transform="OH:color" variant="rgb">ITEM_NAME</address>
+</colorchooser>`
+
+Please note: You have to add the colorchooser plugin in the meta>plugins section of you config
 
 ## Known problems
 
