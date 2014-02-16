@@ -29,7 +29,7 @@ A Modbus command contains the Modbus address of the device it is intended for. O
 |}
 
 === Feature Dashboard ===
-Each device intended to communicate using Modbus is given a unique address and the data types are named from its use in driving relays: a single-bit physical output is called a coil. Our various reading, writing and other operations are categorised as follows:
+''Each device intended to communicate using Modbus is given a unique address and the data types are named from its use in driving relays: a single-bit physical output is called a coil. Our various reading, writing and other operations are categorised as follows:''
 
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
 |-
