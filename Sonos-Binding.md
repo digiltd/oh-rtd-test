@@ -112,3 +112,5 @@ As a result, your lines in the items file might look like the following:
     Switch ledstatus     "LedStatus"     (Sonos)   {sonos="<[ON:living:led], <[OFF:living:led]" autoupdate="false"}
     String currenttrack  "CurrentTrack"  (Sonos)   {sonos="<[RINCON_000E581369DC01400:currenttrack]" autoupdate="false"}
     String radiostation  "RadioStation"  (Sonos)   {sonos=">[living:radio]" autoupdate="false"}
+
+Note: in 1.4 it looks like String values do not need > or < anymore.
