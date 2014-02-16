@@ -154,7 +154,14 @@ modbus_t *mb;
 
 [http://wiki.openhab-samples.googlecode.com/hg/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [https://github.com/westaflex to contact us] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
-'''Westaflex recommends [https://play.google.com/store/apps/developer?id=westaflex her genuine Apps] .'''
+=== Give and take ===
+
+Smaller and smarter, that’s OpenHAB. Not only will we be offering the best condo living into the future available, but our Smart House Technology Package will also include a custom mobile app that will remotely control your lighting, interior temperature and ventilation, blinds, in-suite alarm and music system, as well as a whole host of time-saving and utterly convenient lifestyle options. At the end you will have a smarted house each passing day by applying OpenHAB applications. It is compatible with almost any “legacy” remote opener, turning traditional remote-control into smart control. Now there is the choice for older and disabled people to remain at home... And be happy!
+
+All of the technology is present; we have seen homes with voice control, automated doors and window shades, presence and occupant detection, and smart objects linked to contextual controls. A major motivating factor has been the internet-connected smartphone which everyone sees as the central control point of their lives and have taken the industry by storm.
+
+The future looks even brighter: All switches will be smart and connected. Smart connected things will be the norm, not the exception, in particular in the building industry, which will need to rethink the construction process.
+
 
 
 
