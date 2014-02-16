@@ -2,7 +2,7 @@ Documentation of the MYSQL Persistence Service
 
 ## Introduction
 
-This service allows you to persist state updates using the mySQL database. Note that other SQL databases need a separate binding due to incompatibilities between different SQL databases.
+This service allows you to persist state updates using the MySQL database. Note that other SQL databases need a separate binding due to incompatibilities between different SQL databases.
 
 ## Features
 
