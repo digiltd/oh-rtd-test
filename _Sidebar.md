@@ -79,7 +79,6 @@ Community
   * [[TinkerForge Binding|Tinkerforge-Binding]]
   * [[VDR Binding|VDR-Binding]]
   * [[Wake-on-LAN Binding|Wake-on-LAN-Binding-(WoL)]]
-  * [[WESTAFLEX® WAC|Westaflex-WAC-Binding]]
   * [[Z-Wave Binding|Z-Wave-Binding]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
@@ -116,6 +115,7 @@ Samples
  * [[Syntax highlighting for external editors|Syntax-Highlighting-for-external-editors]]
  * [[Update-Scripts|openhab-Get-Snapshot]]
  * [[Samples-Comfo-Air-Binding]]
+ * [[Samples WESTAFLEX® WAC|Westaflex-WAC-Binding]]
 
 Release Notes
  * [[Version 1.4|Release-Notes-1.4]]
