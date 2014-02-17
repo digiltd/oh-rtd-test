@@ -296,7 +296,7 @@ A list of all commands that are supported by the pioneer receiver can be found h
 
      Switch  AV_Pwr     "Power" { pioneeravr="INIT:livingroom:POWER_QUERY, OFF:livingroom:POWER_OFF, ON:livingroom:POWER_ON" }
      Switch  AV_Mute    "Mute" { pioneeravr="INIT:livingroom:MUTE_QUERY, ON:livingroom:MUTE, OFF:livingroom:UNMUTE" }
-     Number  AV_Source  „Source [%.1f]" { pioneeravr="INCREASE:livingroom:SOURCE_UP, DECREASE:livingroom:SOURCE_DOWN, *:livingroom:SOURCE_SET" }
+     Number  AV_Source  "Source [%.1f]" { pioneeravr="INCREASE:livingroom:SOURCE_UP, DECREASE:livingroom:SOURCE_DOWN, *:livingroom:SOURCE_SET" }
      String  AV_Status  "Status [%s]" { pioneeravr="INIT:livingroom:DISPLAY_INFO_QUERY" }
      Number  AV_Volume "Volume abs.[%.1f]" { pioneeravr="INIT:livingroom:VOLUME_QUERY, *:livingroom:VOLUME_SET" }
      Dimmer  AV_Volume_perc "Volume perc. [%.1f]%" (gAV_Receiver) { pioneeravr="INIT:livingroom:VOLUME_QUERY,  INCREASE:livingroom:VOLUME_UP, DECREASE:livingroom:VOLUME_DOWN, *:livingroom:VOLUME_SET" }
@@ -306,7 +306,8 @@ A list of all commands that are supported by the pioneer receiver can be found h
 
 ### av.sitemap:
 
-     Frame {
+sitemap av label="Main Menu"     
+Frame {
      		Text label="AV Receiver" icon="video" {
      			Text item=AV_Status label="Status: [%s]"
      			Switch item=AV_Pwr
