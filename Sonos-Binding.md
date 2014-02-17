@@ -18,11 +18,11 @@ In order to bind an item to a Sonos Player, you need to provide configuration se
 
 The format of the binding configuration is simple and looks like this:
 
-    sonos="<direction>[<command>:<sonos id>:<sonos command>], <direction>[<command>:<sonos id>:<sonos command>], ..."
+    sonos="[<command>:<sonos id>:<sonos command>], [<command>:<sonos id>:<sonos command>], ..."
 
 for Items that trigger action or commands on the Sonos Player, and
 
-    sonos="<direction>[<sonos id>:<sonos variable>], <direction>[<sonos id>:<sonos variable>], ..."
+    sonos="[<sonos id>:<sonos variable>], [<sonos id>:<sonos variable>], ..."
 
 for either Number or String Items that rather store a status variable or other from the Sonos Player
 
@@ -30,14 +30,7 @@ where the `<sonos id>` corresponds with the UDN (UPNP Unique Device Name)  - or 
 
     sonos:<sonos id>.udn=[UDN]
 
-where `<direction>` is one of the following values:
-- < - for inbound communication
-- > - for outbound communication
-- `*` - for either inbound or outbound communication, e.g bi-directional
-
 and where `<sonos command>` is the command to be sent to the Sonos Player when `<command>` is received. Some `<sonos commands>` take input variables, which are taken from the current Item variable. In case status variables are used then any value received from the Sonos Player for the defined `<sonos variable>` is used to update the Item
-
-All communication is checked against the `<direction>` field, e.g. an Item binding that has ">" will not be able to receive data from the Sonos Player
 
 ## Sonos Commands
 
@@ -104,13 +97,11 @@ New since v1.3
 
 Here are some examples of valid binding configuration strings:
 
-    sonos="*[ON:office:play], *[OFF:office:stop]"
-    sonos="<[office:getcurrenttrack]"
+    sonos="[ON:office:play], [OFF:office:stop]"
+    sonos="[office:getcurrenttrack]"
 
 As a result, your lines in the items file might look like the following:
 
-    Switch ledstatus     "LedStatus"     (Sonos)   {sonos="<[ON:living:led], <[OFF:living:led]" autoupdate="false"}
-    String currenttrack  "CurrentTrack"  (Sonos)   {sonos="<[RINCON_000E581369DC01400:currenttrack]" autoupdate="false"}
-    String radiostation  "RadioStation"  (Sonos)   {sonos=">[living:radio]" autoupdate="false"}
-
-Note: in 1.4 it looks like String values do not need > or < anymore.
+    Switch ledstatus     "LedStatus"     (Sonos)   {sonos="[ON:living:led], [OFF:living:led]" autoupdate="false"}
+    String currenttrack  "CurrentTrack"  (Sonos)   {sonos="[RINCON_000E581369DC01400:currenttrack]" autoupdate="false"}
+    String radiostation  "RadioStation"  (Sonos)   {sonos="[living:radio]" autoupdate="false"}
