@@ -1,4 +1,4 @@
-Documentation of the Z-Wave binding Bundle for the Snapshot release.
+Documentation of the Z-Wave binding Bundle.
 
 ## Introduction
 
@@ -7,7 +7,7 @@ Connection to the Z-Wave controller is done through the serial port of your host
 
 Initialization of the binding typically takes several seconds to minutes depending on the number of devices in the network. When battery operated devices are used the binding tries to reach the device first. After one minute the node is marked sleeping. On wake up of the device initialization will continue.
 
-Please make sure that you have a functioning Z-Wave network prior to using this binding. The binding currently provides no functionality to add or remove devices etc. The [open-zwave control panel](https://code.google.com/p/openzwave-control-panel/) is a good choice to set up your network. Commercial software like Homeseer can be used as well.
+Please make sure that you have a functioning Z-Wave network prior to using this binding. The binding currently provides no functionality to add or remove devices. [HABmin](https://github.com/cdjackson/HABmin) can be used to configure devices ([setting configuration parameters and association groups](https://github.com/cdjackson/HABmin/wiki/Z-Wave-Configuration)) directly within openHAB. Alternatively the [open-zwave control panel](https://code.google.com/p/openzwave-control-panel/) is a good choice to set up your network. Commercial software like Homeseer can be used as well.
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
