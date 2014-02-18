@@ -15,6 +15,7 @@ Miscellaneous Tips & Tricks
 * [How to use openHAB to activate or deactivate your Fritz!Box-WLAN](Samples-Tricks#how-to-use-openhab-to-activate-or-deactivate-your-fritzbox-wlan)
 * [How to format a Google Maps URL from a Mqttitude Mqtt message](Samples-Tricks#how-to-format-a-google-maps-url-from-a-mqttitude-mqtt-message)
 * [How to use Yahoo weather images](Samples-Tricks#how-to-use-yahoo-weather-images)
+* [How to wake up with Philips Hue](Samples-Tricks#how-to-wake-up-with-philips-hue)
 
 ### How to redirect your log entries to the syslog
 
@@ -986,3 +987,47 @@ And a Text item to your sitemap
 ```
 Text item=YahooWeatherCode icon="yahoo_weather"
 ```
+
+
+### How to wake up with Philips Hue
+
+You want to make your morning light up with philips hue, the follow the steps
+
+First you make a rule to wake up a certain time, for example 6:30 in the morning between Monday and Friday.
+This rule call the script dimmlight wich you can use later also in a other rule.
+
+```
+rule "Wackeup"
+
+when 
+	    Time cron "0 30 06 ? * MON-FRI "  
+then
+
+
+callScript("dimmlight")
+
+end
+```
+Now you make the script dimmlight.script
+```
+var Number Dimmer
+
+Dimmer=0
+
+
+ 
+while(Dimmer<100 )
+
+
+{
+        Dimmer=Dimmer+5
+        sendCommand(Light_LR_Living_Sofa_D,Dimmer)
+        Thread::sleep(400)
+        
+}
+```
+
+```
+Thread::sleep(400) 
+```
+a higher value will dimm the light slower, a lower value will dimm the light faster
