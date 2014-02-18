@@ -35,7 +35,7 @@ None. Be a discoverer and find some :-)
 
 ## How to Install
 
-1. Download the [GreenT UI](http://m-design.bg/greent/download.php).
+1. Download the [GreenT UI](http://www.openhab.org/downloads.html).
 2. Unzip and put the folder "greent" in ***${openhab.home}/webapps/***.
 3. Install openHAB Exec binding.
 4. Place ***${openhab.home}/webapps/greent/greent.items*** file in ***${openhab.home}/configurations/items*** folder.
