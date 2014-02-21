@@ -51,3 +51,20 @@ Universidad CEU Cardenal Herrera
 #### External, Press, Video links
 
 http://sdeurope.uch.ceu.es/2010/cms/sde/pages/en/intro/welcome.php?lang=EN
+
+
+## Individuals
+
+### <project name>
+#### Abstract / Description / Dates
+#### Screenshots
+#### How did openHAB help
+#### External, Press, Video links
+
+## Companies
+
+### <project name>
+#### Abstract / Description / Dates
+#### Screenshots
+#### How did openHAB help
+#### External, Press, Video links
