@@ -14,6 +14,7 @@ Community
  * [[IDE Setup|IDE-Setup]]
  * [[How to Implement a Binding|How-To-Implement-A-Binding]]
  * [[How to Implement an Actions|How-To-Implement-An-Action]]
+ * [[Projects using openHAB|Projects-using-openHAB]]
 
 [[Features|Feature-Overview]]
  * User Interfaces
