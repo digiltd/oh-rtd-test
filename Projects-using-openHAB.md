@@ -55,6 +55,8 @@ http://sdeurope.uch.ceu.es/2010/cms/sde/pages/en/intro/welcome.php?lang=EN
 
 ## Individuals
 
+Collects projects being realised by individuals. We'd love to see little videos of your achievements with openHAB.
+
 ### <project name>
 #### Abstract / Description / Dates
 #### Screenshots
@@ -62,6 +64,8 @@ http://sdeurope.uch.ceu.es/2010/cms/sde/pages/en/intro/welcome.php?lang=EN
 #### External, Press, Video links
 
 ## Companies
+
+Collects projects being realised by companies. We'd love to see little videos of your achievements with openHAB.
 
 ### <project name>
 #### Abstract / Description / Dates
