@@ -35,6 +35,11 @@ One major problem in the area of home automation and smart home is the number of
 OpenHAB offers a elaborated open source framework based on OSGI with commercially comparable UI and performance.
 
 #### Screenshots
+![](http://www.kt.e-technik.tu-dortmund.de/cms/Medienpool/forschung/projekte/living_lab/livinglab_foto3.jpg)
+![Technologies utilized](http://www.kt.e-technik.tu-dortmund.de/cms/Medienpool/forschung/projekte/living_lab/livinglab_com.jpg)
+![](http://www.kt.e-technik.tu-dortmund.de/cms/Medienpool/forschung/projekte/living_lab/livinglab.jpg)
+
+
 
 #### How did openHAB help
 
