@@ -7,7 +7,7 @@ Binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, 
 Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo (KlikAanKlikUit), Oregon e.o. <br>
 See further information from http://www.rfxcom.com
 
-RFXCOM binding support currently TemperatureHumidity, Lighting1, Lighting2 ,Curtain1 & Thermostat1 packet types. 
+RFXCOM binding support currently TemperatureHumidity, Lighting1, Lighting2, Lighting5, Lighting6, Curtain1 & Thermostat1 packet types. 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -42,8 +42,11 @@ where `DeviceID` is a valid wireless device identifier.
 - Lighting1 format: `SensorId.UnitCode`
     e.g. B.1, B.2 or B.G for group functions
 
-- Lighting2 format: `SensorId.UnitCode`
+- Lighting2 and Lighting5 formats: `SensorId.UnitCode`
     e.g. 636602.1 
+
+- Lighting6 format: `SensorId.GroupCode.UnitCode `
+    e.g. 257.B.1, 64343.B.2 or 636602.H.5 
 
 - Curtain1 format: `SensorId.UnitCode`
     e.g. P.1 see RFXCOM documentation
@@ -86,6 +89,7 @@ Examples, how to configure your items:
   <tr><td>LIGHTING2.AC</td><td>tested and working</td><td>Command, DimmingLevel</td></tr>
   <tr><td>LIGHTING2.HOME_EASY_EU</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING2.ANSLUT</td><td>Untested</td><td></td></tr>
+  <tr><td>LIGHTING6.BLYSS</td><td>tested and working</td><td>Command</td></tr>
   <tr><td>CURTAIN1.HARRISON</td><td>Harrison curtain rail, e.g. Neta 12</td><td>Shutter</td></tr>
    <tr><td>TEMPERATURE.La Crosse TX17</td><td>tested and working</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.Oregon 2.1<br>THGN122_123_132_THGR122_228_238_268</td><td>tested and working</td><td></td></tr>
