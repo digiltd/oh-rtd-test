@@ -1,4 +1,4 @@
-=== May we introduce... ===
+=== Pre-requisites ===
 
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
 |-
@@ -21,14 +21,14 @@
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Westaflex is a manufacturer of HVAC appliances, commercial equipment, based in Gütersloh, Germany. It was founded as a family business and has always been a privately held, family-owned, family-run company.
 |}
 
-=== Internet of Things ===
+=== Binding configuration ===
 A Modbus command contains the Modbus address of the device it is intended for. Only the intended device will act on the command. All Modbus commands contain checksum information, to ensure a command arrives undamaged. Since Modbus is a master/slave protocol, only Modbus TCP connects over port 502, as the Modbus ASCII protocol defines a message structure that controllers will recognize and use, regardless of the type of networks over which they communicate. Our WAC systems use default modbus data provided by Arduino barebones e.g. a Debian Rasberry server kit all year long. '''''Binding is compatible with latest models since 2013''''' for Real-World Embedded Applications '''(M2M communication)''',  
 
 {| style="color:green;background-color:#ffffcc;" cellpadding="20" cellspacing="0" border="1"
 |Westaflex recommends |[https://play.google.com/store/apps/developer?id=westaflex |genuine Apps] which |bring lots useful features from the Modbus Utilities, SCADA, and Statistics like Min/Average/Max. “We |believe that the days of monologue on the Internet-of-Things have |ultimately given way to dialogue, which, on the other hand, means |that we have to react correspondingly.”
 |}
 
-=== Feature Dashboard ===
+=== Item Binding Configuration ===
 ''Each device intended to communicate using Modbus is given a unique address and the data types are named from its use in driving relays: a single-bit physical output is called a coil. Our various reading, writing and other operations are categorised as follows:''
 
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
@@ -136,7 +136,7 @@ A Modbus command contains the Modbus address of the device it is intended for. O
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Return water temperature value
 |}
 
-=== Code Sample ===
+=== Examples ===
 to handle many slaves in RTU mode, non blocking connections and RTS flow control.....
 
 modbus_t *mb;
@@ -154,7 +154,7 @@ modbus_t *mb;
 
 [http://wiki.openhab-samples.googlecode.com/hg/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [https://github.com/westaflex to contact us] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
-=== Give and take ===
+=== Troubleshooting ===
 
 ''Smaller and smarter, that’s OpenHAB. Not only will we be offering the best condo living into the future available, but our Smart House Technology Package will also include a custom mobile app that will remotely control your lighting, interior temperature and ventilation, blinds, in-suite alarm and music system, as well as a whole host of time-saving and utterly convenient lifestyle options. At the end you will have a smarted house each passing day by applying OpenHAB applications. It is compatible with almost any “legacy” remote device, turning traditional remote-control into smart control. Now there is the choice for older and disabled people to remain at home... And be happy!''
 
