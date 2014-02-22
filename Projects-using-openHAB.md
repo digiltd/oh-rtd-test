@@ -22,6 +22,7 @@ University of Applied Sciences Cologne
 
 http://www.verwaltung.fh-koeln.de/aktuelles/2013/08/verw_msg_06233.html
 
+***
 
 ### Connected Home Lab
 
@@ -39,8 +40,6 @@ OpenHAB offers a elaborated open source framework based on OSGI with commerciall
 ![Technologies utilized](http://www.kt.e-technik.tu-dortmund.de/cms/Medienpool/forschung/projekte/living_lab/livinglab_com.jpg)
 ![](http://www.kt.e-technik.tu-dortmund.de/cms/Medienpool/forschung/projekte/living_lab/livinglab.jpg)
 
-
-
 #### How did openHAB help
 
 OpenHAB has commercially comparable UI and performance. This is why, we can focus on the communication technology and use the "higher layers" without modification.
@@ -54,6 +53,7 @@ Smart Home system will be integrated with Smart Grid applications in the future.
 #### External, Press, Video links
 http://www.kt.e-technik.tu-dortmund.de/cms/de/forschung/Laufende_Projekte/Connected_Home_Lab/index.html
 
+***
 
 ### SML House project
 
@@ -69,6 +69,7 @@ Universidad CEU Cardenal Herrera
 
 http://sdeurope.uch.ceu.es/2010/cms/sde/pages/en/intro/welcome.php?lang=EN
 
+***
 
 ## Individuals
 
@@ -80,6 +81,7 @@ Collects projects being realised by individuals. We'd love to see little videos 
 #### How did openHAB help
 #### External, Press, Video links
 
+***
 
 ## Companies
 
@@ -106,9 +108,12 @@ We believe we have successfully delivered this OpenHAB project with our expertis
 #### External, Press, Video links
 http://data.fir.de/projektseiten/win-d/
 
+***
 
 ### <project name>
 #### Abstract / Description / Dates
 #### Screenshots
 #### How did openHAB help
 #### External, Press, Video links
+
+***
