@@ -117,7 +117,7 @@ Samples
  * [[Syntax highlighting for external editors|Syntax-Highlighting-for-external-editors]]
  * [[Update-Scripts|openhab-Get-Snapshot]]
  * [[Samples-Comfo-Air-Binding]]
- * [[Samples WAC Binding|Westaflex-WAC-Binding]]
+ * [[Samples WAC Binding|Samples WAC Binding]]
 
 Release Notes
  * [[Version 1.4|Release-Notes-1.4]]
