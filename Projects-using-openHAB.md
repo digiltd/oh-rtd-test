@@ -93,7 +93,7 @@ Smaller and smarter, that’s OpenHAB. Not only will we be offering the best con
 All of the technology is present; we have seen homes with voice control, automated doors and window shades, presence and occupant detection, and smart objects linked to contextual controls. A major motivating factor has been the internet-connected smartphone which everyone sees as the central control point of their lives and have taken the HVAC industry by storm.
 
 #### Screenshots
-![HVAC devices](http://www.pinterest.com/pin/160229699214618095/)
+![HVAC devices](http://westaflex.com/lueftung/)
 ![Maker Tools](http://www.pinterest.com/pin/160229699215541418/)
 ![Homeowner with WAC](http://www.pinterest.com/pin/160229699214349483/)
 ![Craftmen view](http://www.pinterest.com/pin/160229699214349477/)
