@@ -93,10 +93,7 @@ Smaller and smarter, that’s OpenHAB. Not only will we be offering the best con
 All of the technology is present; we have seen homes with voice control, automated doors and window shades, presence and occupant detection, and smart objects linked to contextual controls. A major motivating factor has been the internet-connected smartphone which everyone sees as the central control point of their lives and have taken the HVAC industry by storm.
 
 #### Screenshots
-![[WAC devices](http://www.pinterest.com/pin/160229699216460430/)](http://www.pinterest.com/pin/160229699216460430/)
-![Maker Tools](http://www.pinterest.com/pin/160229699215541418/)
-![Homeowner with WAC](http://www.pinterest.com/pin/160229699214349483/)
-![Craftmen view](http://www.pinterest.com/pin/160229699214349477/)
+
 
 #### How did openHAB help
 A Modbus command contains the Modbus address of the device it is intended for. Only the intended device will act on the command. All Modbus commands contain checksum information, to ensure a command arrives undamaged. Since Modbus is a master/slave protocol, only Modbus TCP connects over port 502, as the Modbus ASCII protocol defines a message structure that controllers will recognize and use, regardless of the type of networks over which they communicate. Our WAC systems use default modbus data provided by Arduino barebones e.g. a Debian Rasberry server kit all year long. Binding is compatible with latest models since 2013 for Real-World Embedded Applications (M2M communication).
