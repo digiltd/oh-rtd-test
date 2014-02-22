@@ -74,7 +74,18 @@ http://sdeurope.uch.ceu.es/2010/cms/sde/pages/en/intro/welcome.php?lang=EN
 
 Collects projects being realised by individuals. We'd love to see little videos of your achievements with openHAB.
 
-### WAC series of HVAC devices
+### <project name>
+#### Abstract / Description / Dates
+#### Screenshots
+#### How did openHAB help
+#### External, Press, Video links
+
+
+## Companies
+
+Collects projects being realised by companies. We'd love to see little videos of your achievements with openHAB.
+
+### WESTAFLEX HVAC devices
 
 #### Abstract / Description / Dates
 Smaller and smarter, that’s OpenHAB. Not only will we be offering the best condo living into the future available, but our Smart House Technology Package will also include a custom mobile app that will remotely control your lighting, interior temperature and ventilation, blinds, in-suite alarm and music system, as well as a whole host of time-saving and utterly convenient lifestyle options. At the end you will have a smarted house each passing day by applying OpenHAB applications. It is compatible with almost any “legacy” remote device, turning traditional remote-control into smart control. Now there is the choice for older and disabled people to remain at home... And be happy!
@@ -88,16 +99,6 @@ A Modbus command contains the Modbus address of the device it is intended for. O
 
 #### External, Press, Video links
 
-
-## Companies
-
-Collects projects being realised by companies. We'd love to see little videos of your achievements with openHAB.
-
-### <project name>
-#### Abstract / Description / Dates
-#### Screenshots
-#### How did openHAB help
-#### External, Press, Video links
 
 ### <project name>
 #### Abstract / Description / Dates
