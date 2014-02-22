@@ -1,3 +1,25 @@
 [http://wiki.openhab-samples.googlecode.com/hg/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [https://github.com/westaflex to contact us] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
 === wxwac.items ===
+
+=== TLDR ===
+{| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
+|-
+! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Tradename !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Tags !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Keynote !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Shortcut
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''WAC''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''metal components'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Industry4.0 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |HVAC
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | New generation of ERV Energy Recovery Ventilation Systems in multi-zone modular or ceiling installation. It's perfect for the needs of craftsmen.
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Quadroflex''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''metal-to-metal-joint'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | any-shape tube || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |Fittings
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Westaflex products are used in a variety of applications including automotive production, train technology (ICE ventilation), for the air supply and ventilation of living spaces, exhaust technology and water treatment.
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Modbus''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''Utility, SCADA, Statistics'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | RS-232, RS-485 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |DIY, Maker
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Modbus is a serial communications protocol for use with its programmable logic controllers (PLCs). Modbus enables communication between many (approximately 240) devices connected to a supervisory computer with a remote terminal unit (RTU) in supervisory control and data acquisition (SCADA) systems.
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Westaflex''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''aluminium, stainless steel, plastic'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | since 1933 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |SME
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Westaflex is a manufacturer of HVAC appliances, commercial equipment, based in Gütersloh, Germany. It was founded as a family business and has always been a privately held, family-owned, family-run company.
+|}
