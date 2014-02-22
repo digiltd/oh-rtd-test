@@ -87,7 +87,7 @@ Collects projects being realised by individuals. We'd love to see little videos 
 
 Collects projects being realised by companies. We'd love to see little videos of your achievements with openHAB.
 
-### WESTAFLEX HVAC devices
+### New HVAC devices (@Westaflex)
 
 #### Abstract / Description / Dates
 We have spent over a year on the project and have accomplished a lot. We've already captured many OpenHAB features and concepts like the configuration of dynamics of the process (lag time, dead time, etc), as well as trend, monitor and update register values in a Modbus PLC or other device supporting the Modbus/TCP protocol. It currently supports profiles for different devices so you can configure multiple devices or multiple views of the same device. These ranges from core application elements like the tuning contants which can be automatically derived for self-regulating 1st order processes to added noise (uniformly distributed or Gaussian) to the process. At first our Binding only worked with the words from %MW0 to %MW65535 !!! and Dword %DW0 to %DW32767 data type signed and unsigned 16/32 bit integer and 32 bit float. 
