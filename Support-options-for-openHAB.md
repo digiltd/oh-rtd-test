@@ -6,3 +6,5 @@ There are different channels to discuss topics about openHAB and to get help:
 - The [Issue Tracker](https://github.com/openhab/openhab/issues?state=open)
 
 You might be asked to try out the latest snapshot build of openHAB. In case you wonder, where to find it, have a look at our [CI build server](https://openhab.ci.cloudbees.com/job/openHAB/).
+
+The commitment and value of the OpenHAB trademark, for both manufacturers and consumers, is device interoperability, industry-directing functionality and the link to a vast OpenHAB ecosystem of connected products. 
