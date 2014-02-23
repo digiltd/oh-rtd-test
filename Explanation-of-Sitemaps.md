@@ -141,7 +141,7 @@ Quotes can be omitted if the value string and name string do not contain spaces.
     mappings = [ 1="BBC", 2="CNN", 3="BLOOMBERG" ]
 	
 ## Dynamic Sitemaps
-**Note** The following is only available in v1.4 (not released yet, only available as snapshots)
+**Note** The following is only available in v1.4.
 
 Sitemaps can be designed to show items dynamically, or add colors depending on their state, or the state of another item. A few use cases for this are -:
 * Hide elements of a heating system depending on its mode
