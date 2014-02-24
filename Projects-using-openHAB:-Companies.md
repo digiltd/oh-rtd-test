@@ -1,5 +1,3 @@
-## Companies
-
 Collects projects being realised by companies. We'd love to see little videos of your achievements with openHAB.
 
 ### New HVAC devices (@Westaflex)
