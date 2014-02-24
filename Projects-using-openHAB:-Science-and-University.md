@@ -61,6 +61,32 @@ http://sdeurope.uch.ceu.es/2012/project/
 
 ***
 
+### URC Lab
+
+Stuttgart Media University
+
+#### Abstract
+
+The URC Lab is a showcase for state-of-the-art smart home technology, paired with a user experience that is tailored to the individual users.  We use the Universal Remote Console technology (URC, standardized as ISO/IEC 24752) as a framework for pluggable user interfaces.  Different users get different user interfaces, depending on their needs and preferences, and depending on their controller devices that they bring with them.  This is a requirement for the acceptance of smart home technologies in the context of Ambient Assisted Living (AAL). 
+
+Note: The URC Lab is currently set up and will be fully functioning by end of 2014 approximately.
+
+#### Screenshots
+
+(not yet)
+#### How did openHAB help
+
+Through openHAB we can connect our gateway, the Universal Control Hub (UCH) with virtually any backend device.
+
+#### External links
+
+(not yet)
+#### Press links
+
+(not yet)
+
+***
+
 ### Intelligentes Energiemonitoring im SmartHome Kontext
 
 University of Applied Sciences Cologne
