@@ -20,6 +20,10 @@ We believe we have successfully delivered this openHAB project with our expertis
 #### External, Press, Video links
 http://data.fir.de/projektseiten/win-d/
 
+#### Contact
+
+<tbd>
+
 ***
 
 ### <project name>
@@ -27,3 +31,4 @@ http://data.fir.de/projektseiten/win-d/
 #### Screenshots
 #### How did openHAB help
 #### External, Press, Video links
+#### Contact
