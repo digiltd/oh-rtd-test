@@ -81,7 +81,6 @@ Community
   * [[VDR Binding|VDR-Binding]]
   * [[Velleman-K8055-Binding|Velleman-K8055-Binding]]
   * [[Wake-on-LAN Binding|Wake-on-LAN-Binding-(WoL)]]
-  * [[WESTAFLEX WAC Binding|Westaflex-WAC-Binding]]
   * [[Z-Wave Binding|Z-Wave-Binding]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
