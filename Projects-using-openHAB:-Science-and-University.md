@@ -1,23 +1,5 @@
 All students are facing the same problem while writing their Bachelor- or Masterthesis: they are lacking of time. openHAB helps them to focus on the really relevant parts of their work rather than "wasting" their time on implementing foundation/framework services.
 
-### Intelligentes Energiemonitoring im SmartHome Kontext
-
-University of Applied Sciences Cologne
-
-#### Abstract / Description / Dates
-
-#### Screenshots
-
-#### How did openHAB help
-
-#### External links
-
-#### Press links
-
-http://www.verwaltung.fh-koeln.de/aktuelles/2013/08/verw_msg_06233.html
-
-***
-
 ### Connected Home Lab
 
 TU Dortmund University - Communication Technology Institute
@@ -76,3 +58,29 @@ All the systems are connected to a central openHAB instance, which controls the 
 #### External, Press, Video links
 
 http://sdeurope.uch.ceu.es/2012/project/
+
+***
+
+### Intelligentes Energiemonitoring im SmartHome Kontext
+
+University of Applied Sciences Cologne
+
+#### Abstract / Description / Dates
+
+#### Screenshots
+
+#### How did openHAB help
+
+#### External links
+
+#### Press links
+
+http://www.verwaltung.fh-koeln.de/aktuelles/2013/08/verw_msg_06233.html
+
+***
+
+### <project name>
+#### Abstract / Description / Dates
+#### Screenshots
+#### How did openHAB help
+#### External, Press, Video links
