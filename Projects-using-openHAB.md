@@ -14,7 +14,7 @@ University of Applied Sciences Cologne
 
 #### Screenshots
 
-#### How doid openHAB help
+#### How did openHAB help
 
 #### External links
 
