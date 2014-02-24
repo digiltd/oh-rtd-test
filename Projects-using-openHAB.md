@@ -71,6 +71,10 @@ Details can be found in this open paper: http://www.mdpi.com/1996-1073/6/9/4639/
 
 ![Modular house](http://sdeurope.uch.ceu.es/2012/wp-content/uploads/2012/08/anim_SML_system.gif)
 
+![Inside the House](http://sdeurope.uch.ceu.es/2012/2012/09/19/smlsystem-bosch-8-appliances/cocinaimg_7755_v1-2/)
+
+![House entrance](http://sdeurope.uch.ceu.es/2012/wp-content/uploads/2012/09/SMLsystem_SDE_ext_BG_03_IMG_7764_v1.jpg)
+
 #### How did openHAB help
 
 All the systems are connected to a central openHAB instance, which controls the full house.
