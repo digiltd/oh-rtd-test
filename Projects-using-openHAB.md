@@ -2,19 +2,8 @@ openHAB is used in many different ways and areas of interest. In the remainder o
 
 Please help to complete this overview!
 
-* [[Universities using openHAB|Projects-using-openHAB-science]]
-
-## Individuals
-
-Collects projects being realised by individuals. We'd love to see little videos of your achievements with openHAB.
-
-### <project name>
-#### Abstract / Description / Dates
-#### Screenshots
-#### How did openHAB help
-#### External, Press, Video links
-
-***
+* [[Universities using openHAB|Projects-using-openHAB:-Science-and-University]]
+* [[Individuals using openHAB|Projects-using-openHAB:-Individuals]]
 
 ## Companies
 
