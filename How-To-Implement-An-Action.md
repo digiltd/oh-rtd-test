@@ -20,7 +20,7 @@ As explained above, an action should correspond to one bundle. The naming conven
 1. `cd ./bundles/archetype/./org.openhab.archetype.action`
 1. `mvn clean install`
 1. `cd ../../action`
-1. `mvn archetype:generate -B -DarchetypeGroupId=org.openhab.archetype -DarchetypeArtifactId=org.openhab.archetype.action -DarchetypeVersion=1.3.0-SNAPSHOT -Dauthor=<author> -Dversion=1.3.0 -DartifactId=org.openhab.action.<action-name-in-small-caps> -Dpackage=org.openhab.action.<action-name-in-small-caps> -Daction-name=<action-name-in-camel-case>`
+1. `mvn archetype:generate -B -DarchetypeGroupId=org.openhab.archetype -DarchetypeArtifactId=org.openhab.archetype.action -DarchetypeVersion=1.4.0 -Dauthor=<author> -Dversion=<target-version-of-binding> -DartifactId=org.openhab.action.<action-name-in-small-caps> -Dpackage=org.openhab.action.<action-name-in-small-caps> -Daction-name=<action-name-in-camel-case>`
 1. import newly created project by issuing 'Import->Existing Java project'
 1. active the new plugin in !RunConfiguration 'Run Configurations->openHAB Runtime->Plugins->activate your plugin->Auto-start true'
 1. active the new plugin in !RunConfiguration 'Run Configurations->openHAB Designer (xxx)->Plugins->activate your plugin->Auto-start true'
