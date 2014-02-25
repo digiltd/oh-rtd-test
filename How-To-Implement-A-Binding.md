@@ -26,7 +26,7 @@ As explained above, a binding should correspond to one bundle. The naming conven
 
         mvn archetype:generate -B -DarchetypeGroupId=org.openhab.archetype 
         -DarchetypeArtifactId=org.openhab.archetype.binding
-        -DarchetypeVersion=1.4.0-SNAPSHOT -Dauthor=<author> -Dversion=1.4.0
+        -DarchetypeVersion=1.x.0 -Dauthor=<author> -Dversion=1.y.0
         -DartifactId=org.openhab.binding.<binding-name-in-small-caps>
         -Dpackage=org.openhab.binding.<binding-name-in-small-caps> 
         -Dbinding-name=<binding-name-in-camel-case>
