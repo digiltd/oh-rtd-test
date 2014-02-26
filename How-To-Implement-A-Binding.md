@@ -18,7 +18,7 @@ The purpose of a binding is to translate between events on the openHAB event bus
 
 As explained above, a binding should correspond to one bundle. The naming convention for the binding bundle is "`org.openhab.binding.<name>`". To create a working binding skeleton one should use the Maven archetype which facilitates the creation process. The following steps have to be performed:
 
-1. run a full build (meaning run `mvn clean install` in the topmost directory)
+1. run a full build (meaning run `mvn clean install` in the topmost directory)*
 1. `cd ./bundles/archetype/./org.openhab.archetype.binding`
 1. `mvn clean install`
 1. `cd ../../binding`
@@ -34,6 +34,8 @@ As explained above, a binding should correspond to one bundle. The naming conven
 1. active the new plugin in !RunConfiguration 'Run Configurations->openHAB Runtime->Plugins->activate your plugin->Auto-start true'
 
 Another possibility is to copy an existing binding and do a search&replace for the name.
+If the first step fails due to insufficient memory - Java's memory allowance may need to be increased (`export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"`)
+
 
 
 # Global Binding Configuration
