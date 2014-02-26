@@ -46,7 +46,7 @@ Community
   * [[MAX!Cube-Binding]]
   * [[MiLight Binding|Milight-Binding]]
   * [[Modbus TCP Binding|Modbus-Tcp-Binding]]
-    * [[Westaflex WAC Binding|Westaflex-WAC-Binding]]
+   * [[Westaflex WAC Binding|Westaflex-WAC-Binding]]
   * [[MPD Binding|Mpd-Binding]]
   * [[MQTT Binding|MQTT-Binding]]
   * [[MQTTitude binding|Mqttitude-Binding]]
