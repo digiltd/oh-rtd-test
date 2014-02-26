@@ -1,6 +1,7 @@
 Collects projects being realised by individuals. We'd love to see little videos of your achievements with openHAB.
 
-### Intranet of things - a private home / house automation project
+### Intranet of things - a private home / house automation
+
 #### Abstract
 A private home automation project in which the following components are monitored and controlled.
 
