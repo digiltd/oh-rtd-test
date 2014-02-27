@@ -17,6 +17,7 @@ Miscellaneous Tips & Tricks
 * [How to use Yahoo weather images](Samples-Tricks#how-to-use-yahoo-weather-images)
 * [How to wake up with Philips Hue](Samples-Tricks#how-to-wake-up-with-philips-hue)
 * [How to manage and sync configuration via subversion](Samples-Tricks#how-to-manage-and-sync-configuration-via-subversion)
+* [How to swtich leds on cubietruck](Samples-Tricks#how-to-switch-leds-on-cubietruck)
 
 ### How to redirect your log entries to the syslog
 
@@ -1073,7 +1074,7 @@ The tricky part is to setup the permissions right. I assume you subversion serve
 `chown -R openhab.www-data /opt/openhab/configuration`
 `find /opt/openhab/configuration -type d -exec chmod g+ws {} \;`
 
-### Switch LEDS on cubietruck
+### How to switch LEDS on cubietruck
 
 #### Items
 
@@ -1085,7 +1086,7 @@ Switch LED_White {exec=">[ON:/bin/sh@@-c@@echo 1 | sudo tee /sys/class/leds/whit
 Switch LED_Green {exec=">[ON:/bin/sh@@-c@@echo 1 | sudo tee /sys/class/leds/green:ph07:led4/brightness] >[OFF:/bin/sh@@-c@@echo 0 | sudo tee /sys/class/leds/green:ph07:led4/brightness]"}
 ```
 
-### Permissions
+#### Permissions
 Create `/etc/sudoers.d/leds`
 
 ```
