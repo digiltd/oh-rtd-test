@@ -16,6 +16,7 @@ Miscellaneous Tips & Tricks
 * [How to format a Google Maps URL from a Mqttitude Mqtt message](Samples-Tricks#how-to-format-a-google-maps-url-from-a-mqttitude-mqtt-message)
 * [How to use Yahoo weather images](Samples-Tricks#how-to-use-yahoo-weather-images)
 * [How to wake up with Philips Hue](Samples-Tricks#how-to-wake-up-with-philips-hue)
+* [How to manage and sync configuration via subversion](Samples-Tricks#how-to-manage-and-sync-configuration-via-subversion)
 
 ### How to redirect your log entries to the syslog
 
@@ -1031,3 +1032,41 @@ while(Dimmer<100 )
 Thread::sleep(400) 
 ```
 a higher value will dimm the light slower, a lower value will dimm the light faster
+
+### How to manage and sync configuration via subversion
+
+In this guide subversion is used to both store your config and sync it between you local computer and the openhab server.
+
+#### Setup subversion
+First setup a subversion server on your openhab server. You'll will find plenty of howtos how to do that.
+We asume that your repo is stored in /var/lib/svn/openhab and is running under the system user www-data
+
+#### Install hook script
+A hook script is used to apply all changes in the subversion repo to the actual openhab config.
+Create a hook-script /var/lib/svn/openhab/hooks/commit-hook with the following contents
+
+`#!/bin/sh`
+`REPOS=""`
+`REV=""`
+`svn up /opt/openhab/configurations`
+
+The path in the 3rd line has to match to your openhab installation
+
+#### Import your config into subversion
+
+Probably you already have an configuration. Import this into your subversion server. On Windows TortoiseSVN does a good job for that.
+
+#### Checkout openhab config on server
+
+You have to checkout the configuration into openhab once
+
+svn co http://yourhost/svn/openhab /opt/openhab/configurations
+
+Maybe you have to delete your existing configuration folder in /opt/openhab first
+
+#### Setting permissions
+
+The tricky part is to setup the permissions right. I assume you subversion server runs with www-data and openhab with openhab system user. The problem is that www-data needs the permission to write to your openhab configuration.
+
+chown -R openhab.www-data /opt/openhab/configuration
+find /opt/openhab/configuration -type d -exec chmod g+ws {} \;
