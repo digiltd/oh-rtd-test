@@ -17,7 +17,7 @@ Miscellaneous Tips & Tricks
 * [How to use Yahoo weather images](Samples-Tricks#how-to-use-yahoo-weather-images)
 * [How to wake up with Philips Hue](Samples-Tricks#how-to-wake-up-with-philips-hue)
 * [How to manage and sync configuration via subversion](Samples-Tricks#how-to-manage-and-sync-configuration-via-subversion)
-* [How to swtich leds on cubietruck](Samples-Tricks#how-to-switch-leds-on-cubietruck)
+* [How to switch LEDS on cubietruck](Samples-Tricks#how-to-switch-leds-on-cubietruck)
 
 ### How to redirect your log entries to the syslog
 
