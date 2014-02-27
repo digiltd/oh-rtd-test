@@ -1060,13 +1060,13 @@ Probably you already have an configuration. Import this into your subversion ser
 
 You have to checkout the configuration into openhab once
 
-svn co http://yourhost/svn/openhab /opt/openhab/configurations
+`svn co http://yourhost/svn/openhab /opt/openhab/configurations`
 
 Maybe you have to delete your existing configuration folder in /opt/openhab first
 
-#### Setting permissions
+#### Setting up permissions
 
 The tricky part is to setup the permissions right. I assume you subversion server runs with www-data and openhab with openhab system user. The problem is that www-data needs the permission to write to your openhab configuration.
 
-chown -R openhab.www-data /opt/openhab/configuration
-find /opt/openhab/configuration -type d -exec chmod g+ws {} \;
+`chown -R openhab.www-data /opt/openhab/configuration`
+`find /opt/openhab/configuration -type d -exec chmod g+ws {} \;`
