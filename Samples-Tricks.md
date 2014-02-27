@@ -1037,7 +1037,7 @@ a higher value will dimm the light slower, a lower value will dimm the light fas
 
 In this guide subversion is used to both store your config and sync it between you local computer and the openhab server.
 
-#### Setup subversion
+#### Setting up subversion
 First setup a subversion server on your openhab server. You'll will find plenty of howtos how to do that.
 We asume that your repo is stored in /var/lib/svn/openhab and is running under the system user www-data
 
