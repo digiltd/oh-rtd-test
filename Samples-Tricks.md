@@ -1052,7 +1052,7 @@ REV="$2"
 svn up /opt/openhab/configurations
 ```
 
-The path in the 3rd line has to match to your openhab installation
+The path in the last line has to match to your openhab installation
 
 #### Import your config into subversion
 
