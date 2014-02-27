@@ -1072,3 +1072,26 @@ The tricky part is to setup the permissions right. I assume you subversion serve
 
 `chown -R openhab.www-data /opt/openhab/configuration`
 `find /opt/openhab/configuration -type d -exec chmod g+ws {} \;`
+
+### Switch LEDS on cubietruck
+
+#### Items
+
+```
+/* LEDS */
+Switch LED_Blue	{exec=">[ON:/bin/sh@@-c@@echo 1 | sudo tee /sys/class/leds/blue:ph21:led1/brightness] >[OFF:/bin/sh@@-c@@echo 0 | sudo tee /sys/class/leds/blue:ph21:led1/brightness]"}
+Switch LED_Orange {exec=">[ON:/bin/sh@@-c@@echo 1 | sudo tee /sys/class/leds/orange:ph20:led2/brightness] >[OFF:/bin/sh@@-c@@echo 0 | sudo tee /sys/class/leds/orange:ph20:led2/brightness]"}
+Switch LED_White {exec=">[ON:/bin/sh@@-c@@echo 1 | sudo tee /sys/class/leds/white:ph11:led3/brightness] >[OFF:/bin/sh@@-c@@echo 0 | sudo tee /sys/class/leds/white:ph11:led3/brightness]"}
+Switch LED_Green {exec=">[ON:/bin/sh@@-c@@echo 1 | sudo tee /sys/class/leds/green:ph07:led4/brightness] >[OFF:/bin/sh@@-c@@echo 0 | sudo tee /sys/class/leds/green:ph07:led4/brightness]"}
+```
+
+### Permissions
+Create `/etc/sudoers.d/leds`
+
+```
+ALL ALL = (ALL) NOPASSWD: /usr/bin/tee /sys/class/leds/blue\:ph21\:led1/brightness
+ALL ALL = (ALL) NOPASSWD: /usr/bin/tee /sys/class/leds/green\:ph07\:led4/brightness
+ALL ALL = (ALL) NOPASSWD: /usr/bin/tee /sys/class/leds/white\:ph11\:led3/brightness
+ALL ALL = (ALL) NOPASSWD: /usr/bin/tee /sys/class/leds/orange\:ph20\:led2/brightness
+```
+
