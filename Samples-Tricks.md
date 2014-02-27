@@ -1045,10 +1045,10 @@ We asume that your repo is stored in /var/lib/svn/openhab and is running under t
 A hook script is used to apply all changes in the subversion repo to the actual openhab config.
 Create a hook-script /var/lib/svn/openhab/hooks/commit-hook with the following contents
 
-`#!/bin/sh`
-`REPOS=""`
-`REV=""`
-`svn up /opt/openhab/configurations`
+`#!/bin/sh
+REPOS=""
+REV=""
+svn up /opt/openhab/configurations`
 
 The path in the 3rd line has to match to your openhab installation
 
