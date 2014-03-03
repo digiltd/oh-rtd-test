@@ -1,4 +1,4 @@
-Documentation of the Plugwise binding Bundle
+Documentation of the PLCBus binding Bundle
 
 ## Introduction
 
