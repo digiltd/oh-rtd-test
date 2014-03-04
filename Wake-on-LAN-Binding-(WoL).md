@@ -11,7 +11,7 @@ In order to bind an item to this binding, you need to provide configuration sett
 
     wol="<broadcast-IP>#<macaddress>"
 
-Here are some examples of valid binding configuration strings:
+To prevent same mistake made by several people - the IP address is not the one from the machine you wanna wake up - this is identified by MAC address. IP is a broadcast IP from the SubNet - like 192.168.1.0 for the destination IP 192.168.1.10 - or 127.0.0.0 for 127.0.0.15. Here are some examples of valid binding configuration strings:
 
     wol="192.168.1.0#00:1f:d0:93:f8:b7"
     wol="192.168.1.0#00-1f-d0-93-f8-b7"
