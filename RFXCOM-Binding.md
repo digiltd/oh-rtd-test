@@ -83,7 +83,7 @@ Examples, how to configure your items:
   <tr><td>LIGHTING1.AB400D</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.WAVEMAN</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.EMW200</td><td>Untested</td><td></td></tr>
-  <tr><td>LIGHTING1.IMPULS</td><td>Untested</td><td></td></tr>
+  <tr><td>LIGHTING1.IMPULS</td><td>tested and working</td><td>Command</td></tr>
   <tr><td>LIGHTING1.RISINGSUN</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.PHILIPS</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING2.AC</td><td>tested and working</td><td>Command, DimmingLevel</td></tr>
