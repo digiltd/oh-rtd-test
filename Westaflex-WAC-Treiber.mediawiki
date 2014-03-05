@@ -14,23 +14,23 @@ This section describes how the host (MCU, PC interface etc) can interface with t
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Frostschutz''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 0 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Plate heat exchanger frost protection function
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Frostschutzfunktion des Plattenwärmetauschers
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fire''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 1 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Feuer''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 1 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fire alarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Brandalarm
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Filter''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 2 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Filtertausch''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 2 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Dirty filter alarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Filter verschmutzt
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fan''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Ventilation''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Lüfteralarm
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''LowPower''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 5 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Spannung''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 5 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Low voltage
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Niedrige Stromspannung
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Textract''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 6 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
