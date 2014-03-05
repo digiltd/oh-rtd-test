@@ -2,7 +2,7 @@ An overview of the contents of the "addons" download package
 
 ## openHAB Add-ons
 
-This is an overview over the contents of the [download package]("addons").
+This is an overview over the contents of the download package "addons".
 
 This package contains various optional bundles of openHAB, each of which can be installed independently of any other. Simply copy the desired jars to `${openhab.home}/addons`.
 
