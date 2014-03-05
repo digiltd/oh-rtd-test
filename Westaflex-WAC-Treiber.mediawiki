@@ -112,7 +112,7 @@ This section describes how the host (MCU, PC interface etc) can interface with t
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Return water temperature value
 |}
 
-=== Examples ===
+=== Beispiele ===
 to handle many slaves in RTU mode, non blocking connections and RTS flow control.....
 
 modbus_t *mb;
