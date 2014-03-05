@@ -44,9 +44,9 @@ This section describes how the host (MCU, PC interface etc) can interface with t
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Hinweissignal des Zuluft-Temperatursensors
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''RH''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 9 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Feuchtigkeit''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 9 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) humidity sensor alarm (controller works in determining the moisture content of 70%)
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) Feuchtigkeits-Alarm (Sensormeldung ab einer Sättigung von 70%)
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''ReturnWater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 10 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
