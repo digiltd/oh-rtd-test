@@ -3,7 +3,6 @@ Installation
  * [[Configuration|Configuring-the-openHAB-runtime]]
  * [[Items|Explanation-of-Items]]
  * [[Sitemaps|Explanation-of-Sitemaps]]
- * [[Addons]]
  * [[Hardware FAQ|Hardware-FAQ]]
 
 Community
