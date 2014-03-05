@@ -18,31 +18,31 @@ This section describes how the host (MCU, PC interface etc) can interface with t
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Feuer''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 1 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Brandalarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Überhitzungsalarm Anzeige
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Filtertausch''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 2 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Filter verschmutzt
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Filter verschmutzt, Austausch Signal
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Ventilation''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Lüfteralarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Lüfteralarm Fehlfunktions-Anzeige
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Spannung''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 5 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Niedrige Stromspannung
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Niedrige Stromspannung Hinweis
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Textract''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 6 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Temperatur''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 6 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Temperature sensor alarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Sensor Temperatur Alarmmeldung
 ||-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Texhaust''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 7 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Abluftwärme''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 7 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Exhaust air temperature sensor alarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Hinweisgeber zur Abluft-Temperatur
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Timit''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 8 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Zuluftwärme''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 8 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Supply air temperature sensor alarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Hinweissignal des Zuluft-Temperatursensors
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''RH''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 9 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
