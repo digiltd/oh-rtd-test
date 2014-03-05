@@ -1,10 +1,10 @@
-=== Pre-requisites ===
+=== Einleitung ===
 Our WAC Usage documention describes the protocol in detail and is the starting point for understanding everything else. It contains the fundamental ModBus knowledge you need in order to adapt successfully with our Binding. With this foundation in place, you will be ready to apply the ModBus network rules, so that your home appliances can interoperate with those produced by other manufacturers as part of the OpenHAB ecosystem. This will free consumers to choose the devices that best match their needs, and combine them in novel ways with other compatible devices. See below for guidance as to what to look out for in each section. The possibilities are endless.
 
-=== Binding configuration ===
+=== Treiber Konzept ===
 A key feature of ModBus that distinguishes it from other protocols is that any given node in the network can act as the master for one channel, and as the slave for another channel.  This allows complex network topologies to be formed.
 
-=== Item Binding Configuration ===
+=== Treiber Konfiguration ===
 This section describes how the host (MCU, PC interface etc) can interface with the WAC chip. Extended messaging is also introduced, which is useful if you need to include additional information such as the Device Number. Note that extended messaging does not extend the size of the data payload, which is fixed at 8 bytes and cannot be altered.
 
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
@@ -130,5 +130,5 @@ modbus_t *mb;
 
 [http://wiki.openhab-samples.googlecode.com/hg/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [https://github.com/westaflex to contact us] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
-=== Troubleshooting ===
+=== Hinweise ===
 Congratulations! You should now have a good general understanding of how the WAC ModBus protocol works, which will give you a strong foundation for all the work you do with OpenHAB. <tt>Be Inspired      &rarr;</tt [https://play.google.com/store/apps/developer?id=westaflex by our genuine Apps...]
