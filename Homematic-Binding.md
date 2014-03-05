@@ -227,6 +227,7 @@ See [[HomeMatic Admin Items|homematic admin items]] on howto get information abo
  - HM-LC-Sw1-FM (Flush switch (1-port))+
  - HM-LC-Sw2-FM (Flush switch (2-port))+
  - HM-LC-Sw4-SM (Flush switch (4-port))
+ - HM-ES-PMSw1 (Plug switch (1-port) with measure Features)
 - Dim actors
  - HM-LC-Dim2T-SM (Two port dim actor)
  - HM-LC-Dim1T-PI (One port dim actor plug)
@@ -292,6 +293,7 @@ Supported Devices:
 - HM-LC-Sw1-Pl
 - HM-LC-Sw1-Pl-2
 - HM-LC-Sw4-SM
+- HM-ES-PMSw1
 
 Valid parameter keys: 
 - STATE: The current state of the switch (Switch, TRUE=ON, FALSE=OFF). Accepts OPEN / CLOSE as well.
@@ -299,6 +301,13 @@ Valid parameter keys:
 #### = Examples =
 
     Switch RF_Plug1 "RF Plug 1" (Light) {homematic="id=JEQxxxxxxxx, channel=1, parameter=STATE"} 
+
+#### = Example for HM-ES-PMSw1 measure values =
+
+    Number S_POWER "Power [%.1f W]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=POWER,converter=DoubleDecimalConverter" } 
+    Number S_CURRENT "Current [%.1f mA]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=CURRENT,converter=DoubleDecimalConverter" } 
+    Number S_VOLTAGE "Voltage [%.1f V]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=VOLTAGE,converter=DoubleDecimalConverter" } 
+    Number S_FREQUENCY "Frequency [%.1f Hz]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=FREQUENCY,converter=DoubleDecimalConverter" }
 
 ### Dim Actors
 
