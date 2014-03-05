@@ -1,0 +1,134 @@
+=== Pre-requisites ===
+Our WAC Usage documention describes the protocol in detail and is the starting point for understanding everything else. It contains the fundamental ModBus knowledge you need in order to adapt successfully with our Binding. With this foundation in place, you will be ready to apply the ModBus network rules, so that your home appliances can interoperate with those produced by other manufacturers as part of the OpenHAB ecosystem. This will free consumers to choose the devices that best match their needs, and combine them in novel ways with other compatible devices. See below for guidance as to what to look out for in each section. The possibilities are endless.
+
+=== Binding configuration ===
+A key feature of ModBus that distinguishes it from other protocols is that any given node in the network can act as the master for one channel, and as the slave for another channel.  This allows complex network topologies to be formed.
+
+=== Item Binding Configuration ===
+This section describes how the host (MCU, PC interface etc) can interface with the WAC chip. Extended messaging is also introduced, which is useful if you need to include additional information such as the Device Number. Note that extended messaging does not extend the size of the data payload, which is fixed at 8 bytes and cannot be altered.
+
+{| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
+|-
+! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Name !! style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Modbus function !! width="150" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Data address !! width="300" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef; text-align: center;" | Values
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Heat''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 0 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Plate heat exchanger frost protection function
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fire''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 1 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fire alarm
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | '''Filter''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | 2 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #f9f9f9;" | Dirty filter alarm
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Fan''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 3 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans alarm
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''LowPower''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 5 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Low voltage
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Textract''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 6 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Temperature sensor alarm
+||-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Texhaust''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 7 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Exhaust air temperature sensor alarm
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Timit''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 8 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Supply air temperature sensor alarm
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''RH''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 9 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) humidity sensor alarm (controller works in determining the moisture content of 70%)
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''ReturnWater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 10 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Return water temperature sensor alarm
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''ToutDoor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 11 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Outside air temperature sensor alarm (controller continues to work in determing ToutDoor less than zero degree)
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''MotorActive''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 12 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans ON
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''InDumpper''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 13 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-90
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Outside air damper actuator
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Preheater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 14 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Preheater indication
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Heater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 15 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-active, 0-passive
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Heater indication
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Speed''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_Write_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 16 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0, 1, 2, 3
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans speed setting
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''TsetPoint''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_Write_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 17 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-30
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Supply air temperature set
+||-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''RH_value''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 18 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-99
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) humidity sensor value
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Motor1''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 19 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-3
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Motor 1 fan speed value
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Motor2''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 20 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-3
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Motor 2 fan speed value
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Tlimit''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 21 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Supply air temperature value
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Texhaust''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 22 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) temperature sensor value
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Textract''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 23 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Exhaust air temperature sensor value
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''ToutDoor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 24 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: FFEC
+|-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Outside air temperature sensor value
+|-
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Twater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 25 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: FFEC
+||-
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Return water temperature value
+|}
+
+=== Examples ===
+to handle many slaves in RTU mode, non blocking connections and RTS flow control.....
+
+modbus_t *mb;
+  uint16_t tab_reg[32];
+
+  mb = modbus_new_tcp("127.0.0.1", 1502);
+  modbus_connect(mb);
+
+  /* Read 5 registers from the address 0 */
+  modbus_read_registers(mb, 0, 5, tab_reg);
+
+  modbus_close(mb);
+  modbus_free(mb);
+
+
+[http://wiki.openhab-samples.googlecode.com/hg/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [https://github.com/westaflex to contact us] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
+
+=== Troubleshooting ===
+Congratulations! You should now have a good general understanding of how the WAC ModBus protocol works, which will give you a strong foundation for all the work you do with OpenHAB. <tt>Be Inspired      &rarr;</tt [https://play.google.com/store/apps/developer?id=westaflex by our genuine Apps...]
