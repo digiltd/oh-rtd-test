@@ -8,7 +8,7 @@ Samples of Item definitions
 * [How to configure a switch to be a pushbutton](Samples-Item-Definitions#how-to-configure-a-switch-to-be-a-pushbutton)
 * [How to control a homematic roller shutter with an EnOcean Rocker](Samples-Item-Definitions#how-to-control-a-homematic-roller-shutter-with-an-enocean-rocker)
 * [How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)](Samples-Item-Definitions#how-to-control-a-homematic-dimmer-with-an-enocean-rocker-onoff-profile)
-
+* [How to set up voice control for use with HABDroid](Samples-Item-Definitions#how-to-set-up-voice-control-for-use-with-habdroid)
 ### Howto use homematic door contact sensors
 
     Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock) { homematic="HEQ0358465:1#STATE" }
@@ -86,3 +86,19 @@ Item:
 Item:
 
     Dimmer Lights_Left <lights> (Lights) {homematic="id=GEQXXXXXX, channel=2, parameter=LEVEL", enocean="{id=00:00:00:00, channel=A, eep=F6:02:01}"}}
+
+### How to set up voice control for use with HABDroid
+
+Item:
+
+String VoiceCommand
+
+Rule:
+
+rule "test example rule name"
+        when
+                Item VoiceCommand received command test
+        then
+                test_item.sendCommand(ON)
+end
+
