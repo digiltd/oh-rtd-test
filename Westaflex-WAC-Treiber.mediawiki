@@ -1,3 +1,4 @@
+[https://github.com/openhab/openhab/wiki/Westaflex-WAC-Binding ENGLISH Version]
 === Einleitung ===
 Our WAC Usage documention describes the protocol in detail and is the starting point for understanding everything else. It contains the fundamental ModBus knowledge you need in order to adapt successfully with our Binding. With this foundation in place, you will be ready to apply the ModBus network rules, so that your home appliances can interoperate with those produced by other manufacturers as part of the OpenHAB ecosystem. This will free consumers to choose the devices that best match their needs, and combine them in novel ways with other compatible devices. See below for guidance as to what to look out for in each section. The possibilities are endless.
 
