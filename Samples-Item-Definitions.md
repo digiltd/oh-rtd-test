@@ -88,6 +88,7 @@ Item:
     Dimmer Lights_Left <lights> (Lights) {homematic="id=GEQXXXXXX, channel=2, parameter=LEVEL", enocean="{id=00:00:00:00, channel=A, eep=F6:02:01}"}}
 
 ### How to set up voice control for use with HABDroid
+The following example shows an item called test_item being turned on by issuing the voice command in HABDroid
 
 Item:
 
@@ -96,7 +97,7 @@ String VoiceCommand
 Rule:
 
 rule "test example rule name"
-        when
+when
                 Item VoiceCommand received command test
         then
                 test_item.sendCommand(ON)
