@@ -18,6 +18,7 @@ Miscellaneous Tips & Tricks
 * [How to wake up with Philips Hue](Samples-Tricks#how-to-wake-up-with-philips-hue)
 * [How to manage and sync configuration via subversion](Samples-Tricks#how-to-manage-and-sync-configuration-via-subversion)
 * [How to switch LEDS on cubietruck](Samples-Tricks#how-to-switch-leds-on-cubietruck)
+* [How to use a voice command from HABDroid](Samples-Tricks#how-to-use-a-voice-command-from-habdroid)
 
 ### How to redirect your log entries to the syslog
 
@@ -1096,3 +1097,28 @@ ALL ALL = (ALL) NOPASSWD: /usr/bin/tee /sys/class/leds/white\:ph11\:led3/brightn
 ALL ALL = (ALL) NOPASSWD: /usr/bin/tee /sys/class/leds/orange\:ph20\:led2/brightness
 ```
 
+### How to use a voice command from HABDroid
+
+HABDroid uses a predefined string item to pass voice commands - the name of this item is "VoiceCommand".
+So all you have to do is to add such an item in your *.items file:
+
+```
+String VoiceCommand
+```
+
+And react on commands for this item in a rule:
+
+```
+ rule VoiceControl
+ when
+ 	Item VoiceCommand received command
+ then
+ 	val hue = switch(receivedCommand.toString.lowerCase) {
+	 	case "blue"    : 240
+	 	case "magenta" : 300
+	 	case "green"   : 120
+	 	case "yellow"  : 70
+ 	}
+ 	Light.sendCommand(hue + ",100,100")
+ end
+```
