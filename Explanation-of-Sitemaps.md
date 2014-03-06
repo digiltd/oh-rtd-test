@@ -71,8 +71,8 @@ Syntax:
 * _refresh_ is the refresh period of the image in milliseconds
 * _service_ sets the persistence service to use. If no service is set, openHAB will use the first queryable persistence service it finds. Therefore, for an installation with only a single persistence service, this is not required.
 * _period_ sets the length of the time axis of the chart. Valid values are h, 4h, 8h, 12h, D, 3D, W, 2W, M, 2M, 4M, Y
-The following parameters are only available in v1.5.
-* _begin_ / _end_  sets the begin / end of the time axis of the chart. Valid values are in this format: yyyyMMddHHmm (yyyy := year, MM := month, dd := day, HH := hour (0-23), mm := minutes). 
+* The following parameters are only available in v1.5:  
+_begin_ / _end_  sets the begin / end of the time axis of the chart. Valid values are in this format: yyyyMMddHHmm (yyyy := year, MM := month, dd := day, HH := hour (0-23), mm := minutes). 
 
 
 Note that charts are rendered by a chart provider. By default, openHAB provides a default chart provider which will work with all queryable persistence services. Other chart providers can be user to render the chart by changing the `chart:provider=default` configuration in openhab.cfg to the name of the alternative provider. Currently, then only alternative is to use the rrdj4 provider to render the graphs.
