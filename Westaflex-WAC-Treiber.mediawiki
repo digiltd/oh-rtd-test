@@ -1,6 +1,6 @@
 [https://github.com/openhab/openhab/wiki/Westaflex-WAC-Binding ENGLISH Version]
 === Einleitung ===
-In der SHK Industrie hat sich der Modbus zu einem De-Facto-Standard entwickelt, da es sich um ein offenes Protokoll handelt. Im Modbus ASCII wird keine Binärfolge, sondern ASCII-Code übertragen, dadurch ist er direkt lesbar. Mittels der Westaflex Modbus-Umsetzung können ein Master (z. B. ein PC) und mehrere Slaves (z. B. Mess- und Regelsysteme) verbunden werden. Es gibt grundsätzlich zwei Ausführungen: Eine über die serielle Schnittstelle (EIA-232 und EIA-485) und eine für das Ethernet. Bei unseren Geräten kommt nur EIA-485 alias RS-485 zum Einsatz. 
+In der SHK Industrie hat sich der Modbus zu einem De-Facto-Standard entwickelt, da es sich um ein offenes Protokoll handelt. Im Modbus ASCII wird keine Binärfolge, sondern ASCII-Code übertragen, dadurch ist er direkt lesbar. Mittels der Westaflex Modbus-Umsetzung können ein Master (z. B. ein PC) und mehrere Slaves (z. B. Mess- und Regelsysteme) verbunden werden. Es gibt prinzipiell zwei Ausführungen: Eine über die serielle Schnittstelle (EIA-232 und EIA-485) und eine für das Ethernet. Bei unseren Geräten kommt nur EIA-485 alias RS-485 zum Einsatz. 
 
 
 === Treiber Konzept ===
