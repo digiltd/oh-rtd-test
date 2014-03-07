@@ -115,7 +115,7 @@ Nach unser Definition des Modbus-Protokolls enthält dieses folgende Bestandteil
 |}
 
 === Beispiele ===
-to handle many slaves in RTU mode, non blocking connections and RTS flow control.....
+die klassische Modbus-RTU (asynchrone Übertragung über RS-232 oder RS-485)
 
 modbus_t *mb;
   uint16_t tab_reg[32];
