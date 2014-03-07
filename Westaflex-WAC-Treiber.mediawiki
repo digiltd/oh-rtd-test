@@ -4,7 +4,7 @@ Für unseren Modbus-fähigen Wohnungslüftungs-Zentralgeräte (Temperatur und Fe
 
 
 === Treiber Konzept ===
-Daten und Wertepaare, die mit dem Westaflex Modbus RTU/RS485 übertragen werden, können Bit- und Wortinformationen enthalten. Grundsätzlich liegen dazu die Buszykluszeiten erheblich über dem KNX/EIB Feldbus-Klassiker. Insofern kann unsere E/A-Lösung mit ModbusRTU als erheblich leistungsfähiger angesehen werden. Im ASCII-Modus beginnen Nachrichten mit einem vorangestellten Doppelpunkt, das Ende der Nachricht wird durch den Zeilenumbruch markiert.
+Das Telemetrie-Protokoll Modbus RTU arbeitet auf Anfrage-Antwort-Basis und bietet verschiedene Dienste, die durch Funktions-Codes spezifiziert werden. Hat der Server (Arduino oder Varianten, wie Rasberry PI) den Lesebefehl korrekt empfangen, dann werden die gewünschten Eingangsdaten im Response-Telegramm an den Client übertragen. Grundsätzlich liegen dabei die Buszykluszeiten erheblich über dem KNX/EIB Feldbus-Klassiker. Insofern kann unsere E/A-Lösung mit ModbusRTU als erheblich leistungsfähiger angesehen werden. Im ASCII-Modus beginnen Nachrichten mit einem vorangestellten Doppelpunkt, das Ende der Nachricht wird durch den Zeilenumbruch markiert.
 
 === Treiber Konfiguration ===
 Nach unser Definition des Modbus-Protokolls enthält dieses folgende Bestandteile: Geräteadresse: 1 Byte, dann Function Code: 1 Byte. Mit diesem Function Code wird festgelegt, welche Operation auf Grund eines Requests durch den Arduino Server ausgeführt werden soll, sowie letztendlich für die Datensicherung mit CRC: 2 Bytes. Jeder Busteilnehmer besitzt eine eindeutige Adresse, wobei die Adresse 0 für einen Broadcast reserviert ist.
