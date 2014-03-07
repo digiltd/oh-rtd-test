@@ -48,57 +48,57 @@ This section describes how the host (MCU, PC interface etc) can interface with t
 |-
 |colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) Feuchtigkeits-Alarm (Sensormeldung ab einer Sättigung von 70%)
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''ReturnWater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 10 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Wasserrücklauf''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 10 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Return water temperature sensor alarm
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Wassertemperatur-Sensor im Rücklauf
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''ToutDoor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 11 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Außentemperatur''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 11 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Outside air temperature sensor alarm (controller continues to work in determing ToutDoor less than zero degree)
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Außentemperaturfühler mit Alarm (Geräteabschaltung bei Temperaturen unter dem Gefrierpunkt)
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''MotorActive''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 12 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Lüfterstatus''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 12 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans ON
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Lüftermotoren Status eingeschaltet
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''InDumpper''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 13 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-90
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Klappenantrieb Status''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 13 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-90
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Outside air damper actuator
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Antrieb und Status der Außenluftklappe
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Preheater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 14 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Vorheizregister''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 14 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Preheater indication
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Anzeige vom Status des Vorheizregisters
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Heater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 15 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Heizelement''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''01h_Read_Coils'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 15 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |1-aktiv, 0-passiv
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Heater indication
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Monitor zur Heizleistung
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Speed''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_Write_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 16 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0, 1, 2, 3
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Geschwindigkeit''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_Write_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 16 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0, 1, 2, 3
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Fans speed setting
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Einstellbereich der Lüfter-Geschwindigkeit
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''TsetPoint''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_Write_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 17 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-30
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Zuluft-Temperatur''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''06h_Write_Holding_Register'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 17 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-30
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Supply air temperature set
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Einstellbereich der Zuluft-Temperatur
 ||-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''RH_value''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 18 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-99
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Feuchtigkeitssensor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 18 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-99
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) humidity sensor value
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) Wertebereich des Feuchtigkeitssensors
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Motor1''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 19 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-3
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Zuluft-Motor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 19 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-3
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Motor 1 fan speed value
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Geschwindigkeit des Zuluft-Motors
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Motor2''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 20 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-3
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Abluft-Motor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 20 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-3
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Motor 2 fan speed value
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Geschwingkeit des Abluft-Motors
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Tlimit''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 21 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Temperatur-Anzeige''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 21 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Supply air temperature value
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Anzeige der Temperatursensoren
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Texhaust''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 22 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Abluft-Temperatur''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 22 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) temperature sensor value
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) Anzeige des Wertebereiches Abluftwärme
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Textract''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 23 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
 |-
