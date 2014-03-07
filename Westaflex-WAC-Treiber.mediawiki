@@ -90,27 +90,27 @@ This section describes how the host (MCU, PC interface etc) can interface with t
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Abluft-Motor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 20 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |0-3
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Geschwingkeit des Abluft-Motors
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Geschwindigkeit des Abluft-Motors
 |-
 |rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Temperatur-Anzeige''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 21 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Anzeige der Temperatursensoren
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Anzeige der Temperatursensoren Zuluftstrecke
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Abluft-Temperatur''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 22 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Temperatursensor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 22 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) Anzeige des Wertebereiches Abluftwärme
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | DTJ(100) Anzeige des Temperatur Wertebereiches
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Textract''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 23 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Abluft-Temperatur''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 23 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: E0
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Exhaust air temperature sensor value
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Wert des Abluft-Temperatursensors
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''ToutDoor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 24 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: FFEC
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Außenluft-Sensor''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 24 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: FFEC
 |-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Outside air temperature sensor value
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Anzeige und Wertebereich des Außenluft-Temperatursensors
 |-
-|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Twater''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 25 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: FFEC
+|rowspan="2" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | '''Kondensat''' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | ''04h_Read_Input'' || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | 25 || align="center" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" |Hex: FFEC
 ||-
-|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Return water temperature value
+|colspan="4" style="border: 1px #aaaaaa solid; padding: 0.2em; background: #efefef;" | Anzeige der Kondensattemperatur
 |}
 
 === Beispiele ===
