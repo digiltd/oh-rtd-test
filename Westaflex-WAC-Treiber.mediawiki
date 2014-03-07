@@ -132,4 +132,4 @@ modbus_t *mb;
 [http://wiki.openhab-samples.googlecode.com/hg/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [https://github.com/westaflex to contact us] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
 === Hinweise ===
-Congratulations! You should now have a good general understanding of how the WAC ModBus protocol works, which will give you a strong foundation for all the work you do with OpenHAB. <tt>Be Inspired      &rarr;</tt [https://play.google.com/store/apps/developer?id=westaflex by our genuine Apps...]
+Auf der WAC Steuerungsplatine befinden sich zwei Dip-Switches für die Terminierungswiderstände. Bei Anschluss eines Modbus-Gerätes soltten beide auf ON eingestellt sein. Achtung: vor Öffnen der Gehäuseklappe das WAC Geräte komplett vom Stromnetz trennen. <tt>Inspiration gefällig?!      &rarr;</tt [https://play.google.com/store/apps/developer?id=westaflex by our genuine Apps...]
