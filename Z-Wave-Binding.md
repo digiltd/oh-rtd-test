@@ -129,6 +129,11 @@ Here are some examples of valid binding configuration strings, as defined in the
     Switch Mech_Vent			"Mechanical ventilation middle."	(GF_Kitchen) {zwave="11:1"}
     Switch Mech_Vent_High		"Mechanical ventilation high."	(GF_Kitchen) {zwave="11:2"}
     
+    /* A Everspring ST814 temperature and humidity sensor as example of sensor_multilevel */
+   
+    Number T_AZH  "Temperature [%.1f °C]" (AZH) {zwave="32:1:command=sensor_multilevel,sensor_type=1" }
+    Number RH_AZH "Humidity    [%.0f %%]" (AZH) { zwave="32:1:command=sensor_multilevel,sensor_type=5" }
+    
     /* A fibaro wall plug with energy meter. */
     
     Switch Coffee_Kitchen_Switch "Coffee machine" (GF_Cellar) {zwave="18:command=switch_binary"} 
