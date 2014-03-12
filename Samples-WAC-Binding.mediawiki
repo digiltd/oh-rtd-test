@@ -1301,6 +1301,21 @@ sitemap WAC label="Main"
 }
 </code>
 
+=== wac_active.map ===
+<code>
+CLOSED=Deactivated
+OPEN=Active
+undefined=unknown
+-=not set
+</code>
+
+=== wac_error.map ===
+<code>
+CLOSED=Ok
+OPEN=Alarm
+undefined=unknown
+-=not set
+</code>
 
 === TLDR ===
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
