@@ -1,9 +1,197 @@
-== NOTE: This page is still under construction!!! ==
-
 Our WAC systems use default modbus data provided by Arduino barebones e.g. a Debian Rasberry server kit all year long. '''''Binding is compatible with latest models since 2013'''' [http://wiki.openhab-samples.googlecode.com/hg/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [https://github.com/westaflex to contact us] or use [https://github.com/westaflex the openHAB google group]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
-=== wxwac.items ===
-to be continued - very soon
+=== wac.items ===
+
+/*
+ * 
+ * Error 
+ * 
+ */
+Contact 	HeatError 				"Plate Heat Frost Protection [MAP(alarm_en.map):%s]" 
+									<siren> { modbus = "wxwacC:0" }
+Contact 	FireError				"Fire alarm: [MAP(alarm_en.map):%s]" 
+									<fire> {modbus="wxwacC:1"}
+Contact 	FilterError				"Dirty Filter alarm [MAP(filter_en.map):%s]"
+									<siren> { modbus =  "wxwacC:2" }
+Contact 	FanError				"Fans alarm [MAP(alarm_en.map):%s]"
+									<siren> { modbus = "wxwacC:3" } 
+
+//4 is missing?
+Contact 	LowPowerError			"LowPower alarm [MAP(alarm_en.map):%s]"
+									<energy> { modbus = "wxwacC:5" }
+Contact 	TemperatureExtractError	"Temperature sensor alarm [MAP(alarm_en.map):%s]"
+									<siren> { modbus = "wxwacC:6" }
+Contact 	TemperatureExhaustError	"Exhaust air temperature sensor alarm [MAP(alarm_en.map):%s]"
+									<siren> { modbus = "wxwacC:7" }
+Contact 	TemperatureImitError	"Supply air temperature sensor alarm [MAP(alarm_en.map):%s]"
+									<siren> { modbus = "wxwacC:8" }
+Contact 	RHError					"DTJ(100) humidity sensor alarm \n
+<br/><small>(controller works in determing the moisture content of 70%)</small> [MAP(alarm_en.map):%s]" <siren> { modbus = "wxwacC:9" }
+Contact 	ReturnWaterError		"Return water temperature sensor alarm [MAP(alarm_en.map):%s]"
+									<siren> { modbus = "wxwacC:10" }
+Contact 	TemperatureOutDoorError "Outside air temperature sensor alarm \n
+<br/><small>(controller continues to work in determing 
+<br/>ToutDoor less than zero degree)</small>"
+									<siren> { modbus = "wxwacC:11" }
+
+
+/*
+ * 
+ * Status Fields
+ * 
+ */
+Contact 	MotorActive  			"Fans [MAP(active_en.map):%s]" 
+									<fan> { modbus = "wxwacC:12" }
+Number 		Motor1 					"Motor 1 fan speed value [%s]" 
+									<fan> { modbus = "wxwacI2:0"} 
+Number 		Motor2 						"Motor 2 fan speed value [%s]" 
+									<fan> { modbus = "wxwacI2:1"}
+Number 		Speed 						"Fans speed Settings [%s]" 
+									<fan> { modbus = "wxwacH:0"}
+
+Number 		InDumpper 				"Outside air damper actuator [%.1f &#37;]" 
+									<procentage> { modbus = "wxwacI1:0" }
+
+Contact 	Preheater 				"Preheater indication" 
+									<sensor> { modbus = "wxwacC:15" }
+Contact 	Heater 					"Heater indication" 
+									<sensor> { modbus = "wxwacC:15" }
+
+Number 		TemperatureSetPoint 	"Supply air temperature set [%.1f °C]" 
+									<temperature> { modbus = "wxwacH:1"} 
+Number 		TemperatureLimit 		"Supply air temperature value [%.1f °C]" 
+									<temperature> { modbus = "wxwacI2:3"}
+
+Number 		RH_value 				"DTJ(100) humidity sensor value [%.1f &#37;]" 
+									<procent> { modbus = "wxwacI2:0"}
+
+Number 		TemperatureExhaust 		"DTJ(100) temperature sensor value [%.1f °C]" 
+									<temperature> { modbus = "wxwacI2:4"}
+Number 		TemperatureExtract 		"Exhaust air temperature sensor value [%.1f °C]" 
+									<temperature> { modbus = "wxwacI2:5"}
+Number 		TemperatureOutDoor 		"Outside air temperature sensor value [%.1f °C]" 
+									<temperature> { modbus = "wxwacI2:6"}
+Number 		TemperatureWater 		"Return water temperature value [%.1f °C]" 
+									<temperature> { modbus = "wxwacI2:7"}
+
+=== wac.sitemap ===
+sitemap WAC label="Main"
+{
+	Frame label="Westaflex Air Control" {
+		
+		Text label="Settings" icon="climate" {
+			Frame label="Inside" {
+				Setpoint item=TemperatureSetPoint minValue=0 maxValue=30 step=1
+			}
+			Frame label="Outside" {
+				Text item=TemperatureOutDoor
+				Text item=InDumpper /* minValue=0 maxValue=90 step=1 */
+			}
+			/* maybe to technical for normal usage */
+			Frame label="Motor Settings" {
+					Text item=MotorActive
+					Setpoint item=Speed minValue=0 maxValue=4 step=1 
+					Setpoint item=Motor1 minValue=0 maxValue=3 step=1
+					Setpoint item=Motor2 minValue=0 maxValue=3 step=1
+			}
+		}
+		
+		Text label="Maintenance" icon="settings" {
+			Frame label="Environment" {
+				Text item=HeatError
+				Text item=FireError  
+				Text item=TemperatureExtractError
+				Text item=TemperatureExhaustError
+				Text item=TemperatureImitError 
+				Text item=RHError 
+				Text item=TemperatureOutDoorError 
+			}
+			Frame label="System"{
+				Text item=FilterError  
+				Text item=LowPowerError 
+				Text item=ReturnWaterError
+				
+			}
+		}
+		Text label="Statistics" icon="pie" {
+			Text label="Consumption" icon="pie" {
+				Text label="by Date" icon="pie"{
+					Frame {
+						Text item=MotorActive
+					}
+					Frame label="Hourly" {
+						Chart item=Motor1 period=H refresh=10000
+						Chart item=Motor2 period=H refresh=10000
+						Chart item=Preheater period=H refresh=10000
+						Chart item=Heater period=H refresh=10000
+					}
+					
+					Frame label="Weekly" {
+						Chart item=Motor1 period=W refresh=10000
+						Chart item=Motor2 period=W refresh=10000
+						Chart item=Preheater period=W refresh=10000
+						Chart item=Heater period=W refresh=10000
+					}
+					
+					Frame label="Monthly" {
+						Chart item=Motor1 period=M refresh=10000
+						Chart item=Motor2 period=M refresh=10000
+						Chart item=Preheater period=M refresh=10000
+						Chart item=Heater period=M refresh=10000
+					}
+					
+					Frame label="Yearly" {
+						Chart item=Motor1 period=Y refresh=10000
+						Chart item=Motor2 period=Y refresh=10000
+						Chart item=Preheater period=Y refresh=10000
+						Chart item=Heater period=Y refresh=10000
+					}
+				}
+				Text label="by Consumer" icon="pie" {
+					Frame {
+						Text item=MotorActive
+					}
+					Frame label="Motor 1"{
+						Chart item=Motor1 period=H refresh=10000
+						Chart item=Motor1 period=W refresh=86400
+						Chart item=Motor1 period=M refresh=86400
+						Chart item=Motor1 period=Y refresh=86400
+					}
+					Frame label="Motor 2"{
+						Chart item=Motor2 period=H refresh=10000
+						Chart item=Motor2 period=W refresh=86400
+						Chart item=Motor2 period=M refresh=86400
+						Chart item=Motor2 period=Y refresh=86400
+					}
+					Frame label="Preheater"{
+						Chart item=Preheater period=H refresh=10000
+						Chart item=Preheater period=W refresh=86400
+						Chart item=Preheater period=M refresh=86400
+						Chart item=Preheater period=Y refresh=86400
+					}
+					Frame label="Heater"{
+						Chart item=Heater period=H refresh=10000
+						Chart item=Heater period=W refresh=86400
+						Chart item=Heater period=M refresh=86400
+						Chart item=Heater period=Y refresh=86400
+					}
+				}
+			}
+			Text label="Environment" icon="pie" {
+				Frame {
+		            Text item=TemperatureOutDoor
+		        }
+		        Frame {
+		            Chart item=TemperatureOutDoor period=D refresh=10000
+		            Chart item=TemperatureOutDoor period=W refresh=10000
+		            Chart item=TemperatureOutDoor period=M refresh=86400
+		            Chart item=TemperatureOutDoor period=Y refresh=86400
+		        }
+	        }
+		}
+	}
+}
+
 
 
 === TLDR ===
