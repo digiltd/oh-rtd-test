@@ -129,7 +129,7 @@ modbus_t *mb;
   modbus_free(mb);
 
 
-[https://code.google.com/r/orga-westaflex/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [http://westaflex.com/unternehmen/kontakt to contact us] or use [https://github.com/westaflex our Github page]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
+[https://code.google.com/r/orga-westaflex/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [http://westaflex.com/unternehmen/kontakt to contact us] or use [https://github.com/westaflex our Github account]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
 === Troubleshooting ===
 Congratulations! You should now have a good general understanding of how the WAC ModBus protocol works, which will give you a strong foundation for all the work you do with OpenHAB. <tt>Be Inspired      &rarr;</tt [https://play.google.com/store/apps/developer?id=westaflex by our genuine Apps...]
