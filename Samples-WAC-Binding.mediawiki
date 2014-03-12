@@ -76,6 +76,11 @@ Number 		TemperatureWater 		"Return water temperature value [%.1f °C]"
 									<temperature> { modbus = "wxwacI2:7"}
 </code>
 
+=== users.cfg ===
+<code>
+user=password,user,role
+</code>
+
 === wac.cfg ===
 <code>
 # This is the default configuration file, which comes with every openHAB distribution.
