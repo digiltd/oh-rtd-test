@@ -1171,7 +1171,7 @@ when
     Item FilterError changed
 then
     if( (FilterError.state as StringType) != "Ok" ){
-    	send("esync.de@googlemail.com", "Please change the Filter for you Westaflex Air Control unit.")
+    	send("wac@westaflex.net", "Please change the Filter for you Westaflex Air Control unit.")
     }
 end
 </code>
