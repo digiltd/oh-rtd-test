@@ -1158,6 +1158,24 @@ tcp:refreshinterval=250
 #hdanywhere:192.168.0.88.ports=4
 </code>
 
+=== airflow.rules ===
+<code>
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+import java.lang.Math
+
+
+rule "Change Filter Message by Mail"
+when
+    Item FilterError changed
+then
+    if( (FilterError.state as StringType) != "Ok" ){
+    	send("esync.de@googlemail.com", "Please change the Filter for you Westaflex Air Control unit.")
+    }
+end
+
+
 === wac.sitemap ===
 <code>
 sitemap WAC label="Main"
