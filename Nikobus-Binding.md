@@ -5,11 +5,17 @@ Documentation of the Nikobus binding Bundle <br/>
 
 This binding allows openHAB to interact with the [nikobus](http://www.niko.eu/enus/niko/products/home-automation-with-nikobus/) home automation system. 
 
+      Important: This documentation has already been updated for version 1.5 of the nikobus binding.  
+      Version 1.5 is compatible with openHAB 1.4 and is the recommended version to use.
+
 More specifically, it allows openHAB to:
 - send (simulated) button presses to the nikobus
 - react to button presses which occur on the nikobus
 - change the status of switch channels on a nikobus switch module
 - request the status of switch channels on a nikobus switch module
+- change the status of dimmer channels on a nikobus dimmer module
+- request the status of dimmer channels on a nikobus dimmer module
+- send commands to the nikobus roller shutter module
 
 This binding has been tested with the following hardware:
 - Push buttons (05-060-01, 05-064-01), RF Transmitter (05-314), PIR Sensor (430-00500)
@@ -63,12 +69,6 @@ All commands send to/received from the nikobus switch module are for a single ch
 
 In order to be able to read the status of a nikobus switch module channel or to switch a channel directly on the switch module without mimicking a button press, you will need to configure items for each channel on the switch modules.
 
-The nikobus switch modules use a closed protocol and therefore it is currently not possible for the binding to calculate the complete command and checksum combination to get or set a switch channel status.
-To workaround this limitation, the binding provides a scanner, which will send all possible command and checksum combinations to your switch module and when it detects a working combination, it will store it for later reuse (in the cache file specified in your configuration).
-Once your modules have been scanned, the binding can use the detected combinations to switch your channels or to request the status from the modules.
-
-Note: the scanner has been used multiple times already to scan switch modules without problems, but you should use it at your own risk. At the very least, it's a good idea to switch off the power to your light sources whilst the scanner is running. This will prevent your house from looking like a x-mas tree during the scan.
-
 The configuration of a switch channel has the following format:
 
     Switch myChannel {nikobus="<moduleAddress>:<channel>"}
@@ -80,27 +80,8 @@ When you check the openHAB log, you should see an entry similar to:
 
     12:55:55.332 DEBUG [Nikobus Receiver] o.o.b.n.i.c.NikobusCommandReceiver[:177] - Received NikobusCommand [command=$186C9400100167FF78607E, repeats=1]
 
-The 4 characters following $18 are the switch module address.
-
-The next step is to let the binding scan your module to determine the correct checksums for all possible switch combinations. 
-
-On your OSGI console, enter the following command to scan your switch module:
-
-    nikobus analyze '<address>' <group>
-
-e.g.
-    
-    nikobus analyze '6C94' 1
-    
-Where address is the 4 character address you discovered above and group 1 indicates the first channel group for channels 1-6 and 2 indicates the second channel group for channels 7-12.
-
-After the scanning is completed (which takes approximately an 30 minutes or so per 6 channels), you can verify the result of the scan using the following command:
-
-    nikobus <count> '<address>' <group>
-
-If not all combinations where detected during the first attempt, you can restart the scanning to detect the missing combinations. It will not rescan any combinations which were found previously.
-
-Once all combinations are detected, you can add them to your item configuration, e.g:
+The 4 characters following $18 are the switch module address. In the example above, that's C964.
+With this address, you can now define the different channels in your item configuration, e.g:
 
     Switch light_office {nikobus="C964:1"}
     Switch light_hallway {nikobus="C964:2"}
