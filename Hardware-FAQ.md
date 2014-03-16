@@ -11,7 +11,7 @@ Please note: This page is NOT about home automation hardware (sensors, switches,
 
 The openHAB Runtime is almost 100% pure Java, so all it requires is a JVM (>=1.6). So expect it to run on Windows, Mac and Linux likewise. As JavaSE exists also for ARM platforms, you are not constrained to x86 hardware.
 
-Please note that openHAB has not (yet) been optimized for low-end embedded devices such as the Raspberry Pi. Still, if you are interested in using it on such hardware, you will find some tipps and tricks in the next sections.
+Please note that openHAB has not (yet) been optimized for low-end embedded devices such as the Raspberry Pi. Still, if you are interested in using it on such hardware, you will find some tips and tricks in the next sections.
 
 ### A) Raspberry Pi
 
@@ -81,35 +81,38 @@ Some bindings (e.g. [EnOcean](https://github.com/openhab/openhab/wiki/EnOcean-Bi
 
 ### C) Low Cost ARM Systems
 
-I'm using CubieBoard2   Its  DUAL 1 ghz core, 1 GB RAM, 4 GB NAND, 3 USB.  BeagleBoardBlack and ODroid, etc. would be similar.
-
-**My Setup:**
-Z-Wave with 3 motion sensors and 5 lights using Z-Stick2.   
-Oregon Scientific using RFXCOM USB - 3 temperature sensors, wind speed, rain guage.
-About 10 rules.
+Example below is for CubieBoard2   Its  DUAL 1 ghz core, 1 GB RAM, 4 GB NAND, 3 USB.  BeagleBoardBlack and ODroid, etc. would be similar.
 
 **Results (after 1 week):**
 Cubieboard and OpenHAB are stable and pretty fast.  OpenHAB startup takes 34 seconds with my config.    Turning on a switch varies from 0 to 1 second.  Remote browser response is pretty snappy except chart which takes a few seconds. 
 
 **How To:**
 These directions are for CubieBoard2, but any of the small ARM systems will be similar.  Also, Im not an ARM expert or Lubuntu expert, but this seems to work.
+`   `
 
-** 1. Install Linux distro **
+**1. Install Linux distro**
 
 On a separate system download:
 
 [Cubiuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/) - as of 15 Mar, this seems like the best CubieBoard2 distro, but there seem to be new ones weekly.  If you have a different ARM system you ll need to download the Linux distro from them.
 
-Use Win32DiskImager (or similar tool) to make ISO image on micro-SD card.  
+Use Win32DiskImager (or similar tool) to make ISO image on micro-SD card (4 GB absolute minimum, but 8 GB or higher recommended for Cubiuntu)
 
-Place SD card in Cubie and power-up the system.  
+**2. Increase size of partition** 
+The ISO image has a 4 GB partition.  If you have a larger card, increase the partition.  On a Linux system (not the OpenHAB system), use gparted to increase the partition.
 
-** 2. Install Java Hard Floating point: **
-On Cubie:
+**3. Install Java Hard Floating point** 
 
+Place SD card in OpenHAB system and power-up the system.  
+Download Java JDK from:
 [JVM](http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-linux-arm-vfp-hflt.tar.gz)
 
 Extract this to /usr/lib/JVM
+
+If there is a default-java link, modify it to point to 7u51:
+`cd /usr/lib/JVM`
+`rm default-java`
+`ln -s /usr/lib/jvm/jdk1.7.0_51 default-java`
 
 `Set JAVA Path:`
     `Edit the startup file (~/ .bashrc)`
@@ -120,27 +123,43 @@ Extract this to /usr/lib/JVM
     `Open new Terminal window`
         `Verify the PATH is set properly:`
         `% java -version`
-**3. Fix proxy setting in Firefox.**  Launch Firefox and go to menu edit pref adv net settings and turn on auto-proxy.
-**4. Install OpenHab -**
+
+**4. Fix proxy setting in Firefox.**  Launch Firefox and go to menu edit pref adv net settings and turn on auto-proxy.
+
+**5. Install OpenHab -**
         Follow section, _Installing the openHAB runtime_ at http://www.openhab.org/gettingstarted.html.  
         OPTIONAL - You will probably want to install the demo as well in section _Installing the openHAB demo_
 
-**5. If you're using Z-Wave** add z-wave devices to Z-Stick2 - otherwise you'll need to set up whatever Binding your using in Steps 5-7
-        Disconnect Z-Stick from system
-        Tap Z-Stick Button - light blinks slowly - only needs to be done for first device
-        On each device, tap button on device _see device instructions_
-        Z-Stick blinks fast then stays on solid for 3 seconds to show device is paired
-**6. Connect Z-Stick to USB port** on OpenHAB system
-   a. In OpenHAB.cfg - remove comment for Z-Wave binding and change port to TTYUSB0
-   b. Download ADDONS folder. Copy Z-wave package to OpenHAB/addons
-**7. Edit demo.items ** or yourname.items and add in all your Z-Wave devices, something like the following:
+**6. If you are using Z-Wave** add z-wave devices to Z-Stick2
+
+**7. Connect any USB dongles you have to USB port** (such as Z-Stick2) on OpenHAB system
+   a. You could simply configure OpenHAB to bind to USBTTY01, etc. but if you have 
+more than one USB dongle, which one ends up being 01 versus 02 is not guaranteed, so its better
+to create links and use those names, as in the next section.
+
+b.  cd /dev.  run "lsusb".  This will give you a list of all USB devices.  You will need to run this 
+with your dongle removed and then again after inserting it and determine which entry is added.
+Write down the ID (first part is vendor, second part is product)
+
+c. Edit or create a file called "50-usb.rules" in /etc/udev/rules.d with the following (replace vendor and product with the numbers you found above).  The MODE 0666 is if you want users other than root to be able to access the device.  50-usb.rules file:
+`SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="USBZWAVE", MODE="0666"`
+`SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="USBRFXCOM", MODE="0666"`
+
+   d. In OpenHAB.cfg - remove comment for  binding (Z-Wave or whatever)and change port to USBZWAVE (or whatever name you used above).
+
+   e. Download OpenHAB ADDONS folder at http://www.openhab.org/gettingstarted.html. 
+       Copy Z-wave package (or whatever binding you need) to OpenHAB/addons
+
+**8. Edit demo.items** or yourname.items and add in all your Z-Wave devices, something like the following:
 > Switch	Light_Kitchen	"Kitchen"	(Kitchen, Lights)	{ zwave="4:command=switch_binary" }
 > Contact	Garage_Door	"Garage Door [MAP(en.map):%s]"	(Outdoor,Windows)	{ zwave="5:command=sensor_binary" }
 
-**8. Start OpenHAB**
+**9. Modify sitemap file** - add in any items you have added
+
+**10. Start OpenHAB**
         Start Terminal and go to OpenHab Runtime folder and
         sudo ./start.sh
         Once your setup is stable, you'll want to make this part of system startup
 
-**9. Start GUI**
+**11. Start GUI**
         Point your browser to http://localhost:8080/openhab.app?sitemap=demo
