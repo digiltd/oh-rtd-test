@@ -5,11 +5,11 @@ FAQ about hardware for the openHAB runtime
 This page summarizes helpful information on how to get openHAB working on specific hardware.
 Users are very welcome to provide tips&tricks here, e.g. on JVM experiences, embedded systems etc.
 
-Please note: This page is NOT about home automation hardware - we expect that you either already have hardware or consult other websites for such questions; there are simply far too many different options you could possibly consider. For what systems openHAB can connect to, please see the list of [available bindings](Bindings).
+Please note: This page is NOT about home automation hardware (sensors, switches, etc) - consult other websites for such questions. For what systems openHAB can connect to, please see the list of [available bindings](Bindings).
 
 ## General Hardware Requirements
 
-The openHAB Runtime is almost 100% pure Java, so all it requires is a JVM (>=1.6). So expect it to run on Windows, Mac and Linux likewise. As JavaSE exists also for ARM platforms, you are not even constrained on x86 hardware.
+The openHAB Runtime is almost 100% pure Java, so all it requires is a JVM (>=1.6). So expect it to run on Windows, Mac and Linux likewise. As JavaSE exists also for ARM platforms, you are not constrained to x86 hardware.
 
 Please note that openHAB has not (yet) been optimized for low-end embedded devices such as the Raspberry Pi. Still, if you are interested in using it on such hardware, you will find some tipps and tricks in the next sections.
 
@@ -79,47 +79,47 @@ Give OpenHAB a minute or so after the start of OpenHAB before you expect any res
 ####Kernel drivers
 Some bindings (e.g. [EnOcean](https://github.com/openhab/openhab/wiki/EnOcean-Binding)) work with USB-sticks that require some kernel drivers. For qoric CPU Diskstations (e.g. DS213+) there is a short guide how to install those drivers at [Samples-Tricks](https://github.com/openhab/openhab/wiki/Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package).  
 
-### C) Low Cost ARM System
+### C) Low Cost ARM Systems
 
-I'm using CubieBoard2   It's $69, free postal shipping, DUAL 1 ghz core, 1 GB RAM, 4 GB NAND, 3 USB.  BeagleBoardBlack and ODroid, etc. would be similar.
+I'm using CubieBoard2   Its  DUAL 1 ghz core, 1 GB RAM, 4 GB NAND, 3 USB.  BeagleBoardBlack and ODroid, etc. would be similar.
 
 **My Setup:**
 Z-Wave with 3 motion sensors and 5 lights using Z-Stick2.   
 Oregon Scientific using RFXCOM USB - 3 temperature sensors, wind speed, rain guage.
+About 10 rules.
 
 **Results (after 1 week):**
 Cubieboard and OpenHAB are stable and pretty fast.  OpenHAB startup takes 34 seconds with my config.    Turning on a switch varies from 0 to 1 second.  Remote browser response is pretty snappy except chart which takes a few seconds. 
 
 **How To:**
-These directions are for CubieBoard2, but any of the small ARM systems will be similar.  Also, I'm not an ARM expert or Lubuntu expert, but this seems to work.
+These directions are for CubieBoard2, but any of the small ARM systems will be similar.  Also, Im not an ARM expert or Lubuntu expert, but this seems to work.
 
-    ** 1. Install Linux distro:**
+** 1. Install Linux distro **
 
 On a separate system download:
 
-[Cubiuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/) - as of 15 Mar, this seems like the best CubieBoard2 distro, but there seem to be new ones weekly.  If you have a different ARM system you'll need to download the Linux distro from them.
+[Cubiuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/) - as of 15 Mar, this seems like the best CubieBoard2 distro, but there seem to be new ones weekly.  If you have a different ARM system you ll need to download the Linux distro from them.
 
 Use Win32DiskImager (or similar tool) to make ISO image on micro-SD card.  
 
 Place SD card in Cubie and power-up the system.  
 
-**2. Install Java Hard Floating point:**
+** 2. Install Java Hard Floating point: **
 On Cubie:
 
-http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-linux-arm-vfp-hflt.tar.gz
+[JVM](http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-linux-arm-vfp-hflt.tar.gz)
 
 Extract this to /usr/lib/JVM
 
-Set JAVA Path:
-
-    Edit the startup file (~/ .bashrc)
-        Modify PATH variable in .bashrc to:
-            PATH="$PATH":/usr/lib/JVM/jdk1.7.0_51/bin
-            export PATH
-    Save and close .bashrc
-    Open new Terminal window
-        Verify the PATH is set properly:
-        % java -version
+`Set JAVA Path:`
+    `Edit the startup file (~/ .bashrc)`
+        `Modify PATH variable in .bashrc to:`
+            `PATH="$PATH":/usr/lib/JVM/jdk1.7.0_51/bin`
+            `export PATH`
+    `Save and close .bashrc`
+    `Open new Terminal window`
+        `Verify the PATH is set properly:`
+        `% java -version`
 **3. Fix proxy setting in Firefox.**  Launch Firefox and go to menu edit pref adv net settings and turn on auto-proxy.
 **4. Install OpenHab -**
         Follow section, _Installing the openHAB runtime_ at http://www.openhab.org/gettingstarted.html.  
