@@ -108,8 +108,8 @@ The ISO image has a 4 GB partition.  If you have a larger card, increase the par
 
 **4. Install Java Hard Floating point** 
 Place SD card in OpenHAB system and power-up the system.  
-Download Java JDK from:
-[JVM](http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-linux-arm-vfp-hflt.tar.gz)
+Download Java JDK.  You should use ARM Hard Float for CubieBoard2
+[JVM](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
 
 Extract this to /usr/lib/JVM
 
