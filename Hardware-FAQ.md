@@ -5,7 +5,7 @@ FAQ about hardware for the openHAB runtime
 This page summarizes helpful information on how to get openHAB working on specific hardware.
 Users are very welcome to provide tips&tricks here, e.g. on JVM experiences, embedded systems etc.
 
-Please note: This page is NOT about home automation hardware (sensors, switches, etc) - consult other websites for such questions. For what systems openHAB can connect to, please see the list of [available bindings](Bindings).
+Please note: This page is NOT about home automation hardware (sensors, switches, etc) - consult other websites for such questions. For a list of the systems openHAB can connect to, please see [available bindings](Bindings).
 
 ## General Hardware Requirements
 
@@ -13,7 +13,9 @@ The openHAB Runtime is almost 100% pure Java, so all it requires is a JVM (>=1.6
 
 Please note that openHAB has not (yet) been optimized for low-end embedded devices such as the Raspberry Pi. Still, if you are interested in using it on such hardware, you will find some tips and tricks in the next sections.
 
-### A) Raspberry Pi
+
+
+## A) Raspberry Pi
 
 #### Basic Setup
 
@@ -46,7 +48,9 @@ There are three ways to use Java an Openhab on the Raspberry Pi
 - /opt/vc/bin/tvservice -o
 - Overclocking does not seem to have big influences
 
-### B) Synology Diskstation
+
+
+## B) Synology Diskstation
 A package of OpenHAB 1.4.0 for [Synology Diskstations](http://www.synology.com/en-us/products/index) is stored at [OpenHAB google groups](https://groups.google.com/d/msg/openhab/lrzcZDYI3Ug/hLJF-sUUjgMJ) and on the package server [https://www.hofrichter.at/sspks](https://www.hofrichter.at/sspks/index.php?fulllist=true).  
 This package can be installed in DSM via the package manager -> manual installation or by adding https://www.hofrichter.at/sspks/ as package source - there is a [tutorial on the Synology support pages](http://www.synology.com/en-us/support/tutorials/500) about how to do that.
 This package is tested on DS213+ with oracle's java 7 from [PC load letter](http://pcloadletter.co.uk/2011/08/23/java-package-for-synology/).  
@@ -79,16 +83,17 @@ Give OpenHAB a minute or so after the start of OpenHAB before you expect any res
 ####Kernel drivers
 Some bindings (e.g. [EnOcean](https://github.com/openhab/openhab/wiki/EnOcean-Binding)) work with USB-sticks that require some kernel drivers. For qoric CPU Diskstations (e.g. DS213+) there is a short guide how to install those drivers at [Samples-Tricks](https://github.com/openhab/openhab/wiki/Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package).  
 
-### C) Low Cost ARM Systems
 
-Example below is for CubieBoard2   Its  DUAL 1 ghz core, 1 GB RAM, 4 GB NAND, 3 USB.  BeagleBoardBlack and ODroid, etc. would be similar.
+
+## C) Low Cost ARM Systems
+
+The example below is for CubieBoard2 but the setup for BeagleBoardBlack and ODroid, etc. would be similar.
 
 **Results (after 1 week):**
 Cubieboard and OpenHAB are stable and pretty fast.  OpenHAB startup takes 34 seconds with my config.    Turning on a switch varies from 0 to 1 second.  Remote browser response is pretty snappy except chart which takes a few seconds. 
 
 **How To:**
 These directions are for CubieBoard2, but any of the small ARM systems will be similar.  Also, Im not an ARM expert or Lubuntu expert, but this seems to work.
-`   `
 
 **1. Install Linux distro**
 
@@ -102,7 +107,6 @@ Use Win32DiskImager (or similar tool) to make ISO image on micro-SD card (4 GB a
 The ISO image has a 4 GB partition.  If you have a larger card, increase the partition.  On a Linux system (not the OpenHAB system), use gparted to increase the partition.
 
 **3. Install Java Hard Floating point** 
-
 Place SD card in OpenHAB system and power-up the system.  
 Download Java JDK from:
 [JVM](http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-linux-arm-vfp-hflt.tar.gz)
@@ -133,21 +137,10 @@ If there is a default-java link, modify it to point to 7u51:
 **6. If you are using Z-Wave** add z-wave devices to Z-Stick2
 
 **7. Connect any USB dongles you have to USB port** (such as Z-Stick2) on OpenHAB system
-   a. You could simply configure OpenHAB to bind to USBTTY01, etc. but if you have 
-more than one USB dongle, which one ends up being 01 versus 02 is not guaranteed, so its better
-to create links and use those names, as in the next section.
 
-b.  cd /dev.  run "lsusb".  This will give you a list of all USB devices.  You will need to run this 
-with your dongle removed and then again after inserting it and determine which entry is added.
-Write down the ID (first part is vendor, second part is product)
+   a. In OpenHAB.cfg - remove comment for  binding (Z-Wave or whatever)and change port to ttyusb01 (or whatever the usb portname is).  Note: if you remove and re-insert the USB dongle it may end up with a different name.
 
-c. Edit or create a file called "50-usb.rules" in /etc/udev/rules.d with the following (replace vendor and product with the numbers you found above).  The MODE 0666 is if you want users other than root to be able to access the device.  50-usb.rules file:
-`SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="USBZWAVE", MODE="0666"`
-`SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="USBRFXCOM", MODE="0666"`
-
-   d. In OpenHAB.cfg - remove comment for  binding (Z-Wave or whatever)and change port to USBZWAVE (or whatever name you used above).
-
-   e. Download OpenHAB ADDONS folder at http://www.openhab.org/gettingstarted.html. 
+   b. Download OpenHAB ADDONS folder at http://www.openhab.org/gettingstarted.html. 
        Copy Z-wave package (or whatever binding you need) to OpenHAB/addons
 
 **8. Edit demo.items** or yourname.items and add in all your Z-Wave devices, something like the following:
@@ -162,4 +155,4 @@ c. Edit or create a file called "50-usb.rules" in /etc/udev/rules.d with the fol
         Once your setup is stable, you'll want to make this part of system startup
 
 **11. Start GUI**
-        Point your browser to http://localhost:8080/openhab.app?sitemap=demo
+        Point your browser to (http://localhost:8080/openhab.app?sitemap=demo)
