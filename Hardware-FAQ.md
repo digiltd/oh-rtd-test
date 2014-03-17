@@ -87,26 +87,26 @@ Some bindings (e.g. [EnOcean](https://github.com/openhab/openhab/wiki/EnOcean-Bi
 
 ## C) Low Cost ARM Systems
 
-The example below is for CubieBoard2 but the setup for BeagleBoardBlack and ODroid, etc. would be similar.
-
-**Results (after 1 week):**
-Cubieboard and OpenHAB are stable and pretty fast.  OpenHAB startup takes 34 seconds with my config.    Turning on a switch varies from 0 to 1 second.  Remote browser response is pretty snappy except chart which takes a few seconds. 
-
-**How To:**
-These directions are for CubieBoard2, but any of the small ARM systems will be similar.  Also, Im not an ARM expert or Lubuntu expert, but this seems to work.
-
 **1. Install Linux distro**
 
 On a separate system download:
 
-[Cubiuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/) - as of 15 Mar, this seems like the best CubieBoard2 distro, but there seem to be new ones weekly.  If you have a different ARM system you ll need to download the Linux distro from them.
+* For CubieBoard2:
+[Cubiuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/) - this seems to run well with OpenHAB
 
+* For BeagleBoneBlack
+_TBD_
+
+* For ODroid
+_TBD_
+
+**2 Make ISO image on micro-SD card**
 Use Win32DiskImager (or similar tool) to make ISO image on micro-SD card (4 GB absolute minimum, but 8 GB or higher recommended for Cubiuntu)
 
-**2. Increase size of partition** 
+**3. Increase size of partition** 
 The ISO image has a 4 GB partition.  If you have a larger card, increase the partition.  On a Linux system (not the OpenHAB system), use gparted to increase the partition.
 
-**3. Install Java Hard Floating point** 
+**4. Install Java Hard Floating point** 
 Place SD card in OpenHAB system and power-up the system.  
 Download Java JDK from:
 [JVM](http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-linux-arm-vfp-hflt.tar.gz)
@@ -128,31 +128,6 @@ If there is a default-java link, modify it to point to 7u51:
         `Verify the PATH is set properly:`
         `% java -version`
 
-**4. Fix proxy setting in Firefox.**  Launch Firefox and go to menu edit pref adv net settings and turn on auto-proxy.
+**5. Verify proxy setting in Firefox.**  Launch Firefox and go to menu edit pref adv net settings and turn on auto-proxy.
 
-**5. Install OpenHab -**
-        Follow section, _Installing the openHAB runtime_ at http://www.openhab.org/gettingstarted.html.  
-        OPTIONAL - You will probably want to install the demo as well in section _Installing the openHAB demo_
-
-**6. If you are using Z-Wave** add z-wave devices to Z-Stick2
-
-**7. Connect any USB dongles you have to USB port** (such as Z-Stick2) on OpenHAB system
-
-   a. In OpenHAB.cfg - remove comment for  binding (Z-Wave or whatever)and change port to ttyusb01 (or whatever the usb portname is).  Note: if you remove and re-insert the USB dongle it may end up with a different name.
-
-   b. Download OpenHAB ADDONS folder at http://www.openhab.org/gettingstarted.html. 
-       Copy Z-wave package (or whatever binding you need) to OpenHAB/addons
-
-**8. Edit demo.items** or yourname.items and add in all your Z-Wave devices, something like the following:
-> Switch	Light_Kitchen	"Kitchen"	(Kitchen, Lights)	{ zwave="4:command=switch_binary" }
-> Contact	Garage_Door	"Garage Door [MAP(en.map):%s]"	(Outdoor,Windows)	{ zwave="5:command=sensor_binary" }
-
-**9. Modify sitemap file** - add in any items you have added
-
-**10. Start OpenHAB**
-        Start Terminal and go to OpenHab Runtime folder and
-        sudo ./start.sh
-        Once your setup is stable, you'll want to make this part of system startup
-
-**11. Start GUI**
-        Point your browser to (http://localhost:8080/openhab.app?sitemap=demo)
+**6. Install and setup OpenHAB**   Follow instructions at Quick Setup
