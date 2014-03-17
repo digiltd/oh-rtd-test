@@ -130,4 +130,6 @@ If there is a default-java link, modify it to point to 7u51:
 
 **5. Verify proxy setting in Firefox.**  Launch Firefox and go to menu edit pref adv net settings and turn on auto-proxy.
 
-**6. Install and setup OpenHAB**   Follow instructions at Quick Setup
+**6. Use symlinks for USB ports.**  See section on Symlinks (https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-configure-openhab-to-connect-to-device-symlinks-on-linux)
+
+**7. Install and setup OpenHAB**   Follow instructions at Quick Setup
