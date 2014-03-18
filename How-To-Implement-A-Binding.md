@@ -112,7 +112,7 @@ After IDE setup and creating/testing your binding, you may want others to use it
 
 1. Right-click on your binding project
 1. Select Export
-1. Choose Plug-in Development->Deployable plug-ins and features
+1. Choose Plug-in Development->Deployable plug-ins and fragments
 1. Fill "Directory" with the Path where you want your jar-file to appear
 1. Check "Use class files compiled in the workspace" on the "Options" tab
 1. Click Finish and check yor Directory
