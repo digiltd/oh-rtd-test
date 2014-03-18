@@ -10,7 +10,8 @@ Here are step-by-step instructions on how to get there:
  
 1. Create a local clone of the openHAB repository by running "git clone https://github.com/openhab/openhab" in a suitable folder.
 1. Download and install the [Yoxos Installer](https://yoxos.eclipsesource.com/downloadlauncher.html).
-1. Download and execute the file [openHAB.yoxos](http://dl.dropbox.com/u/15535378/openHAB.yoxos). This will install you an Eclipse IDE with all required features to develop for openHAB. Alternatively, you can install all required plugins on top of an existing Eclipse 4.2.2 installation using this [update site](http://yoxos.eclipsesource.com/userdata/profile/c5f3985b62c488f0df0dfbc369f9e057) or [download a full distribution from Yoxos](http://yoxos.eclipsesource.com/userdata/profile/c5f3985b62c488f0df0dfbc369f9e057), if you register an account there.
+1. Download and execute the file [openHAB.yoxos](http://dl.dropbox.com/u/15535378/openHAB.yoxos) (in linux that can be done via command line ./yoxos openHAB.yoxos 
+). This will install you an Eclipse IDE with all required features to develop for openHAB. Alternatively, you can install all required plugins on top of an existing Eclipse 4.2.2 installation using this [update site](http://yoxos.eclipsesource.com/userdata/profile/c5f3985b62c488f0df0dfbc369f9e057) or [download a full distribution from Yoxos](http://yoxos.eclipsesource.com/userdata/profile/c5f3985b62c488f0df0dfbc369f9e057), if you register an account there.
 1. Create a new workspace.
 1. Choose File->Import->General->Existing Projects into Workspace, enter your clone repository directory as the root directory and press "Finish".
 1. After the import is done, you have to select the target platform by selecting Window->Preferences->Plug-in Development->Target Platform->openHAB from the main menu. Ignore compilation problems at this step.
