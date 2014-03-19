@@ -50,17 +50,19 @@ For example:
     light_office, 1
 
 First, we need to define the MQTT broker connection in the `openhab.cfg` file:
+```
     mqtt:xively.url=tcp://api.xively.com:1883
     mqtt:xively.user=<device key>
-
-As <device key>, use the device/API key you get from Xively.
+```
+As `<device key>`, use the device/API key you get from Xively.
 
 Next, we need to configure the MQTT persistence service. To do this add the following entries to `openhab.cfg`:
-
+```
     mqtt-persistence:broker=xively
     mqtt-persistence:topic=/v2/feeds/<feed id>.csv
     mqtt-persistence:message=%1$s, %3$s
-where <feed id> is your Xively feed id.
+```
+where `<feed id>` is your Xively feed id.
 
 And finally, add a persistence strategy in the `mqtt.persist` file:
 
