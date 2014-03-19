@@ -1,5 +1,3 @@
-**NOTE*: This page is still under construction!!!*
-
 # Introduction
 
 Bindings are the most interesting bit for people to get into coding for openHAB and therefore, many questions arise around this topic regularly.
