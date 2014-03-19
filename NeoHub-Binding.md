@@ -26,10 +26,10 @@ Refer to the example below to see what you need to include in your openhab.cfg f
 ## Item Binding Configuration
 Item strings simply consist of two components - the NeoStat device name (as set in the thermostat and in the mobile app, e.g. Office), and the NeoStat property (e.g. CurrentTemperature). Both parameters are only separated by a colon. Some examples are below.
 
-Switch Heating_Office           "Heating Office"         {neohub="Office:Heating"}
-Switch Away_Office              "Away Office"            {neohub="Office:Away"}
-Switch Standby_Office           "Standby Office"         {neohub="Office:Standby"}
-Number Temperature_Office       "Temperature [%.1f °C]"  {neohub="Office:CurrentTemperature"}
+    Switch Heating_Office           "Heating Office"         {neohub="Office:Heating"}
+    Switch Away_Office              "Away Office"            {neohub="Office:Away"}
+    Switch Standby_Office           "Standby Office"         {neohub="Office:Standby"}
+    Number Temperature_Office       "Temperature [%.1f °C]"  {neohub="Office:CurrentTemperature"}
 
 The following properties, and their associated item types are shown below. The R and RW in the description column indicate which properties are read only (RO) or read/write (RW).
 
