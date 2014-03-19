@@ -28,7 +28,7 @@ Note: This information ist taken from [here](http://www.cometvisu.de/wiki/index.
 ## Installation
 
 * Copy the addon org.openhab.io.cv*.jar to the openHAB addon folder
-* Then just extract the release folder of the downloaded CometVisu archive in openHAB´s webapps folder and rename it to, e.g. cometVISU.
+* Then just extract the "release" folder (the one which contains the index.html file) of the downloaded CometVisu archive in openHAB´s webapps folder and rename it to, e.g. cometVISU.
 
 ## Configuration
 
