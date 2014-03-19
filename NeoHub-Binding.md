@@ -16,10 +16,10 @@ Refer to the example below to see what you need to include in your openhab.cfg f
     # Refresh interval in milliseconds (optional, defaults to 60000ms)
     #neohub:refresh=60000
     
-    # Set the heatmiser network address
+    # Set the NeoHub network address
     #neohub:hostname=
  
-    # Set the port number for the Heatmiser interface (optional, defaults to 4242)
+    # Set the port number for the NeoHub interface (optional, defaults to 4242)
     #neohub:port=4242
     
 
