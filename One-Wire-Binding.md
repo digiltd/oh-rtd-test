@@ -25,6 +25,9 @@ Here are some examples of valid binding configuration strings:
     onewire="26.AF9C32000000#temperature"
     onewire="26.AF9C32000000#humidity"
 
+The sensorId can be either the hex address and an alias if one is configured ( http://owfs.org/index.php?page=aliases )
+
+    onewire="bedroom#temperature"
 
 As a result, your lines in the items file might look like the following:
 
