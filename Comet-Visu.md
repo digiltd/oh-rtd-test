@@ -58,6 +58,9 @@ Some parts of the CometVisu need a PHP runtime. As this is not included in Jetty
 
 Currently the only workaround is to build, edit and maintain your CometVisu configuration manually with an XML editor of your choice.
 
+### 403 error 
+If you get an 403 - Access Denied error, when you try to open the cometVISU in your browser you have not copied the correct release folder into the webapps/cometVISU/ folder. Please check if there is a subfolder with the exact name "release/", which contains an index.html file and copy the content of this folder in your webapps/cometVISU/ folder.
+
 ## Screenshots
 
 will be available soon, meanwhile some screenshots can be found here:
