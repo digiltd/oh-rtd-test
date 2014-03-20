@@ -29,6 +29,12 @@ mysql:user=<your user here>
 # the database password
 mysql:password=<your password here>
 
+# the reconnection counter
+#mysql:reconnectCnt=
+
+# the connection timeout (in seconds)
+#mysql:waitTimeout=
+
 # optional tweaking of mysql datatypes
 # example as described in https://github.com/openhab/openhab/issues/710
 # mysql:sqltype.string=VARCHAR(20000)
@@ -37,3 +43,8 @@ The database location, user and password need to be modified as per your databas
 
 ## Database overview
 The service will create a mapping table to link each item to a table, and a separate table is generated for each item. The item data tables include the time and data - the data type is dependent on the item type and allows the item state to be recovered back into openHAB in the same way it was stored.
+
+## Reconnecting on error
+The persistence service should attempt to reconnect to the mySQL server if it detect errors. There are two configuration parameters that can be adjusted to control this -:
+*reconnectCnt* - Setting this to 1 will cause the service to close the connection and reconnect if there are any errors.
+*waitTimeout* - This sets the number of seconds that mySQL will keep the session open without any transactions. It should default to 8 hours within mySQL, but some implementations may use lower values (possibly as low as 60 seconds) which would cause unnecessary reconnections. This value needs to be set higher than the maximum logging period.
