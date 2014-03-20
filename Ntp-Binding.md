@@ -29,4 +29,4 @@ where 11.001 is the KNX date type and 10.001 is the KNX time type
 
 ## Example configurations
 
-Example configurations can be found [https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig here](]`).
+Example configurations can be found [here](https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig).
