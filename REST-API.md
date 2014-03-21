@@ -13,9 +13,13 @@ If your client cannot correctly set the HTTP accept header, you also have the ch
 
 Each resource that accepts `application/x-javascript` as a media type returns JSONP results, which can be parameterized by appending `?jsoncallback=callback` to the URI, e.g.
 
+```
     http://localhost:8080/rest/items/Temperature_FF_Office?jsoncallback=callback
+```
 which yields the following response
-       callback({"type":"NumberItem","name":"Temperature_FF_Office","state":"Undefined","link":"http://localhost:8080/rest/items/Temperature_FF_Office"})
+```
+callback({"type":"NumberItem","name":"Temperature_FF_Office","state":"Undefined","link":"http://localhost:8080/rest/items/Temperature_FF_Office"})
+```
 
 The parameter `jsoncallback` is optional. If not provided, `callback` will be used as a default.
 
@@ -23,25 +27,29 @@ The parameter `jsoncallback` is optional. If not provided, `callback` will be us
 
 The entry url for the REST API is the following:
 
+```
     http://localhost:8080/rest
+```
 Media types: application/xml, application/json, application/x-javascript
 
 As a response, this will return links to the available resource collections:
-
+```
     <openhab>
         <link type="items">http://localhost:8080/rest/items</link>
         <link type="sitemaps">http://localhost:8080/rest/sitemaps</link>
     </openhab>
-
+```
 ## Item Resources
 
 The request
 
+```
     http://localhost:8080/rest/items
+```
 Media types: application/xml, application/json, application/x-javascript
 
 returns a collection of all declared items like
-
+```
     <items>
         <item>
             <type>GroupItem</type>
@@ -63,16 +71,20 @@ returns a collection of all declared items like
         </item>
         ...
     </items>
-
+```
 
 Single items can hence be accessed like
 
+```
     http://localhost:8080/rest/items/Temperature_FF_Office
+```
 Media types: application/xml, application/json, application/x-javascript
 
 To directly access an item state, you can access
 
+```
     http://localhost:8080/rest/items/Temperature_FF_Office/state
+```
 which returns the state as a plain string.
 
 Likewise, you can send a status update using the HTTP verb PUT to the same uri, passing the new state as a plain string argument in the body (encoding text/plain).
@@ -83,11 +95,13 @@ In order to send a command to an item, you would use the item uri (`http://local
 
 The request
 
+```
     http://localhost:8080/rest/sitemaps
+```
 Media types: application/xml, application/json, application/x-javascript
 
 returns a collection of all declared sitemaps like
-
+```
     <sitemaps>
         <sitemap>
             <name>default</name>
@@ -98,15 +112,17 @@ returns a collection of all declared sitemaps like
             <link>http://localhost:8080/rest/sitemaps/demo</link>
         </sitemap>
     </sitemaps>
-
+```
 The content of a single sitemap is available at
 
 The request
+```
     http://localhost:8080/rest/sitemaps/demo
+```
 Media types: application/xml, application/json, application/x-javascript
 
 which returns a result like
-
+```
     <sitemap>
       <name>demo</name>
       <link>http://localhost:8080/rest/sitemaps/demo</link>
@@ -147,15 +163,18 @@ which returns a result like
         </widget>
       </homepage>
     </sitemap>
-
+```
 You can see that the sitemap information not only contains the static information that the user has provided in the sitemap file, but that it also holds derived data like icons and labels and dynamic group contents, where the groups structure is not explicitly defined in the sitemap.
 
 Single pages can be accessed by adding a page id (as given in the sitemap response):
 
+```
     http://localhost:8080/rest/sitemaps/demo/FF_Bath
+```
 Media types: application/xml, application/json, application/x-javascript
 
 which returns the widgets contained in this page:
+```
     <page>
       <id>FF_Bath</id>
       <link>http://localhost:8080/rest/sitemaps/demo/FF_Bath</link>
@@ -183,7 +202,7 @@ which returns the widgets contained in this page:
         </item>
       </widget>
     </page>
-
+```
 
 ## Server-Push
 
@@ -223,6 +242,7 @@ HTTP streaming or websocket connections receive only updated objects from the op
 (For this feature the "X-Atmosphere-tracking-id" header is required)
 
 a widget response looks like
+```
     <widgets>
       <widget>
         <widgetId>FF_Bath_0</widgetId>
@@ -237,9 +257,9 @@ a widget response looks like
         </item>
       </widget>
     </widgets>
-
+```
 in case the page label or icon changes you will also receive something like this:
-
+```
     <page>
       <id>030001</id>
       <title>No. of Active Heatings [(1)]</title>
@@ -252,6 +272,7 @@ in case the page label or icon changes you will also receive something like this
         <link>http://localhost:8080/rest/sitemaps/demo/0300</link>
       </parent>
     </page>
+```
 That's all! The GreenT UI, the iOS client as well as HABDroid use this mechanism to update the pages.
 
 Besides this, server-push can be very helpful for integration with other systems, if they are interested in state changes from openHAB - there is no need to do polling in such a case.
