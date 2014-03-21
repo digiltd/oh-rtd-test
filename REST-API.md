@@ -1,5 +1,3 @@
-Documentation of the REST-API
-
 ## Introduction
 
 The REST API of openHAB serves different purposes. It can be used to integrate openHAB with other system as it allows read access to items and item states as well as status updates or the sending of commands for items. Furthermore, it gives access to the sitemaps, so that it is the interface to be used by remote user interfaces (e.g. fat clients or fully Javascript based web clients).
