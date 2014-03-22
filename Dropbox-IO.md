@@ -42,4 +42,4 @@ In case your Dropbox returns the `reset` flag and your local configuration of `d
 
 The Dropbox IO Bundle supports different schedules for each synchronization direction. E.g. one could backup the configuration- and log files once a day (preferably at night 2-4am) whereas configuration changes should be downloaded every minutes. Such configuration can be accomplished by two [Cron expressions](http://quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/tutorial-lesson-06) (see `openhab_default.cfg` for more information on these parameters).
 
-The default schedule is set to five minutes for up- and download.
+The default schedule is set to every five minutes for download and once day at 2am for upload.
