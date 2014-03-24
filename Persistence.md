@@ -12,6 +12,7 @@ In openHAB, we call these different options the available "persistence services"
 Currently, there are the following implementations available:
 - [db4o](http://www.db4o.com/) - a lightweight, 100% pure Java object database
 - [rrd4j](http://code.google.com/p/rrd4j/) - a Java version of the powerful round-robin database solution [RRDtool](http://oss.oetiker.ch/rrdtool/).
+- [mysql](http://www.mysql.com/) - MySQL database tables
 - [Open.Sen.Se](http://open.sen.se/) - a fancy Internet-of-Things platform, which allows data processing in many ways and from different sources
 - logging using [Logback](http://logback.qos.ch/) - writing item states to log files with a highly flexible syntax definition
 
