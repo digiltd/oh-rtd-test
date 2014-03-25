@@ -29,7 +29,7 @@ The LAN Adapter _**requires**_ the BidCos-Service running and listening on a spe
 
     In order to run the BidCos-Service daemon 'rfd' under linux you need to install the QEMU arm emulation. If you are using Debian you have to install at least the package qemu-system-arm.
     ```
-    apt-get install qemu-system-arm
+    apt-get install qemu
     ```
 2. Download the latest CCU 2 firmware from [eQ-3 homepage](http://www.eq-3.de/software.html)
 3. Extract the downloaded firmware e.g. HM-CCU2-2.7.8.tar.gz
@@ -69,10 +69,11 @@ The LAN Adapter _**requires**_ the BidCos-Service running and listening on a spe
 8. Copy the required files to run the BidCos-Service from the UBIFS image
 
     ```Shell
-    mkdir -p /etc/eq3-rfd /opt/eq3-rfd/bin
+    mkdir -p /etc/eq3-rfd /opt/eq3-rfd/bin opt/eq3-rfd/firmware
     cd /mnt/ubifs
     cp /mnt/ubifs/bin/rfd /opt/eq3-rfd/bin
     cp /mnt/ubifs/etc/config_templates/rfd.conf /etc/eq3-rfd/bidcos.conf
+    cp -r /mnt/ubifs/firmware/* /opt/eq3-rfd/firmware/
     ```
     List the dependencies for rfd binary
     ```
