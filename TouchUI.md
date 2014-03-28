@@ -1,8 +1,7 @@
-Description of GreenT UI
-
 ![](http://m-design.bg/greent/logo.png)
 
 ## [GreenT UI Website](http://m-design.bg/greent/)
+
 
 ## Introduction
 
@@ -11,6 +10,13 @@ The GreenT UI is a web-app developed with Sencha 2.0 !JavaScript Framework.
 The communication between the GreenT UI and the openHAB runtime is achieved via the openHAB REST API over websockets, HTTP streaming or HTTP long-polling. This allows instantaneous communication, without any negative network impact.
 
 To see what we are talking about, you can directly [try it out on our demo server](http://demo.openhab.org:8080/greent/)!
+
+
+
+## Real world demo
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/IlEa-R0VZ-c/0.jpg)](http://www.youtube.com/watch?v=IlEa-R0VZ-c)
+
 
 ## Features
 
