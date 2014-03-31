@@ -98,7 +98,7 @@ The LAN Adapter _**requires**_ the BidCos-Service running and listening on a spe
 9. Create a system user and adjust permissions
 
     ```
-    adduser --system --home/opt/eq3-rfd --shell /bin/false --no-create-home --group bidcos
+    adduser --system --home /opt/eq3-rfd --shell /bin/false --no-create-home --group bidcos
     chown -R bidcos:bidcos /opt/eq3-rfd
     ```
 10. Edit and adjust the BidCos-Service configuration bidcos.conf
