@@ -34,4 +34,4 @@ Examples:
     Switch NormallyClosedRelay "Normally Closed Relay" { gpio="pin:2 activelow:yes" }
     Contact NormallyOpenPushButton "Normally Open Push Button" { gpio="pin:3 debounce:10" }
     Contact PIR "PIR" { gpio="pin:4 activelow:yes" }
-    Contact NormallyClosedPushButton "Normally Closed Push Button" {  gpio="pin:5 debounce:10 activelow:yes" }
+    Contact NormallyClosedPushButton "Normally Closed Push Button" { gpio="pin:5 debounce:10 activelow:yes" }
