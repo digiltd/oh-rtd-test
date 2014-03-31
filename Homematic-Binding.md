@@ -69,7 +69,7 @@ The LAN Adapter _**requires**_ the BidCos-Service running and listening on a spe
 8. Copy the required files to run the BidCos-Service from the UBIFS image
 
     ```Shell
-    mkdir -p /etc/eq3-rfd /opt/eq3-rfd/bin opt/eq3-rfd/firmware
+    mkdir -p /etc/eq3-rfd /opt/eq3-rfd/bin /opt/eq3-rfd/firmware
     cd /mnt/ubifs
     cp /mnt/ubifs/bin/rfd /opt/eq3-rfd/bin
     cp /mnt/ubifs/etc/config_templates/rfd.conf /etc/eq3-rfd/bidcos.conf
