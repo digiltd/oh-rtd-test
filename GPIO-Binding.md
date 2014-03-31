@@ -30,8 +30,8 @@ Key-value pairs are separated by space, their order isn't important. Character's
 
 Examples:
 
-    Switch LED "LED" { gpio="pin:49" }
-    Switch NormallyClosedRelay "Normally Closed Relay" { gpio="pin:49 activelow:yes" }
-    Contact NormallyOpenPushButton "Normally Open Push Button" { gpio="pin:49 debounce:10" }
-    Contact PIR "PIR" { gpio="pin:49 activelow:yes" }
-    Contact NormallyClosedPushButton "Normally Closed Push Button" {  gpio="pin:49 debounce:10 activelow:yes" }
+    Switch LED "LED" { gpio="pin:1" }
+    Switch NormallyClosedRelay "Normally Closed Relay" { gpio="pin:2 activelow:yes" }
+    Contact NormallyOpenPushButton "Normally Open Push Button" { gpio="pin:3 debounce:10" }
+    Contact PIR "PIR" { gpio="pin:4 activelow:yes" }
+    Contact NormallyClosedPushButton "Normally Closed Push Button" {  gpio="pin:5 debounce:10 activelow:yes" }

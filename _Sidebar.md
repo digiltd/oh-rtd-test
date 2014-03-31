@@ -34,6 +34,7 @@ Community
   * [[Exec Binding|Exec-Binding]]
   * [[Fritz!Box Binding|Fritz-Box-Binding]]
   * [[Fritz AHA Binding|Fritz-AHA-Binding]]
+  * [[GPIO Binding|GPIO-Binding]]
   * [[HDAnywhere binding|HDanywhere-Binding]]
   * [[Heatmiser Binding|Heatmiser-Binding]]
   * [[Homematic Binding|Homematic-Binding]]
