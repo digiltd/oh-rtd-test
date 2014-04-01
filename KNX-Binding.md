@@ -148,3 +148,9 @@ As a result, your lines in the items file might look like the following:
 
 Further KNX binding examples can be found in our openhab-samples WIKI:
 [KNX Binding Examples](Samples-Binding-Config)
+
+## Supported Datapoint Types
+
+The KNX binding supports a limited set of Datapoint types (DPTs). If your item configuration contains a DPT that is not supported by the KNX binding, openHAB 1.4.0 and later will throw an exception during startup ("DPT n.nnn is not supported by the KNX binding").
+
+To get an overview of the supported DPTs, it's best to look into the source code of the KNX binding and the library it depends on. The DPTs for the binding are defined in [KNXCoreTypeMapper](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/src/main/java/org/openhab/binding/knx/internal/dpt/KNXCoreTypeMapper.java). The constants (and their mapping to DPTs) are defined in the library [calimero](https://github.com/calimero-project/calimero/tree/master/src/tuwien/auto/calimero/dptxlator).
