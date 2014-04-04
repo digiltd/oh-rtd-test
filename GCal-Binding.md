@@ -67,7 +67,7 @@ The final URL should be similar to:
 - copy the given url and replace "basic" with "full". 
 
 The final URL should be similar to:
-`https://www.google.com/calendar/feeds/user@gmail.com/private-da2412ef24124f151214deedbeef1234/basic`
+`https://www.google.com/calendar/feeds/user@gmail.com/private-da2412ef24124f151214deedbeef1234/full`
 
 
 # Presence Simulation
