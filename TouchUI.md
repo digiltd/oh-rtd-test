@@ -3,7 +3,7 @@
 ## [GreenT UI Website](http://m-design.bg/greent/)
 ***Author:*** Mihail Panayotov
 
-***Contacts:*** mishoboss(at)gmail(dot)com
+***Contacts:*** https://plus.google.com/u/0/+MihailPanayotovBG
 
 ## Introduction
 
