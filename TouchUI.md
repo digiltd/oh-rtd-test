@@ -1,7 +1,8 @@
 ![](http://m-design.bg/greent/logo.png)
 
 ## [GreenT UI Website](http://m-design.bg/greent/)
-
+Author: Mihail panayotov
+Contacts: mishoboss(at)gmail(dot)com
 
 ## Introduction
 
