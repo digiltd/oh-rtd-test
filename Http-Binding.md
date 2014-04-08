@@ -53,6 +53,15 @@ Example:
 
     http="<[https://www.flukso.net/api/sensor/xxxx?interval=daily{X-Token=mytoken&X-version=1.0}:60000:REGEX(.*?<title>(.*?)</title>(.*))]"
 
+## Handling JSON
+
+Define your item like 
+String DirecTV1_Channel	"Current Channel" { http="<[http://10.90.30.100:8080/tv/getTuned:30000:JS(getValue.js)]" }
+
+Then you put a file getValue.js in $OPENHAB_DIR/configuration/transform/
+
+The content of getValue.js is:
+JSON.parse(input).title;
 
 ## Caching
 
