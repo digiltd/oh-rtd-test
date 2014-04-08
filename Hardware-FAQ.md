@@ -29,6 +29,7 @@ Based on the community feedback and information about the openHAB requirements h
 
 ### Raspberry Pi
 ![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
+
 Raspberry Pi Model B has an attractive price/performance point and is a proven choice for small to medium residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
 
@@ -56,6 +57,8 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 - Overclocking does not seem to have big influences
 
 ### CubieBoard, BeagleBoneBlack, ODroid
+
+![Single-Board Computers](http://www.wikisolar.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04.png)
 
 **1. Install Linux distro**
 
