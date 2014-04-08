@@ -51,14 +51,15 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 - /opt/vc/bin/tvservice -o
 - Overclocking does not seem to have big influences
 
-### Other Low Cost ARM Systems
+### CubieBoard, BeagleBoneBlack, ODroid
 
 **1. Install Linux distro**
 
 On a separate system download:
 
 * For CubieBoard2:
-[Cubiuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/) - this seems to run well with OpenHAB
+[Cubiuntu - Lubuntu](http://dl.cubieforums.com/ikeeki/IMAGES/ik/cubiuntu_0.999_sd_CT_2c968b278b54a70fa203e77d88e016b0.img.zip) - runs well with OpenHAB
+[Cubian - Debian](http://cubian.org/downloads/) - runs well with OpenHAB
 
 * For BeagleBoneBlack
 _TBD_
@@ -67,38 +68,18 @@ _TBD_
 _TBD_
 
 **2 Make ISO image on micro-SD card**
-Use Win32DiskImager (or similar tool) to make ISO image on micro-SD card (4 GB absolute minimum, but 8 GB or higher recommended for Cubiuntu)
+Use Win32DiskImager (or dd on Linux/OSX) to make ISO image on micro-SD card (4 GB  minimum.  UHS-1 speed recommended)
 
 **3. Increase size of partition** 
-The ISO image has a 4 GB partition.  If you have a larger card, increase the partition.  On a Linux system (not the OpenHAB system), use gparted to increase the partition.
+If you have a larger card, increase the partition.  
 
 **4. Install Java Hard Floating point** 
-Place SD card in OpenHAB system and power-up the system.  
-Download Java JDK.  You should use ARM Hard Float for CubieBoard2
-[JVM](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+Download Java ARMHF from Oracle if its not already present.  
 
-Extract this to /usr/lib/JVM
+**5. Use symlinks if you use more than one USB port for bindings.**  See section on Symlinks (https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-configure-openhab-to-connect-to-device-symlinks-on-linux)
 
-If there is a default-java link, modify it to point to 7u51:
-`cd /usr/lib/JVM`
-`rm default-java`
-`ln -s /usr/lib/jvm/jdk1.7.0_51 default-java`
-
-`Set JAVA Path:`
-    `Edit the startup file (~/ .bashrc)`
-        `Modify PATH variable in .bashrc to:`
-            `PATH="$PATH":/usr/lib/JVM/jdk1.7.0_51/bin`
-            `export PATH`
-    `Save and close .bashrc`
-    `Open new Terminal window`
-        `Verify the PATH is set properly:`
-        `% java -version`
-
-**5. Verify proxy setting in Firefox.**  Launch Firefox and go to menu edit pref adv net settings and turn on auto-proxy.
-
-**6. Use symlinks for USB ports.**  See section on Symlinks (https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-configure-openhab-to-connect-to-device-symlinks-on-linux)
-
-**7. Install and setup OpenHAB**   Follow instructions at Quick Setup
+**6. Install and setup OpenHAB**   Follow instructions at Quick Setup or use apt-get as below
+(https://github.com/openhab/openhab/issues/641?source=cc)
 
 
 ## Synology Diskstation
