@@ -18,13 +18,16 @@ openHAB can be installed and operated on AMD or Intel powered commodity laptop, 
 Below are configuration notes for specialized hardware.
 
 
-## ARM-based Single-Board Computers
+## ARM-based Single-Board Computers (SBC)
 
 ARM-based embedded computers is a popular choice among home automation enthusiasts due to low cost and low power consumption. They are typically extensible with available add-on components and via programmable GPIO.
+Based on the community feedback and information about the openHAB requirements here is the short comparison of the SBC platforms:
+![SBC comparison (as of April 2014)](https://www.dropbox.com/s/v8vkhr4vcg9y1kb/SBC_comparison_2014_04.png)
+(as on April 2014).
 
 
 ### Raspberry Pi
-
+![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2011/07/RaspiModelB.png)
 Raspberry Pi Model B has an attractive price/performance point and is a proven choice for small to medium residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
 
