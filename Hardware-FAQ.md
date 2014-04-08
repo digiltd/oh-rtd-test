@@ -22,13 +22,13 @@ Below are configuration notes for specialized hardware.
 
 ARM-based embedded computers is a popular choice among home automation enthusiasts due to low cost and low power consumption. They are typically extensible with available add-on components and via programmable GPIO.
 Based on the community feedback and information about the openHAB requirements here is the short comparison of the SBC platforms:
-![SBC comparison (as of April 2014)](http://www.wikisolar.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04.png)
+![SBC comparison (as per April 2014)](http://www.wikisolar.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04.png)
 (April 2014)
 [(click here for bigger picture)](http://www.wikisolar.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04.png).
 
 
 ### Raspberry Pi
-![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2011/07/RaspiModelB.png)
+![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
 Raspberry Pi Model B has an attractive price/performance point and is a proven choice for small to medium residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
 
@@ -118,4 +118,3 @@ After the installation of OpenHAB and the demo files http://your.synology.URL:80
 Give OpenHAB a minute or so after the start of OpenHAB before you expect any response in the UI ;-)
 ####Kernel drivers
 Some bindings (e.g. [EnOcean](https://github.com/openhab/openhab/wiki/EnOcean-Binding)) work with USB-sticks that require some kernel drivers. For qoric CPU Diskstations (e.g. DS213+) there is a short guide how to install those drivers at [Samples-Tricks](https://github.com/openhab/openhab/wiki/Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package).  
-
