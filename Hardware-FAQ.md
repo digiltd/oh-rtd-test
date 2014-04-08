@@ -22,7 +22,7 @@ Below are configuration notes for specialized hardware.
 
 ARM-based embedded computers is a popular choice among home automation enthusiasts due to low cost and low power consumption. They are typically extensible with available add-on components and via programmable GPIO.
 Based on the community feedback and information about the openHAB requirements here is the short comparison of the SBC platforms:
-![SBC comparison (as of April 2014)](https://www.dropbox.com/s/v8vkhr4vcg9y1kb/SBC_comparison_2014_04.png)
+![SBC comparison (as of April 2014)](http://www.wikisolar.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04.png)
 (as on April 2014).
 
 
