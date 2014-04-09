@@ -107,7 +107,7 @@ NOTE: the moxa e1200 modules give by reading with function 02 from start=0 the c
 ## Item Binding Configuration
 
 ModbusBindingProvider provides binding for Openhab Items
-There are two ways to bind an item to modbus coils/registers
+There are three ways to bind an item to modbus coils/registers
 
 1) single coil/register per item
 
