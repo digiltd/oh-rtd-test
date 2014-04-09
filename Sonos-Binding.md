@@ -56,7 +56,7 @@ Valid `<sonos command>`'s are:
   <tr><td>save</td><td>OnOff</td><td>save the state (group membership, current track, position in track, volume) of all the Players</td><td>both ON and OFF can be used to trigger this command</td></tr>
   <tr><td>snooze</td><td>Decimal</td><td>snooze the alarm, if running, with x minutes</td><td></td></tr>
   <tr><td>stop</td><td>OnOff</td><td>stop playing</td><td>both ON and OFF can be used to trigger this command</td></tr>
-  <tr><td>volume</td><td>Decimal</td><td>get or set the volume of the Player</td><td></td></tr>
+  <tr><td>volume</td><td>Percent</td><td>get or set the volume of the Player</td><td></td></tr>
 </table>
 
 New since v1.3
