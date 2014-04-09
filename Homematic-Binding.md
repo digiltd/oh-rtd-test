@@ -309,6 +309,8 @@ Valid parameter keys:
     Number S_CURRENT "Current [%.1f mA]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=CURRENT,converter=DoubleDecimalConverter" } 
     Number S_VOLTAGE "Voltage [%.1f V]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=VOLTAGE,converter=DoubleDecimalConverter" } 
     Number S_FREQUENCY "Frequency [%.1f Hz]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=FREQUENCY,converter=DoubleDecimalConverter" }
+#### = Remark: you need in the moment (V1.4) for this functionality an additional xml config file inside the binding jar. =
+see also [here](http://knx-user-forum.de/openhab/33736-openhab-homematic-es-laeuft-einfach-nicht-rund-2.html)!
 
 ### Dim Actors
 
