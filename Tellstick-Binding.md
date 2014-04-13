@@ -23,18 +23,18 @@ The item configuration for devices is:
 
     tellstick="<deviceName>:<deviceType>:[<specialCase>][<resendCount>]"
 
-The deviceName must match the name in Telldus Center.  
-The deviceType is either: Command for on/off, DimmingLevel for absolute dimmable device.
-SpecialCase is used for the dimmable without absolute level(devices that is dimmable with pressing on twice). For this case use Dimmable as specialCase.
-ResendCount is just number of times to resend command.
+The **deviceName** must match the name in Telldus Center.  
+The **deviceType** is either: Command for on/off, DimmingLevel for absolute dimmable device.
+**SpecialCase** is used for the dimmable without absolute level(devices that is dimmable with pressing on twice). For this case use Dimmable as specialCase.
+**ResendCount** is just number of times to resend command.
 
 The item configuration for a sensor is:
   
     tellstick="<sensorId>:<valueType>:<useValueType>
 
-SensorId is the sensorId taken from Telldus Center or debug logs.  
-ValueType is either Temperatur or Humidity, based on sensor.  
-UseValueType is for special cases where the value in ValueType is actually something else, support BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion)
+**SensorId** is the sensorId taken from Telldus Center or debug logs.  
+**ValueType** is either Temperatur or Humidity, based on sensor.  
+**UseValueType** is for special cases where the value in ValueType is actually something else, support BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion)
 ##Configure examples   
 Switch:
    
