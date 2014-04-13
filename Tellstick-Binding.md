@@ -1,4 +1,4 @@
-Start of documentation for the tellstick binding.
+Documentation for tellstick binding
 
 Configure examples   
 Switch:   
