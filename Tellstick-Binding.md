@@ -24,9 +24,7 @@ The item configuration for devices is:
     tellstick="<deviceName>:<deviceType>:[<resendCount>]"
 
 The deviceName must match the name in Telldus Center.  
-
 The deviceType is either: Command for on/off, DimmingLevel for absolute dimmable device, Dimmable for a device that is dimmable with pressing on twice.  
-
 ResendCount is just number of times to resend command.
 
 The item configuration for a sensor is:
