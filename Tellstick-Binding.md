@@ -21,7 +21,7 @@ You will have to use Telldus Center to add all your devices. It is also easiest 
 
 The item configuration for devices is:
 
- tellstick="<deviceName>:<deviceType>:[<resendCount>]"
+   tellstick="<deviceName>:<deviceType>:[<resendCount>]"
 
 The deviceName must match the name in Telldus Center.  
 
@@ -30,7 +30,7 @@ The deviceType is either: Command for on/off, DimmingLevel for absolute dimmable
 ResendCount is just number of times to resend command.
 
 The item configuration for a sensor is:
-  tellstick="<sensorId>:<valueType>:<useValueType>
+    tellstick="<sensorId>:<valueType>:<useValueType>
 ##Configure examples   
 Switch:   
 Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {**tellstick="Aquarium:Command"**}
