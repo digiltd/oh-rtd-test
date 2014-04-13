@@ -42,3 +42,6 @@ Switch:
 Temp sensor:
       
     Number	GF_Kitchen_Temp	"Temperature [%.1f °C]"	<temperature> {tellstick="14:Temperature"}
+Battery Level
+
+    Number	GF_Kitchen_Battery "Battery [%d]" <battery> { tellstick="82:Humidity:BatteryLevel" }
