@@ -34,7 +34,7 @@ The item configuration for a sensor is:
 
 **SensorId** is the sensorId taken from Telldus Center or debug logs.  
 **ValueType** is either Temperatur or Humidity, based on sensor.  
-**UseValueType** is for special cases where the value in ValueType is actually something else, support BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion)
+**UseValueType** is for special cases where the value in ValueType is actually something else, support BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion). This is implemented for homemade temp/humid and motion sensor [Forum](http://elektronikforumet.com/forum/viewtopic.php?f=3&t=63772&hilit=telldus)
 ##Configure examples   
 Switch:
    
