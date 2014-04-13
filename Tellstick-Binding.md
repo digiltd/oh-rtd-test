@@ -32,6 +32,10 @@ ResendCount is just number of times to resend command.
 The item configuration for a sensor is:
   
     tellstick="<sensorId>:<valueType>:<useValueType>
+
+SensorId is the sensorId taken from Telldus Center or debug logs.  
+ValueType is either Temperatur or Humidity, based on sensor.  
+UseValueType is for special cases where the value in ValueType is actually something else, support BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion)
 ##Configure examples   
 Switch:   
 Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {**tellstick="Aquarium:Command"**}
