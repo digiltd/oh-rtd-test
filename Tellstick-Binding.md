@@ -3,6 +3,7 @@ Documentation for tellstick binding
 ## Introduction
 
 Binding is tested against Tellstick DUO, it should also work with a basic Tellstick.
+This binding is currenly not release, contact me if you want to try it (jarlebh)
 
 Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo (KlikAanKlikUit), Oregon e.o. <br>
 See further information from http://www.telldus.com
