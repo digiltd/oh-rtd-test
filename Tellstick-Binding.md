@@ -37,6 +37,6 @@ ValueType is either Temperatur or Humidity, based on sensor.
 UseValueType is for special cases where the value in ValueType is actually something else, support BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion)
 ##Configure examples   
 Switch:   
-Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {**tellstick="Aquarium:Command"**}
+    Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {**tellstick="Aquarium:Command"**}
 Temp sensor:      
-Number	GF_Kitchen_Temp	"Temperature [%.1f °C]"	<temperature> {**tellstick="14:Temperature"**}
+    Number	GF_Kitchen_Temp	"Temperature [%.1f °C]"	<temperature> {**tellstick="14:Temperature"**}
