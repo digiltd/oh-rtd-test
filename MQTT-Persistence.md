@@ -53,6 +53,7 @@ First, we need to define the MQTT broker connection in the `openhab.cfg` file:
 ```
     mqtt:xively.url=tcp://api.xively.com:1883
     mqtt:xively.user=<device key>
+    mqtt:xively.pwd=<device key>
 ```
 As `<device key>`, use the device/API key you get from Xively.
 
