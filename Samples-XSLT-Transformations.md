@@ -3,8 +3,8 @@ In most cases, you will get the information you need into a XML structured docum
 XSLT is a standard method to transform an XML structure into a document with the structure you want. You can find a very good tutorial here: [XSLT tutorial at W3Schools](http://www.w3schools.com/xsl/default.asp)
 
 In the following examples:
-*  the directive xsl:output says that the incoming document must be transformed into another XML-like document, without XML header (the _<?xml...?>_ part)
-* the directive template specify a rule to apply when a specific XML node type is found. The template to match is contained in the **match="/"** clause, where **"/"** means **"any type of node"**, so the whole document.
+*  the directive **xsl:output** says that the incoming document must be transformed into another XML-like document, without XML header (the _<?xml...?>_ part)
+* the directive **template** specify a rule to apply when a specific XML node type is found. The template to match is contained in the **match="/"** clause, where **"/"** means **"any type of node"**, so the whole document.
 * inside the template directive we find the rule, in this case a value to extract from the selected node. In the first example, we want to extract the value **temp** from the node **yweather:condition**. Indeed, if we look at the syntax of the Yahoo Weather service, we can see that the weather conditions are returned into a XML document that contains a string like that:
 ```xml
 <yweather:condition  text="Mostly Cloudy"  code="28"  temp="50"  date="Fri, 18 Dec 2009 9:38 am PST" />
