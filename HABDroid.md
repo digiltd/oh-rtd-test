@@ -1,8 +1,6 @@
 HABDroid is an open-source Android application providing openHAB user interface on Android platform. It is an integral part of openHAB project.
 
-<img width="25%" src="http://wiki.openhab.googlecode.com/hg/images/screenshots/habdroid-phone.png">
-<img width="25%" src="http://wiki.openhab.googlecode.com/hg/images/screenshots/habdroid-phone2.png">
-<img width="25%" src="http://wiki.openhab.googlecode.com/hg/images/screenshots/habdroid-phone3.png">
+<img src="http://www.openhab.org/images/ui/android-screens.png">
 
 # Basic information on HABDroid
 
