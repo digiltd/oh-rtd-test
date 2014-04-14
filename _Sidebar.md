@@ -19,7 +19,7 @@ Community
  * User Interfaces
   * [[Classic UI|Web-AppUI]]
   * [[iOS Client|iOS-UI]]
-  * [[Android Client|HABDroid]]
+  * [[Android Client|openHAB-Android]]
   * [[GreenT UI|TouchUI]]
   * [[CometVisu|Comet-Visu]]
  * [[Bindings]]
