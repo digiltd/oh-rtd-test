@@ -41,7 +41,7 @@ HABDroid is compatible with openHAB version starting from 1.0.0.
 # Using application
 
 Please install release version of HABDroid from Google Play store:
-[You can always find current development build on openHAB Cloudbees page:
-[https://openhab.ci.cloudbees.com/job/HABDroid/]
+https://play.google.com/store/apps/details?id=org.openhab.habdroid
 
-(https://play.google.com/store/apps/details?id=org.openhab.habdroid)
+You can always find current development build on [openHAB Cloudbees page]
+(https://openhab.ci.cloudbees.com/job/HABDroid/)
