@@ -4,7 +4,7 @@ HABDroid is an open-source Android application providing openHAB user interface 
 
 # Basic information on HABDroid
 
-Please use [openHAB issues](http://code.google.com/p/openhab/issues/list) to submit bugs, feature requests and ideas on how to improve HABDroid.
+Please use [openHAB issues](https://github.com/openhab/openhab/issues?state=open) to submit bugs, feature requests and ideas on how to improve HABDroid.
 
 **Connecting to openHAB**
 
