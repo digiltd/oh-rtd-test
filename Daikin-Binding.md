@@ -45,7 +45,7 @@ The binding supports both inbound and outbound bindings.
     Switch  DaikinPower  "Power"           { daikin="<name>:power" }
 
     // mode of operation - one of Auto/Dry/Cool/Heat/Fan/Night
-    String  DaikinMode   "Mode"            { daikin="<name>:mode" }
+    String  DaikinMode   "Mode [%s]"       { daikin="<name>:mode" }
 
     // temperature set point
     Number  DaikinTemp   "Temp [%.0f °C]"  { daikin="<name>:temp" }
