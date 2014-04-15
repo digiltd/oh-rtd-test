@@ -59,11 +59,11 @@ Strategies {
 Items {
 	Temperature_Item	-> "xxxxx"	:
 	// where "Temperature_Item" is an OpenHAB item
-	// and "xxxxx" is an open.sen.se feed ID enclosed in inverted commas
+	// and "xxxxx" is an open.sen.se feed ID enclosed in double quotes
 	// Values from Temperature_Item are sent to open.sen.se feed "xxxxx"
 	Humidity_Item		-> "yyyyy"	:
 	// where "Humidity_Item" is an OpenHAB item
-	// and "yyyyy" is an open.sen.se feed ID enclosed in inverted commas
+	// and "yyyyy" is an open.sen.se feed ID enclosed in double quotes
 	// Values from Humidity_Item are sent to open.sen.se feed "yyyyy"
 }
 ```
