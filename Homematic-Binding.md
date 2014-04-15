@@ -191,6 +191,10 @@ Advanced parameters:
 
     converter=<Class name of the converter to use>, admin: For admin commands.
 
+### Device Configuration Files
+
+See [[Device Configuration Files|Homematic-Configuration]] for details about the device xml files. 
+
 ### About the Documentation
 
 The information at each value in brakets is: `(<item type>, <unit>, <min/max or possible values>)`
