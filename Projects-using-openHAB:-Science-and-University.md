@@ -149,8 +149,9 @@ To simulate the real usage of our application on the campus, we created a simpli
 #### How did openHAB help
 
 #### External, Press, Video links
-https://www.youtube.com/watch?v=yzhQsh858uI&feature=youtu.be : turning LEDs on and off using OpenHAB
-https://www.youtube.com/watch?v=jeICG9IgD6E : Air quality sensor data updated in the OpenHAB interface
+https://www.youtube.com/watch?v=yzhQsh858uI&feature=youtu.be --> turning LEDs on and off using OpenHAB
+
+https://www.youtube.com/watch?v=jeICG9IgD6E --> Air quality sensor data updated in the OpenHAB interface
 
 #### Contact
 Project's mailing list: <smartcampus2014@googlegroups.com>
