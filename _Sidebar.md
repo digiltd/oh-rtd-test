@@ -28,6 +28,7 @@ Community
   * [[Comfo Air Binding|Comfo-Air-Binding]]
   * [[CUL Binding|CUL-Binding]]
   * [[CUPS Binding|CUPS-Binding]]
+  * [[Daikin Binding|Daikin-Binding]]
   * [[digitalSTROM Binding|digitalSTROM-Binding]]
   * [[DMX512 Binding|DMX-Binding]]
   * [[EnOcean Binding|EnOcean-Binding]]
