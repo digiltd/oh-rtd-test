@@ -35,6 +35,7 @@ The binding supports both inbound and outbound bindings.
     // the temperature/humidity at the indoor unit
     Number  DaikinTempIn      "Temp Inside [%.1f °C]"      { daikin="<name>:tempin" }
     Number  DaikinHumidityIn  "Humidity Inside [%.1f %%]"  { daikin="<name>:humidityin" }
+
     // the temperature at the outdoor unit
     Number  DaikinTempOut     "Temp Outside [%.1f °C]"     { daikin="<name>:tempout" }
 
@@ -42,14 +43,19 @@ The binding supports both inbound and outbound bindings.
 
     // power
     Switch  DaikinPower  "Power"           { daikin="<name>:power" }
+
     // mode of operation - one of Auto/Dry/Cool/Heat/Fan/Night
     String  DaikinMode   "Mode"            { daikin="<name>:mode" }
+
     // temperature set point
     Number  DaikinTemp   "Temp [%.0f °C]"  { daikin="<name>:temp" }
+
     // fan mode - one of Auto/F1/F2/F3/F4/F5
     String  DaikinFan    "Fan [%s]"        { daikin="<name>:fan" }
+
     // swing mode - one of Off/UpDown
     String  DaikinSwing  "Swing [%s]"      { daikin="<name>:swing" }
+
     // timer mode - one of Off-Off/Off-On/On-Off/On-On (start/end timers)
     String  DaikinTimer  "Timer [%s]"      { daikin="<name>:timer" }
 
