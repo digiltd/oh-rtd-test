@@ -125,8 +125,23 @@ http://www.verwaltung.fh-koeln.de/aktuelles/2013/08/verw_msg_06233.html
 
 ***
 
-### <project name>
+### SmartCampus2014
+Polytech'Grenoble
+
 #### Abstract / Description / Dates
+
+SmartCampus is an end-of-studies project at Polytech'Grenoble, led by 5 RICM students (studying Networks and Multimedia Communication) during 2 months. The aim of this project is to create an augmented reality (AR) and crowdsourcing application for the Grenoble campus.
+
+In fine, this application will allow the user to access multiple types of information:
+- crowdsourcing information, such as the length of wating lines;
+- general information about buildings and various components;
+- variable information like transport time-tables and cafeteria menus;
+- sensor data, such as atmospheric and meteorological sensors.
+
+Each building is managed by an admin who can handle the information published. He can also activate or desactivate sensors using a dedicated interface.
+
+To simulate the real usage of our application on the campus, we created a simplified model of the Grenoble campus, using mainly carpeting and wood (laser-cutting technology).
+
 #### Screenshots
 #### How did openHAB help
 #### External, Press, Video links
