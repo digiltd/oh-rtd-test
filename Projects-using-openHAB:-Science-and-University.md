@@ -143,6 +143,12 @@ Each building is managed by an admin who can handle the information published. H
 To simulate the real usage of our application on the campus, we created a simplified model of the Grenoble campus, using mainly carpeting and wood (laser-cutting technology).
 
 #### Screenshots
+![](http://air.imag.fr/images/thumb/8/84/SmartCampus2014-002.jpg/493px-SmartCampus2014-002.jpg)
+![](http://air.imag.fr/images/thumb/b/bb/SmartCampus2014-009.jpg/450px-SmartCampus2014-009.jpg)
+![](http://air.imag.fr/images/thumb/9/97/Maquette5.jpg/400px-Maquette5.jpg)
+
 #### How did openHAB help
+
 #### External, Press, Video links
+
 #### Contact
