@@ -22,9 +22,9 @@ Below are configuration notes for specialized hardware.
 
 ARM-based embedded computers is a popular choice among home automation enthusiasts due to low cost and low power consumption. They are typically extensible with available add-on components and via programmable GPIO.
 Based on the community feedback and information about the openHAB requirements here is the short comparison of the SBC platforms:
-![SBC comparison (as per April 2014)](http://www.wikisolar.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04.png)
+![SBC comparison (as per April 2014)](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04_v2.png)
 (April 2014)
-[(click here for bigger picture)](http://www.wikisolar.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04.png).
+[(click here for bigger picture)](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04_v2.png).
 
 
 ### Raspberry Pi
@@ -58,7 +58,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 
 ### CubieBoard, BeagleBoneBlack, ODroid
 
-![Single-Board Computers](http://www.wikisolar.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04.png)
+![Single-Board Computers](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_platforms_2014_14.png)
 
 **1. Install Linux distro**
 
