@@ -145,10 +145,12 @@ To simulate the real usage of our application on the campus, we created a simpli
 #### Screenshots
 ![](http://air.imag.fr/images/thumb/8/84/SmartCampus2014-002.jpg/493px-SmartCampus2014-002.jpg)
 ![](http://air.imag.fr/images/thumb/b/bb/SmartCampus2014-009.jpg/450px-SmartCampus2014-009.jpg)
-![](http://air.imag.fr/images/thumb/9/97/Maquette5.jpg/400px-Maquette5.jpg)
 
 #### How did openHAB help
 
 #### External, Press, Video links
+https://www.youtube.com/watch?v=yzhQsh858uI&feature=youtu.be : turning LEDs on and off using OpenHAB
+https://www.youtube.com/watch?v=jeICG9IgD6E : Air quality sensor data updated in the OpenHAB interface
 
 #### Contact
+Project's mailing list: <smartcampus2014@googlegroups.com>
