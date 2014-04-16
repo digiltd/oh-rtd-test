@@ -147,6 +147,7 @@ To simulate the real usage of our application on the campus, we created a simpli
 ![](http://air.imag.fr/images/thumb/b/bb/SmartCampus2014-009.jpg/450px-SmartCampus2014-009.jpg)
 
 #### How did openHAB help
+We use openHAB to monitor and actuate in a unified interface several devices: sensors (moisture, air pollution, etc.) and actuators. 
 
 #### External, Press, Video links
 https://www.youtube.com/watch?v=yzhQsh858uI&feature=youtu.be --> turning LEDs on and off using OpenHAB
