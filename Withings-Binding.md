@@ -1,12 +1,12 @@
 Documentation of the Withings binding Bundle.
 
-# Introduction
+## Introduction
 
 The Withings Binding allows to synchronize data from the official Withings API to items. The following body measure types are supported: diastolic blood pressure, fat free mass, fat mass weight, fat ratio, heart pulse, height, systolic blood pressure, weight.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-# Setup
+## Setup
 
 To access Withings data the user needs to authenticate via an OAuth 1.0 flow. The binding implements the flow through the command line interface. The first time the binding is started, it prints the following messages to the console:
 
@@ -28,7 +28,7 @@ So the user needs to open the shown url in a web browser, login with his withing
 
 The binding stores the OAuth tokens, so that the user does not need to login again. From this point the binding is successfully configured.
 
-# Item Binding Configuration
+## Item Binding Configuration
 
 To bind a measure value to an item the measure type has to be defined in the generic binding config. Withings data can be bound to `NumberItem`s only. The syntax for a Withings binding is `withings=<measure type>` The following table shows the measure types and units, that are supported by the binding:
 
@@ -54,7 +54,7 @@ The following snippet shows some sample bindings:
     Number FatRatio   "FatRatio"   { withings = "fat_ratio" }
     Number HeartPulse "HeartPulse" { withings = "heart_pulse" }
 
-# Synchronization
+## Synchronization
 
 By default the Withings data is requested every 60 minutes. The interval can be configured in the `openhab.cfg` file. The interval must be specified in ms. The following snippet shows a data refresh interval configuration of 120 minutes:
 
