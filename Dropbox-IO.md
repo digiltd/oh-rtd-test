@@ -16,9 +16,7 @@ Click 'create app'
 Choose:
 - 'Dropbox API app'
 - 'Files and datastores'
-- 'No My app needs access to files already on Dropbox.'
-- 'Specific file types My app only needs access to certain file types, like text or photos.'
-- 'Text files TXT, Markdown, Code files, HTML, etc.'
+- 'Yes - My app only needs access to files it creates.'
 
 Now, give it a name.
 
