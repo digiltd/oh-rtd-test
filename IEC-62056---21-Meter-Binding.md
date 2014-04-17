@@ -2,7 +2,7 @@ Documentation of the IEC 62056-21 meter binding bundle
 
 ## Introduction
 
-This binding is used to communicate to metering devices supporting serial communication according mode C master. It can be used to read metering data from slaves such as gas, water, heat, or electricity meters. 
+This binding is used to communicate to metering devices supporting serial communication according IEC 62056-21 mode C master. It can be used to read metering data from slaves such as gas, water, heat, or electricity meters. 
 For further information read Wiki page of [IEC_62056-21](http://en.wikipedia.org/wiki/IEC_62056#IEC_62056-21).
 
 Information receive from the meter device are structured according IEC 62056-6-1:2013, Object identification system (OBIS). For further information read Wiki page of [OBIS ("Object Identification System")](http://de.wikipedia.org/wiki/OBIS-Kennzahlen).
@@ -41,6 +41,9 @@ The syntax of an item configuration is shown in the following line in general:
 
     iec6205621meter="<meter-id>:<OBIS>"
 Where meter-id matches one of the ids defined in your openhab.cfg file.
+
+If you do not know the available OBIS on your meter device you propably find them on the local HMI of you meter device. Please review you manual of the meter device or read the instruction of your utility.
+You can also start openhab in debug mode, the binding will then dump all available OBIS it receives from the meter device in the osgi console. 
 
 ### Examples
 
