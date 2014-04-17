@@ -10,14 +10,18 @@ The intended main use cases are backing up openHAB configuration and log files t
 ## Prepare your Dropbox
 
 First, you have to create a Dropbox-App. Call the URL: https://www.dropbox.com/developers/apps
+
 Click 'create app'
+
 Choose:
-        - 'Dropbox API app'
-        - 'Files and datastores'
-        - 'No My app needs access to files already on Dropbox.'
-        - 'Specific file types My app only needs access to certain file types, like text or photos.'
-        - 'Text files TXT, Markdown, Code files, HTML, etc.'
+- 'Dropbox API app'
+- 'Files and datastores'
+- 'No My app needs access to files already on Dropbox.'
+- 'Specific file types My app only needs access to certain file types, like text or photos.'
+- 'Text files TXT, Markdown, Code files, HTML, etc.'
+
 Now, give it a name.
+
 If your new App is created, copy the 'App key' and 'App secret' in the field of the openhab.cfg file.
 
 ## Authentication
