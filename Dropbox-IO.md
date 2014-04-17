@@ -7,21 +7,6 @@ If you want to enhance openHAB with an integration to your personal Dropbox, ple
 
 The intended main use cases are backing up openHAB configuration and log files to a version able cloud space and transporting changed files back to openHAB after editing them with the openHAB Designer on the Administrator's Desktop PC.
 
-## Prepare your Dropbox
-
-First, you have to create a Dropbox-App. Call the URL: https://www.dropbox.com/developers/apps
-
-Click 'create app'
-
-Choose:
-- 'Dropbox API app'
-- 'Files and datastores'
-- 'Yes - My app only needs access to files it creates.'
-
-Now, give it a name.
-
-If your new App is created, copy the 'App key' and 'App secret' in the field of the openhab.cfg file.
-
 ## Authentication
 
 You'll have to authorize openHAB to connect to your Dropbox. This is done in a three step process. openHAB requests a token which is used as a one-time-password to get hold of an access token (second step) which will be used for all future requests against Dropbox.
