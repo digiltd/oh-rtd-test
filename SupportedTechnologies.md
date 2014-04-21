@@ -150,7 +150,10 @@ Every technology or device, integrated into openHAB, is supported by a specific 
 	<td>Powerline</td>
 	<td>lighting shades security</td>
 	<td>Release</td>
-	<td><a href="https://github.com/openhab/openhab/wiki/Insteon-Hub-Binding">insteonhub</a></td>
+	<td><a href="https://github.com/openhab/openhab/wiki/Insteon-Hub-Binding">insteonhub</a>
+<a href="https://github.com/openhab/openhab/wiki/Insteon-PLM-Binding">insteonplm</a>
+
+</td>
 	<td>1.4.0</td>
 </tr>
 <tr>
