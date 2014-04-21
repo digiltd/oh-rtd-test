@@ -91,6 +91,7 @@ Community
   * [[db4o Persistence|db4o-Persistence]]
   * [[rrd4j Persistence|rrd4j-Persistence]]
   * [[MySQL Persistence|MySQL-Persistence]]
+  * [[MongoDB Persistence|MongoDB-Persistence]]
   * [[Sen.Se Persistence|Sense-Persistence]]
   * [[Cosm Persistence|Cosm-Persistence]]
   * [[Logging Persistence|Logging-Persistence]]
