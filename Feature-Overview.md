@@ -86,7 +86,7 @@ There are many different hardware/protocol bindings available, each is documente
 - [[Homematic Binding|Homematic Binding]]
 - [[Http Binding|HTTP Binding]]
 - [IHC / ELKO Binding](IHCBinding)
-- [[Insteon PLM Binding|Insteon-PLM-Binding]](Insteon-PLM-Binding)
+- [[Insteon PLM Binding|Insteon-PLM-Binding]]
 - [KNX Binding](KNXBinding)
 - [[Koubachi Binding|Koubachi Binding]]
 - [[Modbus Tcp Binding|Modbus TCP Binding]]
