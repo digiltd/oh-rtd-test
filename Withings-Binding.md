@@ -1,5 +1,7 @@
 Documentation of the Withings binding Bundle.
 
+_**Note:** This binding has not been releases yet. However a [snapshot version](https://openhab.ci.cloudbees.com/job/openHAB/) can be downloaded at Cloudbees._
+
 ## Introduction
 
 The Withings Binding allows to synchronize data from the official Withings API to items. The following body measure types are supported: diastolic blood pressure, fat free mass, fat mass weight, fat ratio, heart pulse, height, systolic blood pressure, weight.
