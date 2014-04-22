@@ -1,3 +1,6 @@
+
+_**Note:** This binding has not been releases yet. However a [snapshot version](https://openhab.ci.cloudbees.com/job/openHAB/) can be downloaded at Cloudbees._
+
 ## Introduction
 
 Insteon is a home area networking technology developed primarily for
