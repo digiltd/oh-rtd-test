@@ -44,6 +44,7 @@ Community
   * [[IHC / ELKO Binding|IHC-Binding]]
   * [[Insteon Hub Binding|Insteon-Hub-Binding]]
   * [[Insteon PLM Binding|Insteon-PLM-Binding]]
+  * [[Ir-Trans Binding|Ir-Trans-Binding]]
   * [[KNX Binding|KNX-Binding]]
   * [[Koubachi Binding|Koubachi-Binding]]
   * [[MAX!Cube-Binding]]
