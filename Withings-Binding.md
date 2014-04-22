@@ -1,6 +1,6 @@
 Documentation of the Withings binding Bundle.
 
-_**Note:** This binding has not been releases yet. However a [snapshot version](https://openhab.ci.cloudbees.com/job/openHAB/) can be downloaded at Cloudbees._
+_**Note:** This Binding will be available in the upcoming 1.5 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
 
 ## Introduction
 
