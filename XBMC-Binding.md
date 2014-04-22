@@ -1,4 +1,7 @@
 Documentation of the XBMC binding
+
+_**Note:** This Binding will be available in the upcoming 1.5 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
+
 ## Introduction
 
 This page describes the XBMC binding, which allows openhab items to receive realtime updates about information like player state and running media from one or more instances of xbmc.

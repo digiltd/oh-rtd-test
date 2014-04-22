@@ -87,6 +87,7 @@ Community
   * [[Velleman-K8055-Binding|Velleman-K8055-Binding]]
   * [[Wake-on-LAN Binding|Wake-on-LAN-Binding-(WoL)]]
   * [[Withings Binding|Withings-Binding]]
+  * [[XBMC Binding|XBMC-Binding]]
   * [[xPL Binding|xPL-Binding]]
   * [[Z-Wave Binding|Z-Wave-Binding]]
  * [[Persistence]]
