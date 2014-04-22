@@ -1,5 +1,7 @@
 Documentation of the xPL Binding
 
+_**Note:** This Binding will be available in the upcoming 1.5 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
+
 ## Introduction
 
 The xPL Bundle provides two packages :
