@@ -83,6 +83,7 @@ Community
   * [[Sonos Binding|Sonos-Binding]]
   * [[Swegon ventilation Binding|Swegon-Ventilation-Binding]]
   * [[TCP/UDP Binding|TCP-Binding]]
+  * [[Tellstick Binding|Tellstick-Binding]]
   * [[TinkerForge Binding|Tinkerforge-Binding]]
   * [[VDR Binding|VDR-Binding]]
   * [[Velleman-K8055-Binding|Velleman-K8055-Binding]]
