@@ -1,5 +1,7 @@
 Documentation of the Astro Binding Bundle
 
+_**Note:** This binding has not been releases yet. However a [snapshot version](https://openhab.ci.cloudbees.com/job/openHAB/) can be downloaded at Cloudbees._
+
 ### Introduction
 
 The Astro binding is used for:
