@@ -105,3 +105,29 @@ Standard Squeezebox actions for controlling your devices;
 - `squeezeboxStop(String playerId)`
 - `squeezeboxNext(String playerId)`
 - `squeezeboxPrev(String playerId)`
+
+**Pushover Action**
+
+The pushover action allows you to notify mobile devices of a message using the Pushover API web service.
+
+The following are configuration items for your openhab.cfg file. None of the options are required as you can specify required configuration items in the action call, but you must at least provide an _API Token_, _User/Group Key_ and a _Message_ in some manner before a message can be pushed.
+
+- `pushover:defaultTimeout - The timeout for the communication with the Pushover service.`
+- `pushover:defaultToken - Pushover API token to send to devices.`
+- `pushover:defaultUser - Pushover User or Group key to send to devices.`
+- `pushover:defaultTitle - Application title for the notification.`
+- `pushover:defaultPriority - Priority of the notification. Default is 0.`
+- `pushover:defaultUrl - A URL to send with the notification.`
+- `pushover:defaultUtlTitle - Title of the URL to send with the notification.`
+
+The following are valid action calls that can be made when the plugin is loaded. For specific information on each item, see the [Pushover API](https://pushover.net/api).
+
+- `pushover(String message)`
+- `pushover(String message, String device)`
+- `pushover(String message, int priority)`
+- `pushover(String message, String device, int priority)`
+- `pushover(String apiToken, String userKey, String message)`
+- `pushover(String apiToken, String userKey, String message, String device)`
+- `pushover(String apiToken, String userKey, String message, int priority)`
+- `pushover(String apiToken, String userKey, String message, String device, int priority)`
+- `pushover(String apiToken, String userKey, String message, String device, String title, String url, String urlTitle, int priority, String soundFile)`
