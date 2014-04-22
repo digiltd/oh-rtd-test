@@ -1,5 +1,7 @@
 Documentation of the GPIO binding bundle
 
+_**Note:** This binding has not been releases yet. However a [snapshot version](https://openhab.ci.cloudbees.com/job/openHAB/) can be downloaded at Cloudbees._
+
 ## Introduction
 Binding for local GPIO subsystem, currently only this exposed to user space by [Linux GPIO framework](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) is implemented. Being based on kernel implementation it's hardware agnostic and works on different boards without modification (this is on theory only, not all existing boards can be tested). The difference from other bindings dealing with GPIOs is that it works with GPIO subsystem on the board on which openHAB runs and don't require third-party programs/daemons running. The binding consists of two components: base module (org.openhab.io.gpio) which implements low-level GPIO access and provides API for high-level modules (can be used by other bindings needing to interact directly with GPIOs) and the binding itself (org.openhab.binding.gpio) which introduces hardware GPIO pins as full feature openHAB items capable of generating events or receiving commands depending of their type (input or output).
 
