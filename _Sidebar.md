@@ -24,6 +24,7 @@ Community
   * [[CometVisu|Comet-Visu]]
  * [[Bindings]]
   * [[Asterisk Binding|Asterisk-Binding]]
+  * [[Astro Binding|Astro-binding]]
   * [[Bluetooth Binding|Bluetooth-Binding]]
   * [[Comfo Air Binding|Comfo-Air-Binding]]
   * [[CUL Binding|CUL-Binding]]
