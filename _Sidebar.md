@@ -49,6 +49,7 @@ Community
   * [[Ir-Trans Binding|Ir-Trans-Binding]]
   * [[KNX Binding|KNX-Binding]]
   * [[Koubachi Binding|Koubachi-Binding]]
+  * [[Leviton/HAI Omnilink Binding|Omnilink-Binding]]
   * [[MAX!Cube-Binding]]
   * [[MiLight Binding|Milight-Binding]]
   * [[Modbus TCP Binding|Modbus-Tcp-Binding]]
