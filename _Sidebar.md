@@ -61,6 +61,7 @@ Community
   * [[Nikobus Binding|Nikobus-Binding]]
   * [[Novelan/Luxtronic Heatpump Binding|Novelan-Heat-Pump-Binding]]
   * [[NTP Binding|Ntp-Binding]]
+  * [[HAI/Leviton OmniLink Binding|OmniLink-Binding]]
   * [[One-Wire Binding|One-Wire-Binding]]
   * [[Onkyo AV Receiver Binding|Onkyo-Binding]]
   * [[Open Energy Monitor Binding|Open-Energy-Monitor-Binding]]
