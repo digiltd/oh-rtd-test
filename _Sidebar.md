@@ -34,6 +34,7 @@ Community
   * [[EnOcean Binding|EnOcean-Binding]]
   * [[Epson Projector Binding|Epson-Projector-Binding]]
   * [[Exec Binding|Exec-Binding]]
+  * [[Freeswitch Binding|Freeswitch-Binding]]
   * [[Fritz!Box Binding|Fritz-Box-Binding]]
   * [[Fritz AHA Binding|Fritz-AHA-Binding]]
   * [[GPIO Binding|GPIO-Binding]]
