@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a OpenHab binding for HAI/Leviton Omni and Lumina home automation controllers
+This is a OpenHab binding for HAI/Leviton Omni and Lumina home automation controllers.
 
 The HAI/Leviton Omni is a popular home automation system in the US.  At Its core the Omni is a hardware board that provides security and access features.  It connects to many other devices through serial ports or relays and exposes them through a single TCP based API.
 
