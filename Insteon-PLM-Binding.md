@@ -62,7 +62,9 @@ First, you need to set up a build environment, following the online instructions
   </subcategory>
 
 Then in DeviceFeatures.java, find a device that kinda matches yours, and add another term to the conditional like this, to support the "dimmer" feature:
- else	if ( (s.equals("2477Ddimmer") || s.equals("2472Ddimmer") || s.equals("2666Ddimmer") ) )
+
+    else	if ( (s.equals("2477Ddimmer") || s.equals("2472Ddimmer") || s.equals("2666Ddimmer") ) )
+
 and another one for the "lasttime" feature:
  else	if ( (s.equals("2477Dlasttime") || s.equals("2472Dlasttime") || s.equals("2666Dlasttime") )
 
