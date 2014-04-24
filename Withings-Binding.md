@@ -26,13 +26,13 @@ In order to start the authentication process the user needs to execute `withings
     # 3. Execute 'withings:finishAuthentication "<verifier>" "<user-id>" on OSGi console"
     #########################################################################################
 
-So the user needs to open the shown url in a web browser, login with his withings credentials, confirm that openHAB is allowed to access his data and at the end he is redirected to a page on github. There the user finds the command `withings:finishAuthentication "<verifier>" "<user-id>` with filled parameters that is needed to finish the authentication. 
+So the user needs to open the shown url in a web browser, login with his withings credentials, confirm that openHAB is allowed to access his data and at the end he is redirected to a page on github. There the user finds the command `withings:finishAuthentication "<verifier>" "<user-id>"` with filled parameters that is needed to finish the authentication. 
 
 The binding stores the OAuth tokens, so that the user does not need to login again. From this point the binding is successfully configured.
 
 ## Item Binding Configuration
 
-To bind a measure value to an item the measure type has to be defined in the generic binding config. Withings data can be bound to `NumberItem`s only. The syntax for a Withings binding is `withings=<measure type>` The following table shows the measure types and units, that are supported by the binding:
+To bind a measure value to an item the measure type has to be defined in the generic binding config. Withings data can be bound to `NumberItem`s only. The syntax for a Withings binding is `withings="<measure type>"` The following table shows the measure types and units, that are supported by the binding:
 
 <table>
 <tr>
@@ -61,3 +61,11 @@ The following snippet shows some sample bindings:
 By default the Withings data is requested every 60 minutes. The interval can be configured in the `openhab.cfg` file. The interval must be specified in ms. The following snippet shows a data refresh interval configuration of 120 minutes:
 
     withings:refresh=7200000 
+
+## Advanced OAuth Configuration
+
+The Withings Binding uses a default application registration to request an OAuth token. The application belongs to the binding developer. If the user wants to use his own application, the binding can be configured to use another OAuth consumer key and consumer secret. Please read the Withings documentation how to register an application (http://oauth.withings.com/en/partner/dashboard). After the application was created, Withings will generate a consumer key and secret. The redirect url must be configured, too. To change the OAuth parameters for the Withings binding the user can specify the following values into the openhab config file :
+
+    withings-oauth:consumerKey="<your consumer key>"
+    withings-oauth:consumerSecret="<your consumer secret>"
+    withings-oauth:redirectUrl="<your redirect url>"
