@@ -181,6 +181,7 @@ your `logback.xml` file:
     <!-- Change DEBUG->TRACE for even more detailed logging -->
     <logger name="org.openhab.binding.insteonplm" level="DEBUG" additivity="false">
     <appender-ref ref="INSTEONPLMFILE" />
+    </logger>
 
 This will log additional debugging messages to a separate file in the
 log directory.
