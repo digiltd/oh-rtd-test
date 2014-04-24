@@ -1,0 +1,1 @@
+This page outlines planning of the upcoming Lifx binding. The binding is not currently in operation as official SDK is yet to be released for Java.
