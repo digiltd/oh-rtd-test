@@ -49,9 +49,9 @@ Support for the following devices is in the works, and should be supported in up
 
 Currently adding new device types is cumbersome (will be easier in upcoming releases). Here a rough outline of what needs to be done.
 
-First, you need to set up a build environment, following the online instructions. Then find the categories.xml file under the InsteonPLM binding directory, and add your device under the proper category and subcategory (as published by Insteon) with a few lines like these, appropriately modified:
+First, set up a build environment, following the online instructions. Then find the categories.xml file under the InsteonPLM binding directory, and add your device under the proper category and subcategory (as published by Insteon) with a few lines like these, appropriately modified:
 
-  <subcategory>
+    <subcategory>
     <name>FooLinc Dimmer</name>
     <description>2666D</description>
     <subCat>0xYOURSUBCATHEX</subCat>
@@ -59,14 +59,16 @@ First, you need to set up a build environment, following the online instructions
     	<feature name="dimmer">2666Ddimmer</feature>
     	<feature name="lastheardfrom">2666Dlasttime</feature>
     </productKey>
-  </subcategory>
+    </subcategory>
 
-Then in DeviceFeatures.java, find a device that kinda matches yours, and add another term to the conditional like this, to support the "dimmer" feature:
+Then in DeviceFeatures.java, find a device that kinda matches yours, and add a term to the conditional like this, to support the "dimmer" feature:
 
     else	if ( (s.equals("2477Ddimmer") || s.equals("2472Ddimmer") || s.equals("2666Ddimmer") ) )
 
 and another one for the "lasttime" feature:
- else	if ( (s.equals("2477Dlasttime") || s.equals("2472Dlasttime") || s.equals("2666Dlasttime") )
+
+    else	if ( (s.equals("2477Dlasttime") || s.equals("2472Dlasttime") || s.equals("2666Dlasttime") )
+
 
 The term added (in this case "2666Ddimmer") must match the string used in the <feature name="dimmer"> line in the categories.xml file, and same for the "lastheardfrom" feature. Just follow the pattern in the code.
 
@@ -189,4 +191,3 @@ log directory.
 running. If new devices are linked, the binding must be restarted.
 2. No simple way to selectively eliminate a given Insteon device
 address from the modem's link database.
-
