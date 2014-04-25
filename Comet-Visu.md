@@ -38,7 +38,10 @@ Note: This information ist taken from [here](http://www.cometvisu.de/wiki/index.
 * contact
 * dimmer
 
-Please feel free to add more items.
+Please feel free to add more items. Other possible item types are:
+* rollershutter
+* string
+* color
 
 Some basic examples:
 * ColorItem (will be supported in the next CometVisu-Release 0.8.2) => 
