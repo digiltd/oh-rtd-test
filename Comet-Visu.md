@@ -32,7 +32,7 @@ Note: This information ist taken from [here](http://www.cometvisu.de/wiki/index.
 
 ## Configuration
 
-[This](https://www.dropbox.com/s/5ip5fv5h5d4st9v/cometVISU_openHAB.zip) is a first small sample implementation. Actually only the items below are implemented:
+[This](https://www.dropbox.com/s/5ip5fv5h5d4st9v/cometVISU_openHAB.zip) is a first small sample implementation. Actually only the items below are used in the example config:
 * number
 * switch
 * contact
