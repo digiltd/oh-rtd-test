@@ -68,19 +68,24 @@ and / or
 As the method signatures suggest, you are passed the name of the item and the command or state that was sent on the openHAB event bus. In these methods, you can then perform whatever code is appropriate for your use case. See the [ExecBinding class](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.exec/src/main/java/org/openhab/binding/exec/internal/ExecBinding.java) as an example.
 
 All there is left to do is to register your class with the OSGi event admin service. To do so, your component has to provide the `EventHandler` service and define the property `event.topics`. In your `OSGI-INF/binding.xml` file, this should look like this:
-       <service>
-          <provide interface="org.osgi.service.event.EventHandler"/>
-       </service>
-       <property name="event.topics" type="String" value="openhab/*"/>
+
+    	<service>
+    	    	<provide interface="org.osgi.service.event.EventHandler"/>
+    	</service>
+    	<property name="event.topics" type="String" value="openhab/*"/>
+
 If you are only interested in commands, you can also choose `openhab/command/*` as a topic.
 See the [component descriptor of the ExecBinding](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.exec/OSGI-INF/binding.xml) as an example.
 
 ## External System -> openHAB Event Bus
 
 If you receive information from an external system somewhere in your code and you want to post commands or status updates on the openHAB event bus, you can as well simply extend `AbstractBinding` for your implementation. Your binding class should then reference the `EventPublisher` service in the `OSGI-INF/binding.xml` file. This should look like this:
-       <reference bind="setEventPublisher" cardinality="1..1" interface="org.openhab.core.events.EventPublisher" name="EventPublisher" policy="dynamic" unbind="unsetEventPublisher"/>
+
+    	<reference bind="setEventPublisher" cardinality="1..1" interface="org.openhab.core.events.EventPublisher" 
+    	    	name="EventPublisher" policy="dynamic" unbind="unsetEventPublisher"/>
 
 In your code, you can then simply refer to the instance variable `eventPublisher` in order to very easily send events:
+
     	eventPublisher.postUpdate(itemName, state);
     	eventPublisher.postCommand(itemName, command);
     	eventPublisher.sendCommand(itemName, command);
@@ -96,13 +101,13 @@ See the [NtpBinding class](https://github.com/openhab/openhab/blob/master/bundle
 
 ### Lifecycle
 
-A few notes on the lifecyle: Bindings are dynamic OSGi services and thus behave according to the OSGi specs. The dynamics make it easy to change openHAB during runtime (add new bindings later on, reconfigure items, etc.), but it also brings some complexity in the coding. In consequence the methods of the interfaces that the bindings implement (such as addBindingProvider(), allBindingsChanged(), updated(), processBindingConfiguration() etc.) can be called at any time and in any order. So you need to make sure that you write your code in a way that you can always react in a decent way when a method is called and reach a valid state of your binding.
+A few notes on the lifecyle: Bindings are dynamic OSGi services and thus behave according to the OSGi specs. The dynamics make it easy to change openHAB during runtime (add new bindings later on, reconfigure items, etc.), but it also brings some complexity in the coding. In consequence the methods of the interfaces that the bindings implement (such as `addBindingProvider()`, `allBindingsChanged()`, `updated()`, `processBindingConfiguration()` etc.) can be called at any time and in any order. So you need to make sure that you write your code in a way that you can always react in a decent way when a method is called and reach a valid state of your binding.
 
 This specifically means:
-- activate() is called as soon as all required dependencies (e.g. the first !BindingProvider) are resolved and set in your service instance
-- optional dependencies might be set any time (e.g. a second !BindingProvider is set through addBindingProvider())
-- updated() is called any time, but after activate(). So you should even consider the case that you receive invalid configuration at a later time and thus stop your services again (-> setProperlyConfigured(false)).
-- processBindingConfigurations can be called anytime, but always after activate()
+- `activate()` is called as soon as all required dependencies (e.g. the first !BindingProvider) are resolved and set in your service instance
+- optional dependencies might be set any time (e.g. a second !BindingProvider is set through `addBindingProvider()`)
+- `updated()` is called any time, but after `activate()`. So you should even consider the case that you receive invalid configuration at a later time and thus stop your services again (-> `setProperlyConfigured(false)`).
+- `processBindingConfigurations()` can be called anytime, but always after `activate()`
 
 # Building and Packaging
 
