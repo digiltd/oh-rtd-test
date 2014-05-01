@@ -111,6 +111,7 @@ When the message content for an outbound message is created, the following varia
 ### Example Outbound Configurations
 
     Switch mySwitch {mqtt=">[mybroker:/myhouse/office/light:command:ON:1],>[mybroker:/myhouse/office/light:command:OFF:0]"}
+    Switch mySwitch {mqtt=">[mybroker:/myhouse/office/light:command:ON:1],>[mybroker:/myhouse/office/light:command:*:Switch ${item} was turned ${command}]"}
 
 ## Event Bus Binding Configuration
 
