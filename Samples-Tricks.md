@@ -289,6 +289,7 @@ WantedBy=multi-user.target
 Adjust the WorkingDirectory and the path to start.sh as you need.
 Also this unit uses a separate user to run openHAB with. This user must be created first.
 You can as well start openHAB with your own user account.
+The Type ```forking``` must be used here because of the change we did in the start.sh script.
 
 If that is done "install" the unit:
 ```systemctl enable openhab.service```
