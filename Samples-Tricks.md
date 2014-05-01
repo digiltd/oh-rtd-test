@@ -4,6 +4,7 @@ Miscellaneous Tips & Tricks
 * [How to do a proper ICMP ping on Linux](Samples-Tricks#how-to-do-a-proper-icmp-ping-on-linux)
 * [How to add current or forecast weather icons to your sitemap](Samples-Tricks#how-to-add-current-or-forecast-weather-icons-to-your-sitemap)
 * [How to configure openHAB to start automatically on Linux](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux)
+* [How start openHAB automatically on Linux using systemd](Samples-Tricks#how-start-openhab-automatically-on-linux-using-systemd)
 * [Use cheap bluetooth dongles on remote PCs to detect your phone/watch](Samples-Tricks#use-cheap-bluetooth-dongles-on-remote-pcs-to-detect-your-phonewatch)
 * [Check presence by detecting WiFi phones/tablets] (Samples-Tricks#check-presence-by-detecting-wifi-phonestablets)
 * [Get connection status of all network devices from Fritz!Box, eg for presence detection](Samples-Tricks#get-connection-status-of-all-network-devices-from-fritzbox-eg-for-presence-detection)
@@ -246,6 +247,69 @@ Make the script executable and configure it to run on boot.
     sudo update-rc.d openhab defaults
 
 Now whenever your Linux machine boots openHAB will be automatically started.
+
+### How start openHAB automatically on Linux using systemd
+
+Systemd is used as init system on various Linux flavors, i.e. openSUSE, ArchLinux, etc.
+To make openHAB start automatically on system startup we utilize the main start.sh script which comes with the openHAB distribution.
+We just need to modify it a bit.
+Instead of this line:
+```
+java -Dosgi.clean=true -Declipse.ignoreApp=true -Dosgi.noShutdown=true -Djetty.port=$HTTP_PORT -Djetty.port.ssl=$HTTPS_PORT -Djetty.home=. -Dlogback.configurationFile=configurations/logback.xml -Dfelix.fileinstall.dir=addons -Djava.library.path=lib -Djava.security.auth.login.config=./etc/login.conf -Dorg.quartz.properties=./etc/quartz.properties -Dequinox.ds.block_timeout=240000 -Dequinox.scr.waitTimeOnBlock=60000 -Dfelix.fileinstall.active.level=4 -Djava.awt.headless=true -jar $cp $* -console 
+```
+we'll use:
+```
+java -Dosgi.clean=true -Declipse.ignoreApp=true -Dosgi.noShutdown=true -Djetty.port=$HTTP_PORT -Djetty.port.ssl=$HTTPS_PORT -Djetty.home=. -Dlogback.configurationFile=configurations/logback.xml -Dfelix.fileinstall.dir=addons -Djava.library.path=lib -Djava.security.auth.login.config=./etc/login.conf -Dorg.quartz.properties=./etc/quartz.properties -Dequinox.ds.block_timeout=240000 -Dequinox.scr.waitTimeOnBlock=60000 -Dfelix.fileinstall.active.level=4 -Djava.awt.headless=true -jar $cp > run.log 2>&1 &
+```
+this makes openHAB run in the background and redirect stderr and stdout to a file called run.log.
+Notice that only the end of the line has changed.
+You'll also may want to create a copy of the original script file before making the change.
+
+Now here is what we need for systemd:
+Identify where the service units are placed on your system. In openSUSE it is: ```/usr/lib/systemd```.
+Now create a new file called ```openhab.service``` in this folder: ```/usr/lib/systemd/system```
+and copy the following into it:
+```
+[Unit]
+Description=Open Home Automation Bus
+
+[Service]
+Type=forking
+GuessMainPID=yes
+ExecStart=/Space/Apps/openhab/start.sh
+ExecStop=/usr/bin/kill -SIGKILL $MAINPID
+ExecStopPost=
+User=openhab
+Group=daemon
+WorkingDirectory=/Space/Apps/openhab
+
+[Install]
+WantedBy=multi-user.target
+```
+Adjust the WorkingDirectory and the path to start.sh as you need.
+Also this unit uses a separate user to run openHAB with. This user must be created first.
+You can as well start openHAB with your own user account.
+
+If that is done "install" the unit:
+```systemctl enable openhab.service```
+
+Now start the service:
+```systemctl start openhab.service```
+
+You may check if it's running with:
+```systemctl status openhab.service```
+
+You should see something this if it's running:
+```
+openhab.service - Open Home Automation Bus
+   Loaded: loaded (/usr/lib/systemd/system/openhab.service; enabled)
+   Active: active (running) since Do 2014-05-01 11:54:41 CEST; 1h 23min ago
+  Process: 6118 ExecStart=/Space/Apps/openhab/start.sh (code=exited, status=0/SUCCESS)
+ Main PID: 6124 (java)
+   CGroup: /system.slice/openhab.service
+           └─6124 java -Dosgi.clean=true -Declipse.ignoreApp=true -Dosgi.noShutdown=true -Djetty.port=8080 -Djetty.port.ssl=8443 -Djetty.home=. -Dlogback.configurationFi...
+```
+
 
 ### Use cheap bluetooth dongles on remote PCs to detect your phone/watch
 
