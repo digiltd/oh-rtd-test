@@ -1,7 +1,11 @@
 ## Prerequisites
 ### Raspberry Pi
+#### Java 7
     sudo apt-get update && sudo apt-get install oracle-java7-jdk
     sudo update-java-alternatives -s jdk-7-oracle-armhf
+#### Java 8
+    apt-get install oracle-java8-jdk
+    update-java-alternatives -s jdk-8-oracle-arm-vfp-hflt
 ### BeagleBone Black
 TBD
 ### Ubuntu / Debian
