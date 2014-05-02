@@ -12,8 +12,8 @@ The runtime installation is tweaked to use separate folders for configuration, t
  and runtime generated files. Therefore your feedback will be very welcome, especially if you run into problems.
 
 ## Quick Setup
-### Add openHAB repo to the apt sources list 
-    $ sudo echo "deb http://repository-openhab.forge.cloudbees.com/release/1.4.0/apt-repo/ /" > /etc/apt/sources.list.d/openhab.list
+### Add openHAB repo to the apt sources list (as root user)
+    $ echo "deb http://repository-openhab.forge.cloudbees.com/release/1.4.0/apt-repo/ /" > /etc/apt/sources.list.d/openhab.list
 
 ### Install openHAB runtime
 
