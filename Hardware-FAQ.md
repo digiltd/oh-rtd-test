@@ -66,7 +66,7 @@ On a separate system download:
 
 * For CubieBoard2:  Both of these work well with OpenHAB
 [Cubiuntu - Lubuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/cubiuntu_cb2_1.001_3308067698bcd2d5246071da85547d77.img.zip
-)
+) or 
 [Cubian - Debian](http://cubian.org/downloads/)
 
 * For BeagleBoneBlack
@@ -95,7 +95,7 @@ to get  IdVendor and IdProduct,  you need type in the following:
 There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwave".
 
 **6. Install and setup OpenHAB**   Follow instructions at Quick Setup or use apt-get as below
-(https://github.com/openhab/openhab/issues/641?source=cc)
+(https://github.com/openhab/openhab/wiki/Apt-Repository)
 
 
 ## Synology Diskstation
