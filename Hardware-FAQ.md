@@ -64,9 +64,10 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 
 On a separate system download:
 
-* For CubieBoard2:
-[Cubiuntu - Lubuntu](http://dl.cubieforums.com/ikeeki/IMAGES/ik/cubiuntu_0.999_sd_CT_2c968b278b54a70fa203e77d88e016b0.img.zip) - runs well with OpenHAB
-[Cubian - Debian](http://cubian.org/downloads/) - runs well with OpenHAB
+* For CubieBoard2:  Both of these work well with OpenHAB
+[Cubiuntu - Lubuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/cubiuntu_cb2_1.001_3308067698bcd2d5246071da85547d77.img.zip
+)
+[Cubian - Debian](http://cubian.org/downloads/)
 
 * For BeagleBoneBlack
 _TBD_
@@ -78,12 +79,20 @@ _TBD_
 Use Win32DiskImager (or dd on Linux/OSX) to make ISO image on micro-SD card (4 GB  minimum.  UHS-1 speed recommended)
 
 **3. Increase size of partition** 
-If you have a larger card, increase the partition.  
+If your SD card is larger than 4GB, increase the partition.  
 
 **4. Install Java Hard Floating point** 
 Download Java ARMHF from Oracle if its not already present.  
 
-**5. Use symlinks if you use more than one USB port for bindings.**  See section on Symlinks (https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-configure-openhab-to-connect-to-device-symlinks-on-linux)
+**5. Use symlinks if you use more than one USB port for bindings.**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
+
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwave", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="rfxcom", MODE="0666"
+
+to get  IdVendor and IdProduct,  you need type in the following:
+   "sudo udevadm info -q all -n /dev/ttyUSB0"
+
+There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwave".
 
 **6. Install and setup OpenHAB**   Follow instructions at Quick Setup or use apt-get as below
 (https://github.com/openhab/openhab/issues/641?source=cc)
