@@ -41,7 +41,7 @@ The following devices have been tested and should work out of the box:
 5. Insteon Wireless Motion Sensor 2842, motion sensor, product key: 0x00004A
 6. Insteon Hidden Door Sensor 2845-222, (fake) product key: F00.00.03
 7. Insteon MorningLinc RF Lock Controller 2458-A1, (fake) product key: F00.00.09
-* Read the instructions very carefully: Sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
+** Read the instructions very carefully: Sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
 
 Support for the following devices is in the works, and should be supported in upcoming releases:
 
