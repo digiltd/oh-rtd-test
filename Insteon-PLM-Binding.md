@@ -143,9 +143,9 @@ transforms directory and look like this:
 
 'MAP(lock.map)`, which should go into the transforms directory and look like this:
 
-ON=Lock
-OFF=Unlock
--=unknown
+    ON=Lock
+    OFF=Unlock
+    -=unknown
 
 If you have a garage door opener, see the I/O Linc documentation for
 the meaning of the `momentary` keyword (not supported/needed for other devices).
