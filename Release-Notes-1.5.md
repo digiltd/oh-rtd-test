@@ -1,10 +1,15 @@
-Here is a detailed list of what this release brings on top of the previous openHAB 1.4.
+Here is a _**preliminary**_ list of what this release most likely brings on top of the previous openHAB 1.4.
 
 ## New & Noteworthy
 
 ### openHAB Runtime
 
 **Major features:**
+* eKey HOME and MULTI fingerprint authentication (#778)
+* [[IRTrans binding|Ir-Trans-Binding]] (#716)
+* [[Vellemann K8055 binding|Velleman-K8055-Binding]] (#705)
+* [[GPIO binding|GPIO-Binding]] (#54)
+* WAGO bus coupler binding (#25)
 
 **Enhancements:**
 
