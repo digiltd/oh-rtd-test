@@ -91,7 +91,7 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="z
 to get  IdVendor and IdProduct,  you need type in the following:
    "sudo udevadm info -q all -n /dev/ttyUSB0"
 
-There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwave".
+There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwaveUSB".
 
 **6. Install and setup OpenHAB**   Follow instructions at Quick Setup or use apt-get as below
 (https://github.com/openhab/openhab/wiki/Apt-Repository)
