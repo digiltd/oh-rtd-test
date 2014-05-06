@@ -12,7 +12,7 @@ The destination broker, topic and messages are configurable.
 For installation of this persistence package please follow the same steps as you would [[Bindings|installing a binding]].
 
 Additionally, create a persistence file '`mqtt.persist`' in the `${openhab.home}/configuration/persistence` folder.
-The file should follow the regular openHAB persistence format.
+The file should follow the [regular openHAB persistence format](https://github.com/openhab/openhab/wiki/Persistence).
 
 # Configuration
 
