@@ -5,6 +5,19 @@ Here is a _**preliminary**_ list of what this release most likely brings on top 
 ### openHAB Runtime
 
 **Major features:**
+* [[MongoDB persistence service|MongoDB-Persistence]] (#989)
+* [[Daikin binding (for KKRP01A online controller)|Daikin-Binding]] (#955)
+* [[Astro time calculation binding|Astro-binding]] (#947)
+* Oceanic water softener binding (#946)
+* [[Insteon PLM binding|Insteon-PLM-Binding]] (#943)
+* [[XBMC binding|XBMC-Binding]] (#941)
+* [[Pushover action|Actions]] (#922)
+* RME Rainmanager binding (#919)
+* [[xPL binding and action|xPL-Binding]] (#918)
+* [[Heatmiser Neohub binding|Heatmiser-Binding]] (#893, #931)
+* [[Freeswitch binding|Freeswitch-Binding]] (#847)
+* [[HAI Omnilink binding|OmniLink-Binding]] (#846)
+* [[Tellstick binding|Tellstick-Binding]] (#811)
 * eKey HOME and MULTI fingerprint authentication (#778)
 * [[IRTrans binding|Ir-Trans-Binding]] (#716)
 * [[Vellemann K8055 binding|Velleman-K8055-Binding]] (#705)
