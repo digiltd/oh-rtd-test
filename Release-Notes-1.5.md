@@ -2,6 +2,8 @@ Here is a _**preliminary**_ list of what this release most likely brings on top 
 
 ## New & Noteworthy
 
+See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=4&page=1&state=closed).
+
 ### openHAB Runtime
 
 **Major features:**
