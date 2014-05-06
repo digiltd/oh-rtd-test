@@ -86,10 +86,10 @@ Currently, the list of properties you can use in your binding configuration is v
 
 Property          | Direction | Description
 ----------------- |:---------:| ------------
-Player.State      | <         | Current player state (e.g. 'Play', 'Pause' or 'Stop')
-Player.Type       | <         | Currently playing type (e.g. 'movie', 'episode', 'channel', or 'unknown' for a PVR recording)
-Player.Title      | <         | Currently playing title (e.g. movie name, TV episode name)
-Player.ShowTitle  | <         | Currently playing show title (e.g. TV show name, empty for movies)
+Player.State      | <         | Current player state: 'Play', 'Pause', 'End' (Stopped due to end of content), 'Stop' (Stopped by user). An 'End' state is immediately followed by a 'Stop' state.
+Player.Type       | <         | Currently playing type: 'movie', 'episode', 'channel', or 'unknown' for a PVR recording
+Player.Title      | <         | Currently playing title: movie name, TV episode name, music track name
+Player.ShowTitle  | <         | Currently playing show title: TV show name, empty for other types
 Player.Artist     | <         | Currently playing artist (music only)
 Player.Album      | <         | Currently playing album (music only)
 Player.<???>      | <         | Any other player property supported by the XBMC JSON RPC API
