@@ -134,6 +134,7 @@ Samples
  * [[Samples WAC Binding|Samples WAC Binding]]
 
 Release Notes
+ * [[Version 1.5|Release-Notes-1.5]]
  * [[Version 1.4|Release-Notes-1.4]]
  * [[Version 1.3|Release-Notes-13]]
  * [[Version 1.2|Release-Notes-12]]
