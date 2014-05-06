@@ -75,25 +75,21 @@ _TBD_
 * For ODroid
 _TBD_
 
-**2 Make ISO image on micro-SD card**
-Use Win32DiskImager (or dd on Linux/OSX) to make ISO image on micro-SD card (4 GB  minimum.  UHS-1 speed recommended)
-
-**3. Increase size of partition** 
-If your SD card is larger than 4GB, increase the partition.  
-
-**4. Install Java Hard Floating point** 
+**2. Install Java Hard Floating point** 
 Download Java ARMHF from Oracle if it is not already present.  
 
-**5. Use symlinks if you use more than one USB port for bindings.**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
+**3. Use symlinks if you use more than one USB port for bindings.**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
 
 SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwaveUSB", MODE="0666"
 
 to get  IdVendor and IdProduct,  you need type in the following:
    "sudo udevadm info -q all -n /dev/ttyUSB0"
 
-There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwaveUSB".
+There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwaveUSB".  You will also need to add the property to the Java command line by adding the following (device names delimited by :);
 
-**6. Install and setup OpenHAB**   Follow instructions at Quick Setup or use apt-get as below
+-Dgnu.io.rxtx.SerialPorts=/dev/rfxcomUSB:/dev/zwaveUSB
+
+**4. Install and setup OpenHAB**   Follow instructions at Quick Setup or use apt-get as below
 (https://github.com/openhab/openhab/wiki/Apt-Repository)
 
 
