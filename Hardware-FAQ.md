@@ -86,8 +86,7 @@ Download Java ARMHF from Oracle if its not already present.
 
 **5. Use symlinks if you use more than one USB port for bindings.**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
 
-SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwave", MODE="0666"
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="rfxcom", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwaveUSB", MODE="0666"
 
 to get  IdVendor and IdProduct,  you need type in the following:
    "sudo udevadm info -q all -n /dev/ttyUSB0"
