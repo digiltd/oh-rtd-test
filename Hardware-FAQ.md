@@ -1,11 +1,11 @@
-FAQ about hardware for the openHAB runtime
+FAQ about hardware to run the openHAB runtime
 
 ## Introduction
 
-This page summarizes helpful information on how to get openHAB working on specific hardware.
-Users are very welcome to provide tips&tricks here, e.g. on JVM experiences, embedded systems etc.
+This page summarizes how to get openHAB running on specific hardware.
+Users are welcome to provide tips & tricks here, e.g. on JVM experiences, embedded systems etc.
 
-Please note: This page is NOT about home automation hardware (sensors, switches, etc) - consult other websites for such questions. For a list of the systems openHAB can connect to, please see [available bindings](Bindings).
+Please note: This page is NOT about home automation sensors, switches, etc. For a list of the systems openHAB can connect to, please see [available bindings](Bindings).
 
 ## General Hardware Platform Requirements
 
@@ -13,14 +13,14 @@ The openHAB Runtime is a Java application. It requires JVM 1.6 or later.
 
 openHAB is expected to run on all platforms (i.e. processor architectures and operating systems) where the required JVM version is available. This includes Windows, Mac OS X, and various distributions of Linux on x86, x86_64, and ARM architectures.
 
-openHAB can be installed and operated on AMD or Intel powered commodity laptop, a desktop computer, or a special form factor platform, such as a popular Raspberry PI single-board computer. 
+openHAB can be installed and operated on AMD or Intel powered commodity laptop, a desktop computer, or a special form factor platform, such as ARM based single-board computers. 
 
 Below are configuration notes for specialized hardware.
 
 
 ## ARM-based Single-Board Computers (SBC)
 
-ARM-based embedded computers is a popular choice among home automation enthusiasts due to low cost and low power consumption. They are typically extensible with available add-on components and via programmable GPIO.
+ARM-based embedded computers are a popular choice among home automation enthusiasts due to low cost and low power consumption. They are typically extensible with available add-on components and via programmable GPIO.
 Based on the community feedback and information about the openHAB requirements here is the short comparison of the SBC platforms:
 ![SBC comparison (as per April 2014)](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04_v2.png)
 (April 2014)
@@ -64,7 +64,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 
 On a separate system download:
 
-* For CubieBoard2:  Both of these work well with OpenHAB
+* For CubieBoard2:  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
 [Cubiuntu - Lubuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/cubiuntu_cb2_1.001_3308067698bcd2d5246071da85547d77.img.zip
 ) or 
 [Cubian - Debian](http://cubian.org/downloads/)
@@ -82,7 +82,7 @@ Use Win32DiskImager (or dd on Linux/OSX) to make ISO image on micro-SD card (4 G
 If your SD card is larger than 4GB, increase the partition.  
 
 **4. Install Java Hard Floating point** 
-Download Java ARMHF from Oracle if its not already present.  
+Download Java ARMHF from Oracle if it is not already present.  
 
 **5. Use symlinks if you use more than one USB port for bindings.**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
 
