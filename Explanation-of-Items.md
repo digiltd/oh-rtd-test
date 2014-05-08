@@ -70,7 +70,7 @@ Another possibility in labeltexts is to use so-called maps for replacing the ite
 
 **Example:**
 An item defined like
-    Number WindowBathroom "Window is [MAP(en.map) %s]"
+    Number WindowBathroom "Window is [MAP(en.map):%s]"
 would be formatted for output as:
     "Window is open"
 if there is a file called **en.map** in folder configurations/transform.
