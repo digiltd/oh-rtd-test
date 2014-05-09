@@ -11,9 +11,10 @@ Check the permissions of this device with
 
     user@computer:~$ ls -l /dev/ttyUSB0
     crw-rw---- 1 root dialout 188, 0 Aug 11 14:16 /dev/ttyUSB0
-In order to access this device the user running openHAB needs to be in the group "dailout".
+In order to access this device the user running openHAB needs to be in the group "dailout" and possibly the group "lock".
 
     sudo adduser <user> dialout
+    sudo adduser <user> lock
 
 Reboot your system.
 
