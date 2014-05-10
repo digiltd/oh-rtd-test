@@ -64,11 +64,58 @@ Each node in the network provides functionality in the form of Command Classes. 
   <tr><td>NO_OPERATION</td><td>Used by the binding during initialization</td><td></td></tr>
   <tr><td>BASIC</td><td>Provides basic SET and GET of the default node value</td><td></td></tr>
   <tr><td>HAIL</td><td>Used by nodes to indicate that they want to be polled. The binding handles this automatically</td><td></td></tr>
-  <tr><td>METER</td><td>Used to get measurements from a node</td><td>*meter_scale=value* :  optional parameter to select the meter scale in case the meter supports multiple scales (and types). Value is one of the following **textual** values:<br/>E_KWh (0, MeterType.ELECTRIC, "kWh", "Energy") <br/>E_KVAh (1, MeterType.ELECTRIC, "kVAh", "Energy")<br/>E_W(2, MeterType.ELECTRIC, "W", "Power")<br/>E_Pulses (3, MeterType.ELECTRIC, "Pulses", "Count")<br/>E_V (4, MeterType.ELECTRIC, "V", "Voltage")<br/>E_A (5, MeterType.ELECTRIC, "A", "Current")<br/>E_Power_Factor (6, MeterType.ELECTRIC, "Power Factor", "Power Factor")<br/>G_Cubic_Meters (0, MeterType.GAS, "Cubic Meters", "Volume")<br/>G_Cubic_Feet (1, MeterType.GAS, "Cubic Feet", "Volume")<br/> G_Pulses(3, MeterType.GAS, "Pulses", "Count")<br/>W_Cubic_Meters (0, MeterType.WATER, "Cubic Meters", "Volume")<br/>W_Cubic_Feet (1, MeterType.WATER, "Cubic Feet", "Volume")<br/>W_Gallons (2, MeterType.WATER, "US gallons", "Volume")<br/>W_Pulses (3, MeterType.WATER, "Pulses", "Count")</td></tr>
+  <tr><td>METER</td><td>Used to get measurements from a node</td><td>**meter_scale=value** :  optional parameter to select the meter scale in case the meter supports multiple scales (and types). Value is one of the following **textual** values:<br/>E_KWh (0, MeterType.ELECTRIC, "kWh", "Energy") <br/>E_KVAh (1, MeterType.ELECTRIC, "kVAh", "Energy")<br/>E_W(2, MeterType.ELECTRIC, "W", "Power")<br/>E_Pulses (3, MeterType.ELECTRIC, "Pulses", "Count")<br/>E_V (4, MeterType.ELECTRIC, "V", "Voltage")<br/>E_A (5, MeterType.ELECTRIC, "A", "Current")<br/>E_Power_Factor (6, MeterType.ELECTRIC, "Power Factor", "Power Factor")<br/>G_Cubic_Meters (0, MeterType.GAS, "Cubic Meters", "Volume")<br/>G_Cubic_Feet (1, MeterType.GAS, "Cubic Feet", "Volume")<br/> G_Pulses(3, MeterType.GAS, "Pulses", "Count")<br/>W_Cubic_Meters (0, MeterType.WATER, "Cubic Meters", "Volume")<br/>W_Cubic_Feet (1, MeterType.WATER, "Cubic Feet", "Volume")<br/>W_Gallons (2, MeterType.WATER, "US gallons", "Volume")<br/>W_Pulses (3, MeterType.WATER, "Pulses", "Count")</td></tr>
   <tr><td>SWITCH_BINARY</td><td>Used to bind directly to a SWITCH</td><td></td></tr>
   <tr><td>SWITCH_MULTILEVEL</td><td>Used to bind directly to a DIMMER</td><td>restore_last_value=true : restores the dimmer to it's last value if an ON command is sent to the dimmer (as opposed to setting it's value to 100%)</td></tr>
-  <tr><td>SENSOR_BINARY</td><td>Used to bind to a sensor.</td><td></td></tr>
-  <tr><td>SENSOR_MULTILEVEL</td><td>Used to bind to e.g. a temperature sensor. Currently only single sensors are supported.</td><td>*sensor_type=value* : optional parameter to select a sensor in case the node supports multiple sensors. Value is one of the following **numerical** values:<br/>TEMPERATURE(1,"Temperature")<br/>GENERAL(2,"General")<br/>LUMINANCE(3,"Luminance")<br/>POWER(4,"Power")<br/>RELATIVE_HUMIDITY(5,"RelativeHumidity")<br/>VELOCITY(6,"Velocity")<br/>DIRECTION(7,"Direction")<br/>ATMOSPHERIC_PRESSURE(8,"AtmosphericPressure")<br/>BAROMETRIC_PRESSURE(9,"BarometricPressure")<br/>SOLAR_RADIATION(10,"SolarRadiation")<br/>DEW_POINT(11,"DewPoint")<br/>RAIN_RATE(12,"RainRate")<br/>TIDE_LEVEL(13,"TideLevel")<br/>WEIGHT(14,"Weight")<br/>VOLTAGE(15,"Voltage")<br/>CURRENT(16,"Current")<br/>CO2(17,"CO2")<br/>AIR_FLOW(18,"AirFlow")<br/>TANK_CAPACITY(19,"TankCapacity")<br/>DISTANCE(20,"Distance")<br/>ANGLE_POSITION(21,"AnglePosition")<br/>ROTATION(22,"Rotation")<br/>WATER_TEMPERATURE(23,"WaterTemperature")<br/>SOIL_TEMPERATURE(24,"SoilTemperature")<br/>SEISMIC_INTENSITY(25,"SeismicIntensity")<br/>SEISMIC_MAGNITUDE(26,"SeismicMagnitude")<br/>ULTRAVIOLET(27,"Ultraviolet")<br/>ELECTRICAL_RESISTIVITY(28,"ElectricalResistivity")<br/>ELECTRICAL_CONDUCTIVITY(29,"ElectricalConductivity")<br/>LOUDNESS(30,"Loudness")<br/>MOISTURE(31,"Moisture")<br/>MAX_TYPE(32,"MaxType")</td></tr>
+  <tr><td>SENSOR_BINARY</td><td>Used to bind to a sensor.</td><td>**sensor_type=value** : optional parameter to select a sensor in case the node supports multiple sensors. Value is one of the following **numerical** values:<br/>
+	1 = General Purpose<br/>
+	2 = Smoke<br/>
+	3 = Carbon Monoxide<br/>
+	4 = Carbon Dioxide<br/>
+	5 = Heat<br/>
+	6 = Water<br/>
+	7 = Freeze<br/>
+	8 = Tamper<br/>
+	9 = Aux<br/>
+	10 = Door/Window<br/>
+	11 = Tilt<br/>
+	12 = Motion<br/>
+	13 = Glass Break<br/>
+</td></tr>
+  <tr><td>SENSOR_MULTILEVEL</td><td>Used to bind to e.g. a temperature sensor. Currently only single sensors are supported.</td><td>**sensor_type=value** : optional parameter to select a sensor in case the node supports multiple sensors. Value is one of the following **numerical** values:<br/>
+1 = Temperature<br/>
+2 = General<br/>
+3 = Luminance<br/>
+4 = Power<br/>
+5 = RelativeHumidity<br/>
+6 = Velocity<br/>
+7 = Direction<br/>
+8 = AtmosphericPressure<br/>
+9 = BarometricPressure<br/>
+10 = SolarRadiation<br/>
+11 = DewPoint<br/>
+12 = RainRate<br/>
+13 = TideLevel<br/>
+14 = Weight<br/>
+15 = Voltage<br/>
+16 = Current<br/>
+17 = CO2<br/>
+18 = AirFlow<br/>
+19 = TankCapacity<br/>
+20 = Distance<br/>
+21 = AnglePosition<br/>
+22 = Rotation<br/>
+23 = WaterTemperature<br/>
+24 = SoilTemperature<br/>
+25 = SeismicIntensity<br/>
+26 = SeismicMagnitude<br/>
+27 = ,"Ultraviolet<br/>
+28 = ElectricalResistivity<br/>
+29 = ElectricalConductivity<br/>
+30 = Loudness<br/>
+31 = Moisture<br/>
+32 = MaxType
+</td></tr>
   <tr><td>MULTI_INSTANCE</td><td>Used to channel commands to the right endpoint on multi-channel devices. See item configuration.</td><td></td></tr>
   <tr><td>MANUFACTURER_SPECIFIC</td><td>Used to get manufacturer info from the device</td><td></td></tr>
   <tr><td>BATTERY</td><td>Used to get the battery level from battery operated devices. See item configuration.</td><td></td></tr>
