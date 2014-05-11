@@ -16,7 +16,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [[Pushover action|Actions]] (#922)
 * RME Rainmanager binding (#919)
 * [[xPL binding and action|xPL-Binding]] (#918)
-* [[Heatmiser Neohub binding|Heatmiser-Binding]] (#893, #931)
+* [[Heatmiser Neohub binding|NeoHub-Binding]] (#893, #931)
 * [[Freeswitch binding|Freeswitch-Binding]] (#847)
 * [[HAI Omnilink binding|OmniLink-Binding]] (#846)
 * [[Tellstick binding|Tellstick-Binding]] (#811)
