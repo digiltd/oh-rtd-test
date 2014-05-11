@@ -56,7 +56,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 - /opt/vc/bin/tvservice -o
 - Overclocking does not seem to have big influences
 
-### CubieBoard, BeagleBoneBlack, ODroid
+### CubieBoard, ODroid
 
 ![Single-Board Computers](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04_14.jpg)
 
@@ -69,28 +69,25 @@ On a separate system download:
 ) or 
 [Cubian - Debian](http://cubian.org/downloads/)
 
-* For BeagleBoneBlack
-_TBD_
-
-* For ODroid
-_TBD_
+* For ODroid U3: Use Xubuntu
+(http://com.odroid.com/sigong/nf_file_board/nfile_board.php)
 
 **2. Install Java Hard Floating point** 
-Download Java ARMHF from Oracle if it is not already present.  
+Download Java JRE for ARMHF from Oracle if it is not already present.  
 
-**3. Use symlinks if you use more than one USB port for bindings.**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
+**3. Install and setup OpenHAB**   Use apt-get as described below
+(https://github.com/openhab/openhab/wiki/Apt-Repository)
+
+**4. Use symlinks if you use more than one USB port. **  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
 
 SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwaveUSB", MODE="0666"
 
 to get  IdVendor and IdProduct,  you need type in the following:
    "sudo udevadm info -q all -n /dev/ttyUSB0"
 
-There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwaveUSB".  You will also need to add the property to the Java command line by adding the following (device names delimited by :);
+There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwaveUSB".  You will also need to add the property to the Java command line by adding the following (device names delimited by ":" ) to the file /etc/init.d/openhab in the JAVA_ARGS section with your device names substituted.
 
 -Dgnu.io.rxtx.SerialPorts=/dev/rfxcomUSB:/dev/zwaveUSB
-
-**4. Install and setup OpenHAB**   Follow instructions at Quick Setup or use apt-get as below
-(https://github.com/openhab/openhab/wiki/Apt-Repository)
 
 
 ## Synology Diskstation
