@@ -38,7 +38,7 @@ Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00
 ```
 
 Supported are Temperature and Humidity for the outdoor modules. 
-````
+
 
 Example rule to send a mail if carbon dioxide reaches a certain threshold:
 ```
