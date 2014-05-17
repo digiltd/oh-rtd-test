@@ -28,7 +28,7 @@ First of all you need to configure the following values in the openhab.cfg file 
 The `rfxcom:serialPort` value is the identification of the serial port on the host system where RFXCOM controller is connected, e.g. 
 "COM1" on Windows,"/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
 
-The `rfxcom:setMode` value is optional. Set mode command can be used to configure RFXCOM controller to listening to various receiver protocols. This is very useful because the receiver will become more sensitive when none required protocols are disabled. You can use the RFXmngr application to configure the controller and get the valid configuration command. Command must be a 28 characters (14 bytes) hexadecimal string.
+The `rfxcom:setMode` value is optional. Set mode command can be used to configure RFXCOM controller to listening to various receiver protocols. This is very useful because the receiver will become more sensitive when only the required protocols are enabled. You can use the RFXmngr application to get the valid configuration command. Command must be a 28 characters (14 bytes) hexadecimal string.  You can also use this to get the Device Ids needed below.
 
 ## Item Binding Configuration
 
@@ -56,8 +56,12 @@ where `DeviceID` is a valid wireless device identifier.
 
 Examples, how to configure your items:
 
+    Weather Station Example
     Number OutdoorTemperature { rfxcom="<2561:Temperature" }
     Number OutdoorHumidity { rfxcom="<2561:Humidity" }
+    Number RainRate	{ rfxcom="<30464:RainRate" }
+    Number WindSpeed	{ rfxcom="<19968:WindSpeed" }
+
     Switch Btn1 { rfxcom="<636602.1:Command" }
     Number Btn1SignalLevel { rfxcom="<636602.1:SignalLevel" }
     Dimmer Btn1DimLevel { rfxcom="<636602.1:DimmingLevel" }
@@ -65,11 +69,11 @@ Examples, how to configure your items:
     Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
     Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
     
-    SECURITY1.X10_SECURITY_MOTION packet example
+    SECURITY1.X10_SECURITY_MOTION  example
     Switch swMotion { rfxcom="<4541155:Motion" }
     Number MSensor_Bat {rfxcom="<4541155:BatteryLevel" }
 
-    THERMOSTAT1 packet example
+    THERMOSTAT1  example
     Number RFXTemp_Living { rfxcom=<30515:Temperature" 
     Number RFXTemp_LivingSP { rfxcom="<30515:SetPoint" }
     Contact RFXTemp_LivingRoom_Stat { rfxcom="<30515:Contact" }     	
@@ -121,4 +125,14 @@ Examples, how to configure your items:
   <tr><td>Motion</td><td>SwitchItem</td><td>MOTION, NO_MOTION</td></tr>
   <tr><td>Voltage</td><td>NumberItem</td><td></td></tr>
   <tr><td>SetPoint</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Pressure</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Forecast</td><td>NumberItem</td><td></td></tr>
+  <tr><td>RainRate</td><td>NumberItem</td><td></td></tr>
+  <tr><td>WindDirection</td><td>NumberItem</td><td></td></tr>
+  <tr><td>WindSpeed</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Gust</td><td>NumberItem</td><td></td></tr>
+  <tr><td>ChillFactor</td><td>NumberItem</td><td></td></tr>
+  <tr><td>InstantPower</td><td>NumberItem</td><td></td></tr>
+  <tr><td>TotalUsage</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Voltage</td><td>NumberItem</td><td></td></tr>
 </table>
