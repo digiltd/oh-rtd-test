@@ -976,7 +976,7 @@ for i in `seq 0 47`;do curl http://l.yimg.com/a/i/us/we/52/$i.gif | convert - ya
 
 Note that we prefix the images with yahoo_weather, this is important as openHAB will append a yahoo weather code later to choose the correct one.
 
-Next add a xml transform file to your configuration/Transform directory, name this yahoo_weather_code.xml
+Next add a xsl transform file to your configuration/Transform directory, name this yahoo_weather_code.xsl
 ```
 <?xml version="1.0"?>
 <xsl:stylesheet 
