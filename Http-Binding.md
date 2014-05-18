@@ -29,7 +29,7 @@ Here are some examples of valid binding configuration strings:
 
 As a result, your lines in the items file might look like the following:
 
-    Number Weather_Temperature "Temperature [%.1f ¬∞C]"  <temperature>  (Wetter) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(demo_yahoo_weather.xsl)]" }
+    Number Weather_Temperature "Temperature [%.1f ¬∞C]"  <temperature>  (Weather) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(demo_yahoo_weather.xsl)]" }
     
 
 ## Dynamic URL enhancement
