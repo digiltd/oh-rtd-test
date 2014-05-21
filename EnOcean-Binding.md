@@ -112,7 +112,7 @@ Will work in 1.4.0
 
 #### Examples
 
-    tbd
+    {enocean="{id=00:00:00:00, eep=D5:00:01, parameter=CONTACT_STATE:closed}"}
 
 ## Controller Hardware
 
