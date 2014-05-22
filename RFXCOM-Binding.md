@@ -83,21 +83,21 @@ Examples, how to configure your items:
 <table>
   <tr><td><b>PacketType.SubType</b></td><td><b>Description</b></td><td><b>ValueSelector</b></td></tr>
   <tr><td>LIGHTING1.X10</td><td>working</td><td>Command</td></tr>
-  <tr><td>LIGHTING1.ARC</td><td>tested and working</td><td>Command</td></tr>
+  <tr><td>LIGHTING1.ARC</td><td>working</td><td>Command</td></tr>
   <tr><td>LIGHTING1.AB400D</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.WAVEMAN</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.EMW200</td><td>Untested</td><td></td></tr>
-  <tr><td>LIGHTING1.IMPULS</td><td>tested and working</td><td>Command</td></tr>
+  <tr><td>LIGHTING1.IMPULS</td><td>working</td><td>Command</td></tr>
   <tr><td>LIGHTING1.RISINGSUN</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.PHILIPS</td><td>Untested</td><td></td></tr>
-  <tr><td>LIGHTING2.AC</td><td>tested and working</td><td>Command, DimmingLevel</td></tr>
+  <tr><td>LIGHTING2.AC</td><td>working</td><td>Command, DimmingLevel</td></tr>
   <tr><td>LIGHTING2.HOME_EASY_EU</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING2.ANSLUT</td><td>Untested</td><td></td></tr>
-  <tr><td>LIGHTING6.BLYSS</td><td>tested and working</td><td>Command</td></tr>
+  <tr><td>LIGHTING6.BLYSS</td><td>working</td><td>Command</td></tr>
   <tr><td>CURTAIN1.HARRISON</td><td>Harrison curtain rail, e.g. Neta 12</td><td>Shutter</td></tr>
-   <tr><td>TEMPERATURE.La Crosse TX17</td><td>tested and working</td><td></td></tr>
-  <tr><td>TEMPERATUREHUMIDITY.Oregon 2.1<br>THGN122_123_132_THGR122_228_238_268</td><td>tested and working</td><td></td></tr>
-  <tr><td>TEMPERATUREHUMIDITY.THGN800_THGR810</td><td>tested and working</td><td></td></tr>
+   <tr><td>TEMPERATURE.La Crosse TX17</td><td>working</td><td></td></tr>
+  <tr><td>TEMPERATUREHUMIDITY.Oregon 2.1<br>THGN122_123_132_THGR122_228_238_268</td><td>working</td><td></td></tr>
+  <tr><td>TEMPERATUREHUMIDITY.THGN800_THGR810</td><td>working</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.RTGR328</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.THGR328</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.WTGR800</td><td>Untested</td><td></td></tr>
@@ -105,7 +105,7 @@ Examples, how to configure your items:
   <tr><td>TEMPERATUREHUMIDITY.TFA_TS34C__CRESTA</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.<br>WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Untested</td><td></td></tr>
-  <tr><td>SECURITY1.X10_SECURITY_MOTION</td><td>tested and working</td><td>Motion</td></tr>
+  <tr><td>SECURITY1.X10_SECURITY_MOTION</td><td>working</td><td>Motion</td></tr>
   <tr><td>THERMOSTAT1</td><td>Digimax 210 working</td><td>Temperature, SetPoint, Contact</td></tr>
 </table>
 
