@@ -52,6 +52,7 @@ Here are some examples of valid binding configuration strings:
     exec="<[curl -s http://weather.yahooapis.com/forecastrss?w=566473&u=c:60000:XSLT(demo_yahoo_weather.xsl)]"
     exec="<[/bin/sh@@-c@@uptime | awk '{ print $10 }':60000:REGEX((.*?))]"
     exec="<[execute.bat %1$tY-%1$tm-%1$td %2$s %3$s:60000:REGEX((.*?))]"
+    exec="<[php ./configurations/scripts/script.php:60000:REGEX((.*?))]"
 
 
 As a result, your lines in the items file might look like the following:
