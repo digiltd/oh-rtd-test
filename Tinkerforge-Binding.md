@@ -33,6 +33,9 @@ The following devices are supported for now:
 The TinkerForge binding bundle is available as a separate (optional) download. For installation of 
 the binding, please see Wiki page [[Bindings]].
 
+## SNAPSHOT Releases
+There is ongoing development on the binding for openHAB 1.5. A lot of new devices are supported with the snapshot releases. Snapshots are downloadable from the CI and will work with the openHAB 1.4 runtime. Preliminary documentation is available from [here](https://github.com/theoweiss/openhab/wiki/Changes-1.5). You are encouraged to report bugs related to snapshot release.
+
 ## Upgrading from 1.3
 - LCDBacklight now is a sub device of LCD20x4 Bricklet (items file has to be changed)
 - LCD20x4Button now posts an update not a command anymore (rules has to be changed)
@@ -708,4 +711,3 @@ subid of the device, or - if the device is configured in openhab.cfg - the "symb
 
 ## Item Types
 Supported item types are "Switch Item", "Number Item", "Contact Item" and "String Item".
-
