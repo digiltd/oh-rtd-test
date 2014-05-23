@@ -1,4 +1,4 @@
-Documentation of the IEC 62056-21 meter binding bundle
+[IR-Reader USB](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-usb-ausgang)Documentation of the IEC 62056-21 meter binding bundle
 
 ## Introduction
 
@@ -95,12 +95,20 @@ Second add below script to your rules:
 Third add below Frame to your sitemap:
 
 	Frame label="Energie" {
-		Text item=Tarif1 {
+		Text item=Tarif1 icon="energy" {
 			Frame {
 				Text item=Tarif1 
 				Text item=Tarif2
 				Chart item=gEnergieConsumption period=D refresh=600	
 				Chart item=gEnergieConsumption period=W refresh=3600 	
+			}
+		Text item=ActualUsage icon="energy" {
+			Frame {
+                              Text item=ActualUsage
+                              Switch item=ActualUsage_Chart_Perdiod label="Period" mappings=[0="Hour", 1="Day", 2="Week"]
+                              Chart item=ActualUsage period=h visibility=[ActualUsage_Chart_Period==0, ActualUsage_Chart_Period==Uninitialized ]
+                              Chart item=ActualUsage period=D visibility=[ActualUsage_Chart_Period==1]
+                              Chart item=ActualUsage period=W visibility=[ActualUsage_Chart_Period==2]
 			}
 		}	
 	}
@@ -108,5 +116,5 @@ Third add below Frame to your sitemap:
 ### Tested Hardware
 
 The binding has been successfully tested with below hardware configuration:
-* Landis & Gyr meter [ZMD120AR](http://www.landisgyr.ch/product/landisgyr-zmd120ar/)  connected via [IR-Reader](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf) from open hardware project in [volkszaehler](http://volkszaehler.org/)
-* Landis & Gyr meter connected the IR USB Head from Volkszaehler
+* Landis & Gyr meter [ZMD120AR](http://www.landisgyr.ch/product/landisgyr-zmd120ar/)  connected with[IR-Reader RS232](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf) from open hardware project in [volkszaehler](http://volkszaehler.org/)
+* Landis & Gyr meter connected the [IR-Reader USB](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-usb-ausgang) from open hardware project in [volkszaehler](http://volkszaehler.org/)
