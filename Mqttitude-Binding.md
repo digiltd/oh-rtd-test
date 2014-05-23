@@ -19,10 +19,10 @@ First you will need to install and configure the [MQTT binding](https://github.c
 There are two modes of operation for the Mqttitude binding. Note: you can have item bindings which are mixture of these two modes.
 
 #### Manual Mode ####
-The first is a manual calculation of your position relative to a single fixed 'home' geofence. In this mode you specify the 'home' geofence in your openhab.cfg file and then configure your item bindings to watch for location publishes from the OwnPaths app. As each location update is received the binding will calculate the distance from 'home' and update the item (ON/OFF) accordingly.
+The first is a manual calculation of your position relative to a single fixed 'home' geofence. In this mode you specify the 'home' geofence in your openhab.cfg file and then configure your item bindings to watch for location publishes from the OwnTracks app. As each location update is received the binding will calculate the distance from 'home' and update the item (ON/OFF) accordingly.
 
 #### Region Mode ####
-The second mode leaves the geofence definition and relative location calculations to the OwnPaths app itself. You can setup any number of 'regions' or 'waypoints' in your app and give them unique descriptions. Then in openHAB you simply add the region/waypoint description (optional third parameter of the item binding) and the binding will look for 'enter' or 'leave' events which are published by the app and switch the openHAB item accordingly. This allows you to define as many 'regions' or 'waypoints' as you like, and track a phones location relative to many points of interest - e.g. home, work, holiday house. 
+The second mode leaves the geofence definition and relative location calculations to the OwnTracks app itself. You can setup any number of 'regions' or 'waypoints' in your app and give them unique descriptions. Then in openHAB you simply add the region/waypoint description (optional third parameter of the item binding) and the binding will look for 'enter' or 'leave' events which are published by the app and switch the openHAB item accordingly. This allows you to define as many 'regions' or 'waypoints' as you like, and track a phones location relative to many points of interest - e.g. home, work, holiday house. 
 
 ### openhab.cfg Config
 
@@ -52,7 +52,7 @@ Here is an example of some 'Manual Mode' item bindings;
     Switch  PresenceBen_PhoneMqtt   "Ben @ Home"   { mqttitude="mosquitto:/mqttitude/ben" }
     Switch  PresenceSam_PhoneMqtt   "Sam @ Home"   { mqttitude="mosquitto:/mqttitude/sam" }
 
-You can track as many different mobile devices as you like, on the one MQTT broker, just by using a different MQTT topic for each. This is configured in the OwnPaths apps on your mobile devices.
+You can track as many different mobile devices as you like, on the one MQTT broker, just by using a different MQTT topic for each. This is configured in the OwnTracks apps on your mobile devices.
 
 When a device publishes a location the binding will receive it instantly, calculate the distance from your 'home' location, and if inside the 'geofence' radius set the Switch item to ON.
 
@@ -62,10 +62,10 @@ Here is an example of some 'Region Mode' item bindings;
     Switch  PresenceBen_PhoneMqttHome   "Ben @ Home"   { mqttitude="mosquitto:/mqttitude/ben:home" }
     Switch  PresenceBen_PhoneMqttWork   "Ben @ Work"   { mqttitude="mosquitto:/mqttitude/ben:work" }
 
-Here you can setup as many 'regions' or 'waypoints' as you like in your OwnPaths app and track each one in openHAB by creating a different item for each, with the region description as the optional third parameter in the item binding.
+Here you can setup as many 'regions' or 'waypoints' as you like in your OwnTracks app and track each one in openHAB by creating a different item for each, with the region description as the optional third parameter in the item binding.
 
 This is a far more powerful mode and gives greater flexibility. It also stops the issue of location publishes happening just before you get close enough to 'home' and thus being considered outside the geofence, and then no further updates being sent because you don't move far enough to trigger one.
 
-In 'Region Mode' the OwnPaths apps detects when you cross a geofence boundary and ALWAYS sends a location update (either enter or leave), meaning openHAB should never lose track of your position. 
+In 'Region Mode' the OwnTracks apps detects when you cross a geofence boundary and ALWAYS sends a location update (either enter or leave), meaning openHAB should never lose track of your position. 
 
-All regions/waypoints configured in the OwnPaths apps must to be set as 'Shared' as otherwise the description field is not sent, which the binding needs to match to an item.
+All regions/waypoints configured in the OwnTracks apps must to be set as 'Shared' as otherwise the description field is not sent, which the binding needs to match to an item.
