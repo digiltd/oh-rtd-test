@@ -53,6 +53,7 @@ Below is an example of represent the current energy counter tarif values as nume
     Number Tarif_Period	"Chart Period"
     Number Tarif1 "High price tarif [%d kwh]" (gEnergy) { iec6205621meter="meter1:1.8.1" }
     Number Tarif2 "Low price tarif [%d kwh]" (gEnergy) { iec6205621meter="meter1:1.8.2" }
+    Number ActualUsage "Actual usage [%.2f KW]" <gEnergy> () { iec6205621meter="meter1:16.7" }
 
 ### Rules
 
@@ -98,8 +99,8 @@ Third add below Frame to your sitemap:
 			Frame {
 				Text item=Tarif1 
 				Text item=Tarif2
-				Chart item=gEnergieVerbrauch period=D refresh=600	
-				Chart item=gEnergieVerbrauch period=W refresh=3600 	
+				Chart item=gEnergieConsumption period=D refresh=600	
+				Chart item=gEnergieConsumption period=W refresh=3600 	
 			}
 		}	
 	}
@@ -108,3 +109,4 @@ Third add below Frame to your sitemap:
 
 The binding has been successfully tested with below hardware configuration:
 * Landis & Gyr meter [ZMD120AR](http://www.landisgyr.ch/product/landisgyr-zmd120ar/)  connected via [IR-Reader](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf) from open hardware project in [volkszaehler](http://volkszaehler.org/)
+* Landis & Gyr meter connected the IR USB Head from Volkszaehler
