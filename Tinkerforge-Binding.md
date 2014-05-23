@@ -33,7 +33,7 @@ The following devices are supported for now:
 The TinkerForge binding bundle is available as a separate (optional) download. For installation of 
 the binding, please see Wiki page [[Bindings]].
 
-## SNAPSHOT Releases
+## Snapshot Releases
 There is ongoing development on the binding for openHAB 1.5. A lot of new devices are supported with the snapshot releases. Snapshots are downloadable from the CI and will work with the openHAB 1.4 runtime. Preliminary documentation is available from [here](https://github.com/theoweiss/openhab/wiki/Changes-1.5). You are encouraged to report bugs related to snapshot release.
 
 ## Upgrading from 1.3
