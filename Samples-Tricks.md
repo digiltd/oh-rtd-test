@@ -15,6 +15,7 @@ Miscellaneous Tips & Tricks
 * [enocean binding on Synology DS213+ (kernel driver package)](Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package)
 * [How to use openHAB to activate or deactivate your Fritz!Box-WLAN](Samples-Tricks#how-to-use-openhab-to-activate-or-deactivate-your-fritzbox-wlan)
 * [How to format a Google Maps URL from a Mqttitude Mqtt message](Samples-Tricks#how-to-format-a-google-maps-url-from-a-mqttitude-mqtt-message)
+* [How to format a Google Maps URL from a Mqttitude Mqtt message](Samples-Tricks####how-to-format-a-google-maps-url-from-a-mqttitude-mqtt-message)
 * [How to use Yahoo weather images](Samples-Tricks#how-to-use-yahoo-weather-images)
 * [How to wake up with Philips Hue](Samples-Tricks#how-to-wake-up-with-philips-hue)
 * [How to manage and sync configuration via subversion](Samples-Tricks#how-to-manage-and-sync-configuration-via-subversion)
@@ -963,6 +964,72 @@ var location = eval('(' + input + ')');
 result = "http://maps.google.com/maps?z=12&t=m&q=loc:" + location.lat + "+" + location.lon;
 ```
 The value of your item (Map_Dan_Phone) will be set to the result value. 
+
+### How to display Google Maps in a sitemap from a Mqttitude Mqtt message
+
+First, create a MQTT entry in your items file that subscribes to the Mqttitude push:
+
+`String 	Location_Dan_Phone {mqtt="<[home:owntracks/daniel/iphone5s:state:JS(mqttitude-coordinates.js)]"}`
+
+The transform is a javascript file in the configuration/Transform directory (mqttitude-coordinates.js).  This file is very simple:
+```
+var location = eval('(' + input + ')');
+result = location.lat + "," + location.lon;
+```
+The value of your item (Location_Dan_Phone) will be set to the result value. 
+
+Create a webpage that you will put in the webapps/static directory, call it map.html
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map_canvas {
+        width: 900px;
+        height:500px;
+      }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+      $(function() {
+	$.ajax({
+		url: "/rest/items/Location_Dan_Phone?type=json",
+		dataType: "json",
+  		data: {
+		},
+  		success: function( data ) {
+			 console.log(data);
+			 var coords = data.state.split(',');
+			 var latlng = new google.maps.LatLng(coords[0],coords[1]);
+			 var map_canvas = document.getElementById('map_canvas');
+		         var map_options = {
+          			center: latlng,
+          			zoom: 14,
+          			mapTypeId: google.maps.MapTypeId.HYBRID
+        		}
+        		var map = new google.maps.Map(map_canvas, map_options)
+			var marker = new google.maps.Marker({
+				position: latlng,
+    				map: map,
+    				title:"Dan's Phone",
+				image: "http://s1.hubimg.com/u/7148626_f520.jpg"
+			});
+      		}
+  	  });
+	});
+    </script>
+  </head>
+  <body>
+    <div id="map_canvas"></div>
+  </body>
+</html>
+```
+now reference the full URL to this page in a webview widget in your sitemap, something like
+```
+Webview  url="https://openhab.mydomain.com:8443/static/map.html"  height=12
+```
+Make sure you you have username and password authentication turned on!
 
 ### How to use Yahoo weather images
 
