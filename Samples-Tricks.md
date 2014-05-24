@@ -15,7 +15,7 @@ Miscellaneous Tips & Tricks
 * [enocean binding on Synology DS213+ (kernel driver package)](Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package)
 * [How to use openHAB to activate or deactivate your Fritz!Box-WLAN](Samples-Tricks#how-to-use-openhab-to-activate-or-deactivate-your-fritzbox-wlan)
 * [How to format a Google Maps URL from a Mqttitude Mqtt message](Samples-Tricks#how-to-format-a-google-maps-url-from-a-mqttitude-mqtt-message)
-* [How to display Google Maps in a sitemap from a Mqttitude Mqtt message](Samples-Tricks#how-to-display-google-maps-in-a sitemap-from-a-mqttitude-mqtt-message)
+* [How to display Google Maps in a sitemap from a Mqttitude Mqtt message](Samples-Tricks#how-to-display-google-maps-in-a-sitemap-from-a-mqttitude-mqtt-message)
 * [How to use Yahoo weather images](Samples-Tricks#how-to-use-yahoo-weather-images)
 * [How to wake up with Philips Hue](Samples-Tricks#how-to-wake-up-with-philips-hue)
 * [How to manage and sync configuration via subversion](Samples-Tricks#how-to-manage-and-sync-configuration-via-subversion)
