@@ -50,13 +50,13 @@ The following item types are currently available (alphabetical order):
 </table>
 
 Group Item Summary Value
-Group Items can also have a summary value displayed.
-AVG displays the average of the items in the group.
-OR displays an OR of the group, typically used to display whether any item in a group has been set.
+  Group Items can also have a summary value displayed.
+  - AVG displays the average of the items in the group.
+  - OR displays an OR of the group, typically used to display whether any item in a group has been set.
 
 Sample syntax for a Group summary:
-Group:Number:AVG() itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
-Group:Switch:OR(ON, OFF) itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+     Group:Number:AVG() itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+     Group:Switch:OR(ON, OFF) itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
 
 ### itemname
 
