@@ -49,6 +49,15 @@ The following item types are currently available (alphabetical order):
   <tr><td>Switch</td><td>Typically used for lights (on/off)</td><td>OnOff</td></tr>
 </table>
 
+Group Item Summary Value
+Group Items can also have a summary value displayed.
+AVG displays the average of the items in the group.
+OR displays an OR of the group, typically used to display whether any item in a group has been set.
+
+Sample syntax for a Group summary:
+Group:Number:AVG() itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+Group:Switch:OR(ON, OFF) itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+
 ### itemname
 
 The item name is the unique name of the object which is used e.g. in the sitemap definitin or rule definition files to access the specific item.
