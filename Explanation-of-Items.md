@@ -52,6 +52,7 @@ The following item types are currently available (alphabetical order):
   Group Items can also have a summary value displayed.
   - AVG displays the average of the items in the group.
   - OR displays an OR of the group, typically used to display whether any item in a group has been set.
+  - other summaries:  AND, SUM, MIN, MAX, NAND, NOR
 
 Sample syntax for a Group summary:
 
