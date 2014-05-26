@@ -97,7 +97,7 @@ Please note the difference between `sendCommand` and `postCommand`: Sending mean
 In order to receive information from an external system, you usually either need some background thread continuously listening to the external system (e.g. on a socket or serial interface) or you need to regularly actively poll the external system. In both cases, choosing to extend the class `AbstractActiveBinding` will help you.
 
 `AbstractActiveBinding` extends `AbstractBinding` so everything said above will still be the same. You will simply get an additional feature: The active binding provides a thread creation and handling and all you have to do is to specify a pause interval between calls of the `execute()` method. 
-See the [NtpBinding class](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.ntp/src/main/java/org/openhab/binding/ntp/internal/NtpBinding.java) for a simple example of such a binding.
+See the [NtpBinding class](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.ntp/src/main/java/org/openhab/binding/ntp/internal/NtpBinding.java) for a simple example of such a binding. `ntp:refresh` in openhab.cfg is the ntp specific pause interval.
 
 ### Lifecycle
 
