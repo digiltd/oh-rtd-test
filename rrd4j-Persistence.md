@@ -30,18 +30,16 @@ There are many possibilities in rrd4j to define how the data compression should 
     rrdDef.addArchive(function, .999, 21600, 1460); // one year (granularity 6 hours)
     rrdDef.addArchive(function, .999, 86400, 3650); // ten years (granularity 1 day)
 
-I future versions it is planned to offer an "expert mode", where these values are configurable.
+In future versions it is planned to offer an "expert mode", where these values are configurable.
 
-The rrd4j Persistence Service currently does not allow to be queried, because of the data compression. You could not provide precise answers for all questions. 
+The rrd4j Persistence Service cannot be directly queried, because of the data compression. You could not provide precise answers for all questions. 
 
 ## Installation
 
 For installation of this persistence package please follow the same steps as if you would [install a binding](Bindings).
 
-Additionally, place a persistence file called rrd4j.persist in the `${openhab_home}/configuration/persistence` folder.
-
 ## Configuration
 
-There is nothing to configure in the `openhab.cfg` file for this persistence service.
+Place a persistence file called rrd4j.persist in the `${openhab_home}/configuration/persistence` folder.
 
-All item and event related configuration is done in the rrd4j.persist file. Aliases do not have any special meaning for the rrd4j Persistence Service.
+See [Persistence](Persistence) for details on configuring this file.
