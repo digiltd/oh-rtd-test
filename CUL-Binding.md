@@ -14,6 +14,7 @@ have the necessary permissions to access serial ports. Additional it is possible
 VM parameters. I had to edit the following to parameters to get the CUL binding running on a Raspberry Pi.
 - -Dgnu.io.rxtx.SerialPorts=/dev/ttyACM0
 - -Djava.library.path=/usr/lib/jni
+
 The second one is the folder where the native library for rxtx is located.
 
 ## Configuration
