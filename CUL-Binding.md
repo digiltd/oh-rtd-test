@@ -3,42 +3,33 @@ Documentation of the CUL binding bundle
 # CUL Binding for openHAB
 
 This binding allows you use a CUL device from busware.de in SlowRF mode to connect to FS20/FHT/Intertechno devices.
-It is probably possible to use this binding with other devices running culfw (culfw.de) as as they appear as a serial
-device on the linux system.
+It is probably possible to use this binding with other devices running culfw (culfw.de) as as they appear as a serial device on the linux system.
 
 ## Installation
 
-Besides simply dropping this binding into the addon folder it is possible that some more steps are needed to get 
-everything running. Most importantly on Linux the user openHAB is running as has to be in the group 'dialout' to
-have the necessary permissions to access serial ports. Additional it is possible that you need to add/alter some
-VM parameters. I had to edit the following to parameters to get the CUL binding running on a Raspberry Pi.
+Besides simply dropping this binding into the addon folder it is possible that some more steps are needed to get everything running. Most importantly on Linux the user openHAB is running as has to be in the group 'dialout' to have the necessary permissions to access serial ports. Additional it is possible that you need to add/alter some VM parameters. I had to edit the following to parameters to get the CUL binding running on a Raspberry Pi.
 - -Dgnu.io.rxtx.SerialPorts=/dev/ttyACM0
-- -Djava.library.path=/usr/lib/jni
-
-The second one is the folder where the native library for rxtx is located.
+- -Djava.library.path=/usr/lib/jni (folder where native library for rxtx is located)
 
 ## Configuration
 
 ### openhab.cfg
 
-At the very least you have to specify the device the binding should use
+At the very least you have to specify the device the binding should use:
 - cul:device=/dev/ttyACM0
-If you want to control FHT devices (setting the temperature and so on) you should also specify a valid housecode.
-You can do this for example like that
+
+If you want to control FHT devices you have to also specify a valid housecode:
 - cul:housecode=6261
-There is also the possibility that this binding keeps the time of your FHTs up to date. This can be configured with
-the following parameters
-- cul:fht.time.update=true This activates the update process
-- cul:fht.time.update.cron=0 15 04 ** ** ? and this specifies a cron expression for the quartz scheduler when the update should
-	be started.
-Please note that updating multiple FHTs can take quite some and currentyl there is the possibility that the send buffer of
-your CUL could be filled up and block other commands.
-In case you want to control Intertechno remote switches it is possible that the sending parameters need some finetuning. There are
-two parameters which can be set to adjust the sending behaviour of the CUL in Intertechno mode.
+
+There is also the possibility that this binding keeps the time of your FHTs up to date. This can be configured with the following parameters:
+- cul:fht.time.update=true (activates the update process)
+- cul:fht.time.update.cron=0 15 04 ** ** ? (specifies a cron expression for the quartz scheduler when the update should be started)
+
+Please note that updating multiple FHTs can take quite some time and currently there is the possibility that the send buffer of your CUL could be filled up and block other commands. In case you want to control Intertechno remote switches it is possible that the sending parameters need some finetuning. There are two parameters which can be set to adjust the sending behaviour of the CUL in Intertechno mode.
 - cul:itrepetitions=6
 - cul:itwavelength=420
-The first one specifies how often a command is repeated and the second one defines length of one wave puls. Please refer to the
-documentation of culfw for more details.
+
+The first one specifies how often a command is repeated and the second one defines length of one wave puls. Please refer to the documentation of culfw for more details.
 
 ### Item bindings
 
