@@ -62,18 +62,22 @@ A good example for such an "Out-Binding" is the Exec-binding. When receiving a c
 
 Such bindings can be implemented pretty easily: All you have to do is to extend the class `AbstractBinding` and override the methods 
 
-    	public void internalReceiveCommand(String itemName, Command command)
+```java 
+public void internalReceiveCommand(String itemName, Command command)
+```
 and / or
-    	protected void internalReceiveUpdate(String itemName, State newState)
+```java
+protected void internalReceiveUpdate(String itemName, State newState)
+```
 As the method signatures suggest, you are passed the name of the item and the command or state that was sent on the openHAB event bus. In these methods, you can then perform whatever code is appropriate for your use case. See the [ExecBinding class](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.exec/src/main/java/org/openhab/binding/exec/internal/ExecBinding.java) as an example.
 
 All there is left to do is to register your class with the OSGi event admin service. To do so, your component has to provide the `EventHandler` service and define the property `event.topics`. In your `OSGI-INF/binding.xml` file, this should look like this:
-
-    	<service>
-    	    	<provide interface="org.osgi.service.event.EventHandler"/>
-    	</service>
-    	<property name="event.topics" type="String" value="openhab/*"/>
-
+```xml
+<service>
+   <provide interface="org.osgi.service.event.EventHandler"/>
+</service>
+<property name="event.topics" type="String" value="openhab/*"/>
+```
 If you are only interested in commands, you can also choose `openhab/command/*` as a topic.
 See the [component descriptor of the ExecBinding](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.exec/OSGI-INF/binding.xml) as an example.
 
@@ -81,15 +85,16 @@ See the [component descriptor of the ExecBinding](https://github.com/openhab/ope
 
 If you receive information from an external system somewhere in your code and you want to post commands or status updates on the openHAB event bus, you can as well simply extend `AbstractBinding` for your implementation. Your binding class should then reference the `EventPublisher` service in the `OSGI-INF/binding.xml` file. This should look like this:
 
-    	<reference bind="setEventPublisher" cardinality="1..1" interface="org.openhab.core.events.EventPublisher" 
-    	    	name="EventPublisher" policy="dynamic" unbind="unsetEventPublisher"/>
+```xml
+    	<reference bind="setEventPublisher" cardinality="1..1" interface="org.openhab.core.events.EventPublisher" name="EventPublisher" policy="dynamic" unbind="unsetEventPublisher"/>
+```
 
 In your code, you can then simply refer to the instance variable `eventPublisher` in order to very easily send events:
-
+```java
     	eventPublisher.postUpdate(itemName, state);
     	eventPublisher.postCommand(itemName, command);
     	eventPublisher.sendCommand(itemName, command);
-
+```
 Please note the difference between `sendCommand` and `postCommand`: Sending means a synchronous call, i.e. the method does not return until all event bus subscribers have processed the event. So if you just want to do a fire&forget, use the asynchronous postCommand method instead.
 
 ### Handling background activities
