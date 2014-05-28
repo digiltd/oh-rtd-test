@@ -63,7 +63,7 @@ Sample syntax for a Group summary:
 
 ### itemname
 
-The item name is the unique name of the object which is used e.g. in the sitemap definitin or rule definition files to access the specific item.
+The item name is the unique name of the object which is used e.g. in the sitemap definition or rule definition files to access the specific item.
 
 ### labeltext
 
