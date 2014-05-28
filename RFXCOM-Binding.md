@@ -135,4 +135,5 @@ Examples, how to configure your items:
   <tr><td>InstantPower</td><td>NumberItem</td><td></td></tr>
   <tr><td>TotalUsage</td><td>NumberItem</td><td></td></tr>
   <tr><td>Voltage</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Status</td><td>StringItem</td><td></td></tr>
 </table>
