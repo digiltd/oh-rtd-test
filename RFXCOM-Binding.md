@@ -78,6 +78,10 @@ Examples, how to configure your items:
     Number RFXTemp_LivingSP { rfxcom="<30515:SetPoint" }
     Contact RFXTemp_LivingRoom_Stat { rfxcom="<30515:Contact" }     	
 
+    LIGHTWAVERF example
+    Switch LightSwitch { rfxcom=">3155730.3:LIGHTING5.LIGHTWAVERF:Command"}
+
+
 `PacketType.SubType` specify packet and sub type information ...
 
 <table>
@@ -93,6 +97,7 @@ Examples, how to configure your items:
   <tr><td>LIGHTING2.AC</td><td>working</td><td>Command, DimmingLevel</td></tr>
   <tr><td>LIGHTING2.HOME_EASY_EU</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING2.ANSLUT</td><td>Untested</td><td></td></tr>
+  <tr><td>LIGHTING5.LIGHTWAVERF</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING6.BLYSS</td><td>working</td><td>Command</td></tr>
   <tr><td>CURTAIN1.HARRISON</td><td>Harrison curtain rail, e.g. Neta 12</td><td>Shutter</td></tr>
    <tr><td>TEMPERATURE.La Crosse TX17</td><td>working</td><td></td></tr>
