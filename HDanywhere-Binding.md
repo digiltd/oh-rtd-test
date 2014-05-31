@@ -8,7 +8,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Generic Item Binding Configuration
 
-In order to bind an item to an HDMI matrix, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Plugwise binding configuration string is explained here:
+In order to bind an item to an HDMI matrix, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the HDAnywhere binding configuration string is explained here:
 
 The format of the binding configuration is simple and looks like this:
 
