@@ -79,7 +79,9 @@ Examples, how to configure your items:
     Contact RFXTemp_LivingRoom_Stat { rfxcom="<30515:Contact" }     	
 
     LIGHTWAVERF example
-    Switch LightSwitch { rfxcom=">3155730.3:LIGHTING5.LIGHTWAVERF:Command"}
+    Switch Light1 { rfxcom=">3155730.3:LIGHTING5.LIGHTWAVERF:Command"}
+    Dimmer Light2 "Light2 [%d %%]" { rfxcom=">3155730.4:LIGHTING5.LIGHTWAVERF:DimmingLevel"  }
+
 
 
 `PacketType.SubType` specify packet and sub type information ...
