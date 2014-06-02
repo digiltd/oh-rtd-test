@@ -10,7 +10,7 @@ For information about how to setup a development environment, please see the [ac
 
 The openHAB runtime distribution comes without any binding. All bindings are considered to be "add-ons", which the user can optionally install by putting it in the "addons" folder of the runtime. As a consequence of this, a binding should usually be a single file and as a file corresponds to an OSGi bundle, a binding should be a single bundle.
 
-The purpose of a binding is to translate between events on the openHAB event bus and an external system. This translation should happen "stateless", i.e. the binding must not access the !ItemRegistry in order to get hold of the current state of an item. Likewise, it should not itself keep states of items in memory.
+The purpose of a binding is to translate between events on the openHAB event bus and an external system. This translation should happen "stateless", i.e. the binding must not access the ItemRegistry in order to get hold of the current state of an item. Likewise, it should not itself keep states of items in memory.
 
 # Creating a Bundle Skeleton
 
