@@ -25,7 +25,7 @@ First you need to let openHAB know where to find your Squeeze Server and each of
     squeeze:<player-id>.id=<mac-address-of-player A:B:C:D:E:F>
 
     # Language used by squeezeboxSpeak as used by google ttl (en, de, fr,...) 
-    #squeeze:language=<xx>
+    squeeze:language=<xx>
 
 NOTE: the `player-id` will be used in both the binding item configs and the action calls to defined which of your Squeezebox devices to communicate with.
 
