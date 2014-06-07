@@ -66,6 +66,28 @@ Currently OpenHAB's Number, Switch, Contact, String and DateTime items are suppo
   <tr><td>DateTime</td><td>WSDateValue, WSTimeValue</td></tr>
 </table>
 
+Examples how to find resource ID's from project file (from .vis file) and map them to OpenHAB data types.
+
+<table>
+  <tr><td><b>OpenHAB data type</b></td><td><b>Resource id from project file</b></td></tr>
+  <tr><td>Switch</td><td>&lt;dataline_input id="_0x3f295a" …&gt;</td></tr>
+  <tr><td>Switch</td><td>&lt;dataline_output id="_0x3ce35b" …&gt;</td></tr>
+  <tr><td>Switch</td><td>&lt;airlink_input id="_0x5b555c" …&gt;</td></tr>
+  <tr><td>Dimmer</td><td>&lt;airlink_dimming id="_0x3ec5d" …&gt;</td></tr>
+  <tr><td>Switch</td><td>&lt;resource_flag id="_0x97e00a" …&gt;</td></tr>
+
+  <tr><td>Number</td><td>&lt;resource_temperature id="_0x3f4d14" …&gt;</td></tr>
+  <tr><td>Number</td><td>&lt;resource_timer id="_0x97de10" …&gt;</td></tr>
+  <tr><td>Number</td><td>&lt;resource_counter id="_0x97df0c" …&gt;</td></tr>
+  <tr><td>Number</td><td>&lt;resource_weekday id="_0x97e109" …&gt;</td></tr>
+  <tr><td>Number</td><td>&lt;resource_light_level id="_0x97dc13" …&gt;</td></tr>
+  <tr><td>Number</td><td>&lt;resource_integer id="_0x97e20b" …&gt;</td></tr>
+  <tr><td>DateTime</td><td>&lt;resource_time id="_0x97db0d" …&gt;</td></tr>
+  <tr><td>DateTime</td><td>&lt;resource_date id="_0x97dd0e" …&gt;</td></tr>
+  <tr><td>String</td><td>&lt;resource_enum id="_0x98050f" …&gt;</td></tr>
+</table>
+
+
 Examples, how to configure your items (e.g. demo.items):
 
 Weather temperature is download from internet and updated to IHC controller object where resource id is 1234567:
