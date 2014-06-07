@@ -41,6 +41,8 @@ A working example for such configuration could look like:
     # samsungtv:Bedroom.host=192.168.0.13
     # samsungtv:Bedroom.port=55000
 
+During first connection attempt, TV ask to grant permission to OpenHAB application. If you have missed dialog, you can change permission options from TV's menu (e.g. Menu -> Network -> AllShare options). If you have any problems to control you TV by OpenHAB, you could verify connection by Samsung official iOS or Android remote control software. 
+
 ## Item Binding Configuration
 
 In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
