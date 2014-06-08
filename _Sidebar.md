@@ -107,6 +107,7 @@ Community
   * [[Logging Persistence|Logging-Persistence]]
   * [[Exec Persistence|Exec-Persistence]]
   * [[MQTT Persistence|MQTT-Persistence]]
+  * [[InfluxDB Persistence|InfluxDB-Persistence]]
  * Automation
   * [[Scripts]]
   * [[Rules]]
