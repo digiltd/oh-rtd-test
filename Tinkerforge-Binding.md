@@ -429,6 +429,101 @@ Text item=electrode11
 Text item=proximity
 ```
 
+#### Remote Switch Bricklet
+An entry in openhab.cfg mandatory. You have to set sub device names $subdevice for your devices in the appropriate
+type$typeDevices variable as space separated list. $type depends on the device hardware type of your switching device.
+You must also add configuration for the $subdevice device. The available configuration variables depend
+on the device type.
+
+openhab.cfg
+* device configuration
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_remote_switch |
+| typeADevices | sub device names of type A devices | choose a resonable string, e.g. "kitchen bathroom" |
+| typeBDevices | sub device names of type B devices  | true or false |
+| typeCDevices | sub device names of type C devices  |
+
+```
+tinkerforge:rs1.uid=jKw
+tinkerforge:rs1.type=bricklet_remote_switch
+tinkerforge:rs1.typeADevices=rslr1 rslr2
+tinkerforge:rs1.typeBDevices=kitchen
+tinkerforge:rs1.typeCDevices=floor
+```
+
+* sub device type A configuration
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | must correspond to the device(A,B,C)Devices setting| e.b. kitchen|
+| houseCode | the house code of the switching device | e.g. 31 |
+| receiverCode | the reciever code of the switching device | e.g. 8 |
+| repeats | the number of times the code is send | e.g. 5 |
+
+```
+tinkerforge:rs_living_room.uid=jKw
+tinkerforge:rs_living_room.subid=rslr1
+tinkerforge:rs_living_room.type=remote_switch_a
+tinkerforge:rs_living_room.houseCode=31
+tinkerforge:rs_living_room.receiverCode=8
+```
+
+* sub device type B configuration
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | must correspond to the device(A,B,C)Devices setting| e.b. kitchen|
+| address | the address of the switching device | e.g. 344 |
+| unit | the unit value of the switching device | e.g. 9 |
+| repeats | the number of times the code is send | e.g. 5 |
+
+```
+tinkerforge:rs_kitchen.uid=jKw
+tinkerforge:rs_kitchen.subid=kitchen
+tinkerforge:rs_kitchen.type=remote_switch_b
+tinkerforge:rs_kitchen.address=344
+tinkerforge:rs_kitchen.unit=9
+```
+
+* sub device type C configuration
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | must correspond to the device(A,B,C)Devices setting| e.b. kitchen|
+| systemCode | the system code of the switching device | e.g. A |
+| deviceCode | the device code of the switching device | e.g. 8 |
+| repeats | the number of times the code is send | e.g. 5 |
+
+```
+tinkerforge:rs_floor.uid=jKw
+tinkerforge:rs_floor.subid=floor
+tinkerforge:rs_floor.type=remote_switch_c
+tinkerforge:rs_floor.systemCode=A
+tinkerforge:rs_floor.deviceCode=8
+```
+
+items file entry (e.g. tinkerforge.items):
+```
+Switch r0           {tinkerforge="uid=jKw, subid=rslr1"}
+Switch r1           {tinkerforge="uid=jKw, subid=rslr2"}
+Switch rb           {tinkerforge="uid=jKw, subid=kitchen"}
+Switch rc           {tinkerforge="uid=jKw, subid=floor"}```
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Switch item=r0
+Switch item=r1
+Switch item=rb
+Switch item=rc
+```
+
 #### Distance IR Bricklet
 An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
 if you want to use a _symbolic name_.
@@ -906,7 +1001,7 @@ io4sensor sub device:
 | type | openHAB type name | io4sensor |
 | pullUpResistorEnabled | enable the pull-up resistor |  true, false |
 
-io_actor sub device:
+io4_actor sub device:
 
 | property | descripition | values |
 |----------|--------------|--------|
