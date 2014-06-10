@@ -648,6 +648,66 @@ sitemap file entry (e.g tinkerforge.sitemap):
 
     Text item=Barometer
 
+#### TemperatureIR Bricklet
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod, 
+if you want to use a _symbolic name_ or adjust the emissivity of the object temperature device.
+
+bricklet:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_barometer |
+
+object temperature sub device:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | openHAB subid of the device | object_temperature |
+| type | openHAB type name | object_temperature |
+| emissivity |  emissivity that is used to calculate the surface temperature | a factor of 65535 e.g. 6553|
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+
+openhab.cfg
+```
+tinkerforge:objIR.uid=kr2
+tinkerforge:objIR.subid=object_temperature
+tinkerforge:objIR.type=object_temperature
+tinkerforge:objIR.emissivity=65535
+tinkerforge:objIR.threshold=0
+```
+
+ambient temperature sub device:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | openHAB subid of the device | ambient_temperature |
+| type | openHAB type name | ambient_temperature |
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+
+openhab.cfg:
+```
+tinkerforge:ambIR.uid=kr2
+tinkerforge:ambIR.subid=ambient_temperature
+tinkerforge:ambIR.type=ambient_temperature
+tinkerforge:ambIR.threshold=0
+```
+items file entry (e.g. tinkerforge.items):
+```
+Number AmbientTemperature                 "AmbientTemperature [%.1f C]"  { tinkerforge="uid=kr2, subid=ambient_temperature" }
+Number ObjectTemperature                 "ObjectTemperature [%.1f C]"  { tinkerforge="uid=kr2, subid=object_temperature" }
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Text item=AmbientTemperature
+Text item=ObjectTemperature
+```
+
 #### Ambient Light Bricklet
 An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
 if you want to use a _symbolic name_.
@@ -675,6 +735,102 @@ items file entry (e.g. tinkerforge.items):
 sitemap file entry (e.g tinkerforge.sitemap):
 
     Text item=AmbientLight 
+
+#### Sound Intensity Bricklet
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+if you want to use a _symbolic name_.
+
+bricklet:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_soundintensity |
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+
+openhab.cfg:
+```
+tinkerforge:sound.uid=iQE
+tinkerforge:sound.type=bricklet_soundintensity
+tinkerforge:sound.threshold=1
+tinkerforge:sound.callbackPeriod=5000
+items file entry (e.g. tinkerforge.items):
+```
+items file entry (e.g. tinkerforge.items):
+```
+Number SoundIntensity                 "Sound [%.1f]"  { tinkerforge="uid=iQE" }
+```
+sitemap file entry (e.g tinkerforge.sitemap):
+
+```
+Text item=SoundIntensity
+```
+
+#### Tilt Bricklet
+You can use a contact, number or switch item.
+
+An entry in openhab.cfg is only needed if you want to use a _symbolic name_.
+
+bricklet:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_tilt |
+
+openhab.cfg:
+```
+tinkerforge:tilt.uid=j7k
+tinkerforge:tilt.type=bricklet_tilt
+```
+
+items file entry (e.g. tinkerforge.items):
+```
+Contact tiltContact     "tilt [MAP(en.map):%s]" { tinkerforge="uid=j7k" }
+Number tiltSensor       "tilt [MAP(en.map):%s]"  { tinkerforge="uid=j7k" }
+Switch tiltSwitch         "tilt" { tinkerforge="uid=j7k" }
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+
+```
+Text item=tiltContact
+Text item=tiltSensor
+Switch item=tiltSwitch
+```
+
+en.map file entry (optional)
+```
+0=closed
+1=open
+2=vibrating
+```
+
+#### Segment Display 4x7
+The LCD20x4 is a bit special as it acts as actuator which can receive number messages. To 
+achieve this, you have to configure the device as Number item.
+
+An entry in openhab.cfg is only needed if you want to use a _symbolic name_.
+
+items file entry (e.g. tinkerforge.items):
+```
+Number Segment7         "Segment7" { tinkerforge="uid=kQg"}
+```
+
+rules file (e.g. tinkerforge.rules):
+
+If you want to display the object temperature from a temperatureIr Item called ObjectTemperature this
+rule would do the trick for you.
+
+```
+rule "Weatherstation Segment update ObjectTemperature"
+        when 
+                Item ObjectTemperature received update
+        then
+                sendCommand(Segment7, ObjectTemperature.state))
+end
+```
 
 #### LCD20x4 Bricklet
 
