@@ -22,7 +22,7 @@ The binding supports more than one KKRP01A if required.
     daikin:refresh=60000
 
     # where <name> is used in your item bindings
-    daikin:<name>:host=<ipaddress|host>
+    daikin:<name>.host=<ipaddress|host>
     #daikin:<name>.username=<not used>
     #daikin:<name>.password=<not used>
 
