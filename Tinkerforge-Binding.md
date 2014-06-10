@@ -198,15 +198,6 @@ The threshold controls the amount of  traffic from the binding to the openHAB ev
 
 ### Devices
 #### LED Strip Bricklet
-An entry in openhab.cfg is only needed if you want to use a _symbolic name_ in the items file.
-
-bricklet:
-
-| property | descripition | values |
-|----------|--------------|--------|
-| uid | tinkerforge uid | get value from brickv |
-| type | openHAB type name | TODO |
-| led  |led (mandatory): led number or range of leds|e.g 1&#124;3&#124;6-10|
 
 items file entry (e.g. tinkerforge.items):
  ```
@@ -1134,15 +1125,6 @@ sitemap file entry (e.g tinkerforge.sitemap):
     Text item=ID4
 
 #### Industrial Digital Out 4 Bricklet
-
-bricklet:
-
-| property | descripition | values |
-|----------|--------------|--------|
-| uid | tinkerforge uid | get value from brickv |
-| subid | openHAB subid of the device | out0, out2, out3, out4 |
-| type | openHAB type name | bricklet_industrial_digital_4out |
-| debouncePeriod | debounce time in ms | default=100 | TODO
 
 output port sub devices:
 
