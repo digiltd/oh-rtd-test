@@ -1,4 +1,5 @@
 Documentation of the TinkerForge binding bundle
+TOC TODO
 
 ## Introduction
 
@@ -707,6 +708,101 @@ sitemap file entry (e.g tinkerforge.sitemap):
 Text item=AmbientTemperature
 Text item=ObjectTemperature
 ```
+
+#### Voltage / Current Bricklet
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod, 
+if you want to use a _symbolic name_ or adjust the averaging, voltage conversion time, 
+current conversion time of the device.
+
+bricklet:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_voltageCurrent |
+|averaging|number of averages|0-7|
+|voltageConversionTime|voltage conversion time|0-7|
+|currentConversionTime|current conversion time|0-7|
+```
+tinkerforge:voltageCurrent.uid=dN5
+tinkerforge:voltageCurrent.type=bricklet_voltageCurrent
+tinkerforge:voltageCurrent.averaging=3
+tinkerforge:voltageCurrent.voltageConversionTime=4
+tinkerforge:voltageCurrent.currentConversionTime=4
+```
+
+voltage sub device:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | openHAB subid of the device | voltageCurrent_voltage |
+| type | openHAB type name | voltageCurrent_voltage |
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+
+openhab.cfg
+```
+tinkerforge:vc_voltage.uid=dN5
+tinkerforge:vc_voltage.subid=voltageCurrent_voltage
+tinkerforge:vc_voltage.type=voltageCurrent_voltage
+tinkerforge:vc_voltage.threshold=20
+tinkerforge:vc_voltage.callbackPeriod=100
+```
+
+current sub device:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | openHAB subid of the device | voltageCurrent_current |
+| type | openHAB type name | voltageCurrent_current |
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+
+openhab.cfg
+```
+tinkerforge:vc_current.uid=dN5
+tinkerforge:vc_current.subid=voltageCurrent_current
+tinkerforge:vc_current.type=voltageCurrent_current
+tinkerforge:vc_current.threshold=10
+tinkerforge:vc_current.callbackPeriod=100
+```
+
+power sub device:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | openHAB subid of the device | voltageCurrent_power |
+| type | openHAB type name | voltageCurrent_power |
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+
+openhab.cfg
+```
+tinkerforge:vc_power.uid=dN5
+tinkerforge:vc_power.subid=voltageCurrent_power
+tinkerforge:vc_power.type=voltageCurrent_power
+tinkerforge:vc_power.threshold=10
+tinkerforge:vc_power.callbackPeriod=100
+```
+
+
+items file entry (e.g. tinkerforge.items):
+```
+Number Voltage       "Voltage [%d mV]"  { tinkerforge="uid=dN5, subid=voltageCurrent_voltage" }
+Number Current       "Current [%d mA]"  { tinkerforge="uid=dN5, subid=voltageCurrent_current" }
+Number Power         "Power [%d mW]"  { tinkerforge="uid=dN5, subid=voltageCurrent_power" }```
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Text item=Voltage
+Text item=Current
+Text item=Power
+```
+
 
 #### Ambient Light Bricklet
 An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
