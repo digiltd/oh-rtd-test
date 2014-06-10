@@ -29,17 +29,47 @@ The following devices are supported for now:
 - Industrial Quad Relay
 - Bricklet Industrial Digital In 4
 - Bricklet IO-16
+- Bricklet Remote Switch
+- Bricklet Motion Detector
+- Bricklet MultiTouch
+- Bricklet TemperatureIR
+- Bricklet SoundIntensity
+- Bricklet Moisture
+- Bricklet DistanceUS
+- Bricklet VoltageCurrent
+- Bricklet Tilt
+- Bricklet IO-4
+- Bricklet Industrial Digital Out 4
+- Bricklet Segment Display 4x7
+- Bricklet LED Strip
 
 The TinkerForge binding bundle is available as a separate (optional) download. For installation of 
 the binding, please see Wiki page [[Bindings]].
-
-## Snapshot Releases
-There is ongoing development on the binding for openHAB 1.5. A lot of new devices are supported with the snapshot releases. Snapshots are downloadable from the CI and will work with the openHAB 1.4 runtime. Preliminary documentation is available from [here](https://github.com/theoweiss/openhab/wiki/Changes-1.5). You are encouraged to report bugs related to snapshot release.
 
 ## Upgrading from 1.3
 - LCDBacklight now is a sub device of LCD20x4 Bricklet (items file has to be changed)
 - LCD20x4Button now posts an update not a command anymore (rules has to be changed)
 - IndustrialQuadRelay sub id numbering now starts from zero (items file has to be changed) 
+
+## Upgrading from 1.4
+* Threshold values now have the same unit as the sensor value (incompatible change, you may have to update your openhab.cfg).
+   * Background:
+     Some getters for sensor values of the TinkerForge API return higher precision values by using short values with fractions of the common units, e.g. the Temperature Bricklet returns hundredths of a celsius degree. The binding converts these values to common units using a BigDecimal. Until now the threshold values were applied to the sensor value before this conversion. Because of that the threshold values had to be given as the appropriate fraction. With the drawback that the openHAB users need some knowledge about the behavior of the TinkerForge API. Now the threshold is applied after converting the original values. Therefore the units used for the sensor values and the threshold values are equal. 
+    * Humidity Bricklet
+       * calculate new threshold values from values of your current configuration: divide by 10
+       * unity: relative humidity in percent
+    * Distance IR Bricklet
+       * calculate new threshold values from values of your current configuration: nothing changed
+       * unity: millimeter
+    * Temperature Bricklet
+       * calculate new threshold values from values of your current configuration: divide by 100
+       * unity: degree Celsius
+    * Barometer Bricklet
+       * calculate new threshold values from values of your current configuration: divide by 1000
+       * unity: mbar
+    * Ambient Light Bricklet
+       * calculate new threshold values from values of your current configuration: divide 10
+       * unity: Lux
 
 ## General Remarks
 The binding supports the connection to several brickd instances.
@@ -114,23 +144,39 @@ The following table shows the TinkerForge device, its device type, subid and if 
 
 |<b>device</b>|<b>type name</b>|<b>subid(s)</b>|<b>Callback</b>|<b>actuator</b>|
 |-------------|----------------|---------------|---------------|---------------|
-|servo connector housed on a Servo Brick|servo|servo[0-6]||x|
+|Servo Brick sub devices|servo|servo[0-6]||x|
 |DC Brick|brick_dc|||x|
-|relays housed on a Dual Relay Bricklet|dual_relay|relay[1-2]||x|
+|Dual Relay Bricklet sub devices|dual_relay|relay[1-2]||x|
 |Humidity Bricklet|bricklet_humidity||x||
 |Distance IR Bricklet|bricklet_distance_ir||x||
 |Temperature Bricklet|bricklet_temperature||x||
 |Barometer Bricklet|bricklet_barometer||x||
-|temperature sensor housed on a Barometer Bricklet|barometer_temperature|temperature|||
+|Barometer Bricklet temperature sensor sub device|barometer_temperature|temperature|||
 |Ambient Light Bricklet|bricklet_ambient_light||x||
 |LCD20x4 Bricklet|bricklet_LCD20x4|||x|
 |LCD20x4 backlight|backlight|backlight||x|
-|button housed on a LCD20x4 Bricklet|lcd_button|button[0-3]|interrupt||
-|relays housed on a Industrial Quad Relay Bricklet|industrial_quad_relay|relay[0-3]||x|
-|input ports housed on a Industrial Digital In 4 Bricklet|bricklet_industrial_digital_4in|in[0-3]|x||
-|IO16 Bricklet|bricklet_io16||||
-|ports housed on a IO16 Bricklet, which should be used as input ports|iosensor|in[ab][0-7]|x||
-|ports housed on a IO16 Bricklet, which should be used as output ports|io_actuator|out[ab][0-7]||x|
+|LCD20x4 Bricklet button sub devices|lcd_button|button[0-3]|interrupt||
+|Quad Relay Bricklet|industrial_quad_relay|relay[0-3]||x|
+|Industrial Digital In 4 Bricklet|bricklet_industrial_digital_4in|in[0-3]|x||
+|Industrial Digital Out 4 Bricklet sub devices|bricklet_industrial_digital_4out|out[0-3]||x|
+|IO-16 Bricklet|bricklet_io16||||
+|IO-16 Bricklet sub devices, which should be used as input ports|iosensor|in[ab][0-7]|x||
+|IO-16 Bricklet sub devices, which should be used as output ports|io_actuator|out[ab][0-7]||x|
+|IO-4 Bricklet|bricklet_io4||||
+|IO-4 Bricklet sub devices, which should be used as input ports|io4sensor|in[0-3]|x||
+|IO-4 Bricklet sub devices, which should be used as output ports|io4_actuator|out[0-3]||x|
+|Multi Touch Bricklet|bricklet_multitouch||||
+|Multi Touch Bricklet electrodes|electrode|electrode[0-11}|x||
+|Remote Switch Bricklet|bricklet_remote_switch|configurable|||
+|Remote Switch Bricklet sub devices|remote_switch_a or remote_switch_b or remote_switch_c|from configuration||x|
+|Segment Display 4x7 Bricklet|||||
+|Sound Intensity Bricklet|bricklet_soundintensity||||
+|TemperatureIR Bricklet|bricklet_temperatureIR||||
+|TemperatureIR Bricklet sub device object temperature|object_temperature|x|||
+|TemperatureIR Bricklet sub device ambient temperature|ambient_temperature|x|||
+|Tilt Bricklet|bricklet_tilt||||
+|Voltage Current Bricklet|bricklet_voltageCurrent||||
+|Motion Detector Bricklet|motion_detector||||
 
 ### Callback and Threshold
 
@@ -150,6 +196,29 @@ think of it as a kind of hysteresis, it dampens the oscillation of openHAB item 
 The threshold controls the amount of  traffic from the binding to the openHAB eventbus.
 
 ### Devices
+#### LED Strip Bricklet
+An entry in openhab.cfg is only needed if you want to use a _symbolic name_ in the items file.
+
+bricklet:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | TODO |
+| led  |led (mandatory): led number or range of leds|e.g 1&#124;3&#124;6-10|
+
+items file entry (e.g. tinkerforge.items):
+ ```
+Color  led1   (Colorize)  {tinkerforge="uid=jGu, leds=0|1|4-6|8-9, colorMapping=rbg"}
+Color  led2   (Colorize)  {tinkerforge="uid=jGu, leds=2-3|7|10-14, colorMapping=rbg"}
+```
+sitemap file entry (e.g tinkerforge.sitemap):
+
+```
+Colorpicker item=led1 icon="slider"
+Colorpicker item=led2 icon="slider"
+```
+
 #### Dual Relay Bricklet
 An entry in openhab.cfg is only needed if you want to use a _symbolic name_ in the items file.
 
@@ -215,6 +284,151 @@ sitemap file entry (e.g tinkerforge.sitemap):
 
     Text item=Humidity
 
+#### Moisture Bricklet
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+if you want to use a _symbolic name_.
+
+openhab.cfg:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_moisture |
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+```
+tinkerforge:moisture.uid=kve
+tinkerforge:moisture.type=bricklet_moisture
+tinkerforge:moisture.threshold=0
+tinkerforge:moisture.callbackPeriod=5000
+tinkerforge:moisture.movingAverage=90
+```
+
+items file entry (e.g. tinkerforge.items):
+```
+Number Moisture                 "Moisture [%.1f]"  { tinkerforge="uid=kve" }
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Text item=Moisture 
+```
+
+#### Motion Detector Bricklet
+An entry in openhab.cfg is only needed if you want to use a _symbolic name_.
+
+openhab.cfg:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | motion_detector |
+
+```
+tinkerforge:motion.uid=m3W
+tinkerforge:motion.type=motion_detector
+```
+
+items file entry (e.g. tinkerforge.items):
+```
+Contact motion      "motion [MAP(en.map):MOTION%s]" {tinkerforge="uid=m3W"}
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Text item=motion
+```
+
+en.map file
+```
+MOTIONCLOSED=no motion
+MOTIONOPEN=montion detected
+```
+
+#### Multi Touch Bricklet
+An entry in openhab.cfg is only needed if you want to adjust sensitivity, recalibrate, disable 
+electrodes or use a _symbolic name_.
+
+openhab.cfg
+* device configuration
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_multitouch |
+| sensitivity | | value between 5-201 |
+| recalibrate | recalibrate the sensor | true or false |
+
+```
+tinkerforge:touch.uid=jUS
+tinkerforge:touch.type=bricklet_multitouch
+tinkerforge:touch.sensitivity=181
+tinkerforge:touch.recalibrate=true
+```
+
+* electrode sub device configuration
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | openHAB subid of the device|electrode0 electrode1 electrode2 electrode3 electrode4 electrode5 electrode6 electrode7 electrode8 electrode9 electrode10 electrode11|
+| disableElectrode | disables the electrode | true or false|
+```
+tinkerforge:e1.uid=jUS
+tinkerforge:e1.type=electrode
+tinkerforge:e1.subid=electrode1
+tinkerforge:e1.disableElectrode=true
+```
+
+* proximity sub device configuration
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | openHAB subid of the device|proximity|
+| disableElectrode | disables the proximity detection | true or false|
+
+```
+tinkerforge:prox.uid=jUS
+tinkerforge:prox.type=proximity
+tinkerforge:prox.subid=proximity
+tinkerforge:prox.disableElectrode=true
+```
+
+items file entry (e.g. tinkerforge.items):
+```
+Contact electrode0      "electrode0 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode0"}
+Contact electrode1      "electrode1 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode1"}
+Contact electrode2      "electrode2 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode2"}
+Contact electrode3      "electrode3 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode3"}
+Contact electrode4      "electrode4 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode4"}
+Contact electrode5      "electrode5 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode5"}
+Contact electrode6      "electrode6 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode6"}
+Contact electrode7      "electrode7 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode7"}
+Contact electrode8      "electrode8 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode8"}
+Contact electrode9      "electrode9 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode9"}
+Contact electrode10     "electrode10 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode10"}
+Contact electrode11     "electrode11 [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=electrode11"}
+Contact proximity       "proximity [MAP(en.map):%s]" {tinkerforge="uid=jUS, subid=proximity"}
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Text item=electrode0
+Text item=electrode1
+Text item=electrode2
+Text item=electrode3
+Text item=electrode4
+Text item=electrode5
+Text item=electrode6
+Text item=electrode7
+Text item=electrode8
+Text item=electrode9
+Text item=electrode10
+Text item=electrode11
+Text item=proximity
+```
+
 #### Distance IR Bricklet
 An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
 if you want to use a _symbolic name_.
@@ -240,6 +454,39 @@ items file entry (e.g. tinkerforge.items):
 sitemap file entry (e.g tinkerforge.sitemap):
 
     Text item=Distance
+
+#### Distance US Bricklet
+An entry in openhab.cfg is needed if you want to adjust threshold and / or callbackPeriod, the
+movingAverage or if you want to use a _symbolic name_.
+
+openhab.cfg:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_distanceUS |
+| threshold | | see "Callback and Threshold" |
+| callbackPeriod | | see "Callback and Threshold" |
+| movingAverage | | default 100 |
+
+```
+tinkerforge:distanceUS.uid=mXq
+tinkerforge:distanceUS.type=bricklet_distanceUS
+tinkerforge:distanceUS.threshold=0
+tinkerforge:distanceUS.callbackPeriod=100
+tinkerforge:distanceUS.movingAverage=100
+```
+
+items file entry (e.g. tinkerforge.items):
+
+```
+Number DistanceUS                 "DistanceUS [%.1f]"  { tinkerforge="uid=mXq" }
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Text item=DistanceUS
+```
 
 #### Temperature Bricklet
 An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
@@ -539,7 +786,45 @@ sitemap file entry (e.g tinkerforge.sitemap):
     Text item=ID3
     Text item=ID4
 
-#### IO16 Bricklet
+#### Industrial Digital Out 4 Bricklet
+
+bricklet:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| subid | openHAB subid of the device | out0, out2, out3, out4 |
+| type | openHAB type name | bricklet_industrial_digital_4out |
+| debouncePeriod | debounce time in ms | default=100 | TODO
+
+output port sub devices:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | same as bricklet |
+| subid | openHAB subid of the device | out0, out2, out3, out4 |
+| type | openHAB type name |  |
+
+openhab.cfg: no configuration needed
+
+items file entry (e.g. tinkerforge.items):
+
+```
+Switch di4out0      {tinkerforge="uid=fG6, subid=out0"}
+Switch di4out1      {tinkerforge="uid=fG6, subid=out1"}
+Switch di4out2      {tinkerforge="uid=fG6, subid=out2"}
+Switch di4out3      {tinkerforge="uid=fG6, subid=out3"}
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Switch item=di4out0
+Switch item=di4out1
+Switch item=di4out2
+Switch item=di4out3
+```
+
+#### IO-16 Bricklet
 
 openhab.cfg:
 
@@ -556,7 +841,7 @@ iosensor sub device:
 | property | descripition | values |
 |----------|--------------|--------|
 | uid | tinkerforge uid | same as bricklet |
-| subid | openHAB subid of the device | ina0, ina1, ina2, ina3, ina4, ina5, ina6, ina7, inb1, inb2, inb3, inb4, inb5, inb6, inb7 |
+| subid | openHAB subid of the device | ina0, ina1, ina2, ina3, ina4, ina5, ina6, ina7, inb0, inb1, inb2, inb3, inb4, inb5, inb6, inb7 |
 | type | openHAB type name | iosensor |
 | pullUpResistorEnabled | enable the pull-up resistor |  true, false |
 
@@ -599,6 +884,86 @@ sitemap file entry (e.g tinkerforge.sitemap):
     Text item=ina0
     Text item=ina01
     Switch item=outa2
+
+#### IO-4 Bricklet
+
+openhab.cfg:
+
+bricklet:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | get value from brickv |
+| type | openHAB type name | bricklet_io4 |
+| debouncePeriod | debounce time in ms | default=100 |
+
+io4sensor sub device:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | same as bricklet |
+| subid | openHAB subid of the device | in0, in1, in2, in3|
+| type | openHAB type name | io4sensor |
+| pullUpResistorEnabled | enable the pull-up resistor |  true, false |
+
+io_actor sub device:
+
+| property | descripition | values |
+|----------|--------------|--------|
+| uid | tinkerforge uid | same as bricklet |
+| subid | openHAB subid of the device | out0, out1, out2, out3|
+| type | openHAB type name | io4_actuator |
+| defaultState | default state of the port, true = HIGH, false=LOW | true, false |
+
+```
+tinkerforge:io4in0.uid=h56
+tinkerforge:io4in0.subid=in0
+tinkerforge:io4in0.type=io4sensor
+tinkerforge:io4in0.pullUpResistorEnabled=true
+
+tinkerforge:io4in1.uid=h56
+tinkerforge:io4in1.subid=in1
+tinkerforge:io4in1.type=io4sensor
+tinkerforge:io4in1.pullUpResistorEnabled=true
+
+tinkerforge:io4out2.uid=h56
+tinkerforge:io4out2.subid=out2
+tinkerforge:io4out2.type=io4_actuator
+tinkerforge:io4out2.defaultState=keep
+#tinkerforge:io4out2.keepOnReconnect=true
+
+tinkerforge:io4out3.uid=h56
+tinkerforge:io4out3.subid=out3
+tinkerforge:io4out3.type=io4_actuator
+tinkerforge:io4out3.defaultState=true
+tinkerforge:io4out3.keepOnReconnect=false
+
+#tinkerforge:io4in2.uid=h56
+#tinkerforge:io4in2.subid=in2
+#tinkerforge:io4in2.type=io4sensor
+#tinkerforge:io4in2.pullUpResistorEnabled=true
+
+#tinkerforge:io4in3.uid=h56
+#tinkerforge:io4in3.subid=in3
+#tinkerforge:io4in3.type=io4sensor
+#tinkerforge:io4in3.pullUpResistorEnabled=true
+```
+
+items file entry (e.g. tinkerforge.items):
+```
+Contact in0     "in0 [MAP(en.map):%s]" {tinkerforge="uid=h56, subid=in0"}
+Contact in1     "in1 [MAP(en.map):%s]" {tinkerforge="uid=h56, subid=in1"}
+Switch  out2     "out2" {tinkerforge="uid=h56, subid=out2"}
+Switch  out3     "out3" {tinkerforge="uid=h56, subid=out3"}
+```
+
+sitemap file entry (e.g tinkerforge.sitemap):
+```
+Text item=in0
+Text item=in1
+Switch item=out2
+Switch item=out3
+```
 
 #### DC Brick
 
