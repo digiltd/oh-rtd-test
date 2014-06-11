@@ -1,5 +1,4 @@
 Documentation of the TinkerForge binding bundle
-TOC TODO
 
 ## Introduction
 
