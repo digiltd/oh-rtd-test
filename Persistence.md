@@ -16,6 +16,7 @@ Currently, there are the following implementations available:
 - [mongodb](http://www.mongodb.org/) - MongoDB document store
 - [Open.Sen.Se](http://open.sen.se/) - a fancy Internet-of-Things platform, which allows data processing in many ways and from different sources
 - logging using [Logback](http://logback.qos.ch/) - writing item states to log files with a highly flexible syntax definition
+- [InfluxDB](http://influxdb.org) - An open-source distributed time series database with no external dependencies.
 
 ## Configuration
 
