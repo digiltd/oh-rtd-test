@@ -52,14 +52,20 @@ Everytime the binding recieves such a command for that item it executes (or forw
 For valid `<jointspace-command>` refer to the separate sections and to the samples below
 ## Remote
 In order to send a button of the remote use `key.X` where `X` can be for example:
-* Digit1
-* VolumeUp
-* Standby
+* `Digit1`
+* `VolumeUp`
+* `Standby`
+
 A full list of supported keys refer to [here](http://jointspace.sourceforge.net/projectdata/documentation/jasonApi/1/doc/API-Method-input-key-POST.html)
 
 ## Volume
 
+* To set the volume send a decimal type to a item configured as `volume`
+* To poll the volume use `POLL:volume` and the mute state as `POLL:volume.mute`
+
 ## Source
+* Get the current source as a string item with `POLL:source`
+* Set the current source with `source.X` where X can be `hdmi1`, `tv`, ...
 
 ## Ambilight
 ### Ambilight Mode
@@ -71,6 +77,10 @@ Ambilight has three different modes:
 In order to set the mode use as a jointspace-command `ambilight.mode.X`
 
 ### Ambilight Color
+**In order to set the color, the ambilight mode has to be set to `manual` first**
+
+Please refer to the examples below in order to see how to setup different ambilight pixel combination.
+
 #### Layer
 The ambilight pixels are grouped in different layers, for example `left` for all left pixels. In order to find out which layers are supported goto `http://<ip-adress>:1925/1/examples/ambilight/ambilight.html` or refer to [here](http://jointspace.sourceforge.net/projectdata/documentation/jasonApi/1/doc/API-Method-ambilight-cached-POST.html)
 
