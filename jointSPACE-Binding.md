@@ -8,6 +8,8 @@ It allows you to:
 * Set and Get Colors of Ambilight "Pixels"
 * Set and Read Source
 
+This binding is available since 1.5.0
+
 # Prerequisites
 ## Compatibility and Activation jointSPACE API
 1. The TV has to be in the network and turned on
