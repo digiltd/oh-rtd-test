@@ -49,6 +49,7 @@ All binding configurations have the structure `jointspace="<openhab-command>:<jo
 * `DEC` react on all Decimal type commands
 * `*` react on all commands
 * `POLL` poll the value periodical in the worker thread
+
 Everytime the binding recieves such a command for that item it executes (or forwards) the command to the TV.
 
 For valid `<jointspace-command>` refer to the separate sections and to the samples below
