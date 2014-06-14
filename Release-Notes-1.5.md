@@ -7,6 +7,8 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 ### openHAB Runtime
 
 **Major features:**
+* Complete refactoring of the Homematic binding (#999)
+* Waterkotte EcoTouch heat pump (#1130)
 * Persistence Service using InfluxDB (#1072, #1086)
 * Iec 62056-21 meter binding (#1040)
 * Initial commit of Freebox binding (#1012)
@@ -84,6 +86,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * EnOcean binding: Fix illumunation value conversion (#1136)
 * MySQL: fix GroupItem handling (#1140)
 * EnOcean binding: Support PercentType for NumberItems (#1141)
+* Atmosphere Update to 2.0.7 (#1126)
 
 **Removals:**
 * none
