@@ -8,7 +8,7 @@ It allows you to:
 * Set and Get Colors of Ambilight "Pixels"
 * Set and Read Source
 
-This binding is available since 1.5.0
+_**Note:** This Binding will be available in the upcoming 1.5 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
 
 # Prerequisites
 ## Compatibility and Activation jointSPACE API
