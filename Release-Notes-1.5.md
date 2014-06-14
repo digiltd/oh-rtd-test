@@ -89,7 +89,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * none
 
 **major API changes**
-*none
+* none
 
 The complete list of issues can be obtained from the [Github Issue Tracker](https://github.com/openhab/openhab/issues?direction=asc&labels=&milestone=4&page=1&sort=created&state=closed).
 
