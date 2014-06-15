@@ -224,9 +224,9 @@ As a result, your lines in the items file might look like the following:
 
 The following charts are created via the rrd4j chart and heatpump bundle. <br/>
 
-![outside temperature](images/binding-ecotouch_chart1.png)
+![outside temperature](https://github.com/sibbi77/openhab/wiki/images/binding-ecotouch_chart1.png)
 
-![power consumption](images/binding-ecotouch_chart2.png)
+![power consumption](https://github.com/sibbi77/openhab/wiki/images/binding-ecotouch_chart2.png)
 
 ## Further planned features (not yet implemented)
 
