@@ -1,333 +1,298 @@
-Documentation of the HomeMatic binding bundle<br/>
-[![HomeMatic Binding](http://img.youtube.com/vi/F0ImuuIPjYk/0.jpg)](http://www.youtube.com/watch?v=F0ImuuIPjYk)
-
 ## Introduction
 
-For installation of the binding, please see Wiki page [[Bindings]].
+- RF and WIRED devices are supported
+- CCU variables with synchronisation
+- execute programs on the CCU
+- flexible converter framework which should convert every datapoint of all devices
+- fast and lightweight BIN-RPC communication with the CCU. The XML-RPC protocol is also supported.
+- quick metadata and value sync with TclRega scripts. If you start openHAB or reload a item file, it only takes some seconds (with the CCU2) and all items have their states.
+- local cache of all metadata and values to prevent unnecessary CCU calls.
+- alive validation, if no event is received within a specified time, the binding restarts.
+- action to send messages to a Homematic remote control with a display
 
-## Hardware
+**Requirements:**
+CCU1 or CCU2  
+These ports are used by the binding:  
+TclRegaScript (required): 8181  
+RF components: 2001  
+WIRED components (optional): 2000  
 
-See [[Homematic-Controller]] for details about controller hardware like CCU.
+If you don't have a CCU, this may be interesting: [CCU2 Firmware on ARM Hardware](http://homematic-forum.de/forum/viewtopic.php?f=26&t=18359)
+
+**Important:** It's not guarantied to be a 100% drop in replacement for the current Homematic binding, it MAY work without modifications to your configuration, but it's always better to validate if everything works as expected.
+
+**Limitation:** Since i do not have every Homematic device, i can not test all possible datapoint bindings. The converter framework is rather generic and works with all my devices. If something does not work, i have implemented some tracing so i can try to fix it even without having the device.
 
 ## HomeMatic Binding Configuration
 
 ### openhab.cfg
 
-The following config params are used for the HomeMatic binding.
+These config params are used for the HomeMatic binding.
+```
+############################## Homematic Binding ##############################
+#
+# Hostname / IP address of the Homematic CCU
+homematic:host=
 
-- homematic:host
-Hostname / IP address of the HomeMatic CCU
-- (optional) homematic:callback.host
-Hostname / IP address for the callback server. This is normally the IP / hostname of the local host (but not "localhost" or "127.0.0.1"). If not present, it is auto discovered. Will print out an warning / error if not successful.
-- (optional) homematic:callback.port
-Port number for the callback server. Defaults to 9123.
-
-### Example
-
-    ######################## HomeMatic Binding ###########################
-    
-    # Hostname / IP address of the HomeMatic CCU
-    homematic:host=homematic
-    
-    # Hostname / IP address for the callback server (optional, default is auto-discovery)
-    # This is normally the IP / hostname of the local host 
-    # (but not "localhost" or "127.0.0.1"). 
-    homematic:callback.host=laptop-dell-linux
-    
-    # Port number for the callback server. (optional, defaults to 9123)
-    homematic:callback.port=9123
-
-## Generic Item Binding Configuration
-
-### Items
-
-General format (since 1.3):
-
-    homematic="{<device config>}"
-The device config consists of several name/value pairs seperated by a equal sign ("="). The format is derived from the JSON format. 
-    
-Normal parameters: 
-
-    id=<physicalDeviceAddress / serial number>, channel=<channel in the devices>, parameter=<parameterKey>. 
-    
-Advanced parameters: 
-
-    converter=<Class name of the converter to use>, admin: For admin commands.
-
-### Device Configuration Files
-
-See [[Device Configuration Files|Homematic-Configuration]] for details about the device xml files. 
-
-### About the Documentation
-
-The information at each value in brakets is: `(<item type>, <unit>, <min/max or possible values>)`
-
-For the German CCU users:
-Die Physical Device Address findet man in der CCU als Seriennummer. Zum Beispiel im Menü aus Einstellungen -> Geräte. Dann hat man eine gute Übersicht über alle Devices.
-
-### Supported Datapoints
-
-The current binding does support the following datapoint:
-PRESS_LONG, PRESS_LONG_RELEASE, TEMPERATURE, PRESS_SHORT, HUMIDITY, LEVEL, STATE, BRIGHTNESS, MOTION, SETPOINT, VALVE_STATE, STOP, WORKING, INSTALL_TEST, PRESS_CONT, ERROR, UNREACH, LOWBAT, MODE_TEMPERATUR_VALVE
-
-A documentation which device is proving which datapoint, please check the documentation from eQ3: http://www.eq-3.de/Downloads/PDFs/Dokumentation_und_Tutorials/HM_Script_Teil_4_Datenpunkte_1_503.pdf
-
-### Supported Devices
-
-These devices are already supported or will be in near future since we own them. 
-If your device is not listed, please add an issue for it.
-See [[HomeMatic Admin Items|homematic admin items]] on howto get information about your devices.
-
-- Remote Controls
- - HM-RC-4 (Wireless 4-button sender)
- - HM-PBI-4-FM (Wireless 4-button sender flush mount)
- - HM-RC-P1 (Single button control)
- - HM-RC-12-B (12 button remote control)
- - HM-SwI-3-FM (with workaround)
- - HM-PB-2-WM (2 channel rocker)
- - HM-PB-2-WM55 (2 channel rocker, new model)
- - BidCoS-RF:1 - BidCoS-RF:50 (Virtual Keys of the CCU)
- - HM-PB-4DIS-WM (Wireless 20 button sender with display)
-- Switches
- - HM-LC-Sw1-Pl (Plug switch (1-port))
- - HM-LC-Sw1-Pl-2 (Plug switch (1-port))+
- - HM-LC-Sw1PBU-FM (Flush switch (1-port))
- - HM-LC-Sw1-FM (Flush switch (1-port))+
- - HM-LC-Sw2-FM (Flush switch (2-port))+
- - HM-LC-Sw4-SM (Flush switch (4-port))
- - HM-ES-PMSw1 (Plug switch (1-port) with measure Features)
-- Dim actors
- - HM-LC-Dim2T-SM (Two port dim actor)
- - HM-LC-Dim1T-PI (One port dim actor plug)
- - HM-LC-Dim1T-FM (One port dim actor)
- - HM-LC-Dim1TPBU-FM (1 port dimmer actor flush mount)
-- Environment Sensors
- - HM-WDS40-TH-I (Temperature and Humidity sensor)
- - HM-WDS10-TH-O (Temperature and Humidity sensor)
- - HM-Sec-MDIR (Motion and Brightness Sensor)
- - HM-Sen-MDIR-O (Motion and Brightness Sensor)
- - HM-Sec-WDS (water sensor)
-- Contact Sensors
- - HM-Sec-SC (Wireless door / window contact sensor)
- - HM-SCI-3-FM (Shutter Contact)
- - HM-Sec-RHS (Rotary handle sensor)
-- Climate Controls
- - HM-CC-VD (Wireless actuator)+
- - HM-CC-TC (Themo control, partly working)
-- Not fully supported: Roller Shutters
- - HM-LC-Bl1-FM (Roller Shutter actor (1-port))
- - HM-LC-Bl1PBU-FM (Roller Shutter actor (1-port))
- - HM-LC-Bl1-SM (Roller Shutter actor (1-port))
-  
-For a complete list with translations (en - de) see http://www.elv.de/controller.aspx?cid=824&detail=10&detail2=2850.
-
-### Remote Controls
-
-Supported Devices:
-- HM-RC-4
-- HM-PBI-4-FM
-- HM-RC-P1
-- HM-PB-2-WM
-- HM-PB-2-WM55
-- HM-SwI-3-FM
-- BidCoS-RF:1 - BidCoS-RF:50 (Virtual Keys of the CCU)
-- HM-PB-4DIS-WM
-
-Valid parameter keys: 
-- PRESS_SHORT: The button was pressed short (Switch, pressed=Update to ON)
-- PRESS_LONG: The button was pressed or released (Switch, pressed=Update to ON, released=Update to OFF).
-- PRESS_CONT: Every few ms this is updated to ON while the long press button is pressed. Useful e.g. for dimming. (Switch, button still pressed=Update to ON)
-
-#### = Trouble Shoot =
-
-If the button is not working and you do not see any PRESS_LONG / SHORT in your log file (when started in debug mode), it could be because of enabled security.
-Try to disable security of your buttons in the HomeMatic Web GUI and try again.
-If you can't disable security (e.g. HM-SwI-3-FM) try to use key INSTALL_TEST which gets updated to ON for each key press (Switch, pressed=Update to ON)
-
-#### = Examples =
-
-    Switch LivingRoom_RC_One_Left    "Living Room Light Sofa INCREASE" <rollershutter> (LivingRoom, Light) {homematic="id=IEQ0035141, channel=1, parameter=PRESS_SHORT"}
-    Switch LivingRoom_RC_One_Right    "Living Room Light Sofa DECREASE" <rollershutter> (LivingRoom, Light) {homematic="id=IEQ0035141, channel=2, parameter=PRESS_SHORT"}
-    Switch LivingRoom_RC_Two_Left    "Living Room Light TV INCREASE" <rollershutter> (LivingRoom, Light) {homematic="id=IEQ0035141, channel=3, parameter=PRESS_SHORT"}
-    Switch LivingRoom_RC_Two_Right    "Living Room Light TV DECREASE" <rollershutter> (LivingRoom, Light) {homematic="id=IEQ0035141, channel=4, parameter=PRESS_SHORT"}  
-    Switch test "Test" (Test) {homematic="id=BidCoS-RF, channel=10, parameter=PRESS_SHORT"}
-  
-### Switches
-
-Supported Devices:
-- HM-LC-Sw1PBU-FM
-- HM-LC-Sw1-FM
-- HM-LC-Sw2-FM
-- HM-LC-Sw1-Pl
-- HM-LC-Sw1-Pl-2
-- HM-LC-Sw4-SM
-- HM-ES-PMSw1
-
-Valid parameter keys: 
-- STATE: The current state of the switch (Switch, TRUE=ON, FALSE=OFF). Accepts OPEN / CLOSE as well.
-
-#### = Examples =
-
-    Switch RF_Plug1 "RF Plug 1" (Light) {homematic="id=JEQxxxxxxxx, channel=1, parameter=STATE"} 
-
-#### = Example for HM-ES-PMSw1 measure values =
-
-    Number S_POWER "Power [%.1f W]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=POWER,converter=DoubleDecimalConverter" } 
-    Number S_CURRENT "Current [%.1f mA]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=CURRENT,converter=DoubleDecimalConverter" } 
-    Number S_VOLTAGE "Voltage [%.1f V]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=VOLTAGE,converter=DoubleDecimalConverter" } 
-    Number S_FREQUENCY "Frequency [%.1f Hz]" (Light) 	{homematic="id=KEQxxxxxxx,channel=2,parameter=FREQUENCY,converter=DoubleDecimalConverter" }
-#### = Remark: you need in the moment (V1.4) for this functionality an additional xml config file inside the binding jar. =
-see also [here](http://knx-user-forum.de/openhab/33736-openhab-homematic-es-laeuft-einfach-nicht-rund-2.html)!
-
-### Dim Actors
-
-Supported Devices:
-- HM-LC-Dim2T-SM
-- HM-LC-Dim1T-PI
-- HM-LC-Dim1T-FM
-- HM-LC-Dim1TPBU-FM
-
-Valid parameter keys:
-- LEVEL: The energy level (Dimmer, Unit=Percentage, 0%=OFF, 100%=ON)
-  
-#### = Examples =
-
-    Dimmer LivingRoom_Light_TV	    "Living Room Light TV Level [%d %%]" <rollershutter> (LivingRoom, Light) {homematic="id=GEQ0210158, channel=1, parameter=LEVEL"}
-    Dimmer LivingRoom_Light_Sofa    "Living Room Light Sofa Level [%d %%]" <rollershutter> (LivingRoom, Light) {homematic="id=GEQ0210158, channel=2, parameter=LEVEL"}
-
-### Temperature / Humidity Sensors
-
-Supported Devices:
-- HM-WDS10-TH-O
-- HM-WDS40-TH-I
-- HM-CC-TC (Channel 1)
-
-Valid parameter keys: 
-- TEMPERATURE: The current temperature (Number, unit=°C)
-- SETPOINT (HM-CC-TC only): The target temperature (Number, unit=°C)
-- HUMIDITY: The current humidity (Number, Unit=Percentage of humidity, min=0, max=100) or (Dimmer, Unit=Percentage of humidity, min=0%, max=100%)
+# The communication with the CCU. xml for xmlrpc or bin for the lightweight binrpc, (optional, default is bin).
+# homematic:rpc=
  
-#### = Examples =
+# Hostname / IP address for the callback server (optional, default is auto-discovery)
+# This is normally the IP / hostname of the local host (but not "localhost" or "127.0.0.1"). 
+# homematic:callback.host=
+ 
+# Port number for the callback server. (optional, default is 9123)
+# homematic:callback.port=
+ 
+# The interval in seconds to check if the communication with the CCU is still alive.
+# If no message receives from the CCU, the binding restarts. (optional, default is 300)
+# homematic:alive.interval=
+```
 
-    Number LivingRoom_Temperature   "Living Room Temperature [%.1f °C]" <temperature> (LivingRoom, Temperature) {homematic="id=IEQ0022806, channel=1, parameter=TEMPERATURE"}
-    Number LivingRoom_Humidity   "Living Room Humidity [%d %%]" <temperature> (LivingRoom, Humidity) {homematic="id=IEQ0022806, channel=1, parameter=HUMIDITY"}
-    Number LivingRoom_Temperature_Setpoint   "Living Room Temperature SetPoint [%.1f °C]" <temperature> (LivingRoom, Temperature) {homematic="id=IEQ0022806, channel=2, parameter=SETPOINT"}
+## Item Binding
 
-### Motion and Brightness Sensors
+Available parameters:
+- address: (datapoint) formerly id, the address of the datapoint, e.g KEQ0048285
+- channel: (datapoint) the channel number, e.g. 5
+- parameter: (datapoint) the name of the datapoint, e.g. PRESS_SHORT, LEVEL, ...
+- variable: (variable) the name of the CCU variable
+- program: (program) the name of the CCU program
+- forceUpdate: (datapoint, variable) if true, the new value is always sent to the CCU even it's equal the current value
+- action: (datapoint, variable, program) execute a action, RELOAD_VARIABLES or RELOAD_DATAPOINTS
 
-Supported Devices:
-- HM-Sec-MDIR
-- HM-Sen-MDIR-O
+**Important:**
+The current binding uses the attribute **id** for the address:
+```
+Switch Anyitem {homematic="id=KEQ0012345, channel=1, parameter=PRESS_SHORT"}
+```
+In this binding the attribute has changed to **address**:
+```
+Switch Anyitem {homematic="address=KEQ0012345, channel=1, parameter=PRESS_SHORT"}
+```
+Just do a search/replace and you are done. The id attribute is deprecated and will be removed in future versions!  
 
-Valid parameter keys: 
-- MOTION: Motion detected (Switch, ON=Motion detected, OFF (default)=NONE)
-- BRIGHTNESS: Actual brightness (Dimmer, Unit=Percentage, 0%=dark, 100%=bright) or (Number, Unit=Integer Number, 0=dark, 100=bright)
+### Datapoint examples
+```
+Dimmer Light_Livingroom "Livingroom [%d %%]" <slider> {homematic="address=JEQ0123456, channel=1, parameter=LEVEL"}
 
-#### = Examples =
+Switch Remote_Key_01 "Remote Key 01" {homematic="address=KEQ0012345, channel=1, parameter=PRESS_SHORT"}
 
+Rollershutter Kitchen_Window  "Kitchen Window [%d %%]" <rollershutter> {homematic="address=KEQ0012345, channel=1, parameter=LEVEL"}
+```
+For a window contact, you need a map too:
+```
+String Bath_Window "Bath_Window [MAP(window.map):%s]"      <contact>   {homematic="address=KEQ0123456, channel=1, parameter=STATE"}
+```
+```
+CLOSED=closed
+OPEN=open
+TILTED=tilted
+undefined=unknown
+```
+A documentation which device is proving which datapoint, please check the documentation from EQ3:
+[Datapoints](http://www.eq-3.de/Downloads/PDFs/Dokumentation_und_Tutorials/HM_Script_Teil_4_Datenpunkte_1_503.pdf)
+### Program examples
+```
+// binds to the Homematic program 'Testprogram'. 
+// if you send a ON Command to the Switch, the program starts on the CCU
+Switch Prog_Testprogram {homematic="program=Testprogram"}
+```
+### Variable examples
+```
+// binds to a boolean variable named Holidaymode on the CCU
+Switch Var_Holidaymode {homematic="variable=Holidaymode"}
 
-### Water Sensors
+// binds to the INDEX of a valuelist variable (e.g with the values 10;20;30;40;50)
+// shows 0 for 10, 1 for 20 ...
+Number Var_Autoshade_height "Autoshade height index [%d]" {homematic="variable=Autoshade Height"}
 
-Supported Devices:
-- HM-Sec-WDS
+// binds to the VALUE of a valuelist variable (e.g with the values 10;20;30;40;50)
+// shows 10, 20 ...
+String Var_Autoshade_height "Autoshade height [%s %%]" {homematic="variable=Autoshade Height"}
+```
+![](https://farm8.staticflickr.com/7387/13816901335_29ff085daa_z.jpg)
 
-Valid parameter keys: 
-- STATE: The water sensor state
-- As Number (Number, 0=no water, 1=humid, 2=water)
-- PLANNED: As Switch (Switch, water sensored=Update to ON, no water or just humidity=OFF)
+**Sitemap for valuelist variables:**
+```
+// if you bound the item to the INDEX with a Number Item
+Selection item= Var_Autoshade_height mappings=[0="10", 1="20", 2="30", 3="40", 4="50"]
 
-#### = Examples =
+// if you bound the item to the VALUE with a String Item
+Selection item= Var_Autoshade_height mappings=[10="10", 20="20", 30="30", 40="40", 50="50"]
+```
 
-    
+### Variable/Datapoint sync
+The CCU only sends a message if a datapoint of a device has changed. There is (currently) no way to receive a event automatically when a variable has changed. But there is a solution ... variable sync.
+This is done with the help of the 'Virtual remote control' feature of the CCU. The CCU supports 50 virtual remote control channels and you can use one of them for variable sync. 
 
-### 3 State Contact Sensors
+Here is a example:
+Connect to the CCU WebGui, go to devices, search a free 'Virtual remote control (wireless)' and name it as you want. In my example i use channel 1 with the name 'VK_Reload_Variable':
+![](https://farm4.staticflickr.com/3707/13817224654_64b980399a_z.jpg)
 
-Supported Devices:
-- HM-Sec-RHS
+Now you need a item:
+```
+Switch Reload_Variables {homematic="address=BidCoS-RF, channel=1, parameter=PRESS_SHORT, action=RELOAD_VARIABLES"}
+```
+The key is the action attribute. The binding reloads all variables and publishes only changes to openHAB if the Switch receives ON. You can do this for example in a rule with a cron trigger to sync the variables in certain intervals. Or you do a manual reload from an App, GreenT, ...
 
-Valid parameter keys: 
-- STATE: The current state of the handle (Number, 0=open, 1=tilted, 2=closed)
+If you want to do a reload immediately when a variable changes, you have to write (click together) a program on the CCU. The if condition checks all the variables you want if they have changed, the Activity is only one: send 'Button press short' to the previously bound 'Virtual remote control', in my example 'VK_Reload_Variable'.
+![](https://farm8.staticflickr.com/7375/13817522003_80e40386f9_o.png)
 
-#### = Examples =
+Thats it ... if a variable (in my example Holidaymode) changes, the program starts and sends the 'button press short' to the 'Virtual remote control'. This event is published from the CCU to the binding and sends ON to the item with the action attribute. The binding reloads all variables and publishes the changes to openHAB.
 
-    
+The same you can do with the action RELOAD_DATAPOINTS to reload all datapoints. This is normally not necessary but recommended from time to time. The binding has a local cache of all metadata and values of the CCU. In case openHAB misses an event (event not received correctly, network problem, ...), this local cache and of course your items get stale and needs to be updated. With the action RELOAD_DATAPOINTS you can do this.
+In this example i use channel 2 of the 'Virtual remote control'
+```
+Switch Reload_Datapoints {homematic="address=BidCoS-RF, channel=2, parameter=PRESS_SHORT, action=RELOAD_DATAPOINTS"}
+```
+Just send ON to this Switch and all datapoints refreshes. Only changes are published to openHAB!
 
-### 2 State Contact Sensors
+Example: reload all datapoints every 6 hours 
+```
+import org.openhab.core.library.types.*
 
-Supported Devices:
-- HM-SCI-3-FM
+rule "Reload datapoints"
+when 
+    Time cron "0 0 0/6 * * ?"   // every 6 hours
+then
+	sendCommand(Reload_Datapoints, ON)
+end
+```
 
-Valid parameter keys: 
-- STATE: The current state of the handle (Number, 0=open, 1=closed)
+### forceUpdate
+As mentioned earlier, the binding manages a local cache of all metadata and values of the CCU. Lets say you have a rule which is doing something and updates an item bound to a Homematic device. The value is send to the CCU, the CCU sends it to the device and sends back an event to the binding which updates the item. If the new value (State) of an item is the same as the previous value, all this is unnecessary! The default behavior of the binding is to check if a value has changed and only send changed values to the CCU. 
+Example:
+```
+Rollershutter Kitchen_Window  "Kitchen Window [%d %%]" <rollershutter> {homematic="address=KEQ0012345, channel=1, parameter=LEVEL"}
+```
+If the Rollershutter is down and you send a DOWN to this item, the binding recognize this and does nothing. You can override this with the attribute forceUpdate in the binding.
+```
+Rollershutter Kitchen_Window  "Kitchen Window [%d %%]" <rollershutter> {homematic="address=KEQ0012345, channel=1, parameter=LEVEL, forceUpdate=true"}
+```
+Now, if the Rollershutter is down and you send a DOWN to this item, the binding sends the value to the CCU. You hear the click of the relay in the Homematic device and nothing happens, because the Rollershutter is already down.
+In some situations it may be useful to always send the value to the CCU.
 
-#### = Examples =
+## Homematic Action
+With the Homematic action you can send messages to a Homematic remote control with a display, currently the HM-RC-19-B (Radio remote control 19 button).
+ 
+### Installation
+Put the file org.openhab.action.homematic-x.x.x.jar into the addons folder. The Homematic binding 1.5.0 (at least pb-04) or higher is also required.
 
-    
+### Usage
+Commands available:
+```
+sendHomematicDisplay(REMOTE_CONTROL_ADDRESS, TEXT);
+sendHomematicDisplay(REMOTE_CONTROL_ADDRESS, TEXT, OPTIONS);
+```
+The remote control display is limited to five characters, a longer text is truncated.
+ 
+You have several additional options to control the display.
+* BEEP _(TONE1, TONE2, TONE3)_ - let the remote control beep
+* BACKLIGHT _(BACKLIGHT_ON, BLINK_SLOW, BLINK_FAST)_ - control the display backlight
+* UNIT _(PERCENT, WATT, CELSIUS, FAHRENHEIT)_ - display one of these units
+* SYMBOL _(BULB, SWITCH, WINDOW, DOOR, BLIND, SCENE, PHONE, BELL, CLOCK, ARROW_UP, ARROW_DOWN)_ - display symbols, multiple symbols possible
+ 
+You can combine any option, they must be separated by a comma. If you specify more than one option for BEEP, BACKLIGHT and UNIT, only the first one is taken into account and all others are ignored. For SYMBOL you can specify multiple options.
+ 
+**Examples:**  
+show message TEST:
+```
+sendHomematicDisplay("KEQ0012345", "TEST");
+```
+show message TEXT, beep once and turn backlight on:
+```
+sendHomematicDisplay("KEQ0012345", "TEXT", "TONE1, BACKLIGHT_ON");
+```
+ 
+show message 15, beep once, turn backlight on and shows the celsius unit:
+```
+sendHomematicDisplay("KEQ0012345", "15", "TONE1, BACKLIGHT_ON, CELSIUS");
+```
+ 
+show message ALARM, beep three times, let the backlight blink fast and shows a bell symbol:
+```
+sendHomematicDisplay("KEQ0012345", "ALARM", "TONE3, BLINK_FAST, BELL");
+```
+ 
+Duplicate options: TONE3 is ignored, because TONE1 is specified previously.
+```
+sendHomematicDisplay("KEQ0012345", "TEXT", "TONE1, BLINK_FAST, TONE3");
+```
 
-### 2 State Contact Sensors (Boolean)
+## Device Confirmation List
 
-Supported Devices:
-- HM-Sec-SC (Wireless door / window contact sensor)
+These devices have been tested so far and confirmed as working:  
+### RF
+* HM-CC-RT-DN (Electronic Wireless Radiator Thermostat)
+* HM-CC-TC (Electronic Wireless Radiator Thermostat)
+* HM-TC-IT-WM-W-EU (Wireless Room Thermostat)
+* HM-ES-PMSw1-Pl (Wireless Switch Actuator 1-channel with power metering, plug adapter)
+* HM-WDS10-TH-O (Outside radio-controlled temperature humidity sensor OTH)
+* HM-WDS40-TH-I (Inside radio-controlled temperature humidity sensor IT)
+* HM-WDS30-T-O (Outside radio-controlled temperature sensor )
+* HM-WDS100-C6-O (Radio-controlled weather data sensor OC3)
+* HM-RC-19-B (Radio remote control 19 button)
+* HM-PBI-4-FM (Radio push-button interface, 4 channel flush-mount)
+* HM-LC-Sw4-PCB (Switching actuator, PCB version)
+* HM-LC-Sw4-WM (Switch actuator for wall mounting)
+* HM-LC-Dim1T-FM (Radio-controlled dimming actuator 1-channel trailing edge flush-mount)
+* HM-LC-Dim1T-Pl (Radio-controlled socket adapter dimming actuator 1-channel trailing edge)
+* HM-LC-Dim1T-CV (Radio-controlled dimming actuator 1-channel trailing edge ceiling void mount)
+* HM-LC-Dim1PWM-CV (Dimming actuator PWM DC-LED, Dropped Ceiling
+* HM-LC-Sw1-Ba-PCB (Switch 1 channel PCB Version, low voltage)
+* HM-LC-Sw1-Pl (Radio-controlled socket adapter switch actuator 1-channel trailing edge)
+* HM-LC-Sw1-FM (Switch-/blind actuators flush-mount)
+* HM-LC-Sw2-FM (Switch-/blind actuators flush-mount)
+* HM-LC-Sw1PBU-FM (Radio-controlled switching actuator for brand switch systems, 1-channel flush-mount)
+* HM-LC-Sw4-Ba-PCB (Switch 4 channel PCB Version, low voltage)
+* HM-LC-Sw4-SM (Switch actuator surface-mount)
+* HM-LC-Sw4-DR (Radio-controlled switch actuator 4-channel, for mounting on DIN rails)
+* HM-LC-Bl1-FM (Switch-/blind actuators flush-mount)
+* HM-LC-Bl1-SM (Blind actuators surface-mount)
+* HM-LC-Bl1PBU-FM (Radio-controlled blind actuator for brand switch systems, 1-channel flush-mount)
+* HM-OU-LED16 (Radio-controlled 16 channel LED Display + push button)
+* HM-RC-4-2 (Remote control 4 channels)
+* HM-Sen-MDIR-O (Wireless infrared motion detector outdoor)
+* HM-Sec-RHS (Radio-controlled window rotary handle sensor)
+* HM-Sec-Key-S (KeyMatic)
+* HM-Sec-Win (WinMatic)
+* HM-Sec-MDIR (Wireless motion detector)
+* HM-Sec-SC (Radio-controlled shutter contact)
+* HM-Sec-SC-2 (Radio-controlled shutter contact)
+* HM-Sec-TiS (Tilt-sensor contact)
+* HM-SCI-3-FM (Radio shutter contact interface 3-channel, flush-mount)
+* HM-CC-VD (Radio-controlled valve drive)
 
-Valid parameter keys: 
-- STATE: The current state of the handle (Number, false=open, true=closed)
+### Wired
+* HMW-Sen-SC-12-FM (RS485 12-channel shutter contact for flush mounting)
+* HMW-Sen-SC-12-DR (RS485 12-channel shutter contact for mounting on DIN rails)
+* HMW-IO-12-Sw7-DR (RS485 I/O module 12 inputs 7 switch outputs for mounting on DIN rails)
+* HMW-LC-Dim1L-DR (Switch/dimming actuator, blind actuator Wired bus for mounting on DIN rails)
 
-#### = Examples =
+## Troubleshooting
 
-    Contact myWindowContact "Contact" {homematic="id=IEQ000000, channel=1, parameter=STATE"}
+### INSTALL_TEST
+If a button is not working and you do not see any PRESS_LONG / SHORT in your log file (loglevel DEBUG), it could be because of enabled security. Try to disable security of your buttons in the HomeMatic Web GUI and try again. If you can't disable security try to use key INSTALL_TEST which gets updated to ON for each key press
 
-### Climate Controls
+### No BinX signature / BadRequestException Binsystem.multicall
 
-Supported Devices:
-- HM-CC-VD (Actuator)
-- HM-CC-TC (Themo Control)
+If you change the communication mode in openhab.cfg (homematic:rpc=), one of these exceptions may appear if you restart openHAB:
+```
+homematic:rpc=bin -> No BinX signature
+homematic:rpc=xml -> BadRequestException: Binsystem.multicall
+```
+The binding registers itself with the CCU at startup with the specified communication mode. If you shutdown openHAB (or kill it) and the binding can not unregister successfully from the CCU, the CCU still sends messages. It does this for about three minutes, if there is no answer, it gives up. If you start openHAB in this period of time with another communication mode, these exceptions occur.
 
-Valid parameter keys: 
-- VALVE_STATE: The current state of the valve (Dimmer, Unit=Percentage, 0%=closed, 100%=open) or (Switch, Unit=ON/OFF, OFF=closed, ON=open). Read-only value.
+Just wait untill the exceptions disappear and restart openHAB. This happens only after switching the communication mode.
 
-#### = Examples =
+### Debugging and Tracing
+If you want to see what's going on in the binding, switch the loglevel in logback.xml to DEBUG.
+```
+<logger name="org.openhab.binding.homematic" level="DEBUG" />
+```
+If you want to see even more, switch to TRACE to also see the CCU request/response data.
+```
+<logger name="org.openhab.binding.homematic" level="TRACE" />
+```
 
-    
-
-### Roller Shutter Actors
-
-The roller shutter support is still not really usable. It mainly mapps to the wrong direction: 100% in homematic is 0% in openHAB which makes all widgets very unusable!
-
-Supported Devices:
-- HM-LC-Bl1-FM
-- HM-LC-Bl1PBU-FM
-- HM-LC-Bl1-SM
-
-Valid parameter keys:
-- LEVEL: The roller shutter level (Rollershutter, Unit=Percentage, 0%=OPEN, 100%=CLOSED, stop=STOP, move again=MOVE).
-
-NOTE: It is a known bug that the direction is incorrect, i.e. if you move your shutter down, it goes up and vice versa. This is due to the fact that HomeMatic defines 100% as "up" while for openHAB 100% means "down". This will be dealt with in the next release.
-
-#### = Examples =
-
-    Rollershutter LivingRoom_Rollershutter	    "Living Room Roller Shutter Level [%d %%]" <rollershutter> (LivingRoom, Rollershutter) {homematic="id=JEQ0299993, channel=1, parameter=LEVEL"}
-
-
-### Detect Low Battery
-
-Sensors and actors usually provide a datapoint called LOWBAT which can be used if to bind an item.
-
-#### = Examples =
-
-    Switch Lowbat_GF_Living_Terrace "Empty battery terrace door [%s]" 	<siren> {homematic="id=JEQ1234567, channel=0, parameter=LOWBAT"} 
-
-### Detect unreachable devices
-
-The most sensors and actors are provide a datapoint which becomes true if the device is not reachable (because of a communication issue).
-
-#### = Examples =
-
-    Switch Unreach_GF_Living_Terrace "Terrace door unreachable [%s]" <siren>  {homematic="id=JEQ1234567, channel=0, parameter=UNREACH"}  
-
-### Sabotage of security devices
-
-Some security devices like motion sensors and contact sensors do provide a datapoint which can be used to detect sabotage of this device.
-
-#### = Examples =
-
-    Switch Sabotage_GF_Living_Terrace "Sabotage Terrace [MAP(home.map):Sabotage_%s]" <siren> {homematic="id=JEQ1234567, channel=1, parameter=ERROR"} 
+[![HomeMatic Binding](http://img.youtube.com/vi/F0ImuuIPjYk/0.jpg)](http://www.youtube.com/watch?v=F0ImuuIPjYk)
