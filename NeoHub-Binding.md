@@ -1,7 +1,5 @@
 Documentation of the NeoHub binding Bundle
 
-_**Note:** This Binding will be available in the upcoming 1.5 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
-
 ## Introduction
 
 The NeoHub binding allows you to connect openhab via TCP/IP to Heatmiser's NeoHub and integrate your NeoStat thermostats onto the bus. 
