@@ -41,9 +41,8 @@ Android app is compatible with openHAB version starting from 1.0.0.
 # Using application
 
 Please install release version of Android app from Google Play store:
-https://play.google.com/store/apps/details?id=org.openhab.habdroid
-
-You can always find current development build on [openHAB Cloudbees page]
 
 [![HABDroid](https://developer.android.com/images/brand/en_app_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=org.openhab.habdroid)
+
+You can always find current development build on [openHAB Cloudbees page](https://openhab.ci.cloudbees.com/job/HABDroid/)
 
