@@ -35,4 +35,5 @@ iOS app is compatible with openHAB version starting from 1.0.0.
 # Using application
 
 Please install release version of iOS app from the App Store:
+
 [![iOSApp](http://raw.github.com/wiki/openhab/openhab/images/app-store-badges.png)](http://itunes.apple.com/us/app/openhab/id492054521?mt=8)
