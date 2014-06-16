@@ -1,7 +1,5 @@
 This binding allows to use a [Velleman k8055 USB IO Board](http://www.vellemanusa.com/products/view/?country=us&lang=enu&id=500349) with OpenHab.
 
-_**Note:** This Binding will be available in the upcoming 1.5 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
-
 ## Pre-requisites
 
 This binding makes use of JNI calls to the native k8055 library and thus requires that the native library is available.  The binding has been tested on Linux with the open-source [libk8055](http://libk8055.sourceforge.net/) library.  In principle it should also work on Windows with the Velleman provided DLL as it has the same API, however this has not yet been tested.
