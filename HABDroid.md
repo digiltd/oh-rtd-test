@@ -4,7 +4,7 @@ openHAB Android is an open-source application providing openHAB user interface o
 
 # Basic information on Android app
 
-Please use [openHAB issues](https://github.com/openhab/openhab/issues?state=open) to submit bugs, feature requests and ideas on how to improve HABDroid.
+Please use [openHAB Android issues](https://github.com/openhab/openhab.android/issues) to submit bugs, feature requests and ideas on how to improve HABDroid.
 
 **Connecting to openHAB**
 
