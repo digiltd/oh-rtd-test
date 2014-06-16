@@ -17,7 +17,7 @@ TclRegaScript (required): 8181
 RF components: 2001  
 WIRED components (optional): 2000  
 
-If you don't have a CCU, this may be interesting: [CCU2 Firmware on ARM Hardware](http://homematic-forum.de/forum/viewtopic.php?f=26&t=18359)
+If you don't have a CCU, this may be interesting: [CCU2 Firmware on ARM Hardware](http://homematic-forum.de/forum/viewtopic.php?f=26&t=18359) [lxccu](http://www.lxccu.com)
 
 **Important:** It's not guarantied to be a 100% drop in replacement for the current Homematic binding, it MAY work without modifications to your configuration, but it's always better to validate if everything works as expected.
 
