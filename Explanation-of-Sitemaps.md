@@ -101,7 +101,7 @@ Syntax:
 
 Syntax:
 
-    Slider item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [sendFrequency="frequency"] [switchEnabled]
+    Slider item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [sendFrequency="frequency"] [switchSupport]
 
 #### Element 'List'
 
