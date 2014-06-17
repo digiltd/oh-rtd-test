@@ -20,11 +20,11 @@ This persistence service can be configured in the "MongoDB Persistence Service" 
 ```
 ############################ MongoDB Persistence Service ##################################
 # the database url
-mongodb:url=
+mongodb:url=mongodb://localhost:27017
 
 # the database name
-mongodb:database=
+mongodb:database=openhab
 
 # the collection name
-mongodb:collection=
+mongodb:collection=openhab
 ```
