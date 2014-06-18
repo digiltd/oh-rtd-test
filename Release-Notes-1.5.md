@@ -21,6 +21,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * Oceanic water softener Binding (#946)
 * [[Astro time calculation Binding|Astro-binding]] (#947)
 * [[Daikin Binding (for KKRP01A online controller)|Daikin-Binding]] (#955)
+* [[Withings Binding|Withings-Binding]] (#979)
 * [[MongoDB persistence service|MongoDB-Persistence]] (#989)
 * [[Binding for Philips TVs with jointspace API|jointSPACE-Binding]] (#1004)
 * [[Freebox Binding|Freebox-Binding]] (#1012)
