@@ -47,6 +47,9 @@ Valid `<sonos command>`'s are:
   <tr><td>next</td><td>OnOff</td><td>skip to next track</td><td>both ON and OFF can be used to trigger this command</td></tr>
   <tr><td>pause</td><td>OnOff</td><td>pause playing music</td><td>both ON and OFF can be used to trigger this command</td></tr>
   <tr><td>play</td><td>OnOff</td><td>play music</td><td>both ON and OFF can be used to trigger this command</td></tr>
+   <tr><td>playline</td><td>String</td><td>play the line-in stream of the the named sonos UIN</td><td>UIN is the "RINCON..." identifier string </td></tr>
+   <tr><td>playlist</td><td>String</td><td>play the named playlist from favorites</td><td>the playlist has to be -pre-defined/created in the Sonos Controller software</td></tr>
+   <tr><td>playuri</td><td>String</td><td>play the named URI</td><td>the URI is either in the "//host/folder/filename.mp3" format or either in the "x-...-..." format used for other types of sources used by Sonos. This command clears the current queue</td></tr>
   <tr><td>previous</td><td>OnOff</td><td>skip to previous track</td><td>both ON and OFF can be used to trigger this command</td></tr>
   <tr><td>publicaddress</td><td>OnOff</td><td>put all Players in one group, and stream audio from the line-in from the Player that triggered the command</td><td>both ON and OFF can be used to trigger this command</td></tr>
   <tr><td>radio</td><td>String</td><td>play the named radio station</td><td>the station has to be defined in the list of Favorite Stations in the Sonos Desktop Controller</td></tr>
@@ -59,13 +62,6 @@ Valid `<sonos command>`'s are:
   <tr><td>volume</td><td>Percent</td><td>get or set the volume of the Player</td><td></td></tr>
 </table>
 
-New since v1.3
-
-<table>
-  <tr><td><b>Command</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
-  <tr><td>playlist</td><td>String</td><td>play the named playlist from favorites</td><td>the playlist has to be defined in the list of Sonos Favorites</td></tr>
-</table>
-
 ## Sonos Status Variables
 
 Valid `<sonos variable>`'s are:
@@ -74,6 +70,9 @@ Valid `<sonos variable>`'s are:
   <tr><td><b>Variable</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>alarmproperties</td><td>String</td><td>Properties of the alarm currently running</td><td></td></tr>
   <tr><td>alarmrunning</td><td>OnOff</td><td>set to ON if the alarm was triggered</td><td></td></tr>
+  <tr><td>currenttitle</td><td>String</td><td>title of currently playing song</td><td></td></tr>
+  <tr><td>currentartist</td><td>String</td><td>artist of currently playing song</td><td></td></tr>
+  <tr><td>currentalbum</td><td>String</td><td>album of currently playing song</td><td></td></tr>
   <tr><td>currenttrack</td><td>String</td><td>the track or radio station currently playing</td><td></td></tr>
   <tr><td>linein</td><td>OnOff</td><td>set to ON if the line-in of the Player is connected</td><td></td></tr>
   <tr><td>localcoordinator</td><td>OnOff</td><td>set to ON if this Player is the zone group coordinator</td><td></td></tr>
@@ -82,16 +81,6 @@ Valid `<sonos variable>`'s are:
   <tr><td>zonegroup</td><td>String</td><td>XML formatted string with the current zonegroup configuration</td><td></td></tr>
   <tr><td>zonegroupid</td><td>String</td><td>Id of the Zone group the Sonos Player belongs to</td><td></td></tr>
 </table>
-
-New since v1.3
-
-<table>
-  <tr><td><b>Variable</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
-  <tr><td>currenttitle</td><td>String</td><td>title of currently playing song</td><td></td></tr>
-  <tr><td>currentartist</td><td>String</td><td>artist of currently playing song</td><td></td></tr>
-  <tr><td>currentalbum</td><td>String</td><td>album of currently playing song</td><td></td></tr>
-</table>
-
 
 ## Examples
 
