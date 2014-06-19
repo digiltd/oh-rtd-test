@@ -68,3 +68,7 @@ The battery state of a device can be requested using the _battery_ type in the c
 ![MAX! Binding Battery State](https://dl.dropboxusercontent.com/u/7347332/web/max_battery.png)
 
 String values returned by the binding are either _ok_ or _low_.
+
+In order to be able to set a thermostat (and thus sending a temperature setting to an individual thermostat) use the Setpoint item in your sitemap configuration:
+
+    Setpoint item=Heating_Max_Valve step=0.5 minValue=18 maxValue=30
