@@ -8,6 +8,7 @@ Shortly after the 1.5 release we decided to deliver the 1.5.1 bugfix release sol
 * Fix for #1129, edge detection should be set only on input pins (#1155)
 * Bugfix which solves a conflict between CV and REST binding bug (#1154)
 * Inchoate deflate and gzip support for org.openhab.io.net.http.HTTPUtils (#1146)
+* Added Omnilink Binding to addons archive.
 
 ### Version 1.5.0
 
