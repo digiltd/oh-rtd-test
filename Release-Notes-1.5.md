@@ -2,7 +2,7 @@
 
 ### Version 1.5.1
 
-Shortly after the 1.5 release we decided to deliver the 1.5.1 bugfix release solving the following issues (See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=5&page=1&state=closed):
+Shortly after the 1.5 release we decided to deliver the 1.5.1 bugfix release solving the following issues (See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=6&page=1&state=closed):
 
 * [KNX] fixed bug regarding double usage of datapoints in Item definition + DPT 7.001 bug (#1167)
 * Fix for #1129, edge detection should be set only on input pins (#1155)
