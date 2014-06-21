@@ -65,15 +65,15 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 On a separate system download:
 
 * For CubieBoard2:  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
-[Cubiuntu - Lubuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/cubiuntu_cb2_1.001_3308067698bcd2d5246071da85547d77.img.zip
+[Cubi - Lubuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/cubiuntu_cb2_1.001_3308067698bcd2d5246071da85547d77.img.zip
 ) or 
-[Cubian - Debian](http://cubian.org/downloads/)
+[Cubi - Debian](http://cubiuntu.com/)
 
 * For ODroid U3: Use Xubuntu
 (http://com.odroid.com/sigong/nf_file_board/nfile_board.php)
 
 **2. Install Java Hard Floating point** 
-Download Java JRE for ARMHF from Oracle if it is not already present.  
+If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html)  
 
 **3. Install and setup OpenHAB**   Use apt-get as described below
 (https://github.com/openhab/openhab/wiki/Apt-Repository)
