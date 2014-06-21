@@ -65,9 +65,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 On a separate system download:
 
 * For CubieBoard2:  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
-[Cubi - Lubuntu](http://dl.cubieboard.org/cubiuntux/cubiuntu/cubiuntu_cb2_1.001_3308067698bcd2d5246071da85547d77.img.zip
-) or 
-[Cubi - Debian](http://cubiuntu.com/)
+[Cubi - Lubuntu](http://cubiuntu.com)
 
 * For ODroid U3: Use Xubuntu
 (http://com.odroid.com/sigong/nf_file_board/nfile_board.php)
