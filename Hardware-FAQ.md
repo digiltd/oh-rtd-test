@@ -76,7 +76,7 @@ If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-
 **3. Install and setup OpenHAB**   Use apt-get as described below
 (https://github.com/openhab/openhab/wiki/Apt-Repository)
 
-**4. Use symlinks if you use more than one USB port. **  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
+**4. Use symlinks if you use more than one USB port**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
 
 SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwaveUSB", MODE="0666"
 
