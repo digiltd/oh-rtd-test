@@ -68,7 +68,7 @@ A rule for the openHAB rule engine (not drools) can look like this:
     	Item TV_PowerState changed to ON
     then
     	if(VDR_LIVINGROOM_POWER_STATUS?.state==OFF) {
-        	sendCommand(VDR_Livingroom_POWER, ON);
+        	sendCommand(VDR_LivingroomPower, ON);
         }    
     end
  
@@ -84,7 +84,7 @@ A rule for the openHAB rule engine (not drools) can look like this:
     then
     	if(VDR_LIVINGROOM_POWER_STATUS?.state==ON) {
     		if (VDR_LivingroomRecording?.state==OFF) {
-        		sendCommand(VDR_Livingroom_POWER, OFF);
+        		sendCommand(VDR_LivingroomPower, OFF);
         	}
         }    
     end
