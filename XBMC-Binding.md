@@ -130,3 +130,9 @@ This is of course an example very specific to my preferences, but should give yo
                     sendCommand( LivingRoom_Lamp, brightnessBeforePause)
             }
     end
+
+## XBMC Binding combined with Wake-On-LAN and Network Health Bindings
+
+The following configuration can be used to power on your XBMC machine using the Wake-On-LAN Binding and power it off using the XBMC Binding. The Network Health binding updates the state after some time if XBMC was powered on or off without using openHAB. You have to insert your own IP and MAC address of course.
+
+    Switch XBMC_Power "XBMC Power" {xbmc=">[#openelec|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="openelec:80"}
