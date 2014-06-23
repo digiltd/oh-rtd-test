@@ -4,7 +4,7 @@ openHAB iOS is an open-source application providing openHAB user interface on iO
 
 # Basic information on iOS app
 
-Please use [openHAB iOS issues](https://github.com/openhab/openhab.ios/issues) to submit bugs, feature requests and ideas on how to improve HABDroid.
+Please use [openHAB iOS issues](https://github.com/openhab/openhab.ios/issues) to submit bugs, feature requests and ideas on how to improve the iOS native app.
 
 **Connecting to openHAB**
 
