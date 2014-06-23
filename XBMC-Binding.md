@@ -93,6 +93,7 @@ Player.Album      | <         | Currently playing album (music only)
 Player.<???>      | <         | Any other player property supported by the XBMC JSON RPC API
 Player.PlayPause  | >         | Play/pause playback
 Player.Stop       | >         | Stop playback
+System.Shutdown   | >         | Send OFF to power down the system
 GUI.ShowNotification | >         | Show a notification in the XBMC UI
 
 ## Example use case
