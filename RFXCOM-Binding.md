@@ -82,6 +82,9 @@ Examples, how to configure your items:
     Switch Light1 { rfxcom=">3155730.3:LIGHTING5.LIGHTWAVERF:Command"}
     Dimmer Light2 "Light2 [%d %%]" { rfxcom=">3155730.4:LIGHTING5.LIGHTWAVERF:DimmingLevel"  }
 
+    OWL CM160 Energy Monitor example
+    Number Owl_InstantAmps { rfxcom="<63689:InstantAmps"}
+    Dimmer Owl_TotalAmpHours { rfxcom="<63689:TotalAmpHours"  }
 
 
 `PacketType.SubType` specify packet and sub type information ...
@@ -145,5 +148,7 @@ Examples, how to configure your items:
   <tr><td>InstantPower</td><td>NumberItem</td><td></td></tr>
   <tr><td>TotalUsage</td><td>NumberItem</td><td></td></tr>
   <tr><td>Voltage</td><td>NumberItem</td><td></td></tr>
+  <tr><td>InstantAmps</td><td>NumberItem</td><td></td></tr>
+  <tr><td>TotalAmpHours</td><td>NumberItem</td><td></td></tr>
   <tr><td>Status</td><td>StringItem</td><td></td></tr>
 </table>
