@@ -84,7 +84,7 @@ Examples, how to configure your items:
 
     OWL CM160 Energy Monitor example
     Number Owl_InstantAmps { rfxcom="<63689:InstantAmps"}
-    Dimmer Owl_TotalAmpHours { rfxcom="<63689:TotalAmpHours"  }
+    Number Owl_TotalAmpHours { rfxcom="<63689:TotalAmpHours"  }
 
 
 `PacketType.SubType` specify packet and sub type information ...
