@@ -17,6 +17,8 @@ TclRegaScript (required): 8181
 RF components: 2001  
 WIRED components (optional): 2000  
 
+The CCU firewall must be configured to 'full access' for the Remote Homematic-Script API.
+
 If you don't have a CCU, this may be interesting: [CCU2 Firmware on ARM Hardware](http://homematic-forum.de/forum/viewtopic.php?f=26&t=18359) / [lxccu](http://www.lxccu.com)
 
 **Important:** It's not guarantied to be a 100% drop in replacement for the current Homematic binding, it MAY work without modifications to your configuration, but it's always better to validate if everything works as expected.
@@ -262,12 +264,14 @@ These devices have been tested so far and confirmed as working:
 * HM-Sec-TiS (Tilt-sensor contact)
 * HM-SCI-3-FM (Radio shutter contact interface 3-channel, flush-mount)
 * HM-CC-VD (Radio-controlled valve drive)
+* ZEL STG RM FFK (a HM-Sec-SC-2 from Rotomatic)
 
 ### Wired
 * HMW-Sen-SC-12-FM (RS485 12-channel shutter contact for flush mounting)
 * HMW-Sen-SC-12-DR (RS485 12-channel shutter contact for mounting on DIN rails)
 * HMW-IO-12-Sw7-DR (RS485 I/O module 12 inputs 7 switch outputs for mounting on DIN rails)
 * HMW-LC-Dim1L-DR (Switch/dimming actuator, blind actuator Wired bus for mounting on DIN rails)
+* HMW-IO-12-Sw14-DR (RS485 I/O-Modul 12 inputs 14 switch output for mounting on DIN rails)
 
 ## Troubleshooting
 
