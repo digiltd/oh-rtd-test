@@ -124,7 +124,7 @@ Each node in the network provides functionality in the form of Command Classes. 
   <tr><td>SENSOR_ALARM</td><td>Used to get alarm info from sensors.</td><td>*alarm_type=value* : optional parameter to select an alarm type in case the node supports multiple alarms. Value is one of the following **numerical** values: <br/>GENERAL(0, "General")<br/>SMOKE(1, "Smoke")<br/>CARBON_MONOXIDE(2, "Carbon Monoxide")<br/>CARBON_DIOXIDE(3, "Carbon Dioxide")<br/>HEAT(4, "Heat")<br/>FLOOD(5, "Flood")</td></tr>
 </table>
 
-## = Parameters that can be added to any item
+## Parameters that can be added to any item
 
 There are some general parameters that can be added to any command class
 in an item string. These are `refresh_interval=value` and `respond_to_basic=true`
