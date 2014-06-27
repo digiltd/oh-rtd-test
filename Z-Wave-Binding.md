@@ -109,7 +109,7 @@ Each node in the network provides functionality in the form of Command Classes. 
 24 = SoilTemperature<br/>
 25 = SeismicIntensity<br/>
 26 = SeismicMagnitude<br/>
-27 = ,"Ultraviolet<br/>
+27 = Ultraviolet<br/>
 28 = ElectricalResistivity<br/>
 29 = ElectricalConductivity<br/>
 30 = Loudness<br/>
@@ -144,7 +144,7 @@ You can force a device to work with the basic command set (or any specific comma
     Switch    ZwaveDevice        { zwave="3:1:command=BASIC" }
 
 
-To find out which command classes are supported by your Z-Wave device, you can look in the manual or use the list at http://www.pepper1.net/zwavedb/ or http://products.z-wavealliance.org/. In case your command class is supported by the device and binding, but you have a problem, you can create an issue at: https://github.com/openhab/openhab/issues. In case you want a command class implemented by the binding, please add it to issue [431](https://github.com/openhab/openhab/issues/431).
+To find out which command classes are supported by your Z-Wave device, you can look in the manual or use the list at http://www.pepper1.net/zwavedb/ or http://products.z-wavealliance.org/. In case your command class is supported by the device and binding, but you have a problem, you can create an issue at: https://github.com/openhab/openhab/issues. In case you want a command class implemented by the binding, please create an issue.
 
 ## Known Issues
 
