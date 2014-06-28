@@ -1,7 +1,7 @@
 Our WAC systems use default modbus data provided by Arduino barebones e.g. a Debian Rasberry server kit all year long. '''''Binding is compatible with latest models since 2013'''' [https://code.google.com/r/orga-westaflex/ See Examples of typical WAC Bindings], if you have any suggestions or questions don't hesitate [http://westaflex.com/unternehmen/kontakt to contact us] or use [https://github.com/westaflex our Github account]. The [https://code.google.com/p/industry40/ snapshot version of our industry4.0 binding] can be downloaded, together with the rest of openhab.
 
 === wac.items ===
-<code>
+```
 
 /*
  * 
@@ -74,15 +74,15 @@ Number 		TemperatureOutDoor 		"Outside air temperature sensor value [%.1f °C]"
 									<temperature> { modbus = "wxwacI2:6"}
 Number 		TemperatureWater 		"Return water temperature value [%.1f °C]" 
 									<temperature> { modbus = "wxwacI2:7"}
-</code>
+```
 
 === users.cfg ===
-<code>
+```
 user=password,user,role
-</code>
+```
 
 === wac.cfg ===
-<code>
+```
 # This is the default configuration file, which comes with every openHAB distribution.
 # You should do a copy of it with the name 'openhab.cfg' and configure your personal
 # settings in there. This way you can be sure that they are not overwritten, if you
@@ -1161,10 +1161,10 @@ tcp:refreshinterval=250
 #
 # Optional, specify the number of input and output ports for a given HDanywhere matrix
 #hdanywhere:192.168.0.88.ports=4
-</code>
+```
 
 === airflow.rules ===
-<code>
+```
 import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
@@ -1179,10 +1179,10 @@ then
     	send("wac@westaflex.net", "Please change the Filter for you Westaflex Air Control unit.")
     }
 end
-</code>
+```
 
 === wac.sitemap ===
-<code>
+```
 sitemap WAC label="Main"
 {
 	Frame label="Westaflex Air Control" {
@@ -1299,23 +1299,23 @@ sitemap WAC label="Main"
 		}
 	}
 }
-</code>
+```
 
 === wac_active.map ===
-<code>
+```
 CLOSED=Deactivated
 OPEN=Active
 undefined=unknown
 -=not set
-</code>
+```
 
 === wac_error.map ===
-<code>
+```
 CLOSED=Ok
 OPEN=Alarm
 undefined=unknown
 -=not set
-</code>
+```
 
 === TLDR ===
 {| style="margin: 1em 1em 1em 0; border: 1px #aaaaaa solid; border-collapse: collapse;"
