@@ -10,6 +10,13 @@ The binding is currently under heavy development and it is recommended that you 
 The binding currently offers the following features:
 
 * Listen mode - this allows you to listen in on MAX! network activity from a MAX!Cube for example. A trace will be output in debug mode that decodes implemented messages
+* Pairing - can pair devices with OpenHAB by triggering Pair Mode using a Switch item
+* Wall Thermostat
+ * Can send set point temperature to a wall thermostat
+ * Can receive set point temperature from wall thermostat
+ * Can receive measured temperature from wall thermostat
+* Radiator Thermostat Valve
+ * Can send set point temperature
 
 # Binding Configuration
 Example configuration:
