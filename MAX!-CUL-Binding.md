@@ -14,7 +14,15 @@ The binding currently offers the following features:
 # Binding Configuration
 Example configuration:
 
-``
+`################################ Max!CUL Binding  ###########################################
+
+# set the device of the CUL device
+maxcul:device=serial:/dev/ttyACM1
+# set the refresh interval
+maxcul:refreshInterval=60000
+# set timezone you want the units to be set to - default is Europe/London
+maxcul:timezone=Europe/London
+`
 
 # Item Configuration
 
@@ -27,9 +35,9 @@ Examples:
 * `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:battery" }`- will return the battery level of JEQ0304492 _(NOT IMPLEMENTED YET)_
 * `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:temperature" }` - will return the temperature of a wall mounted thermostat with serial number JEQ0304447
 * `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ0304447
- * `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - will default to 'switch' mode _(NOT IMPLEMENTED YET)_
- * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
- * `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it.
+* `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - will default to 'switch' mode _(NOT IMPLEMENTED YET)_
+* `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
+* `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it.
 
 # Technical Information
 
