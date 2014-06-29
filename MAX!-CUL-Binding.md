@@ -18,10 +18,10 @@ Example configuration:
     
     # set the device of the CUL device
     maxcul:device=serial:/dev/ttyACM1
-    # set the refresh interval`
-    maxcul:refreshInterval=60000`
-    # set timezone you want the units to be set to - default is Europe/London`
-    maxcul:timezone=Europe/London`
+    # set the refresh interval
+    maxcul:refreshInterval=60000
+    # set timezone you want the units to be set to - default is Europe/London
+    maxcul:timezone=Europe/London
 
 
 # Item Configuration
