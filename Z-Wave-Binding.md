@@ -133,6 +133,12 @@ in an item string. These are `refresh_interval=value` and `respond_to_basic=true
 
 `respond_to_basic=true` indicates that the item will respond to basic reports. Some Fibaro contacts and universal sensors report their values as BASIC reports instead of a specific command class. You can add this parameter to an item to indicate that this item should respond to those reports.
 
+`meter_zero=xx.x` can be set when using the Meter command class. If set, anything below the value specified will be considered as 0. This allows the user to account for small power consumption readings even when a device is off.
+
+`sensor_scale=X` can be set for the multilevel sensor class to force the sensor to be converted to a specific scale. This uses the scale information provided by the device to decide how, or if, the conversion needs to be applied. Currently this is only available for temperature sensors. eg. `sensor_scale=0` will ensure that a temperature sensor is always shown in celsius, while `sensor_scale=1` will ensure fahrenheit.
+
+`invert_state=true` can be used to invert the state of a multilevel switch command class. eg this can be used to reverse the direction of a rollershutter.
+
 ### Basic command class
 
 The basic Command Class is a special command class that almost every node implements. It provides functionality to set a value on the device and/or to read back values. It can be used to address devices that are currently not supported by their native command class like thermostats.
