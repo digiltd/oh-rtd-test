@@ -21,6 +21,7 @@ The binding supports all controllers that implement the Z-Wave Serial API. A lis
   <tr><td>Aeon Labs USB Z-Stick</td><td>No remarks</td></tr>
   <tr><td>The Razberry-Zwave-Daughterboard</td><td>See known issues</td></tr>
   <tr><td>Vision USB stick Z-wave</td><td>No remarks</td></tr>
+  <tr><td>Z-Wave.me Z-StickC</td><td>No remarks</td></tr>
 </table>
 
 
