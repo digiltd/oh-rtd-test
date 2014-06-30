@@ -2,8 +2,7 @@ The Netatmo binding integrates the Netatmo Personal Weather Station into openHAB
 
 See http://www.netatmo.com/ for details on their product.
 
-Configuration
--------------
+# Configuration
 
 * Create an application at http://dev.netatmo.com/dev/createapp
 
@@ -70,15 +69,36 @@ rule "Monitor carbon dioxide level"
 end
 ```
 
-Sample data
------------
+# Common problems
+
+## Missing Certificate Authority
+```
+javax.net.ssl.SSLHandshakeException:
+sun.security.validator.ValidatorException:
+PKIX path building failed:
+sun.security.provider.certpath.SunCertPathBuilderException:
+unable to find valid certification path to requested target
+```
+
+can be solved by installing the StartCom CA Certificate into the local JDK like this:
+
+* Download the certificate from https://www.startssl.com/certs/ca.pem
+
+* Then import it into the keystore (the password is "changeit")
+```
+$JAVA_HOME/bin/keytool -import -keystore $JAVA_HOME/jre/lib/security/cacerts -alias StartCom-Root-CA -file ca.pem
+```
+
+source: http://jinahya.wordpress.com/2013/04/28/installing-the-startcom-ca-certifcate-into-the-local-jdk/
+
+# Sample data
+
 If you want to evaluate this binding but have not got a Netatmo station yourself
 yet, you can add the Netatmo office in Paris to your account:
 
 http://www.netatmo.com/en-US/addguest/index/TIQ3797dtfOmgpqUcct3/70:ee:50:00:02:20
 
-Icons
------
+# Icons
 The following icons are used by original Netatmo web app:
 
 http://my.netatmo.com/img/my/app/module_int.png
