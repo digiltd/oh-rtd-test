@@ -67,10 +67,6 @@ All the systems are connected to a central openHAB instance, which controls the 
 
 http://sdeurope.uch.ceu.es/2012/project/
 
-#### Contact
-
-<tbd>
-
 ***
 
 ### URC Lab
@@ -107,21 +103,9 @@ Through openHAB we can connect our gateway, the Universal Control Hub (UCH) with
 
 University of Applied Sciences Cologne
 
-#### Abstract / Description / Dates
-
-#### Screenshots
-
-#### How did openHAB help
-
-#### External links
-
 #### Press links
 
 http://www.verwaltung.fh-koeln.de/aktuelles/2013/08/verw_msg_06233.html
-
-#### Contact
-
-<tbd>
 
 ***
 
