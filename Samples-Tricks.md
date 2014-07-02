@@ -1263,11 +1263,12 @@ I think we can do the same with Heat index for US, but for the moment this is th
 
 Your items file could look like this:
 
-`/*Humidex "Feels like" Temperature */
-Number Humidex_Outdoor_Temperature "Feels like [%.1f °C]" <temp_windchill>	(Weather)`
+```
+/*Humidex "Feels like" Temperature */
+Number Humidex_Outdoor_Temperature "Feels like [%.1f °C]" <temp_windchill>	(Weather)
+```
 
 My rules file looks like this:
-
 
 ```
 // Humidex Rule
