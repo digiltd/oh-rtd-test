@@ -1256,7 +1256,7 @@ And react on commands for this item in a rule:
  end
 ```
 
-### Add "Humidex" calculation for your "Feels like" Temperature value (any weather/climate technology)
+### Add "Humidex" calculation for your "Feels like" Temperature value
 
 I think we can do the same with Heat index for US, but for the moment this is the european version, it works perfectly with Netatmo but it should be ok for any weather/climate technology.
 
