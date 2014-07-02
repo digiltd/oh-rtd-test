@@ -23,6 +23,7 @@ Miscellaneous Tips & Tricks
 * [How to use a voice command from HABDroid](Samples-Tricks#how-to-use-a-voice-command-from-habdroid)
 * [Add Humidex calculation for your Feels Like Temperature value](Samples-Tricks#Add-Humidex-calculation-for-your-Feels-Like-Temperature-value)
 
+
 ### How to redirect your log entries to the syslog
 
 You just need to add some lines to your logback.xml.
