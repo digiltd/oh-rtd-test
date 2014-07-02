@@ -1259,16 +1259,17 @@ And react on commands for this item in a rule:
 
 ### Add Humidex calculation for your Feels Like Temperature value
 
+
 I think we can do the same with Heat index for US, but for the moment this is the european version, it works perfectly with Netatmo but it should be ok for any weather/climate technology.
 
-Your items file could look like this:
+The items file could look like this:
 
 ```
 /*Humidex "Feels like" Temperature */
 Number Humidex_Outdoor_Temperature "Feels like [%.1f °C]" <temp_windchill>	(Weather)
 ```
 
-My rules file looks like this:
+The rules file looks like this:
 
 ```
 // Humidex Rule
