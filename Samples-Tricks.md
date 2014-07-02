@@ -1268,7 +1268,9 @@ Number Humidex_Outdoor_Temperature "Feels like [%.1f °C]" <temp_windchill>	(Wea
 
 My rules file looks like this:
 
-`// Humidex Rule
+
+```
+// Humidex Rule
 rule "Humidex calculation"
 when
   Item Netatmo_Outdoor_Temperature changed or
@@ -1282,4 +1284,4 @@ then
   var Number humidex = T + (new Double(5) / new Double(9)) * (e - 10)
   postUpdate(Humidex_Outdoor_Temperature, humidex);
 end
-`
+```
