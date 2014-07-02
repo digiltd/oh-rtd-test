@@ -36,8 +36,8 @@ Example configuration:
 # Item Configuration
 
 The following devices have the following valid types:
-* RadiatorThermostat - thermostat,temperature,battery
-* WallThermostat - thermostat,temperature,battery
+* RadiatorThermostat - `thermostat`,`temperature`,`battery`,`valvepos`
+* WallThermostat - `thermostat`,`temperature`,`battery`
 
 Examples:
 * `Number RadTherm1 { maxcul="RadiatorThermostat:JEQ1234565" }` - will return/set the thermostat temperature of radiator thermostat with the serial number JEQ0304492
@@ -53,16 +53,17 @@ Examples:
 ## Implemented Messages
 The table below shows what messages are implemented and to what extent. Transmit means we can build and transmit a packet of that type with relevant data. Decode means we can extract data into some meaningful form. All message types can be received, identified and the raw payloads displayed. Messages not identified in this table cannot be transmitted by the binding and can only be decoded as a raw payload.
 
-| Message               | Transmit | Decode           |
-|-----------------------|:--------:|:----------------:|
-|ACK                    | Y        | Y                |
-|PAIR PING              | N        | Y                |
-|PAIR PONG              | Y        | Y                |
-|SET GROUP ID           | Y        | Y                |
-|SET TEMPERATURE        | Y        | Y                |
-|TIME INFO              | Y        | Y                |
-|WAKEUP                 | Y        | N                |
-|WALL THERMOSTAT CONTROL| N        | Y                |
+| Message               | Transmit | Decode           |Comments                                    |
+|-----------------------|:--------:|:----------------:|--------------------------------------------|
+|ACK                    | Y        | Y                |                                            |
+|PAIR PING              | N        | Y                |                                            |
+|PAIR PONG              | Y        | Y                |                                            |
+|SET GROUP ID           | Y        | Y                |                                            |
+|SET TEMPERATURE        | Y        | Y                | Allows setting of temperature of (wall)therm |
+|TIME INFO              | Y        | Y                |                                            |
+|WAKEUP                 | Y        | N                |                                            |
+|WALL THERMOSTAT CONTROL| N        | Y                | Provides measured temp and set point       |
+|THERMOSTAT STATE       | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
 
 ## Message Sequences
 For situations such as the pairing where a whole sequences of messages is required the binding has implemented a message sequencing system. This allows the implementation of a state machine for the system to pass through as messages are passed back and forth.
