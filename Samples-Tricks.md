@@ -21,6 +21,7 @@ Miscellaneous Tips & Tricks
 * [How to manage and sync configuration via subversion](Samples-Tricks#how-to-manage-and-sync-configuration-via-subversion)
 * [How to switch LEDS on cubietruck](Samples-Tricks#how-to-switch-leds-on-cubietruck)
 * [How to use a voice command from HABDroid](Samples-Tricks#how-to-use-a-voice-command-from-habdroid)
+* [Add "Humidex" calculation for your "Feels like" Temperature value](Sample-Tricks#Add-"Humidex"-calculation-for-your-"Feels-like"-Temperature-value)
 
 ### How to redirect your log entries to the syslog
 
@@ -1254,3 +1255,30 @@ And react on commands for this item in a rule:
  	Light.sendCommand(hue + ",100,100")
  end
 ```
+
+### Add "Humidex" calculation for your "Feels like" Temperature value (any weather/climate technology)
+
+I think we can do the same with Heat index for US, but for the moment this is the european version, it works perfectly with Netatmo but it should be ok for any weather/climate technology.
+
+Your items file could look like this:
+
+`/*Humidex "Feels like" Temperature */
+Number Humidex_Outdoor_Temperature "Feels like [%.1f °C]" <temp_windchill>	(Weather)`
+
+My rules file looks like this:
+
+`// Humidex Rule
+rule "Humidex calculation"
+when
+  Item Netatmo_Outdoor_Temperature changed or
+  Item Netatmo_Outdoor_Humidity changed or
+  System started
+then
+  var Number T = Netatmo_Outdoor_Temperature.state as DecimalType
+  var Number H = Netatmo_Outdoor_Humidity.state as DecimalType
+  var Number x = 7.5 * T/(237.7 + T)
+  var Number e = 6.112 * Math::pow(10, x.doubleValue) * H/100
+  var Number humidex = T + (new Double(5) / new Double(9)) * (e - 10)
+  postUpdate(Humidex_Outdoor_Temperature, humidex);
+end
+`
