@@ -21,7 +21,7 @@ Miscellaneous Tips & Tricks
 * [How to manage and sync configuration via subversion](Samples-Tricks#how-to-manage-and-sync-configuration-via-subversion)
 * [How to switch LEDS on cubietruck](Samples-Tricks#how-to-switch-leds-on-cubietruck)
 * [How to use a voice command from HABDroid](Samples-Tricks#how-to-use-a-voice-command-from-habdroid)
-* [Add "Humidex" calculation for your "Feels like" Temperature value](Samples-Tricks#Add-"Humidex"-calculation-for-your-"Feels-like"-Temperature-value)
+* [Add Humidex calculation for your Feels Like Temperature value](Samples-Tricks#Add-Humidex-calculation-for-your-Feels-Like-Temperature-value)
 
 ### How to redirect your log entries to the syslog
 
@@ -1256,7 +1256,7 @@ And react on commands for this item in a rule:
  end
 ```
 
-### Add "Humidex" calculation for your "Feels like" Temperature value
+### Add Humidex calculation for your Feels Like Temperature value
 
 I think we can do the same with Heat index for US, but for the moment this is the european version, it works perfectly with Netatmo but it should be ok for any weather/climate technology.
 
