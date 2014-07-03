@@ -5,6 +5,8 @@ Documentation of the CUL binding bundle
 This binding allows you use a CUL device from busware.de in SlowRF mode to connect to FS20/FHT/Intertechno devices.
 It is probably possible to use this binding with other devices running culfw (culfw.de) as as they appear as a serial device on the linux system.
 
+A separate binding is implented for those wishing to interface with MAX! devices using the CUL dongle. Please see [MAX! CUL binding](https://github.com/openhab/openhab/wiki/MAX!-CUL-Binding)
+
 ## Installation
 
 Besides simply dropping this binding into the addon folder it is possible that some more steps are needed to get everything running. Most importantly on Linux the user openHAB is running as has to be in the group 'dialout' to have the necessary permissions to access serial ports. Additional it is possible that you need to add/alter some VM parameters. I had to edit the following to parameters to get the CUL binding running on a Raspberry Pi.
