@@ -19,13 +19,6 @@ Below are configuration notes for specific hardware.
 
 ## X86 Linux
 
-Linux distro**
-
-On a separate system download:
-
-* For CubieBoard2:  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
-[Cubi - Lubuntu](http://cubiuntu.com)
-
 **1.  Install Linux **
 
 
