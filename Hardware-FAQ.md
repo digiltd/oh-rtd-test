@@ -19,10 +19,10 @@ Below are configuration notes for specific hardware.
 
 ## X86 Linux
 
-**1.  Install Linux **
+**1.  Install Linux**
 
 
-**2. Install Java **
+**2. Install Java**
 If not already present
 
 **3. Install and setup OpenHAB**   Use apt-get as described below
