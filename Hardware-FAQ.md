@@ -15,7 +15,37 @@ openHAB is expected to run on all platforms (i.e. processor architectures and op
 
 openHAB can be installed and operated on AMD or Intel powered commodity laptop, a desktop computer, or a special form factor platform, such as ARM based single-board computers. 
 
-Below are configuration notes for specialized hardware.
+Below are configuration notes for specific hardware.
+
+## X86 Linux
+
+Linux distro**
+
+On a separate system download:
+
+* For CubieBoard2:  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
+[Cubi - Lubuntu](http://cubiuntu.com)
+
+**1.  Install Linux **
+
+
+**2. Install Java **
+If not already present
+
+**3. Install and setup OpenHAB**   Use apt-get as described below
+(https://github.com/openhab/openhab/wiki/Apt-Repository)
+
+**4. Use symlinks if you use more than one USB port**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
+
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwaveUSB", MODE="0666"
+
+to get  IdVendor and IdProduct,  you need type in the following:
+   "sudo udevadm info -q all -n /dev/ttyUSB0"
+
+There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwaveUSB".  You will also need to add the property to the Java command line by adding the following (device names delimited by ":" ) to the file /etc/init.d/openhab in the JAVA_ARGS section with your device names substituted.
+
+-Dgnu.io.rxtx.SerialPorts=/dev/rfxcomUSB:/dev/zwaveUSB
+
 
 
 ## ARM-based Single-Board Computers (SBC)
