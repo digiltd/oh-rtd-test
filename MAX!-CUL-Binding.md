@@ -64,8 +64,15 @@ The table below shows what messages are implemented and to what extent. Transmit
 |WAKEUP                 | Y        | N                |                                            |
 |WALL THERMOSTAT CONTROL| N        | Y                | Provides measured temp and set point       |
 |THERMOSTAT STATE       | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
+| WALL THERMOSTAT STATE | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
 
 ## Message Sequences
 For situations such as the pairing where a whole sequences of messages is required the binding has implemented a message sequencing system. This allows the implementation of a state machine for the system to pass through as messages are passed back and forth.
 
 This will be documented in more detail in due course.
+
+## Planned Future Features
+1. Implement association of devices with each other so that they won't need rules to keep the Wall Thermostat and the Radiator Thermostat in sync
+1. Add the ability to configure night/comfort/etc temperatures
+1. Add the ability to interface with the Eco switch
+1. Add the ability to interface with the window contact devices
