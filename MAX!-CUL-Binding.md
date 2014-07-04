@@ -14,11 +14,24 @@ The binding currently offers the following features:
 * Listen mode - this allows you to listen in on MAX! network activity from a MAX!Cube for example. A trace will be output in debug mode that decodes implemented messages
 * Pairing - can pair devices with OpenHAB by triggering Pair Mode using a Switch item
 * Wall Thermostat
- * Can send set point temperature to a wall thermostat
- * Can receive set point temperature from wall thermostat
- * Can receive measured temperature from wall thermostat
+ * Can send set point temperature
+ * Can receive set point temperature
+ * Can receive measured temperature 
+ * Can receive battery status
+ * Can receive operating mode
 * Radiator Thermostat Valve
  * Can send set point temperature
+ * Can receive set point temperature
+ * Can receive measured temperature
+ * Can receive valve position
+ * Can receive battery status
+ * Can receive operating mode
+
+# Limitations
+Aside from understanding what the binding does do which is documented here there are some key things to be aware of that may limit what you hope to achieve.
+
+1. Radiator valve data is updated quite sporadically. Items such as set point temperature, measured temperature, valve position, battery status and operating mode are only sent when the state of the valve changes - i.e. valve moves or the dial used to manually set a temperature. If you want measured temperature it is much better to use a wall thermostat.
+1. The binding has no concept of 'auto' mode. It currently has no ability to retrieve from any source and subsequently send a schedule to devices. This may change in the future, which would allow basic operation should OpenHAB fail for some reason.
 
 # Binding Configuration
 Example configuration:
