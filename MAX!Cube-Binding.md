@@ -8,12 +8,14 @@ To communicate with MAX! devices, a already setup MAX! environment including a M
 
 ## MAX!Cube Binding Configuration
 
-You need to configure at least the MAX!Cube Lan Gateway IP address in the openhab.cfg file. If not configured via DHCP, the factory default address of the MAX!Cube is 192.168.0.222.
+No configuration is required in basic setting. The MaxCube is automatically discovered from the network.
+You can configure the MAX!Cube Lan Gateway IP address in the openhab.cfg file. 
+If not configured via DHCP, the factory default address of the MAX!Cube is 192.168.0.222.
 
     ################################ MAX!Cube Binding ##########################################
     #
     # MAX!Cube LAN gateway IP address 
-    maxcube:ip=192.168.0.222
+    # maxcube:ip=192.168.0.222
     # MAX!Cube port (Optional, default to 62910)
     # maxcube:port=62910
     # MAX!Cube refresh interval in ms (Optional, default to 10000)
@@ -72,3 +74,9 @@ String values returned by the binding are either _ok_ or _low_.
 In order to be able to set a thermostat (and thus sending a temperature setting to an individual thermostat) use the Setpoint item in your sitemap configuration:
 
     Setpoint item=Heating_Max_Valve step=0.5 minValue=18 maxValue=30
+
+To receive the valve position of a heating thermostat, the type for the desired information needs to be specified in the bonding configuration
+
+per release 1.6 (currently found via the Jenkins/cloudbees snapshots) you can request the actual temperature for the WallThermostat. The actual temperature can also be requested from the heating Thermostats, however  is usually outdated for the radiator thermostats, since they only send it over when their valve position changes. For the Wall thermostats, the value is accurate, since those send updates every couple of minutes
+
+    Number Heating_Max_Temp "Thermostat Temperature  [%.1f °C]" (MyGroup) { maxcube="JEQ0336148:type=actual" }
