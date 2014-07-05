@@ -26,3 +26,11 @@ As a result, your lines in the items file might look like the following:
     Switch    Incoming_Call     "Ringing"                        (Phone)    { fritzbox="inbound" }
     Call      Active_Call       "Connected to [%1$s from %2$s]"  (Phone)    { fritzbox="active"  }
     Call      Incoming_Call_No  "Caller No. [%2$s]"              (Phone)    { fritzbox="inbound" } 
+
+## Switching WIFI and DECT
+
+The following items switch DECT, WIFI and the answering machine 0 (default TAM):
+
+    Switch DECT {fritzbox="dect"}
+    Switch WIFI {fritzbox="wlan"}
+    Switch TAM0 {fritzbox="tam0"}
