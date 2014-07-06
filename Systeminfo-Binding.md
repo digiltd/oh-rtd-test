@@ -26,7 +26,7 @@ openhab.cfg file (in the folder '${openhab_home}/configurations').
 
 ## Hyperic SIGAR Native libraries
 
-The SystemInformation binding does not include SIGAR native libraries currently. The platform dependent Sigar native libraries needs to be moved into the ${openhabhome]/lib folder. Pre builded libraries can be found [here](http://sourceforge.net/projects/sigar/files/sigar/1.6/hyperic-sigar-1.6.4.tar.gz/download) for several platforms (see sugar-bin/lib folder). ARM-based devices, such as Raspberry PI require manual setup. See [discussion](https://groups.google.com/forum/#!searchin/openhab/systeminfo/openhab/18C7FYpxWTQ/BT_iGycwcKsJ).
+The SystemInformation binding does not include SIGAR native libraries currently. The platform dependent Sigar native libraries needs to be moved into the ${openhabhome]/lib folder. Pre-built libraries can be found [here](http://sourceforge.net/projects/sigar/files/sigar/1.6/hyperic-sigar-1.6.4.tar.gz/download) for several platforms (see sugar-bin/lib folder). ARM-based devices, such as Raspberry PI require manual setup. See [discussion](https://groups.google.com/forum/#!searchin/openhab/systeminfo/openhab/18C7FYpxWTQ/BT_iGycwcKsJ).
 
 ## Item Binding Configuration
 
