@@ -49,6 +49,7 @@ Community
   * [[Insteon Hub Binding|Insteon-Hub-Binding]]
   * [[Insteon PLM Binding|Insteon-PLM-Binding]]
   * [[Ir-Trans Binding|Ir-Trans-Binding]]
+  * [[jointSPACE-Binding|jointSPACE-Binding]]
   * [[KNX Binding|KNX-Binding]]
   * [[Koubachi Binding|Koubachi-Binding]]
   * [[Leviton/HAI Omnilink Binding|Omnilink-Binding]]
