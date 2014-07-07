@@ -54,7 +54,7 @@ The following devices have the following valid types:
 
 Examples:
 * `Number RadTherm1 { maxcul="RadiatorThermostat:JEQ1234565" }` - will return/set the thermostat temperature of radiator thermostat with the serial number JEQ0304492
-* `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:battery" }`- will return the battery level of JEQ0304492 _(NOT IMPLEMENTED YET)_
+* `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:battery" }`- will return the battery level of JEQ0304492
 * `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:temperature" }` - will return the temperature of a wall mounted thermostat with serial number JEQ0304447
 * `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ0304447
 * `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - will default to 'switch' mode _(NOT IMPLEMENTED YET)_
