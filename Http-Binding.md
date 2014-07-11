@@ -31,6 +31,13 @@ As a result, your lines in the items file might look like the following:
 
     Number Weather_Temperature "Temperature [%.1f ¬∞C]"  <temperature>  (Weather) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(demo_yahoo_weather.xsl)]" }
     
+## Transformation rules
+
+openHAB supports several types of transformations.
+
+**XSLT transformations**
+
+In most cases, you will get the information you need into a XML structured document, and you need a way to extract only the value you want: here is where [XSLT transformations](Samples-XSLT-Transformations) come in our help. 
 
 ## Dynamic URL enhancement
 
