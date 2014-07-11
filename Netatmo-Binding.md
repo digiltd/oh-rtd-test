@@ -38,6 +38,10 @@ Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00
 
 Supported are Temperature and Humidity for the outdoor modules. 
 
+The rain gauge supports Rain: (What a surprise!)
+```
+Number Netatmo_Rain_Gauge "Rain [%d mm]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
+```
 
 Example rule to send a mail if carbon dioxide reaches a certain threshold:
 ```
