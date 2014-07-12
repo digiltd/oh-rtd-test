@@ -7,6 +7,8 @@ A couple of talks and other publications have been done about openHAB. Find the 
 
 ## Talks
 
+- June 22, 2014 -- Spaceautomation with OpenHAB at [GPN14](https://entropia.de/GPN14) Conference in Karlsruhe (Germany). Download the [slides here](http://schinken.github.io/talks/2014-06-spaceautomation/#1) and/or [watch the recording](http://media.ccc.de/browse/conferences/gpn/gpn14/gpn14_-_5853_-_de_-_medientheater_-_201406221300_-_spaceautomatisierung_-_schinken.html)
+
 - May 16, 2013 -- openHAB presentation at [GeeCON](http://2013.geecon.org/schedule) Conference in Krakow (Poland). Download the [slides here](http://s3-eu-west-1.amazonaws.com/presentations2013/1_presentation.pdf).
 
 - April 24, 2013 -- openHAB presentation at [JAX](http://jax.de/2013/sessions/?tid=2880#session-25084) Conference in Mainz (Germany).
