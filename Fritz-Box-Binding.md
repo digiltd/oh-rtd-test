@@ -4,14 +4,12 @@ Documentation of the Fritz!Box binding bundle
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-Adapt your openhab.cfg to your configuration:
-
+Adapt your openhab.cfg to your configuration:<BR>
 fritzbox:ip=`<IP adress of your fritzbox>`<BR>
 fritzbox:password=`<password of your fritzbox>`
 
 ## Prepare your Fritzbox
-Enable Telnet ([Link](http://www.wehavemorefun.de/fritzbox/Starten_von_telnetd))
-
+Enable Telnet ([Link](http://www.wehavemorefun.de/fritzbox/Starten_von_telnetd))<BR>
 Activate User Login: FRITZ!Box-Benutzer -> Anmeldung im Heimnetz -> Anmeldung mit dem FRITZ!Box-Kennwort
 
 ## Generic Item Binding Configuration
