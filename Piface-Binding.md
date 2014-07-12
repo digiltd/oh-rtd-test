@@ -49,6 +49,7 @@ When the binding is initialised it will attempt to read the current state of any
 ### Watchdog
 
 WATCHDOG monitor is a new feature added in version 1.4.0 to ensure your Pi is connected and responding. No further configuration is required as long as you do not want to make use of the watchdog feature. 
+
 By binding a switch/contact item to the WATCHDOG command for a Piface board you will be able to check your Pi is alive. The watchdog polling interval is configured in your openhab.cfg file (see above).
 
     Switch  PiFaceWatchDog1        "Watchdog 1"  { piface="pifaceid1:WATCHDOG" }
