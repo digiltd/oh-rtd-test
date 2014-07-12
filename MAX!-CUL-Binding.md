@@ -64,7 +64,7 @@ Examples:
 * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
 * `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it.
 
-There is the option of the addition of `configTemp=20.0/15.0/30.5/4.5/4.5/0.0/0.0` at the end of a thermostat device binding (wall or radiator) will allow the setting of comfort/eco/max/min/windowOpenDetectTemp/windowOpenDetectTime/measurementOffset respectively. These correspond to the following:
+There is the option of the addition of `configTemp=20.0/15.0/30.5/4.5/4.5/0.0/0.0` at the end of a thermostat device binding (wall or radiator) will allow the setting of comfort/eco/max/min/windowOpenDetectTemp/windowOpenDetectTime/measurementOffset respectively. It's best to set this on only one binding of each device - if you set this on more than one binding for the same device then it will take the first one in the parsing order (whatever that is - hence generating some uncertainty!). These correspond to the following:
 * comfort - the defined 'comfort' temperature (default 21.0)
 * eco - the defined eco setback temperature (default 17.0)
 * max - maximum temperature that can be set on the thermostat (default 30.5)
