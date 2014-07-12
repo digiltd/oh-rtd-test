@@ -26,6 +26,8 @@ The binding currently offers the following features:
  * Can receive valve position
  * Can receive battery status
  * Can receive operating mode
+* Push Button
+ * Can receive either AUTO or ECO depending on button press (translated to ON/OFF)
 
 # Limitations
 Aside from understanding what the binding does do which is documented here there are some key things to be aware of that may limit what you hope to achieve.
