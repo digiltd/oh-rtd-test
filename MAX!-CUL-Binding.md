@@ -51,13 +51,14 @@ Example configuration:
 The following devices have the following valid types:
 * RadiatorThermostat - `thermostat`,`temperature`,`battery`,`valvepos`
 * WallThermostat - `thermostat`,`temperature`,`battery`
+* PushButton - `switch`
 
 Examples:
 * `Number RadTherm1 { maxcul="RadiatorThermostat:JEQ1234565" }` - will return/set the thermostat temperature of radiator thermostat with the serial number JEQ0304492
 * `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:battery" }`- will return the battery level of JEQ0304492
 * `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:temperature" }` - will return the temperature of a wall mounted thermostat with serial number JEQ0304447
 * `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ0304447
-* `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - will default to 'switch' mode _(NOT IMPLEMENTED YET)_
+* `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - ON maps to Auto, OFF maps to Eco
 * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
 * `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it.
 
@@ -91,6 +92,7 @@ The table below shows what messages are implemented and to what extent. Transmit
 |WALL THERMOSTAT CONTROL| N        | Y                | Provides measured temp and set point       |
 |THERMOSTAT STATE       | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
 | WALL THERMOSTAT STATE | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
+| PUSH BUTTON STATE     | N        | Y                | Auto maps to ON, Eco maps to OFF           |
 
 ## Message Sequences
 For situations such as the pairing where a whole sequences of messages is required the binding has implemented a message sequencing system. This allows the implementation of a state machine for the system to pass through as messages are passed back and forth.
