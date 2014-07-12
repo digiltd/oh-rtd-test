@@ -8,7 +8,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Prerequisites
 
-In order to communicate with the Raspberry Pi carrying the PiFace daughter board please install the scripts that can be found [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.piface/scripts).
+In order to communicate with the Raspberry Pi carrying the PiFace daughter board please install the scripts that can be found [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.piface/scripts). If you upgrade from an older openhab version make sure that you update the scripts to avoid watchdog errors in your logfile.
 
 ## Binding Configuration
 
@@ -48,7 +48,8 @@ When the binding is initialised it will attempt to read the current state of any
 
 ### Watchdog
 
-WATCHDOG monitor is a new feature added in version 1.4.0 to ensure your Pi is connected and responding. No further configuration is required as long as youd do not want to make use of the watchdog feature. By binding a switch/contact item to the WATCHDOG command for a Piface board you will be able to check your Pi is alive. The watchdog polling interval is configured in your openhab.cfg file (see above). If you upgrade from an older version make sure that you update also the scripts (see prerequisites) to avoid watchdog errors in your logfile.
+WATCHDOG monitor is a new feature added in version 1.4.0 to ensure your Pi is connected and responding. No further configuration is required as long as you do not want to make use of the watchdog feature. 
+By binding a switch/contact item to the WATCHDOG command for a Piface board you will be able to check your Pi is alive. The watchdog polling interval is configured in your openhab.cfg file (see above).
 
     Switch  PiFaceWatchDog1        "Watchdog 1"  { piface="pifaceid1:WATCHDOG" }
 
