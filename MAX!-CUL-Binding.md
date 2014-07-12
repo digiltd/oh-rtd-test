@@ -61,6 +61,19 @@ Examples:
 * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
 * `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it.
 
+There is the option of the addition of `configTemp=20.0/15.0/30.5/4.5/4.5/0.0/0.0` at the end of a thermostat device binding (wall or radiator) will allow the setting of comfort/eco/max/min/windowOpenDetectTemp/windowOpenDetectTime/measurementOffset respectively. These correspond to the following:
+* comfort - the defined 'comfort' temperature (default 21.0)
+* eco - the defined eco setback temperature (default 17.0)
+* max - maximum temperature that can be set on the thermostat (default 30.5)
+* min - minimum temperature that can be set on the thermostat (default 4.5)
+* windowOpenDetectTemp - temperature threshold at which point the thermostat will assume a window is open and shut down the heating output (default is 4.5 which disables the feature)
+* windowOpenDetectTime - number of minutes below threshold until 'window mode' is activated. Rounded down to the nearest 5 minutes. (default is 0)
+* measurement offset - offset applied to measure temperature (range is -3.5 to +3.5) - default is 0.0
+
+Example:
+
+`Number wallThermDesired { maxcul="WallThermostat:KEQ0946847:thermostat:configTemp=20.0/15.0/30.5/4.5/4.5/0.0/0.0" }`
+
 # Technical Information
 
 ## Implemented Messages
