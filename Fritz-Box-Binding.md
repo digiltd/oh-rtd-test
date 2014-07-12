@@ -5,10 +5,8 @@ Documentation of the Fritz!Box binding bundle
 For installation of the binding, please see Wiki page [[Bindings]].
 
 Adapt your openhab.cfg to your configuration:
-
-fritzbox:ip="<IP adress of your fritzbox>"
-
-fritzbox:password="<password of your fritzbox>"
+fritzbox:ip=`<IP adress of your fritzbox>`
+fritzbox:password=`<password of your fritzbox>`
 
 ## Prepare your Fritzbox
 Enable Telnet ([Link](http://www.wehavemorefun.de/fritzbox/Starten_von_telnetd))
