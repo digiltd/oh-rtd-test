@@ -28,6 +28,8 @@ The binding currently offers the following features:
  * Can receive operating mode
 * Push Button
  * Can receive either AUTO or ECO depending on button press (translated to ON/OFF)
+* Association
+ * It is possible to link devices together so that they communicate directly with each other, for example a wall thermostat and a radiator valve.
 
 # Limitations
 Aside from understanding what the binding does do which is documented here there are some key things to be aware of that may limit what you hope to achieve.
@@ -50,32 +52,53 @@ Example configuration:
 
 # Item Configuration
 
-The following devices have the following valid types:
-* RadiatorThermostat - `thermostat`,`temperature`,`battery`,`valvepos`
-* WallThermostat - `thermostat`,`temperature`,`battery`
-* PushButton - `switch`
-
-Examples:
+Some quick Examples:
 * `Number RadTherm1 { maxcul="RadiatorThermostat:JEQ1234565" }` - will return/set the thermostat temperature of radiator thermostat with the serial number JEQ0304492
-* `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:battery" }`- will return the battery level of JEQ0304492
-* `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:temperature" }` - will return the temperature of a wall mounted thermostat with serial number JEQ0304447
-* `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ0304447
+* `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:feature=battery" }`- will return the battery level of JEQ0304492
+* `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:feature=temperature" }` - will return the temperature of a wall mounted thermostat with serial number JEQ0304447
+* `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:feature=thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ0304447
 * `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - ON maps to Auto, OFF maps to Eco
 * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
 * `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it.
 
+## Additional options
+### feature
+
+The following devices have the following valid features:
+* RadiatorThermostat - `thermostat` (default),`temperature`,`battery`,`valvepos`
+* WallThermostat - `thermostat` (default),`temperature`,`battery`
+* PushButton - `switch`
+
+Example:
+`Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:feature=temperature" }`
+
+### configTemp
 There is the option of the addition of `configTemp=20.0/15.0/30.5/4.5/4.5/0.0/0.0` at the end of a thermostat device binding (wall or radiator) will allow the setting of comfort/eco/max/min/windowOpenDetectTemp/windowOpenDetectTime/measurementOffset respectively. It's best to set this on only one binding of each device - if you set this on more than one binding for the same device then it will take the first one in the parsing order (whatever that is - hence generating some uncertainty!). These correspond to the following:
 * comfort - the defined 'comfort' temperature (default 21.0)
 * eco - the defined eco setback temperature (default 17.0)
 * max - maximum temperature that can be set on the thermostat (default 30.5)
 * min - minimum temperature that can be set on the thermostat (default 4.5)
-* windowOpenDetectTemp - temperature threshold at which point the thermostat will assume a window is open and shut down the heating output (default is 4.5 which disables the feature)
-* windowOpenDetectTime - number of minutes below threshold until 'window mode' is activated. Rounded down to the nearest 5 minutes. (default is 0)
+* windowOpenDetectTemp - set point in the event that a window open event is triggered by a shutter.
+* windowOpenDetectTime - Rounded down to the nearest 5 minutes. (default is 0)
 * measurement offset - offset applied to measure temperature (range is -3.5 to +3.5) - default is 0.0
 
 Example:
 
-`Number wallThermDesired { maxcul="WallThermostat:KEQ0946847:thermostat:configTemp=20.0/15.0/30.5/4.5/4.5/0.0/0.0" }`
+`Number wallThermDesired { maxcul="WallThermostat:KEQ0946847:feature=thermostat:configTemp=20.0/15.0/30.5/4.5/4.5/0.0/0.0" }`
+
+### associate
+Association allows you to link two items together. For example you might want to link a Wall Thermostat and a Radiator Thermostat together. This would have the effect that you don't need rules to keep the set point temperature synchronised as it is communicated directly by the devices. It also means that the radiator thermostat will use the measured temperature from the wall thermostat.
+
+The devices must be associated both ways. The binding doesn't do this automatically (though it could in the future).
+
+Example:
+
+    Number heating_radvalve  "Valve Setpoint [%.1f °C]" { maxcul="RadiatorThermostat:KEQ1234561:associate=KEQ1234560" }
+    Number heating_wallThermMeasured "Wall Meas [%.1f °C]" { maxcul="WallThermostat:KEQ1234560:feature=temperature:associate=KEQ1234561" }
+
+The binding allows more than one association per device. They just need to be comma separated. Example:
+
+    Number heating_wallThermMeasured "Wall Meas [%.1f °C]" { maxcul="WallThermostat:KEQ1234560:feature=temperature:associate=KEQ1234561,KEQ1234562" }
 
 # Technical Information
 
@@ -95,6 +118,7 @@ The table below shows what messages are implemented and to what extent. Transmit
 |THERMOSTAT STATE       | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
 | WALL THERMOSTAT STATE | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
 | PUSH BUTTON STATE     | N        | Y                | Auto maps to ON, Eco maps to OFF           |
+| ADD LINK PARTNER      | Y        | N                | Links a device with another                |
 
 ## Message Sequences
 For situations such as the pairing where a whole sequences of messages is required the binding has implemented a message sequencing system. This allows the implementation of a state machine for the system to pass through as messages are passed back and forth.
@@ -104,8 +128,9 @@ This will be documented in more detail in due course.
 ## Planned Future Features
 These are in no particular priority and are simply ideas. They may not get implemented at all.
 
-1. Implement association of devices with each other so that they won't need rules to keep the Wall Thermostat and the Radiator Thermostat in sync
+1. ~~Implement association of devices with each other so that they won't need rules to keep the Wall Thermostat and the Radiator Thermostat in sync~~ DONE
 1. ~~Add the ability to configure night/comfort/etc temperatures~~ DONE
 1. ~~Add the ability to interface with the Eco switch~~ DONE
 1. Add the ability to interface with the window contact devices
 1. Add the ability pretend to be a wall thermostat. This would allow us to associate with a radiator thermostat and send measured temperatures to it. These could be then sent from another binding for example.
+1. Add the ability to simulated a window contact. This would allow us to associate with a radiator thermostat and send window events to it.
