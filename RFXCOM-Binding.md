@@ -4,7 +4,7 @@ Documentation of the RFXCOM binding Bundle
 
 Binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, which contains both receiver and transmitter functions. 
 
-Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo (KlikAanKlikUit), Oregon e.o. <br>
+Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo ([KlikAanKlikUit](http://www.klikaanklikuit.nl)), Oregon e.o. <br>
 See further information from http://www.rfxcom.com
 
 RFXCOM binding support currently TemperatureHumidity, Lighting1, Lighting2, Lighting5, Lighting6, Curtain1 & Thermostat1 packet types. 
