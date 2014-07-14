@@ -265,6 +265,7 @@ These devices have been tested so far and confirmed as working:
 * HM-SCI-3-FM (Radio shutter contact interface 3-channel, flush-mount)
 * HM-CC-VD (Radio-controlled valve drive)
 * ZEL STG RM FFK (a HM-Sec-SC-2 from Rotomatic)
+* HM-PB-6-WM55 (Wireless push button 6 channel)
 
 ### Wired
 * HMW-Sen-SC-12-FM (RS485 12-channel shutter contact for flush mounting)
