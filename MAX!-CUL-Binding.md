@@ -6,7 +6,7 @@ The aim of this binding is to allow the connection OpenHAB to MAX! devices (wall
 A lot of credit must go to the [FHEM project](http://fhem.de/fhem.html)- without their implementation of the MAX interface with CUL this would be taking a lot longer to implement!
 
 # Status
-The binding is currently in beta and it is recommended that you only use it expecting there to be bugs and issues. It is has enough features to be useful as a heating system, though lacks some of the finer features. Please report any issues to @cyclingengineer. This page will be updated as things progress.
+The binding is currently in beta and it is recommended that you only use it expecting there to be bugs and issues. It is has enough features to be useful as a heating system, though lacks some of the finer features. This page will be updated as things progress.
 
 # Features
 The binding currently offers the following features:
