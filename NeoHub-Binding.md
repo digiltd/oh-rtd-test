@@ -33,7 +33,7 @@ Item strings simply consist of two components - the NeoStat device name (as set 
 
 The following properties, and their associated item types are shown below. The R and RW in the description column indicate which properties are read only (RO) or read/write (RW).
 
-| Parameter     | Type Supported   | Description     |
+| Property     | Type Supported   | Description     |
 | ------------- | ---------------- | --------------- |
 | CurrentTemperature       | Number | RO Current room temperature |
 | CurrentSetTemperature       | Number | RO Current set temperature |
