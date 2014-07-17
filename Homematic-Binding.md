@@ -1,4 +1,4 @@
-### Release Notes (for the upcomming 1.5.1/1.6.0 release):
+### Release Notes (for the upcomming 1.6.0 release):
 1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts).  
 **Note:** You need at least 0.5.2 of Homegear
 
