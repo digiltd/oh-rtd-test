@@ -1,4 +1,3 @@
-
 ## Introduction
 
 Insteon is a home area networking technology developed primarily for
@@ -41,38 +40,25 @@ The following devices have been tested and should work out of the box:
 6. Insteon Hidden Door Sensor 2845-222, (fake) product key: F00.00.03
 7. Insteon MorningLinc RF Lock Controller 2458-A1, (fake) product key: F00.00.09
 ** Read the instructions very carefully: Sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
-
-Support for the following devices is in the works, and should be supported in upcoming releases:
-
-6. Insteon KeypadLinc Dimmer 2486DWH8, product key: 0x000051
-7. Insteon OutletLinc 2472D, product key: 0x000068
+7. Insteon KeypadLinc Dimmer 2486DWH8, product key: 0x000051
+8. Insteon OutletLinc 2472D, product key: 0x000068
 
 ### Adding new device types (only for the desperate, skip this for now)
 
-Currently adding new device types is cumbersome (will be easier in upcoming releases). Here a rough outline of what needs to be done.
-
 First, set up a build environment, following the online instructions. Then find the categories.xml file under the InsteonPLM binding directory, and add your device under the proper category and subcategory (as published by Insteon) with a few lines like these, appropriately modified:
 
-    <subcategory>
-    <name>FooLinc Dimmer</name>
-    <description>2666D</description>
-    <subCat>0xYOURSUBCATHEX</subCat>
-    <productKey name="0xYOURPRODUCTKEYHEX">
-    	<feature name="dimmer">2666Ddimmer</feature>
-    	<feature name="lastheardfrom">2666Dlasttime</feature>
+     <subcategory>
+    <name>KepadLinc Dimmer</name>
+    <description>2486D</description>
+    <subCat>0x09</subCat>
+    <productKey name="0x000037">
+    	<feature name="dimmer">GenericDimmer</feature>
+    	<feature name="lastheardfrom">GenericLastTime</feature>
     </productKey>
-    </subcategory>
+  </subcategory>
 
-Then in DeviceFeatures.java, find a device that kinda matches yours, and add a term to the conditional like this, to support the "dimmer" feature:
-
-    else	if ( (s.equals("2477Ddimmer") || s.equals("2472Ddimmer") || s.equals("2666Ddimmer") ) )
-
-and another one for the "lasttime" feature:
-
-    else	if ( (s.equals("2477Dlasttime") || s.equals("2472Dlasttime") || s.equals("2666Dlasttime") )
-
-
-The term added (in this case "2666Ddimmer") must match the string used in the <feature name="dimmer"> line in the categories.xml file, and same for the "lastheardfrom" feature. Just follow the pattern in the code.
+If Insteon does not publish a product key for your device, make one up, starting with "F", like: F00.00.99,
+but make sure that is not already used elsewhere in the file.
 
 ## Insteon binding process
 
@@ -195,9 +181,12 @@ your `logback.xml` file:
 This will log additional debugging messages to a separate file in the
 log directory.
 
-## Known Limitations
+## Known Limitations and Issues
 
 1. Devices cannot be linked to the modem while the binding is
 running. If new devices are linked, the binding must be restarted.
 2. No simple way to selectively eliminate a given Insteon device
 address from the modem's link database.
+3. Very rarely during binding startup, a message arrives at the modem while the initial read of the modem
+database happens. Somehow the modem then stops sending the remaining link records and the binding no longer is able to address the missing devices. The fix is to simply restart the binding.
+4. Users of HouseLinc have reported that it deletes important device information from the modem link database. The latest version of the InsteonPLM binding tries to recover from such situations by querying the devices.
