@@ -19,6 +19,7 @@ The binding currently offers the following features:
  * Can receive measured temperature 
  * Can receive battery status
  * Can receive operating mode
+ * Can factory reset device
 * Radiator Thermostat Valve
  * Can send set point temperature
  * Can receive set point temperature
@@ -26,8 +27,10 @@ The binding currently offers the following features:
  * Can receive valve position
  * Can receive battery status
  * Can receive operating mode
+ * Can factory reset device
 * Push Button
  * Can receive either AUTO or ECO depending on button press (translated to ON/OFF)
+ * Can factory reset device
 * Association
  * It is possible to link devices together so that they communicate directly with each other, for example a wall thermostat and a radiator valve.
 
@@ -66,9 +69,9 @@ Some quick Examples:
 ### feature
 
 The following devices have the following valid features:
-* RadiatorThermostat - `thermostat` (default),`temperature`,`battery`,`valvepos`
-* WallThermostat - `thermostat` (default),`temperature`,`battery`
-* PushButton - `switch`
+* RadiatorThermostat - `thermostat` (default),`temperature`,`battery`,`valvepos`,`reset`
+* WallThermostat - `thermostat` (default),`temperature`,`battery`,`reset`
+* PushButton - `switch`,`reset`
 
 Example:
 `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:feature=temperature" }`
