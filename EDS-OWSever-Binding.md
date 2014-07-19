@@ -30,7 +30,7 @@ The `owserver:<serverId1>.host` value is the ip address of the OW-SERVER.
 The `owserver:<serverId1>.user` value is the user name to access the web interface.
 The `owserver:<serverId1>.password` value is the password to access the web interface.
 
-User and password values are optional parameters. You need this in case you enabled "Require name / password for all pages" in the web interface under `System Configuration | Network`.
+User and password values are optional parameters and only available in binding version 1.6+. You need this in case you enabled "Require name / password for all pages" in the web interface under `System Configuration | Network`.
 
 Examples, how to configure your device:
 
