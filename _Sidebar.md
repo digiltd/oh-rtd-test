@@ -31,6 +31,7 @@ Community
   * [[CUPS Binding|CUPS-Binding]]
   * [[digitalSTROM Binding|digitalSTROM-Binding]]
   * [[DMX512 Binding|DMX-Binding]]
+  * [[EDS OWSever Binding ]]
   * [[EnOcean Binding|EnOcean-Binding]]
   * [[Epson Projector Binding|Epson-Projector-Binding]]
   * [[Exec Binding|Exec-Binding]]
