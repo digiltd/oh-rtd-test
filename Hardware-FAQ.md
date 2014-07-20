@@ -143,3 +143,8 @@ After the installation of OpenHAB and the demo files http://your.synology.URL:80
 Give OpenHAB a minute or so after the start of OpenHAB before you expect any response in the UI ;-)
 ####Kernel drivers
 Some bindings (e.g. [EnOcean](https://github.com/openhab/openhab/wiki/EnOcean-Binding)) work with USB-sticks that require some kernel drivers. For qoric CPU Diskstations (e.g. DS213+) there is a short guide how to install those drivers at [Samples-Tricks](https://github.com/openhab/openhab/wiki/Samples-Tricks#enocean-binding-on-synology-ds213-kernel-driver-package).  
+
+## QNAP Turbo Station
+
+There is a QPGK package to install openHAB v1.5 on a QNAP Turbo Station NAS.
+https://groups.google.com/d/msg/openhab/_9Ieo5O50Zc/BeN1kHT6POsJ
