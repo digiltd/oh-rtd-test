@@ -154,3 +154,11 @@ Further KNX binding examples can be found in our openhab-samples WIKI:
 The KNX binding supports a limited set of Datapoint types (DPTs). If your item configuration contains a DPT that is not supported by the KNX binding, openHAB 1.4.0 and later will throw an exception during startup ("DPT n.nnn is not supported by the KNX binding").
 
 To get an overview of the supported DPTs, it's best to look into the source code of the KNX binding and the library it depends on. The DPTs for the binding are defined in [KNXCoreTypeMapper](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/src/main/java/org/openhab/binding/knx/internal/dpt/KNXCoreTypeMapper.java). The constants (and their mapping to DPTs) are defined in the library [calimero](https://github.com/calimero-project/calimero/tree/master/src/tuwien/auto/calimero/dptxlator).
+
+## KNX Logging
+
+Since version 1.5.0 of this binding, it is possible to capture log events from calimero. These log events contain detailed information from the KNX bus (what is written to the bus, what gets read from the bus, ...)
+
+To enable this logging, the following line has to be added to `logback.xml`:
+
+    <logger name="tuwien.auto.calimero" level="DEBUG" />
