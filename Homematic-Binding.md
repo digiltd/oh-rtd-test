@@ -1,42 +1,7 @@
-### Release Notes (for the upcomming 1.6.0 release):
-1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts).  
-**Note:** You need at least 0.5.2 of Homegear
-
-2.) BATTERY_TYPE datapoint. Show the type of the battery for every battery-powered Homematic device.
-```
-String ... {homematic="address=KEQxxxxxxxx, channel=0, parameter=BATTERY_TYPE"}
-```
-
-3.) CCU group support. You can group together for example some thermostats and call group datapoints.
-```
-Number ... {homematic="address=INT0000001, channel=1, parameter=SET_TEMPERATURE“}
-```  
-**Note:** The CCU does not send updates to a group! If you change the temperature manually, you have to write a rule to update the group:
-```
-var Timer thermostatChangedTimer = null
-
-rule "Some Thermostat changed"
-when
-   Item thermostat_l changed or
-   Item thermostat_2 changed or
-   Item thermostat_3 changed
-then
-   if (thermostatChangedTimer != null) {
-       thermostatChangedTimer.cancel;
-       thermostatChangedTimer = null;
-   }
-
-   // reschedule timer to cover latest change
-   thermostatChangedTimer = createTimer(now.plusSeconds(20)) [|      
-       sendCommand(thermostat_group, thermostat_1.state)
-   ]
-end
-```
-
-4.) Remote control display is now driven via RPC (formerly TclRega script)  
-5.) Many small optimizations
-
-***
+## News
+Public 1.6.0 builds  
+[Release Notes](#release-notes-160)  
+[Download](#download)
 
 ## Introduction
 
@@ -339,5 +304,48 @@ If you want to see even more, switch to TRACE to also see the CCU request/respon
 ```
 <logger name="org.openhab.binding.homematic" level="TRACE" />
 ```
-
+### Video
 [![HomeMatic Binding](http://img.youtube.com/vi/F0ImuuIPjYk/0.jpg)](http://www.youtube.com/watch?v=F0ImuuIPjYk)
+
+### Release Notes 1.6.0
+1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts).  
+**Note:** You need at least 0.5.2 of Homegear
+
+2.) BATTERY_TYPE datapoint. Show the type of the battery for every battery-powered Homematic device.
+```
+String ... {homematic="address=KEQxxxxxxxx, channel=0, parameter=BATTERY_TYPE"}
+```
+
+3.) CCU group support. You can group together for example some thermostats and call group datapoints.
+```
+Number ... {homematic="address=INT0000001, channel=1, parameter=SET_TEMPERATURE“}
+```  
+**Note:** The CCU does not send updates to a group! If you change the temperature manually, you have to write a rule to update the group:
+```
+var Timer thermostatChangedTimer = null
+
+rule "Some Thermostat changed"
+when
+   Item thermostat_l changed or
+   Item thermostat_2 changed or
+   Item thermostat_3 changed
+then
+   if (thermostatChangedTimer != null) {
+       thermostatChangedTimer.cancel;
+       thermostatChangedTimer = null;
+   }
+
+   // reschedule timer to cover latest change
+   thermostatChangedTimer = createTimer(now.plusSeconds(20)) [|      
+       sendCommand(thermostat_group, thermostat_1.state)
+   ]
+end
+```
+
+4.) Remote control display is now driven via RPC (formerly TclRega script)  
+5.) Many small optimizations
+
+### Download
+**21.07.2014 (pb05):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHYzloLVlFSUl2bzg/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHNFlPTlZjeExmSUk/edit?usp=sharing)
+- initial public 1.6.0 build
