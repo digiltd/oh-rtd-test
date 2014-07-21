@@ -348,4 +348,4 @@ end
 ### Download
 **21.07.2014 (pb05):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHYzloLVlFSUl2bzg/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHNFlPTlZjeExmSUk/edit?usp=sharing)
-- initial public 1.6.0 build
+- initial public 1.6.0 build (works in openHab 1.5.x too)
