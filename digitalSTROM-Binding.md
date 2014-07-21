@@ -14,7 +14,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 ### digitalSTROM server add-on
 
-- Unzip [DigitalSTROM_OPENHAB_ADD-ON.zip](http://wiki.openhab.googlecode.com/hg/resources/DigitalSTROM_OPENHAB_ADD-ON.zip)
+- Unzip [DigitalSTROM_OPENHAB_ADD-ON.zip](https://github.com/openhab/openhab/raw/master/bundles/binding/org.openhab.binding.digitalstrom/DigitalSTROM_OPENHAB_ADD-ON.zip)
 - copy "openhab/openhab.js" to your dss server "/usr/share/dss/add-ons/"
 - copy "openhab.xml" to your dss server "/usr/share/dss/data/subscriptions.d/"
 
