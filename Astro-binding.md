@@ -1,4 +1,7 @@
-Documentation of the Astro Binding Bundle
+### News
+Public 1.6.0 builds  
+[Release Notes](#release-notes-160)  
+[Download](#download)
 
 ### Introduction
 
@@ -10,15 +13,15 @@ The Astro binding is used for:
 ### Configuration in openhab.cfg
 ```
 ############################## Astro Binding ##############################
-#
-# Your latitude
-astro:latitude=nn.nnnnnn
+ #
+ # Your latitude
+ astro:latitude=nn.nnnnnn
  
-# Your longitude
-astro:longitude=nn.nnnnnn
+ # Your longitude
+ astro:longitude=nn.nnnnnn
  
-# Refresh interval for azimuth and elevation calculation in seconds (optional, defaults to disabled)
-astro:interval=nnn
+ # Refresh interval for azimuth and elevation calculation in seconds (optional, defaults to disabled)
+ astro:interval=nnn
 ```
 
 ### Available Items
@@ -80,3 +83,64 @@ then
     ...
 end
 ```
+## Release Notes 1.6.0
+All sun calculations are now based on those of http://www.suncalc.net/  
+
+**New item binding style!** The old style is still supported, but a warning is written to the log.
+```
+{astro="planet=..., type=..., property=..., offset=..."}
+```
+**Important:** type and property are case sensitive! So enter the values exactly as shown.
+
+### Description  
+**planet**  
+currently only `sun` ist available, more to come
+
+**type**: `rise, set, noon, night, morningNight, astroDawn, nauticDawn, civilDawn, astroDusk, nauticDusk, civilDusk, eveningNight, daylight`  
+- **property**: `start` (DateTime), `end` (DateTime), `duration` (Number)
+
+**type**: `position`
+- **property**: `azimuth, elevation` (Number)
+
+**offset** (optional, taken into account for property `start` and `end`)  
+offset in minutes to the calculated time
+
+You can bind a property to different item types, which has a special meaning in the binding. If you bind a DateTime property (start, end) to a DateTime Item, the DateTime is simply displayed. If you bind it to a Switch, a event is scheduled and the state of the Switch is updated to ON, followed by a OFF at the calculated time. You can even specify a offset for the event and bind multiple items to the same property.
+
+**Examples:**  
+```
+// shows the sunrise
+DateTime Sunrise_Time  "Sunrise [%1$tH:%1$tM]"  {astro="planet=sun, type=rise, property=start"}
+
+// schedules a event which starts at sunrise, updating the Switch with ON, followed by a OFF
+Switch Sunrise_Event   {astro="planet=sun, type=rise, property=start"}
+
+// schedules a event which starts 10 minutes AFTER sunrise
+Switch Sunrise_Event   {astro="planet=sun, type=rise, property=start, offset=10"}
+
+// schedules a event which starts 10 minutes BEFORE sunrise
+Switch Sunrise_Event   {astro="planet=sun, type=rise, property=start, offset=-10"}
+
+// shows the sunset
+DateTime Sunset_Time   "Sunset [%1$tH:%1$tM]"   {astro="planet=sun, type=set, property=end"}
+
+// schedules a event which starts 30 minutes BEFORE sunset:
+Switch Sunset_Event    {astro="planet=sun, type=set, property=end, offset=-30"}
+
+// displays the start, end and duration of the astroDawn
+DateTime Astro_Dawn_Start        "Astro Dawn Start [%1$tH:%1$tM]"  {astro="planet=sun, type=astroDawn, property=start"}
+DateTime Astro_Dawn_End          "Astro Dawn End [%1$tH:%1$tM]"    {astro="planet=sun, type=astroDawn, property=end"}
+// duration in minutes
+Number   Astro_Dawn_Duration     "Astro Dawn Duration [%f]"        {astro="planet=sun, type=astroDawn, property=duration"}
+// duration formatted to a string, e.g. 02:32 (2 hours, 32 minutes)
+String   Astro_Dawn_Duration_Str "Astro Dawn Duration [%s]"        {astro="planet=sun, type=astroDawn, property=duration"}
+
+
+// azimuth and elevation
+Number   Azimuth        "Azimuth [%.2f]"     {astro="planet=sun, type=position, property=azimuth"}
+Number   Elevation      "Elevation [%.2f]"   {astro="planet=sun, type=position, property=elevation"}
+```
+
+### Download
+**22.07.2014 (pb01):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHUDZwNWpJUXluREU/edit?usp=sharing)
+- initial public 1.6.0 build (works in openHab 1.5.x too)
