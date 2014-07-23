@@ -142,4 +142,5 @@ Number   Elevation      "Elevation [%.2f]"   {astro="planet=sun, type=position, 
 ```
 
 ### Download
-coming soon!
+**23.07.2014 pb02:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHY1d3NFU5aHlwWTg/edit?usp=sharing)
+* initial public 1.6.0 build (works in openHab 1.5.x too)
