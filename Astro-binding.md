@@ -13,15 +13,15 @@ The Astro binding is used for:
 ### Configuration in openhab.cfg
 ```
 ############################## Astro Binding ##############################
- #
- # Your latitude
- astro:latitude=nn.nnnnnn
+#
+# Your latitude
+astro:latitude=nn.nnnnnn
  
- # Your longitude
- astro:longitude=nn.nnnnnn
+# Your longitude
+astro:longitude=nn.nnnnnn
  
- # Refresh interval for azimuth and elevation calculation in seconds (optional, defaults to disabled)
- astro:interval=nnn
+# Refresh interval for azimuth and elevation calculation in seconds (optional, defaults to disabled)
+astro:interval=nnn
 ```
 
 ### Available Items
