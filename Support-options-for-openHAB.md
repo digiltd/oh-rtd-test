@@ -8,4 +8,4 @@ There are different channels to discuss topics about openHAB and to get help:
 You might be asked to try out the latest snapshot build of openHAB. In case you wonder, where to find it, have a look at our [CI build server](https://openhab.ci.cloudbees.com/job/openHAB/).
 
 
-An **inofficial** IRC chat also exists on **irc.freenode.net** in channel **#openhab**. You can join with your favourite IRC client (xchat, pidgin, irssi, weechat, ...) or use the [freenode webchat](http://webchat.freenode.net/?channels=openhab)
+An **unofficial** IRC chat also exists on **irc.freenode.net** in channel **#openhab**. You can join with your favourite IRC client (xchat, pidgin, irssi, weechat, ...) or use the [freenode webchat](http://webchat.freenode.net/?channels=openhab)
