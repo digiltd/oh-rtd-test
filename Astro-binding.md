@@ -192,7 +192,7 @@ Winter=Winter
 
 ### Download
 These builds are BETA versions, work in progress, testers welcome!  
-**26.07.2014 pb03:**  download coming soon
+**26.07.2014 pb03:**  [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHUnlTc1lXWlFNNXM/edit?usp=sharing)
 * Added zodiac calculation.
 * Added season calculation.
 
