@@ -135,6 +135,8 @@ These are in no particular priority and are simply ideas. They may not get imple
 1. ~~Implement association of devices with each other so that they won't need rules to keep the Wall Thermostat and the Radiator Thermostat in sync~~ DONE
 1. ~~Add the ability to configure night/comfort/etc temperatures~~ DONE
 1. ~~Add the ability to interface with the Eco switch~~ DONE
+1. If there is a pending SET_TEMPERATURE message in the queue and we receive a SET_TEMPERATURE from the thermostat we are waiting to send to then we should clear the message from the queue.
 1. Add the ability to interface with the window contact devices
 1. Add the ability pretend to be a wall thermostat. This would allow us to associate with a radiator thermostat and send measured temperatures to it. These could be then sent from another binding for example.
 1. Add the ability to simulated a window contact. This would allow us to associate with a radiator thermostat and send window events to it.
+1. Explore how to avoid the queue getting too long due to lack of credits with many devices.
