@@ -97,12 +97,18 @@ All sun calculations are now based on those of http://www.suncalc.net/
 currently only `sun` ist available, more to come
 
 **type**: `rise, set, noon, night, morningNight, astroDawn, nauticDawn, civilDawn, astroDusk, nauticDusk, civilDusk, eveningNight, daylight`  
-- **property**: `start` (DateTime), `end` (DateTime), `duration` (Number)
+- **property**: `start, end` (DateTime), `duration` (Number)
 
 **type**: `position`
 - **property**: `azimuth, elevation` (Number)
 
-**offset** (optional, taken into account for property `start` and `end`)  
+**type**: `zodiac`
+- **property**: `start, end` (DateTime), `sign` (String)
+
+**type**: `season`
+- **property**: `spring, summer, autumn, winter` (DateTime), `name` (String)
+
+**offset** (optional, taken into account for every DateTime property)  
 offset in minutes to the calculated time
 
 You can bind a property to different item types, which has a special meaning in the binding. If you bind a DateTime property (start, end) to a DateTime Item, the DateTime is simply displayed. If you bind it to a Switch, a event is scheduled and the state of the Switch is updated to ON, followed by a OFF at the calculated time. You can even specify a offset for the event and bind multiple items to the same property.
@@ -139,9 +145,56 @@ String   Astro_Dawn_Duration_Str "Astro Dawn Duration [%s]"        {astro="plane
 // azimuth and elevation
 Number   Azimuth        "Azimuth [%.2f]"     {astro="planet=sun, type=position, property=azimuth"}
 Number   Elevation      "Elevation [%.2f]"   {astro="planet=sun, type=position, property=elevation"}
+
+
+// zodiac
+DateTime Zodiac_Start   "Zodiac Start [%1$td.%1$tm.%1$ty]"   {astro="planet=sun, type=zodiac, property=start"}
+DateTime Zodiac_End     "Zodiac End [%1$td.%1$tm.%1$ty]"     {astro="planet=sun, type=zodiac, property=end"}
+String   Zodiac_Sign    "Current zodiac [%s]"                {astro="planet=sun, type=zodiac, property=sign"}
+
+
+// season
+String Season_Name      "Season [%s]"                             {astro="planet=sun, type=season, property=name"}
+DateTime Season_Spring  "Spring [%1$td.%1$tm.%1$ty %1$tH:%1$tM]"  {astro="planet=sun, type=season, property=spring"}
+DateTime Season_Summer  "Summer [%1$td.%1$tm.%1$ty %1$tH:%1$tM]"  {astro="planet=sun, type=season, property=summer"}
+DateTime Season_Autumn  "Autumn [%1$td.%1$tm.%1$ty %1$tH:%1$tM]"  {astro="planet=sun, type=season, property=autumn"}
+DateTime Season_Winter  "Winter [%1$td.%1$tm.%1$ty %1$tH:%1$tM]"  {astro="planet=sun, type=season, property=winter"}
+```
+
+If you like to have the season name and the zodiac sign in your own language, use a map.  
+Example for german translation:
+```
+String Zodiac_Sign_Ger "Sternzeichen [MAP(zodiac.map):%s]"  	{astro="planet=sun, type=zodiac, property=sign"}
+String Season_Name_Ger "Jahreszeit [MAP(season.map):%s]"        {astro="planet=sun, type=season, property=name"}
+```
+**zodiac.map**  
+```
+Aries=Widder
+Taurus=Stier
+Gemini=Zwilling
+Cancer=Krebs
+Leo=Löwe
+Virgo=Jungfrau
+Libra=Waage
+Scorpio=Skorpion
+Sagittarius=Schütze
+Capricorn=Steinbock
+Aquarius=Wassermann
+Pisces=Fisch
+```
+**season.map**  
+```
+Spring=Frühling
+Summer=Sommer
+Autumn=Herbst
+Winter=Winter
 ```
 
 ### Download
-These builds are BETA versions, work in progress!   
+These builds are BETA versions, work in progress, testers welcome!  
+**26.07.2014 pb03:**  [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHNnQxUkZ2RWMwUGc/edit?usp=sharing)
+* Added zodiac calculation.
+* Added season calculation.
+
 **23.07.2014 pb02:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHY1d3NFU5aHlwWTg/edit?usp=sharing)
-* initial public 1.6.0 build (works in openHab 1.5.x too)
+* initial public 1.6.0 build (works in openHab 1.5.x too).
