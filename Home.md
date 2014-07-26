@@ -1,6 +1,4 @@
-If you are completely new to openHAB and you prefer listening over reading, you can start with our presentation at Devoxx in 2012, which is available on Parleys:
-
-[ [[images/parleys.jpg]]](http://parleys.com/play/5148922b0364bc17fc56c8c3/chapter10/agenda)
+If you are completely new to openHAB and you prefer listening over reading, you can [start with our webinar](http://www.element14.com/community/videos/12763/l/home-automation-at-your-fingertips-with-eclipse-smarthome-and-openhab), which was organized by element14.
 
 # Overview
 
