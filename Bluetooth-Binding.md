@@ -46,3 +46,86 @@ As a result, your lines in the items file might look like follows:
     Switch MyMobile     	                                  { bluetooth="EC935BD417C5!" }
     String UnknownDevices    "Unknown devices in range: [%s]" { bluetooth="?" }
     Number NoOfPairedDevices "Paired devices in range: [%d]"  { bluetooth="!" }
+
+## Got the binding working under Linux
+
+### Common informations
+
+* To access the local blueooth device the binding is using [BlueCove](http://bluecove.org/).
+* BlueCove is using native libraries (JNI) to access the platform specific bluetooth stack.
+* There are prebuild native libraries for Windows and Mac OS X (IMHO).
+* The native libraries could be build.
+
+### What to do
+
+So, to access the bluetooth stack on linux systems, we have to build the native libraries for our self.
+* The libraries have to fit to the used platform (x86, arm, 32/64 bit, endianess).
+We have to replace the bluecove stuff, that is bundled with the mainline bluetooth binding with that one, we build and then rebuild the binding for our target system (so the corrent stuff comes with it).
+
+### Build BlueCove
+
+To build the libraries you could use the following steps.
+
+Install necessary packages to build (here an example for [ARM] Arch Linux).
+<pre>pacman --needed -S base-devel subversion maven bluez-libs</pre>
+
+Checkout BlueCove repository (tested with v2.1.0)
+<pre>svn checkout https://bluecove.googlecode.com/svn/tags/2.1.0/</pre>
+
+Now enter the directory and edit the pom.xml file to disable some modules, we do not need (we are only interested in bluecove and bluecove-gpl -- I did not check, if bluevoce-site-skin is necessary for bluecove build).
+
+<pre>
+    &lt;modules>
+        &lt;module>bluecove-site-skin&lt;/module>
+        &lt;module>bluecove&lt;/module>
+&lt;!--
+        &lt;module>bluecove-emu&lt;/module>
+        &lt;module>bluecove-tests&lt;/module>
+        &lt;module>bluecove-emu-gui&lt;/module>
+-->
+        &lt;module>bluecove-gpl&lt;/module>
+&lt;!--
+        &lt;module>bluecove-bluez&lt;/module>
+        &lt;module>bluecove-examples&lt;/module>
+-->
+    &lt;/modules>
+</pre>
+
+Start build using maven.
+<pre>mvn</pre>
+
+The build will fail on bluecove-gpl, caused by missing header file(s).
+
+Don't know, why the header files are not generated at the build process, but that problem should be reported upstream (perhaps, it is known and accepted for some reason I don't know).
+
+Generate (missing) JNI header files
+<pre>javah -d ./bluecove-gpl/src/main/c/ \
+  -cp ./bluecove-gpl/target/classes:./bluecove/target/classes \
+  com.intel.bluetooth.BluetoothStackBlueZ \
+  com.intel.bluetooth.BluetoothStackBlueZConsts \
+  com.intel.bluetooth.BluetoothStackBlueZNativeTests</pre>
+
+Resume build
+<pre>mvn -rf:bluecove</pre>
+
+Necessary build results:
+<pre>./bluecove/target/bluecove-2.1.0.jar
+./bluecove-gpl/target/bluecove-gpl-2.1.0.jar</pre>
+
+### Build openHAB Bluetooth binding
+
+* Delete the bluecove jar file in the lib subdirectory of the binding.
+* Add the two build jar files (e.g. bluecove-2.1.0.jar and bluecove-gpl-2.1.0.jar) to the lib subdirectory of the binding.
+* Adjust binding dependencies (see below)
+* Clean and rebuild the binding.
+
+The binding will work now on the target system, the bluecove jar (and so, the native libraries) are generated. 
+
+#### Adjust binding dependencies
+
+This could be done using different ways, e.g. you could use the Eclipse IDE.
+* open META-INF/MANIFEST.MF
+* Change "Runtime", "Classpath" (replace the old bluecove jar with the two new ones)
+* In "Build" the "Binary Build" should be changed automatically, if you change the runtime classpath.
+* Check, if "MANIFEST.MF" and "build.properties" was changed.
+* Save file
