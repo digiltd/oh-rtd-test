@@ -43,3 +43,7 @@ For installation of this persistence package please follow the same steps as if 
 Place a persistence file called rrd4j.persist in the `${openhab_home}/configuration/persistence` folder.
 
 See [Persistence](Persistence) for details on configuring this file.
+
+## Troubleshooting
+
+From time to time, you may find that if you change the item type of a persisted data, you may experience charting or other problems. To resolve this issue, remove the old <item_name>.rrd file in the `${openhab_home}/etc/rrd4j` folder.
