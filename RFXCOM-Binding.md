@@ -40,10 +40,13 @@ In order to bind an item to RFXCOM device, you need to provide configuration set
 where `DeviceID` is a valid wireless device identifier.
 
 - Lighting1 format: `SensorId.UnitCode`
-    e.g. B.1, B.2 or B.G for group functions
+    e.g. B.1, B.2 or B.0 for group functions
 
-- Lighting2 and Lighting5 formats: `SensorId.UnitCode`
-    e.g. 636602.1 
+- Lighting2 formats: `SensorId.UnitCode`
+    e.g. 636602.1 or 636602.0 for group functions
+
+- Lighting5 format: `SensorId.UnitCode`
+    e.g. 636602.1
 
 - Lighting6 format: `SensorId.GroupCode.UnitCode `
     e.g. 257.B.1, 64343.B.2 or 636602.H.5 
@@ -99,8 +102,9 @@ Examples, how to configure your items:
   <tr><td>LIGHTING1.IMPULS</td><td>working</td><td>Command</td></tr>
   <tr><td>LIGHTING1.RISINGSUN</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING1.PHILIPS</td><td>Untested</td><td></td></tr>
+  <tr><td>LIGHTING1.ENERGENIE</td><td>working</td><td>Command</td></tr>
   <tr><td>LIGHTING2.AC</td><td>working</td><td>Command, DimmingLevel</td></tr>
-  <tr><td>LIGHTING2.HOME_EASY_EU</td><td>Untested</td><td></td></tr>
+  <tr><td>LIGHTING2.HOME_EASY_EU</td><td>working</td><td>Command,DimmingLevel</td></tr>
   <tr><td>LIGHTING2.ANSLUT</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING5.LIGHTWAVERF</td><td>Untested</td><td></td></tr>
   <tr><td>LIGHTING6.BLYSS</td><td>working</td><td>Command</td></tr>
