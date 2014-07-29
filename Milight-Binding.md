@@ -29,7 +29,7 @@ First of all you need to introduce your Milight bridge(s) in the openhab.cfg fil
 
 The `milight:<MilightId1>.host` value is the ip address of the Milight bridge.
 
-The `milight:<MilightId1>.port` value is UDP port address of the Milight bridge. Port value is an optional parameter but has to be changed for the V3.0 version of milight bridge.
+The `milight:<MilightId1>.port` value is UDP port address of the Milight bridge. Port value is an optional parameter but has to be changed for the V3.0 version of milight bridge to 8899.
 
 Examples, how to configure your receiver device:
 
