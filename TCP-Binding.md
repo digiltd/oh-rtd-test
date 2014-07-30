@@ -4,7 +4,7 @@ Documentation of the TCP & UDP binding Bundle
 
 The TCP part of the binding has a built-in mechanism to keep connections to remote hosts alive, and will reset connections at regular intervals to overcome the limitation of "stalled" connections or remote hosts.
 
-The TCP & UDP binding bundle acts as a network client, and not as a server. It will thus not accept any incoming connections, and thus is to be used with remote ends that act as servers.
+The TCP & UDP binding bundle acts as a network client or as a network server.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
