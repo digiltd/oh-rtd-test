@@ -9,11 +9,14 @@ Samples of Item definitions
 * [How to control a homematic roller shutter with an EnOcean Rocker](Samples-Item-Definitions#how-to-control-a-homematic-roller-shutter-with-an-enocean-rocker)
 * [How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)](Samples-Item-Definitions#how-to-control-a-homematic-dimmer-with-an-enocean-rocker-onoff-profile)
 * [How to set up voice control for use with HABDroid](Samples-Item-Definitions#how-to-set-up-voice-control-for-use-with-habdroid)
+
 ### Howto use homematic door contact sensors
-
+    /* OLD Configuration */
     Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock) { homematic="HEQ0358465:1#STATE" }
+    /* New Configuration */
+    Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock {homematic="address=HEQ0358465, channel=1, parameter=STATE" }
     Text item=corFrontDoor
-
+    
 ### Howto use homematic window contact sensors
 
     Number lrWindowRight "Window Right [MAP(contact.map):%d]" <contact> (gRLvng) { homematic="IEQ0203214:1#STATE" }
