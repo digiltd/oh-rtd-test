@@ -55,11 +55,17 @@ transform/contact.map:
 
 ### How to configure Homematic motion and brightness sensors
 
+OLD Configuration:
     Switch corMotion "Motion Detected" (gRCor) { homematic="GEQ0128171:1#MOTION" }
     Number corBright "Brightness [%.1f %%]" (gRCor) { homematic="GEQ0128171:1#BRIGHTNESS" }
+
+New Configuration
+Switch corMotion "Motion Detected" (gRCor) {homematic="address=GEQ0128171, channel=1, parameter=MOTION" }
+Number corBright "Brightness [%.1f %%]" (gRCor) {homematic="address=GEQ0128171, channel=1, parameter=BRIGHTNESS" }
     
     Switch item=corMotion
     Text item=corBright
+
 I dont like that the motion switch is "writeable". Maybe someone can post a proper rendering object for the motion detector.
 
 ### How to configure a switch to be a pushbutton:
