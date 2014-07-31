@@ -54,12 +54,12 @@ transform/contact.map:
     Text item=lrHumid
 
 ### How to configure Homematic motion and brightness sensors
-
-OLD Configuration:
+    
+    /* OLD Configuration */
     Switch corMotion "Motion Detected" (gRCor) { homematic="GEQ0128171:1#MOTION" }
     Number corBright "Brightness [%.1f %%]" (gRCor) { homematic="GEQ0128171:1#BRIGHTNESS" }
 
-New Configuration
+    /* New Configuration */
     Switch corMotion "Motion Detected" (gRCor) {homematic="address=GEQ0128171, channel=1, parameter=MOTION" }
     Number corBright "Brightness [%.1f %%]" (gRCor) {homematic="address=GEQ0128171, channel=1, parameter=BRIGHTNESS" }
     
