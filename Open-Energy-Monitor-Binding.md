@@ -16,9 +16,9 @@ build command:
 
 execution:
 
-    rfm12pigw -v -d /dev/ttyUSB0 -a 192.168.1.10
+    rfm12pigw -v -d /dev/ttyAMA0 -a 192.168.1.10
 
-Swegongw help is avail be by command
+rfm12pigw help is avail be by command
 execution:
 
     rfm12pigw -h 
