@@ -106,7 +106,7 @@ All sun calculations are now based on those of http://www.suncalc.net/
         * **property**: `total, partial, ring` (DateTime)
 * **planet** `moon`
     * **type** `rise, set`
-        * **property** `start, end` (DateTime), `duration` (Number)
+        * **property** `start, end` (DateTime), `duration` (Number), **Note:** start and end is always equal, duration always 0.
     * **type** `phase`
         * **property**: `firstQuarter, thirdQuarter, full, new` (DateTime), `age, illumination` (Number), `name` (String)
     * **type** `eclipse`
@@ -181,7 +181,7 @@ DateTime Sun_Eclipse_Ring    "Sun ring eclipse [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" 
 ```
 // rise, set
 DateTime Moonrise_Time   "Moonrise [%1$tH:%1$tM]"  {astro="planet=moon, type=rise, property=start"}
-DateTime Moonset_Time    "Moonset [%1$tH:%1$tM]"  {astro="planet=moon, type=set, property=end"}
+DateTime Moonset_Time    "Moonset [%1$tH:%1$tM]"   {astro="planet=moon, type=set, property=end"}
 
 
 // phase
