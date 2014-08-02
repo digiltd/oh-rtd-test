@@ -208,13 +208,13 @@ DateTime Moon_Eclipse_Partial  "Moon partial eclipse [%1$td.%1$tm.%1$tY %1$tH:%1
 // perigee
 Number   Moon_Perigee_K     "Moon perigee [%.2f km]"    {astro="planet=moon, type=perigee, property=kilometer"}
 Number   Moon_Perigee_M     "Moon perigee [%.2f miles]" {astro="planet=moon, type=perigee, property=miles"}
-DateTime Moon_Perigee_Time  "Moon perigee [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"    {astro="planet=moon, type=perigee, property=date"}
+DateTime Moon_Perigee_Time  "Moon perigee from [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"    {astro="planet=moon, type=perigee, property=date"}
 
 
 // apogee
 Number   Moon_Apogee_K      "Moon apogee [%.2f  km]"    {astro="planet=moon, type=apogee, property=kilometer"}
 Number   Moon_Apogee_M      "Moon apogee [%.2f miles]"  {astro="planet=moon, type=apogee, property=miles"}
-DateTime Moon_Apogee_Time   "Moon apogee [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"     {astro="planet=moon, type=apogee, property=date"}
+DateTime Moon_Apogee_Time   "Moon apogee from [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"     {astro="planet=moon, type=apogee, property=date"}
 
 
 // schedules a event at full moon
