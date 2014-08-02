@@ -119,7 +119,7 @@ All sun calculations are now based on those of http://www.suncalc.net/
 **offset** (optional, taken into account for every DateTime property)  
 offset in minutes to the calculated time
 
-You can bind a property to different item types, which has a special meaning in the binding. If you bind a DateTime property (start, end) to a DateTime Item, the DateTime is simply displayed. If you bind it to a Switch, a event is scheduled and the state of the Switch is updated to ON, followed by a OFF at the calculated time. You can even specify a offset for the event and bind multiple items to the same property.
+You can bind a property to different item types, which has a special meaning in the binding. If you bind a DateTime property (start, end, ...) to a DateTime Item, the DateTime is simply displayed. If you bind it to a Switch, a event is scheduled and the state of the Switch is updated to ON, followed by a OFF at the calculated time. You can even specify a offset for the event and bind multiple items to the same property.
 
 ###Sun examples
 ```
