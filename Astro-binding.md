@@ -267,7 +267,7 @@ Waning\u0020Crescent=abnehmender Halbmond
 
 ### Download
 These builds are BETA versions, work in progress, testers welcome!  
-**04.08.2014 pb05:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHNjd6dGNPZDJXeWs/edit?usp=sharing)
+**04.08.2014 pb05:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHRlJaYmZXNHhYblU/edit?usp=sharing)
 * AstroConfig logs more timezone and dst infos.
 * Fixed daylight saving offset for moon rise/set.
 
