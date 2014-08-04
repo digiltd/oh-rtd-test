@@ -11,7 +11,9 @@ See further information from http://www.telldus.com
 Tellstick binding support currently Sensors (Temperatur and Humidity) and Devices (Switch, Dimmable and Dimmable without absolute level)
 
 For installation of the binding, please see Wiki page [[Bindings]].
-
+The addon must be downloaded from 
+https://openhab.ci.cloudbees.com/job/openHAB/lastStableBuild/org.openhab.binding$org.openhab.binding.tellstick/
+until we get it packaged into the addons zip.
 ## Binding Configuration
 
 First of all you need to make sure that your JVM is matching your installed Telldus Center. 
