@@ -267,6 +267,10 @@ Waning\u0020Crescent=abnehmender Halbmond
 
 ### Download
 These builds are BETA versions, work in progress, testers welcome!  
+**05.08.2014 pb06:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHM2k3UXIzNXV4SHc/edit?usp=sharing)
+* More accurate julian date to calendar conversion.
+* If there is no moon rise/set today, show the tomorrow.
+
 **04.08.2014 pb05:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHRlJaYmZXNHhYblU/edit?usp=sharing)
 * AstroConfig logs more timezone and dst infos.
 * Fixed daylight saving offset for moon rise/set.
