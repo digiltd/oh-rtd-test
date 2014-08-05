@@ -180,8 +180,8 @@ DateTime Sun_Eclipse_Ring    "Sun ring eclipse [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" 
 ###Moon examples  
 ```
 // rise, set
-DateTime Moonrise_Time   "Moonrise [%1$tH:%1$tM]"  {astro="planet=moon, type=rise, property=start"}
-DateTime Moonset_Time    "Moonset [%1$tH:%1$tM]"   {astro="planet=moon, type=set, property=end"}
+DateTime Moonrise_Time   "Moonrise [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  {astro="planet=moon, type=rise, property=start"}
+DateTime Moonset_Time    "Moonset [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"   {astro="planet=moon, type=set, property=end"}
 
 
 // phase
