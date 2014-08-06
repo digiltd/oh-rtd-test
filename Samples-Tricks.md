@@ -799,13 +799,13 @@ The output looks as follows:
 This script might be used together with another (yet to do) guest wlan on/off script to offer kids the possibility to enable/disable the guest wlan with a randomly generated password (eg  *echo `tr -dc A-Za-z0-9* < /dev/urandom | head -c 16`_) in order to not have to do this yourself each time.
 
 
-### Use Fritzbox SIP Feature to make a call in case of an event
+### Use Fritzbox SIP Feature to make a call in case of an event (or any other SIP-Gateway)
 
-Prologue:
+**Prologue:**
 This Guide shows you how to make a call with a sip-client over a fritz box.
 But it should work with all other sip gateways as well – give it a try!
 
-Requirements:
+**Requirements:**
 - AVM Fritzbox (tested with 7490)
 - openhab (obviously)
 - soundcard (dummy is ok if you don’t have one. Give ALSA a try)
@@ -813,57 +813,41 @@ Requirements:
 - a couple of wav-files (8kHz, 16 bit per Sample, PCM)
 - the power of Copy and Paste ;-)
 
-First of all, add a new ip phone to your fritz box by doing this:
+First of all, add a new ip phone to your fritzbox by doing this:
 
-(note: I only got a german Version of FritzOS: witch means its freely translated to English by me; don’t hit me if says something else on your box :-)
+_(note: I only got a german Version of FritzOS: witch means its freely translated to English by me; don’t hit me if says something else on your box :-)_
 
 1. Logon to your fritz.box
-
 2. On the left, click on “telephony” (GER: Telefonie)
-
 3. Next, click on “devices” (GER: Telefonie-Geräte)
-
 4. On the right site at the bottom, click on “Create a new device” (GER: Neues Gerät einrichten)
-
 5. Now select “Phone” (GER: Telefon (mit und ohne Anrufbeantworter)) and click next.
-
 6. Select „LAN/WiFi (IP-Phone)) (GER: LAN/WLAN (IP-Telefon)) and enter a name for this device. Click next to continue.
-
 7. Enter a Username (mostly a 3 Digit value; the internal Phonenumber) and enter a password. Click next.
-
 8. Now select the outgoing caller-id and carry on.
-
 9. Next, select “accept only calls for the following numbers” and deselect all numbers. Almost there.
-
 10. Last step: apply the Settings. DONE! Congrats!
 
-
-Moving on to SIPCMD:
+**Moving on to SIPCMD:**
 
 Did I mention that you need a sound card? Don’t got one? Pah, no probs. ALSA (http://www.alsa-project.org/main/index.php/Main_Page) got your back.
 
 
-1.Download the SIPCMD Branch:
-
-  wget https://github.com/tmakkonen/sipcmd/archive/master.zip
-
+1. Download the SIPCMD Branch:
+    wget https://github.com/tmakkonen/sipcmd/archive/master.zip
 2. Unzip it. Go into the sipcmd-master directory
-
 3. Now just run “make”
-
 4. Copy the sipcmd. To your preferd BIN Dir (/bin or /usr/bin)
-
 5. That’s it.
 
-
-Go and Record some Wav-Files! You’ll need them later… you also could use text-to-speech engines to get some wav-files – be free. 
+Now go and Record some Wav-Files! You’ll need them later… you also could use text-to-speech engines to get some wav-files – be free. 
 
 Put them in this Directory: /opt/openhab/etc/sipcalls/
 
 Create a “Script” with your favourite Text Editor (like nano, vi and so on) for each Event you want to cover. 
 
 
-Example:
+**Example:**
 
     /opt/openhab/etc/sipcalls/sipcall_alarm_window_bathroom.sh
 
@@ -873,7 +857,7 @@ Example:
 
      (If you want to call another number, just copy and paste the line above as often as you want.)
 
-  Explanation:
+  **Explanation:**
 
     -u is the username – mostly a 3 digit number (see Point 7. From the fritz box setup)
     -c is the password you enterd earlier
@@ -881,8 +865,7 @@ Example:
     -w is the SIP-Domain; in this case fritz.box
     -x the commad that sipcmd should execute where:
     C= is the number witch should be called
-    ws= waittime in milliseconds: meaning wait for x mills after the remote party answerd the call before 
-playing the wav-file
+    ws= waittime in milliseconds: meaning wait for x mills after the remote party answerd the call before playing the wav-file
     v= filename of the wav-file
     H= hangup after the file played
    
@@ -890,7 +873,7 @@ Now we just need to define an Item (in /openhab/configurations/itmes/*.items )
 
       Switch   SIPCALL_WINDOW_BATHROOM   "SipCall Window Bathroom INTERNAL"   { exec="ON:/opt/openhab/etc/sipcalls/ sipcall_alarm_window_bathroom.sh "}
 
-Finally, Create a Rule witch calls the item:
+Finally, create a Rule witch uses the item:
 
       Rule "Window_Bathroom_opened"
       when 
@@ -903,6 +886,8 @@ Finally, Create a Rule witch calls the item:
       sendMail("mymail@adresss.com", "OpenHab: Window Bathroom opened!", "please check!")
       }
       End
+
+Thats it.
 
 ### How to configure openHAB to connect to device symlinks (on Linux)
 
