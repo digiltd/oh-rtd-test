@@ -31,3 +31,7 @@ In openhab's configuration file "openhab.cfg" you can set these basic configurat
 Visit openHAB's WIKI to check how to bind items, actions and rules to the bindings.
 
 That's it!
+
+### Troubleshooting
+
+Ensure the there are no trailing spaces in the openhab.cfg file when adding basic configuration settings. All entries should begin immediately with no formatting.
