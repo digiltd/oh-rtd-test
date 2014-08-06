@@ -265,6 +265,8 @@ Third\u0020Quarter=letztes Viertel
 Waning\u0020Crescent=abnehmender Halbmond
 ```
 
+[Maps download] (https://drive.google.com/file/d/0Bw7zjCgsXYnHZXNNeU5XY2FTMGc/edit?usp=sharing)
+
 ### Download
 These builds are BETA versions, work in progress, testers welcome!  
 **05.08.2014 pb06:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHM2k3UXIzNXV4SHc/edit?usp=sharing)
