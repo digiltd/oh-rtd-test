@@ -799,7 +799,7 @@ The output looks as follows:
 This script might be used together with another (yet to do) guest wlan on/off script to offer kids the possibility to enable/disable the guest wlan with a randomly generated password (eg  *echo `tr -dc A-Za-z0-9* < /dev/urandom | head -c 16`_) in order to not have to do this yourself each time.
 
 
-### Use Fritzbox SIP Feature to make a call in case of an event (or any other SIP-Gateway)
+### Use Fritzbox SIP Feature to make a call in case of an event
 
 **Prologue:**
 This Guide shows you how to make a call with a sip-client over a fritz box.
