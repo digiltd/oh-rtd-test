@@ -801,6 +801,7 @@ This script might be used together with another (yet to do) guest wlan on/off sc
 
 ### Use Fritzbox SIP Feature to make a call in case of an event
 
+
 **Prologue:**
 This Guide shows you how to make a call with a sip-client over a fritz box.
 But it should work with all other sip gateways as well – give it a try!
@@ -818,14 +819,14 @@ First of all, add a new ip phone to your fritzbox by doing this:
 _(note: I only got a german Version of FritzOS: witch means its freely translated to English by me; don’t hit me if says something else on your box :-)_
 
 1. Logon to your fritz.box
-2. On the left, click on “telephony” (GER: Telefonie)
-3. Next, click on “devices” (GER: Telefonie-Geräte)
-4. On the right site at the bottom, click on “Create a new device” (GER: Neues Gerät einrichten)
+2. On the left, click on "telephony" (GER: Telefonie)
+3. Next, click on "devices" (GER: Telefonie-Geräte)
+4. On the right site at the bottom, click on "Create a new device" (GER: Neues Gerät einrichten)
 5. Now select “Phone” (GER: Telefon (mit und ohne Anrufbeantworter)) and click next.
-6. Select „LAN/WiFi (IP-Phone)) (GER: LAN/WLAN (IP-Telefon)) and enter a name for this device. Click next to continue.
-7. Enter a Username (mostly a 3 Digit value; the internal Phonenumber) and enter a password. Click next.
+6. Select "LAN/WiFi (IP-Phone))" (GER: LAN/WLAN (IP-Telefon)) and enter a name for this device. Click next to continue.
+7. Enter a Username (mostly a 3 Digit value; the internal Phone number) and enter a password. Click next.
 8. Now select the outgoing caller-id and carry on.
-9. Next, select “accept only calls for the following numbers” and deselect all numbers. Almost there.
+9. Next, select "accept only calls for the following numbers" and deselect all numbers. Almost there.
 10. Last step: apply the Settings. DONE! Congrats!
 
 **Moving on to SIPCMD:**
@@ -844,7 +845,7 @@ Now go and Record some Wav-Files! You’ll need them later… you also could use
 
 Put them in this Directory: /opt/openhab/etc/sipcalls/
 
-Create a “Script” with your favourite Text Editor (like nano, vi and so on) for each Event you want to cover. 
+Create a "Script" with your favourite Text Editor (like nano, vi and so on) for each Event you want to cover. 
 
 
 **Example:**
@@ -859,17 +860,17 @@ _(If you want to call another number, just copy and paste the line above as ofte
 
   **Explanation:**
 
-    -u is the username – mostly a 3 digit number (see Point 7. From the fritz box setup)
+    -u is the username – mostly a 3 digit number (see Point 7. From the fritzbox setup)
     -c is the password you enterd earlier
     -P is the Protocol witch is used (SIP)
     -w is the SIP-Domain; in this case fritz.box
     -x the commad that sipcmd should execute where:
     C= is the number witch should be called
-    ws= waittime in milliseconds: meaning wait for x mills after the remote party answerd the call before playing the wav-file
+    ws= waittime in milliseconds: meaning wait for x millis after the remote party answerd the call before playing the wav-file
     v= filename of the wav-file
     H= hangup after the file played
    
-Now we just need to define an Item (in /openhab/configurations/itmes/*.items )
+Now we just need to define an Item (in /opt/openhab/configurations/items/*.items )
 
       Switch   SIPCALL_WINDOW_BATHROOM   "SipCall Window Bathroom INTERNAL"   { exec="ON:/opt/openhab/etc/sipcalls/sipcall_alarm_window_bathroom.sh "}
 
