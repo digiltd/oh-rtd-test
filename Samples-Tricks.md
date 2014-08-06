@@ -816,7 +816,7 @@ But it should work with all other sip gateways as well – give it a try!
 
 First of all, add a new ip phone to your fritzbox by doing this:
 
-_(note: I only got a german Version of FritzOS: witch means its freely translated to English by me; don’t hit me if says something else on your box :-)_
+_(note: I only got a german Version of FritzOS: which means its freely translated to English by me; don’t hit me if says something else on your box :-)_
 
 1. Logon to your fritz.box
 2. On the left, click on "telephony" (GER: Telefonie)
@@ -862,10 +862,10 @@ _(If you want to call another number, just copy and paste the line above as ofte
 
     -u is the username – mostly a 3 digit number (see Point 7. From the fritzbox setup)
     -c is the password you enterd earlier
-    -P is the Protocol witch is used (SIP)
+    -P is the Protocol which is used (SIP)
     -w is the SIP-Domain; in this case fritz.box
     -x the commad that sipcmd should execute where:
-    C= is the number witch should be called
+    C= is the number which should be called
     ws= waittime in milliseconds: meaning wait for x millis after the remote party answerd the call before playing the wav-file
     v= filename of the wav-file
     H= hangup after the file played
@@ -874,7 +874,7 @@ Now we just need to define an Item (in /opt/openhab/configurations/items/*.items
 
       Switch   SIPCALL_WINDOW_BATHROOM   "SipCall Window Bathroom INTERNAL"   { exec="ON:/opt/openhab/etc/sipcalls/sipcall_alarm_window_bathroom.sh "}
 
-Finally, create a Rule witch uses the item:
+Finally, create a Rule which uses the item:
 
       Rule "Window_Bathroom_opened"
       when 
