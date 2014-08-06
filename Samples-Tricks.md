@@ -855,7 +855,7 @@ Create a “Script” with your favourite Text Editor (like nano, vi and so on) 
 
      sipcmd -u 621 -c verysecurepassord -P sip -w fritz.box -x "c012345678;ws500;vwindow_bathroom.wav;h"
 
-     (If you want to call another number, just copy and paste the line above as often as you want.)
+_(If you want to call another number, just copy and paste the line above as often as you want.)_
 
   **Explanation:**
 
@@ -871,7 +871,7 @@ Create a “Script” with your favourite Text Editor (like nano, vi and so on) 
    
 Now we just need to define an Item (in /openhab/configurations/itmes/*.items )
 
-      Switch   SIPCALL_WINDOW_BATHROOM   "SipCall Window Bathroom INTERNAL"   { exec="ON:/opt/openhab/etc/sipcalls/ sipcall_alarm_window_bathroom.sh "}
+      Switch   SIPCALL_WINDOW_BATHROOM   "SipCall Window Bathroom INTERNAL"   { exec="ON:/opt/openhab/etc/sipcalls/sipcall_alarm_window_bathroom.sh "}
 
 Finally, create a Rule witch uses the item:
 
