@@ -55,7 +55,7 @@ Based on the community feedback and information about the openHAB requirements h
 
 Raspberry Pi Model B has an attractive price/performance point and is a proven choice for small to medium residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
-**NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [z-wave binding] for more information
+**NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [[z-wave binding]] for more information
 
 
 #### Java Installation
