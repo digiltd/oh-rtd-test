@@ -13,6 +13,8 @@ For installation of the binding, please see Wiki page [Bindings](Bindings).
 
 The snapshot version of the binding can be downloaded, together with the rest of openhab, from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
 
+**NOTE:** There is an issue with using the RPi with the zwave binding - see the known issues below.
+
 ## Supported controllers
 
 The binding supports all controllers that implement the Z-Wave Serial API. A list of confirmed supported controllers is
@@ -155,7 +157,7 @@ To find out which command classes are supported by your Z-Wave device, you can l
 
 ## Known Issues
 
-There seems to be an issue with the binding running on the latest oracle VM Beta, on ARM based architectures (e.g. raspberry PI). It manifests itself as messages being received multiple times. This issue is currently under investigation.
+There seems to be an issue with the binding running on the latest oracle VM Beta, on ARM based architectures (e.g. raspberry PI). It manifests itself as messages being received multiple times and causes considerable problems with the operation of the binding. In large networks, the queue can get extremely long, which can delay initialisation considerably and cause potentially long delays in sending messages. Some time has been spent investigating this issue and a solution has not been found - the issue doesn't appear to be with the binding itself as the problem doesn't manifest itself on an other platform. If anyone with the hardware and programming experience can help with this it would be useful.
 
 ## Examples
 
