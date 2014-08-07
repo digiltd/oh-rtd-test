@@ -117,6 +117,10 @@ All sun calculations are now based on those of http://www.suncalc.net/
         * **property**: `date` (DateTime), `kilometer, miles` (Number)
     * **type** `apogee`
         * **property**: `date` (DateTime), `kilometer, miles` (Number)
+    * **type** `zodiac`
+        * **property** `sign` (String)
+    * **type** `position`
+        * **property** `azimuth, elevation` (Number)
 
 **offset** (optional, taken into account for every DateTime property)  
 offset in minutes to the calculated time
@@ -189,9 +193,9 @@ DateTime  Moon_First_Quarter "First Quarter [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" {as
 DateTime  Moon_Third_Quarter "Third Quarter [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" {astro="planet=moon, type=phase, property=thirdQuarter"}
 DateTime  Moon_Full          "Full moon [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"     {astro="planet=moon, type=phase, property=full"}
 DateTime  Moon_New           "New moon [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"      {astro="planet=moon, type=phase, property=new"}
-Number    Moon_Age           "Moon Age [%.0f]"           {astro="planet=moon, type=phase, property=age"}
-Number    Moon_Illumination  "Moon Illumination [%.1f]"  {astro="planet=moon, type=phase, property=illumination"}
-String    Moon_Phase_Name    "Moonphase [%s]"            {astro="planet=moon, type=phase, property=name"}
+Number    Moon_Age           "Moon Age [%.0f days]"        {astro="planet=moon, type=phase, property=age"}
+Number    Moon_Illumination  "Moon Illumination [%.1f %%]" {astro="planet=moon, type=phase, property=illumination"}
+String    Moon_Phase_Name    "Moonphase [%s]"              {astro="planet=moon, type=phase, property=name"}
 
 
 // distance
@@ -217,6 +221,15 @@ Number   Moon_Apogee_M      "Moon apogee [%.2f miles]"  {astro="planet=moon, typ
 DateTime Moon_Apogee_Time   "Moon apogee from [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"     {astro="planet=moon, type=apogee, property=date"}
 
 
+// moon zodiac
+String   Moon_Zodiac_Sign   "Moon zodiac [%s]"          {astro="planet=moon, type=zodiac, property=sign"}
+
+
+// moon azimuth and elevation
+Number   Moon_Azimuth       "Moon azimuth [%.2f]"       {astro="planet=moon, type=position, property=azimuth"}
+Number   Moon_Elevation     "Moon elevation [%.2f]"     {astro="planet=moon, type=position, property=elevation"}
+
+
 // schedules a event at full moon
 Switch   Moon_Full_Event    {astro="planet=moon, type=phase, property=full"}
 
@@ -227,9 +240,10 @@ Switch   Moon_New_Event     {astro="planet=moon, type=phase, property=new, offse
 If you like to have the season name, zodiac sign and the moon phase name in your own language, use a map.  
 Example for german translation:
 ```
-String Zodiac_Sign_Ger "Sternzeichen [MAP(zodiac.map):%s]"  	{astro="planet=sun, type=zodiac, property=sign"}
-String Season_Name_Ger "Jahreszeit [MAP(season.map):%s]"        {astro="planet=sun, type=season, property=name"}
-String Moon_Phase_Ger  "Mondphase [MAP(moon.map):%s]"           {astro="planet=moon, type=phase, property=name"}
+String Zodiac_Sign_Ger      "Tierkreiszeichen [MAP(zodiac.map):%s]"  {astro="planet=sun, type=zodiac, property=sign"}
+String Season_Name_Ger      "Jahreszeit [MAP(season.map):%s]"        {astro="planet=sun, type=season, property=name"}
+String Moon_Phase_Ger       "Mondphase [MAP(moon.map):%s]"           {astro="planet=moon, type=phase, property=name"}
+String Moon_Zodiac_Sign_Ger "Mondzeichen [MAP(zodiac.map):%s]"       {astro="planet=moon, type=zodiac, property=sign"}
 ```
 **zodiac.map**  
 ```
@@ -269,6 +283,10 @@ Waning\u0020Crescent=abnehmender Halbmond
 
 ### Download
 These builds are BETA versions, work in progress, testers welcome!  
+**07.08.2014 pb07:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHNHZodnFwRC1obm8/edit?usp=sharing)
+* Added moon azimuth/elevation and zodiac.
+* Small optimizations.
+
 **05.08.2014 pb06:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHM2k3UXIzNXV4SHc/edit?usp=sharing)
 * More accurate julian date to calendar conversion.
 * If there is no moon rise/set today, show the tomorrow.
