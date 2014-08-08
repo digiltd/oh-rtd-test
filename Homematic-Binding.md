@@ -309,7 +309,7 @@ If you want to see even more, switch to TRACE to also see the CCU request/respon
 
 ### Release Notes 1.6.0
 1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts).  
-**Note:** You need at least 0.5.2 of Homegear. Since 0.5.5 you can even control (MAX! devices)[http://www.eq-3.de/max-heizungssteuerung.html] without a cube!
+**Note:** You need at least 0.5.2 of Homegear. Since 0.5.5 you can even control [MAX! devices](http://www.eq-3.de/max-heizungssteuerung.html) without a cube!
 
 2.) BATTERY_TYPE datapoint. Show the type of the battery for every battery-powered Homematic device.
 ```
