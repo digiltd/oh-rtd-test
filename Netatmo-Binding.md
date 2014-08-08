@@ -23,27 +23,34 @@ netatmo:refreshtoken=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDE
 
 * Configure items and rules
 
-Example item for the indoor sensor:
+Example item for the **indoor sensor**:
 ```
 Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="00:00:00:00:00:00#Co2"}
 ```
 
-Supported are Temperature, Humidity, Co2, Pressure and Noise.
+Supported are Temperature, Humidity, Co2, Pressure and Noise.  
 
 
-Example item for the outdoor sensor (first id is the device, second id is the module):
+
+
+Example item for the **outdoor sensor** (first id is the device, second id is the module):
 ```
 Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Temperature"}
 ```
 
-Supported are Temperature and Humidity for the outdoor modules. 
+Supported are Temperature and Humidity for the outdoor modules.  
+ 
 
-The rain gauge supports Rain: (What a surprise!)
+
+
+The **rain gauge** supports Rain: (What a surprise!)
 ```
 Number Netatmo_Rain_Gauge "Rain [%d mm]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
 ```
+  
 
-Example rule to send a mail if carbon dioxide reaches a certain threshold:
+
+**Example rule** to send a mail if carbon dioxide reaches a certain threshold:
 ```
 var boolean co2HighWarning = false
 var boolean co2VeryHighWarning = false
