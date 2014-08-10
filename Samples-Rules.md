@@ -803,27 +803,33 @@ First need the water level Item and some block Item to don't spam your self.
 
 Items
 
-String plant1_Water_Level "Water Level [%s]" (gPL){koubachi="device:00066672ef98:recentSoilmoistureReadingValue" }
 
-Switch plantbswitch90 (gPL)
-Switch plantbswitch80 (gPL)
-Switch plantbswitch70 (gPL)
-Switch plantbswitch60 (gPL)
-Switch plantbswitch50 (gPL)
-Switch plantbswitch40 (gPL)
-Switch plantbswitch30 (gPL)
+      String plant1_Water_Level "Water Level [%s]" <grass> (gPL) { koubachi="device:00066672ef98:recentSoilmoistureReadingValue" }
+      Switch plantbswitch90 (gPL)
+      Switch plantbswitch80 (gPL)
+      Switch plantbswitch70 (gPL)
+      Switch plantbswitch60 (gPL)
+      Switch plantbswitch50 (gPL)
+      Switch plantbswitch40 (gPL)
+      Switch plantbswitch30 (gPL)
+
+Following this to rules 
+
 
 Rules
 
-rule "water level"
-when
-	Item plant1_Water_Level received update
-then
+        rule "water level"
+
+        when 
+
+        Item plant1_Water_Level received update
+ 
+        then
 	
 	var level = plant1_Water_Level.state
 	
 	if (plant1_Water_Level.state.toString.matches("9. %") && plantbswitch90.state == OFF{
-	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "I am well!My water level is " + level ,"http://192.168.177.138/flower1.jpg")
+	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "I am well!My water level is " + level,           "http://192.168.177.138/flower1.jpg")
 	sendCommand(plantbswitch90, ON)
 	sendCommand(plantbswitch80, OFF)
 	sendCommand(plantbswitch70, OFF)
@@ -865,13 +871,13 @@ then
 	}
 	
 	
-end
+        end
 
-rule "set switch to off at start"
+        rule "set switch to off at start"
 
-when
+        when
 	System started
-then
+        then
 	
 	sendCommand(plantbswitch90, OFF)
 	sendCommand(plantbswitch80, OFF)
@@ -880,5 +886,4 @@ then
 	sendCommand(plantbswitch50, OFF)
 	sendCommand(plantbswitch40, OFF)
 	sendCommand(plantbswitch30, OFF)
-end
-`
+        end
