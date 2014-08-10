@@ -11,7 +11,7 @@ Samples for Rules
 * [Irrigation controller](Samples-Rules#irrigation-controller)
 * [Fire detection](Samples-Rules#fire-detection)
 * [Hager KNX roller shutter actor position feedback](Samples-Rules#hager-knx-roller-shutter-actor-position-feedback)
-* [Koubachi remind the water level](Samples-Rules#Koubachi-remind-the-water-level)
+* [Koubachi remind the water level](Samples-Rules#koubachi-remind-the-water-level)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -876,7 +876,9 @@ Rules
         rule "set switch to off at start"
 
         when
+
 	System started
+
         then
 	
 	sendCommand(plantbswitch90, OFF)
