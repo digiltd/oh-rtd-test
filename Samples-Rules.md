@@ -11,6 +11,7 @@ Samples for Rules
 * [Irrigation controller](Samples-Rules#irrigation-controller)
 * [Fire detection](Samples-Rules#fire-detection)
 * [Hager KNX roller shutter actor position feedback](Samples-Rules#hager-knx-roller-shutter-actor-position-feedback)
+* [Koubachi remind the water level](Samples-Rules#Koubachi-remind-the-water-level)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -792,3 +793,92 @@ Items
 
     Rollershutter_Study_Feedback: The feedback object of the KNX actor
     Rollershutter_Study: The "normal" roller shutter item.
+
+
+
+### Koubachi remind the water level 
+
+To remind you to give your plant water use the following rule.
+First need the water level Item and some block Item to don't spam your self.
+
+Items
+
+String plant1_Water_Level "Water Level [%s]" (gPL){koubachi="device:00066672ef98:recentSoilmoistureReadingValue" }
+
+Switch plantbswitch90 (gPL)
+Switch plantbswitch80 (gPL)
+Switch plantbswitch70 (gPL)
+Switch plantbswitch60 (gPL)
+Switch plantbswitch50 (gPL)
+Switch plantbswitch40 (gPL)
+Switch plantbswitch30 (gPL)
+
+Rules
+
+rule "water level"
+when
+	Item plant1_Water_Level received update
+then
+	
+	var level = plant1_Water_Level.state
+	
+	if (plant1_Water_Level.state.toString.matches("9. %") && plantbswitch90.state == OFF{
+	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "I am well!My water level is " + level ,"http://192.168.177.138/flower1.jpg")
+	sendCommand(plantbswitch90, ON)
+	sendCommand(plantbswitch80, OFF)
+	sendCommand(plantbswitch70, OFF)
+	sendCommand(plantbswitch60, OFF)
+	sendCommand(plantbswitch50, OFF)
+	sendCommand(plantbswitch40, OFF)
+	sendCommand(plantbswitch30, OFF)
+	}
+	
+	if (plant1_Water_Level.state.toString.matches("8. %") && plantbswitch80.state == OFF ){
+	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "I am still well! My water level is " + level ,"http://192.168.177.138/flower1.jpg")
+	sendCommand(plantbswitch80, ON)
+	sendCommand(plantbswitch90, OFF)
+	}
+	
+	if (plant1_Water_Level.state.toString.matches("7. %") && plantbswitch70.state == OFF ){
+	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "I am still well!My water level is "  + level ,"http://192.168.177.138/flower1.jpg")
+	sendCommand(plantbswitch70, ON)
+	}
+	
+	if (plant1_Water_Level.state.toString.matches("6. %") && plantbswitch60.state == OFF ){
+	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "I am still well!My water level is " + level ,"http://192.168.177.138/flower1.jpg")
+	sendCommand(plantbswitch60, ON)
+	}
+	
+	if (plant1_Water_Level.state.toString.matches("5. %") && plantbswitch50.state == OFF ){
+	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "Next I need water!My water level is " + level ,"http://192.168.177.138/flower1.jpg")
+	sendCommand(plantbswitch50, ON)
+	}
+	
+	if (plant1_Water_Level.state.toString.matches("4. %") && plantbswitch40.state == OFF ){
+	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "I need water! Please give me water. My water level is"  + level ,"http://192.168.177.138/flower1.jpg")
+	sendCommand(plantbswitch40, ON)
+	}
+	 
+	if (plant1_Water_Level.state.toString.matches("3. %") && plantbswitch30.state == OFF ){
+	sendMail("my@mail.de", "Zamioculcas_zamiifolia", "I realy need water! Please give me water ore i will        di.  My water level is "  + level ,"http://192.168.177.138/flower1.jpg")
+	sendCommand(plantbswitch30, ON)
+	}
+	
+	
+end
+
+rule "set switch to off at start"
+
+when
+	System started
+then
+	
+	sendCommand(plantbswitch90, OFF)
+	sendCommand(plantbswitch80, OFF)
+	sendCommand(plantbswitch70, OFF)
+	sendCommand(plantbswitch60, OFF)
+	sendCommand(plantbswitch50, OFF)
+	sendCommand(plantbswitch40, OFF)
+	sendCommand(plantbswitch30, OFF)
+end
+`
