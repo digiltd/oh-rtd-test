@@ -813,7 +813,7 @@ Items
       Switch plantbswitch40 (gPL)
       Switch plantbswitch30 (gPL)
 
-Following this to rules 
+Following this two rules 
 
 
 Rules
