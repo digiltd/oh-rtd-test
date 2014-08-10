@@ -103,7 +103,7 @@ to remind you to give your plant water use the following rule
 
 
 First need the water level Item and some block Item to don't spam your self
-`
+``
 String      plant1_Water_Level           "Water Level [%s]"                <grass> (gPL)    {koubachi="device:00066672ef98:recentSoilmoistureReadingValue" }
 
 Switch plantbswitch90 (gPL)
@@ -113,7 +113,7 @@ Switch plantbswitch60 (gPL)
 Switch plantbswitch50 (gPL)
 Switch plantbswitch40 (gPL)
 Switch plantbswitch30 (gPL)
-`
+``
 After we can follow with the rule
 
 `
