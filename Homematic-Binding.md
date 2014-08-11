@@ -226,6 +226,34 @@ Duplicate options: TONE3 is ignored, because TONE1 is specified previously.
 sendHomematicDisplay("KEQ0012345", "TEXT", "TONE1, BLINK_FAST, TONE3");
 ```
 
+## Service alerts
+Homematic has two service alerts, unreach and config_pending. For every device, these two datapoints are available at channel 0 and you can bind it to an item. So here is a example which displays the number of unreach devices. But only those which are really unreached. The same you can do with config pending (also in the example) and if the device is battery powered, you can also bind LOWBAT to see if the battery is low.
+
+**Item:**
+```
+Group:Number:SUM Unreached     "Unreached devices [%d]"
+Group:Number:SUM ConfigPending "Devices with config pending [%d]"
+
+Number Rollershutter_Kitchen_Unreach "Rollershutter Kitchen unreached" (Unreached) {homematic="address=KEQxxxxx, channel=0, parameter=UNREACH"}
+Number Light_Livingroom_Unreach      "Light Livingroom unreached"      (Unreached) {homematic="address=JEQxxxxx, channel=0, parameter=UNREACH"}
+
+Number Rollershutter_Kitchen_Pending "Rollershutter Kitchen config pending" (ConfigPending) {homematic="address=KEQxxxxx, channel=0, parameter=CONFIG_PENDING"}
+Number Light_Livingroom_Pending      "Light Livingroom config pending"      (ConfigPending) {homematic="address=JEQxxxxx, channel=0, parameter=CONFIG_PENDING"}
+```
+**Sitemap:**
+```
+sitemap homematic label="Example" {  
+  Frame label="Status" {
+		Text item=Unreached labelcolor=[Unreached>0="red"] valuecolor=[>0="red"]
+		Text item=Rollershutter_Kitchen_Unreach labelcolor=[Rollershutter_Kitchen_Unreach==1="red"] visibility=[Rollershutter_Kitchen_Unreach>0]
+		Text item=Light_Livingroom_Unreach labelcolor=[Light_Livingroom_Unreach==1="red"] visibility=[Light_Livingroom_Unreach>0]
+
+		Text item=ConfigPending labelcolor=[Unreached>0="red"] valuecolor=[>0="red"]
+		Text item=Rollershutter_Kitchen_Pending labelcolor=[Rollershutter_Kitchen_Pending==1="red"] visibility=[Rollershutter_Kitchen_Pending>0]
+		Text item=Light_Livingroom_Pending labelcolor=[Light_Livingroom_Pending==1="red"] visibility=[Light_Livingroom_Pending>0]
+  }
+}
+```
 ## Device Confirmation List
 
 These devices have been tested so far and confirmed as working:  
