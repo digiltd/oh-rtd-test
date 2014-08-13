@@ -106,7 +106,7 @@ The respective line in the items definition file would therefore look like this:
 
 If you have a dimmer that does not support INCREASE/DECREASE commands and you thus do not have a GA to provide in the middle, you can also directly define the datapoint types (DPTs) in the configuration. The above example would then look like this (without INCREASE/DECREASE support):
 
-    Dimmer TestDimmer (Lights) { knx="1.001:1/3/20+0/3/20, 5.004:1/3/22+0/3/22+0/8/15" }
+    Dimmer TestDimmer (Lights) { knx="1.001:1/3/20+0/3/20, 5.001:1/3/22+0/3/22+0/8/15" }
 
 ### Command types for items
 
@@ -129,8 +129,8 @@ For a RollershutterItem:
     knx="4/2/10"
     knx="4/2/10, 4/2/11"
     knx="4/2/10, 4/2/11, 4/2/12"
-    knx="1.008:4/2/10, 5.006:4/2/11"
-    knx="<4/2/10+0/2/10, 5.006:4/2/11+0/2/11"
+    knx="1.008:4/2/10, 5.001:4/2/11"
+    knx="<4/2/10+0/2/10, 5.001:4/2/11+0/2/11"
 
 As a result, your lines in the items file might look like the following:
 
