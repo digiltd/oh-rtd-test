@@ -57,10 +57,10 @@ Example configuration:
 # Item Configuration
 
 Some quick Examples:
-* `Number RadTherm1 { maxcul="RadiatorThermostat:JEQ1234565" }` - will return/set the thermostat temperature of radiator thermostat with the serial number JEQ0304492
+* `Number RadTherm1 { maxcul="RadiatorThermostat:JEQ1234565" }` - will return/set the thermostat temperature of radiator thermostat with the serial number JEQ1234565
 * `Number RadThermBatt { maxcul="RadiatorThermostat:JEQ1234565:feature=battery" }`- will return the battery level of JEQ0304492
-* `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:feature=temperature" }` - will return the temperature of a wall mounted thermostat with serial number JEQ0304447
-* `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:feature=thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ0304447
+* `Number wallThermTemp { maxcul="WallThermostat:JEQ1234566:feature=temperature" }` - will return the temperature of a wall mounted thermostat with serial number JEQ1234566
+* `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:feature=thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ1234566
 * `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - ON maps to Auto, OFF maps to Eco
 * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
 * `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it.
@@ -140,3 +140,5 @@ These are in no particular priority and are simply ideas. They may not get imple
 1. Add the ability pretend to be a wall thermostat. This would allow us to associate with a radiator thermostat and send measured temperatures to it. These could be then sent from another binding for example.
 1. Add the ability to simulated a window contact. This would allow us to associate with a radiator thermostat and send window events to it.
 1. Explore how to avoid the queue getting too long due to lack of credits with many devices.
+1. Add ability to setup device groups which should help reduce lack of credit issue
+1. Use the 'get cul raw X' command to get credit information from CUL transport so we don't have to handle credit counting ourselves.
