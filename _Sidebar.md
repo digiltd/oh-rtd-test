@@ -55,6 +55,7 @@ Community
   * [[Koubachi Binding|Koubachi-Binding]]
   * [[Leviton/HAI Omnilink Binding|Omnilink-Binding]]
   * [[MAX!Cube-Binding]]
+  * [[MAX! CUL Binding|MAX!-CUL-Binding]]
   * [[MiLight Binding|Milight-Binding]]
   * [[Modbus TCP Binding|Modbus-Tcp-Binding]]
     * [[Westaflex Modbus|Westaflex-WAC-Binding]]
