@@ -2,6 +2,7 @@ This page contains samples for binding configurations. These samples are sorted 
 
 * [How to send Date and Time from NTP to KNX](Samples-Binding-Config#how-to-send-date-and-time-from-ntp-to-knx)
 * [How to use KNX data types 2.xxx Priority Control](Samples-Binding-Config#how-to-use-knx-data-types-2xxx-priority-control)
+* [How to use KNX scenes](Samples-Binding-Config#how-to-use-knx-scenes)
 * [How to get temperatures from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-temperatures-from-ow-server-via-http-binding)
 * [How to get humidity from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-humidity-from-ow-server-via-http-binding)
 * [How to get contact from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-contact-from-ow-server-via-http-binding)
@@ -41,6 +42,40 @@ sitemap definition:
 or
 
     Switch item=item2_001 mappings=[ 0="priority override disabled (off)", 1="priority override disabled (on)", 2="priority override: off", 3="priority override: on" ]
+
+### How to use KNX scenes
+KNX devices differ in the ways scenes can be activated and learned (programmed). Some devices require a bit trigger using data point type 1.022 "DPT_SCENE_AB", which will activate either scene A or B.
+These devices can be used as follows (starting with version 1.6.0):
+
+item definition:
+  
+    Number item1_022 "1.022 SCENE AB" { knx="1.022:1/2/3"}
+
+sitemap definition:
+		
+    Selection item=item1_022 mappings=[ 0="Scene A", 1="Scene B" ]
+
+or
+
+    Switch item=item1_022 mappings=[ 0="Scene A", 1="Scene B" ]
+
+Some devices require a byte using data point type 18.001 "DPT_SCENE_CONTROL", which will activate or learn one of 64 possible scenes. Adding 128 to the scene number to allow switching to learn mode.
+Example: "activate Scene 2" requires value 1, "learn Scene 2" requires value 129 
+These devices can be used as follows (starting with version 1.6.0):
+
+item definition:
+  
+    Number item18_001 "Scene Control" {knx="18.001:1/2/3"}
+
+sitemap definition:
+		
+    Selection item=item18_001 mappings=[ 0="Scene 1", 1="Scene 2", 2="Scene 3", 3="Scene 4", 128="learn Scene 1", 129="learn Scene 2", 130="learn Scene 3" ]
+
+or
+
+    Switch item=d18_001 mappings=[0="Scene 1", 1="Scene 2", 2="Scene 3", 128="learn Scene 1", 129=" learn Scene 2", 130="learn Scene 3"]
+
+If you have a device requiring 17.001 DPT_SCENE_NUMBER for selecting or indicating scenes, then use one of the above mentioned examples and replace 18.001 with 17.001. Additionally, remove all "learn" mappings.
 
 ### How to get temperatures from OW-SERVER via HTTP binding
 
