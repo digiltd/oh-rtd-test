@@ -374,6 +374,10 @@ end
 5.) Many small optimizations
 
 ### Download
+**14.08.2014 (pb06):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHVlVyd0FjeElhSmM/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHZUkyeUg3Y0JTTUU/edit?usp=sharing)
+- Added [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
+
 **21.07.2014 (pb05):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHYzloLVlFSUl2bzg/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHNFlPTlZjeExmSUk/edit?usp=sharing)
 - initial public 1.6.0 build (works in openHab 1.5.x too)
