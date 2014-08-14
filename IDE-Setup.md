@@ -29,9 +29,9 @@ To run a single test you have to use following command: `mvn -o org.eclipse.tych
 Alternatively, you may wish to use [vagrant](http://www.vagrantcloud.com) to get a pre-configured, running IDE. 
 
 1. Install [VirtualBox](https://www.virtualbox.org/) and [vagrant](http://www.vagrantcloud.com) first.  
-1. Create a new directory for your project and `cd` into it
+1. Create a new directory for vagrant and `cd` into it
 1. Run `vagrant init rub-a-dub-dub/openhabdev32`
 1. Execute `vagrant up` (this will take some time as a ~3GB virtual image needs to be downloaded)
 1. Execute `vagrant ssh` to access your machine
 
-For more information on the setup and use of the IDE with vagrant, look [here](https://vagrantcloud.com/rub-a-dub-dub/openhabdev32).
+To turn off the vagrant machine, run `vagrant halt` in the vagrant directory you created. Run `vagrant suspend` to just suspend the machine. To get rid of the VM and its resources, run `vagrant destroy`. For more information on the setup and use of the IDE with vagrant, look [here](https://vagrantcloud.com/rub-a-dub-dub/openhabdev32).
