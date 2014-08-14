@@ -371,7 +371,8 @@ end
 ```
 
 4.) Remote control display is now driven via RPC (formerly TclRega script)  
-5.) Many small optimizations
+5.) Many small optimizations  
+6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
 
 ### Download
 **14.08.2014 (pb06):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHVlVyd0FjeElhSmM/edit?usp=sharing),
