@@ -1,7 +1,7 @@
 This page contains samples for binding configurations. These samples are sorted by binding.
 
 * [How to send Date and Time from NTP to KNX](Samples-Binding-Config#how-to-send-date-and-time-from-ntp-to-knx)
-* [How to use KNX data types 2.xxxx Priority Control](Samples-Binding-Config#how-to-use-knx-data-types-2.xxxx-priority-control)
+* [How to use KNX data types 2.xxx Priority Control](Samples-Binding-Config#how-to-use-knx-data-types-2.xxx-priority-control)
 * [How to get temperatures from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-temperatures-from-ow-server-via-http-binding)
 * [How to get humidity from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-humidity-from-ow-server-via-http-binding)
 * [How to get contact from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-contact-from-ow-server-via-http-binding)
@@ -26,17 +26,19 @@ This example sends the current date and time from the NTP to the KNX binding
 Additional information on date and time formatting can be found 
 [here](http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Formatter.html#syntax)
 
-### How to use KNX data types 2.xxxx Priority Control
-Starting with version 1.6.0 KNX data types 2.xxxx are supported.
+### How to use KNX data types 2\.xxx Priority Control
+Starting with version 1.6.0 KNX data types 2.xxx are supported.
 This examples shows the usage of DPT 2.001 "Switch Control".
-item definition:
 
+item definition:
+  
     Number item2_001 "2.001 Switch Control" { knx="2.001:1/2/3"}
 
 sitemap definition:
 		
     Selection item=item2_001 mappings=[ 0="priority override disabled (off)", 1="priority override disabled (on)", 2="priority override: off", 3="priority override: on" ]
-or:
+
+or
 
     Switch item=item2_001 mappings=[ 0="priority override disabled (off)", 1="priority override disabled (on)", 2="priority override: off", 3="priority override: on" ]
 
