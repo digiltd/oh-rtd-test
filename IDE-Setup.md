@@ -2,7 +2,7 @@ How to set up a development environment for openHAB
 
 ## Introduction
 
-If you are a developer and not a pure user yourself, you might want to setup your Eclipse IDE, so that you can debug and develop openHAB bundles yourself.
+If you are a developer and not a pure user yourself, you might want to setup your Eclipse IDE, so that you can debug and develop openHAB bundles yourself. There are two options for getting the IDE running: manual setup and vagrant.
 
 ## Setup Instructions
 
@@ -23,3 +23,15 @@ Here are step-by-step instructions on how to get there:
 To produce a binary zip yourself from your code, you can simply call `mvn clean install` from the repository root and you will find the results in the folder distribution/target (you will of course need a Maven 3.0 installation as a prerequisite). Set `MAVEN_OPTS` to `-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m` in order to avoid memory problems during the build process.
 
 To run a single test you have to use following command: `mvn -o org.eclipse.tycho:tycho-surefire-plugin:0.18.1:test` which activates the tycho-surefire-specific goal for OSGI unit test using the fragment bundle xxxx.test on xxxx bundle. The maven -o (offline) option accelerates the project dependency resolution by 10-20x since it lets maven search it's local repository. Normally, snapshot-enabled projects are using external repositories to find latest built packages. 
+
+## Vagrant Instructions
+
+Alternatively, you may wish to use [vagrant](http://www.vagrantcloud.com) to get a pre-configured, running IDE. 
+
+1. Install [VirtualBox](https://www.virtualbox.org/) and [vagrant](http://www.vagrantcloud.com) first.  
+1. Create a new directory for your project and `cd` into it
+1. Run `vagrant init rub-a-dub-dub/openhabdev32`
+1. Execute `vagrant up` (this will take some time as a ~3GB virtual image needs to be downloaded)
+1. Execute `vagrant ssh` to access your machine
+
+For more information on the setup and use of the IDE with vagrant, look [here](https://vagrantcloud.com/rub-a-dub-dub/openhabdev32).
