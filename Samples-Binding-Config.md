@@ -1,7 +1,7 @@
 This page contains samples for binding configurations. These samples are sorted by binding.
 
 * [How to send Date and Time from NTP to KNX](Samples-Binding-Config#how-to-send-date-and-time-from-ntp-to-knx)
-* [How to use KNX data types 2.xxx Priority Control](Samples-Binding-Config#how-to-use-knx-data-types-2.xxx-priority-control)
+* [How to use KNX data types 2.xxx Priority Control](Samples-Binding-Config#how-to-use-knx-data-types-2xxx-priority-control)
 * [How to get temperatures from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-temperatures-from-ow-server-via-http-binding)
 * [How to get humidity from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-humidity-from-ow-server-via-http-binding)
 * [How to get contact from OW-SERVER via HTTP binding](Samples-Binding-Config#how-to-get-contact-from-ow-server-via-http-binding)
