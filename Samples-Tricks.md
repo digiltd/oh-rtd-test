@@ -23,7 +23,7 @@ Miscellaneous Tips & Tricks
 * [How to switch LEDS on cubietruck](Samples-Tricks#how-to-switch-leds-on-cubietruck)
 * [How to use a voice command from HABDroid](Samples-Tricks#how-to-use-a-voice-command-from-habdroid)
 * [Add Humidex calculation for your Feels Like Temperature value](Samples-Tricks#add-humidex-calculation-for-your-feels-like-temperature-value)
-* [Aeon Z-Stick Setup in Linux](Samples-Tricks#aeon-z-stick-setup-in-linux) 
+* [Aeon Z-Stick Setup in Linux](Samples-Tricks#aeon-zstick-setup-in-linux) 
 
 ### How to redirect your log entries to the syslog
 
