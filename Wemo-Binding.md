@@ -2,7 +2,7 @@ Documentation of the Wemo binding bundle
 
 ## Introduction
 
-The openHAB Wemo binding allows to send commands Belkin Wemo Switches.
+The openHAB Wemo binding allows to send commands to Belkin Wemo Switches.
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
