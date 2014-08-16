@@ -307,6 +307,10 @@ These devices have been tested so far and confirmed as working:
 * HMW-LC-Dim1L-DR (Switch/dimming actuator, blind actuator Wired bus for mounting on DIN rails)
 * HMW-IO-12-Sw14-DR (RS485 I/O-Modul 12 inputs 14 switch output for mounting on DIN rails)
 
+### [MAX! devices](http://www.eq-3.de/max-heizungssteuerung.html) (via [Homegear](https://www.homegear.eu))
+* BC-SC-Rd-WM (Radio-controlled shutter contact)
+* BC-SC-Rd-WM-2 (Radio-controlled shutter contact)
+
 ## Troubleshooting
 
 ### INSTALL_TEST
@@ -375,6 +379,10 @@ end
 6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
 
 ### Download
+**16.08.2014 (pb07):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHeTNPaVRMejhVNFk/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHejI4VjhlQmgtbkU/edit?usp=sharing)
+- Added state invert for MAX! window contacts
+
 **14.08.2014 (pb06):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHVlVyd0FjeElhSmM/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHZUkyeUg3Y0JTTUU/edit?usp=sharing)
 - Added [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
