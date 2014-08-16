@@ -23,6 +23,7 @@ Miscellaneous Tips & Tricks
 * [How to switch LEDS on cubietruck](Samples-Tricks#how-to-switch-leds-on-cubietruck)
 * [How to use a voice command from HABDroid](Samples-Tricks#how-to-use-a-voice-command-from-habdroid)
 * [Add Humidex calculation for your Feels Like Temperature value](Samples-Tricks#add-humidex-calculation-for-your-feels-like-temperature-value)
+* [Aeon Z-Stick Setup in Linux](Samples-Tricks#aeon-z-stick-setup-in-linux) 
 
 ### How to redirect your log entries to the syslog
 
@@ -1377,3 +1378,26 @@ then
   postUpdate(Humidex_Outdoor_Temperature, humidex);
 end
 ```
+### Aeon Zstick Setup in Linux
+The Aeon Zstick is a serial USB device in Linux, but it does not use the generic usbserial device drivers. 
+
+Running lsusb you will find it is a CP210x device:
+```
+#lsusb
+Bus 001 Device 002: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x Composite Device
+```
+To get it working you will need to be sure that you have P210x serial device drivers.
+```
+# dmesg | grep cp210x
+cp210x: v0.08:Silicon Labs CP2101/CP2102 RS232 serial adaptor driver
+```
+If not you will need to find and install the package for your distro.  Once that is done you should be able to verify your USB device in the dmesg logs:
+```
+Aug 16 15:59:59 (none) user.info kernel: USB Serial support registered for cp2101
+Aug 16 15:59:59 (none) user.info kernel: cp2101 1-1:1.0: cp2101 converter detected
+Aug 16 15:59:59 (none) user.info kernel: usb 1-1: reset full speed USB device using uhci_hcd and address 2
+Aug 16 15:59:59 (none) user.info kernel: usb 1-1: cp2101 converter now attached to ttyUSB0
+Aug 16 15:59:59 (none) user.info kernel: usbcore: registered new interface driver cp2101
+Aug 16 15:59:59 (none) user.info kernel: cp210x: v0.08:Silicon Labs CP2101/CP2102 RS232 serial adaptor driver
+```
+Most full Linux distro's will have the CP210x module by default, but I am running SLiTaZ linux which is a very lo-ram slimmed down distro (runs in 30MB) so I provide these instructions for anyone else wondering why the device might not be working out of the box in their environment
