@@ -39,7 +39,7 @@ The indicated values are the default values used by either binding
 
 `tcp:addressmask=true` - Allow masks in ip:port addressing, e.g. 192.168.0.1:`**` etc
 
-`tcp:reconnectron='0 0 0 ** * ?'` - Cron-like string to reconnect remote ends, e.g for unstable connection or remote ends
+`tcp:reconnectron=0 0 0 ** * ?` - Cron-like string to reconnect remote ends, e.g for unstable connection or remote ends
 
 `tcp:retryinterval=5` - Interval between reconnection attempts when recovering from a communication error, in seconds
 
@@ -47,9 +47,9 @@ The indicated values are the default values used by either binding
 
 `tcp:buffersize=1024` - Maximum buffer size whilst reading incoming data
 
-`tcp:preamble=''` - Pre-amble that will be put in front of data being sent
+`tcp:preamble=` - Pre-amble that will be put in front of data being sent
 
-`tcp:postamble='\r\n'` - Post-amble that will be appended to data being sent
+`tcp:postamble=\r\n` - Post-amble that will be appended to data being sent
 
 `tcp:blocking=false` - Perform all write/read (send/receive) operations in a blocking mode, e.g. the binding will wait for a reply from the remote end after data has been sent
 
