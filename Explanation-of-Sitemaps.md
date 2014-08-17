@@ -82,7 +82,8 @@ Note that charts are rendered by a chart provider. By default, openHAB provides 
 Syntax:
 
     Switch item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
-An explanation for mappings you can find [here](#wiki-mappings).
+You can find an explanation for mappings you can [here](#wiki-mappings).
+Also note that Switch elements with and without mapping are rendered differently in the interface.
 
 #### Element 'Selection'
 
