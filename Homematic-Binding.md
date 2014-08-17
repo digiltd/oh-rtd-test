@@ -310,6 +310,7 @@ These devices have been tested so far and confirmed as working:
 ### [MAX! devices](http://www.eq-3.de/max-heizungssteuerung.html) (via [Homegear](https://www.homegear.eu))
 * BC-SC-Rd-WM (Radio-controlled shutter contact)
 * BC-SC-Rd-WM-2 (Radio-controlled shutter contact)
+* BC-RT-TRX-CyG-3 (Electronic Wireless Radiator Thermostat)
 
 ## Troubleshooting
 
