@@ -81,7 +81,7 @@ This SetPoint item will allow a user to set the thermostat with 0.5 degrees inte
      when
         Time cron "0 0 23 * * ?"
      then
-	sendCommand (Heating_Max_Valve, 15 )
+        sendCommand (Heating_Max_Valve, 15 )
      end
 
 To receive the valve position of a heating thermostat, the type for the desired information needs to be specified in the bonding configuration
