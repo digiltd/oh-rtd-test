@@ -75,6 +75,15 @@ In order to be able to set a thermostat (and thus sending a temperature setting 
 
     Setpoint item=Heating_Max_Valve step=0.5 minValue=18 maxValue=30
 
+This SetPoint item will allow a user to set the thermostat with 0.5 degrees intervals. If you would like to set the thermostat yourself, for instance in a rule, use the sendCommand option in your rules file, like in the following example:
+
+     rule "Bedtime"
+     when
+        Time cron "0 0 23 * * ?"
+     then
+	sendCommand (Heating_Max_Valve, 15 )
+     end
+
 To receive the valve position of a heating thermostat, the type for the desired information needs to be specified in the bonding configuration
 
 per release 1.6 (currently found via the Jenkins/cloudbees snapshots) you can request the actual temperature for the WallThermostat. The actual temperature can also be requested from the heating Thermostats, however  is usually outdated for the radiator thermostats, since they only send it over when their valve position changes. For the Wall thermostats, the value is accurate, since those send updates every couple of minutes
