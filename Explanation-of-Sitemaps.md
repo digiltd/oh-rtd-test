@@ -37,7 +37,7 @@ The following elements can be used in a sitemap definition file (alphabetical or
 
 Syntax:
 
-    Colorpicker [item="<itemname>"] [label="<labelname>"] [icon="<iconname>"] [sendFrequency=""]
+    Colorpicker [item=<itemname>] [label="<labelname>"] [icon="<iconname>"] [sendFrequency=""]
 
 #### Element 'Frame'
 
@@ -45,7 +45,7 @@ Frames are used to create a visually separated area of items.
 
 Syntax:
 
-    Frame [label="<labelname>"] [icon="<icon>"] [item="<item">]
+    Frame [label="<labelname>"] [icon="<icon>"] [item=<item>]
     {
     	[additional sitemap elements]
     }
@@ -54,20 +54,20 @@ Syntax:
 
 Syntax:
 
-    Group [item="<itemname>"] [label="<labelname>"] [icon="<iconname>"]
+    Group [item=<itemname>] [label="<labelname>"] [icon="<iconname>"]
 
 #### Element 'Image'
 
 Syntax:
 
-    Image [item="<itemname>"] [icon="<iconname>"] url="<url of image>" [label="<labelname>"] [refresh=xxxx]
+    Image [item=<itemname>] [icon="<iconname>"] url="<url of image>" [label="<labelname>"] [refresh=xxxx]
 refresh is the refresh period of the image in milliseconds
 
 #### Element 'Chart'
 
 Syntax:
 
-    Chart [item="<itemname>"] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
+    Chart [item=<itemname>] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
 * _refresh_ is the refresh period of the image in milliseconds
 * _service_ sets the persistence service to use. If no service is set, openHAB will use the first queryable persistence service it finds. Therefore, for an installation with only a single persistence service, this is not required.
 * _period_ sets the length of the time axis of the chart. Valid values are h, 4h, 8h, 12h, D, 3D, W, 2W, M, 2M, 4M, Y
@@ -81,7 +81,7 @@ Note that charts are rendered by a chart provider. By default, openHAB provides 
 
 Syntax:
 
-    Switch item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
+    Switch item=<itemname> [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
 You can find an explanation for mappings you can [here](#wiki-mappings).
 Also note that Switch elements with and without mapping are rendered differently in the interface.
 
@@ -89,45 +89,45 @@ Also note that Switch elements with and without mapping are rendered differently
 
 Syntax:
 
-    Selection item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
+    Selection item=<itemname> [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
 An explanation for mappings you can find [here](#wiki-mappings).
 
 #### Element 'Setpoint'
 
 Syntax:
 
-    Setpoint item="<itemname>" [label="<labelname>"] [icon="<iconname>"] minValue="<min value>" maxValue="<max value>" step="<step value>"
+    Setpoint item=<itemname> [label="<labelname>"] [icon="<iconname>"] minValue="<min value>" maxValue="<max value>" step="<step value>"
 
 #### Element 'Slider'
 
 Syntax:
 
-    Slider item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [sendFrequency="frequency"] [switchSupport]
+    Slider item=<itemname> [label="<labelname>"] [icon="<iconname>"] [sendFrequency="frequency"] [switchSupport]
 
 #### Element 'List'
 
 Syntax:
 
-    List item="<itemname>" [label="<labelname>"] [icon="<iconname>"] [separator=""]
+    List item=<itemname> [label="<labelname>"] [icon="<iconname>"] [separator=""]
 
 #### Element 'Text'
 
 Syntax:
 
-    Text item="<itemname>" [label="<labelname>"] [icon="<iconname>"]
+    Text item=<itemname> [label="<labelname>"] [icon="<iconname>"]
 
 #### Element 'Video'
 
 Syntax:
 
-    Video item="<itemname>"  [icon="<iconname>"] url="<url of video to embed>" [encoding="<video encoding>"]
+    Video item=<itemname>  [icon="<iconname>"] url="<url of video to embed>" [encoding="<video encoding>"]
 encoding is the video encoding. Use "mjpeg" for MJPEG video or leave empty for autoselection
 
 #### Element 'Webview'
 
 Syntax:
 
-    Webview item="<itemname>" [label="<labelname>"] [icon="<iconname>"] url="<url>" [height="<heightvalue"]
+    Webview item=<itemname> [label="<labelname>"] [icon="<iconname>"] url="<url>" [height="<heightvalue"]
 
 ### <a name="mappings"/>Mappings
 
