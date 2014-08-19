@@ -62,9 +62,9 @@ Note that all the parameters are optional, but if you don't specify at least one
 
 If you specify at least one parameter, the Group item will appear as a clickable white box. By clicking, you access a new page that shows the contents inside the group. Group items can be nested and mixed with frames: this gives a very powerful method to organise your information.
 
-<itemname> can be a single item, or a item group: in the latter case, the new page will contain all items belonging to it.
+<i>itemname</i> can be a single item, or a item group: in the latter case, the new page will contain all items belonging to it.
 
-If you don't set <labelname> but specify <itemname>, the group will get the label from the item. If you don't set both <labelname> and <itemname>, the group will appear as a blank box. You can see another effect of setting a <labelname> in the interface navigation bar: the left link that moves you to the previous level shows the text of <labelname>, or "Back" if the label is not specified.
+If you don't set <i>labelname</i> but specify <i>itemname</i>, the group will get the label from the item. If you don't set both <i>labelname</i> and <i>itemname</i>, the group will appear as a blank box. You can see another effect of setting a <i>labelname</i> in the interface navigation bar: the left link that moves you to the previous level shows the text of <i>labelname</i>, or "Back" if the label is not specified.
 
 
 #### Element 'Image'
