@@ -154,10 +154,10 @@ To use the Player.Open command, you would need to define a String item with this
 
     rule "Start Radio"
     when
-	Item XBMC_Radio changed to ON
+        Item XBMC_Radio changed to ON
     then
-	postUpdate(XBMC_Radio, OFF)
-	sendCommand(XBMC_OpenMedia, "http://icecast.omroep.nl/3fm-bb-mp3")
+        postUpdate(XBMC_Radio, OFF)
+        sendCommand(XBMC_OpenMedia, "http://icecast.omroep.nl/3fm-bb-mp3")
     end
 
 This will introduce a Switch item with an associated rule that will send the Player.Open command when the switch is pressed. 
