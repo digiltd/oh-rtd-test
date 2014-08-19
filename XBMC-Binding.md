@@ -90,11 +90,15 @@ Player.Title      | <         | Currently playing title: movie name, TV episode 
 Player.ShowTitle  | <         | Currently playing show title: TV show name, empty for other types
 Player.Artist     | <         | Currently playing artist (music only)
 Player.Album      | <         | Currently playing album (music only)
+Player.Label      | <         | Currently playing title (in case of radio streams) 
 Player.<???>      | <         | Any other player property supported by the XBMC JSON RPC API
 Player.PlayPause  | >         | Play/pause playback
 Player.Stop       | >         | Stop playback
+Player.Open       | >         | Open a URL for playback
 System.Shutdown   | >         | Send OFF to power down the system
 GUI.ShowNotification | >         | Show a notification in the XBMC UI
+
+All incoming properties will be refreshed with each refresh interval of the binding (default 60 seconds). 
 
 ## Example use case
 
@@ -136,3 +140,24 @@ This is of course an example very specific to my preferences, but should give yo
 The following configuration can be used to power on your XBMC machine using the Wake-On-LAN Binding and power it off using the XBMC Binding. The Network Health binding updates the state after some time if XBMC was powered on or off without using openHAB. You have to insert your own IP and MAC address of course.
 
     Switch XBMC_Power "XBMC Power" {xbmc=">[#openelec|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="openelec:80"}
+
+## Example of using the Player.Open option
+
+To use the Player.Open command, you would need to define a String item with this binding, then send an Update to this String item. This will cause Openhab to send the Player.Open command to the specified XBMC instance:
+
+### Items
+
+    String XBMC_OpenMedia    "XBMC Player file [%s]"  { xbmc=">[#woonkamer|Player.Open]" }
+    Switch XBMC_Radio        "XBMC Start Radio"       
+
+### Rules
+
+    rule "Start Radio"
+    when
+	Item XBMC_Radio changed to ON
+    then
+	postUpdate(XBMC_Radio, OFF)
+	sendCommand(XBMC_OpenMedia, "http://icecast.omroep.nl/3fm-bb-mp3")
+    end
+
+This will introduce a Switch item with an associated rule that will send the Player.Open command when the switch is pressed. 
