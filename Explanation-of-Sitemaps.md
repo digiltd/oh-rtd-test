@@ -21,13 +21,13 @@ The following elements can be used in a sitemap definition file (alphabetical or
   <tr><td>Colorpicker</td><td></td></tr>
   <tr><td>Chart</td><td></td></tr>
   <tr><td>Frame</td><td>Area with either various other sitemap elements or further nested frames</td></tr>
-  <tr><td>Group</td><td>Renders all elements of a given group defined in an items defintion file</td></tr>
+  <tr><td>Group</td><td>Renders all elements of a given group defined in an items definiton file</td></tr>
   <tr><td>Image</td><td>Renders an image</td></tr>
   <tr><td>List</td><td></td></tr>
-  <tr><td>Switch</td><td>Renders a switch item</td></tr>
   <tr><td>Selection</td><td>Renders a selection item</td></tr>
   <tr><td>Setpoint</td><td></td></tr>
   <tr><td>Slider</td><td>Renders a slider</td></tr>
+  <tr><td>Switch</td><td>Renders a switch item</td></tr>
   <tr><td>Text</td><td>Renders a text element</td></tr>
   <tr><td>Video</td><td>Displays a video</td></tr>
   <tr><td>Webview</td><td></td></tr>
@@ -51,6 +51,8 @@ Syntax:
     }
 
 #### Element 'Group'
+
+A Group element creates a clickable area that opens up on a new page, where you can show various elements (including nested Groups).
 
 Syntax:
 
