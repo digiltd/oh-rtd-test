@@ -109,6 +109,7 @@ All available GET requests can be found on the LMS.
 In any browser enter `<IP Address of LMS>:9000`
 
 Help button on the bottom left → Technical information → Logitech Media Server Web Interface
+For the multiple player variable either the IP address or the MAC address can be used.
 
 ##Example for adding playlists
 
@@ -123,8 +124,8 @@ Rule file:
 		Item Squeezebox_PlayList received command
 	then
 		switch(receivedCommand) {
-			case 0 : sendHttpGetRequest("http://<IP Address of LMS>:9000/?p0=playlist&p1=play&p2=<Name of Playlist>&player=<IP Address of Player>")
-			case 1 : sendHttpGetRequest("http://<IP Address of LMS>:9000/?p0=playlist&p1=play&p2=<Name of Next Playlist >&player=<IP Address of Player>")
+			case 0 : sendHttpGetRequest("http://<IP Address of LMS>:9000/?p0=playlist&p1=play&p2=<Name of Playlist>&player=<MAC Address of Player>")
+			case 1 : sendHttpGetRequest("http://<IP Address of LMS>:9000/?p0=playlist&p1=play&p2=<Name of Next Playlist >&player=<MAC Address of Player>")
 		}
      end
 
