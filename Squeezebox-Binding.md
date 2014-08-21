@@ -101,3 +101,33 @@ v1.4.0: Squeezebox binding can store the latest IR code (form the infrared remot
     end
 
 
+##Additional Control of Logitech Media Server
+
+Another method to gain some extra control of the LMS not provided by the binding is via HTTP GET requests. Using rules, a switch/number etc can be linked to the required HTTP GET request.
+
+All available GET requests can be found on the LMS. 
+In any browser enter `<IP Address of LMS>:9000`
+
+Help button on the bottom left → Technical information → Logitech Media Server Web Interface
+
+##Example for adding playlists
+
+Item file:
+
+    Number Squeezebox_PlayList	"Playlists”
+
+Rule file:
+
+    rule "Squeezebox_PlayList"
+	when
+		Item Squeezebox_PlayList received command
+	then
+		switch(receivedCommand) {
+			case 0 : sendHttpGetRequest("http://<IP Address of LMS>:9000/?p0=playlist&p1=play&p2=<Name of Playlist>&player=<IP Address of Player>")
+			case 1 : sendHttpGetRequest("http://<IP Address of LMS>:9000/?p0=playlist&p1=play&p2=<Name of Next Playlist >&player=<IP Address of Player>")
+		}
+     end
+
+Sitemap file:
+
+    Selection item=Squeezebox_PlayList label="Start Playlist" mappings=[0="<Name of Playlist>", 1="<Name of Next Playlist >"] 
