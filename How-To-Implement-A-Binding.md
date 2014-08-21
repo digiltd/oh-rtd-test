@@ -22,11 +22,11 @@ As explained above, a binding should correspond to one bundle. The naming conven
 1. `cd ../../binding`
 1. use maven archetype
 
-        mvn archetype:generate -B -DarchetypeGroupId=org.openhab.archetype 
-        -DarchetypeArtifactId=org.openhab.archetype.binding
-        -DarchetypeVersion=1.6.0-SNAPSHOT -Dauthor=<author> -Dversion=<target-version-of-binding>
-        -DartifactId=org.openhab.binding.<binding-name-in-small-caps>
-        -Dpackage=org.openhab.binding.<binding-name-in-small-caps> 
+        mvn archetype:generate -B -DarchetypeGroupId=org.openhab.archetype \
+        -DarchetypeArtifactId=org.openhab.archetype.binding \
+        -DarchetypeVersion=1.6.0-SNAPSHOT -Dauthor=<author> -Dversion=<target-version-of-binding> \
+        -DartifactId=org.openhab.binding.<binding-name-in-small-caps> \
+        -Dpackage=org.openhab.binding.<binding-name-in-small-caps> \
         -Dbinding-name=<binding-name-in-camel-case>
 1. import newly created project by selecting 'Import->Existing Java project'
 1. active the new plugin in !RunConfiguration 'Run Configurations->openHAB Runtime->Plugins->activate your plugin->Auto-start true'
