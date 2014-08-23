@@ -31,6 +31,8 @@ As explained above, a binding should correspond to one bundle. The naming conven
 1. import newly created project by selecting 'Import->Existing Java project'
 1. active the new plugin in !RunConfiguration 'Run Configurations->openHAB Runtime->Plugins->activate your plugin->Auto-start true'
 
+If you have imported the project before, follow the same steps. If you select the same root directory, eclipse scans the path and detects your already imported components. You can only chose your new bundle to import.
+
 Another possibility is to copy an existing binding and do a search&replace for the name.
 If the first step fails due to insufficient memory - Java's memory allowance may need to be increased (`export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"`)
 
