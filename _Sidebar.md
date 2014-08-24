@@ -141,6 +141,7 @@ Samples
  * [[Update-Scripts|openhab-Get-Snapshot]]
  * [[Samples-Comfo-Air-Binding]]
  * [[Samples WAC Binding|Samples WAC Binding]]
+ * [[Samples Integrate WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
 
 Release Notes
  * [[Version 1.5|Release-Notes-1.5]]
