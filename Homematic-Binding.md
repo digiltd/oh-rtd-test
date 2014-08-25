@@ -383,6 +383,10 @@ end
 6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
 
 ### Download
+**25.08.2014 (pb08):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHemtMaVRaOVpjaGs/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHVHMwZHpwLWo5aXM/edit?usp=sharing)
+- Fixed CCU firmware version extraction
+
 **16.08.2014 (pb07):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHeTNPaVRMejhVNFk/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHejI4VjhlQmgtbkU/edit?usp=sharing)
 - Added state invert for MAX! window contacts
