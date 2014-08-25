@@ -297,8 +297,11 @@ These devices have been tested so far and confirmed as working:
 * HM-Sec-TiS (Tilt-sensor contact)
 * HM-SCI-3-FM (Radio shutter contact interface 3-channel, flush-mount)
 * HM-CC-VD (Radio-controlled valve drive)
-* ZEL STG RM FFK (a HM-Sec-SC-2 from Rotomatic)
 * HM-PB-6-WM55 (Wireless push button 6 channel)
+* HM-RC-12 (Radio remote control 12 button)
+* HM-RC-Key3 (KeyMatic remote control)
+* HM-PB-4Dis-WM (Radio push-button 4-gang with display)
+* ZEL STG RM FFK (a HM-Sec-SC-2 from Rotomatic)
 
 ### Wired
 * HMW-Sen-SC-12-FM (RS485 12-channel shutter contact for flush mounting)
