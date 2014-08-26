@@ -4,6 +4,7 @@ Miscellaneous Tips & Tricks
 * [How to do a proper ICMP ping on Linux](Samples-Tricks#how-to-do-a-proper-icmp-ping-on-linux)
 * [How to add current or forecast weather icons to your sitemap](Samples-Tricks#how-to-add-current-or-forecast-weather-icons-to-your-sitemap)
 * [How to configure openHAB to start automatically on Linux](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux)
+* [How to configure openHAB to start automatically on Windows](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-windows)
 * [How start openHAB automatically on Linux using systemd](Samples-Tricks#how-start-openhab-automatically-on-linux-using-systemd)
 * [Use cheap bluetooth dongles on remote PCs to detect your phone/watch](Samples-Tricks#use-cheap-bluetooth-dongles-on-remote-pcs-to-detect-your-phonewatch)
 * [Check presence by detecting WiFi phones/tablets] (Samples-Tricks#check-presence-by-detecting-wifi-phonestablets)
@@ -251,6 +252,37 @@ Make the script executable and configure it to run on boot.
     sudo update-rc.d openhab defaults
 
 Now whenever your Linux machine boots openHAB will be automatically started.
+
+### How to configure openHAB to start automatically on Windows
+
+This setup uses procmon from Apache. Download the binaries from http://www.apache.org/dist/commons/daemon/binaries/windows/. Unzip to the runtime folder
+Create a install_service.bat file, it will be based on start.bat, see below.
+I must be adapted to match your version/path to openhab.
+First time you will have to go into windows services and reenter the login info for the service, this will grant the logon as service right to the user.
+```
+set ECLIPSEHOME=server
+
+:: set ports for HTTP(S) server
+set HTTP_PORT=8080
+set HTTPS_PORT=8443
+set FOLDER=C:\ServerFolders\openhab\runtime
+set JAVA_HOME=C:\Program Files (x86)\Java\jdk1.7.0_51
+prunsrv //DS//OpenHab
+prunsrv //IS//OpenHab --DisplayName="OpenHab Service" ^
+	--ServiceUser jbh@NB1.local --ServicePassword XXXXXXXXX^
+	--Classpath "%FOLDER%\server\plugins\org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar;%FOLDER%\server\plugins\org.eclipse.scada.utils.osgi.daemon_0.1.0.v20140430-1536.jar"^
+        --Install=%FOLDER%\prunsrv.exe --Jvm=auto ^
+       --StartMode jvm^
+		--StartClass org.eclipse.equinox.launcher.Main^
+  --StartMethod main^
+  --Startup auto^
+  ++StartParams -console^
+  ++StartParams -consoleLog^
+   ++JvmOptions -Dosgi.clean=true#-Declipse.ignoreApp=true#-Dosgi.noShutdown=true#-Djetty.port=%HTTP_PORT%#-Djetty.port.ssl=%HTTPS_PORT%#-Djetty.home=.#-Dlogback.configurationFile=configurations/logback.xml#-Dfelix.fileinstall.dir=addons#-Djava.library.path=lib#-Djava.security.auth.login.config=./etc/login.conf#-Dorg.quartz.properties=./etc/quartz.properties#-Dequinox.ds.block_timeout=240000#-Dequinox.scr.waitTimeOnBlock=60000#-Djava.awt.headless=true#-Dfelix.fileinstall.active.level=4^
+  --StopMode jvm^
+  --LogPath %FOLDER%\logs
+pause
+```
 
 ### How start openHAB automatically on Linux using systemd
 
