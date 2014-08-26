@@ -64,7 +64,7 @@ Although you *can* configure one or more instances, it is not strictly necessary
     xbmc="{direction}[{host}|{property}]"
 
 Where
-* {direction}: < for incoming (player state, media title etc.) or > for outgoing (Send "Play/Pause" or "Stop" etc.)
+* {direction}: < for incoming (player state, media title etc.), > for outgoing (Send "Play/Pause" or "Stop" etc.) or = for bi-directional (send/receive volume) 
 * {host}: When prefixed by a '#' a named instance, otherwise hostname or ip address of your xbmc host.
 * {property}: The property to bind to (more on this later)
 
@@ -77,6 +77,8 @@ Some examples:
 
     xbmc="<[192.168.1.6|Player.State]"
     xbmc="<[xbmc.local|Player.Title]"
+
+    xbmc="=[#livingRoom|Application.Volume]" 
 
 ### Available properties
 
@@ -97,6 +99,7 @@ Player.Stop       | >         | Stop playback
 Player.Open       | >         | Open a URL for playback
 System.Shutdown   | >         | Send OFF to power down the system
 GUI.ShowNotification | >         | Show a notification in the XBMC UI
+Application.Volume   | =         | Show and adjust the volume in the XBMC application
 
 All incoming properties will be refreshed with each refresh interval of the binding (default 60 seconds). 
 
@@ -161,3 +164,13 @@ To use the Player.Open command, you would need to define a String item with this
     end
 
 This will introduce a Switch item with an associated rule that will send the Player.Open command when the switch is pressed. 
+
+## Example of using the Application.Volume option
+
+### Item
+
+    Dimmer XBMC_Volume "XBMC Volume [%.1f]" (XBMC) { xbmc="=[#woonkamer|Application.Volume]" }
+
+### Sitemap
+
+    Slider item=XBMC_Volume step=10
