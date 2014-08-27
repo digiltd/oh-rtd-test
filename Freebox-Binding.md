@@ -54,37 +54,54 @@ freebox:apptoken=bEK7a7O8GkxxxxxxxxxxXBsKu/xxxttttwj5bXSssd5gUvSXs4vrpuhZwelEo80
 Here are the list of items you can put in your .items file in order to use binding functionalities : 
 
 ```
-Group gFreebox                        
-Group gfbSys                "System"                     (gFreebox)                
-Group gfbCS                 "Connection Status"                (gFreebox)
-Group gfbCalls                "Calls"                        (gFreebox)
-Group gfbWifi                "Wifi"                        (gFreebox)
+Group gFreebox						
+Group gfbSys				"System" 					(gFreebox)				
+Group gfbCS 				"Connection Status"				(gFreebox)
+Group gfbCalls				"Calls"						(gFreebox)
+Group gfbWifi				"Wifi"						(gFreebox)
+Group gfbLCD				"LCD"						(gFreebox)
+Group gfbXdsl				"xDsl Status"					(gFreebox)
 
-Switch freebox_reboot        "Reboot"    (gfSys)    {freebox="reboot"}
 // Wifi Entries
-Switch freebox_wifi        "Wifi"    (gfbWifi)    {freebox="wifi_status"}
+Switch freebox_wifi			"Wifi"						(gfbWifi)  {freebox="wifi_status"}
 
 // Call Entries
-String freebox_call_lastnum        "Last call [%s]"                (gfbCalls) {freebox="call_number"}
-Number freebox_call_duration        "Duration [%d sec]"                (gfbCalls) {freebox="call_duration"}
-DateTime freebox_call_ts        "TimeStamp [%1$tA, %1$td.%1$tm.%1$tY]"        (gfbCalls) {freebox="call_timestamp"}
-String freebox_call_status        "Status [%s]"                    (gfbCalls) {freebox="call_status"}
+String freebox_call_lastnum		"Last call [%s]"				(gfbCalls) {freebox="call_number"}
+Number freebox_call_duration		"Duration [%d sec]"				(gfbCalls) {freebox="call_duration"}
+DateTime freebox_call_ts		"TimeStamp [%1$tA, %1$td.%1$tm.%1$tY]"		(gfbCalls) {freebox="call_timestamp"}
+String freebox_call_status		"Status [%s]"					(gfbCalls) {freebox="call_status"}
 
 // Connection Status Items
-String freebox_cs_state         "State [%s]"                     (gfbCS) {freebox="line_status"}
-String freebox_cs_ipv4             "ipV4 [%s]"                     (gfbCS) {freebox="ipv4"}
-Number freebox_cs_rate_up          "Upload rate [%d b/s]"                 (gfbCS) {freebox="rate_up"}
-Number freebox_cs_rate_down        "Download rate [%d b/s]"             (gfbCS) {freebox="rate_down"}
-Number freebox_cs_bytes_up        "Uploaded [%d bytes]"                 (gfbCS) {freebox="bytes_up"}
-Number freebox_cs_bytes_down        "Downloaded [%d bytes]"             (gfbCS) {freebox="bytes_down"}
+String freebox_cs_state 		"State [%s]" 					(gfbCS) {freebox="line_status"}
+String freebox_cs_ipv4 			"ipV4 [%s]" 					(gfbCS) {freebox="ipv4"}
+Number freebox_cs_rate_up  		"Upload rate [%d b/s]" 				(gfbCS) {freebox="rate_up"}
+Number freebox_cs_rate_down		"Download rate [%d b/s]" 			(gfbCS) {freebox="rate_down"}
+Number freebox_cs_bytes_up		"Uploaded [%d bytes]" 				(gfbCS) {freebox="bytes_up"}
+Number freebox_cs_bytes_down		"Downloaded [%d bytes]" 			(gfbCS) {freebox="bytes_down"}
 
 // System Items
-String freebox_sys_firmware_version     "Version [%s]"                    (gfbSys) {freebox="fw_version"}
-Number freebox_sys_uptime        "Uptime [%d sec]"                (gfbSys) {freebox="uptime"}
-Number freebox_sys_temp_cpum         "Temp cpum [%d °C]"        <temperature>     (gfbSys) {freebox="temp_cpum"}
-Number freebox_sys_temp_cpub         "Temp cpub [%d °C]"        <temperature>     (gfbSys) {freebox="temp_cpub"}
-Number freebox_sys_temp_sw           "Temp sw [%d °C]"        <temperature>     (gfbSys) {freebox="temp_sw"}
-Number freebox_sys_fan_rpm           "Fan [%d rpm]"             <fan>        (gfbSys) {freebox="fan"}
+String freebox_sys_firmware_version 	"Version [%s]"					(gfbSys) {freebox="fw_version"}
+Switch freebox_reboot			"Reboot freebox"				(gfbSys) {freebox="reboot"}
+Number freebox_sys_uptime		"Uptime [%d sec]"				(gfbSys) {freebox="uptime"}
+Number freebox_sys_temp_cpum 		"Temp cpum [%d °C]"		<temperature> 	(gfbSys) {freebox="temp_cpum"}
+Number freebox_sys_temp_cpub 		"Temp cpub [%d °C]"		<temperature> 	(gfbSys) {freebox="temp_cpub"}
+Number freebox_sys_temp_sw   		"Temp sw [%d °C]"		<temperature> 	(gfbSys) {freebox="temp_sw"}
+Number freebox_sys_fan_rpm   		"Fan [%d rpm]" 			<fan>		(gfbSys) {freebox="fan"}
+
+// LCD Configuration Items
+Number freebox_lcd_brightness		"Brightness [%d %%]"				(gfbLCD) {freebox="lcd_brightness"}
+Number freebox_lcd_orientation		"Orientation [%d °]"				(gfbLCD) {freebox="lcd_orientation"}
+Switch freebox_lcd_forced		"LCD Forced"					(gfbLCD) {freebox="lcd_forced"}
+
+// xDSL Status Items
+String freebox_xdsl_status		"Status [%s]"					(gfbXdsl) {freebox="xdsl_status"}
+
 ```
 
 The two switches (wifi and reboot) can be used read/write to (de)activate the wifi or reboot the freebox.
+The following items are available for read/write actions :
+* switch on/off wifi
+* switch to reboot the freebox
+* switch to force lcd orientation
+* lcd orientation to use (0,90,180,270).
+* lcd brightneww (0 to 100)
