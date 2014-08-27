@@ -103,4 +103,4 @@ The following items are available for read/write actions :
 * switch to reboot the freebox
 * switch to force lcd orientation
 * lcd orientation to use (0,90,180,270).
-* lcd brightneww (0 to 100)
+* lcd brightness (0 to 100)
