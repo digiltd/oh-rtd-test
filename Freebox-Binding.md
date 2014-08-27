@@ -98,7 +98,6 @@ String freebox_xdsl_status		"Status [%s]"					(gfbXdsl) {freebox="xdsl_status"}
 
 ```
 
-The two switches (wifi and reboot) can be used read/write to (de)activate the wifi or reboot the freebox.
 The following items are available for read/write actions :
 * switch on/off wifi
 * switch to reboot the freebox
