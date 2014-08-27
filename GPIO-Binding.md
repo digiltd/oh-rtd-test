@@ -22,7 +22,7 @@ Examples:
     gpio:sysfs=/sys
     gpio:debounce=10
 
-_NOTE: While change in these global options is allowed at runtime it's not advisable to do that. This is because only new pins will use the new values while currently existing pins will use the old one._
+_NOTE: While change in these global options is allowed at runtime it's not advisable to do that. This is because only newly created pins will use the new values while currently existing pins will use the old one._
 
 _NOTE: These options are optional, in most circumstances you don't have to specify them._
 
