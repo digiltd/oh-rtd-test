@@ -383,6 +383,11 @@ end
 6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
 
 ### Download
+**27.08.2014 (pb09):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHVGhySUtHUDUyNlU/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHSFFqdzBVcVRTUEU/edit?usp=sharing)
+- Optimized CCU firmware version extraction
+- Fixed broken Homegear support in pb08
+
 **25.08.2014 (pb08):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHemtMaVRaOVpjaGs/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHVHMwZHpwLWo5aXM/edit?usp=sharing)
 - Fixed CCU firmware version extraction
