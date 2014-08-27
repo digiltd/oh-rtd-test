@@ -44,7 +44,7 @@ Community
   * [[HAI/Leviton OmniLink Binding|OmniLink-Binding]]
   * [[HDAnywhere Binding|HDanywhere-Binding]]
   * [[Heatmiser Binding|Heatmiser-Binding]]
-  * [[Homematic / MAX! Binding|Homematic-Binding]]
+  * [[Homematic / Homegear Binding|Homematic-Binding]]
   * [[HTTP Binding|Http-Binding]]
   * [[IEC 62056-21 Binding|IEC-62056---21-Meter-Binding]]
   * [[IHC / ELKO Binding|IHC-Binding]]
