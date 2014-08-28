@@ -14,7 +14,7 @@ Binding for local GPIO subsystem, currently only this exposed to user space by [
 _NOTE: Some boards may need additional pin configuration prior using them, for example OMAP-based processors are using pin multiplexing which require changing the mode for some of the pins. Please refer to board's System Reference Manual for more information whether preliminary configuration is needed and how to do it._
 
 ## Installation
-Automatic installation using `apt-repo`:
+* Automatic installation using `apt-repo`:
 
     apt-get install openhab-addon-binding-gpio
 
@@ -23,7 +23,7 @@ This will install all required modules, some manual configuration is needed: edi
     USER_AND_GROUP=root:root
     JAVA_ARGS=-Djna.boot.library.path=/usr/lib/jni
 
-Manual installation without using `apt-repo`:
+* Manual installation without using `apt-repo`:
 Extract openhab-runtime archive to `/opt/openhab` (recommended) if not done yet, copy following JARs from openhab-addons archive to `/opt/openhab/addons` folder:
 
 org.openhab.io.gpio
