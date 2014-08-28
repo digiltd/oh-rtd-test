@@ -18,12 +18,13 @@ _NOTE: Some boards may need additional pin configuration prior using them, for e
 
     apt-get install openhab-addon-binding-gpio
 
-This will install all required modules, some manual configuration is needed: edit "/etc/default/openhab" and set following:
+This will install all required modules, some manual configuration is needed: edit `/etc/default/openhab` and set following:
 
     USER_AND_GROUP=root:root
     JAVA_ARGS=-Djna.boot.library.path=/usr/lib/jni
 
 * Manual installation without using `apt-repo`:
+
 Extract openhab-runtime archive to `/opt/openhab` (recommended) if not done yet, copy following JARs from openhab-addons archive to `/opt/openhab/addons` folder:
 
 org.openhab.io.gpio
