@@ -13,6 +13,24 @@ Binding for local GPIO subsystem, currently only this exposed to user space by [
 
 _NOTE: Some boards may need additional pin configuration prior using them, for example OMAP-based processors are using pin multiplexing which require changing the mode for some of the pins. Please refer to board's System Reference Manual for more information whether preliminary configuration is needed and how to do it._
 
+## Installation
+Automatic installation using `apt-repo`:
+
+    apt-get install openhab-addon-binding-gpio
+
+This will install all required modules, some manual configuration is needed: edit "/etc/default/openhab" and set following:
+
+    USER_AND_GROUP=root:root
+    JAVA_ARGS=-Djna.boot.library.path=/usr/lib/jni
+
+Manual installation without using `apt-repo`:
+Extract openhab-runtime archive to `/opt/openhab` (recommended) if not done yet, copy following JARs from openhab-addons archive to `/opt/openhab/addons` folder:
+
+org.openhab.io.gpio
+org.openhab.binding.gpio
+
+Install native JNA library version 3.2.7, modify `/opt/openhab/start.sh` and append `-Djna.boot.library.path=/usr/lib/jni` right after `java` on the last line of the file as change `/usr/lib/jni` with the path to JNA library's parent directory.
+ 
 ## Global Binding Configuration
 `gpio:sysfs` - optional directory path where `sysfs` pseudo file system is mounted. If isn't specified it will be determined automatically (if `procfs` is mounted under `/proc`).  
 `gpio:debounce` - optional time interval in milliseconds in which pin interrupts for input pins will be ignored to prevent bounce effect seen mainly on buttons. Global option for all pins, can be customized per pin in item configuration. Default value if isn't specified - 0 (zero).
