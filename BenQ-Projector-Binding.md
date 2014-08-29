@@ -29,7 +29,7 @@ Known working converter is the [USR-TCP232-2](http://en.usr.cn/Ethernet-Module-T
 ############################# BenqProjector Binding  ########################################
 
 # device interface
-benqprojector:deviceId=projector.silly-science.co.uk:20108
+benqprojector:deviceId=<hostname>:<port number>
 
 # set interval to refresh status from projector
 benqprojector:refresh=15000
