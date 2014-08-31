@@ -116,7 +116,7 @@ Examples, how to configure your items:
   <tr><td>TEMPERATUREHUMIDITY.THGR328</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.WTGR800</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.<br>THGR918_THGRN228_THGN50</td><td>Untested</td><td></td></tr>
-  <tr><td>TEMPERATUREHUMIDITY.TFA_TS34C__CRESTA</td><td>Untested</td><td></td></tr>
+  <tr><td>TEMPERATUREHUMIDITY.TFA_TS34C__CRESTA</td><td>Working</td><td>Temperature, Humidity</td></tr>
   <tr><td>TEMPERATUREHUMIDITY.<br>WT260_WT260H_WT440H_WT450_WT450H</td><td>Untested</td><td></td></tr>
   <tr><td>TEMPERATUREHUMIDITY.VIKING_02035_02038</td><td>Untested</td><td></td></tr>
   <tr><td>SECURITY1.X10_SECURITY_MOTION</td><td>working</td><td>Motion</td></tr>
