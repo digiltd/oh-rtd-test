@@ -383,6 +383,12 @@ end
 6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
 
 ### Download
+**31.08.2014 (pb10):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHNjFNRVJFSUIyVFE/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHVXFiYTdybVhPN1k/edit?usp=sharing)
+- Added support for CUxD HUMIDITYF datapoint
+- Added battery type for new [HM-Sec-SCo](http://www.elv.at/homematic-ir-tuer-fensterkontakt.html) device
+- Fixed Winmatic battery type.
+
 **27.08.2014 (pb09):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHVGhySUtHUDUyNlU/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHSFFqdzBVcVRTUEU/edit?usp=sharing)
 - Optimized CCU firmware version extraction
