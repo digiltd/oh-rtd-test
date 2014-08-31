@@ -35,7 +35,7 @@ All delivered `configurations/` are moved to `configurations_old/`, just as `etc
 
 **The new version does not need to know the buildnumber, version or Status (snapshot or stable)**
 but it's possible to load older Version(s) by setting Buildnumber at commandline. If the Version is not found, the script will announce this.
-**Special Configurations (Which Designer? Demo? GreenT? HABmin?) is set in [config-file](https://code.google.com/p/openhab-samples/source/browse/scripts/getsnap.cfg?repo=wiki)**
+Special Configurations (Which Designer? Demo? GreenT? HABmin? Which addons should be activated?) is set in [config-file](https://code.google.com/p/openhab-samples/source/browse/scripts/getsnap.cfg?repo=wiki)
 
 
 ### Script 2
