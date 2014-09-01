@@ -9,34 +9,36 @@ To automate this process there are two shell-scripts for Linux available.
 
 ### Script 1
 
+**New Version**
+
 the script [openhab_get_snapshot.sh](http://code.google.com/p/openhab-samples/source/browse/scripts/openhab_get_snapshot.sh?repo=wiki) is a quick-and-dirty-script to download a new openHAB Snapshot to a new folder.
 
-Usage is `openhab_get_snapshot.sh nnn` , where nnn is the Snapshot-Number
+Usage is `openhab_get_snapshot.sh [nnn]` , where nnn is the Build-Number. When nn is not set,  openhab_get_snapshot.sh will download the youngest Build. 
+** Since Version 1.5.0 there are two different Versions built, so look at the Version **
 
-Within the Script there is only one variable to set: 
+All "dynamic" configurations (Which Designer should be downloaded? Is demo needed? What's with GreenT? Want HABmin also? Which addons should be activated?) are set in [config-file](https://code.google.com/p/openhab-samples/source/browse/scripts/getsnap.cfg?repo=wiki). This File is per default stored under `/etc/default/getsnap` but this path can be set in the Script.
 
-version is the actual Snapshot-Version (with a dash at the end) and has to be updated, if the Version number changes.
+The script will create a subdirectory under `/srv/openhab/` with the name **version-nnn** (e.g. 1.3.0-461), then download all configured packages to a sub-subdirectory `zips/` (at least runtime and addons), unzip the packages, move configured addons and link `configurations/`, `etc/` and `webapps/images/` to `/srv/openhab/`**`subdir`**`/`. The new runtime-path is symlinked to /opt/openhab.
 
-This is used to build the name of the subdirectory, to which openHAB will be downloaded. 
+At the end, all that has to be done is
 
-If unchanged, the script will create a subdirectory under `/srv/openhab/` with the name **versionnnn** (e.g. 1.3.0-461), then download all needed packages to another subdirectory `zips/`, unzip the packages, move addons and link `configurations/`, `etc/` and `webapps/images/` to `/srv/openhab/`**`subdir`**`/`.
+    cd /opt/openhab
 
-At the end, all that has to be done is to restart openHAB from the new path.
+    ./start.sh
 
-All addons will reside in runtime/addons_inactive if not moved automatically to `runtime/addons/` from the script, so it is easy to activate more addons.  
+All addons are unzipped to runtime/addons_inactive, then the configured addons are moved to `runtime/addons/`. So it is easy to activate more addons by moving the addons and reconfigure `/etc/default/getsnap`.
 
-A assumption is, that all user-specific Stuff resides in 
+A assumption is, that all user-specific Stuff resides in
+ 
     /srv/openhab/configurations #the configs
-    /srv/openhab/etc #for persistence-data
-    /srv/openhab/images #images for the UI
+
+    /srv/openhab/etc            #for persistence-data
+
+    /srv/openhab/images         #images for the UI
+
 which makes it necessary to move or copy the data first (only once).
 
-All delivered `configurations/` are moved to `configurations_old/`, just as `etc/` is moved to `etc_old/` and `webapps/images/` is moved to `webapps/images_old/`, so no data is lost (e.g. new openhab.cfg-entrys)
-
-**The new version does not need to know the buildnumber, version or Status (snapshot or stable)**
-but it's possible to load older Version(s) by setting Buildnumber at commandline. If the Version is not found, the script will announce this.
-Special Configurations (Which Designer? Demo? GreenT? HABmin? Which addons should be activated?) are set in [config-file](https://code.google.com/p/openhab-samples/source/browse/scripts/getsnap.cfg?repo=wiki)
-
+All delivered `configurations/` are moved to `configurations_old/`, just as `etc/` is moved to `etc_old/` and `webapps/images/` is moved to `webapps/images_old/`, so no new data is lost (e.g. new openhab.cfg-entrys)
 
 ### Script 2
 
