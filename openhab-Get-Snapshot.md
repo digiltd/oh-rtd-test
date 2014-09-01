@@ -14,7 +14,7 @@ To automate this process there are two shell-scripts for Linux available.
 the script [openhab_get_snapshot.sh](http://code.google.com/p/openhab-samples/source/browse/scripts/openhab_get_snapshot.sh?repo=wiki) is a quick-and-dirty-script to download a new openHAB Snapshot to a new folder.
 
 Usage is `openhab_get_snapshot.sh [nnn]` , where nnn is the Build-Number. When nn is not set,  openhab_get_snapshot.sh will download the youngest Build. 
-** Since Version 1.5.0 there are two different Versions built, so look at the Version **
+**Since Version 1.5.0 there are two different Versions built, so look at the Version**
 
 All "dynamic" configurations (Which Designer should be downloaded? Is demo needed? What's with GreenT? Want HABmin also? Which addons should be activated?) are set in [config-file](https://code.google.com/p/openhab-samples/source/browse/scripts/getsnap.cfg?repo=wiki). This File is per default stored under `/etc/default/getsnap` but this path can be set in the Script.
 
