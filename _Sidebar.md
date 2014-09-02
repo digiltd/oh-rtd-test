@@ -119,6 +119,7 @@ Community
   * [[Rules]]
   * [[Actions]]
  * Misc
+  * [[Transformations]]
   * [[REST-API]]
   * [[Security]]
   * [[Google Calendar Support|GCal-Binding]]
