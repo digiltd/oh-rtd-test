@@ -62,7 +62,7 @@ A binding can implement the one or the other direction or both. We usually talk 
 
 A good example for such an "Out-Binding" is the Exec-binding. When receiving a command for an item, a configured command is executed on the command line of the host system.
 
-Such bindings can be implemented pretty easily: All you have to do is to extend the class `AbstractBinding` [Abstract binding on GitHub] (https://github.com/openhab/openhab/blob/master/bundles/core/org.openhab.core/src/main/java/org/openhab/core/binding/AbstractBinding.java) and override the methods 
+Such bindings can be implemented pretty easily: All you have to do is to extend the class `AbstractBinding` ([Abstract binding on GitHub] (https://github.com/openhab/openhab/blob/master/bundles/core/org.openhab.core/src/main/java/org/openhab/core/binding/AbstractBinding.java)) and override the methods 
 
 ```java 
 public void internalReceiveCommand(String itemName, Command command)
