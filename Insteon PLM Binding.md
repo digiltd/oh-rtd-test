@@ -170,15 +170,16 @@ log directory.
 
 First, set up an Eclipse build environment following the online instructions. Then find the categories.xml file under the InsteonPLM binding directory, and add your device under the proper category and subcategory (as published by Insteon) with a few lines like these, appropriately modified:
 
-   <subcategory>
-    <name>KepadLinc Dimmer</name>
-    <description>2486D</description>
-    <subCat>0x09</subCat>
-    <productKey name="0x000037">
-    	<feature name="dimmer">GenericDimmer</feature>
-    	<feature name="lastheardfrom">GenericLastTime</feature>
-    </productKey>
-  </subcategory>
+    <feature name="GenericDimmer">
+    <subcategory>
+       <name>KepadLinc Dimmer</name>
+       <description>2486D</description>
+       <subCat>0x09</subCat>
+       <productKey name="0x000037">
+    	  <feature name="dimmer">GenericDimmer</feature>
+    	  <feature name="lastheardfrom">GenericLastTime</feature>
+       </productKey>
+    </subcategory>
 
 Finding the Insteon product key can be tricky since Insteon has not updated the product key table (http://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf) since 2008. Sometimes a web search will turn up the category/subcategory/product key. If you absolutely cannot find the product key, make one up, starting with "F", like: F00.00.99. To avoid duplicate keys, find the highest fake product key in the categories.xml file, and increment by one.
 
