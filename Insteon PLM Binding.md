@@ -73,6 +73,7 @@ The binding does not support linking new devices on the fly, i.e. all
 devices must be linked with the modem *before* starting the InsteonPLM
 binding. Each device has an Insteon address of the format 'xx.xx.xx'
 which can usually be found on a label on the device.
+
 1. Copy the binding (e.g. `openhab.binding.insteonplm-<version>.jar` into the `openhab/addons` folder
 2. Edit the relevant section in the openhab configuration file
    (`openhab/configurations/openhab.cfg`). Note that while multiple
