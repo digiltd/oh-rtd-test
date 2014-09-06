@@ -44,24 +44,6 @@ The following devices have been tested and should work out of the box:
 8. Insteon OutletLinc 2472D, product key: 0x000068
 9. Insteon Mini Remote Model 2342-2, scene switch, (fake) product key: F00.00.0A
 
-
-### Adding new device types (only for the desperate, skip this for now)
-
-First, set up a build environment, following the online instructions. Then find the categories.xml file under the InsteonPLM binding directory, and add your device under the proper category and subcategory (as published by Insteon) with a few lines like these, appropriately modified:
-
-     <subcategory>
-    <name>KepadLinc Dimmer</name>
-    <description>2486D</description>
-    <subCat>0x09</subCat>
-    <productKey name="0x000037">
-    	<feature name="dimmer">GenericDimmer</feature>
-    	<feature name="lastheardfrom">GenericLastTime</feature>
-    </productKey>
-  </subcategory>
-
-If Insteon does not publish a product key for your device, make one up, starting with "F", like: F00.00.99,
-but make sure that is not already used elsewhere in the file.
-
 ## Insteon binding process
 
 Before Insteon devices communicate with one another, they must be
@@ -116,10 +98,10 @@ contact sensor:
     Switch officeLight "office light" (office,lights) {insteonplm="24.02.dc:F00.00.02#switch"}
     Dimmer kitchenChandelier "kitchen chandelier" (kitchen,lights) {insteonplm="20.c4.43:F00.00.01#dimmer"}
     Contact garageMotionSensor "motion sensor [MAP(contact.map):%s]" (garage,contacts) {insteonplm="27.8c.c3:0x00004A#contact"}
-    Switch garageDoorOpener "garage door opener" <garagedoor>  (garage,openers) {insteonplm="28.c3.f1:0x00001A#switch,momentary=3000"}
+    Switch garageDoorOpener "garage door opener" <garagedoor>  (garage,openers) {insteonplm="28.c3.f1:0x00001A#switch"}
     Contact garageDoorContact "garage door contact [MAP(contact.map):%s]" (garage,contacts)     {insteonplm="28.c3.f1:0x00001A#contact"}
     Switch frontDoorLock "Front Door [MAP(lock.map):%s]" {insteonplm="xx.xx.xx:F00.00.09#switch"}
-
+    Switch miniRemoteContactButton1	    "mini remote button 1" (garage,lights){insteonplm="2e.7c.9a:F00.00.02#switch,button=1"}
 
 Note the use of a `MAP(contact.map)`, which should go into the
 transforms directory and look like this:
@@ -182,6 +164,42 @@ your `logback.xml` file:
 
 This will log additional debugging messages to a separate file in the
 log directory.
+
+
+
+### Adding new device types (for developers experienced with Eclipse IDE)
+
+First, set up an Eclipse build environment following the online instructions. Then find the categories.xml file under the InsteonPLM binding directory, and add your device under the proper category and subcategory (as published by Insteon) with a few lines like these, appropriately modified:
+
+   <subcategory>
+    <name>KepadLinc Dimmer</name>
+    <description>2486D</description>
+    <subCat>0x09</subCat>
+    <productKey name="0x000037">
+    	<feature name="dimmer">GenericDimmer</feature>
+    	<feature name="lastheardfrom">GenericLastTime</feature>
+    </productKey>
+  </subcategory>
+
+Finding the Insteon product key can be tricky since Insteon has not updated the product key table (http://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf) since 2008. Sometimes a web search will turn up the category/subcategory/product key. If you absolutely cannot find the product key, make one up, starting with "F", like: F00.00.99. To avoid duplicate keys, find the highest fake product key in the categories.xml file, and increment by one.
+
+The features referenced in the categories.xml file (e.g. GenericDimmer) are defined in the file device_features.xml, which defines the message handlers that run when Insteon messages with different "cmd" codes arrive. The feature definition also specifies the command handlers which translate openHAB commands into insteon messages.
+
+  <feature name="GenericDimmer">
+	<message-dispatcher>DefaultDispatcher</message-dispatcher>
+	<message-handler cmd="0x03">NoOpMsgHandler</message-handler>
+	<message-handler cmd="0x06">NoOpMsgHandler</message-handler>
+	<message-handler cmd="0x11">LightOnDimmerHandler</message-handler>
+	<message-handler cmd="0x13">LightOffHandler</message-handler>
+	<message-handler cmd="0x17">NoOpMsgHandler</message-handler>
+	<message-handler cmd="0x18">StopManualChangeHandler</message-handler>
+	<message-handler cmd="0x19">LightStateDimmerHandler</message-handler>
+	<command-handler command="PercentType">PercentHandler</command-handler>
+	<command-handler command="OnOffType">LightOnOffCommandHandler</command-handler>
+	<poll-handler>DefaultPollHandler</poll-handler>
+  </feature>
+
+If you cannot achieve the desired outcome by cobbling together a set of suitable message and command handlers, you will have to write your own, hopefully just having to touch the DeviceFeatures.java file.
 
 ## Known Limitations and Issues
 
