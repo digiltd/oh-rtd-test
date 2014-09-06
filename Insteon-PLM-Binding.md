@@ -170,9 +170,8 @@ log directory.
 
 First, set up an Eclipse build environment following the online instructions. Then find the categories.xml file under the InsteonPLM binding directory, and add your device under the proper category and subcategory (as published by Insteon) with a few lines like these, appropriately modified:
 
-    <feature name="GenericDimmer">
     <subcategory>
-       <name>KepadLinc Dimmer</name>
+       <name>KeypadLinc Dimmer</name>
        <description>2486D</description>
        <subCat>0x09</subCat>
        <productKey name="0x000037">
@@ -181,7 +180,7 @@ First, set up an Eclipse build environment following the online instructions. Th
        </productKey>
     </subcategory>
 
-Finding the Insteon product key can be tricky since Insteon has not updated the product key table (http://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf) since 2008. Sometimes a web search will turn up the category/subcategory/product key. If you absolutely cannot find the product key, make one up, starting with "F", like: F00.00.99. To avoid duplicate keys, find the highest fake product key in the categories.xml file, and increment by one.
+Finding the Insteon product key can be tricky since Insteon has not updated the product key table (http://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf) since 2008. If a web search does not turn up the product key, make one up, starting with "F", like: F00.00.99. To avoid duplicate keys, find the highest fake product key in the categories.xml file, and increment by one.
 
 The features referenced in the categories.xml file (e.g. GenericDimmer) are defined in the file device_features.xml, which defines the message handlers that run when Insteon messages with different "cmd" codes arrive. The feature definition also specifies the command handlers which translate openHAB commands into insteon messages.
 
@@ -199,7 +198,7 @@ The features referenced in the categories.xml file (e.g. GenericDimmer) are defi
         <poll-handler>DefaultPollHandler</poll-handler>
     </feature>
 
-If you cannot achieve the desired outcome by cobbling together a set of suitable message and command handlers, you will have to write your own, hopefully just having to touch the DeviceFeatures.java file.
+If you cannot achieve the desired outcome by cobbling together a set of suitable message and command handlers, you will have to write your own handlers, hopefully just having to touch the DeviceFeatures.java file.
 
 ## Known Limitations and Issues
 
