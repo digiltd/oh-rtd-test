@@ -198,22 +198,6 @@ The features referenced in the categories.xml file (e.g. GenericDimmer) are defi
         <poll-handler>DefaultPollHandler</poll-handler>
     </feature>
 
-
-
-   <feature name="GenericDimmer">
-	<message-dispatcher>DefaultDispatcher</message-dispatcher>
-	<message-handler cmd="0x03">NoOpMsgHandler</message-handler>
-	<message-handler cmd="0x06">NoOpMsgHandler</message-handler>
-	<message-handler cmd="0x11">LightOnDimmerHandler</message-handler>
-	<message-handler cmd="0x13">LightOffHandler</message-handler>
-	<message-handler cmd="0x17">NoOpMsgHandler</message-handler>
-	<message-handler cmd="0x18">StopManualChangeHandler</message-handler>
-	<message-handler cmd="0x19">LightStateDimmerHandler</message-handler>
-	<command-handler command="PercentType">PercentHandler</command-handler>
-	<command-handler command="OnOffType">LightOnOffCommandHandler</command-handler>
-	<poll-handler>DefaultPollHandler</poll-handler>
-   </feature>
-
 If you cannot achieve the desired outcome by cobbling together a set of suitable message and command handlers, you will have to write your own, hopefully just having to touch the DeviceFeatures.java file.
 
 ## Known Limitations and Issues
