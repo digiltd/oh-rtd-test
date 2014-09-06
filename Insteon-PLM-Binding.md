@@ -184,6 +184,9 @@ Finding the Insteon product key can be tricky since Insteon has not updated the 
 
 The features referenced in the categories.xml file (e.g. GenericDimmer) are defined in the file device_features.xml, which defines the message handlers that run when Insteon messages with different "cmd" codes arrive. The feature definition also specifies the command handlers which translate openHAB commands into insteon messages.
 
+    insteonplm="<insteon_address>:<product_key>#feature[,<parameter>=value, ...]>"
+
+
    <feature name="GenericDimmer">
 	<message-dispatcher>DefaultDispatcher</message-dispatcher>
 	<message-handler cmd="0x03">NoOpMsgHandler</message-handler>
