@@ -2,7 +2,9 @@
 
 ### Version 1.5.1
 
-** Bugfixes **
+This is the first Bugfix Release of the 1.5 Release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.5.1+is%3Aclosed).
+
+**Bugfixes**
 
 * Start broadcaster lifecycle management manually (#1392)
 * Add the UUIDBroadcaster class in code and start the lifecyle management (#1376)
@@ -12,7 +14,7 @@
 * Sonos : Fix issue with BindingProvider for cases where there are >100 (#1352)
 * Fix openhab.cfg documentation for Sonos binding (#1350)
 * Fix for MaxCube invalid settemperature when the actual temperature >25C (#1336)
-* Various fixes (#1314)
+* Various fixes in Sonos Binding (#1314)
 * MQTTBinding - Fixed bug causing repeated unsubscribes (#1309)
 * Fix for ZWave meter nodes to support RESET commands (#1286)
 * Fix typo error (missing </Product> at line 864) (#1265)
@@ -20,7 +22,6 @@
 * Fixed ColorItem persistence (#1258)
 * Added test cases for KNXCoreTypeMapper (#1254)
 * Change default ID to MAX_INTEGER to avoid problem deserialising (#1253)
-* This adds a timeout to long polling requests for issue #765 (#1248)
 * Support more devices via http binding (#1231)
 * Change Java back to 1.5 (#1229)
 * TinkerforgeBinding: Bugfix and upgrade of TinkerForge api (#1219)
