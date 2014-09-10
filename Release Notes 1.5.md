@@ -41,6 +41,13 @@ This is the first Bugfix Release of the 1.5 Release. See the Github issue tracke
 * Inchoate deflate and gzip support for org.openhab.io.net.http.HTTPUtils (#1146)
 * Losing events on REST API (atmosphere) - OH 1.4 (#765)
 
+## Updating the openHAB runtime 1.5 to 1.5.1
+
+If you have a running openHAB runtime 1.5 installation, you can easily update it to version 1.5.1 by following these steps:
+ 1. Unzip the runtime 1.5.1 and all required addons to a new installation folder
+ 1. Replace the folder "configurations" by the version from your 1.5 installation
+ 1. Copy all other customizations you might have done to the new installation (e.g. additional images, sounds, etc.)
+
 ### Version 1.5.0
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=4&page=1&state=closed).
