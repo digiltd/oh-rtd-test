@@ -69,13 +69,13 @@ faulting a given zone by e.g. opening a window or door.
 ## Configuring openhab
 
 The openhab.cfg file allows to configure either a tcp:
-
+```
 alarmdecoder:connect=tcp:ad2pihostname.mydomain.com:port
-
- or a serial connection:
-
+```
+or a serial connection:
+```
 alarmdecoder:connect=serial:/dev/ttyUSB0
-
+```
 Warning: using an alarmdecoder via serial port has not been debugged yet!
 
 Once this is taken care of, create a suitable file
@@ -84,7 +84,7 @@ directory.
 
 Here is an example file that instantiates some Number and
 Contact items, and a String item
-
+```
 Group gpanel "alarm panel" (All)
 
 Number alarmPanelStatusRaw	    "panel status: [%d]" (gPanel)  	  {alarmdecoder="KPM:00#status"}
@@ -124,12 +124,12 @@ Contact alarmPanelContactArmedStay    "panel armed stay: [%d]" (gPanel)    {alar
 Number alarmPanelBeeps	    	    "panel beeps: [%d]" (gPanel) 	  {alarmdecoder="KPM:00#beeps"}
 Number alarmPanelZone	    	    "panel zone: [%d]" (gPanel) 	  	  {alarmdecoder="KPM:00#zone"}
 String alarmPanelDisplay	    "panel display: [%s]" (gPanel) 	  {alarmdecoder="KPM:00#text"}
-
+```
 Note that the status bits are accessible as either Contacts or
 Numbers. All but a few of them are quite useless.
 
 Here is how to bind items to RFX, REL, and EXP messages:
-
+```
 Group gContact "contacts" (All)
 Group gNumber "data" (All)
 Contact zone2  	       "zone 2 [MAP(contact.map):%s]"   (gContact) {alarmdecoder="EXP:07,08#contact"}
@@ -138,7 +138,7 @@ Contact motionContact  "motion sensor contact [MAP(contact.map):%s]" (gContact) 
 Number  motionData     "motion sensor data [%d]"	  (gNumber)  {alarmdecoder="RFX:0923844#data"}
 Number  motionLowBattery       "motion sensor battery [%d]" (gNumber) {alarmdecoder="RFX:0923844#data,bit=1"}
 Number  motionNeedsSupervision "motion sensor supervision [%d]" (gNumber) {alarmdecoder="RFX:0923844#data,bit=2"}
-
+```
 
 Just like for the KPM messages, the RFX messages are exposed either as
 a Number item, or as a Contact. Since the REL and EXP messages just give
@@ -149,7 +149,7 @@ binary data, they are only mapped to contact items.
 
 To get additional debugging information, insert the following into
 your `logback.xml` file:
-
+```
     <appender name="ALARMDECODERFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/alarmdecoder.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -164,7 +164,7 @@ your `logback.xml` file:
     <logger name="org.openhab.binding.alarmdecoder" level="DEBUG" additivity="false">
     <appender-ref ref="ALARMDECODERFILE" />
     </logger>
-
+```
 This will log additional debugging messages to a separate file in the
 log directory.
 
