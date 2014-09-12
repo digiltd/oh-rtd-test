@@ -40,7 +40,7 @@ clear text ASCII byte stream is obtained, either on a serial port,
 or (with the ad2pi appliance) a tcp port that can be telneted to.
 
 Here is an example ASCII stream straight from the alarmdecoder:
-`
+`> 
    !SER2SOCK Connected
    !SER2SOCK SERIAL_CONNECTED
    [0000000110000000----],005,[f70000ff1005000028020000000000],"FAULT 05 MUSIC  ROOM WINDOW     "
