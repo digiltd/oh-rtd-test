@@ -19,7 +19,7 @@ measure (don't forget to plug it back in when finished).
 Although not mentioned in the quickstart guide, and only documented
 on an odd
 [thread](http://archive.nutech.com/index.php?option=com_fireboard&Itemid=74&func=view&catid=4&id=656),
-configuring the virtual relay boards is absolutely necessary on boards
+configuring the virtual relay boards is absolutely necessary on panels
 like the Honeywell Vista 20p and similar, or else all of the eight
 on-board zones will not be visible! The process sounds intimidating,
 and it does require bypassing the installer code (see
