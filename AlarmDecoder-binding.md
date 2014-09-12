@@ -16,6 +16,15 @@ working on the main panel it is advisable to put the alarm
 system in test mode, and unplug the phone connection to it for good
 measure (don't forget to plug it back in when finished).
 
+Understanding exactly what expansion boards are connected to the main
+panel is crucial for a successful setup of the alarmdecoder and also helpful in interpreting
+the messages from the alarmdecoder.
+
+While many of the expansion devices don't have labels on the outside,
+inserting a flat screwdriver into the right slot and prying gently
+will usually uncover a circuit board with numbers on it that can be web
+searched.
+
 Although not mentioned in the quickstart guide, and only documented
 on an odd
 [thread](http://archive.nutech.com/index.php?option=com_fireboard&Itemid=74&func=view&catid=4&id=656),
@@ -30,15 +39,8 @@ documented](http://www.alarmdecoder.com/wiki/index.php/Protocol)
 clear text ASCII byte stream is obtained, either on a serial port,
 or (with the ad2pi appliance) a tcp port that can be telneted to.
 
-Understanding exactly what expansion boards are connected to the main
-panel is helpful in interpreting  the messages.
-While many of the expansion devices don't have labels on the outside,
-inserting a flat screwdriver into the right slot and prying gently
-will usually uncover a circuit board with numbers on it that can be web
-searched.
-
 Here is an example ASCII stream straight from the alarmdecoder:
-
+`
    !SER2SOCK Connected
    !SER2SOCK SERIAL_CONNECTED
    [0000000110000000----],005,[f70000ff1005000028020000000000],"FAULT 05 MUSIC  ROOM WINDOW     "
@@ -51,7 +53,7 @@ Here is an example ASCII stream straight from the alarmdecoder:
    !RFX:0610922,80
    !RFX:0610922,00
    [0000000110000000----],014,[f70000ff1014000028020000000000],"FAULT 14 KITCHENDOOR            "
-
+`
 Each alarm zone of the panel is represented by a unique combination of
 message *type* and *address*.
 The message *type* depends on how the zone is connected to the panel:
