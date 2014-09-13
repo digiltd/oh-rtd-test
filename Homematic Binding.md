@@ -384,6 +384,11 @@ end
 6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
 
 ### Download
+**13.09.2014 (pb12):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHQ1BHMGtBRW1BZFk/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHbU1RTzZqTnVrUEk/edit?usp=sharing)
+- Moved CCU team support to DatapointConfig
+- Added support for CUxD LAST_TICKS and UNITSPTURN datapoint
+
 **03.09.2014 (pb11):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHNHJxRjJhTmxfNnc/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHSzFDc0lCWHIzaVE/edit?usp=sharing)
 - Added support for CCU Teams (e.g. a team of smoke detectors)
