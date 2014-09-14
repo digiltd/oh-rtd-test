@@ -45,7 +45,7 @@ Where
 ## List of supported commands (commandType)
 
 <table>
-  <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
+  <tr><th>Command</th><th>Item Type</th><th>Purpose</th><th>Note</th></tr>
   <tr><td>LoadAverage1Min</td><td>Number</td><td></td><td></td></tr>
   <tr><td>LoadAverage5Min</td><td>Number</td><td></td><td></td></tr>
   <tr><td>LoadAverage15Min</td><td>Number</td><td></td><td></td></tr>
@@ -96,7 +96,7 @@ Check supported disk names by iostat or openhab debug log "21:56:12.931 DEBUG o.
 (3 process name supports:
 
 <table>
-  <tr><td>**Usage**</td><td>**Example**</td><td>**Explanatory**</td></tr>
+  <tr><th>Usage</th><th>Example</th><th>Explanatory</th></tr>
   <tr><td>$$</td><td>$$</td><td>current process</td></tr>
   <tr><td>processname</td><td>eclipse</td><td>process name contains "eclipse"</td></tr>
   <tr><td>`**`processname</td><td>`**`eclipse</td><td>process name ends to "eclipse"</td></tr>
