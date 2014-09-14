@@ -54,7 +54,7 @@ t.b.d.
 
 # Connecting to the Event Bus
 
-There are to directions for the communication of a binding - either sending out commands and status updates from the openHAB even bus to some external system or to receive information from an external system and post this on the openHAB event bus for certain items.
+There are two directions for the communication of a binding - either sending out commands and status updates from the openHAB even bus to some external system or to receive information from an external system and post this on the openHAB event bus for certain items.
 
 A binding can implement the one or the other direction or both. We usually talk about "Out-", "In-" or "InOut-Bindings" respectively.
 
