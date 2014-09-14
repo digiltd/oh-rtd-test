@@ -46,46 +46,46 @@ Where
 
 <table>
   <tr><td>**Command**</td><td>**Item Type**</td><td>**Purpose**</td><td>**Note**</td></tr>
+  <tr><td>LoadAverage1Min</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>LoadAverage5Min</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>LoadAverage15Min</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>CpuCombined</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>CpuUser</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>CpuSystem</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>CpuNice</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>CpuWait</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>Uptime</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>UptimeFormatted</td><td>String</td><td></td><td></td></tr>
+  <tr><td>MemFree</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>MemFreePercent</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>MemUsed</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>MemUsedPercent</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>MemActualFree</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>MemActualUsed</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>MemTotal</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>SwapFree</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>SwapTotal</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>SwapUsed</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>SwapPageIn</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>SwapPageOut</td><td>Number</td><td></td><td></td></tr>
+  <tr><td>NetTxBytes</td><td>Number</td><td></td><td>target = net interface name (1</td></tr>
+  <tr><td>NetRxBytes</td><td>Number</td><td></td><td>target = net interface name (1</td></tr>
+  <tr><td>DiskReads</td><td>Number</td><td></td><td>target = disk name (2</td></tr>
+  <tr><td>DiskWrites</td><td>Number</td><td></td><td>target = disk name (2</td></tr>
+  <tr><td>DiskReadBytes</td><td>Number</td><td></td><td>target = disk name (2</td></tr>
+  <tr><td>DiskWriteBytes</td><td>Number</td><td></td><td>target = disk name (2</td></tr>
+  <tr><td>DirUsage</td><td>Number</td><td></td><td>target = directory path (if folder contains lot of files scan can take a while!)</td></tr>
+  <tr><td>DirFiles</td><td>Number</td><td></td><td>target = directory path (if folder contains lot of files scan can take a while!)</td></tr>
+  <tr><td>ProcessRealMem</td><td>Number</td><td></td><td>target = process name (3</td></tr>
+  <tr><td>ProcessVirtualMem</td><td>Number</td><td></td><td>target = process name (3</td></tr>
+  <tr><td>ProcessCpuPercent</td><td>Number</td><td></td><td>target = process name (3</td></tr>
+  <tr><td>ProcessCpuSystem</td><td>Number</td><td></td><td>target = process name (3</td></tr>
+  <tr><td>ProcessCpuUser</td><td>Number</td><td></td><td>target = process name (3</td></tr>
+  <tr><td>ProcessCpuTotal</td><td>Number</td><td></td><td>target = process name (3</td></tr>
+  <tr><td>ProcessUptime</td><td>Number</td><td></td><td>target = process name (3</td></tr>
+  <tr><td>ProcessUptimeFormatted</td><td>String</td><td></td><td>target = process name (3</td></tr>
+  <tr><td>ProcessCpuPercent</td><td>Number</td><td></td><td>target = process name (3</td></tr>
 </table>
-|| LoadAverage1Min || Number ||  ||  || 
-|| LoadAverage5Min || Number ||  ||  || 
-|| LoadAverage15Min || Number ||  ||  || 
-|| CpuCombined || Number ||  ||  || 
-|| CpuUser || Number ||  ||  || 
-|| CpuSystem || Number ||  ||  || 
-|| CpuNice || Number ||  ||  || 
-|| CpuWait || Number ||  ||  || 
-|| Uptime || Number ||  ||  || 
-|| UptimeFormatted || String ||  ||  || 
-|| MemFree || Number ||  ||  || 
-|| MemFreePercent || Number ||  ||  || 
-|| MemUsed || Number ||  ||  || 
-|| MemUsedPercent || Number ||  ||  || 
-|| MemActualFree || Number ||  ||  || 
-|| MemActualUsed || Number ||  ||  || 
-|| MemTotal || Number ||  ||  || 
-|| SwapFree || Number ||  ||  || 
-|| SwapTotal || Number ||  ||  || 
-|| SwapUsed || Number ||  ||  || 
-|| SwapPageIn || Number ||  ||  || 
-|| SwapPageOut || Number ||  ||  || 
-|| NetTxBytes || Number ||  || target = net interface name (1 || 
-|| NetRxBytes || Number ||  || target = net interface name (1 || 
-|| DiskReads || Number ||  || target = disk name (2 || 
-|| DiskWrites || Number ||  || target = disk name (2 || 
-|| DiskReadBytes || Number ||  || target = disk name (2 || 
-|| DiskWriteBytes || Number ||  || target = disk name (2 || 
-|| DirUsage || Number ||  || target = directory path (if folder contains lot of files scan can take a while!)|| 
-|| DirFiles || Number ||  || target = directory path (if folder contains lot of files scan can take a while!)|| 
-|| ProcessRealMem || Number ||  || target = process name (3 || 
-|| ProcessVirtualMem || Number ||  || target = process name (3 || 
-|| ProcessCpuPercent || Number ||  || target = process name (3 || 
-|| ProcessCpuSystem || Number ||  || target = process name (3 || 
-|| ProcessCpuUser || Number ||  || target = process name (3 || 
-|| ProcessCpuTotal || Number ||  || target = process name (3 || 
-|| ProcessUptime || Number ||  || target = process name (3 || 
-|| ProcessUptimeFormatted || String ||  || target = process name (3 || 
-|| ProcessCpuPercent || Number ||  || target = process name (3 || 
 
 (1 interface name:
 Check supported interface names by ifconfig, ipconfig or openhab debug log E.g. "21:56:12.930 DEBUG o.o.b.s.internal.SysteminfoBinding[- valid net interfaces: [lo0, en0, en1, p2p0, vboxnet0](:479])
@@ -98,12 +98,12 @@ Check supported disk names by iostat or openhab debug log "21:56:12.931 DEBUG o.
 <table>
   <tr><td>**Usage**</td><td>**Example**</td><td>**Explanatory**</td></tr>
   <tr><td>$$</td><td>$$</td><td>current process</td></tr>
+  <tr><td>processname</td><td>eclipse</td><td>process name contains "eclipse"</td></tr>
+  <tr><td>`**`processname</td><td>`**`eclipse</td><td>process name ends to "eclipse"</td></tr>
+  <tr><td>processname`**`</td><td>eclipse`**`</td><td>process name start with "eclipse"</td></tr>
+  <tr><td>=processname</td><td>=eclipse</td><td>process name equals "eclipse"</td></tr>
+  <tr><td>#PTQL</td><td>#State.Name.eq=eclipse</td><td>Sigar Process Table Query Language (see https://support.hyperic.com/display/SIGAR/PTQL)</td></tr>
 </table>
-|| processname || eclipse || process name contains "eclipse" || 
-|| `**`processname || `**`eclipse || process name ends to "eclipse" ||
-|| processname`**` || eclipse`**` || process name start with "eclipse" || 
-|| =processname || =eclipse || process name equals "eclipse" || 
-|| #PTQL || #State.Name.eq=eclipse || Sigar Process Table Query Language (see https://support.hyperic.com/display/SIGAR/PTQL) || 
 
 Examples, how to configure your items:
 
