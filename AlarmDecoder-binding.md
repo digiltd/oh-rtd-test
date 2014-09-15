@@ -85,7 +85,7 @@ directory.
 Here is an example file that instantiates some Number and
 Contact items, and a String item
 ```
-Group gpanel "alarm panel" (All)
+Group gPanel "alarm panel" (All)
 
 Number alarmPanelStatusRaw	    "panel status: [%d]" (gPanel)  	  {alarmdecoder="KPM:00#status"}
 Number alarmPanelStatusReady	    "panel ready: [%d]" (gPanel) 	  {alarmdecoder="KPM:00#status,bit=17"}
