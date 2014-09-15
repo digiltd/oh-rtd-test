@@ -1,3 +1,5 @@
+_**Note:** This Binding will be available in the upcoming 1.6 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
+
 ## Introduction
 
 The [AlarmDecoder](http://www.alarmdecoder.com) is a hardware adapter that interfaces with Ademco/Honeywell alarm panels. It acts
