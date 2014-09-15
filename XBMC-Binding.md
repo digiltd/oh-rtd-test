@@ -98,10 +98,14 @@ Player.PlayPause  | >         | Play/pause playback
 Player.Stop       | >         | Stop playback
 Player.Open       | >         | Open a URL for playback
 System.Shutdown   | >         | Send OFF to power down the system
+System.Suspend    | >         | Send OFF to put the system in Suspend mode
+System.Hibernate  | >         | Send OFF to put the system in Hibernate mode
+System.Reboot     | >         | Send OFF to reboot the system
+System.State      | <         | State of the XBMC application (ON if connected, OFF is XBMC unavailable)
 GUI.ShowNotification | >         | Show a notification in the XBMC UI
 Application.Volume   | =         | Show and adjust the volume in the XBMC application
 
-All incoming properties will be refreshed with each refresh interval of the binding (default 60 seconds). 
+Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). Currently this applies to the 'Player.Label' and 'Player.Title'  properties. 
 
 ## Example use case
 
