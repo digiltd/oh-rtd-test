@@ -23,6 +23,7 @@ Community
   * [[GreenT UI|TouchUI]]
   * [[CometVisu|Comet-Visu]]
  * [[Bindings]]
+  * [[AlarmDecoder Binding|AlarmDecoder-binding]]
   * [[Asterisk Binding|Asterisk-Binding]]
   * [[Astro Binding|Astro-binding]]
   * [[Bluetooth Binding|Bluetooth-Binding]]
