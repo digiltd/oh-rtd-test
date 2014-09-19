@@ -345,8 +345,8 @@ If you want to see even more, switch to TRACE to also see the CCU request/respon
 [![HomeMatic Binding](http://img.youtube.com/vi/F0ImuuIPjYk/0.jpg)](http://www.youtube.com/watch?v=F0ImuuIPjYk)
 
 ### Release Notes 1.6.0
-1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts).  
-**Note:** You need at least 0.5.2 of Homegear. Since 0.5.5 you can even control [MAX! devices](http://www.eq-3.de/max-heizungssteuerung.html) without a cube!
+1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts). With Homegear you can control HomeMatic devices without a CCU, [MAX! devices](http://www.eq-3.de/max-heizungssteuerung.html) without a cube and Philips hue devices!
+**Note:** You need at least 0.5.8 of Homegear.
 
 2.) BATTERY_TYPE datapoint. Show the type of the battery for every battery-powered Homematic device.
 ```
@@ -381,42 +381,37 @@ end
 
 4.) Remote control display is now driven via RPC (formerly TclRega script)  
 5.) Many small optimizations  
-6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
+6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support  
+7.) RSSI_DEVICE and RSSI_PEER datapoint. Show the [RSSI](http://en.wikipedia.org/wiki/Received_signal_strength_indication) values from RF devices.
+```
+Number RSSI_Livingroom_Device   "RSSI device light livingroom [%d dbm]"   {homematic="address=xxxxxxxx, channel=0, parameter=RSSI_DEVICE"}
+Number RSSI_Livingroom_Peer     "RSSI peer light livingroom [%d dbm]"     {homematic="address=xxxxxxxx, channel=0, parameter=RSSI_PEER"}
+```
+If you are using Homegear, the values are always up to date. The values from a CCU are fetched during startup. If you want to refresh the CCU values, you need the RELOAD_RSSI action:
+```
+Switch Reload_Rssi   {homematic="action=reload_rssi"}
+```
+Just send a ON command to the Switch and the RSSI values are updated.
+
 
 ### Download
+**19.09.2014 (pb13):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHU0Ixd2Vjd0FRdjg/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHcEV2SlZ3aVhpYWc/edit?usp=sharing)
+- Removed XML-RPC communication
+- Added support for RSSI device and peer info
+- Added RELOAD_RSSI action
+- Added trace logging for Homegear
+- Adding support for standalone action without device binding
+- Fixed Homegear string type
+
 **13.09.2014 (pb12):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHQ1BHMGtBRW1BZFk/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHbU1RTzZqTnVrUEk/edit?usp=sharing)
 - Moved CCU team support to DatapointConfig
 - Added support for CUxD LAST_TICKS and UNITSPTURN datapoint
-
-**03.09.2014 (pb11):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHNHJxRjJhTmxfNnc/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHSzFDc0lCWHIzaVE/edit?usp=sharing)
 - Added support for CCU Teams (e.g. a team of smoke detectors)
-- **Important**: If you use [Homegear](https://www.homegear.eu), you need at least version 0.5.8 
-
-**31.08.2014 (pb10):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHNjFNRVJFSUIyVFE/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHVXFiYTdybVhPN1k/edit?usp=sharing)
 - Added support for CUxD HUMIDITYF datapoint
 - Added battery type for new [HM-Sec-SCo](http://www.elv.at/homematic-ir-tuer-fensterkontakt.html) device
 - Fixed Winmatic battery type.
-
-**27.08.2014 (pb09):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHVGhySUtHUDUyNlU/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHSFFqdzBVcVRTUEU/edit?usp=sharing)
 - Optimized CCU firmware version extraction
-- Fixed broken Homegear support in pb08
-
-**25.08.2014 (pb08):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHemtMaVRaOVpjaGs/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHVHMwZHpwLWo5aXM/edit?usp=sharing)
-- Fixed CCU firmware version extraction
-
-**16.08.2014 (pb07):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHeTNPaVRMejhVNFk/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHejI4VjhlQmgtbkU/edit?usp=sharing)
 - Added state invert for MAX! window contacts
-
-**14.08.2014 (pb06):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHVlVyd0FjeElhSmM/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHZUkyeUg3Y0JTTUU/edit?usp=sharing)
 - Added [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
-
-**21.07.2014 (pb05):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHYzloLVlFSUl2bzg/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHNFlPTlZjeExmSUk/edit?usp=sharing)
-- initial public 1.6.0 build (works in openHab 1.5.x too)
