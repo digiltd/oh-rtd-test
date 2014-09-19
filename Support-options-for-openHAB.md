@@ -1,6 +1,6 @@
 There are different channels to discuss topics about openHAB and to get help:
 
-- The [Google Discussion Group](https://groups.google.com/forum/#!forum/openhab)
+- The [Google Discussion Group](https://groups.google.com/forum/#!forum/openhab) (default)
 - The [German support forum at the KNX-User-Forum](http://knx-user-forum.de/openhab/)
 - The [Google+ Community](https://plus.google.com/u/1/communities/104057398315501111932)
 - The [Issue Tracker](https://github.com/openhab/openhab/issues?state=open)
