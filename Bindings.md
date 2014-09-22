@@ -16,7 +16,7 @@ openHAB bindings do not need a dedicated installation but three simple steps:
 
 All openHAB bindings are available as pre-packaged jar-files. 
 
-Please visit [openHAB's download page](https://code.google.com/p/openhab/downloads/list) and download the latest version of the addons-bundle. This bundle download contains all available bindings as individual pre-packages files.
+Please visit [openHAB's download page](http://www.openhab.org/downloads.html) and download the latest version of the addons-bundle. This bundle download contains all available bindings as individual pre-packages files.
 
 Unzip the bundle package and place all binding you want to use in the folder ${openhab_home}/addons.
 
