@@ -395,6 +395,11 @@ Just send a ON command to the Switch and the RSSI values are updated.
 
 
 ### Download
+**23.09.2014 (pb14):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHRVlVRGFNckZUcEk/edit?usp=sharing),
+[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHNW1fQmV2MWViV2M/edit?usp=sharing)
+- Added support for Homegear writeOnly datapoints
+- Optimized Homegear metadata extraction
+
 **19.09.2014 (pb13):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHU0Ixd2Vjd0FRdjg/edit?usp=sharing),
 [download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHcEV2SlZ3aVhpYWc/edit?usp=sharing)
 - Removed XML-RPC communication
