@@ -1,6 +1,6 @@
 For those that have no direct connection to their solar System or PVOutput - you might consider to check if [WebSolarLog.com](http://www.WebSolarLog.com) can support your device. The devices can be found on the [WebSolar Log Web Page](http://www.websolarlog.com/index.php/faqs/).
 
-I have succesfully integrated this for my Diehl Solar system and can get the live data via exec binding and a small script into OH to react on energy production/ sun.
+I have succesfully integrated this for my Diehl Solar system and can get the live data via http binding and a small transformation into OH to react on energy production/ sun.
 
 Steps to take:
 
