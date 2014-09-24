@@ -131,3 +131,38 @@ The following are valid action calls that can be made when the plugin is loaded.
 - `pushover(String apiToken, String userKey, String message, int priority)`
 - `pushover(String apiToken, String userKey, String message, String device, int priority)`
 - `pushover(String apiToken, String userKey, String message, String device, String title, String url, String urlTitle, int priority, String soundFile)`
+
+**OpenWebIf Action**
+
+The openwebif action allows you to send a message to enigma2 based linux sat receivers (Dreambox, VU+, Clarke-Tech, ...) with installed OpenWebIf plugin.
+
+Configure your sat receivers in openhab.cfg, you can specify multiple sat receivers identified by name:
+```
+openwebif:receiver.<name>.host=
+openwebif:receiver.<name>.port=
+openwebif:receiver.<name>.user=
+openwebif:receiver.<name>.password=
+openwebif:receiver.<name>.https=
+```
+
+Example:
+```
+openwebif:receiver.main.host=vusolo2
+openwebif:receiver.main.port=81
+openwebif:receiver.main.user=root
+openwebif:receiver.main.password=xxxxx
+openwebif:receiver.main.https=false
+```
+
+Now you can send a message to the configured receiver:
+- `sendOpenWebIfNotification(NAME, MESSAGE, TYPE, TIMEOUT);`  
+
+**NAME:** The name of the sat receiver configured in openhab.cfg  
+**MESSAGE:** The message to send to the receiver  
+**TYPE:** The message type (INFO, WARNING, ERROR)  
+**TIMEOUT:** How long the text will stay on the screen in seconds  
+
+Example:  
+`sendOpenWebIfNotification("main", "Hello World!\n\nThis is a message sent from openHab!", "WARNING", 10);`
+
+![](https://farm4.staticflickr.com/3882/15284270826_8cf0e637d8_z.jpg)
