@@ -51,3 +51,22 @@ In order to read a value of an item via the [[REST-API|REST-API]] you need a the
 
 ### Set and Get values from openHAB via HABSweetie plugin
 [HABSweetie](https://github.com/dereulenspiegel/HABSweetie) provides a tasker plugin.
+
+## Examples
+
+### Mute radio during a call
+One use case could be to mute your radio (or pause a movie) when you receive a call.
+* openHAB
+    * create a switch item in openHAB called "CallInProgress"
+    * define a rule to mute your radio when the state of "CallInProgress" changes from OFF to ON
+    * define a rule to unmute your radio when the state of "CallInProgress" changes from ON to OFF
+* Tasker
+    * create a tasker profile
+        * use the "Call" state to trigger the task when a call starts
+    * add a begin task and use the HTTP Get action to set "CallInProgress" to "ON"
+    * add an end task and use the HTTP Get action to set "CallInProgress" to "OFF"
+
+### more ideas
+* tell openHAB you are at home when the smartphone connects to your home wifi
+* use the Tasker plugin [AutoVoice](https://play.google.com/store/apps/details?id=com.joaomgcd.autovoice) to control anything with your vioce
+* start the radio in the morning when the alarm (of your smartphone) goes off
