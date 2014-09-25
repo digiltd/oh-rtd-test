@@ -1,4 +1,4 @@
-**WARNING**: this quick setup is an example for a KNX environment. You may need additional addons and configurations for other bindings.
+**WARNING**: this quick setup is an example for a KNX environment. You need different addons and configurations for other bindings.
 
 ## What do you need
 
