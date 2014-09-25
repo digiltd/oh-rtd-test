@@ -33,3 +33,35 @@ Please see page [Sitemaps](Explanation-of-Sitemaps) for description on how to cr
 
 Rule files are stored in `${openhab_home}/configurations/rules`.
 The syntax of these files is described [here](Rules) in detail.
+
+## Advanced Configuration
+### general
+You will find the openHAB configuration under /etc/openhab.
+If you change configuration files it will not be overwritten by updates or upgrades.
+
+#### /etc/default/openhab
+    USER_AND_GROUP=openhab:openhab
+    HTTP_PORT=8080
+    HTTPS_PORT=8443
+    TELNET_PORT=5555
+    OPENHAB_JAVA=/usr/bin/java
+
+### Logging
+#### Configuration
+The runtime uses /etc/openhab/logback.xml.
+A template for debugging is provided through /etc/openhab/logback_debug.xml. You can change logback.xml
+to your needs.
+#### Log files
+The runtime log: /var/log/openhab/openhab.log
+Further log files are placed also into: /var/log/openhab/
+
+### Jetty
+/etc/openhab/jetty/etc/
+### Runtime generated files
+/var/lib/openhab
+### login.conf
+/etc/openhab/login.conf
+### users.cfg
+/etc/openhab/users.cfg
+### quartz.properties
+/etc/openhab/quartz.properties
