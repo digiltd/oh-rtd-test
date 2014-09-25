@@ -31,3 +31,6 @@ Changed configuration files will be retained even on upgrades!
 
     $ sudo apt-get update
     $ sudo apt-get upgrade
+
+## Snapshot builds
+TBD
