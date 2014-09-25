@@ -395,8 +395,8 @@ Just send a ON command to the Switch and the RSSI values are updated.
 
 
 ### Download
-**23.09.2014 (pb14):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHRVlVRGFNckZUcEk/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHNW1fQmV2MWViV2M/edit?usp=sharing)
+**23.09.2014 (pb14):** [download binding](https://dl.dropboxusercontent.com/u/3899895/org.openhab.binding.homematic-1.6.0-SNAPSHOT-pb14.jar),
+[download action](https://dl.dropboxusercontent.com/u/3899895/org.openhab.action.homematic-1.6.0-SNAPSHOT-pb14.jar)
 - Added support for Homegear writeOnly datapoints
 - Optimized Homegear metadata extraction
 
