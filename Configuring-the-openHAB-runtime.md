@@ -1,6 +1,6 @@
 This page describes the different places in which the openHAB runtime can be configured and customized.
 
-## Main Configuration
+## General Configuration
 
 The runtime comes with one core configuration file, the file [openhab_default.cfg](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/openhab_default.cfg).
 The purpose of this file is to define all basic settings, such as IP addresses, mail server, folder locations etc.
@@ -11,7 +11,7 @@ First thing after unzipping the runtime should be creating a copy of `openhab_de
 
 The `openhab_default.cfg` file comes with extensive comments which explain, what settings are available and what can be configured with them. If you have any doubts, please ask on the discussion group.
 
-## Specific Configuration
+## Individual Configuration
 
 For specific topics, there exist dedicated configurations files. These can be found in the folder `${openhab_home}/configurations`. For each topic, there should be another sub folder, such as `${openhab_home}/configurations/items`.
 
