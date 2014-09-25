@@ -1,3 +1,7 @@
+_**This Page is being merged into Quicksetup->Linux and Hardware currently. It will be gone soon.**_
+
+***
+
 ## Prerequisites
 ### Raspberry Pi
 #### Java 7
@@ -80,6 +84,8 @@ If you change configuration files it will not be overwritten by updates or upgra
 The runtime uses /etc/openhab/logback.xml.
 A template for debugging is provided through /etc/openhab/logback_debug.xml. You can change logback.xml
 to your needs.
+
+
 #### Log files
 The runtime log: /var/log/openhab/openhab.log
 Further log files are placed also into: /var/log/openhab/
