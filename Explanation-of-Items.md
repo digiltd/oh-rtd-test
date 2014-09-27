@@ -56,9 +56,8 @@ The following item types are currently available (alphabetical order):
 
 Sample syntax for a Group summary:
 
-    ` Group:Number:AVG() itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]`
-
-     `Group:Switch:OR(ON, OFF) itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]`
+    Group:Number:AVG() itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+    Group:Switch:OR(ON, OFF) itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
 
 
 ### itemname
