@@ -62,13 +62,13 @@ Example:
 
 ## Handling JSON
 
-Define your item like 
-String DirecTV1_Channel	"Current Channel" { http="<[http://10.90.30.100:8080/tv/getTuned:30000:JS(getValue.js)]" }
+[Javascript transforms](wiki/Transformations#java-script-transformation-service) can be used to parse JSON input. First, define your item:
+`String DirecTV1_Channel "Current Channel" { http="<[http://10.90.30.100:8080/tv/getTuned:30000:JS(getValue.js)]" }`
 
-Then you put a file getValue.js in $OPENHAB_DIR/configuration/transform/
+Then you put a file `getValue.js` in `$OPENHAB_DIR/configuration/transform/`
 
 The content of getValue.js is:
-JSON.parse(input).title;
+`JSON.parse(input).title;`
 
 ## Caching
 
