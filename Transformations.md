@@ -4,7 +4,21 @@ Overview of available transformation services
 tbd ...
 
 ### Java Script transformation service
-tbd ...
+OpenHab supports transformation scripts written in Javascript. Example item configuration:
+
+`http="<[http://example.com/var/value:60000:JS(getValue.js)]" }`
+
+Let's assume we have received a string containing `foo bar baz` and we're looking for a length of the last word (`baz`).
+
+`getValue.js`:
+
+    // Wrap everything in a function
+    (function(i) {
+        var
+            array = i.split(i);
+        return array[array.length - 1].length;
+    })(input)
+    // input variable contains data passed by openhab
 
 ### Map transformation service
 tbd ...
