@@ -2,23 +2,21 @@ This page describes the different places in which the openHAB runtime can be con
 
 **Note**: The configuration files are text files that can be edited with any text editor of your choice. Nevertheless, you may want to use the openHAB designer to edit them, and you will get informed about any syntax error. Note that the expected file encoding is UTF-8.
 
-**Note**: Items and sitemap may be changed during runtime as needed.
+**Note**: Items and sitemap(s) may be changed during runtime as needed.
 
 ## General Configuration
 
 The runtime comes with one core configuration file, the file [openhab_default.cfg](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/openhab_default.cfg).
 The purpose of this file is to define all basic settings, such as IP addresses, mail server, folder locations etc.
 
-The file contains settings for different (possibly optional) bundles. These settings are automatically dispatched to the according bundle. For this, all settings come with a namespace (such as "mail:" or "knx:") to identify the associated bundle.
+The file also contains settings for all (optional) bindings. These settings are automatically dispatched to the according binding. For this, all settings come with a namespace (such as "mail:" or "knx:") to identify the associated binding.
 
 First thing after unzipping the runtime should be creating a copy of `openhab_default.cfg` to `openhab.cfg`. All personal settings should always only be done in this copy. This ensures that your settings are not lost, if you unzip a new version of the runtime to your openHAB home directory.
 
 The `openhab_default.cfg` file comes with extensive comments which explain, what settings are available and what can be configured with them. If you have any doubts, please ask on the [discussion group](https://groups.google.com/forum/#!forum/openhab).
 
 ## Individual Configuration
-
-For specific topics, there exist dedicated configurations files. These can be found in the folder `${openhab_home}/configurations`. For each topic, there should be another sub folder, such as `${openhab_home}/configurations/items`.
-
+Besides the *.cfg files and *.xml files (see below: loggin) the configuration folder `${openhab_home}/configurations` consists of dedicated subfolders for specific topics. For each topic, there should be another sub folder, such as `${openhab_home}/configurations/items`.
 
 
 
@@ -44,18 +42,21 @@ Rule files are stored in `${openhab_home}/configurations/rules`.
 
 Script files are stored in `${openhab_home}/configurations/scripts`.
 
+Rules provide flexible logic to openHAB for automation which can also use scripts(macros) using related events and actions..
 
-Please visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section on creating rules and scripts by using related events and actions. 
+Please visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section for further detailes.
 
 ### Persistence
 Script files are stored in `${openhab_home}/configurations/persistence`.
 
+Persistences can store item states over a time (a time series).
 
-Please visit the [persistence](https://github.com/openhab/openhab/wiki/Persistence) section for further details on how to store item states over a time (a time series). 
+Please visit the [persistence](https://github.com/openhab/openhab/wiki/Persistence) section for further details. 
 
 ### Transformation
 Transformations files are stored in `${openhab_home}/configurations/transformation`.
 
+Purpose: tbd...
 
 Please visit the [transformation](https://github.com/openhab/openhab/wiki/Transformation) section for further details.
 
