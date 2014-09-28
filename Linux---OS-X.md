@@ -2,6 +2,8 @@
 - Installation via **aptitude**
 - **Manual installation** (alternative approach)
 
+**Note**: for Hardware specific approach please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ). 
+
 # Aptitude
 ## Installation
 ### Add openHAB repo to the apt sources list (as root user)
