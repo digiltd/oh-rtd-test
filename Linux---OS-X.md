@@ -1,6 +1,6 @@
 This page contains:
 - Installation via aptitude
-- alternative approach / manual installation
+- Manual installation (alternative approach)
 
 # Aptitude
 ## Installation
@@ -41,7 +41,7 @@ Changed configuration files will be retained even on upgrades!
 ## Snapshot builds
 TBD
 
-# manual installation
+# Manual installation (alternative approach)
 **WARNING**: this quick setup is an example for a KNX environment. You need different addons and configurations for other bindings.
 
 
