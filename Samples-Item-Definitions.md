@@ -22,7 +22,7 @@ Samples of Item definitions
     Number lrWindowRight "Window Right [MAP(contact.map):%d]" <contact> (gRLvng) { homematic="IEQ0203214:1#STATE" }
     Text item=lrWindowRight
 
-transform/contact.map:
+`transform/contact.map`:
 
     0=CLOSED
     1=TILTED
@@ -69,7 +69,7 @@ transform/contact.map:
     Switch item=corMotion
     Text item=corBright
 
-I dont like that the motion switch is "writeable". Maybe someone can post a proper rendering object for the motion detector.
+I don't like that the motion switch is "writeable". Maybe someone can post a proper rendering object for the motion detector.
 
 ### How to configure a switch to be a pushbutton:
 
@@ -82,7 +82,7 @@ Item:
 Sitemap:
 
     Switch item=Garage_Gate label="Garage" mappings=[ON="Go!"]
-The magic happens with autoupdate="false" which keeps the state even an ON command has been received. This way, it's always off unless you explicitly post an update to this item.
+The magic happens with `autoupdate="false"` which keeps the state even an ON command has been received. This way, it's always off unless you explicitly post an update to this item.
 
 ### How to control a homematic roller shutter with an EnOcean Rocker
 
@@ -97,7 +97,7 @@ Item:
     Dimmer Lights_Left <lights> (Lights) {homematic="id=GEQXXXXXX, channel=2, parameter=LEVEL", enocean="{id=00:00:00:00, channel=A, eep=F6:02:01}"}}
 
 ### How to set up voice control for use with HABDroid
-The following example shows an item called test_item being turned on by issuing the voice command in HABDroid
+The following example shows an item called `test_item` being turned on by issuing the voice command in HABDroid
 
 Item:
 
