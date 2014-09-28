@@ -21,6 +21,7 @@ For specific topics, there exist dedicated configurations files. These can be fo
 
 
 ### Item Definitions
+Item files are stored in `${openhab_home}/configurations/items`.
 
 Although items can be dynamically added by item providers (as OSGi services), it is usually very practical to statically define most of the items that should be used in the UI or in automation rules. 
 
@@ -30,13 +31,30 @@ Please visit the [Items](Explanation-of-Items) page on how to configure items.
 
 ### Sitemap Definitions
 
-Sitemaps are a declarative UI definition. With a few lines it is possible to define the structure and the content of your UI screens. Sitemap files are stored in ${openhab_home}/configurations/sitemaps.
+Sitemap files are stored in `${openhab_home}/configurations/sitemaps`. 
+
+Sitemaps are a declarative UI definition. With a few lines it is possible to define the structure and the content of your UI screens. 
 
 Please see page [Sitemaps](Explanation-of-Sitemaps) for a description on how to create sitemaps.
 
 ### Automation
 Rule files are stored in `${openhab_home}/configurations/rules`.
+Script files are stored in `${openhab_home}/configurations/scripts`.
+
+
 Visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section on creating rules and scripts by using related events and actions. 
+
+### Persistence
+Script files are stored in `${openhab_home}/configurations/persistence`.
+
+
+Visit the [persistence](https://github.com/openhab/openhab/wiki/Persistence) section for further details on how to store item states over a time (a time series). 
+
+### Transformation
+Transformations files are stored in `${openhab_home}/configurations/transformation`.
+
+
+Visit the [transformation](https://github.com/openhab/openhab/wiki/Transformation) section for further details.
 
 
 
