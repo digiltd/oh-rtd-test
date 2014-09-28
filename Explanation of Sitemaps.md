@@ -244,3 +244,5 @@ valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>6
 #### A note about rule comparison
 * String comparisons are case sensitive, so `==ON` is not the same a `==on`.
 * DateTime comparisons are relative to the current time and specified in seconds. So a rule >300 will return true if the DateTime item is set to a value that's newer than the past 5 minutes (300 seconds).
+
+Further examples for defining sitemaps can be found in our [openHAB-Samples](https://github.com/openhab/openhab/wiki/Samples-Sitemap-Definitions) section. 
