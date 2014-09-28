@@ -1,5 +1,7 @@
 Installation
  * [[Quick Setup|Quick-Setup-an-openHAB-Server]]
+  * [[Linux / OS X|Linux---OS-X]]
+  * [[Windows|Windows]]
  * [[Configuration|Configuring-the-openHAB-runtime]]
  * [[Items|Explanation-of-Items]]
  * [[Sitemaps|Explanation-of-Sitemaps]]
