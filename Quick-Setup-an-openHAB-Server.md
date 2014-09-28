@@ -1,29 +1,12 @@
 **WARNING**: this quick setup is an example for a KNX environment. You need different addons and configurations for other bindings.
 
-## What do you need
+## What you need
 
 1. You will need to install Java if not already installed. Go to http://java.com/ to get it.  For ARM based systems and Synology Diskstation, see [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ) for instructions on getting Java.
 1. `openhab-runtime-<version>.zip`. This is the server. It can be found [here](http://www.openhab.org/downloads.html) like everything else follwing (Addons, Designer, ...).
 1. Any bindings you may need. For this example setup, we use  `knx-binding-<version>.jar` and `http-binding-<version>.jar`
 1. OPTIONAL: You may want to download a tool to configure the items, sitemap and so on. If so, download `openhab-designer-<your platform>-<version>.zip`. This will give you syntax validation, content-assist and more on your configuration files.
 
-## Installing the openHAB runtime
-
-The openHAB runtime comes as a platform-independent zip file.
-To install it, follow these simple steps:
-
-1. Unzip the `openhab-runtime-<version>.zip` to where it is intended to be running from, e.g. `C:\openhab` or `/opt/openhab`.  Note that there can't be a space in the path, so it can't be in program files in windows.
-1. Copy the bindings you have downloaded -`knx-binding-<version>.jar` and `http-binding-<version>.jar`- to the "addons" directory.
-1. Create a personal configuration file by copying the file `configurations/openhab_default.cfg` to `configurations/openhab.cfg`.
- 
-## OPTIONAL: Installing the openHAB designer
-
-The openHAB designer comes as a platform-*dependent* zip, so choose the right type for your platform.
-To install it, follow these simple steps:
-
-1. Unzip the `openhab-designer-<platform>-<version>.zip` to some directory, e.g. `C:\openhab-designer` resp. `/opt/openhab-designer`
-1. Launch it by the executable `openHAB-Designer.exe` (resp. `openHAB-Designer` if you are on a Mac or Linux)
-1. Select the "configurations" folder of your runtime installation in the folder dialog that is shown when selecting the "open folder" toolbar icon.
 
 ## Configuring the server
 
@@ -85,10 +68,3 @@ For more info about other options have a look at the demo.sitemap file.
 
 NOTE: Items and sitemap may be changed during runtime as needed.
 
-## Start the server!
-
-1. Launch the runtime by executing the script `start.bat` or `start.sh`
-
-## Go test it!
-
-openHAB comes with a built-in user interface. It works on all webkit-based browsers like Chrome, Safari, etc. Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should be looking at your sitemap. 
