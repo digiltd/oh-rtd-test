@@ -246,3 +246,38 @@ valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>6
 * DateTime comparisons are relative to the current time and specified in seconds. So a rule >300 will return true if the DateTime item is set to a value that's newer than the past 5 minutes (300 seconds).
 
 Further examples for defining sitemaps can be found in our [openHAB-Samples](https://github.com/openhab/openhab/wiki/Samples-Sitemap-Definitions) section. 
+
+
+# taken from quick setup.
+# to be integrated into this page:
+### The yourname.sitemap
+
+In this file we tell openHAB how we want the items to be shown in our user interface. First, create a new thenameyouwish.sitemap file in the "configurations/sitemap" directory. For example we define here:
+
+- `sitemap demo label="Main Menu"`: This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.
+- You may find descriptions like:
+
+```    
+    Frame label="Demo" {
+         Text label="Group Demo" icon="1stfloor" {
+                Switch item=Lights mappings=[OFF="All Off"]
+                Group item=Heating
+                Group item=Windows
+                Text item=Temperature
+         }
+         Text label="Multimedia" icon="video" {
+                Selection item=Radio_Station mappings=[0=off, 1=HR3, 2=SWR3, 3=FFH, 4=Charivari]
+                Slider item=Volume
+            }
+    }
+```
+- This means that you want a frame with a visual label "Demo". Then, inside the frame you want two elements:
+- An item called Group Demo with 1stfloor icon that contains 4 items.
+- The first one is the group Lights, that has a mapping. It means that when it receives a value of OFF, it might show a "All off" text.
+- The second one will be the Heating group.
+- etc.
+- An item called Multimedia with icon video. It has two elements:
+- The Radio_station item that has several mappings
+- The Volume item, shown as an Slider.
+
+For more info about other options have a look at the demo.sitemap file.
