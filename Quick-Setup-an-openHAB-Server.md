@@ -12,5 +12,7 @@ Then continue with the [configuration](https://github.com/openhab/openhab/wiki/C
 
 In terms of any questions please refere to the [google discussion group](https://groups.google.com/forum/#!forum/openhab).
 
+Have fun with openHAB!
+
 
 
