@@ -17,9 +17,7 @@ The `openhab_default.cfg` file comes with extensive comments which explain, what
 
 For specific topics, there exist dedicated configurations files. These can be found in the folder `${openhab_home}/configurations`. For each topic, there should be another sub folder, such as `${openhab_home}/configurations/items`.
 
-### Automation
-Rule files are stored in `${openhab_home}/configurations/rules`.
-Visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section on using rules, scripts and related actions. 
+
 
 
 ### Item Definitions
@@ -28,15 +26,17 @@ Although items can be dynamically added by item providers (as OSGi services), it
 
 These static definition files follow a certain syntax. This syntax will be explained here. (For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
 
-Please see page [Items](Explanation-of-Items) on how to configure items.
+Please visit the [Items](Explanation-of-Items) page on how to configure items.
 
 ### Sitemap Definitions
 
 Sitemaps are a declarative UI definition. With a few lines it is possible to define the structure and the content of your UI screens. Sitemap files are stored in ${openhab_home}/configurations/sitemaps.
 
-Please see page [Sitemaps](Explanation-of-Sitemaps) for description on how to create sitemaps.
+Please see page [Sitemaps](Explanation-of-Sitemaps) for a description on how to create sitemaps.
 
-
+### Automation
+Rule files are stored in `${openhab_home}/configurations/rules`.
+Visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section on creating rules and scripts by using related events and actions. 
 
 
 
