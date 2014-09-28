@@ -1,4 +1,4 @@
-Items Definition
+
 
 ## Introduction
 
@@ -49,12 +49,12 @@ The following item types are currently available (alphabetical order):
   <tr><td>Switch</td><td>Typically used for lights (on/off)</td><td>OnOff</td></tr>
 </table>
 
-  Group Items can also have a summary value displayed.
+  Group items can also have a summary value displayed.
   - AVG displays the average of the items in the group.
   - OR displays an OR of the group, typically used to display whether any item in a group has been set.
   - other summaries:  AND, SUM, MIN, MAX, NAND, NOR
 
-Sample syntax for a Group summary:
+Sample syntax for a group summary:
 
     Group:Number:AVG() itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
     Group:Switch:OR(ON, OFF) itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
