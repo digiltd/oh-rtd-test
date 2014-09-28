@@ -39,22 +39,23 @@ Please see page [Sitemaps](Explanation-of-Sitemaps) for a description on how to 
 
 ### Automation
 Rule files are stored in `${openhab_home}/configurations/rules`.
+
 Script files are stored in `${openhab_home}/configurations/scripts`.
 
 
-Visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section on creating rules and scripts by using related events and actions. 
+Please visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section on creating rules and scripts by using related events and actions. 
 
 ### Persistence
 Script files are stored in `${openhab_home}/configurations/persistence`.
 
 
-Visit the [persistence](https://github.com/openhab/openhab/wiki/Persistence) section for further details on how to store item states over a time (a time series). 
+Please visit the [persistence](https://github.com/openhab/openhab/wiki/Persistence) section for further details on how to store item states over a time (a time series). 
 
 ### Transformation
 Transformations files are stored in `${openhab_home}/configurations/transformation`.
 
 
-Visit the [transformation](https://github.com/openhab/openhab/wiki/Transformation) section for further details.
+Please visit the [transformation](https://github.com/openhab/openhab/wiki/Transformation) section for further details.
 
 
 
