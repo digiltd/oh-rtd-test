@@ -1,8 +1,8 @@
 Samples of Item definitions
-* [Howto use homematic door contact sensors](Samples-Item-Definitions#howto-use-homematic-door-contact-sensors)
-* [Howto use homematic window contact sensors](Samples-Item-Definitions#howto-use-homematic-window-contact-sensors)
-* [Howto read Homematic heater valve state](Samples-Item-Definitions#howto-read-homematic-heater-valve-state)
-* [Howto configure Homematic light switch](Samples-Item-Definitions#howto-configure-homematic-light-switch)
+* [How to use homematic door contact sensors](Samples-Item-Definitions#howto-use-homematic-door-contact-sensors)
+* [How to use homematic window contact sensors](Samples-Item-Definitions#howto-use-homematic-window-contact-sensors)
+* [How to read Homematic heater valve state](Samples-Item-Definitions#howto-read-homematic-heater-valve-state)
+* [How to configure Homematic light switch](Samples-Item-Definitions#howto-configure-homematic-light-switch)
 * [How to configure Homematic temperature and humidity sensor](Samples-Item-Definitions#how-to-configure-homematic-temperature-and-humidity-sensor)
 * [How to configure Homematic motion and brightness sensors](Samples-Item-Definitions#how-to-configure-homematic-motion-and-brightness-sensors)
 * [How to configure a switch to be a pushbutton](Samples-Item-Definitions#how-to-configure-a-switch-to-be-a-pushbutton)
@@ -10,14 +10,14 @@ Samples of Item definitions
 * [How to control a homematic dimmer with an EnOcean Rocker (OnOff Profile)](Samples-Item-Definitions#how-to-control-a-homematic-dimmer-with-an-enocean-rocker-onoff-profile)
 * [How to set up voice control for use with HABDroid](Samples-Item-Definitions#how-to-set-up-voice-control-for-use-with-habdroid)
 
-### Howto use homematic door contact sensors
+### How to use homematic door contact sensors
     /* OLD Configuration */
     Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock) { homematic="HEQ0358465:1#STATE" }
     /* New Configuration */
     Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock {homematic="address=HEQ0358465, channel=1, parameter=STATE" }
     Text item=corFrontDoor
     
-### Howto use homematic window contact sensors
+### How to use homematic window contact sensors
 
     Number lrWindowRight "Window Right [MAP(contact.map):%d]" <contact> (gRLvng) { homematic="IEQ0203214:1#STATE" }
     Text item=lrWindowRight
@@ -29,12 +29,12 @@ transform/contact.map:
     2=OPEN
     -=UNKNOWN
 
-### Howto read Homematic heater valve state
+### How to read Homematic heater valve state
 
     Dimmer lrHeaterRight "Heater Right [%d %%]" <heating> (gRLvng)  { homematic="IEQ0537568:1#VALVE_STATE" }
     Text item=lrHeaterRight
 
-### Howto use Homematic temperature regulator
+### How to use Homematic temperature regulator
 
     Number lrTempSet "Target Temperature [%d °C]" <temperature> (gRLvng, gRBed) { homematic="IEQ0053616:2#SETPOINT" }
     Setpoint item=lrTempSet step=0.5 minValue=15 maxValue=30
@@ -43,7 +43,7 @@ transform/contact.map:
 
     Number Humidity "Humidity [%.1f %%]"
 
-### Howto configure Homematic light switch
+### How to configure Homematic light switch
 
     Switch brLightCeil "Ceiling" (gRBed, gLight) { homematic="IEQ0001542:1#STATE" }
     Switch item=brLightCeil
@@ -101,14 +101,14 @@ The following example shows an item called test_item being turned on by issuing 
 
 Item:
 
-String VoiceCommand
+    String VoiceCommand
 
 Rule:
 
-rule "test example rule name"
-when
-                Item VoiceCommand received command test
-        then
-                test_item.sendCommand(ON)
-end
+    rule "test example rule name"
+    when
+                    Item VoiceCommand received command test
+            then
+                    test_item.sendCommand(ON)
+    end
 
