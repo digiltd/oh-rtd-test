@@ -1,6 +1,8 @@
 # Content
-- Installation via **aptitude**
-- **Manual installation** (alternative approach)
+
+* [Installation via **aptitude**](Linux---OS-X#Aptitude)
+* [**Manual installation** (optional)](Linux---OS-X#Manual-installation)
+
 
 **Note**: for Hardware specific approach please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ). 
 
