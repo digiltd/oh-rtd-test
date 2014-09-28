@@ -147,3 +147,5 @@ Taking all the information together, an example rule file could look like this:
     then
     	counter = receivedCommand as DecimalType
     end
+
+You can find further examples in the [openHAB-samples](https://github.com/openhab/openhab/wiki/Samples-Rules) section.
