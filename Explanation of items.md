@@ -128,34 +128,33 @@ Here is an example of how your items file might look like with binding configura
 
 The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/items/demo.items), here is a short excerpt from it:
 
-    Group All
-    Group gGF 	(All)
-    Group Lights 	(All)
-    Group Shutters 	(All)
-    Group GF_Living "Living room" 	<video> 	(gGF)
+    Group            gAll
+    Group            Status                                                 (gAll)
+    Group            gGF 	                                            (gAll)
+    Group            gLights 	                                            (gAll)
+    Group            gShutters 	                                            (gAll)
+    Group            gGF_Living       "Living room" 	             <video> 	    (gGF)
+    Group:Number:AVG gTemperature     "Avg. Room Temp. [%.1f °C]" <temperature> 
     
     /* Lights */
-    Switch Light_GF_Living_Table 	"Table" 	(GF_Living, Lights)
+    Switch Light_GF_Living_Table     "Table" 	                               (gGF_Living, gLights)
     
     /* Rollershutters */
-    Rollershutter Shutter_GF_Living "Shutter"	(GF_Living, Shutters)
-    
+    Rollershutter Shutter_GF_Living  "Shutter"	                               (gGF_Living, gShutters)
+
     /* Indoor Temperatures */
-    Number Temperature_GF_Living 	"Temperature [%.1f °C]"	<temperature>	(GF_Living)
+    Number Temperature_GF_Living     "Temperature [%.1f °C]"   <temperature>   (gTemperature, gGF_Living)
+    Number Temperature_GF_Kitchen    "Temperature [%.1f °C]"   <temperature>   (gTemperature, gGF_Kitchen)
 
-Further examples for defining items can be found in our [openHAB-samples section](Samples-Item-Definitions). The currently implemented item types can be found in [source code](https://github.com/openhab/openhab/tree/master/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/types).
-
-
-# taken from the quick setup page and to be integrated into this page:
-### The yourname.items file
-
-- The next thing we must do is to tell openHAB which items we have. To do so, go to the "configurations/items" directory and create a new file called thenameyouwish.items. You have a demo.items sample file to see the syntax of this file.
-
-In this file we define groups and items. Groups can be inside groups, and items can be in none, one or more groups. For example:
+Groups can be inside groups, and items can be in none, one or more groups. For example:
 
 - `Group gGF               (All)` This statement defines the gGF group and states that it belongs to the All group.
 - `Group GF_Living         "Living room"   <video>         (gGF)` This statement defines the group GF_Living, defines that the user interface will show it as  "Living room", defines the icon to be shown <video> and states that it belongs to (gGF). Notice that the gGF group belongs to the ALL group, hence GF_Living inherits that group, and it belongs to the All group too.
-- `Group:Number:AVG                                Lighting "Average lighting [Lux](%.2f)"         <switch>        (Status)`: this statement means that there is a group called Lighting, which has a value calculated as an average of all its members, and its value is a float with two decimals. It will show a switch icon and it belongs to the Status group.
+- `Group:Number:AVG  Temperature "Average lighting [Lux](%.1f)"  <temperature>   (Status)`: this statement means that there is a group called Temperature, which has a value calculated as an average of all its members, and its value is a float with one decimals. It will show a temperature icon and it belongs to the Status group.
 
 
 For more info about other options have a look at the demo.items file and the wiki bindings pages.
+
+Further examples for defining items can be found in our [openHAB-samples section](Samples-Item-Definitions). 
+
+The currently implemented item types can be found in [source code](https://github.com/openhab/openhab/tree/master/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/types).
