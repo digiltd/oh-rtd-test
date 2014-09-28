@@ -1,7 +1,3 @@
-In terms of configuration please visit the configuration page(s). 
-
-***
-
 ## Installing the openHAB runtime
 
 The openHAB runtime comes as a platform-independent zip file.
@@ -20,6 +16,9 @@ To install it, follow these simple steps:
 1. Unzip the `openhab-designer-<platform>-<version>.zip` to some directory, e.g. `C:\openhab-designer`.
 1. Launch it by the executable `openHAB-Designer.exe` 
 1. Select the "configurations" folder of your runtime installation in the folder dialog that is shown when selecting the "open folder" toolbar icon.
+
+## configuration
+In terms of configuration please visit the [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s). 
 
 ## Start the server!
 
