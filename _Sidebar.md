@@ -1,11 +1,12 @@
 Installation
  * [[Quick Setup|Quick-Setup-an-openHAB-Server]]
   * [[Linux / OS X|Linux---OS-X]]
+    * [[Hardware FAQ|Hardware-FAQ]]
   * [[Windows|Windows]]
  * [[Configuration|Configuring-the-openHAB-runtime]]
  * [[Items|Explanation-of-Items]]
  * [[Sitemaps|Explanation-of-Sitemaps]]
- * [[Hardware FAQ|Hardware-FAQ]]
+ 
 
 Community
  * [[Support|Support-options-for-openHAB]]
