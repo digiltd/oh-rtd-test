@@ -2,10 +2,12 @@
 
 ## What you need
 
-1. You will need to install Java if not already installed. Go to http://java.com/ to get it.  For ARM based systems and Synology Diskstation, see [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ) for instructions on getting Java.
+1. You will need to install Java if not already installed. 
 1. `openhab-runtime-<version>.zip`. This is the server. It can be found [here](http://www.openhab.org/downloads.html) like everything else follwing (Addons, Designer, ...).
 1. Any bindings you may need. For this example setup, we use  `knx-binding-<version>.jar` and `http-binding-<version>.jar`
 1. OPTIONAL: You may want to download a tool to configure the items, sitemap and so on. If so, download `openhab-designer-<your platform>-<version>.zip`. This will give you syntax validation, content-assist and more on your configuration files.
+
+For detailed instruction please visit the installation page for [Linux](https://github.com/openhab/openhab/wiki/Linux---OS-X) or [Windows](https://github.com/openhab/openhab/wiki/Windows).
 
 
 ## Configuring the server
