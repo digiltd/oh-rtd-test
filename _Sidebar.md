@@ -4,8 +4,8 @@ Installation
     * [[Hardware FAQ|Hardware-FAQ]]
   * [[Windows|Windows]]
  * [[Configuration|Configuring-the-openHAB-runtime]]
- * [[Items|Explanation-of-Items]]
- * [[Sitemaps|Explanation-of-Sitemaps]]
+  * [[Items|Explanation-of-Items]]
+  * [[Sitemaps|Explanation-of-Sitemaps]]
  
 
 Community
