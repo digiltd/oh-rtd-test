@@ -24,6 +24,7 @@ The binding supports all controllers that implement the Z-Wave Serial API. A lis
   <tr><td>The Razberry-Zwave-Daughterboard</td><td>See known issues</td></tr>
   <tr><td>Vision USB stick Z-wave</td><td>No remarks</td></tr>
   <tr><td>Z-Wave.me Z-StickC</td><td>No remarks</td></tr>
+  <tr><td>Sigma UZB ZWave-Plus</td><td>No remarks</td></tr>
 </table>
 
 
@@ -219,6 +220,10 @@ Here are some examples of valid binding configuration strings, as defined in the
     Number Energy_Powerbar_Xbox "XBOX-360 total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:5:command=meter,meter_scale=E_KWh,refresh_interval=340"} 
     Number Energy_Powerbar_PC "Mediacenter total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:6:command=meter,meter_scale=E_KWh,refresh_interval=350"} 
     
+
+## Healing
+The binding can perform a nightly heal. This will try to update the neighbor node list, associations and routes. The actual routing is performed by the controller.
+Two options are possible in the config file to set the healing. ```healtime``` sets the time (in hours) that the automatic heal will occur. ```softReset``` can also be set to true to perform a soft reset on the controller before the heal. Note that it has been observed that this can cause some zwave-plus sticks to lock up, so you should test this first.
 
 ## Logging
 
