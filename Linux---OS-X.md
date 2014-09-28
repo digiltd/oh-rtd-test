@@ -1,5 +1,3 @@
-In terms of configuration please visit the configuration page(s). 
-
 This page contains:
 - Installation via aptitude
 - alternative approach / manual installation
