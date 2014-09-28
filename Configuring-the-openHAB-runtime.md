@@ -1,4 +1,8 @@
-This page describes the different places in which the openHAB runtime can be configured and customized.
+This page describes the different places in which the openHAB runtime can be configured and customized:
+* [general configuration](Configuring-the-openHAB-runtime#general-configuration)
+* [individual configuration](Configuring-the-openHAB-runtime#individual-configuration)  
+* [advanced configuration](Configuring-the-openHAB-runtime#advanced-configuration)
+
 
 **Note**: The configuration files are text files that can be edited with any text editor of your choice. Nevertheless, you may want to use the openHAB designer to edit them, and you will get informed about any syntax error. Note that the expected file encoding is UTF-8.
 
