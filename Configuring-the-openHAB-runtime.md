@@ -37,7 +37,7 @@ Sitemaps are a declarative UI definition. With a few lines it is possible to def
 
 (For the technical interested: This syntax is in fact a [Xtext DSL grammar](https://github.com/openhab/openhab/blob/master/bundles/model/org.openhab.model.item/src/org/openhab/model/Items.xtext).)
 
-Please see page [Sitemaps](Explanation-of-Sitemaps) for a description on how to create sitemaps.
+Please see page [sitemaps](Explanation-of-Sitemaps) for a description on how to create sitemaps.
 
 ### Automation
 Rule files are stored in `${openhab_home}/configurations/rules`.
