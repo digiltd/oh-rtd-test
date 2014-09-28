@@ -1,6 +1,6 @@
 This page describes the different places in which the openHAB runtime can be configured and customized.
 
-**Note**: The configuration files are text files that may be edited with any text editor you wish. Nevertheless, you may want to use the openHAB designer to edit them, and you will get informed about any syntax error. Note that the expected file encoding is UTF-8.
+**Note**: The configuration files are text files that can be edited with any text editor of your choice. Nevertheless, you may want to use the openHAB designer to edit them, and you will get informed about any syntax error. Note that the expected file encoding is UTF-8.
 
 ## General Configuration
 
@@ -11,11 +11,16 @@ The file contains settings for different (possibly optional) bundles. These sett
 
 First thing after unzipping the runtime should be creating a copy of `openhab_default.cfg` to `openhab.cfg`. All personal settings should always only be done in this copy. This ensures that your settings are not lost, if you unzip a new version of the runtime to your openHAB home directory.
 
-The `openhab_default.cfg` file comes with extensive comments which explain, what settings are available and what can be configured with them. If you have any doubts, please ask on the discussion group.
+The `openhab_default.cfg` file comes with extensive comments which explain, what settings are available and what can be configured with them. If you have any doubts, please ask on the [discussion group](https://groups.google.com/forum/#!forum/openhab).
 
 ## Individual Configuration
 
 For specific topics, there exist dedicated configurations files. These can be found in the folder `${openhab_home}/configurations`. For each topic, there should be another sub folder, such as `${openhab_home}/configurations/items`.
+
+### Automation
+Rule files are stored in `${openhab_home}/configurations/rules`.
+Visit the [automation](https://github.com/openhab/openhab/wiki/Automation) section on using rules, scripts and related actions. 
+
 
 ### Item Definitions
 
@@ -31,10 +36,9 @@ Sitemaps are a declarative UI definition. With a few lines it is possible to def
 
 Please see page [Sitemaps](Explanation-of-Sitemaps) for description on how to create sitemaps.
 
-### Automation Rules
 
-Rule files are stored in `${openhab_home}/configurations/rules`.
-The syntax of these files is described [here](Rules) in detail.
+
+
 
 ## Advanced Configuration
 ### general
