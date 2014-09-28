@@ -1,5 +1,6 @@
 This page contains samples for binding configurations. These samples are sorted by binding.
 
+* [How to - KNX basic configuration](Samples-Binding-Config#knx-basic-configuration)
 * [How to send Date and Time from NTP to KNX](Samples-Binding-Config#how-to-send-date-and-time-from-ntp-to-knx)
 * [How to use KNX data types 2.xxx Priority Control](Samples-Binding-Config#how-to-use-knx-data-types-2xxx-priority-control)
 * [How to use KNX scenes](Samples-Binding-Config#how-to-use-knx-scenes)
@@ -11,6 +12,21 @@ This page contains samples for binding configurations. These samples are sorted 
 * [How to get data from Kostal Piko solar inverter via HTTP binding](Samples-Binding-Config#how-to-get-data-from-kostal-piko-solar-inverter-via-http-binding)
 * [How to send commands to Telldus Tellstick](Samples-Binding-Config#how-to-send-commands-to-telldus-tellstick)
 * [How to get power on a TV connected to HDMI with exec binding and update the status automatically](Samples-Binding-Config#how-to-get-power-on-a-tv-connected-to-hdmi-with-exec-binding-and-update-the-status-automatically)
+
+### KNX basic configuration
+
+The openhab.cfg file
+
+- The easiest way of configuring a KNX binding is by connecting in ROUTER mode. To do so, enable this: `knx:type=ROUTER` . If you cannot use the ROUTER mode, set it to TUNNEL, but you must then configure the IP: `knx:ip=<IP of the KNX-IP module>`
+
+
+
+The items file
+
+The items may include the KNX group address to use them. They might be actively read by openHAB or not. They look like this:
+
+- `Number Lighting_Room_Sensor "Lighting in the Room [Lux](%.2f)"  <switch> (Room,Lighting) { knx = "<0/1/1" }`: This is a sensor item. It uses the 0/1/1 group address and openHAB will ask for its value periodically because there is a "<" sign before the address. It is a number item, called Lighting_Room_Sensor, and belongs to Room and Lighting groups.
+- `Switch Light_Room_Table  "Table Light" (Room, Lights) { knx = "<0/1/10+0/1/30"}`: This is a switch item that has two addresses. openHAB may responds to events in any of them, but may actively read the first one.
 
 ### How to send Date and Time from NTP to KNX
 
