@@ -1,5 +1,5 @@
 # Introduction
-In order to make openHAB act intelligent and not only execute simple switch -> result actions you can use rules and scripts to enhance your environment with ease and comfort. 
+In order to make openHAB act intelligent you can use rules and scripts to enhance your environment with ease and comfort. 
  
 
 ## Rules
