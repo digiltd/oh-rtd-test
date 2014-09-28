@@ -31,6 +31,7 @@ tbd ...
 
 ### XSLT transformation service
 tbd ...
+For samples see [here](https://github.com/openhab/openhab/wiki/Samples-XSLT-Transformations).
 
 ### JSonPath transformation service
 As with XPath on XML data, [JSONPath](http://goessner.net/articles/JsonPath/) allows direct query of JSON data.
