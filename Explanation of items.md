@@ -1,5 +1,4 @@
 
-
 ## Introduction
 
 - Items are objects that can be read from or written to in order to interact with them.
