@@ -1,6 +1,6 @@
-This page contains:
-- Installation via aptitude
-- Manual installation (alternative approach)
+# Content
+- Installation via **aptitude**
+- **Manual installation** (alternative approach)
 
 # Aptitude
 ## Installation
