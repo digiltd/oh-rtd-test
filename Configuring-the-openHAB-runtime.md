@@ -2,6 +2,8 @@ This page describes the different places in which the openHAB runtime can be con
 
 **Note**: The configuration files are text files that can be edited with any text editor of your choice. Nevertheless, you may want to use the openHAB designer to edit them, and you will get informed about any syntax error. Note that the expected file encoding is UTF-8.
 
+**Note**: Items and sitemap may be changed during runtime as needed.
+
 ## General Configuration
 
 The runtime comes with one core configuration file, the file [openhab_default.cfg](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/openhab_default.cfg).
