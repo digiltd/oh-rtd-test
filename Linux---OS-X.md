@@ -22,6 +22,9 @@ Use *"apt-cache search openhab"* to get a list of all packages. Install the add-
     $ sudo apt-cache search openhab
     $ sudo apt-get install openhab-addon-binding-xy
 
+### Configuration
+In terms of configuration please visit the [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s). 
+
 ### Start openHAB runtime
     $ sudo /etc/init.d/openhab start
 The server will run unprivileged using the account "openhab".
@@ -64,8 +67,7 @@ To install it, follow these simple steps:
 1. Select the "configurations" folder of your runtime installation in the folder dialog that is shown when selecting the "open folder" toolbar icon.
 
 ## Configuring the server
-
-The configuration files are text files that may be edited with any text editor you wish. Nevertheless, you may want to use the openHAB designer to edit them, and you will get informed about any syntax error. Note that the expected file encoding is UTF-8.
+For please visit the [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s). 
 
 ### The openhab.cfg file
 
