@@ -5,6 +5,7 @@ Sitemap Definition
 Sitemaps are used to create elements of a user interface for making openHAB items accessible to various frontends.
 
 Sitemaps are a declarative UI definition. With a few lines it is possible to define the structure and the content of your UI screens. Sitemap files are stored in `${openhab_home}/configurations/sitemaps`.
+(Syntax: yourSitemapName.sitemap)
 
 The openHAB runtime comes with a [demo sitemap file](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/sitemaps/demo.sitemap), which should let you easily understand its structure. 
 
@@ -14,7 +15,23 @@ For easy editing, the openHAB Designer brings full IDE support for these files, 
 
 Sitemaps can be composed by grouping various user interface elements into areas, which will be rendered by openHAB.
 
-The following elements can be used in a sitemap definition file (alphabetical order):
+This element needs is **mandatory** in a sitemap definition file:
+<table>
+<tr><td><b>Element name</b></td><td><b>Description</b></td></tr>
+<tr><td>sitemap</td><td>This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.</td></tr>
+</table>
+
+#### <a name="sitemap"/>Element 'Sitemap'
+
+Syntax:
+
+    sitemap [sitemapname] [label="<title of the main screen>"]
+
+
+
+
+
+The following elements can be used **optionally** in a sitemap definition file (alphabetical order):
 
 <table>
   <tr><td><b>Element name</b></td><td><b>Description</b></td></tr>
@@ -247,52 +264,3 @@ valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>6
 
 Further examples for defining sitemaps can be found in our [openHAB-Samples](https://github.com/openhab/openhab/wiki/Samples-Sitemap-Definitions) section. 
 
-
-# taken from quick setup.
-# to be integrated into this page:
-### The yourname.sitemap
-
-In this file we tell openHAB how we want the items to be shown in our user interface. First, create a new thenameyouwish.sitemap file in the "configurations/sitemap" directory. For example we define here:
-
-- `sitemap demo label="Main Menu"`: This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.
-- You may find descriptions like:
-
-```    
-    Frame label="Demo" {
-         Text label="Group Demo" icon="1stfloor" {
-                Switch item=Lights mappings=[OFF="All Off"]
-                Group item=Heating
-                Group item=Windows
-                Text item=Temperature
-         }
-         Text label="Multimedia" icon="video" {
-                Selection item=Radio_Station mappings=[0=off, 1=HR3, 2=SWR3, 3=FFH, 4=Charivari]
-                Slider item=Volume
-            }
-    }
-```
-- This means that you want a frame with a visual label "Demo". Then, inside the frame you want two elements:
-- An item called Group Demo with 1stfloor icon that contains 4 items.
-- The first one is the group Lights, that has a mapping. It means that when it receives a value of OFF, it might show a "All off" text.
-- The second one will be the Heating group.
-- etc.
-- An item called Multimedia with icon video. It has two elements:
-- The Radio_station item that has several mappings
-- The Volume item, shown as an Slider.
-
-For more info about other options have a look at the demo.sitemap file.
-
-
-# taken from the quick setup page and to be integrated into this page:
-### The yourname.items file
-
-- The next thing we must do is to tell openHAB which items we have. To do so, go to the "configurations/items" directory and create a new file called thenameyouwish.items. You have a demo.items sample file to see the syntax of this file.
-
-In this file we define groups and items. Groups can be inside groups, and items can be in none, one or more groups. For example:
-
-- `Group gGF               (All)` This statement defines the gGF group and states that it belongs to the All group.
-- `Group GF_Living         "Living room"   <video>         (gGF)` This statement defines the group GF_Living, defines that the user interface will show it as  "Living room", defines the icon to be shown <video> and states that it belongs to (gGF). Notice that the gGF group belongs to the ALL group, hence GF_Living inherits that group, and it belongs to the All group too.
-- `Group:Number:AVG                                Lighting "Average lighting [Lux](%.2f)"         <switch>        (Status)`: this statement means that there is a group called Lighting, which has a value calculated as an average of all its members, and its value is a float with two decimals. It will show a switch icon and it belongs to the Status group.
-
-
-For more info about other options have a look at the demo.items file and the wiki bindings pages.
