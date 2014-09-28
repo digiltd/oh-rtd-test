@@ -118,7 +118,7 @@ Community
   * [[Exec Persistence|Exec-Persistence]]
   * [[MQTT Persistence|MQTT-Persistence]]
   * [[InfluxDB Persistence|InfluxDB-Persistence]]
- * Automation
+ * [[Automation|Automation]]
   * [[Scripts]]
   * [[Rules]]
   * [[Actions]]
