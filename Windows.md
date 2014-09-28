@@ -7,6 +7,7 @@ In terms of configuration please visit the configuration page(s).
 The openHAB runtime comes as a platform-independent zip file.
 To install it, follow these simple steps:
 
+1. You will need to install Java if not already installed. Go to http://java.com/ to get it.
 1. Unzip the `openhab-runtime-<version>.zip` to where it is intended to be running from, e.g. `C:\openhab`.  Note that there can't be a space in the path, so it can't be in program files in windows.
 1. Copy the bindings you have downloaded `*.jar` to the "addons" directory.
 1. Create a personal configuration file by copying the file `configurations/openhab_default.cfg` to `configurations/openhab.cfg`.
