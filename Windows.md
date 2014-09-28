@@ -19,3 +19,11 @@ To install it, follow these simple steps:
 1. Unzip the `openhab-designer-<platform>-<version>.zip` to some directory, e.g. `C:\openhab-designer`.
 1. Launch it by the executable `openHAB-Designer.exe` 
 1. Select the "configurations" folder of your runtime installation in the folder dialog that is shown when selecting the "open folder" toolbar icon.
+
+## Start the server!
+
+1. Launch the runtime by executing the script `start.bat`
+
+## Go test it!
+
+openHAB comes with a built-in user interface. It works on all webkit-based browsers like Chrome, Safari, etc. Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should be looking at your sitemap. 
