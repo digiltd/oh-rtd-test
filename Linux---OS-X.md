@@ -124,7 +124,7 @@ NOTE: Items and sitemap may be changed during runtime as needed.
 
 ## Start the server!
 
-1. Launch the runtime by executing the script `start.bat` or `start.sh`
+1. Launch the runtime by executing the script `start.sh`
 
 ## Go test it!
 
