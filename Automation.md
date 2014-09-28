@@ -13,7 +13,8 @@ Apart from defining flexible logic openHAB rules provide a set of different acti
 Scripts is a way to create reusable components for your rules. If you need to use the same code from time to time in different rules you can create a script and then reuse it in different parts of your logic.
 
 ## Events
-tbd
+You can find a detailed explaination on trigger events on the rules page.
 
 ## Actions
 Actions are predefined Java methods that are automatically statically imported and can be used within scripts and rules to execute openHAB specific operations.
+They can be used to send e-mails and do other kinds of notifications as well as other common things.
