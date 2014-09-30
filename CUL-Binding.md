@@ -1,3 +1,5 @@
+**CUL is now more a communication layer for the [[FS20 Binding|FS20-Binding]] and other bindings. This page seems to be outdated.**
+
 Documentation of the CUL binding bundle
 
 # CUL Binding for openHAB
