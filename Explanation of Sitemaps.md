@@ -15,7 +15,7 @@ For easy editing, the openHAB Designer brings full IDE support for these files, 
 
 Sitemaps can be composed by grouping various user interface elements into areas, which will be rendered by openHAB.
 
-This element needs is **mandatory** in a sitemap definition file:
+This element is **mandatory** in a sitemap definition file:
 <table>
 <tr><td><b>Element name</b></td><td><b>Description</b></td></tr>
 <tr><td>sitemap</td><td>This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.</td></tr>
