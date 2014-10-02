@@ -31,6 +31,7 @@ Community
   * [[Astro Binding|Astro-binding]]
   * [[Bluetooth Binding|Bluetooth-Binding]]
   * [[Comfo Air Binding|Comfo-Air-Binding]]
+  * [[Config Admin Binding|Config-Admin-Binding]]
   * [[CUL Binding|CUL-Binding]]
   * [[CUPS Binding|CUPS-Binding]]
   * [[digitalSTROM Binding|digitalSTROM-Binding]]
