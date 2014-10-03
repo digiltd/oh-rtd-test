@@ -19,7 +19,7 @@ Items are defined in the followng syntax:
 
 Parts in square brackets [are optional.
 
-A proper item definition could look like the following:
+**Example:**
 
     Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}
 
@@ -52,7 +52,7 @@ The following item types are currently available (alphabetical order):
   - OR displays an OR of the group, typically used to display whether any item in a group has been set.
   - other summaries:  AND, SUM, MIN, MAX, NAND, NOR
 
-Sample syntax for a group summary:
+**Example** for a group summary:
 
     Group:Number:AVG() itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
     Group:Switch:OR(ON, OFF) itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
@@ -78,6 +78,7 @@ would be formatted for output as:
 Another possibility in labeltexts is to use so-called maps for replacing the item status name by e.g. human-readable words:
 
 **Example:**
+
 An item defined like
     Number WindowBathroom "Window is [MAP(en.map):%s]"
 would be formatted for output as:
@@ -100,7 +101,9 @@ Please use the filename (without extension) of icons in above mentioned folder.
 If you append e.g. "-on" and "-off" to the file name the icon will change its appearance depending on the switch item state.
 Resp. you can add "-0", "-1" etc. to the filename for number items etc. 
 
-e.g. you can use two icons "present.png" and "present-off.png" (the "-on" is not even neccessary) like this:
+**Example:**
+
+You can use two icons "present.png" and "present-off.png" (the "-on" is not even neccessary) like this:
 
 `Switch DanHome     "Dan at home"      <present>  `
 
@@ -124,7 +127,7 @@ where "nsx" is the namespace for a certain binding (e.g. "knx", "bluetooth", "se
 
 For detailed binding configutation syntax of openHAB bindings please see the openHAB [[Bindings]] configuration section.
 
-Here is an example of how your items file might look like with binding configuration added to it:
+**Example:**
 
     Switch Light_GF_Living_Table "Table" (GF_Living, Lights) { knx="1/0/15+0/0/15" }
     Switch Presence { bluetooth="123456ABCD" }
