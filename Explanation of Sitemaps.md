@@ -175,12 +175,12 @@ Quotes can be omitted if the value string and name string do not contain spaces.
     mappings = [ 1="BBC", 2="CNN", 3="BLOOMBERG" ]
 	
 ## Dynamic Sitemaps
-**Note** The following is only available in v1.4.
+**Note** The following is only available in v1.4 and above.
 
-Sitemaps can be designed to show items dynamically, or add colors depending on their state, or the state of another item. A few use cases for this are -:
+Sitemaps can be designed to show items dynamically, or add colors depending on their state, or the state of another item. A few use cases for this are:
 * Hide elements of a heating system depending on its mode
 * Display different charts or URLs depending on the state of an item
-* Show a battery warning of the voltage is low
+* Show a battery warning if the voltage is low
 * Highlight a value with a warning color if it's above or below limits
 
 All widgets in the sitemap have the following three parameters available -:
