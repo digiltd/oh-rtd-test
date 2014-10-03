@@ -94,9 +94,15 @@ https://github.com/openhab/openhab/tree/master/distribution/openhabhome/configur
 
 ### iconname
 
-The icon name is used to reference a image file from folder `${openhab_home}/webapps/images/`. These icons are used in the openHAB frontends.
+The icon name is used to reference a png image file from folder `${openhab_home}/webapps/images/`. These icons are used in the openHAB frontends.
 
 Please use the filename (without extension) of icons in above mentioned folder.
+If you append e.g. "-on" and "-off" to the file name the icon will change its appearance depending on the switch item state.
+Resp. you can add "-0", "-1" etc. to the filename for number items etc. 
+
+e.g. you can use two icons "present.png" and "present-off.png" (the "-on" is not even neccessary) like this:
+
+`Switch DanHome     "Dan at home"      <present>  `
 
 ### groups
 
