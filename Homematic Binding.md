@@ -1,6 +1,6 @@
 ## News
-Public 1.6.0 builds  
-[Release Notes](#release-notes-160)  
+[Release Notes 1.6](#release-notes-160)  
+[Changelog](#changelog)  
 [Download](#download)
 
 ## Introduction
@@ -341,6 +341,19 @@ If you want to see even more, switch to TRACE to also see the CCU request/respon
 ```
 <logger name="org.openhab.binding.homematic" level="TRACE" />
 ```
+
+### Can't find DatapointConfig
+
+I assume, the binding is in your addons folder.
+
+* In the openHab logfile there must be a entry like this: `HomematicConfig[host=...,callbackHost=...,callbackPort=...,aliveInterval=...,rpc=bin]`  
+If this entry does not exist, there is a problem in your openhab.cfg. A common problem is a space in front of the config properties.
+
+* If 'Can't find DatapointConfig' still exists, switch the binding to DEBUG mode, start openHab and wait for or trigger an event from the device. Now you see the datapoints for every event. Compare your binding in your item file with the datapoint config from the event.
+
+* If the message still occurs, there might be an unsupported datapoint. Switch the binding to TRACE mode, start openHab, create a issue in the openHab forums and post the logfile and your item file. If you don't want the files to be public, you can send them directly to me at gerrieg.openhab@icloud.com
+
+
 ### Video
 [![HomeMatic Binding](http://img.youtube.com/vi/F0ImuuIPjYk/0.jpg)](http://www.youtube.com/watch?v=F0ImuuIPjYk)
 
@@ -393,15 +406,12 @@ Switch Reload_Rssi   {homematic="action=reload_rssi"}
 ```
 Just send a ON command to the Switch and the RSSI values are updated.
 
-
-### Download
-**23.09.2014 (pb14):** [download binding](https://dl.dropboxusercontent.com/u/3899895/org.openhab.binding.homematic-1.6.0-SNAPSHOT-pb14.jar),
-[download action](https://dl.dropboxusercontent.com/u/3899895/org.openhab.action.homematic-1.6.0-SNAPSHOT-pb14.jar)
+### Changelog
+**23.09.2014**
 - Added support for Homegear writeOnly datapoints
 - Optimized Homegear metadata extraction
 
-**19.09.2014 (pb13):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHU0Ixd2Vjd0FRdjg/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHcEV2SlZ3aVhpYWc/edit?usp=sharing)
+**19.09.2014**
 - Removed XML-RPC communication
 - Added support for RSSI device and peer info
 - Added RELOAD_RSSI action
@@ -409,8 +419,7 @@ Just send a ON command to the Switch and the RSSI values are updated.
 - Adding support for standalone action without device binding
 - Fixed Homegear string type
 
-**13.09.2014 (pb12):** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHQ1BHMGtBRW1BZFk/edit?usp=sharing),
-[download action](https://drive.google.com/file/d/0Bw7zjCgsXYnHbU1RTzZqTnVrUEk/edit?usp=sharing)
+**13.09.2014**
 - Moved CCU team support to DatapointConfig
 - Added support for CUxD LAST_TICKS and UNITSPTURN datapoint
 - Added support for CCU Teams (e.g. a team of smoke detectors)
@@ -419,4 +428,7 @@ Just send a ON command to the Switch and the RSSI values are updated.
 - Fixed Winmatic battery type.
 - Optimized CCU firmware version extraction
 - Added state invert for MAX! window contacts
-- Added [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support
+- Added [CUxD](http://www.homematic-inside.de/software/cuxdaemon) support
+
+### Download
+You can always download the latest version from the [daily builds at cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)
