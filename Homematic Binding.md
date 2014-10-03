@@ -432,3 +432,5 @@ Just send a ON command to the Switch and the RSSI values are updated.
 
 ### Download
 You can always download the latest version from the [daily builds at cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)
+
+These builds are working with openHab 1.5.x too.
