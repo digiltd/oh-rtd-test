@@ -11,7 +11,7 @@
 
 Typically items are defined using the openHAB Designer by editing the items definition files. Doing so you will have full IDE support like syntax checking, contect assist etc.
 
-## Syntax
+## syntax
 
 Items are defined in the followng syntax:
 
@@ -133,7 +133,7 @@ For detailed binding configutation syntax of openHAB bindings please see the ope
     Switch Presence { bluetooth="123456ABCD" }
     Switch Doorbell "Doorbell" <bell> { serial="/dev/usb/ttyUSB0" }
 
-## Examples
+## examples
 
 The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/items/demo.items), here is a short excerpt from it:
 
