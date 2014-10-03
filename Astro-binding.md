@@ -1,6 +1,6 @@
 ### News
-Public 1.6.0 builds  
-[Release Notes](#release-notes-160)  
+[Release Notes 1.6](#release-notes-160)  
+[Changelog](#changelog)  
 [Download](#download)
 
 ### Introduction
@@ -279,29 +279,44 @@ Third\u0020Quarter=letztes Viertel
 Waning\u0020Crescent=abnehmender Halbmond
 ```
 
-[Maps download] (https://drive.google.com/file/d/0Bw7zjCgsXYnHZXNNeU5XY2FTMGc/edit?usp=sharing)
+### Troubleshooting
+I assume, the binding is in your addons folder. It populates the astro items at startup and with scheduled jobs.
 
-### Download
-These builds are BETA versions, work in progress, testers welcome!  
-**07.08.2014 pb07:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHNHZodnFwRC1obm8/edit?usp=sharing)
+* In the openHab logfile there must be a entry like this: `AstroConfig[latitude=xx.xxxx,longitude=xx.xxxx,interval=...,systemTimezone=...,daylightSavings=...]`  
+If this entry does not exist, there is a problem in your openhab.cfg. A common problem is a space in front of the config properties.
+
+* If the items are still not populated, switch the binding to DEBUG mode and start openHab. Now you should see for every astro item a entry in your logfile: `Adding item ... with AstroBindingConfig[planet=..., type=..., property=...]`  
+If you don't see these entries, check your item file.
+
+* If the maps for translation are not working, there might be a file encoding problem. Download the german example maps and edit the entries.
+
+### Changelog
+**07.08.2014**
 * Added moon azimuth/elevation and zodiac.
 * Small optimizations.
 
-**05.08.2014 pb06:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHM2k3UXIzNXV4SHc/edit?usp=sharing)
+**05.08.2014**
 * More accurate julian date to calendar conversion.
 * If there is no moon rise/set today, show the tomorrow.
 
-**04.08.2014 pb05:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHRlJaYmZXNHhYblU/edit?usp=sharing)
+**04.08.2014**
 * AstroConfig logs more timezone and dst infos.
 * Fixed daylight saving offset for moon rise/set.
 
-**02.08.2014 pb04:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHUjNoejFqOGxFUkU/edit?usp=sharing)
+**02.08.2014**
 * Added moon calculation.
 * Added sun and moon eclipses. 
 
-**26.07.2014 pb03:**  [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHUnlTc1lXWlFNNXM/edit?usp=sharing)
+**26.07.2014**
 * Added zodiac calculation.
 * Added season calculation.
 
-**23.07.2014 pb02:** [download binding](https://drive.google.com/file/d/0Bw7zjCgsXYnHY1d3NFU5aHlwWTg/edit?usp=sharing)
-* initial public 1.6.0 build (works in openHab 1.5.x too).
+**23.07.2014**
+* initial 1.6.0 release
+
+### Download
+[German maps download] (https://drive.google.com/file/d/0Bw7zjCgsXYnHZXNNeU5XY2FTMGc/edit?usp=sharing)
+
+You can always download the latest version of the binding from the [daily builds at cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)
+
+These builds are working with openHab 1.5.x too.
