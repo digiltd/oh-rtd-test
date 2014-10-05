@@ -33,6 +33,8 @@ The binding currently offers the following features:
  * Can factory reset device
 * Association
  * It is possible to link devices together so that they communicate directly with each other, for example a wall thermostat and a radiator valve.
+* TX Credit Monitoring
+ * It is possible to report TX credits from the CUL device via an item binding.
 
 # Limitations
 Aside from understanding what the binding does do which is documented here there are some key things to be aware of that may limit what you hope to achieve.
@@ -63,7 +65,8 @@ Some quick Examples:
 * `Number wallThermSet { maxcul="WallThermostat:JEQ1234566:feature=thermostat" }` - will set/return the desired temperature of a wall mounted thermostat with serial number JEQ1234566
 * `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - ON maps to Auto, OFF maps to Eco
 * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
-* `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it.
+* `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it in the log. Mainly used for debugging and checking behaviours. Can monitor devices associated with another controller, e.g a Max! Cube.
+* `Number txCredit { maxcul="CreditMonitor" }` - Will be updated with the latest value for the TX credit whenever it receives an update or command to a maxcul binding item. This number is used to adhere to the 1% transmission time rule. This is 1% rule is enforced by the CUL firmware.
 
 ## Additional options
 ### feature
@@ -135,10 +138,10 @@ These are in no particular priority and are simply ideas. They may not get imple
 1. ~~Implement association of devices with each other so that they won't need rules to keep the Wall Thermostat and the Radiator Thermostat in sync~~ DONE
 1. ~~Add the ability to configure night/comfort/etc temperatures~~ DONE
 1. ~~Add the ability to interface with the Eco switch~~ DONE
-1. If there is a pending SET_TEMPERATURE message in the queue and we receive a SET_TEMPERATURE from the thermostat we are waiting to send to then we should clear the message from the queue.
+1. If there is a pending SET_TEMPERATURE message in the queue and we receive a SET_TEMPERATURE from the thermostat we are waiting to send to then we should clear the message from the queue as it will be outdated.
 1. Add the ability to interface with the window contact devices
 1. Add the ability pretend to be a wall thermostat. This would allow us to associate with a radiator thermostat and send measured temperatures to it. These could be then sent from another binding for example.
 1. Add the ability to simulated a window contact. This would allow us to associate with a radiator thermostat and send window events to it.
 1. Explore how to avoid the queue getting too long due to lack of credits with many devices.
 1. Add ability to setup device groups which should help reduce lack of credit issue
-1. Use the 'get cul raw X' command to get credit information from CUL transport so we don't have to handle credit counting ourselves.
+1. ~~Use the 'get cul raw X' command to get credit information from CUL transport so we don't have to handle credit counting ourselves.~~ DONE
