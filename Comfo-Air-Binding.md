@@ -19,7 +19,7 @@ First of all you need to introduce your ComfoAir in the openhab.cfg file (in the
     # refresh inverval in milliseconds (optional, defaults to 60000)
     #comfoair:refresh=
 
-The `comfoair:port` value is the path from the serial device of the ComfoAir. For windows systems it is ttyS0
+The `comfoair:port` value is the path from the serial device of the ComfoAir. For windows systems it is COMx
 
 The `comfoair:refresh` value is the refresh interval. Refresh value is optional parameter.
 
