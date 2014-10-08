@@ -85,37 +85,4 @@ The following value-keys are available:
     String rx_consec		"RX Packets received in a row without error: [%s]"  { davis="rx_count_consecutive" }
     String rx_crc		"RX Packets CRC failes: [%s]"	{ davis="rx_count_crc" }
 
-
-    Number airflowControl "Activated" {comfoair="activate"}
-    Number airflowFanLevel "Level [%d]" {comfoair="fan_level"}
-    Number airflowTargetTemperature "Target temperature [%.1f °C]" {comfoair="target_temperature"}
-    
-    Number airflowOutdoorIncomingTemperature "Outdoor incoming [%.1f °C]" {comfoair="outdoor_incomming_temperatur"}
-    Number airflowOutdoorOutgoingTemperature "Outdoor outgoing [%.1f °C]" {comfoair="outdoor_outgoing_temperatur"}
-    Number airflowIndoorIncommingTemperature "Indoor incomming [%.1f °C]" {comfoair="indoor_incomming_temperatur"}
-    Number airflowIndoorOutgoingTemperature "Indoor outgoing [%.1f °C]" {comfoair="indoor_outgoing_temperatur"}
-    Number airflowIncommingFan		"Incomming fan [%d %%]" {comfoair="incomming_fan"}
-    Number airflowOutgoingFan		"Outgoing fan [%d %%]" {comfoair="outgoing_fan"}
-    Number airflowFilterRuntime	        "Filter runtime [%d h]" {comfoair="filter_running"}
-    Number airflowFilterErrorI	        "Filter (intern) [%s]" {comfoair="filter_error_intern"}
-    Number airflowFilterErrorE	        "Filter (extern) [%s]" {comfoair="filter_error_extern"}
-    String airflowError	                "Errorcode [%s]" {comfoair="error_message"}
-
-Only **"activate"**, **"fan_level"** and **"target_temperature"** are writeable. All other device commands are readonly.
-
-**"activate"** can handle 0 and 1 states
-- 0 means CCEase Comfocontrol is active and the binding is in sleep state
-- 1 means Binding is active and CCEase Comfocontrol is in sleep state
-
-**"fan_level"** can handle 1, 2, 3 and 4 states
-- 1 is Level A
-- 2 is Level 1
-- 3 is Level 2
-- 4 is Level 3
-
-**"target_temperature"** is a double value between 15.0 and 25.0 in 0.5 steps
-
-## Limitations
-
-- Either the ComfoAir binding or the CCEase Comfocontrol can be active
-- You must implement auto mode by yourself with rules. But it is more powerful
+All value-keys are readonly.
