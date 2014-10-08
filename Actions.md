@@ -125,7 +125,13 @@ The following are valid action calls that can be made when the plugin is loaded.
 - `pushover(String message)`
 - `pushover(String message, String device)`
 - `pushover(String message, int priority)`
+- `pushover(String message, int priority, String url)` [Added 1.6+]
+- `pushover(String message, int priority, String url, String urlTitle)` [Added 1.6+]
+- `pushover(String message, int priority, String url, String urlTitle, String soundFile)` [Added 1.6+]
 - `pushover(String message, String device, int priority)`
+- `pushover(String message, String device, int priority, String url)` [Added 1.6+]
+- `pushover(String message, String device, int priority, String url, String urlTitle)` [Added 1.6+]
+- `pushover(String message, String device, int priority, String url, String urlTitle, String soundFile)` [Added 1.6+]
 - `pushover(String apiToken, String userKey, String message)`
 - `pushover(String apiToken, String userKey, String message, String device)`
 - `pushover(String apiToken, String userKey, String message, int priority)`
