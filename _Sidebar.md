@@ -34,6 +34,7 @@ Community
   * [[Config Admin Binding|Config-Admin-Binding]]
   * [[CUL Binding|CUL-Binding]]
   * [[CUPS Binding|CUPS-Binding]]
+  * [[Davis Binding|Davis-Binding]]
   * [[digitalSTROM Binding|digitalSTROM-Binding]]
   * [[DMX512 Binding|DMX-Binding]]
   * [[EDS OWSever Binding ]]
