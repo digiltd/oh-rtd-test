@@ -6,6 +6,8 @@ Binding is based on the [Serial Communication Reference Manual](http://www.googl
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
+Davis binding will be available since openhab 1.6.0
+
 ## Binding Configuration
 
 First you need to define your Davis weather station he openhab.cfg file (in the folder '${openhab_home}/configurations').
