@@ -2,7 +2,7 @@ Documentation of the MAX!Cube Binding Bundle
 
 ## Introduction
 
-The openHAB MAX!Cube binding allows to connect to [ELV MAX!Cube Lan Gateway](http://www.elv.de/max-cube-lan-gateway.html,) installations. The binding allows to communicate with the MAX! devices through the MAX!Cube Lan Gateway.
+The openHAB MAX!Cube binding allows to connect to [(ELV) MAX!Cube Lan Gateway](http://www.elv.de/max-cube-lan-gateway.html,) installations. The binding allows to communicate with the MAX! devices through the MAX!Cube Lan Gateway.
 
 To communicate with MAX! devices, a already setup MAX! environment including a MAX!Cube Lan Gateway is required. In addition, the binding expects an already set up MAX environment.
 
@@ -27,7 +27,11 @@ Furthermore, you can change the refresh interval openHAB communicates with the M
 
 ## Item Configuration
 
-In order to bind an generic item to the device, you need to provide MAX!Cube configuration settings in your item file (in the folder configurations/items) containing at least the serial number of the device. The syntax of the binding configuration strings accepted is the following: 
+In order to bind an generic item to the device, you need to provide MAX!Cube configuration settings in your item file (in the folder configurations/items) containing at least the serial number of the device you wish to control (not the serial of the cube).
+
+**How to get the serial number**: you can use the original MAX! software: edit the room, click on structure,  rename devices. There you'll see the names and serials.
+
+The syntax of the binding configuration strings accepted is the following: 
 
     maxcube="<serialNumber>"
 
