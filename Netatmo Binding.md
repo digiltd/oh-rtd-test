@@ -3,7 +3,7 @@ The Netatmo binding integrates the Netatmo Personal Weather Station into openHAB
 See http://www.netatmo.com/ for details on their product.
 
 # Configuration
-
+## Pre setup
 * Create an application at http://dev.netatmo.com/dev/createapp
 
 * Retrieve a refresh token from Netatmo API, using e.g. curl:
@@ -20,25 +20,21 @@ netatmo:clientid=123456789012345678901234
 netatmo:clientsecret=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI
 netatmo:refreshtoken=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDE
 ```
+## Configure items and rules
 
-* Configure items and rules
+The IDs for the modules can be extracted from the developer documentation on the netatmo site.
+First login with your user. Then some examples of the documentation contain the **real results** of your weather station. Get the IDs of your devices (indoor, outdoor, rain gauge) here:
 
-Example item for the **indoor sensor**:
 ```
-Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="00:00:00:00:00:00#Co2"}
-```
-
-Supported are Temperature, Humidity, Co2, Pressure and Noise.  
-
-
-
-
-Example item for the **outdoor sensor** (first id is the main module, second id is the outdoor module):
-```
-Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Temperature"}
+https://dev.netatmo.com/doc/methods/devicelist
 ```
 
-Supported are Temperature and Humidity for the outdoor modules.  
+main_device is the ID of the "main device", the indoor sensor.
+
+The other modules you can recognize by "module_name" and then note the "_id" which you need later.
+
+**Another way to get the IDs is to calculate them:**
+
 You have to calculate the ID for the outside module as follows: (it cannot be read from the app)
 if the first serial character is "h":  start with "02",
 if the first serial character is "i": start with "03",
@@ -48,9 +44,29 @@ append ":00:00:",
 split the rest into three parts of two characters and append with a colon as delimeter.
 
 For example your serial number "h00bcdc" should end up as "02:00:00:00:bc:dc".
- 
 
+### Indoor
+Example item for the **indoor sensor**:
+```
+Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="00:00:00:00:00:00#Co2"}
+```
 
+**Supported are:**
+* Temperature
+* Humidity
+* Co2
+* Pressure
+* Noise
+
+### Outdoor
+Example item for the **outdoor sensor** (first id is the main module, second id is the outdoor module):
+```
+Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Temperature"}
+```
+
+**Supported are for the outdoor modules:**
+* Temperature
+* Humidity
 
 The **rain gauge** supports Rain: (What a surprise!)
 ```
@@ -58,7 +74,7 @@ Number Netatmo_Rain_Gauge "Rain [%d mm]" {netatmo="00:00:00:00:00:00#00:00:00:00
 ```
   
 
-
+## Example rule
 **Example rule** to send a mail if carbon dioxide reaches a certain threshold:
 ```
 var boolean co2HighWarning = false
