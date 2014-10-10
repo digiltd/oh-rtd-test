@@ -9,7 +9,7 @@ To automate this process there are two shell-scripts for Linux available.
 
 ### Script 1
 
-**New Version**
+**New Version** (2014/10/10: script will copy uuid & secret for my.openhab)
 
 the script [openhab_get_snapshot.sh](http://code.google.com/p/openhab-samples/source/browse/scripts/openhab_get_snapshot.sh?repo=wiki) is a quick-and-dirty-script to download a new openHAB Snapshot to a new folder.
 
@@ -35,6 +35,8 @@ A assumption is, that all user-specific Stuff resides in
     /srv/openhab/etc            #for persistence-data
 
     /srv/openhab/images         #images for the UI
+
+    /srv/openhab/webapps/static #uuid & secret for my.openhab
 
 which makes it necessary to move or copy the data first (only once).
 
