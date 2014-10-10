@@ -1,4 +1,4 @@
-Documentation of the Davisbinding Bundle
+Documentation of the Davis binding Bundle
 
 ## Introduction
 
