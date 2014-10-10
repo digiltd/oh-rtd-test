@@ -50,6 +50,6 @@ https://code.google.com/p/openhab-samples/source/browse/scripts/openhab_get_snap
 
 ### Script 3
 
-Add-on to Script 1 to install & configure the latest master of [HABmin](https://github.com/cdjackson/HABmin) as well as the rev of openHAB selected.
+Add-on to old Version of Script 1 to install & configure the latest master of [HABmin](https://github.com/cdjackson/HABmin) as well as the rev of openHAB selected.
 
 [openhab_habmin_get_snapshot.sh](https://code.google.com/p/openhab-samples/source/browse/scripts/openhab_habmin_get_snapshot.sh?repo=wiki)
