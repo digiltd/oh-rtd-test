@@ -30,19 +30,70 @@ recorded for every device in the network, as it is a mandatory part of
 the binding configuration string.
 
 The following devices have been tested and should work out of the box:
-
-1. Insteon PowerLinc Modem 2413U V1.5, USB modem, product key: 0x000045
-2. Insteon SwitchLinc 2477S, switch, (fake) product key: F00.00.02
-3. Insteon SwitchLinc 2477D, dimmer, (fake) product key: F00.00.01
-4. Insteon I/O Linc 2450, garage door opener kit (relay + contact
-   closure), product key:0x00001A
-5. Insteon Wireless Motion Sensor 2842, motion sensor, product key: 0x00004A
-6. Insteon Hidden Door Sensor 2845-222, (fake) product key: F00.00.03
-7. Insteon MorningLinc RF Lock Controller 2458-A1, (fake) product key: F00.00.09
-** Read the instructions very carefully: Sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
-7. Insteon KeypadLinc Dimmer 2486DWH8, product key: 0x000051
-8. Insteon OutletLinc 2472D, product key: 0x000068
-9. Insteon Mini Remote Model 2342-2, scene switch, (fake) product key: F00.00.0A
+<table>
+<tr>
+<td>Model</td><td>Description</td><td>Product Key</td><td>Comments</td><td>tested by</td>
+</tr>
+<tr>
+<td>2477D</td><td>SwitchLinc Dimmer</td><td>F00.00.01</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
+<td>2477S</td><td>SwitchLinc Switch</td><td>F00.00.02</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
+<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td></td><td></td>
+</tr>
+<tr>
+<td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td></td><td></td>
+</tr>
+<tr>
+<td>2456D3</td><td>LampLinc V2</td><td>F00.00.05</td><td></td><td></td>
+</tr>
+<tr>
+<td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td></td><td></td>
+</tr>
+<tr>
+<td>2453-222</td><td>DIN Rail On/Off</td><td>F00.00.07</td><td></td><td></td>
+</tr>
+<tr>
+<td>2452-222</td><td>DIN Rail Dimmer</td><td>F00.00.08</td><td></td><td></td>
+</tr>
+<tr>
+<td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>
+Read the instructions very carefully: Sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
+</td><td></td>
+</tr>
+<tr>
+<td>2852-222</td><td>Leak Sensor</td><td>F00.00.0A</td><td></td><td></td>
+</tr>
+<tr>
+<td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td></td><td></td>
+</tr>
+<tr>
+<td>2342-2</td><td>Mini Remote</td><td>F00.00.10</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
+<td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
+<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td></td>
+</tr>
+<tr>
+<td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
+<td>2843-222</td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td></td><td></td>
+</tr>
+<tr>
+<td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
+<td>2486DWH8</td><td>KeypadLinc Dimmer</td><td>0x000051</td><td></td><td></td>
+</tr>
+<tr>
+<td>2472D</td><td>OutletLincDimmer</td><td>0x000068</td><td></td><td></td>
+</tr>
+</table>
 
 ## Insteon binding process
 
