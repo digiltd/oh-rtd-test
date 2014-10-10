@@ -57,7 +57,7 @@ Instead of values 4.5 and 30.5 the results would look like
 
 ![MAX! Binding](https://dl.dropboxusercontent.com/u/7347332/web/max_on_off_small.png)
 
-To apply this mapping you need to copy the [maxcube.map](https://dl.dropboxusercontent.com/u/7347332/web/maxcube.map) mapping file into the configuration/transformation folder within the openHAB directory. (Alternatively you can use this [maxcube.map](http://www.domorino.nl/drupal/?q=node/6) file when the mappings of round temperature settings don't show.)
+To apply this mapping you need to copy the [maxcube.map](https://dl.dropboxusercontent.com/u/7347332/web/maxcube.map) mapping file into the configuration/transformation folder within the openHAB directory. (Alternatively you can use this [maxcube.map](https://gist.githubusercontent.com/joek/0df1727580df7f98f1a4/raw/a3c7b1d629bbc29fa87ef5ca5808f4fa1a34a3bc/maxcube.map) file when the mappings of round temperature settings don't show.)
 
 Depending on the correpsonding device the MAX!Cube binding can be used to provide specific information about a device instead of the default information.
 
