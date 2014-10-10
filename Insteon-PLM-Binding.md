@@ -174,25 +174,16 @@ the meaning of the `momentary` keyword (not supported/needed for other devices).
 ## Removing devices from the Modem's link database
 
 When an Insteon device breaks or is no longer needed, it should be
-removed from them modem's link database. This is particularly tricky
-if the device is no longer operable. For this purpose the binding has
-a rudimentary feature to eliminate entries from the link database.
+removed from them modem's link database. Since this is particularly tricky
+if the device is no longer operable, the binding has
+a rudimentary feature to eliminate entries: Instantiate a `Switch` item in the `.items` file,
+referencing the modem with its proper Insteon address:
 
-This requires a `Number` item in the insteonplm.items file,
-referencing the modem:
+    Switch removeAddress		    "switch to remove address"	  	(gControllers)			{insteonplm="1E.DB.41:0x000045#control,remove_address=2e.7c.9a"}
 
-    Number modem "modem" {insteonplm="1E.DF.41:0x000045#control"}
-
-and an entry in the `sitemap` file like this:
-
-    Selection item=modem label="modem action" mappings=[0=nothing, 1=erase]
-
-Upon startup, the binding creates a list of Insteon devices that are
-in the modem's link database, but *not* referenced anywhere in the
-items file. Now every time the `erase` selection is made from the user
-interface, *one* of the unreferenced devices will be eliminated from the
-link database (erasing *all* unreferenced devices was deemed risky as it
-could accidentally wipe out the entire database of the modem).
+In the binding config, a `control` feature is referenced, and the address of the device
+to be removed from the modem is passed as parameter `remove_address`. Toggling the switch
+to `ON` will send a command to the modem, erasing the db entry.
 
 ## Trouble shooting
 
