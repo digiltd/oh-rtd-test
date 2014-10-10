@@ -208,39 +208,41 @@ your `logback.xml` file:
 This will log additional debugging messages to a separate file in the
 log directory.
 
-### Adding new device types (for developers experienced with Eclipse IDE)
+### Adding new device types (using existing device features)
 
-First, set up an Eclipse build environment following the online instructions. Then find the categories.xml file under the InsteonPLM binding directory, and add your device under the proper category and subcategory (as published by Insteon) with a few lines like these, appropriately modified:
+Device types are defined in the file `device_types.xml`, which is inside the InsteonPLM bundle and thus not visible to the user. You can however load your own device_types.xml by referencing it in the openhab.cfg file like so:
 
-    <subcategory>
-       <name>KeypadLinc Dimmer</name>
-       <description>2486D</description>
-       <subCat>0x09</subCat>
-       <productKey name="0x000037">
-    	  <feature name="dimmer">GenericDimmer</feature>
-    	  <feature name="lastheardfrom">GenericLastTime</feature>
-       </productKey>
-    </subcategory>
+    insteonplm:more_devices=/usr/local/openhab/rt/my_own_devices.xml
 
-Finding the Insteon product key can be tricky since Insteon has not updated the product key table (http://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf) since 2008. If a web search does not turn up the product key, make one up, starting with "F", like: F00.00.99. To avoid duplicate keys, find the highest fake product key in the categories.xml file, and increment by one.
+Where the `my_own_devices.xml` file defines a new device like this:
 
-The features referenced in the categories.xml file (e.g. GenericDimmer) are defined in the file device_features.xml, which defines the message handlers that run when Insteon messages with different "cmd" codes arrive. The feature definition also specifies the command handlers which translate openHAB commands into insteon messages.
+    <xml>
+     <device productKey="F00.00.XX">
+      <model>2456-D3</model>
+      <description>LampLinc V2</description>
+      <feature name="dimmer">GenericDimmer</feature>
+      <feature name="lastheardfrom">GenericLastTime</feature>
+     </device>
+    </xml>
 
-    <feature name="GenericDimmer">
-        <message-dispatcher>DefaultDispatcher</message-dispatcher>
-        <message-handler cmd="0x03">NoOpMsgHandler</message-handler>
-        <message-handler cmd="0x06">NoOpMsgHandler</message-handler>
-        <message-handler cmd="0x11">LightOnDimmerHandler</message-handler>
-        <message-handler cmd="0x13">LightOffHandler</message-handler>
-        <message-handler cmd="0x17">NoOpMsgHandler</message-handler>
-        <message-handler cmd="0x18">StopManualChangeHandler</message-handler>
-        <message-handler cmd="0x19">LightStateDimmerHandler</message-handler>
-        <command-handler command="PercentType">PercentHandler</command-handler>
-        <command-handler command="OnOffType">LightOnOffCommandHandler</command-handler>
-        <poll-handler>DefaultPollHandler</poll-handler>
+Finding the Insteon product key can be tricky since Insteon has not updated the product key table (http://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf) since 2008. If a web search does not turn up the product key, make one up, starting with "F", like: F00.00.99. Avoid duplicate keys by finding the highest fake product key in the `device_types.xml` file, and incrementing by one.
+
+### Adding new device features (for developers experienced with Eclipse IDE)
+
+If you can't can't build a new device out of the existing device features (for a complete list see `device_features.xml`), you need to set up an openHAB Eclipse build environment, following the online instructions. Then find the `device_features.xml` file under the InsteonPLM binding directory, and define  a new feature (in this case "MyFeature") which can then be referenced from the `device_types.xml` file:
+
+    <feature name="MyFeature">
+	<message-dispatcher>DefaultDispatcher</message-dispatcher>
+	<message-handler cmd="0x03">NoOpMsgHandler</message-handler>
+	<message-handler cmd="0x06">NoOpMsgHandler</message-handler>
+	<message-handler cmd="0x11">NoOpMsgHandler</message-handler>
+	<message-handler cmd="0x13">NoOpMsgHandler</message-handler>
+	<message-handler cmd="0x19">LightStateSwitchHandler</message-handler>
+	<command-handler command="OnOffType">IOLincOnOffCommandHandler</command-handler>
+	<poll-handler>DefaultPollHandler</poll-handler>
     </feature>
 
-If you cannot achieve the desired outcome by cobbling together a set of suitable message and command handlers, you will have to write your own handlers, hopefully just having to touch the DeviceFeatures.java file.
+If you cannot cobble together a suitable device feature out of existing handlers you will have to define new ones by editing the corresponding Java classes in the source tree.
 
 ## Known Limitations and Issues
 
