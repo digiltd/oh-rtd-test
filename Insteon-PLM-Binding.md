@@ -246,9 +246,5 @@ If you cannot achieve the desired outcome by cobbling together a set of suitable
 
 1. Devices cannot be linked to the modem while the binding is
 running. If new devices are linked, the binding must be restarted.
-2. No simple way to selectively eliminate a given Insteon device
-address from the modem's link database.
-3. Very rarely during binding startup, a message arrives at the modem while the initial read of the modem
+2. Very rarely during binding startup, a message arrives at the modem while the initial read of the modem
 database happens. Somehow the modem then stops sending the remaining link records and the binding no longer is able to address the missing devices. The fix is to simply restart the binding.
-4. The binding does not always handle configuration file changes correctly, and may need a restart after a configuration file edit. 
-5. Users of HouseLinc have reported that it deletes important device information from the modem link database. The latest version of the InsteonPLM binding tries to recover from such situations by querying the devices.
