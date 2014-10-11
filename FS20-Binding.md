@@ -12,6 +12,12 @@ In your openhab.cfg you need to specify which serial device is the CUL device. T
 
 if your serial device is /dev/ttyACM0
 
+Starting with version 1.6 you can adjust baudrate and parity handling too. For busware COC Raspberry extension please use the following settings: 
+
+    fs20:baudrate=38400
+    fs20:parity=0
+
+
 ### Item configuration
 You can use SwitchItems and DimmerItems with this binding. You need to know the house address and device address of the device you want to receive messages or send messages to. To find these addresses you can start openhab in debug mode. The CUL transport will print all out all received messages.
 A sample switch configuration looks like this
