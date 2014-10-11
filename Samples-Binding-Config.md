@@ -188,14 +188,15 @@ Sample output for this definition would then be "Window 1 is opened" or "Window 
 
 ![Kostal Piko](https://lh4.googleusercontent.com/-pa3EqaUPe_E/Ud8lK56J_-I/AAAAAAAALT0/KNOfi7gWe_c/w563-h634-no/openhab_kostal_piko_screenshot.PNG)
 ```
-    /* AC-Leistung */
-    Number Solar_Aktuell "aktuell [%.0f W]" { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?aktuell</td>.*? (.*?)</td>.*)]" }
+    /* AC power */
+    Number Solar_Aktuell      "current photo-voltaic power [%.0f W]"  <inverter>   { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?aktuell</td>.*?([0-9]*)</td>.*)]" }
     
-    /* Energie */
-    Number Solar_Gesamt "Gesamtenergie [%.0f kWh]" { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?Gesamtenergie</td>.*? (.*?)</td>.*)]" }
-    Number Solar_Tagesenergie "Tagesenergie [%.2f kWh]" { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?Tagesenergie</td>.*? (.*?)</td>.*)]" }
+    /* Energy */
+    Number Solar_Gesamt       "total energy (runtime) [%.0f kWh]"     <energy>     { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?Gesamtenergie</td>.*?(\\d*)</td>.*)]" }
+    Number Solar_Tagesenergie "total energy (per day) [%.2f kWh]"     <energy>     { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*Tagesenergie</td>.*?([0-9\\.]*)</td>.*)]" }
     
-    /* PV-Generator */
+    /* photo-voltaic inverter */
+    /* the following samples are not verified yet! Update comming soon */
     Number Solar_PVG_Str1_Spannung "String 1 Spannung [%.0f V]" { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?String 1</u></td>.*?Spannung</td>.*? (.*?)</td>.*)]" }
     Number Solar_PVG_Str1_Strom "String 1 Strom [%.2f A]" { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?String 1</u></td>.*?Strom</td>.*? (.*?)</td>.*)]" }
     
@@ -212,7 +213,7 @@ Sample output for this definition would then be "Window 1 is opened" or "Window 
     Number Solar_AL_L3_Spannung "L3 Spannung [%.0f V]" { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?L3</u></td>.*?Spannung</td>.*? (.*?)</td>.*)]" }
     Number Solar_AL_L3_Leistung "L3 Leistug [%.0f W]"  { http="<[http://pvserver:password@192.168.0.27/index.fhtml:60000:REGEX(.*?L3</u></td>.*?Leistung</td>.*? (.*?)</td>.*)]" }
 ```
-Make sure you replace "password" with your password and edit the ip address.
+**Make sure you replace "password" with your password and edit the ip address!**
 
 ### How to send commands to Telldus Tellstick
 
