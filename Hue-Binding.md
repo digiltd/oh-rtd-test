@@ -14,10 +14,16 @@ First of all you need to configure the following values in the openhab.cfg file 
     # IP of the Hue bridge
     hue:ip=192.168.1.28
     hue:secret=pairingKeyForOpenHABSystem
+    hue:refresh=10000
 
 The hue:ip value is optional. If it is not provided, the binding tries to find the bridge on its own. This may not always work perfectly. The preferred way should be a defined IP.
 
 The hue:secret value is a string that gets stored in the hue bridge when pairing it with openHAB. That way the bridge 'knows' openHAB and allows it to send commands. It is kind of a password. Be aware that it is not encrypted in the communication. You may change this value to anything you like using characters and numbers. It must be between 10 and 40 characters long.
+
+The hue:refresh defines the polling interval in msec to retrieve Philips bulb status.
+Other apps can change Hue status or a physical switch can turn on / off lamp status. If this happens the status of hue lamps within OpenHAB won't reflect the real status.
+Currently (September 2014) there is no push technology available, so the only option is to poll Philips bulbs to retrieve status and update items accordingly to reflect changes.
+Polling is enabled if refresh is specified, by commenting out "hue:refresh=10000" statement. Be aware that polling will consume resources, so a small refresh interval will increase cpu load.
 
 ## Pairing the Philips Hue bridge
 
