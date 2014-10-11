@@ -124,5 +124,13 @@ As a result, your lines in the items file might look like the following:
     Dimmer CT_Dimm_1 	  "left bulb" 	(CTDimmer)	{hue="1;colorTemperature;30"}
     Dimmer CT_Dimm_2 	  "center bulb" (CTDimmer)	{hue="2;colorTemperature;30"}
     Dimmer CT_Dimm_3 	  "right bulb" 	(CTDimmer)	{hue="3;colorTemperature;30"}
+
+As a result, your lines in the sitemap file might look like the following:
+
+	Switch         item=Toggle_1                                label="Schlafzimmer"
+	Colorpicker    item=Color_1    visibility=[Toggle_1==ON]    label="Lichtfarbe Schlafzimmer"
+	Slider         item=Dimm_1     visibility=[Toggle_1==ON]    label="Helligkeit Schlafzimmer" 
+	Slider         item=CT_Dimm_1  visibility=[Toggle_1==ON]    label="Farbtemperatur Schlafzimmer"  
+
     
 For more information on the used API see the following link: http://developers.meethue.com/
