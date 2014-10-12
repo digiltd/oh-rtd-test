@@ -20,7 +20,7 @@ Most of config parameters are related to specific slaves, the only exception is
 
 which sets refresh interval to Modbus polling service. Value is in milliseconds - optional, default is 200
 
-     modbus:<slave-type>.<slave-name>:<slave-parameter>
+     modbus:<slave-type>.<slave-name>.<slave-parameter>
 
      <slave-type> can be either "tcp" or "serial"
      <slave-name> is unique name per slave you are connecting to.
@@ -36,6 +36,8 @@ Valid keys are
   <tr><td>length</td><td>mandatory?</td><td>number of data item to read, default 0 (but set it to something meaningful :)</td></tr>
   <tr><td>type</td><td>mandatory</td><td>data type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" are supported</td></tr>
 </table>
+
+Remark : in "`openhab_default.fcg`", the modbud binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`".
 
 Modbus read functions 
 - `type=coil` uses function 1,
