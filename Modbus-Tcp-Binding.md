@@ -37,7 +37,7 @@ Valid keys are
   <tr><td>type</td><td>mandatory</td><td>data type, can be either "coil", "discrete", "holding", "input" or "register", now only "coil", "discrete", "holding" and "input" are supported</td></tr>
 </table>
 
-Remark : in "`openhab_default.fcg`", the modbud binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`".
+Remark : in "`openhab_default.fcg`", the modbus binding section has a wrong key "`host`", this doesn't work if you put your slave ip address here. So you have to replace "`host`" by "`connection`" witch is the right key as mentioned above.
 
 Modbus read functions 
 - `type=coil` uses function 1,
