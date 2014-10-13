@@ -49,15 +49,15 @@ The first character is then followed by a section between square brackets (\[and
 [<thermostat>#<property>]
 ```
 
-Where `thermostat` is a decimal thermostat identifier for in, out and bidirectional bindings.
+Where `<thermostat>` is a decimal thermostat identifier for in, out and bidirectional bindings.
 
-For out bindings only, `thermostat` can instead be selection criteria that specify which thermostats to change. You can use either a comma-separated list of thermostat identifiers, or, for non-EMS thermostats only, a wildcard (the `*` character).
+For out bindings only, `<thermostat>` can instead be selection criteria that specify which thermostats to change. You can use either a comma-separated list of thermostat identifiers, or, for non-EMS thermostats only, a wildcard (the `*` character).
 
-In the case of out bindings for EMS or Utility accounts, the `thermostat` criteria can be a path to a management set (for example, `/Toronto/Campus/BuildingA`).
+In the case of out bindings for EMS or Utility accounts, the `<thermostat>` criteria can be a path to a management set (for example, `/Toronto/Campus/BuildingA`).
 
-The `thermostat` specification can be optionally prepended with a specific "user ID" as specified in openhab.cfg, as in `condo.123456789` when you have specified `ecobee:condo.scope` and `ecobee:condo.appkey` properties in openhab.cfg.
+The `<thermostat>` specification can be optionally prepended with a specific "user ID" as specified in openhab.cfg, as in `condo.123456789` when you have specified `ecobee:condo.scope` and `ecobee:condo.appkey` properties in openhab.cfg.
 
-`property` is one of a long list of thermostat properties than you can read and optionally change. See the list below, and peruse this binding's JavaDoc for all specifics as to their meanings.
+`<property>` is one of a long list of thermostat properties than you can read and optionally change. See the list below, and peruse this binding's JavaDoc for all specifics as to their meanings.
 
 <table>
 <thead><tr><th>Property</th><th>In</th><th>Out</ht></tr></thead>
