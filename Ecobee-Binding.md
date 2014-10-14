@@ -41,7 +41,7 @@ You would then include `condo.` in item references (see below) for those thermos
 
 In order to bind an item to a thermostat's properties and functions, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Ecobee binding configuration string is explained below.
 
-Ecobee bindings start with a <, > or =, to indicate if the item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
+Ecobee bindings start with a `<`, `>` or `=`, to indicate if the item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
 
 The first character is then followed by a section between square brackets (\[and \] characters):
 
@@ -49,23 +49,23 @@ The first character is then followed by a section between square brackets (\[and
 [<thermostat>#<property>]
 ```
 
-Where `<thermostat>` is a decimal thermostat identifier for in, out and bidirectional bindings.
+Where `<thermostat>` is a decimal thermostat identifier for in (`<`), out (`>`) and bidirectional (`=`) bindings.
 
-For out bindings only, `<thermostat>` can instead be selection criteria that specify which thermostats to change. You can use either a comma-separated list of thermostat identifiers, or, for non-EMS thermostats only, a wildcard (the `*` character).
+For out (`>`) bindings only, `<thermostat>` can instead be selection criteria that specify which thermostats to change. You can use either a comma-separated list of thermostat identifiers (no spaces), or, for non-EMS thermostats only, a wildcard (the `*` character).
 
-In the case of out bindings for EMS or Utility accounts, the `<thermostat>` criteria can be a path to a management set (for example, `/Toronto/Campus/BuildingA`).
+In the case of out bindings for EMS or Utility accounts, the `<thermostat>` criteria can be a path to a management set (for example, `/Toronto/Campus/BuildingA`).  Please note that management set path elements that contain the `.` or `#` characters cannot be specified.
 
 The `<thermostat>` specification can be optionally prepended with a specific "user ID" as specified in openhab.cfg, as in `condo.123456789` when you have specified `ecobee:condo.scope` and `ecobee:condo.appkey` properties in openhab.cfg.
 
 `<property>` is one of a long list of thermostat properties than you can read and optionally change. See the list below, and peruse this binding's JavaDoc for all specifics as to their meanings.
 
 <table>
-<thead><tr><th>Property</th><th>In</th><th>Out</ht></tr></thead>
+<thead><tr><th>Property</th><th>In</th><th>Out</th><th>Type</th></tr></thead>
 <tbody>
-<tr><td>name</td><td>X</td><td>X</td></tr>
-<tr><td>runtime.actualTemperature</td><td>X</td><td></td></tr>
-<tr><td>runtime.actualHumidity</td><td>X</td><td></td></tr>
-<tr><td>settings.hvacMode</td><td>X</td><td>X</td></tr>
+<tr><td>name</td><td>X</td><td>X</td><td>StringType</td></tr>
+<tr><td>runtime.actualTemperature</td><td>X</td><td></td><td>DecimalType</td></tr>
+<tr><td>runtime.actualHumidity</td><td>X</td><td></td><td>DecimalType</td></tr>
+<tr><td>settings.hvacMode</td><td>X</td><td>X</td><td>StringType</td></tr>
 </tbody>
 </table>
 
@@ -73,10 +73,10 @@ The `<thermostat>` specification can be optionally prepended with a specific "us
 ## Example Binding Strings
 
 ```
-{ ecobee="<[123456789#name]" }
+{ ecobee="=[123456789#name]" }
 ```
 
-Return the name of the thermostat whose ID is 123456789 using the default
+Return or set the name of the thermostat whose ID is 123456789 using the default
 Ecobee app instance (configured in openhab.cfg).
 
 ```
@@ -87,10 +87,10 @@ Return the current temperature read by the thermostat using the condo account
 at ecobee.com.
 
 ```
-{ ecobee=">[543212345#settings.fanMinOnTime]" }
+{ ecobee="=[543212345#settings.fanMinOnTime]" }
 ```
 
-Set the minimum number of minutes per hour the fan will run on thermostat ID
+Return or set the minimum number of minutes per hour the fan will run on thermostat ID
 543212345.
 
 ```
