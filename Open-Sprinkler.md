@@ -5,6 +5,8 @@ Documentation of the OpenSprinkler binding Bundle
 https://www.youtube.com/watch?v=lT0uxFlwu9s <br/>
 In the OpenHAB 1.3.0 release, this binding is compatible with with both the [OpenSprinkler](http://opensprinkler.com) and [OpenSprinkler Pi](http://pi.opensprinkler.com) hardware. In other words, this binding supports communicating to the !OpenSprinkler and !OpenSprinkler Pi using http (as long as you have the interval program installed), or directly via GPIO when using the !OpenSprinkler Pi.
 
+In the OpenHAB 1.6.0 release, the binding will sync itself with the OpenSprinkler device at intervals. This allows state of the stations to be updated if they are manually controlled from the OpenSprinkler web application directly.
+
 For installation of the binding, please see Wiki page [[Bindings]].
 
 ## Binding Configuration
@@ -34,6 +36,10 @@ Additionally, if you are wanting to connect via http to your !OpenSprinkler (mos
     # installed this number will can be incremented by 8. Default value is 8.
     # openSprinkler:numberOfStations=8
 
+    # The number of milliseconds between checks of the Open Sprinkler device
+    # (optional, defaults to 60 seconds).
+    # openSprinkler:refreshInterval=60000
+
 ## Item Binding Configuration
 
 In order to switch a station open or shut using the binding, you must firstly define a switch item in your item file (in the folder configurations/items). The syntax (by way of example) of the item configuration is shown below:
@@ -42,5 +48,17 @@ In order to switch a station open or shut using the binding, you must firstly de
     Switch Sprinkler_Station_0 	"Station 0" { openSprinkler="0" }
     Switch Sprinkler_Station_1 	"Station 1" { openSprinkler="1" }
 
+    /* Rain Sensor (New in 1.6+) */
+    Contact Sprinkler_Rain_Sensor  "Rain [MAP(rainsensor.map):%s]" { openSprinkler="rs" }
+
 You can see in this example that two stations are exposed as items. The first station exposed is the 0th port (i.e. the left-most pin on the OpenSprinkler Pi), and the second station is the 1st port (the second-to-left-most pin on the OpenSprinkler Pi). Note that there is no requirement to use the stations in order - you can open and close any station.
- 
+
+The rainsensor example allows users in OpenHab 1.6+ to see if rain is detected or not by the OpenSprinkler hardware (Only supported in HTTP mode).
+
+## rainsensor.map File (1.6+)
+
+This file should be created in the transforms subdirectory and contain the following:
+
+    CLOSED=Not Detected
+    OPEN=Detected
+    -=Unknown
