@@ -14,7 +14,7 @@ Samples of Item definitions
     /* OLD Configuration */
     Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock) { homematic="HEQ0358465:1#STATE" }
     /* New Configuration */
-    Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock {homematic="address=HEQ0358465, channel=1, parameter=STATE" }
+    Contact corFrontDoor "Front Door [%s]" <frontdoor> (gRCor, gLock) {homematic="address=HEQ0358465, channel=1, parameter=STATE" }
     Text item=corFrontDoor
     
 ### How to use homematic window contact sensors
