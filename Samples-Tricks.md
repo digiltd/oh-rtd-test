@@ -322,7 +322,8 @@ Make the script executable and configure it to run on boot.
     sudo chmod a+x /etc/init.d/openhab
     sudo update-rc.d openhab defaults
 
-Now whenever your Linux machine boots openHAB will be automatically started in a screen-session called openHAB. To reach the OSGI-Console, just type ```sudo -u openhab screen -r openHAB```
+Now whenever your Linux machine boots openHAB will be automatically started in a screen-session called openHAB. To reach the OSGI-Console, just type 
+```sudo -u openhab screen -r openHAB```
 
 ### How to configure openHAB to start automatically on Windows
 
