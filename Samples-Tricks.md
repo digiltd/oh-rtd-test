@@ -4,6 +4,7 @@ Miscellaneous Tips & Tricks
 * [How to do a proper ICMP ping on Linux](Samples-Tricks#how-to-do-a-proper-icmp-ping-on-linux)
 * [How to add current or forecast weather icons to your sitemap](Samples-Tricks#how-to-add-current-or-forecast-weather-icons-to-your-sitemap)
 * [How to configure openHAB to start automatically on Linux](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux)
+* [How to configure openHAB to start automatically on Linux with screen](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux-with-screen)
 * [How to configure openHAB to start automatically on Windows](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-windows)
 * [How start openHAB automatically on Linux using systemd](Samples-Tricks#how-start-openhab-automatically-on-linux-using-systemd)
 * [Use cheap bluetooth dongles on remote PCs to detect your phone/watch](Samples-Tricks#use-cheap-bluetooth-dongles-on-remote-pcs-to-detect-your-phonewatch)
@@ -254,6 +255,74 @@ Make the script executable and configure it to run on boot.
     sudo update-rc.d openhab defaults
 
 Now whenever your Linux machine boots openHAB will be automatically started.
+
+### How to configure openHAB to start automatically on Linux with screen
+
+Prequerities: screen installed
+
+```sh
+    #! /bin/sh
+### BEGIN INIT INFO
+# Provides:   openHAB
+# Required-Start: $local_fs $remote_fs
+# Required-Stop:  $local_fs $remote_fs
+# Should-Start:   $network
+# Should-Stop:    $network
+# Default-Start:  2 3 4 5
+# Default-Stop:   0 1 6
+# Short-Description:    Start and stop openHAB in screen Session
+# Description:    This runs openHAB continuously in screen.
+### END INIT INFO
+# Set OH-User
+OHUSER=openhab
+# Set OH-Path
+OHPATH=/opt/openhab
+
+case "$1" in
+
+  start)
+        PID=`ps -ef | grep openHAB | grep -v grep | awk '{print $2}'`
+        if [ "${PID}" != "" ]
+         then
+          echo openHAB-Screen scheint schon zu laufen! PID ist `pidof SCREEN`
+         else
+          echo "Starting openHAB"
+          cd ${OHPATH}
+          sudo -u ${OHUSER} screen -S openHAB -dm  sh ./start.sh
+        fi
+        ;;
+  stop)
+        echo "Stopping openHAB"
+        sudo -u ${OHUSER} screen -S openHAB -p 0 -X stuff "exit$(printf \\r)"
+        sudo -u ${OHUSER} screen -S openHAB -p 0 -X stuff "y$(printf \\r)"
+        sudo -u ${OHUSER} screen -S openHAB -p 0 -X stuff "exit$(printf \\r)"
+        PID=`ps -ef | grep openHAB | grep -v grep | awk '{print $2}'`
+        while [ `ps -ef | grep $PID | wc -l` -gt 1 ]
+         do
+          echo -n .
+          sleep 2
+         done
+        echo .
+        ;;
+  restart|force-reload)
+        echo "Restarting openHAB"
+        $0 stop
+        $0 start
+        ;;
+  *)
+        N=/etc/init.d/$NAME
+        echo "Usage: $N {start|stop|restart}" >&2
+        exit 1
+        ;;
+esac
+exit 0
+```
+Make the script executable and configure it to run on boot.
+
+    sudo chmod a+x /etc/init.d/openhab
+    sudo update-rc.d openhab defaults
+
+Now whenever your Linux machine boots openHAB will be automatically started in a screen-session called openHAB. To reach the OSGI-Console, just type ```sudo -u openhab screen -r openHAB```
 
 ### How to configure openHAB to start automatically on Windows
 
