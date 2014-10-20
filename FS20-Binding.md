@@ -17,6 +17,8 @@ Starting with version 1.6 you can adjust baudrate and parity handling too. For b
     fs20:baudrate=38400
     fs20:parity=0
 
+To connect to a networked CUL e.g. one made available by ser2net from a tuxnet device:
+    fs20:device=network:<my host ip>:<my port>
 
 ### Item configuration
 You can use SwitchItems and DimmerItems with this binding. You need to know the house address and device address of the device you want to receive messages or send messages to. To find these addresses you can start openhab in debug mode. The CUL transport will print all out all received messages.
@@ -33,3 +35,12 @@ In the `fhem.cfg` you find such statements:
     define AmbiLight FS20 c04b 01
 
 Just write the last "words" together and you have the full address you need for your item (see above).
+
+### Networked connection with ser2net
+
+To use a networked CUL device for FS20 from ser2net, this line in /etc/ser2net.conf on the remote host will publish the serial interface (replace /dev/ttySP1 with whatever is apropriate):
+
+    3333:raw:0:/dev/ttySP1:38400 8DATABITS NONE 1STOPBIT
+with
+    fs20:device=network:myhostnamewithCUL:333
+you can connect to this remote CUL
