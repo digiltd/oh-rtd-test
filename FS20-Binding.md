@@ -38,7 +38,7 @@ Just write the last "words" together and you have the full address you need for 
 
 ### Networked connection with ser2net
 
-To use a networked CUL device for FS20 from ser2net, this line in /etc/ser2net.conf on the remote host will publish the serial interface (replace /dev/ttySP1 with whatever is apropriate):
+To use a networked CUL device for FS20 from ser2net, this line in /etc/ser2net.conf on the remote host will publish the serial interface (replace /dev/ttySP1 with whatever is appropriate):
 
     3333:raw:0:/dev/ttySP1:38400 8DATABITS NONE 1STOPBIT
 
