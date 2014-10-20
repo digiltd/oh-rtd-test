@@ -44,6 +44,6 @@ To use a networked CUL device for FS20 from ser2net, this line in /etc/ser2net.c
 
 with
 
-    fs20:device=network:myhostnamewithCUL:333
+    fs20:device=network:myhostnamewithCUL:3333
 
 you can connect to this remote CUL.
