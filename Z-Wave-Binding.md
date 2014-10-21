@@ -169,14 +169,14 @@ Here are some examples of valid binding configuration strings, as defined in the
 
     /* Some statistics */
     
-    Number ZwaveStatsSOF "Number Start of Frames[%s]" (gZwaveStats) {zwave="1:1:command=info,item=sof"}
-    Number ZwaveStatsACK "Number of Acknowledgments [%s]" (gZwaveStats) {zwave="1:1:command=info,item=ack"}
-    Number ZwaveStatsCAN "Number of CAN [%s]" (gZwaveStats) {zwave="1:1:command=info,item=can"}
-    Number ZwaveStatsNAK "Number of NAK [%s]" (gZwaveStats) {zwave="1:1:command=info,item=nak"}
-    Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {zwave="1:1:command=info,item=oof"}
-    Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats) {zwave="1:1:command=info,item=time_out"}
-    String ZwaveNode01HomeID	"Home ID [%s]" (gZwaveNode01) {zwave="1:1:command=info,item=home_id"}
-    Number ZwaveNode01NetworkID	"Node ID [%s]" (gZwaveNode01) {zwave="1:1:command=info,item=node_id"}
+    Number ZwaveStatsSOF "Number Start of Frames[%s]" (gZwaveStats) {zwave="1:command=info,item=sof"}
+    Number ZwaveStatsACK "Number of Acknowledgments [%s]" (gZwaveStats) {zwave="1:command=info,item=ack"}
+    Number ZwaveStatsCAN "Number of CAN [%s]" (gZwaveStats) {zwave="1:command=info,item=can"}
+    Number ZwaveStatsNAK "Number of NAK [%s]" (gZwaveStats) {zwave="1:command=info,item=nak"}
+    Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {zwave="1:command=info,item=oof"}
+    Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats) {zwave="1:command=info,item=time_out"}
+    String ZwaveNode01HomeID	"Home ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=home_id"}
+    Number ZwaveNode01NetworkID	"Node ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=node_id"}
     
     /* A dimmer and a contact */
     
