@@ -2,7 +2,7 @@ Documentation of the Z-Wave binding Bundle.
 
 ## Introduction
 
-The OpenHAB Z-Wave binding allows you to connect to your Z-Wave wireless mesh network.  A Z-Wave network typically consists of one primary controller “stick”, zero or more additional controllers and zero or more Z-Wave enabled devices, e.g. dimmers, switches, sensors et cetera.
+The OpenHAB Z-Wave binding allows you to connect to your Z-Wave wireless mesh network.  A Z-Wave network typically consists of one primary controller “stick”, zero or more additional controllers and zero or more Z-Wave enabled devices, e.g. dimmers, switches, sensors etc.
 Connection to the Z-Wave controller is done through the serial port of your host system. USB controllers typically create a virtual COM port to connect to the stick. Please write down the port name before configuring this binding. In case your port name changes dynamically and you want to use a symlink, see [Tricks](Samples-Tricks). A list of supported controllers is listed below.
 
 Initialization of the binding typically takes several seconds to minutes depending on the number of devices in the network. When battery operated devices are used the binding tries to reach the device first. After one minute the node is marked sleeping. On wake up of the device initialization will continue.
@@ -51,9 +51,9 @@ where parts in brackets indicate an optional item. Usually only one item is boun
 
 The node ID indicates the number (in decimal notation) of the node, to which this item is bound. To find out your devices nodeIds either look at the startup log of openhab or use other Z-Wave configuration programs like openzwave control panel to detect and configure your setup.
 
-The endpoint ID is optional. In case a node consists of multiple instances or endpoints, the instance number can be specified using this value. The default value is 1. An example of a multi-endpoint device is the Fibaro FGS 221 double relay.
+The endpoint ID is required when using the multi_instance command class. In case a node consists of multiple instances or endpoints, the instance number can be specified using this value. The default value is not to use the multi_instance command class (effectively a default value of 0). An example of a multi-endpoint device is the Fibaro FGS 221 double relay.
 
-The command is optional. Z-Wave nodes support functionality through command classes. A specific command class can be specified to use that specific functionality of the node. A node can contain multiple supported command classes. If the command is omitted, the best suitable command class for the item / node combination is automatically chosen.
+The command is optional, but recommended if you have multiple items bound to the same device, or the device reports multiple bits of information. Without the command class, the binding can not unambiguously differentiate different data, so it is recommended to provide a command class. Z-Wave nodes support functionality through command classes. A specific command class can be specified to use that specific functionality of the node. A node can contain multiple supported command classes. If the command is omitted, the best suitable command class for the item / node combination is automatically chosen.
 
 Command classes may support parameters. A parameter is a name=value pair that configures some aspect of the command class on the node or in the binding.
 
@@ -161,7 +161,7 @@ To find out which command classes are supported by your Z-Wave device, you can l
 
 ## Known Issues
 
-There seems to be an issue with the binding running on the latest oracle VM Beta, on ARM based architectures (e.g. raspberry PI). It manifests itself as messages being received multiple times and causes considerable problems with the operation of the binding. In large networks, the queue can get extremely long, which can delay initialisation considerably and cause potentially long delays in sending messages. Some time has been spent investigating this issue and a solution has not been found - the issue doesn't appear to be with the binding itself as the problem doesn't manifest itself on an other platform. If anyone with the hardware and programming experience can help with this it would be useful.
+There seems to be an issue with the binding running on the latest oracle VM Beta, on ARM based architectures (e.g. raspberry PI). It manifests itself as messages being received multiple times and causes considerable problems with the operation of the binding. In large networks, the queue can get extremely long, which can delay initialisation considerably and cause potentially long delays in sending messages. Some time has been spent investigating this issue and a solution has not been found - the issue doesn't appear to be with the binding itself as the problem doesn't manifest itself on an other platform. If anyone with the hardware and programming experience can help with this it would be useful (add information to #1564).
 
 ## Examples
 
