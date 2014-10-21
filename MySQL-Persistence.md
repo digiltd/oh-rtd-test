@@ -20,7 +20,7 @@ This persistence service can be configured in the "SQL Persistence Service" sect
 ```
 ############################ mySQL Persistence Service ##################################
 
-# the database url like 'jdbc:mysql://<host>:<port>/<user>'
+# the database url like 'jdbc:mysql://<host>:<port>/<database>'
 mysql:url=jdbc:mysql://127.0.0.1/openhab
 
 # the database user
