@@ -161,7 +161,7 @@ To find out which command classes are supported by your Z-Wave device, you can l
 
 ## Known Issues
 
-There seems to be an issue with the binding running on the latest oracle VM Beta, on ARM based architectures (e.g. raspberry PI). It manifests itself as messages being received multiple times and causes considerable problems with the operation of the binding. In large networks, the queue can get extremely long, which can delay initialisation considerably and cause potentially long delays in sending messages. Some time has been spent investigating this issue and a solution has not been found - the issue doesn't appear to be with the binding itself as the problem doesn't manifest itself on an other platform. If anyone with the hardware and programming experience can help with this it would be useful (add information to #1564).
+There seems to be an issue with the binding running on the latest oracle VM Beta, on ARM based architectures (e.g. raspberry PI). It manifests itself as messages being received multiple times and causes considerable problems with the operation of the binding. In large networks, the queue can get extremely long, which can delay initialisation considerably and cause potentially long delays in sending messages. Some time has been spent investigating this issue and a solution has not been found - the issue doesn't appear to be with the binding itself as the problem doesn't manifest itself on an other platform. If anyone with the hardware and programming experience can help with this it would be useful (add information to https://github.com/openhab/openhab/issues/1564).
 
 ## Examples
 
