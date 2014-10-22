@@ -5,14 +5,14 @@ Here's the recipe:
 
 2. Copy the authorization URL and open it in a new browser. Use your Nest login to approve the request. Once approved, you will get a "pincode".
 
-3. I used curl, but there are other tools out there to do an http post. In the "Access Token URL", replace the "AUTHORIZATION_CODE" with the pincode from step 3
+3. I used curl, but there are other tools out there to do an http post. In the "Access Token URL", replace the "AUTHORIZATION_CODE" with the pincode from step 2.
 
 4. `curl --data 'code=AUTH_CODE&client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=authorization_code' https://api.home.nest.com/oauth2/access_token`
 
     `{"access_token":"[big long random string]","expires_in":315360000}`
 5. We're done! The above access_token will give you access to the api for the next 10 years :-)
 
-6. To test, open the following url in your browser: https://developer-api.nest.com/devices/thermostats?auth=[big long random string from step 5]
+6. To test, open the following url in your browser: https://developer-api.nest.com/devices/thermostats?auth=[big long random string from step 4]
 
 7. A json structure should be returned with all your devices. Get the "device_id" for your thermostat.
 
@@ -30,7 +30,7 @@ Number curNestTargetTemp   "Nest Target [%.1f F]"  <temperature> (Weather_Chart,
 
 ############################### HTTP Binding ##########################################
 
-`http:nest.url=https://developer-api.nest.com/devices/thermostats/[DEVICE_ID from step 8]?auth=[big long random string from step 5]`
+`http:nest.url=https://developer-api.nest.com/devices/thermostats/[DEVICE_ID from step 7]?auth=[big long random string from step 5]`
 
 `http:nest.updateInterval=60000`
 
