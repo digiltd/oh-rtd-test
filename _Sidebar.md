@@ -142,6 +142,7 @@ Samples
   * [[Samples-Comfo-Air-Binding]]
   * [[Samples WAC Binding|Samples WAC Binding]]
   * [[Samples Integrate WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
+  * [[Samples nest thermostate|Sample-nest-thermostate-%28read-only%29]]
  * [[Rules|Samples-Rules]]
  * [[REST Examples|Samples-REST]]
  * [[Tips & Tricks|Samples-Tricks]]
