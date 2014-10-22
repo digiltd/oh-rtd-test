@@ -47,6 +47,7 @@ Community
   * [[Fritz!Box Binding|Fritz-Box-Binding]]
   * [[Fritz AHA Binding|Fritz-AHA-Binding]]
   * [[FS20 Binding|FS20-Binding]]
+  * [[Global Cache Binding|global-cache]]
   * [[GPIO Binding|GPIO-Binding]]
   * [[HAI/Leviton OmniLink Binding|OmniLink-Binding]]
   * [[HDAnywhere Binding|HDanywhere-Binding]]
