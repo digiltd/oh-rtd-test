@@ -154,6 +154,13 @@ Each node in the network provides functionality in the form of Command Classes. 
 		5 = "Pending Cool"<br/>
 		6 = "Vent / Economizer"<br/>
   </td></tr>
+<tr><td>THERMOSTAT_SETPOINT</td><td>(since 1.6.0) Used to get and set the setpoint of the thermostat</td><td>**setpoint_type=value** : parameter to select setpoint type, value is one of the following numerical values:<br/>
+               1 = Heat <br/>
+               2 = Cool <br/>
+ *setpoint_scale=value** : optional parameter to select setpoint scale, value is one of the following numerical values:<br/>
+               0 = Celsius <br/>
+               1 = Fahrenheit <br/>
+</td></tr>
 </table>
 
 ## Parameters that can be added to any item
