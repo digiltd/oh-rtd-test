@@ -128,7 +128,7 @@ Each node in the network provides functionality in the form of Command Classes. 
   <tr><td>SENSOR_ALARM</td><td>Used to get alarm info from sensors.</td><td>*alarm_type=value* : optional parameter to select an alarm type in case the node supports multiple alarms. Value is one of the following **numerical** values: <br/>GENERAL(0, "General")<br/>SMOKE(1, "Smoke")<br/>CARBON_MONOXIDE(2, "Carbon Monoxide")<br/>CARBON_DIOXIDE(3, "Carbon Dioxide")<br/>HEAT(4, "Heat")<br/>FLOOD(5, "Flood")</td></tr>
   <tr><td>SCENE_ACTIVATION</td><td>Used to respond to Scene events.</td><td>scene=xx to identify the scene to trigger on <br/> state=xx to set the item to the specified state (xx is an integer)</td></tr>
   <tr><td>ALARM</td><td></td></tr>
-  <tr><td>MULTI_CMD</td><td>Used to send multiple command classes in a single packet.</td></tr>
+  <tr><td>MULTI_CMD</td><td>Used to send multiple command classes in a single packet.</td><td></td></tr>
   <tr><td>THERMOSTAT_MODE</td><td>(since 1.6.0) Used to get and set the mode (of Number type) of the thermostat</td><td> numeric values translate to the following types <br/>
                 0 = "Off"<br/>
 		1 = "Heat"<br/>
