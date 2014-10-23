@@ -145,6 +145,15 @@ Each node in the network provides functionality in the form of Command Classes. 
 		12 = "Cool Econ"<br/>
 		13 = "Away"<br/>
   </td></tr>
+ <tr><td>THERMOSTAT_OPERATING_STATE</td><td>(since 1.6.0) Used to get the operating state (of Number type) of the thermostat</td><td> numeric values translate to the following types <br/>
+                0 = "Idle"<br/>
+		1 = "Heating"<br/>
+		2 = "Cooling"<br/>
+		3 = "Fan Only"<br/>
+		4 = "Pending Heat"<br/>
+		5 = "Pending Cool"<br/>
+		6 = "Vent / Economizer"<br/>
+  </td></tr>
 </table>
 
 ## Parameters that can be added to any item
