@@ -170,6 +170,11 @@ Each node in the network provides functionality in the form of Command Classes. 
 		5 = "Unknown"<br/>
 		6 = "Circulate"<br/>
   </td></tr>
+<tr><td>THERMOSTAT_FAN_STATE</td><td>(since 1.6.0) Used to get the fan state (of Number type) of the thermostat</td><td> numeric values translate to the following types <br/>
+                0 = "Idle"<br/>
+		1 = "Running"<br/>
+		2 = "Running High"<br/>
+  </td></tr>
 </table>
 
 ## Parameters that can be added to any item
