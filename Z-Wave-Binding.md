@@ -129,6 +129,22 @@ Each node in the network provides functionality in the form of Command Classes. 
   <tr><td>SCENE_ACTIVATION</td><td>Used to respond to Scene events.</td><td>scene=xx to identify the scene to trigger on <br/> state=xx to set the item to the specified state (xx is an integer)</td></tr>
   <tr><td>ALARM</td><td></td></tr>
   <tr><td>MULTI_CMD</td><td>Used to send multiple command classes in a single packet.</td></tr>
+  <tr><td>THERMOSTAT_MODE</td><td>(since 1.6.0) Used to get and set the mode (of Number type) of the thermostat, numeric values translate to the following types <br/>
+                0 = "Off"<br/>
+		1 = "Heat"<br/>
+		2 = "Cool"<br/>
+		3 = "Auto"<br/>
+		4 = "Aux Heat"<br/>
+		5 = "Resume"<br/>
+		6 = "Fan Only"<br/>
+		7 = "Furnace"<br/>
+		8 = "Dry Air"<br/>
+		9 = "Moist Air"<br/>
+		10 = "Auto Changeover"<br/>
+		11 = "Heat Econ"<br/>
+		12 = "Cool Econ"<br/>
+		13 = "Away"<br/>
+  </td></tr>
 </table>
 
 ## Parameters that can be added to any item
