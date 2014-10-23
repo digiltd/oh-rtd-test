@@ -269,6 +269,15 @@ Here are some examples of valid binding configuration strings, as defined in the
     Number Energy_Powerbar_Xbox "XBOX-360 total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:5:command=meter,meter_scale=E_KWh,refresh_interval=340"} 
     Number Energy_Powerbar_PC "Mediacenter total energy usage  [%.4f KWh]" (GF_Living) {zwave="26:6:command=meter,meter_scale=E_KWh,refresh_interval=350"} 
     
+    /* Honeywell Thermostat with both heating and cooling and in Fahrenheit */
+
+    Number Down_HVAC_HeatSetPoint "Heat Set [%.0f F]"	<thermostat>	(Group_HVAC_Downstairs)	{ zwave="7:command=thermostat_setpoint,setpoint_type=1,setpoint_scale=1" }
+    Number Down_HVAC_CoolSetPoint "Cool Set [%.0f F]"	<thermostat>	(Group_HVAC_Downstairs)	{ zwave="7:command=thermostat_setpoint,setpoint_type=2,setpoint_scale=1" }
+    Number Down_HVAC_Temperature  "Temperature [%.1f °F]" <thermostat> (Group_HVAC_Downstairs) { zwave="7:command=sensor_multilevel,sensor_type=1" }
+    Number Down_HVAC_Mode "Mode [%d]"	(Group_HVAC_Downstairs)	{ zwave="7:command=thermostat_mode" }
+    Number Down_HVAC_Fan_Mode "Fan Mode [%d]"	(Group_HVAC_Downstairs)	{ zwave="7:command=thermostat_fan_mode" }
+    Number Down_HVAC_Operating_State "Opp State [MAP(thermostatOpState.map):%d]" (Group_HVAC_Downstairs) { zwave="7:command=thermostat_operating_state" }
+    Number Down_HVAC_Fan_State "Fan State [MAP(thermostatFanState.map):%d]" (Group_HVAC_Downstairs)	{ zwave="7:command=thermostat_fan_state" }
 
 ## Healing
 The binding can perform a nightly heal. This will try to update the neighbor node list, associations and routes. The actual routing is performed by the controller.
