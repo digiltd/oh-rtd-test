@@ -161,6 +161,15 @@ Each node in the network provides functionality in the form of Command Classes. 
                0 = Celsius <br/>
                1 = Fahrenheit <br/>
 </td></tr>
+<tr><td>THERMOSTAT_FAN_MODE</td><td>(since 1.6.0) Used to get the fan mode (of Number type) of the thermostat</td><td> numeric values translate to the following types <br/>
+                0 = "Auto Low"<br/>
+		1 = "On Low"<br/>
+		2 = "Auto High"<br/>
+		3 = "On High"<br/>
+		4 = "Unknown"<br/>
+		5 = "Unknown"<br/>
+		6 = "Circulate"<br/>
+  </td></tr>
 </table>
 
 ## Parameters that can be added to any item
