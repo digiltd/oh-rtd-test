@@ -41,7 +41,7 @@ The following devices have been tested and should work out of the box:
 <td>2477S</td><td>SwitchLinc Switch</td><td>F00.00.02</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td></td><td></td>
+<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td></td><td>Benido Josenivaldo</td>
 </tr>
 <tr>
 <td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td></td><td></td>
@@ -50,13 +50,13 @@ The following devices have been tested and should work out of the box:
 <td>2456D3</td><td>LampLinc V2</td><td>F00.00.05</td><td></td><td></td>
 </tr>
 <tr>
-<td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td></td><td></td>
+<td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td></td><td>Benido Josenivaldo</td>
 </tr>
 <tr>
-<td>2453-222</td><td>DIN Rail On/Off</td><td>F00.00.07</td><td></td><td></td>
+<td>2453-222</td><td>DIN Rail On/Off</td><td>F00.00.07</td><td></td><td>Benido Josenivaldo</td>
 </tr>
 <tr>
-<td>2452-222</td><td>DIN Rail Dimmer</td><td>F00.00.08</td><td></td><td></td>
+<td>2452-222</td><td>DIN Rail Dimmer</td><td>F00.00.08</td><td></td><td>Benido Josenivaldo</td>
 </tr>
 <tr>
 <td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>
@@ -82,7 +82,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2843-222</td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td></td><td></td>
+<td>2843-222</td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td></td><td>Benido Josenivaldo</td>
 </tr>
 <tr>
 <td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td></td><td>Bernd Pfrommer</td>
