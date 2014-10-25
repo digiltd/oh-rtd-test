@@ -64,7 +64,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 </td><td>cdeadlock</td>
 </tr>
 <tr>
-<td>2852-222</td><td>Leak Sensor</td><td>F00.00.0A</td><td></td><td></td>
+<td>2852-222</td><td>Leak Sensor</td><td>F00.00.0A</td><td></td><td>Kirk McCann</td>
 </tr>
 <tr>
 <td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td></td><td></td>
@@ -76,7 +76,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td></td>
+<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td>Joe Barneson</td>
 </tr>
 <tr>
 <td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td></td><td>Bernd Pfrommer</td>
@@ -88,10 +88,10 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2486DWH8</td><td>KeypadLinc Dimmer</td><td>0x000051</td><td></td><td></td>
+<td>2486DWH8</td><td>KeypadLinc Dimmer</td><td>0x000051</td><td></td><td>Chris Graham</td>
 </tr>
 <tr>
-<td>2472D</td><td>OutletLincDimmer</td><td>0x000068</td><td></td><td></td>
+<td>2472D</td><td>OutletLincDimmer</td><td>0x000068</td><td></td><td>Chris Graham</td>
 </tr>
 </table>
 
