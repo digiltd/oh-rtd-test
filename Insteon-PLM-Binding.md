@@ -61,7 +61,7 @@ The following devices have been tested and should work out of the box:
 <tr>
 <td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>
 Read the instructions very carefully: Sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
-</td><td></td>
+</td><td>cdeadlock</td>
 </tr>
 <tr>
 <td>2852-222</td><td>Leak Sensor</td><td>F00.00.0A</td><td></td><td></td>
