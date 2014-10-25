@@ -7,6 +7,7 @@ Miscellaneous Tips & Tricks
 * [How to configure openHAB to start automatically on Linux with screen](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux-with-screen)
 * [How to configure openHAB to start automatically on Windows](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-windows)
 * [How start openHAB automatically on Linux using systemd](Samples-Tricks#how-start-openhab-automatically-on-linux-using-systemd)
+* [How to configure openHAB to start automatically on MacOSX](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-macosx)
 * [Use cheap bluetooth dongles on remote PCs to detect your phone/watch](Samples-Tricks#use-cheap-bluetooth-dongles-on-remote-pcs-to-detect-your-phonewatch)
 * [Check presence by detecting WiFi phones/tablets] (Samples-Tricks#check-presence-by-detecting-wifi-phonestablets)
 * [Get connection status of all network devices from Fritz!Box, eg for presence detection](Samples-Tricks#get-connection-status-of-all-network-devices-from-fritzbox-eg-for-presence-detection)
@@ -420,6 +421,58 @@ openhab.service - Open Home Automation Bus
            └─6124 java -Dosgi.clean=true -Declipse.ignoreApp=true -Dosgi.noShutdown=true -Djetty.port=8080 -Djetty.port.ssl=8443 -Djetty.home=. -Dlogback.configurationFi...
 ```
 
+### How to configure openHAB to start automatically on MacOSX
+
+Create a new file named org.openhab.daemon.plist in /Library/LaunchDaemons using your preferred editor (e.g. nano) as root user.
+
+```
+$ sudo nano /Library/LaunchDaemons/org.openhab.daemon.plist
+```
+
+Copy the code below. 
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>GID</key>
+        <integer>0</integer>
+        <key>Label</key>
+        <string>org.openhab.daemon</string>
+        <key>OnDemand</key>
+        <false/>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>Program</key>
+        <string>/Applications/openhab/start.sh</string>
+        <key>UserName</key>
+        <string>root</string>
+        <key>KeepAlive</key>
+        <true/>
+</dict>
+</plist>
+```
+
+Ensure that the file has the correct user.
+
+```
+$ sudo chown root /Library/LaunchDaemons/org.openhab.daemon.plist
+```
+
+The openhab process will now be launched at startup by launchd.
+
+Alternatively it is possible to start the openhab process with the following command:
+
+```
+$ sudo launchctl load -w /Library/LaunchDaemons/org.openhab.daemon.plist
+```
+
+It is also possible to stop the openhab process using the following command:
+
+```
+$ sudo launchctl unload /Library/LaunchDaemons/org.openhab.daemon.plist
+```
 
 ### Use cheap bluetooth dongles on remote PCs to detect your phone/watch
 
