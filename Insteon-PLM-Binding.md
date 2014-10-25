@@ -44,10 +44,10 @@ The following devices have been tested and should work out of the box:
 <td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td></td><td>Benido Josenivaldo</td>
 </tr>
 <tr>
-<td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td></td><td></td>
+<td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td></td><td>Patrick Giasson</td>
 </tr>
 <tr>
-<td>2456D3</td><td>LampLinc V2</td><td>F00.00.05</td><td></td><td></td>
+<td>2456D3</td><td>LampLinc V2</td><td>F00.00.05</td><td></td><td>Patrick Giasson</td>
 </tr>
 <tr>
 <td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td></td><td>Benido Josenivaldo</td>
@@ -76,7 +76,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td>Joe Barneson</td>
+<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td>Patrick Giasson</td>
 </tr>
 <tr>
 <td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td></td><td>Bernd Pfrommer</td>
