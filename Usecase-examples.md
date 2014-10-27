@@ -2,7 +2,8 @@
 
 This is a collection of possible use cases to inspire adding intelligence to your home automation.
 
-If possible examples are sorted by categories. Some might actually fit into more than one category. Some in none:
+If possible examples are sorted by categories. Some might actually fit into more than one category. Some into none. 
+Please link to corresponding rules in the samples section.
 
 * location based
 * environmental
@@ -12,7 +13,6 @@ If possible examples are sorted by categories. Some might actually fit into more
  
 
 ## location based
-(via mqttitude, ibeacon, rfid, bluetooth, wlan, tasker(Android) )
 * predicting when you gonna arrive from works, and preheating the home 20minutes sooner via calendar or geofence.
 * cut off power (with some exceptions, like fridge, openHab server, etc), water supply, etc. when alarm is armed or via geofence
 * RFID / ibeacons in shoes, and reader in door mats, so you can be tracked which room are u in (and music can follow u), or other high AI stuff based on ur profile
@@ -29,10 +29,11 @@ If possible examples are sorted by categories. Some might actually fit into more
 ## scenes
 * Adjust lights for bedtime (most lights off; hallway on dim, front door on dim, etc. / if everything is off use red light betwenn bedroom and toilett)
 * If no one is home (security system armed), turn certain lights on and off at semi-random intervals
-* Tv: adjust light, rollershutter, switch on Beamer, receiver, player. Brighten the light if the phone or doorbell rings and hit pause. Same if I hit pause manually.
+* Tv: adjust light, rollershutter, switch on Beamer, receiver, player. Brighten the light if the phone or doorbell rings and hit pause. Show the caller number / front door cam on the tv screen. Brighten lights if I hit pause manually.
 * dinner scene - adjust lighting and start playing music in living room
 
 ## event triggered
+* decrease tv / music volume if someone calls / rings the bell. Display the number / front door cam picture on the tv if its on. Otherwise switch it on until the call was picked up or the front door was opened.
 * starting a sunrise simulation 10 minutes before your alarm clock goes off and switch on all daylight bulps and heating or when motion detected in kitchen after 6am and house is in 'sleep' mode, switch to 'awake' mode.
 Then switch on other lighting  when the sunrise simulation has finished. Start the coffee machine, play weather forecast on Squeezebox and if a work day fire up my work PC.
 * Light up status LED in the house if outer gates are open
