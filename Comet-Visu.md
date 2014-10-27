@@ -31,7 +31,7 @@ Note: This information ist taken from [here](http://www.cometvisu.de/wiki/index.
 * Then just extract the "release" folder (the one which contains the index.html file) of the downloaded CometVisu archive in openHAB´s webapps folder and rename it to, e.g. cometVISU.
 
 ## Configuration
-If you don´t use the given example below, please make sure that you correctly configure openHAB as backend in the CometVisu-Config by adding `backend='oh'` to the root pages-element.
+If you don´t use the given example below, please make sure that you correctly configure openHAB as backend in the CometVisu-Config by adding `backend="oh"` to the root pages-element.
 
 [This](https://www.dropbox.com/s/5ip5fv5h5d4st9v/cometVISU_openHAB.zip) is a first small sample implementation. Actually only the items below are used in the example config:
 * number
