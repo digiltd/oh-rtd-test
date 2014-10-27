@@ -21,7 +21,9 @@ If possible examples are sorted by categories. Some might actually fit into more
 ## environmental
 * start irrigation when soil is dry and no rain is coming during morning or evening hours and the temperature is not below 0° C.
 * run the air exchange if CO2 is too high.
+* run the air exchange if humidity is too high and increase heating if temperature ist low.
 * in Summer when the outside temp is higher than the inside close the windows or rollershutters (or notify to close them)
+* switch of tv and pc rack if power consumption has decreased below a certain level at 00.00 / 01.00 / 02.00 assuming units have been switched of to reduce standby power consumption.
 
 
 ## scenes
