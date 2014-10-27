@@ -152,6 +152,8 @@ Samples
  * [[Syntax highlighting for external editors|Syntax-Highlighting-for-external-editors]]
  * [[Update-Scripts|openhab-Get-Snapshot]]
  * [[Controlling openHAB with Android|Controlling-openHAB-with-Android]]
+ * [[Usecase examples|Usecase-examples]]
+Usecase-examples
 
 Release Notes
  * [[Version 1.5|Release-Notes-1.5]]
