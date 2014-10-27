@@ -1,12 +1,12 @@
-Documentation for Global Cache-100 binding for IR devices
+Documentation for GC100 IR binding
 
 ## Introduction
-This page describes the GC-100 binding for IR devices, which allows openhab items to send commands to the corresponding IR devices from one or more instances of GC-100.
+This page describes the GC100 IR binding, which allows openhab items to send commands to the corresponding IR devices from one or more instances of GC-100.
 
 For installation of the binding, please see Wiki page [Bindings](https://github.com/openhab/openhab/wiki/Bindings).
 
 ## Global Binding Configuration
-The GC-100 IR binding allows you to define named instances of GC-100 in your openhab.cfg. When defining your item binding configuration you can use the name to refer to your instances. In doing so, you can easily change the address by which you GC-100 instance can be reached without having to reconfigure all of your bindings.
+The GC100 IR binding allows you to define named instances of GC100 in your openhab.cfg. When defining your item binding configuration you can use the name to refer to your instances. In doing so, you can easily change the address by which you GC100 instance can be reached without having to reconfigure all of your bindings.
 
 The syntax of the binding configuration is like this:
 ```
@@ -17,9 +17,9 @@ Where
 
 ### Example
 ```
-########################### GC-100 IR Binding ###########################
+########################### GC100 IR Binding ###########################
 	
-# Hostname / IP address of your GC-100 host
+# Hostname / IP address of your GC100 host
 gc100ir:living.host=192.168.2.70
 ```
 
@@ -31,9 +31,9 @@ gc100ir = "{[instanceName|module|connector|code]}"
 ```
 Where
 * instanceName is prefixed by a ‘#’ a named instance configured in the openhab.cfg.
-* module is the numeric value which specifies the module number of GC-100.
-* connector is the numeric value which specifies the connector number of GC-100.
-* code is the value which is to be sent over IR devices as a command through GC-100.
+* module is the numeric value which specifies the module number of GC100.
+* connector is the numeric value which specifies the connector number of GC100.
+* code is the value which is to be sent over IR devices as a command through GC100.
 
 ### Example
 ```
