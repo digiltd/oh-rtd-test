@@ -45,7 +45,7 @@ Please feel free to add more items. Other possible item types are:
 * color
 
 Some basic examples:
-* ColorItem (will be supported in the next CometVisu-Release 0.8.2) => 
+* ColorItem (supported since CometVisu-Release 0.8.2) => 
 `<colorchooser>
   <label>Color</label>
   <address transform="OH:color" variant="rgb">ITEM_NAME</address>
