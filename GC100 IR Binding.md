@@ -10,7 +10,7 @@ The GC100 IR binding allows you to define named instances of GC100 in your openh
 
 The syntax of the binding configuration is like this:
 ```
-gc100serial : {instanceName}.host = <IP address of the GC100 device>
+gc100ir : {instanceName}.host = <IP address of the GC100 device>
 ```
 Where
 * instanceName is name by which you can refer to this instance in your item binding configuration.
