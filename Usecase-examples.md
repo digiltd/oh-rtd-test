@@ -56,3 +56,4 @@ Then switch on other lighting  when the sunrise simulation has finished. Start t
 * switch on gate lights for 5 minutes if anybody rings at the garden front gate (but only in darkness resp. after sunset, of course)
 * attic lights controlled by attic stairs
 * Outside lights control: If house door opens in darkness (sunset/sunrise time +/- configurable amount on minutes) lights will switch on for a configurable amout of minutes. If doors still open after timeout or motion is detected (IP-Cam or ir sensor driven), timer will extend by one minute until doors closed.
+* master / slave power socket: e.g. switch all pc stuff like pc, printer, sound, etc. via a low standby power consuming device like a monitor etc. If the monitor is being switched on, switch on the other power socket. If neccessary send a wol package to the pc.
