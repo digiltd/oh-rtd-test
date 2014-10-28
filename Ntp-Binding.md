@@ -22,7 +22,7 @@ As a result, your lines in the items file might look like the following:
 
     DateTime    Date    "Date and Time: [%1$tA, %1$td.%1$tm.%1$tY %1$tT]"  (Status)   { ntp="Europe/Berlin:de_DE" } 
 
-If you like to post the quried time to the knx-bus your line might looke like:
+If you like to post the queried time to the knx-bus your line might look like:
 
     DateTime    Date    "Date and Time: [%1$tA, %1$td.%1$tm.%1$tY %1$tT]"  (Status)    { ntp="Europe/Berlin:de_DE", knx="11.001:15/7/2, 10.001:15/7/1" } 
 where 11.001 is the KNX date type and 10.001 is the KNX time type
