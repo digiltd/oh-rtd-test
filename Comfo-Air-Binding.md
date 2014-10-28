@@ -42,11 +42,11 @@ Examples, how to configure your items:
     Number airflowFanLevel "Level [%d]" {comfoair="fan_level"}
     Number airflowTargetTemperature "Target temperature [%.1f °C]" {comfoair="target_temperature"}
     
-    Number airflowOutdoorIncomingTemperature "Outdoor incoming [%.1f °C]" {comfoair="outdoor_incomming_temperatur"}
-    Number airflowOutdoorOutgoingTemperature "Outdoor outgoing [%.1f °C]" {comfoair="outdoor_outgoing_temperatur"}
-    Number airflowIndoorIncommingTemperature "Indoor incomming [%.1f °C]" {comfoair="indoor_incomming_temperatur"}
-    Number airflowIndoorOutgoingTemperature "Indoor outgoing [%.1f °C]" {comfoair="indoor_outgoing_temperatur"}
-    Number airflowIncommingFan		"Incomming fan [%d %%]" {comfoair="incomming_fan"}
+    Number airflowOutdoorIncomingTemperature "Outdoor incoming [%.1f °C]" {comfoair="outdoor_incoming_temperature"}
+    Number airflowOutdoorOutgoingTemperature "Outdoor outgoing [%.1f °C]" {comfoair="outdoor_outgoing_temperature"}
+    Number airflowIndoorIncomingTemperature "Indoor incoming [%.1f °C]" {comfoair="indoor_incoming_temperature"}
+    Number airflowIndoorOutgoingTemperature "Indoor outgoing [%.1f °C]" {comfoair="indoor_outgoing_temperature"}
+    Number airflowIncomingFan		"Incoming fan [%d %%]" {comfoair="incoming_fan"}
     Number airflowOutgoingFan		"Outgoing fan [%d %%]" {comfoair="outgoing_fan"}
     Number airflowFilterRuntime	        "Filter runtime [%d h]" {comfoair="filter_running"}
     Number airflowFilterErrorI	        "Filter (intern) [%s]" {comfoair="filter_error_intern"}
