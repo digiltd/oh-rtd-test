@@ -53,6 +53,8 @@ The node ID indicates the number (in decimal notation) of the node, to which thi
 
 The endpoint ID is required when using the multi_instance command class. In case a node consists of multiple instances or endpoints, the instance number can be specified using this value. The default value is not to use the multi_instance command class (effectively a default value of 0). An example of a multi-endpoint device is the Fibaro FGS 221 double relay.
 
+**PLEASE NOTE THAT THE ENDPOINT NUMBERING CHANGED FOR 1.6 RELEASE.** Previously, the default value was 1, but this caused problems with multi-instance devices. This meant that a binding string of ```zwave=18:1``` and ```zwave=18``` was the same - this is now NOT the case.
+
 The command is optional, but recommended if you have multiple items bound to the same device, or the device reports multiple bits of information. Without the command class, the binding can not unambiguously differentiate different data, so it is recommended to provide a command class. Z-Wave nodes support functionality through command classes. A specific command class can be specified to use that specific functionality of the node. A node can contain multiple supported command classes. If the command is omitted, the best suitable command class for the item / node combination is automatically chosen.
 
 Command classes may support parameters. A parameter is a name=value pair that configures some aspect of the command class on the node or in the binding.
