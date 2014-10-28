@@ -189,7 +189,7 @@ Number  AudioZones_Basement_Key "Key [%d]"  (AudioZones_Basement) {omnilink="aud
 Audio Source 1:
 
 ```
-String  AudioSources_XM_Text  "Now Playeing: [%s]"  (AudioSources_XM) {omnilink="audiosource_text:1"}
+String  AudioSources_XM_Text  "Now Playing: [%s]"  (AudioSources_XM) {omnilink="audiosource_text:1"}
 String  AudioSources_XM_Field1  "Field 1 [%s]"  (AudioSources_XM) {omnilink="audiosource_field1:1"}
 String  AudioSources_XM_Field2  "Field 2 [%s]"  (AudioSources_XM) {omnilink="audiosource_field2:1"}
 String  AudioSources_XM_Field3  "Field 3 [%s]"  (AudioSources_XM) {omnilink="audiosource_field3:1"}
