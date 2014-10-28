@@ -1,4 +1,4 @@
-Documentation for GC100 IR binding
+Documentation for Global Cache IR binding
 
 ## Introduction
 This page describes the GC100 IR binding, which allows openhab items to send commands to the corresponding IR devices from one or more instances of GC100.
