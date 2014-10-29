@@ -2,7 +2,7 @@ Documentation for Global Cache IR binding
 
 ## Introduction
 This page describes the GC100 IR binding, which allows openhab items to send commands to the corresponding IR devices from one or more instances of GC100. For installation of the binding, please see Wiki page [Bindings](https://github.com/openhab/openhab/wiki/Bindings).
-![Global Cache Device](http://ecx.images-amazon.com/images/I/31wqu%2B0NhgL.jpg)
+![Global Cache Device](http://www.smarthome.com/media/catalog/product/8/1/8115big.jpg)
 ## Global Binding Configuration
 The GC100 IR binding allows you to define named instances of GC100 in your openhab.cfg. When defining your item binding configuration you can use the name to refer to your instances. In doing so, you can easily change the address by which you GC100 instance can be reached without having to reconfigure all of your bindings.
 
