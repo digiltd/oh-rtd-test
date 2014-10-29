@@ -33,7 +33,7 @@ Where
 * instanceName is prefixed by ‘#’, a named instance configured in the openhab.cfg.
 * module is the numeric value which specifies the module number of GC100.
 * connector is the numeric value which specifies the connector number of GC100.
-* code is the Global Cache format IR code which is to be sent over IR devices as a command through GC100. For conversion between Global Cache format IR codes or Hex (CCF) codes, You can download [iConvert](http://www.globalcache.com/files/software/iConvert.exe) tool from [Global Cache](www.globalcache.com/downloads/). You can also download different IR codes from [http://www.remotecentral.com](http://www.remotecentral.com)
+* code is the Global Cache format IR code which is to be sent over IR devices as a command through GC100. For conversion between Global Cache format IR codes and Hex (CCF) codes, you can download iConvert tool (For Windows OS only) from [Global Cache](http://www.globalcache.com/downloads/). You can also download different Hex (CCF) codes from [http://www.remotecentral.com](http://www.remotecentral.com).
 
 ### Example
 ```
