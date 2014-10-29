@@ -1,10 +1,8 @@
 Documentation for Global Cache IR binding
 
 ## Introduction
-This page describes the GC100 IR binding, which allows openhab items to send commands to the corresponding IR devices from one or more instances of GC100.
-
-For installation of the binding, please see Wiki page [Bindings](https://github.com/openhab/openhab/wiki/Bindings).
-
+This page describes the GC100 IR binding, which allows openhab items to send commands to the corresponding IR devices from one or more instances of GC100. For installation of the binding, please see Wiki page [Bindings](https://github.com/openhab/openhab/wiki/Bindings).
+![Global Cache Device](http://ecx.images-amazon.com/images/I/31wqu%2B0NhgL.jpg)
 ## Global Binding Configuration
 The GC100 IR binding allows you to define named instances of GC100 in your openhab.cfg. When defining your item binding configuration you can use the name to refer to your instances. In doing so, you can easily change the address by which you GC100 instance can be reached without having to reconfigure all of your bindings.
 
@@ -33,7 +31,7 @@ Where
 * instanceName is prefixed by ‘#’, a named instance configured in the openhab.cfg.
 * module is the numeric value which specifies the module number of GC100.
 * connector is the numeric value which specifies the connector number of GC100.
-* code is the Global Cache format IR code which is to be sent over IR devices as a command through GC100. For conversion between Global Cache format IR codes and Hex (CCF) codes, you can download iConvert tool (Only for Windows OS) from [Global Cache](http://www.globalcache.com/downloads/). You can also download different Hex (CCF) codes from [http://www.remotecentral.com](http://www.remotecentral.com).
+* code is the Global Cache format IR code which is to be sent over IR devices as a command through GC100. For conversion between Global Cache format IR codes and Hex (CCF) codes, you can download iConvert tool (Only for Windows OS) from [Global Cache](http://www.globalcache.com/downloads/) downloads page. You can also download different IR Hex (CCF) codes to control other devices from [http://www.remotecentral.com](http://www.remotecentral.com).
 
 ### Example
 ```
