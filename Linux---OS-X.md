@@ -57,7 +57,7 @@ To install it, follow these simple steps:
 1. You will need to install Java if not already installed. Go to http://java.com/ to get it.  For ARM based systems and Synology Diskstation, see [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ) for instructions on getting Java.
 1. Unzip the `openhab-runtime-<version>.zip` to where it is intended to be running from, e.g. `/opt/openhab`.  
 1. Copy the bindings you have downloaded -`knx-binding-<version>.jar` and `http-binding-<version>.jar`- to the "addons" directory.
-1. Create a personal configuration file by copying the file `configurations/openhab_default.cfg` to `configurations/openhab.cfg`.
+1. Create a personal configuration file `configurations/openhab.cfg` and add the appropriate configuration parameters (depending on the bindings you've copied).
  
 ### OPTIONAL: Installing the openHAB designer
 
