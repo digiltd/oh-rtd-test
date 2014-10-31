@@ -37,9 +37,9 @@ Strategies {
 }
 ```
 The following strategies are already statically defined (and thus do not need to be listed here, but can be declared as a default):
-- everyChange: persist the state whenever its state has changed
-- everyUpdate: persist the state whenever its state has been updated, even if it did not change
-- restoreOnStartup:If the state is undefined at startup, the last persisted value is loaded and the item is initialized with this state. This is very handy for all "virtual" items that do not have any binding to real hardware, like "Presence" or similar.
+1. everyChange: persist the state whenever its state has changed
+1. everyUpdate: persist the state whenever its state has been updated, even if it did not change
+1. restoreOnStartup:If the state is undefined at startup, the last persisted value is loaded and the item is initialized with this state. This is very handy for all "virtual" items that do not have any binding to real hardware, like "Presence" or similar.
 
 - Items section: This defines, which items should be persisted with which strategy. The syntax is:
 ```
