@@ -135,4 +135,7 @@ As a result, your lines in the sitemap file might look like the following:
     
 For more information on the used API see the following link: http://developers.meethue.com/
 
-If you like dedicated Hue icons, please consider using those posted in the forum: https://groups.google.com/d/msg/openhab/1FXial-JCA0/gjd1Fq-sniQJ. You can now show icons using "<hue>". 
+If you like dedicated Hue icons, please consider using those posted in the forum: https://groups.google.com/d/msg/openhab/1FXial-JCA0/gjd1Fq-sniQJ. You can now show icons using:
+
+    Switch Toggle_1	  "left bulb" 	<hue> 	(Switching)	{hue="1"}
+ 
