@@ -26,7 +26,8 @@ Before going into the details of the syntax of these files, let us discuss the c
 The basic idea is to provide a simple way to tell openHAB, which items should be persisted when. The persistence configuration defines so called "strategies" for this. These are very similar to the triggers of [[Rules|rules]] as you will most likely also either persist a value when some bus event occurred (i.e. an item state has been updated or changed) or with a fixed schedule as the cron expressions allow to define. 
 
 The persistence configuration files hence consist out of several sections:
-- Strategies section: This allows to define strategies and to declare a set of default strategies to use (for this persistence service). The syntax is the following:
+
+**Strategies section**: This allows to define strategies and to declare a set of default strategies to use (for this persistence service). The syntax is the following:
 ```
 Strategies {
     <strategyName1> : "<cronexpression1>"
@@ -37,11 +38,11 @@ Strategies {
 }
 ```
 The following strategies are already statically defined (and thus do not need to be listed here, but can be declared as a default):
-1. everyChange: persist the state whenever its state has changed
-1. everyUpdate: persist the state whenever its state has been updated, even if it did not change
-1. restoreOnStartup:If the state is undefined at startup, the last persisted value is loaded and the item is initialized with this state. This is very handy for all "virtual" items that do not have any binding to real hardware, like "Presence" or similar.
+* everyChange: persist the state whenever its state has changed
+* everyUpdate: persist the state whenever its state has been updated, even if it did not change
+* restoreOnStartup:If the state is undefined at startup, the last persisted value is loaded and the item is initialized with this state. This is very handy for all "virtual" items that do not have any binding to real hardware, like "Presence" or similar.
 
-- Items section: This defines, which items should be persisted with which strategy. The syntax is:
+**Items section**: This defines, which items should be persisted with which strategy. The syntax is:
 ```
 Items {
     <itemlist1> [-> "<alias1>"] : [strategy = <strategy1>, <strategy2>, ...]
