@@ -1,6 +1,6 @@
-# Documentation of the OpenPaths binding bundle.
+## Documentation of the OpenPaths binding bundle.
 
-##Introduction
+###Introduction
 
 [OpenPaths](https://openpaths.cc/%E2%80%8E) is an app you can install on your 
 Android or iOS device which will periodically upload your location to the 
@@ -8,7 +8,7 @@ OpenPaths servers. Using the OpenPaths binding openHAB will periodically
 request your latest location data from the OpenPaths servers and calculate 
 your presence relative to a specified location (usually your home).
 
-##Binding Configuration
+###Binding Configuration
 
 First you will need to install the OpenPaths app on your mobile device. You 
 will then need to sign up to the OpenPaths service. At this point you should 
@@ -16,7 +16,7 @@ be issued with an ACCESS_KEY and SECRET_KEY which you will need to configure
 the OpenPaths binding. You will also need to link your app to your new 
 OpenPath account.
 
-###openhab.cfg Config
+####openhab.cfg Config
 
 You need to let the binding know exactly where 'home' is and what size the 
 [geofence](http://en.wikipedia.org/wiki/Geo-fence) is. You can also optionally 
@@ -64,7 +64,7 @@ Here is an example;
 #openpaths:user1.secretkey=<secretkey>
 ```
 
-###Item bindings
+####Item bindings
 
 To track the location/presence of a mobile device all you need to do is add a 
 Switch item and specify the name you entered in your openhab.cfg file 
