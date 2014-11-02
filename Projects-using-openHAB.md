@@ -13,3 +13,5 @@ Easy-to-follow build instructions and a helpful forum. Building blocks: Arduino,
 
 #### [Uber Home Automation](http://www.instructables.com/id/Uber-Home-Automation)
 Full tutorial for Arduino sensors built with RFM69HW wireless transceiver.  Provides wireless to MQTT gateway and scheme to integrate with OpenHAB.  Several types of sensor sketches are provided:  lights, ultrasonic, reed switch, sound, water sensing, presence.
+
+#### [Wikihouse 4.0 controls](https://github.com/00/wikihouse-controls)
