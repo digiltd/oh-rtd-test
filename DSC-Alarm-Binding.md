@@ -107,17 +107,6 @@ String ZONE1_ALARM_STATUS "Alarm Status : [%s]" (DSCAlarmZones) {dscalarm="zone:
 String ZONE1_FAULT_STATUS "Fault Status : [%s]" (DSCAlarmZones) {dscalarm="zone:1:1:zone_fault_status"}
 String ZONE1_TAMPER_STATUS "Tamper Status : [%s]" (DSCAlarmZones) {dscalarm="zone:1:1:zone_tamper_status"}
 
-/* DSC Alarm Keypad Items */
-Number KEYPAD_READY_LED "Ready LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_ready_led"}
-Number KEYPAD_ARMED_LED "Armed LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_armed_led"}
-Number KEYPAD_MEMORY_LED "Memory LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_memory_led"}
-Number KEYPAD_BYPASS_LED "Bypass LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_bypass_led"}
-Number KEYPAD_TROUBLE_LED "Trouble LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_trouble_led"}
-Number KEYPAD_PROGRAM_LED "Program LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_program_led"}
-Number KEYPAD_FIRE_LED "Fire LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_fire_led"}
-Number KEYPAD_BACKLIGHT_LED "Backlight LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_backlight_led"}
-Number KEYPAD_AC_LED "AC LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_ac_led"}
-
 /*DSC Alarm Zones */
 Contact ZONE9_GENERAL_STATUS "Front Door Sensor" (DSCAlarmZones, GF_FFoyer) {dscalarm="zone:1:9:zone_general_status"}
 Number ZONE9_BYPASS_MODE "Tamper SwitchBypass Mode" (DSCAlarmZones) {dscalarm="zone:1:9:zone_bypass_mode"}
@@ -166,6 +155,17 @@ Number ZONE25_BYPASS_MODE "Utility Room Motion Sensor Bypass Mode" (DSCAlarmZone
 String ZONE25_ALARM_STATUS "Alarm Status : [%s]" (DSCAlarmZones) {dscalarm="zone:1:25:zone_alarm_status"}
 String ZONE25_FAULT_STATUS "Fault Status : [%s]" (DSCAlarmZones) {dscalarm="zone:1:25:zone_fault_status"}
 String ZONE25_TAMPER_STATUS "Tamper Status : [%s]" (DSCAlarmZones) {dscalarm="zone:1:25:zone_tamper_status"}
+
+/* DSC Alarm Keypad Items */
+Number KEYPAD_READY_LED "Ready LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_ready_led"}
+Number KEYPAD_ARMED_LED "Armed LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_armed_led"}
+Number KEYPAD_MEMORY_LED "Memory LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_memory_led"}
+Number KEYPAD_BYPASS_LED "Bypass LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_bypass_led"}
+Number KEYPAD_TROUBLE_LED "Trouble LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_trouble_led"}
+Number KEYPAD_PROGRAM_LED "Program LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_program_led"}
+Number KEYPAD_FIRE_LED "Fire LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_fire_led"}
+Number KEYPAD_BACKLIGHT_LED "Backlight LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_backlight_led"}
+Number KEYPAD_AC_LED "AC LED Status: [%d]" (DSCAlarmPartitions) {dscalarm="keypad:keypad_ac_led"}
 ```
 
 Here is an example sitemap:
