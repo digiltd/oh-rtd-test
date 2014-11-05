@@ -107,7 +107,6 @@ String ZONE1_ALARM_STATUS "Alarm Status : [%s]" (DSCAlarmZones) {dscalarm="zone:
 String ZONE1_FAULT_STATUS "Fault Status : [%s]" (DSCAlarmZones) {dscalarm="zone:1:1:zone_fault_status"}
 String ZONE1_TAMPER_STATUS "Tamper Status : [%s]" (DSCAlarmZones) {dscalarm="zone:1:1:zone_tamper_status"}
 
-/*DSC Alarm Zones */
 Contact ZONE9_GENERAL_STATUS "Front Door Sensor" (DSCAlarmZones, GF_FFoyer) {dscalarm="zone:1:9:zone_general_status"}
 Number ZONE9_BYPASS_MODE "Tamper SwitchBypass Mode" (DSCAlarmZones) {dscalarm="zone:1:9:zone_bypass_mode"}
 String ZONE9_ALARM_STATUS "Alarm Status : [%s]" (DSCAlarmZones) {dscalarm="zone:1:9:zone_alarm_status"}
