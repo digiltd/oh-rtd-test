@@ -79,8 +79,14 @@ or a serial connection:
 alarmdecoder:connect=serial:/dev/ttyUSB0
 ```
 Warning: using an alarmdecoder via serial port has not been debugged yet!
+To send commands from openhab to the alarm panel, add this configuration line:
+```
+alarmdecoder:send_commands_and_compromise_security=true
+```
+Once this option is set to true, the alarm system can potentially be disabled from openHAB.
+You have been warned!
 
-Once this is taken care of, create a suitable file
+Once the openhab.cfg is taken care of, create a suitable file
 (e.g. alarmdecoder.items) in the items folder of your openhab home
 directory.
 
@@ -145,6 +151,27 @@ Number  motionNeedsSupervision "motion sensor supervision [%d]" (gNumber) {alarm
 Just like for the KPM messages, the RFX messages are exposed either as
 a Number item, or as a Contact. Since the REL and EXP messages just give
 binary data, they are only mapped to contact items.
+
+If you don't care much about security and want to operate your alarm keypad from within openhab,
+enable ```send_commands_and_compromise_security=true``` as discussed above, and add these lines to
+your alarmdecoder.items file:
+
+    Number alarmPanelLine1 "" (gPanel)	 {alarmdecoder="SEND#1=1,2=2,3=3", autoupdate="false"}
+    Number alarmPanelLine2 "" (gPanel)	 {alarmdecoder="SEND#4=4,5=5,6=6", autoupdate="false"}
+    Number alarmPanelLine3 "" (gPanel)	 {alarmdecoder="SEND#7=7,8=8,9=9", autoupdate="false"}
+    Number alarmPanelLine4 "" (gPanel)	 {alarmdecoder="SEND#10=*,0=0,11=POUND", autoupdate="false"}
+
+    String sAlarmPanelDisplay "panel display: [%s]" (gPanel) 	  {alarmdecoder="KPM:00#text"}
+
+These items accept "Number" commands from the openHAB bus, and map them to strings which are then SEND to the alarm panel. In the above example, when a number 10 arrives, a "*" is sent to the alarmdecoder, or any string that is configured. Note that the special character sequence POUND will be further translated to "#".
+
+For the GUI to show the keypad, the following lines need to be added to the sitemap file:
+
+    Switch item=alarmPanelLine1 label="" mappings=[ 1="1____(OFF)",  2="2(AWAY)",  3="3__(STAY)"]
+    Switch item=alarmPanelLine2 label="" mappings=[ 4="____4_____",  5="5(TEST)",  6="6(BYPASS)"]
+    Switch item=alarmPanelLine3 label="" mappings=[ 7="7(INSTANT)",  8="8(CODE)",  9="9_(CHIME)"]
+    Switch item=alarmPanelLine4 label="" mappings=[10="*__(READY)",  0="___0___", 11="____#____"]
+    Text item=sAlarmPanelDisplay
 
 
 ## Trouble shooting and debugging
