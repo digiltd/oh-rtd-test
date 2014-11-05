@@ -119,6 +119,8 @@ The following are configuration items for your openhab.cfg file. None of the opt
 - `pushover:defaultPriority - Priority of the notification. Default is 0.`
 - `pushover:defaultUrl - A URL to send with the notification.`
 - `pushover:defaultUtlTitle - Title of the URL to send with the notification.`
+- `pushover:defaultRetry - When priority is 2, how often in seconds should messages be resent.` [Added 1.6+]
+- `pushover:defaultExpire - When priority is 2, how long to continue resending messages until acknowledged.`  [Added 1.6+]
 
 The following are valid action calls that can be made when the plugin is loaded. For specific information on each item, see the [Pushover API](https://pushover.net/api).
 
