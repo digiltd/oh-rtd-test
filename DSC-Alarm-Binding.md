@@ -47,7 +47,7 @@ dscalarm="DSCAlarmDeviceType:<partitionID>:<zoneID>:DSCAlarmItemType"
 
 ```
 
-The DSCAlarmDeviceType indicates one of three device types of the DSC Alarm System.  They consist of the following:
+The DSCAlarmDeviceType indicates one of four device types of the DSC Alarm System.  They consist of the following:
 
 <table>
     <tr><td><b>DSC Alarm Device Type</b></td><td><b>Description</b></td></tr>
