@@ -205,3 +205,5 @@ state, *until the panel goes into the READY state*. At that point all
 contacts for which no messages have arrived are presumed to be in the
 CLOSED state. In other words: to get to a clean slate after an openhab restart,
 close all doors/windows such that the panel is READY.
+
+2. The sitemap provided above may not display properly when viewing from the classical GUI. It has been confirmed to work with GreenT, Habdroid and IOS.
