@@ -167,10 +167,10 @@ These items accept "Number" commands from the openHAB bus, and map them to strin
 
 For the GUI to show the keypad, the following lines need to be added to the sitemap file:
 
-    Switch item=alarmPanelLine1 label="" mappings=[ 1="1____(OFF)",  2="2(AWAY)",  3="3__(STAY)"]
-    Switch item=alarmPanelLine2 label="" mappings=[ 4="____4_____",  5="5(TEST)",  6="6(BYPASS)"]
-    Switch item=alarmPanelLine3 label="" mappings=[ 7="7(INSTANT)",  8="8(CODE)",  9="9_(CHIME)"]
-    Switch item=alarmPanelLine4 label="" mappings=[10="*__(READY)",  0="___0___", 11="____#____"]
+    Switch item=alarmPanelLine1 label="line1" mappings=[ 1="1____(OFF)",  2="2(AWAY)",  3="3__(STAY)"]
+    Switch item=alarmPanelLine2 label="line2" mappings=[ 4="____4_____",  5="5(TEST)",  6="6(BYPASS)"]
+    Switch item=alarmPanelLine3 label="line3" mappings=[ 7="7(INSTANT)",  8="8(CODE)",  9="9_(CHIME)"]
+    Switch item=alarmPanelLine4 label="line4" mappings=[10="*__(READY)",  0="___0___", 11="____#____"]
     Text item=sAlarmPanelDisplay
 
 
