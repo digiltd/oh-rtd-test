@@ -2,7 +2,7 @@ Documentation of the Anel binding for NET-PwrCtrl devices.
 
 ## Introduction
 
-| [Anel NET-PwrCtrl HUT](http://anel-elektronik.de/SITE/produkte/hut/hut.htm) | [Anel NET-PwrCtrl PRO](http://anel-elektronik.de/SITE/produkte/io/io.htm) | [Anel NET-PwrCtrl HOME](http://anel-elektronik.de/SITE/produkte/home/home.htm) |
+| [Anel NET-PwrCtrl HUT](http://anel-elektronik.de/SITE/produkte/hut/hut.htm) | [Anel NET-PwrCtrl IO](http://anel-elektronik.de/SITE/produkte/io/io.htm) | [Anel NET-PwrCtrl HOME](http://anel-elektronik.de/SITE/produkte/home/home.htm) |
 | --- | --- | --- |
 | [![Anel NET-PwrCtrl HUT](http://anel-elektronik.de/SITE/image/leisten/HUT-120.gif)](http://anel-elektronik.de/SITE/produkte/hut/hut.htm) | [![Anel NET-PwrCtrl PRO](http://anel-elektronik.de/SITE/image/leisten/PRO-120.gif)](http://anel-elektronik.de/SITE/produkte/io/io.htm) | [![Anel NET-PwrCtrl HOME](http://anel-elektronik.de/SITE/image/leisten/HOME-DE-120.gif)](http://anel-elektronik.de/SITE/produkte/home/home.htm)
 
@@ -13,6 +13,8 @@ Here is a video demonstrating a switch and a dimmer (voice is German), explanati
 [![Anel example](http://img.youtube.com/vi/31ycP53jZVs/0.jpg)](http://www.youtube.com/watch?v=31ycP53jZVs)
 
 [![Anel demo setup](http://2.bp.blogspot.com/-XbiK9Fe1Ek0/VFPc2lwMKeI/AAAAAAAABDM/wEdTETUfo0w/s1600/Anel-demo-setup.png)](http://2.bp.blogspot.com/-XbiK9Fe1Ek0/VFPc2lwMKeI/AAAAAAAABDM/wEdTETUfo0w/s1600/Anel-demo-setup.png)
+
+**Note that the binding is still untested for other devices than the _NET-PwrCtrl HUT_, because I do not own any of the others. I suppose the binding works well with the _NET-PwrCtrl IO_ because it has the same features, but it may not yet work for the others!**
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
