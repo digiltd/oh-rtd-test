@@ -27,6 +27,7 @@ Community
   * [[CometVisu|Comet-Visu]]
  * [[Bindings]]
   * [[AlarmDecoder Binding|AlarmDecoder-binding]]
+  * [[Anel Binding|Anel-binding]]
   * [[Asterisk Binding|Asterisk-Binding]]
   * [[Astro Binding|Astro-binding]]
   * [[Bluetooth Binding|Bluetooth-Binding]]
