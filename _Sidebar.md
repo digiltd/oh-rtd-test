@@ -37,6 +37,7 @@ Community
   * [[CUPS Binding|CUPS-Binding]]
   * [[Davis Binding|Davis-Binding]]
   * [[digitalSTROM Binding|digitalSTROM-Binding]]
+  * [[DSC Alarm Binding|DSC-Alarm-Binding]]
   * [[DMX512 Binding|DMX-Binding]]
   * [[EDS OWSever Binding ]]
   * [[Energenie Binding|Energenie-Binding]]
