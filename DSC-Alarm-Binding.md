@@ -69,12 +69,12 @@ The DSCAlarmItemType maps the binding to an openHAB item type.  Here are the sup
     <tr><td>panel_time_date</td><td>DateTime</td><td>DSC Alarm system time and date.</td></tr>
     <tr><td>partition_status</td><td>String</td><td>A partitions current status.</td></tr>
     <tr><td>partition_arm_mode</td><td>Number</td><td>A partitions current arm mode. The possible values are:
-</br>
-0=disarmed</br>
-1=armed away</br>
-2=armed stay</br>
-3=away no delay</br>
-4=stay no delay</br>
+<br/>
+0=disarmed<br/>
+1=armed away<br/>
+2=armed stay<br/>
+3=away no delay<br/>
+4=stay no delay<br/>
 </td></tr>
     <tr><td>zone_general_status</td><td>Contact</td><td>A zones general (open/closed) status.</td></tr>
     <tr><td>zone_alarm_status</td><td>String</td><td>A zones alarm status.</td></tr>
