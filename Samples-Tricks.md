@@ -307,37 +307,57 @@ OPENHAB_ARGS="
 -Djava.security.auth.login.config=./etc/login.conf \
 -Dorg.quartz.properties=./etc/quartz.properties \
 -Dequinox.ds.block_timeout=240000 \
+-Dequinox.scr.waitTimeOnBlock=60000 \
+-Dfelix.fileinstall.active.level=4 \
+-Djava.awt.headless=true \
+-jar $EQUINOX_JAR"
+
+depend() {
+	need net
+}
+
+checkconfig() {
+	if [ ! -d "$OPENHAB_LOGDIR" ]; then
+		mkdir "$OPENHAB_LOGDIR"
+		chown $USER "$OPENHAB_LOGDIR"
+	fi
+}
 
 start() {
-        start-stop-daemon \
-                --start \
-                --user $USER \
-                --group $GROUP \
-                --pidfile $PIDFILE \
-                --make-pidfile \
-                --chdir "$OPENHAB_HOME" \
-                --stdout $OPENHAB_LOG \
-                --stderr $OPENHAB_LOG \
-                --background \
-                --exec java -- $OPENHAB_ARGS 
+	checkconfig
+	ebegin "Starting openHAB"
+	start-stop-daemon \
+		--start \
+		--user $USER \
+		--group $GROUP \
+		--pidfile $PIDFILE \
+		--make-pidfile \
+		--chdir "$OPENHAB_HOME" \
+		--stdout $OPENHAB_LOG \
+		--stderr $OPENHAB_LOG \
+		--background \
+		--exec java -- $OPENHAB_ARGS
+	eend $?
 }
 
 stop() {
-        start-stop-daemon \
-                --stop \
-                --pidfile $PIDFILE \
-                --retry "SIGTERM/15 SIGKILL/30" \
-                --progress
+	ebegin "Stopping openHAB"
+	start-stop-daemon \
+		--stop \
+		--pidfile $PIDFILE \
+		--retry "SIGTERM/15 SIGKILL/30" \
+		--progress
+	eend $?
 }
 
 status() {
-        [ ! -f "$PIDFILE" ] && return 1
+	[ ! -f "$PIDFILE" ] && return 1
 
-        if ps -p $(cat "$PIDFILE") > /dev/null; then
-                return 0
-        else
-                return 1
-        fi
+	if ps -p $(cat "$PIDFILE") > /dev/null; then
+		eend 0
+	else
+		eend 1
+	fi
 }
 ```
 
