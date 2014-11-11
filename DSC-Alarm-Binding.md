@@ -81,15 +81,52 @@ The DSCAlarmItemType maps the binding to an openHAB item type.  Here are the sup
     <tr><td>zone_tamper_status</td><td>String</td><td>A zones tamper status.</td></tr>
     <tr><td>zone_fault_status</td><td>String</td><td>A zones fault status.</td></tr>
     <tr><td>zone_bypass_mode</td><td>Number</td><td>A zones bypass mode.</td></tr>
-    <tr><td>keypad_ready_led</td><td>Number</td><td>Keypad Ready LED Status.</td></tr>
-    <tr><td>keypad_armed_led</td><td>Number</td><td>Keypad Armed LED Status.</td></tr>
-    <tr><td>keypad_memory_led</td><td>Number</td><td>Keypad Memory LED Status.</td></tr>
-    <tr><td>keypad_bypass_led</td><td>Number</td><td>Keypad Bypass LED Status.</td></tr>
-    <tr><td>keypad_trouble_led</td><td>Number</td><td>Keypad Trouble LED Status.</td></tr>
-    <tr><td>keypad_program_led</td><td>Number</td><td>Keypad Program LED Status.</td></tr>
-    <tr><td>keypad_fire_led</td><td>Number</td><td>Keypad Fire LED Status.</td></tr>
-    <tr><td>keypad_backlight_led</td><td>Number</td><td>Keypad Backlight LED Status.</td></tr>
-    <tr><td>keypad_ac_led</td><td>Number</td><td>Keypad AC LED Status.</td></tr>    
+    <tr><td>keypad_ready_led</td><td>Number</td><td>Keypad Ready LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/>
+</td></tr>
+    <tr><td>keypad_armed_led</td><td>Number</td><td>Keypad Armed LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/></td></tr>
+    <tr><td>keypad_memory_led</td><td>Number</td><td>Keypad Memory LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/></td></tr>
+    <tr><td>keypad_bypass_led</td><td>Number</td><td>Keypad Bypass LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/></td></tr>
+    <tr><td>keypad_trouble_led</td><td>Number</td><td>Keypad Trouble LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/></td></tr>
+    <tr><td>keypad_program_led</td><td>Number</td><td>Keypad Program LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/></td></tr>
+    <tr><td>keypad_fire_led</td><td>Number</td><td>Keypad Fire LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/></td></tr>
+    <tr><td>keypad_backlight_led</td><td>Number</td><td>Keypad Backlight LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/></td></tr>
+    <tr><td>keypad_ac_led</td><td>Number</td><td>Keypad AC LED Status. The values are:
+<br/>
+0=OFF<br/>
+1=ON<br/>
+2=Flashing<br/></td></tr>    
 </table>
 
 The following is an example of an item file:
