@@ -4,6 +4,7 @@ Miscellaneous Tips & Tricks
 * [How to do a proper ICMP ping on Linux](Samples-Tricks#how-to-do-a-proper-icmp-ping-on-linux)
 * [How to add current or forecast weather icons to your sitemap](Samples-Tricks#how-to-add-current-or-forecast-weather-icons-to-your-sitemap)
 * [How to configure openHAB to start automatically on Linux](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux)
+* [How to configure openHAB as (Gentoo) openRC service](Samples-Tricks#how-to-configure-openhab-as-gentoo-openrc-service)
 * [How to configure openHAB to start automatically on Linux with screen](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux-with-screen)
 * [How to configure openHAB to start automatically on Windows](Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-windows)
 * [How start openHAB automatically on Linux using systemd](Samples-Tricks#how-start-openhab-automatically-on-linux-using-systemd)
@@ -256,6 +257,101 @@ Make the script executable and configure it to run on boot.
     sudo update-rc.d openhab defaults
 
 Now whenever your Linux machine boots openHAB will be automatically started.
+
+
+### How to configure openHAB as (Gentoo) openRC service
+
+Create the openhab user with
+
+```sh
+useradd -s /sbin/nologin openhab
+```
+
+and the log directory
+
+```sh
+mkdir /var/log/openhab && chown openhab /var/log/openhab
+```
+
+then create `/etc/(conf|init).d/openhab` as below and add it to the default runlevel
+
+```sh
+rc-update add openhab default
+```
+
+OpenHAB must be installed in `/opt/openhab`
+
+`/etc/init.d/openhab`:
+
+```sh
+#!/sbin/runscript
+
+PIDFILE=/var/run/openhab.pid
+
+OPENHAB_HOME=/opt/openhab
+OPENHAB_LOGDIR=/var/log/openhab
+OPENHAB_LOG=$OPENHAB_LOGDIR/openhab.log
+
+EQUINOX_JAR=$(find $OPENHAB_HOME/server -name "org.eclipse.equinox.launcher_*.jar" | sort | tail -1)
+
+OPENHAB_ARGS="
+-Dosgi.clean=true \
+-Declipse.ignoreApp=true \
+-Dosgi.noShutdown=true \
+-Djetty.port=$HTTP_PORT
+-Djetty.port.ssl=$HTTPS_PORT \
+-Djetty.home=. \
+-Dlogback.configurationFile=configurations/logback.xml \
+-Dfelix.fileinstall.dir=addons \
+-Djava.library.path=lib \
+-Djava.security.auth.login.config=./etc/login.conf \
+-Dorg.quartz.properties=./etc/quartz.properties \
+-Dequinox.ds.block_timeout=240000 \
+
+start() {
+        start-stop-daemon \
+                --start \
+                --user $USER \
+                --group $GROUP \
+                --pidfile $PIDFILE \
+                --make-pidfile \
+                --chdir "$OPENHAB_HOME" \
+                --stdout $OPENHAB_LOG \
+                --stderr $OPENHAB_LOG \
+                --background \
+                --exec java -- $OPENHAB_ARGS 
+}
+
+stop() {
+        start-stop-daemon \
+                --stop \
+                --pidfile $PIDFILE \
+                --retry "SIGTERM/15 SIGKILL/30" \
+                --progress
+}
+
+status() {
+        [ ! -f "$PIDFILE" ] && return 1
+
+        if ps -p $(cat "$PIDFILE") > /dev/null; then
+                return 0
+        else
+                return 1
+        fi
+}
+```
+
+`/etc/conf.d/openhab`:
+
+```sh
+USER=openhab
+
+GROUP=nogroup
+
+HTTP_PORT=8081
+
+HTTPS_PORT=8443
+```
 
 ### How to configure openHAB to start automatically on Linux with screen
 
