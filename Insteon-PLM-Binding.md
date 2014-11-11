@@ -70,6 +70,12 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td></td><td></td>
 </tr>
 <tr>
+<td>2476D</td><td>SwitchLinc Dimmer</td><td>F00.00.0C</td><td></td><td>LiberatorUSA</td>
+</tr>
+<tr>
+<td>2634-222</td><td>On/Off Dual-Band Outdoor Module</td><td>F00.00.0D</td><td></td><td>LiberatorUSA</td>
+</tr>
+<tr>
 <td>2342-2</td><td>Mini Remote</td><td>F00.00.10</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
