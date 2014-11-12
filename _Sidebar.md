@@ -157,6 +157,7 @@ Samples
  * [[Usecase examples|Usecase-examples]]
 
 Release Notes
+ * [[Version 1.6|Release-Notes-1.6]]
  * [[Version 1.5|Release-Notes-1.5]]
  * [[Version 1.4|Release-Notes-1.4]]
  * [[Version 1.3|Release-Notes-13]]
