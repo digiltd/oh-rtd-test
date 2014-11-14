@@ -50,9 +50,9 @@ To bind a measure value to an item the measure type has to be defined in the gen
 
 The following snippet shows some sample bindings:
 
-    Number Weight     "Weight"     { withings = "weight" }
-    Number FatRatio   "FatRatio"   { withings = "fat_ratio" }
-    Number HeartPulse "HeartPulse" { withings = "heart_pulse" }
+    Number Weight     "Weight  [%.1f kg]"     { withings = "weight" }
+    Number FatRatio   "FatRatio [%.1f %%]"    { withings = "fat_ratio" }
+    Number HeartPulse "HeartPulse [%d bpm]"   { withings = "heart_pulse" }
 
 ## Synchronization
 
