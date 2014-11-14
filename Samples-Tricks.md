@@ -27,9 +27,9 @@ Miscellaneous Tips & Tricks
 * [How to use a voice command from HABDroid](Samples-Tricks#how-to-use-a-voice-command-from-habdroid)
 * [Add Humidex calculation for your Feels Like Temperature value](Samples-Tricks#add-humidex-calculation-for-your-feels-like-temperature-value)
 * [Aeon Z-Stick Setup in Linux](Samples-Tricks#aeon-zstick-setup-in-linux) 
-* [How to use a serial port under linux](FAQ#how-to-use-a-serial-port-under-linux)
-* [openHAB and the Cubieboard, what you need to know](FAQ#openhab-and-the-cubieboard-what-you-need-to-know)
-* [Using the transceiver RFXtrx433E with Somfy RTS devices](FAQ#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
+* [How to use a serial port under linux](Samples-Trick#how-to-use-a-serial-port-under-linux)
+* [openHAB and the Cubieboard, what you need to know](Samples-Trick#openhab-and-the-cubieboard-what-you-need-to-know)
+* [Using the transceiver RFXtrx433E with Somfy RTS devices](Samples-Trick#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
 
 ### How to redirect your log entries to the syslog
 
