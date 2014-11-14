@@ -29,6 +29,7 @@ Miscellaneous Tips & Tricks
 * [Aeon Z-Stick Setup in Linux](Samples-Tricks#aeon-zstick-setup-in-linux) 
 * [How to use a serial port under linux](FAQ#how-to-use-a-serial-port-under-linux)
 * [openHAB and the Cubieboard, what you need to know](FAQ#openhab-and-the-cubieboard-what-you-need-to-know)
+* [Using the transceiver RFXtrx433E with Somfy RTS devices](FAQ#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
 
 ### How to redirect your log entries to the syslog
 
@@ -1686,3 +1687,12 @@ Reboot your system.
 Running openHAB on a Cubieboard(2) is possible. But there are some kinks to figure out.
 First you have to choose a distribution to install. At first I settled for Cubian, since I was already familiar with Raspbian. But Cubian comes only with very few kernel modules for USB to serial bridges. Since many bindings communicate that way, this was a dealbreaker. Currently I run lubuntu-server-13.06-v1.00, which has all needed kernel modules. Simply install this distribution to the NAND memory (see http://cubiebook.org/ for details).
 Another problem could be the JDK8. While it was running fine on the Raspberry Pi I had several unexplained crashes of openHAB with the early preview of JDK8. Luckily Oracle released the JDK7 for hard floar arm processors a while ago. Just grab it from here `http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html` unpack it and use it to run openHAB just like on any other platform.
+
+### Using the transceiver RFXtrx433E with Somfy RTS devices
+
+The first thing you have to do is to pair the RFXtrx433E transceiver with your Somfy RTS devices (see http://rfxcom.com/Documents/RFXtrx%20User%20Guide.pdf for more details). 
+If you pair for example a roller shutter with the ID 1.01.01.1, then the binding should look like:
+
+```
+Rollershutter rs_1 "Yoda" <rollershutter> (Rollershutters) {rfxcom=">1.01.01.1:RFY.RFY:Shutter"}
+```
