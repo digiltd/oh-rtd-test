@@ -1,6 +1,6 @@
 ## New & Noteworthy
 
-Please find below the preliminary Release Notes of the upcoming 1.6 Release.
+Please find below the _**preliminary** Release Notes_ of the upcoming 1.6 Release.
 
 ### Version 1.6.0
 
