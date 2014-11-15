@@ -4,7 +4,7 @@ Please find below the preliminary Release Notes of the upcoming 1.6 Release.
 
 ### Version 1.6.0
 
-See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=4&page=1&state=closed).
+See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=5&page=1&state=closed).
 
 **Major features:**
 
