@@ -44,7 +44,7 @@ As a result, your lines in the items file might look like the following:
     String VDR_LivingroomOSDMessage     "VDR (livingroom) OSD message"           {vdr="LivingRoom:message"}
     Switch VDR_LivingroomChannelUpDown	"VDR Livingroom Channel Up/Down"  (VDR)  {vdr="LivingRoom:channel"}
     Number VDR_LivingroomChannel        "VDR Livingroom Channel"          (VDR)  {vdr="LivingRoom:channel"}
-    Switch VDR_LivingroomVolumnUpDown	"VDR Livingroom Volumn Up/Down"   (VDR)  {vdr="LivingRoom:volumn"}
+    Switch VDR_LivingroomVolumeUpDown	"VDR Livingroom Volume Up/Down"   (VDR)  {vdr="LivingRoom:volume"}
     Number VDR_LivingroomVolume         "VDR Livingroom Volume"           (VDR)  {vdr="LivingRoom:volume"}
     Switch VDR_LivingroomRecording      "VDR (livingroom) Recording"      (VDR)  {vdr="LivingRoom:recording"}
 
