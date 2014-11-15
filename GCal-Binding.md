@@ -58,6 +58,8 @@ openHAB must be configured with your google calendar of choice. The URL has to b
 The final URL should be similar to:
 `https://www.google.com/calendar/feeds/user@gmail.com/private/full`
 
+Google added a new security feature which needs to be disabled for this method to work. Go to https://www.google.com/settings/security/lesssecureapps and allow access for less secure apps.
+
 **Alternative 2:** To obtain the google calendar URL without password (only for reading !!):
 - only gcal:url should be used in openhab.cfg
 - login in to https://www.google.com/calendar/
