@@ -28,7 +28,7 @@ The item configuration for devices is:
 
 The **deviceName** must match the name in Telldus Center.  
 The **deviceType** is either: Command for on/off, DimmingLevel for absolute dimmable device.
-**SpecialCase** is used for the dimmable without absolute level(devices that is dimmable with pressing on twice). For this case use Dimmable as specialCase.  
+**SpecialCase** is used for the dimmable without absolute level(devices that is dimmable with clicking twice). For this case use Dimmable as specialCase.  
 **ResendCount** is just number of times to resend command.
 
 The item configuration for a sensor is:
@@ -42,6 +42,9 @@ The item configuration for a sensor is:
 Switch:
    
     Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {tellstick="Aquarium:Command"}
+Dimmer without absolute (dims when clicking on twice):
+   
+    Switch	GF_Kitchen_Wall "Wall"  { tellstick="Kitchen Backwall:Command:Dimmable:1" }
 Temp sensor:
       
     Number	GF_Kitchen_Temp	"Temperature [%.1f °C]"	<temperature> {tellstick="14:Temperature"}
