@@ -319,3 +319,11 @@ Frame label="Alarm System" {
 	}
 }
 ```
+
+## Lost security codes
+
+If you do not have your DCS alarm system master code and/or installer code but you bought an Envisalink then you might still be able to get the codes and thus use this binding. The Envisalink's TPI (TPI = Third Party Interface) can be used to find the codes using a brute-force attack (simply trying all the codes in an automated fashion).
+
+An open-source tool to perform this work for you can be found as part of the larger GUCEF project here:
+https://github.com/LiberatorUSA/GUCEF/tree/master/tools/DCSBruteInstaller
+This tool should be able to crack the master code and the installer code on your DCS with Envisalink. It has been tested against a DCS PC1555 and successfully retrieved the codes.
