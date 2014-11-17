@@ -71,14 +71,14 @@ The optional '<' sign tells whether the group address of the datapoint accepts r
 
 Each itemtype (see page [Items](Explanation-of-Items#itemtype)) accepts different command types. When binding an item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
 
-mainGAs are used for updating the status of an openHAB items via KNX. There can only be one mainGA for an openHAB item (Highlander principle :-)
-listeningGAs are used for obtaining status changes from KNX. There can be multiple listeningGAs for one item.
+mainGAs are used for updating the status of openHAB items via KNX. There can only be one mainGA for an openHAB item (Highlander principle :-)
+listeningGAs are used for obtaining status changes from KNX. There can be multiple listeningGAs for one openHAB item.
 
 ### Example
 
 Given we want to bind a Dimmer Item to KNX, we have first to check which commands an openHAB dimmer item does accept:
 
-On page [Items](Explanation-of-Items#itemtype) we that an openHAB Dimmer Item accepts three types of commands:
+On page [Items](Explanation-of-Items#itemtype) we find that an openHAB Dimmer item accepts three types of commands:
 
 |Itemname|Description|Command Types|
 |--------|-----------|-------------|
@@ -90,21 +90,21 @@ Also [in the sources](https://github.com/openhab/openhab/tree/master/bundles/cor
     acceptedCommandTypes.add(IncreaseDecreaseType.class);
     acceptedCommandTypes.add(PercentType.class);
 
-So, we first have to bind the OnOff command to the respective KNX group addresses, then the IncreaseDecrease command and finally the Percentage command. Please note that the sequence of these commands is relevant.
+So, we first have to bind the OnOff command to the respective KNX group addresses, then the IncreaseDecrease command and finally the Percent command. Please note that the sequence of these commands is relevant.
 
 In our example we assign the following KNX group addresses to the different commands:
 
 |Command Type|Main Group Address|Listening Address(es)|Comment|
 |------------|------------------|---------------------|-------|
-|OnOff command|1/3/20|0/3/20|-|
-|IncreaseDecreaseCommand|1/3/21|-|no listening GAs here as INCREASE and DECREASE are only commands but not valid states|
-|PercentCommand|1/3/22|0/3/22 and 0/8/15||||
+|OnOff|1/3/20|0/3/20|-|
+|IncreaseDecrease|1/3/21|-|no listening GAs here as INCREASE and DECREASE are only commands but not valid states|
+|Percent|1/3/22|0/3/22 and 0/8/15||||
 
 The respective line in the items definition file would therefore look like this:
 
     Dimmer TestDimmer (Lights) { knx="1/3/20+0/3/20, 1/3/21, 1/3/22+0/3/22+0/8/15" }
 
-If you have a dimmer that does not support INCREASE/DECREASE commands and you thus do not have a GA to provide in the middle, you can also directly define the datapoint types (DPTs) in the configuration. The above example would then look like this (without INCREASE/DECREASE support):
+If you have a dimmer that does not support INCREASE/DECREASE commands and thus you do not have a GA to provide in the middle, you can also directly define the datapoint types (DPTs) in the configuration. The above example would then look like this (without INCREASE/DECREASE support):
 
     Dimmer TestDimmer (Lights) { knx="1.001:1/3/20+0/3/20, 5.001:1/3/22+0/3/22+0/8/15" }
 
