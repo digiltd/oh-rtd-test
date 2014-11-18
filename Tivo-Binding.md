@@ -10,7 +10,7 @@ Add a line to your `openhab.cfg` file to point to your Tivo's hostname or IP add
 
 `tivo:host=<hostname>`
 
-* Create a `Switch` in your `.items` file for any command you wish to send your Tivo when the `Switch` is turned ON. For example:
+Create a `Switch` in your `.items` file for any command you wish to send your Tivo when the `Switch` is turned ON. For example:
 
 
     Switch Tivo_Button "Tivo Button" { tivo="tivo" }
