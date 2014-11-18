@@ -12,6 +12,7 @@ There are currently two protocols for communicating with Tivos. v1.0 works with 
 
 * Create a `Switch` in your `.items` file for any command you wish to send your Tivo when the `Switch` is turned ON. For example:
 
+
     Switch Tivo_Button "Tivo Button" { tivo="tivo" }
 
     Switch Tivo_Recordings "Tivo Recordings" { tivo="nowshowing" }
