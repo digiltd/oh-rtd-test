@@ -13,7 +13,9 @@ There are currently two protocols for communicating with Tivos. v1.0 works with 
 * Create a `Switch` in your `.items` file for any command you wish to send your Tivo when the `Switch` is turned ON. For example:
 
 `Switch Tivo_Button "Tivo Button" { tivo="tivo" }
+
 Switch Tivo_Recordings "Tivo Recordings" { tivo="nowshowing" }
+
 Switch Tivo_Standby "Tivo Standby" { tivo="standby" }`
 
 The full list of supported commands is [here](https://bitbucket.org/JonathanGiles/jtivo/src/9bb8a78424a7c8a461b0082c3d2dd6db31bf2454/src/net/jonathangiles/tivo/TivoCommand.java?at=default).
@@ -22,6 +24,8 @@ The full list of supported commands is [here](https://bitbucket.org/JonathanGile
 
 `
 createTimer(now.plusSeconds(3)) [|sendCommand(Tivo_Recordings, ON)]
+
 sendCommand(Tivo_Mode, OFF)
+
 postUpdate(Tivo_Mode, OFF)`
 
