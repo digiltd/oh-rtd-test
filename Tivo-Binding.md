@@ -19,8 +19,11 @@ Create a `Switch` in your `.items` file for any command you wish to send your Ti
 
 The full list of supported commands is [here](https://bitbucket.org/JonathanGiles/jtivo/src/9bb8a78424a7c8a461b0082c3d2dd6db31bf2454/src/net/jonathangiles/tivo/TivoCommand.java?at=default).
 
-Turn any Tivo `Switch` ON in a `rule` or `script` to send the configured command to your Tivo. For example, the following rule simulates a press of the "tivo" button on the remote control, then jumps to the recording list after 3 seconds:
+Turn any Tivo `Switch` ON in a `rule` or `script` to send the configured command to your Tivo. For example, the following code in a rule simulates a press of the "tivo" button on the remote control, gives the Tivo 3 seconds to wake up, then jumps to the recording list:
 
     sendCommand(Tivo_Button, ON)
     createTimer(now.plusSeconds(3)) [|sendCommand(Tivo_Recordings, ON)]
 
+The following code in a rule will put the Tivo in standby:
+
+    sendCommand(Tivo_Standby, ON)
