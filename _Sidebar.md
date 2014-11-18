@@ -30,6 +30,7 @@ Community
   * [[Anel Binding|Anel-binding]]
   * [[Asterisk Binding|Asterisk-Binding]]
   * [[Astro Binding|Astro-binding]]
+  * [[BenQ Projector Binding|BenQ-Projector-Binding]]
   * [[Bluetooth Binding|Bluetooth-Binding]]
   * [[Comfo Air Binding|Comfo-Air-Binding]]
   * [[Config Admin Binding|Config-Admin-Binding]]
