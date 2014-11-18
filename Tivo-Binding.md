@@ -22,9 +22,7 @@ The full list of supported commands is [here](https://bitbucket.org/JonathanGile
 
 * Turn any Tivo `Switch` ON in a `rule` or `script` to send the configured command to your Tivo. For example, the following rule simulates a press of the "tivo" button on the remote control, then jumps to the recording list after 3 seconds:
 
+>sendCommand(Tivo_Button, ON)
+
 >createTimer(now.plusSeconds(3)) [|sendCommand(Tivo_Recordings, ON)]
-
->sendCommand(Tivo_Mode, OFF)
-
->postUpdate(Tivo_Mode, OFF)
 
