@@ -1,4 +1,4 @@
-Documentation of the BenQ projector binding. _Targetting 1.6.0_
+_**Note:** This Binding will be available in the upcoming 1.6 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
 
 # Introduction
 This binding is designed to interface with BenQ projectors that have an RS232 interface on them that accepts the commands documented by BenQ in [\[1\]](ftp://ftp.benq-eu.com/projector/benq_rs232_commands.pdf).
