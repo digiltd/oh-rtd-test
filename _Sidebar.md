@@ -106,6 +106,7 @@ Community
   * [[TCP/UDP Binding|TCP-Binding]]
   * [[Tellstick Binding|Tellstick-Binding]]
   * [[TinkerForge Binding|Tinkerforge-Binding]]
+  * [[Tivo Binding|Tivo-Binding]]
   * [[VDR Binding|VDR-Binding]]
   * [[Velleman-K8055-Binding|Velleman-K8055-Binding]]
   * [[Wake-on-LAN Binding|Wake-on-LAN-Binding-(WoL)]]
