@@ -1,12 +1,10 @@
-Documentation of the Davis binding Bundle
+_**Note:** This Binding will be available in the upcoming 1.6 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
 
 ## Introduction
 
 Binding is based on the [Serial Communication Reference Manual](http://www.google.at/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CCQQFjAA&url=http%3A%2F%2Fwww.davisnet.com%2Fsupport%2Fweather%2Fdownload%2FVantageSerialProtocolDocs_v261.pdf&ei=yns1VLO9B9Pe7Ab9hYDgDQ&usg=AFQjCNEUP_O6jjV3tHaxc7_faaLKWAtw2g&sig2=0YuJy45Qmk76RlffOqayuA&bvm=bv.76943099,d.ZGU) from Davis. Most Davis weather stations should be supported, so far the Binding is tested with Vantage Pro 2.
 
 For installation of the binding, please see Wiki page [[Bindings]].
-
-Davis binding will be available since openhab 1.6.0
 
 ## Binding Configuration
 
