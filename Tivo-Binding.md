@@ -4,9 +4,9 @@ There are currently two protocols for communicating with Tivos. v1.0 works with 
 
 # Configuration
 
-* Enable [Network Remote Control](http://support.tivo.com/app/answers/detail/a_id/391) on your Tivo.
+Enable [Network Remote Control](http://support.tivo.com/app/answers/detail/a_id/391) on your Tivo.
 
-* Add a line to your `openhab.cfg` file to point to your Tivo's hostname or IP address:
+Add a line to your `openhab.cfg` file to point to your Tivo's hostname or IP address:
 
 `tivo:host=<hostname>`
 
@@ -21,7 +21,7 @@ There are currently two protocols for communicating with Tivos. v1.0 works with 
 
 The full list of supported commands is [here](https://bitbucket.org/JonathanGiles/jtivo/src/9bb8a78424a7c8a461b0082c3d2dd6db31bf2454/src/net/jonathangiles/tivo/TivoCommand.java?at=default).
 
-* Turn any Tivo `Switch` ON in a `rule` or `script` to send the configured command to your Tivo. For example, the following rule simulates a press of the "tivo" button on the remote control, then jumps to the recording list after 3 seconds:
+Turn any Tivo `Switch` ON in a `rule` or `script` to send the configured command to your Tivo. For example, the following rule simulates a press of the "tivo" button on the remote control, then jumps to the recording list after 3 seconds:
 
 >sendCommand(Tivo_Button, ON)
 
