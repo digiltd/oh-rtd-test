@@ -38,7 +38,7 @@ The following item types are currently available (alphabetical order):
   <tr><td><b>Itemname</b></td><td><b>Description</b></td><td><b>Command Types</b></td></tr>
   <tr><td>Color</td><td>Color information (RGB)</td><td>OnOff, IncreaseDecrease, Percent, HSB</td></tr>
   <tr><td>Contact</td><td>Item storing status of e.g. door/window contacts</td><td>OpenClose</td></tr>
-  <tr><td>DateTime</td><td>Stores date and time</td><td></td></tr>
+  <tr><td>DateTime</td><td>Stores date and time (see NTP binding for details)</td><td></td></tr>
   <tr><td>Dimmer</td><td>Item carrying a percentage value for dimmers</td><td>OnOff, IncreaseDecrease, Percent</td></tr>
   <tr><td>Group</td><td>Item to nest other items / collect them in groups</td><td>-</td></tr>
   <tr><td>Number</td><td>Stores values in number format</td><td>Decimal</td></tr>
