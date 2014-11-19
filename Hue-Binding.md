@@ -132,6 +132,9 @@ As a result, your lines in the sitemap file might look like the following:
 	Slider         item=Dimm_1     visibility=[Toggle_1==ON]    label="Bedroom Brightness" 
 	Slider         item=CT_Dimm_1  visibility=[Toggle_1==ON]    label="Bedroom Color Temperature"  
 
+Or within a rule file:
+
+        sendCommand(colorItem, HSBType::GREEN)
     
 For more information on the used API see the following link: http://developers.meethue.com/
 
