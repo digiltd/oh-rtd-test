@@ -134,7 +134,7 @@ As a result, your lines in the sitemap file might look like the following:
 
 Or within a rule file:
 
-        sendCommand(colorItem, HSBType::GREEN)
+        sendCommand(Toggle_1, HSBType::GREEN)
     
 For more information on the used API see the following link: http://developers.meethue.com/
 
