@@ -24,6 +24,7 @@ For your convenience you can see the relevant section as follows:
     knx:type=
 
     # KNX gateway port (optional, defaults to 3671)
+    # Note: If you use eibd, setting to 6720
     knx:port=
 
     # Local endpoint to specify the multicast interface, no port is used (optional)
