@@ -82,7 +82,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td>Patrick Giasson</td>
+<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td>Patrick Giasson, Joe Barnum</td>
 </tr>
 <tr>
 <td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td></td><td>Bernd Pfrommer</td>
@@ -233,10 +233,14 @@ Where the `my_own_devices.xml` file defines a new device like this:
 
 Finding the Insteon product key can be tricky since Insteon has not updated the product key table (http://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf) since 2008. If a web search does not turn up the product key, make one up, starting with "F", like: F00.00.99. Avoid duplicate keys by finding the highest fake product key in the `device_types.xml` file, and incrementing by one.
 
-### Adding new device features (for developers experienced with Eclipse IDE)
+### Adding new device features
 
-If you can't can't build a new device out of the existing device features (for a complete list see `device_features.xml`), you need to set up an openHAB Eclipse build environment, following the online instructions. Then find the `device_features.xml` file under the InsteonPLM binding directory, and define  a new feature (in this case "MyFeature") which can then be referenced from the `device_types.xml` file:
+If you can't can't build a new device out of the existing device features (for a complete list see `device_features.xml`) you can add new features by specifying a file (let's call it `my_own_features.xml`) with the "more_devices" option in the `openhab.cfg` file:
 
+    insteonplm:more_features=/usr/local/openhab/rt/my_own_features.xml
+
+  In this file you can define your own features (or even overwrite an existing feature). In the example below a new feature "MyFeature" is defined, which can then be referenced from the `device_types.xml` file (or from `my_own_devices.xml`):
+   <xml>
     <feature name="MyFeature">
 	<message-dispatcher>DefaultDispatcher</message-dispatcher>
 	<message-handler cmd="0x03">NoOpMsgHandler</message-handler>
@@ -247,8 +251,13 @@ If you can't can't build a new device out of the existing device features (for a
 	<command-handler command="OnOffType">IOLincOnOffCommandHandler</command-handler>
 	<poll-handler>DefaultPollHandler</poll-handler>
     </feature>
+   </xml>
 
-If you cannot cobble together a suitable device feature out of existing handlers you will have to define new ones by editing the corresponding Java classes in the source tree.
+If you cannot cobble together a suitable device feature out of existing handlers you will have to define new ones by editing the corresponding Java classes in the source tree (see below).
+
+### Adding new handlers (for developers experienced with Eclipse IDE)
+
+If all else fails there are the Java sources, in particular the classes MessageHandler.java (what to do with messages coming in from the Insteon network), PollHandler.java (how to form outbound messages for device polling), and CommandHandler.java (how to translate openhab commands to Insteon network messages). To that end you'll need to become a bonafide openHAB developer, and set up an openHAB Eclipse build environment, following the online instructions.
 
 ## Known Limitations and Issues
 
