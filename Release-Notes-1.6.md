@@ -6,7 +6,7 @@ Please find below the _**preliminary** Release Notes_ of the upcoming 1.6 Releas
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=5&page=1&state=closed).
 
-**Major features:**
+####Major features:
 
 - [#1210](https://github.com/openhab/openhab/pull/1210) Initial checkin of the JPA Persistence Binding (@mdbergmann)
 - [#1334](https://github.com/openhab/openhab/pull/1334) Initial checkin of DSC Alarm Binding (@RSStephens)
@@ -20,7 +20,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 - [#1649](https://github.com/openhab/openhab/pull/1649) Initial checkin of Enigma2 Binding (@sebastiankutschbach)
 - [#1668](https://github.com/openhab/openhab/pull/1668) Initial checkin of the Pilight Binding (@idserda)
 
-**Enhancements:**
+####Enhancements:
 
 - [#1371](https://github.com/openhab/openhab/pull/1371) add optional headers functionality to http binding cache items in the main configuration file. (@spali)
 - [#1393](https://github.com/openhab/openhab/pull/1393) Introducing lastUpdate in Persistence Extensions (@clinique)
@@ -67,7 +67,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 - [#1696](https://github.com/openhab/openhab/pull/1696) [Tellstick] Added support for Mac (@jarlebh)
 - Various Zwave Fixes and Enhancements ([#1405](https://github.com/openhab/openhab/pull/1405), [#1418](https://github.com/openhab/openhab/pull/1418), [#1440](https://github.com/openhab/openhab/pull/1440), [#1446](https://github.com/openhab/openhab/pull/1446), [#1448](https://github.com/openhab/openhab/pull/1448), [#1449](https://github.com/openhab/openhab/pull/1449), [#1450](https://github.com/openhab/openhab/pull/1450), [#1451](https://github.com/openhab/openhab/pull/1451), [#1454](https://github.com/openhab/openhab/pull/1454), [#1459](https://github.com/openhab/openhab/pull/1459), [#1463](https://github.com/openhab/openhab/pull/1463), [#1464](https://github.com/openhab/openhab/pull/1464), [#1465](https://github.com/openhab/openhab/pull/1465), [#1466](https://github.com/openhab/openhab/pull/1466), [#1468](https://github.com/openhab/openhab/pull/1468), [#1477](https://github.com/openhab/openhab/pull/1477), [#1478](https://github.com/openhab/openhab/pull/1478), [#1479](https://github.com/openhab/openhab/pull/1479), [#1491](https://github.com/openhab/openhab/pull/1491), [#1507](https://github.com/openhab/openhab/pull/1507), [#1508](https://github.com/openhab/openhab/pull/1508), [#1512](https://github.com/openhab/openhab/pull/1512), [#1516](https://github.com/openhab/openhab/pull/1516), [#1521](https://github.com/openhab/openhab/pull/1521), [#1523](https://github.com/openhab/openhab/pull/1523), [#1528](https://github.com/openhab/openhab/pull/1528), [#1529](https://github.com/openhab/openhab/pull/1529), [#1532](https://github.com/openhab/openhab/pull/1532), [#1536](https://github.com/openhab/openhab/pull/1536), [#1537](https://github.com/openhab/openhab/pull/1537), [#1539](https://github.com/openhab/openhab/pull/1539), [#1544](https://github.com/openhab/openhab/pull/1544), [#1552](https://github.com/openhab/openhab/pull/1552), [#1553](https://github.com/openhab/openhab/pull/1553), [#1555](https://github.com/openhab/openhab/pull/1555), [#1556](https://github.com/openhab/openhab/pull/1556), [#1557](https://github.com/openhab/openhab/pull/1557), [#1559](https://github.com/openhab/openhab/pull/1559), [#1565](https://github.com/openhab/openhab/pull/1565), [#1568](https://github.com/openhab/openhab/pull/1568), [#1570](https://github.com/openhab/openhab/pull/1570), [#1577](https://github.com/openhab/openhab/pull/1577), [#1578](https://github.com/openhab/openhab/pull/1578), [#1587](https://github.com/openhab/openhab/pull/1587), [#1590](https://github.com/openhab/openhab/pull/1590), [#1591](https://github.com/openhab/openhab/pull/1591), [#1597](https://github.com/openhab/openhab/pull/1597), [#1598](https://github.com/openhab/openhab/pull/1598), [#1605](https://github.com/openhab/openhab/pull/1605), [#1614](https://github.com/openhab/openhab/pull/1614), [#1615](https://github.com/openhab/openhab/pull/1615), [#1619](https://github.com/openhab/openhab/pull/1619), [#1620](https://github.com/openhab/openhab/pull/1620), [#1622](https://github.com/openhab/openhab/pull/1622), [#1666](https://github.com/openhab/openhab/pull/1666), [#1669](https://github.com/openhab/openhab/pull/1669), [#1674](https://github.com/openhab/openhab/pull/1674), [#1675](https://github.com/openhab/openhab/pull/1675), [#1676](https://github.com/openhab/openhab/pull/1676), [#1677](https://github.com/openhab/openhab/pull/1677), [#1687](https://github.com/openhab/openhab/pull/1687), [#1679](https://github.com/openhab/openhab/pull/1679), [#1708](https://github.com/openhab/openhab/pull/1708), [#1709](https://github.com/openhab/openhab/pull/1709), [#1710](https://github.com/openhab/openhab/pull/1710))
 
-**Bugfixes:**
+####Bugfixes:
 
 - [#1407](https://github.com/openhab/openhab/pull/1407) [KNX] Attempting bugfix for #1344 (@Snickermicker)
 - [#1412](https://github.com/openhab/openhab/pull/1412) Fix for case insensitive player ids and mac addresses (@sumnerboy12)
@@ -104,10 +104,10 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 - [#1704](https://github.com/openhab/openhab/pull/1704) [InsteonPLM binding] ability to easily add device features, fixed race conditions (@berndpfrommer)
 - [#1707](https://github.com/openhab/openhab/pull/1707) [Astro] Fixed copy/paste bug (@gerrieg)
 
-**Removals:**
+####Removals:
 * none
 
-**major API changes**
+####major API changes
 * none
 
 The complete list of issues can be obtained from the [Github Issue Tracker](https://github.com/openhab/openhab/issues?direction=asc&labels=&milestone=4&page=1&sort=created&state=closed).
