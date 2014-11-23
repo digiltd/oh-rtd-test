@@ -6,9 +6,10 @@ Please find below the _**preliminary** Release Notes_ of the upcoming 1.6 Releas
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=5&page=1&state=closed).
 
+https://github.com/openhab/openhab/wiki/Waterkotte-EcoTouch-Heat-Pump-Binding
 ####Major features:
-- [#918](https://github.com/openhab/openhab/pull/918) [[xPL Binding and Action|xPL-Binding]] (@clinique)
 - [#925](https://github.com/openhab/openhab/pull/925) LgTV Binding (@martinfluchgmxnet)
+- [#1130](https://github.com/openhab/openhab/pull/1130) [[Waterkotte Ecotouch Binding|Waterkotte-EcoTouch-Heat-Pump-Binding]] (@sibbi77)
 - [#1210](https://github.com/openhab/openhab/pull/1210) [[JPA Persistence Binding|JPA-Persistence]] (@mdbergmann)
 - [#1292](https://github.com/openhab/openhab/pull/1292) [[Wemo Binding|Wemo-Binding]] (@hmerk)
 - [#1334](https://github.com/openhab/openhab/pull/1334) [[DSC Alarm Binding|DSC-Alarm-Binding]] (@RSStephens)
