@@ -1,8 +1,8 @@
- Introduction
- Syntax
- Mappings
- Dynamic Sitemaps
- Example
+* [Introduction](Explanation-of-Sitemaps/##Introduction)
+* [Syntax](Explanation-of-Sitemaps/##Syntax)
+* [Mappings](Explanation-of-Sitemaps/##Mappings)
+* [Dynamic Sitemaps](Explanation-of-Sitemaps/##Dynamic Sitemaps)
+* [Example](Explanation-of-Sitemaps/##Example)
 
 ## Introduction
 
