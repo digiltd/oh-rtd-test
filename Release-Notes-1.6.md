@@ -8,17 +8,17 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 
 **Major features:**
 
-- [#1210](https://github.com/openhab/openhab/pull/1210) initial checkin of the JPA Persistence Binding (@mdbergmann)
-- [#1334](https://github.com/openhab/openhab/pull/1334) Initial commit of DSC Alarm Binding (@RSStephens)
-- [#1372](https://github.com/openhab/openhab/pull/1372) [RFXCOM] initial Support for Somfy (RFY) protocol in Rfxcom binding (@juri8)
-- [#1395](https://github.com/openhab/openhab/pull/1395) JSONPath transformation service (@clinique)
-- [#1422](https://github.com/openhab/openhab/pull/1422) new binding: AlarmDecoder (@berndpfrommer)
-- [#1469](https://github.com/openhab/openhab/pull/1469) Initial commit of the Binding for MiOS (Vera) Automation controllers (@mrguessed)
-- [#1514](https://github.com/openhab/openhab/pull/1514) Initial contribution of the Davis Binding (@tomtrath)
+- [#1210](https://github.com/openhab/openhab/pull/1210) Initial checkin of the JPA Persistence Binding (@mdbergmann)
+- [#1334](https://github.com/openhab/openhab/pull/1334) Initial checkin of DSC Alarm Binding (@RSStephens)
+- [#1372](https://github.com/openhab/openhab/pull/1372) [RFXCOM] Initial Support for Somfy (RFY) protocol in Rfxcom binding (@juri8)
+- [#1395](https://github.com/openhab/openhab/pull/1395) Initial checkin of the JSONPath transformation service (@clinique)
+- [#1422](https://github.com/openhab/openhab/pull/1422) Initial checkin of the AlarmDecoder Binding (@berndpfrommer)
+- [#1469](https://github.com/openhab/openhab/pull/1469) Initial checkin of the Binding for MiOS (Vera) Automation controllers (@mrguessed)
+- [#1514](https://github.com/openhab/openhab/pull/1514) Initial checkin of the Davis Binding (@tomtrath)
 - [#1595](https://github.com/openhab/openhab/pull/1595) Adding a new TTS interface to Spech Dispatcher (@clinique)
 - [#1645](https://github.com/openhab/openhab/pull/1645) Initial checkin of the Samsung AirConditioner Binding (@steintore)
-- [#1649](https://github.com/openhab/openhab/pull/1649) Initial Version of Enigma2 Binding (@sebastiankutschbach)
-- [#1668](https://github.com/openhab/openhab/pull/1668) Initial commit of the Pilight Binding (@idserda)
+- [#1649](https://github.com/openhab/openhab/pull/1649) Initial checkin of Enigma2 Binding (@sebastiankutschbach)
+- [#1668](https://github.com/openhab/openhab/pull/1668) Initial checkin of the Pilight Binding (@idserda)
 
 **Enhancements:**
 
