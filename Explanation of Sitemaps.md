@@ -1,8 +1,8 @@
-* [Introduction](Explanation-of-Sitemaps/#Introduction)
-* [Syntax](Explanation-of-Sitemaps/#Syntax)
-* [Mappings](Explanation-of-Sitemaps/#Mappings)
-* [Dynamic Sitemaps](Explanation-of-Sitemaps/#Dynamic-Sitemaps)
-* [Example](Explanation-of-Sitemaps/#Example)
+* [Introduction](Explanation-of-Sitemaps/#introduction)
+* [Syntax](Explanation-of-Sitemaps/#syntax)
+* [Mappings](Explanation-of-Sitemaps/#mappings)
+* [Dynamic Sitemaps](Explanation-of-Sitemaps/#dynamic-sitemaps)
+* [Example](Explanation-of-Sitemaps/#example)
 
 ## Introduction
 
