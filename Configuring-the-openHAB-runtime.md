@@ -10,7 +10,7 @@ This page describes the different places in which the openHAB runtime can be con
 
 **Note**: Use the demofiles if you wish: http://www.openhab.org/downloads.html
 
-## General Configuration
+## General Configuration - openhab.cfg
 
 The runtime comes with one core configuration file, the file [openhab_default.cfg](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/openhab_default.cfg).
 The purpose of this file is to define all basic settings, such as IP addresses, mail server, folder locations etc.
@@ -20,6 +20,11 @@ The file also contains settings for all (optional) bindings. These settings are 
 First thing after unzipping the runtime should be creating a copy of `openhab_default.cfg` to `openhab.cfg`. All personal settings should always only be done in this copy. This ensures that your settings are not lost, if you unzip a new version of the runtime to your openHAB home directory.
 
 The `openhab_default.cfg` file comes with extensive comments which explain, what settings are available and what can be configured with them. If you have any doubts, please ask on the [discussion group](https://groups.google.com/forum/#!forum/openhab).
+
+To activate a binding uncomment the specific settings. 
+
+Example:
+The easiest way of configuring a KNX binding is by connecting in ROUTER mode. To do so, enable this: `knx:type=ROUTER` . If you cannot use the ROUTER mode, set it to TUNNEL, but you must then configure the IP: `knx:ip=<IP of the KNX-IP module>`
 
 ## Individual Configuration
 Besides the *.cfg files and *.xml files (see below: loggin) the configuration folder `${openhab_home}/configurations` consists of dedicated subfolders for specific topics. For each topic, there should be another sub folder, such as `${openhab_home}/configurations/items`.
