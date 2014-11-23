@@ -6,9 +6,11 @@
   Read the wiki page for the respective binding for more help and examples.
 
 - Items can be defined in files in folder `${openhab_home}/configurations/items`.
-  Just create a new file called thenameyouwish.items. 
-
+ 
 - All item definition files have to have the file extension `.items`
+  Just create a new file called thenameyouwish.items.
+- Groups are also defined in the .items files. Groups can be inside groups, and items can be in none, one
+  or more groups. 
 
 Typically items are defined using the openHAB Designer by editing the items definition files. Doing so you will have full IDE support like syntax checking, contect assist etc.
 
