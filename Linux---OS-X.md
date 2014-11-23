@@ -71,10 +71,8 @@ To install it, follow these simple steps:
 ## Configuring the server
 For please visit the [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s). 
 
-### The openhab.cfg file
 
-- The easiest way of configuring a KNX binding is by connecting in ROUTER mode. To do so, enable this: `knx:type=ROUTER` . If you cannot use the ROUTER mode, set it to TUNNEL, but you must then configure the IP: `knx:ip=<IP of the KNX-IP module>`
-- further information on configuring any other binding can be found on the individual binding pages
+
 
 ### The yourname.items file
 
