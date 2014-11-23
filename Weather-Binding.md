@@ -290,7 +290,7 @@ See `example.html` in the layouts folder. You can download the weather-data fold
 **Using the layout file:**  
 You must specify a locationId and a layout parameter, iconset is optional (default=colorful)  
 Either directly:  
-`http://HOST:8080/weather?locationId=home&layout=example&iconset=colorful`  
+`http://HOST:PORT/weather?locationId=home&layout=example&iconset=colorful`  
 or in a sitemap:  
 `Webview url="/weather?locationId=home&layout=example&iconset=colorful" height=7`
 
