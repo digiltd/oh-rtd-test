@@ -297,7 +297,7 @@ or in a sitemap:
 Note: The binding works with openHab 1.5.x too, for the Webview in a sitemap you need 1.6
 
 ### Html Layout Gallery
-I would like to create a weather layout gallery. If you have a great looking html weather layout you want to share, just [send it to me](mailto:gerrieg.openhab@icloud.com) an i will put it on this wiki page.
+I would like to create a weather layout gallery. If you have a great looking html weather layout you want it to share, just [send it to me](mailto:gerrieg.openhab@icloud.com) an i will put it on this wiki page.
 
 ### Debugging and Tracing
 If you want to see which data a provider sends, switch the loglevel in logback.xml to DEBUG.
