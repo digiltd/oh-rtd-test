@@ -6,6 +6,7 @@
   Read the wiki page for the respective binding for more help and examples.
 
 - Items can be defined in files in folder `${openhab_home}/configurations/items`.
+  Just create a new file called thenameyouwish.items. 
 
 - All item definition files have to have the file extension `.items`
 
