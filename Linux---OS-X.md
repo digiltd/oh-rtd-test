@@ -72,19 +72,6 @@ To install it, follow these simple steps:
 For please visit the [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s). 
 
 
-
-
-### The yourname.items file
-
-
-The items may include the KNX group address to use them. They might be actively read by openHAB or not. They look like this:
-
-- `Number Lighting_Room_Sensor "Lighting in the Room [Lux](%.2f)"  <switch> (Room,Lighting) { knx = "<0/1/1" }`: This is a sensor item. It uses the 0/1/1 group address and openHAB will ask for its value periodically because there is a "<" sign before the address. It is a number item, called Lighting_Room_Sensor, and belongs to Room and Lighting groups.
-- `Switch Light_Room_Table  "Table Light" (Room, Lights) { knx = "<0/1/10+0/1/30"}`: This is a switch item that has two addresses. openHAB may responds to events in any of them, but may actively read the first one.
-
-For more info about other options have a look at the demo.items file and the wiki bindings pages.
-
-
 ## Start the server!
 
 1. Launch the runtime by executing the script `start.sh`
