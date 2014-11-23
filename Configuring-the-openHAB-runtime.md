@@ -8,6 +8,8 @@ This page describes the different places in which the openHAB runtime can be con
 
 **Note**: Items and sitemap(s) may be changed during runtime as needed.
 
+**Note**: Use the demofiles if you wish: http://www.openhab.org/downloads.html
+
 ## General Configuration
 
 The runtime comes with one core configuration file, the file [openhab_default.cfg](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/openhab_default.cfg).
