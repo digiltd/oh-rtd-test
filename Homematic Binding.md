@@ -1,34 +1,74 @@
-## News
-[Release Notes 1.6](#release-notes-160)  
-[Changelog](#changelog)  
-[Download](#download)
-
 ## Introduction
 
 - RF and WIRED devices are supported
-- CCU variables with synchronisation
-- execute programs on the CCU
-- flexible converter framework which should convert every datapoint of all devices
-- fast and lightweight BIN-RPC communication with the CCU. The XML-RPC protocol is also supported.
-- quick metadata and value sync with TclRega scripts. If you start openHAB or reload a item file, it only takes some seconds (with the CCU2) and all items have their states.
-- local cache of all metadata and values to prevent unnecessary CCU calls.
+- CCU/Homegear variables with synchronisation
+- execute programs on the CCU/Homegear
+- flexible converter framework which converts every datapoint of all devices
+- fast and lightweight BIN-RPC communication.
+- quick metadata and value sync with TclRega scripts. If you start openHAB or reload a item file, it only takes some seconds and all items have their states.
+- local cache of all metadata and values to prevent unnecessary CCU/Homegear calls.
 - alive validation, if no event is received within a specified time, the binding restarts.
 - action to send messages to a Homematic remote control with a display
 
-**Requirements:**
-CCU1 or CCU2  
+### New in 1.6
+1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts). With Homegear you can control HomeMatic devices without a CCU, [MAX! devices](http://www.eq-3.de/max-heizungssteuerung.html) without a cube and Philips hue devices, more to come!  
+**Note:** You need at least 0.5.8 of Homegear.
+
+2.) BATTERY_TYPE datapoint. Show the type of the battery for every battery-powered Homematic device.
+```
+String ... {homematic="address=KEQxxxxxxxx, channel=0, parameter=BATTERY_TYPE"}
+```
+
+3.) CCU group support. You can group together for example some thermostats and call group datapoints.
+```
+Number ... {homematic="address=INT0000001, channel=1, parameter=SET_TEMPERATURE“}
+```  
+**Note:** The CCU does not send updates to a group! If you change the temperature manually, you have to write a rule to update the group:
+```
+var Timer thermostatChangedTimer = null
+
+rule "Some Thermostat changed"
+when
+   Item thermostat_l changed or
+   Item thermostat_2 changed or
+   Item thermostat_3 changed
+then
+   if (thermostatChangedTimer != null) {
+       thermostatChangedTimer.cancel;
+       thermostatChangedTimer = null;
+   }
+
+   // reschedule timer to cover latest change
+   thermostatChangedTimer = createTimer(now.plusSeconds(20)) [|      
+       sendCommand(thermostat_group, thermostat_1.state)
+   ]
+end
+```
+
+4.) Remote control display is now driven via RPC (formerly TclRega script)  
+5.) Many small optimizations  
+6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support  
+7.) XML-RPC removed  
+8.) Stand alone actions, use reload_datapoints, reload_variables and reload_rssi without a device binding  
+9.) RSSI_DEVICE and RSSI_PEER datapoint. Show the [RSSI](http://en.wikipedia.org/wiki/Received_signal_strength_indication) values from RF devices.
+```
+Number RSSI_Livingroom_Device   "RSSI device light livingroom [%d dbm]"   {homematic="address=xxxxxxxx, channel=0, parameter=RSSI_DEVICE"}
+Number RSSI_Livingroom_Peer     "RSSI peer light livingroom [%d dbm]"     {homematic="address=xxxxxxxx, channel=0, parameter=RSSI_PEER"}
+```
+If you are using Homegear, the values are always up to date. The values from a CCU are fetched during startup. If you want to refresh the CCU values, you need the RELOAD_RSSI action:
+```
+Switch Reload_Rssi   {homematic="action=reload_rssi"}
+```
+Just send a ON command to the Switch and the RSSI values are updated.
+
+### Requirements
+CCU1, CCU2, [Homegear](http://homegear.eu) or [lxccu](http://www.lxccu.com)  
 These ports are used by the binding:  
 TclRegaScript (required): 8181  
-RF components: 2001  
+RF components (required): 2001  
 WIRED components (optional): 2000  
 
 The CCU firewall must be configured to 'full access' for the Remote Homematic-Script API.
-
-If you don't have a CCU, this may be interesting: [CCU2 Firmware on ARM Hardware](http://homematic-forum.de/forum/viewtopic.php?f=26&t=18359) / [lxccu](http://www.lxccu.com)
-
-**Important:** It's not guarantied to be a 100% drop in replacement for the current Homematic binding, it MAY work without modifications to your configuration, but it's always better to validate if everything works as expected.
-
-**Limitation:** Since i do not have every Homematic device, i can not test all possible datapoint bindings. The converter framework is rather generic and works with all my devices. If something does not work, i have implemented some tracing so i can try to fix it even without having the device.
 
 ## HomeMatic Binding Configuration
 
@@ -41,16 +81,13 @@ These config params are used for the HomeMatic binding.
 # Hostname / IP address of the Homematic CCU
 homematic:host=
 
-# The communication with the CCU. xml for xmlrpc or bin for the lightweight binrpc, (optional, default is bin).
-# homematic:rpc=
- 
 # Hostname / IP address for the callback server (optional, default is auto-discovery)
 # This is normally the IP / hostname of the local host (but not "localhost" or "127.0.0.1"). 
 # homematic:callback.host=
- 
+
 # Port number for the callback server. (optional, default is 9123)
 # homematic:callback.port=
- 
+
 # The interval in seconds to check if the communication with the CCU is still alive.
 # If no message receives from the CCU, the binding restarts. (optional, default is 300)
 # homematic:alive.interval=
@@ -65,18 +102,7 @@ Available parameters:
 - variable: (variable) the name of the CCU variable
 - program: (program) the name of the CCU program
 - forceUpdate: (datapoint, variable) if true, the new value is always sent to the CCU even it's equal the current value
-- action: (datapoint, variable, program) execute a action, RELOAD_VARIABLES or RELOAD_DATAPOINTS
-
-**Important:**
-The current binding uses the attribute **id** for the address:
-```
-Switch Anyitem {homematic="id=KEQ0012345, channel=1, parameter=PRESS_SHORT"}
-```
-In this binding the attribute has changed to **address**:
-```
-Switch Anyitem {homematic="address=KEQ0012345, channel=1, parameter=PRESS_SHORT"}
-```
-Just do a search/replace and you are done. The id attribute is deprecated and will be removed in future versions!  
+- action: (datapoint, variable, program) execute a action, RELOAD_VARIABLES, RELOAD_DATAPOINTS or RELOAD_RSSI
 
 ### Datapoint examples
 ```
@@ -152,7 +178,12 @@ In this example i use channel 2 of the 'Virtual remote control'
 ```
 Switch Reload_Datapoints {homematic="address=BidCoS-RF, channel=2, parameter=PRESS_SHORT, action=RELOAD_DATAPOINTS"}
 ```
-Just send ON to this Switch and all datapoints refreshes. Only changes are published to openHAB!
+Just send ON to this Switch and all datapoints refreshes. Only changes are published to openHAB!  
+
+You can also use a standalone action without a device binding
+```
+Switch Reload_Datapoints {homematic="action=RELOAD_DATAPOINTS"}
+```
 
 Example: reload all datapoints every 6 hours 
 ```
@@ -356,81 +387,3 @@ If this entry does not exist, there is a problem in your openhab.cfg. A common p
 
 ### Video
 [![HomeMatic Binding](http://img.youtube.com/vi/F0ImuuIPjYk/0.jpg)](http://www.youtube.com/watch?v=F0ImuuIPjYk)
-
-### Release Notes 1.6.0
-1.) [Homegear](https://www.homegear.eu) support including variables and programs (Homegear scripts). With Homegear you can control HomeMatic devices without a CCU, [MAX! devices](http://www.eq-3.de/max-heizungssteuerung.html) without a cube and Philips hue devices!
-**Note:** You need at least 0.5.8 of Homegear.
-
-2.) BATTERY_TYPE datapoint. Show the type of the battery for every battery-powered Homematic device.
-```
-String ... {homematic="address=KEQxxxxxxxx, channel=0, parameter=BATTERY_TYPE"}
-```
-
-3.) CCU group support. You can group together for example some thermostats and call group datapoints.
-```
-Number ... {homematic="address=INT0000001, channel=1, parameter=SET_TEMPERATURE“}
-```  
-**Note:** The CCU does not send updates to a group! If you change the temperature manually, you have to write a rule to update the group:
-```
-var Timer thermostatChangedTimer = null
-
-rule "Some Thermostat changed"
-when
-   Item thermostat_l changed or
-   Item thermostat_2 changed or
-   Item thermostat_3 changed
-then
-   if (thermostatChangedTimer != null) {
-       thermostatChangedTimer.cancel;
-       thermostatChangedTimer = null;
-   }
-
-   // reschedule timer to cover latest change
-   thermostatChangedTimer = createTimer(now.plusSeconds(20)) [|      
-       sendCommand(thermostat_group, thermostat_1.state)
-   ]
-end
-```
-
-4.) Remote control display is now driven via RPC (formerly TclRega script)  
-5.) Many small optimizations  
-6.) [CUxD](http://www.homematic-inside.de/software/cuxdaemon) Support  
-7.) RSSI_DEVICE and RSSI_PEER datapoint. Show the [RSSI](http://en.wikipedia.org/wiki/Received_signal_strength_indication) values from RF devices.
-```
-Number RSSI_Livingroom_Device   "RSSI device light livingroom [%d dbm]"   {homematic="address=xxxxxxxx, channel=0, parameter=RSSI_DEVICE"}
-Number RSSI_Livingroom_Peer     "RSSI peer light livingroom [%d dbm]"     {homematic="address=xxxxxxxx, channel=0, parameter=RSSI_PEER"}
-```
-If you are using Homegear, the values are always up to date. The values from a CCU are fetched during startup. If you want to refresh the CCU values, you need the RELOAD_RSSI action:
-```
-Switch Reload_Rssi   {homematic="action=reload_rssi"}
-```
-Just send a ON command to the Switch and the RSSI values are updated.
-
-### Changelog
-**23.09.2014**
-- Added support for Homegear writeOnly datapoints
-- Optimized Homegear metadata extraction
-
-**19.09.2014**
-- Removed XML-RPC communication
-- Added support for RSSI device and peer info
-- Added RELOAD_RSSI action
-- Added trace logging for Homegear
-- Adding support for standalone action without device binding
-- Fixed Homegear string type
-
-**13.09.2014**
-- Moved CCU team support to DatapointConfig
-- Added support for CUxD LAST_TICKS and UNITSPTURN datapoint
-- Added support for CCU Teams (e.g. a team of smoke detectors)
-- Added support for CUxD HUMIDITYF datapoint
-- Added battery type for new [HM-Sec-SCo](http://www.elv.at/homematic-ir-tuer-fensterkontakt.html) device
-- Fixed Winmatic battery type.
-- Optimized CCU firmware version extraction
-- Added state invert for MAX! window contacts
-- Added [CUxD](http://www.homematic-inside.de/software/cuxdaemon) support
-
-### Download
-You can always download the latest version from the [daily builds at cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)
-
-These builds are working with openHab 1.5.x too.
