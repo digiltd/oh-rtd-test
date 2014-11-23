@@ -44,14 +44,14 @@ Currently supported weather providers:
 Before you can use a weather provider, you need to register a free apikey on the website of the provider.  
 **Note:** Hamweather has two apikeys (client_id, secret_id), Yahoo does not need a apikey.
 
-Now you can specify locations. Every location has a locationId that can be referenced from an item. A location has five required parameters.
+Now you can specify locations. Each location has a locationId that can be referenced from an item. A location has five required parameters.
 - **latitude, longitude:** the coordinates the weather is retrieved from
 - **provider:** a reference to a provider name
 - **language:** the language of the weather condition text (see provider homepage for supported languages)
 - **updateInterval:** the interval in minutes the weather is retrieved
 - **name:** (optional), the name of the location, useful for displaying in html layouts
 
-**Important:** Every weather provider has a daily request limit for the free weather api. Also the weather does not change quickly, so please choose a moderate updateInterval. The request limit can be found on the weather provider website. 
+**Important:** Each weather provider has a daily request limit for the free weather api. Also the weather does not change quickly, so please choose a moderate updateInterval. The request limit can be found on the weather provider website. 
 
 **Example:** Let's display the current temperature and humidity in Salzburg (AT) from Yahoo.  
 **openhab.cfg**
