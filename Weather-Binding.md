@@ -321,3 +321,6 @@ If you don't see these entries, check your item file.
 
 * As mentioned earlier, every weather provider sends different data and not all available binding properties are set. If you want to know which provider sends which properties to optimize your items, switch the binding to [DEBUG mode](#debugging-and-tracing). At every refresh the weather data is logged to the logfile.
 
+### Download
+[weather-data](https://drive.google.com/file/d/0Bw7zjCgsXYnHUTZXMnEwQzFjQUE/view?usp=sharing) with icons and example layout file  
+[map-files](https://drive.google.com/file/d/0Bw7zjCgsXYnHbnVIdkFGaVZIbHM/view?usp=sharing) with short condition text for the commonId  
