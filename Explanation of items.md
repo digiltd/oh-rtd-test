@@ -138,7 +138,7 @@ For detailed binding configutation syntax of openHAB bindings please see the ope
     Switch Doorbell "Doorbell" <bell> { serial="/dev/usb/ttyUSB0" }
 
 ## examples
-
+#### from the demo file
 The openHAB runtime comes with a [demo items file](https://github.com/openhab/openhab/blob/master/distribution/openhabhome/configurations/items/demo.items), here is a short excerpt from it:
 
     Group            gAll
@@ -165,9 +165,16 @@ Groups can be inside groups, and items can be in none, one or more groups. For e
 - `Group GF_Living         "Living room"   <video>         (gGF)` This statement defines the group GF_Living, defines that the user interface will show it as  "Living room", defines the icon to be shown <video> and states that it belongs to (gGF). Notice that the gGF group belongs to the ALL group, hence GF_Living inherits that group, and it belongs to the All group too.
 - `Group:Number:AVG  Temperature "Average lighting [Lux](%.1f)"  <temperature>   (Status)`: this statement means that there is a group called Temperature, which has a value calculated as an average of all its members, and its value is a float with one decimals. It will show a temperature icon and it belongs to the Status group.
 
+#### knx example
+
+The items may include the KNX group address to use them. They might be actively read by openHAB or not. They look like this:
+
+- `Number Lighting_Room_Sensor "Lighting in the Room [Lux](%.2f)"  <switch> (Room,Lighting) { knx = "<0/1/1" }`: This is a sensor item. It uses the 0/1/1 group address and openHAB will ask for its value periodically because there is a "<" sign before the address. It is a number item, called Lighting_Room_Sensor, and belongs to Room and Lighting groups.
+- `Switch Light_Room_Table  "Table Light" (Room, Lights) { knx = "<0/1/10+0/1/30"}`: This is a switch item that has two addresses. openHAB may responds to events in any of them, but may actively read the first one.
 
 For more info about other options have a look at the demo.items file and the wiki bindings pages.
 
 Further examples for defining items can be found in our [openHAB-samples section](Samples-Item-Definitions). 
 
 The currently implemented item types can be found in [source code](https://github.com/openhab/openhab/tree/master/bundles/core/org.openhab.core.library/src/main/java/org/openhab/core/library/types).
+
