@@ -76,13 +76,6 @@ For please visit the [configuration](https://github.com/openhab/openhab/wiki/Con
 
 ### The yourname.items file
 
-- The next thing we must do is to tell openHAB which items we have. To do so, go to the "configurations/items" directory and create a new file called thenameyouwish.items. You have a demo.items sample file to see the syntax of this file.
-
-In this file we define groups and items. Groups can be inside groups, and items can be in none, one or more groups. For example:
-
-- `Group gGF               (All)` This statement defines the gGF group and states that it belongs to the All group.
-- `Group GF_Living         "Living room"   <video>         (gGF)` This statement defines the group GF_Living, defines that the user interface will show it as  "Living room", defines the icon to be shown <video> and states that it belongs to (gGF). Notice that the gGF group belongs to the ALL group, hence GF_Living inherits that group, and it belongs to the All group too.
-- `Group:Number:AVG                                Lighting "Average lighting [Lux](%.2f)"         <switch>        (Status)`: this statement means that there is a group called Lighting, which has a value calculated as an average of all its members, and its value is a float with two decimals. It will show a switch icon and it belongs to the Status group.
 
 The items may include the KNX group address to use them. They might be actively read by openHAB or not. They look like this:
 
@@ -91,39 +84,6 @@ The items may include the KNX group address to use them. They might be actively 
 
 For more info about other options have a look at the demo.items file and the wiki bindings pages.
 
-### The yourname.sitemap
-
-In this file we tell openHAB how we want the items to be shown in our user interface. First, create a new thenameyouwish.sitemap file in the "configurations/sitemap" directory. For example we define here:
-
-- `sitemap demo label="Main Menu"`: This will be the first line. It is mandatory and it states the name of your sitemap (demo) and the title of the main screen.
-- You may find descriptions like:
-
-```    
-    Frame label="Demo" {
-         Text label="Group Demo" icon="1stfloor" {
-                Switch item=Lights mappings=[OFF="All Off"]
-                Group item=Heating
-                Group item=Windows
-                Text item=Temperature
-         }
-         Text label="Multimedia" icon="video" {
-                Selection item=Radio_Station mappings=[0=off, 1=HR3, 2=SWR3, 3=FFH, 4=Charivari]
-                Slider item=Volume
-            }
-    }
-```
-- This means that you want a frame with a visual label "Demo". Then, inside the frame you want two elements:
-- An item called Group Demo with 1stfloor icon that contains 4 items.
-- The first one is the group Lights, that has a mapping. It means that when it receives a value of OFF, it might show a "All off" text.
-- The second one will be the Heating group.
-- etc.
-- An item called Multimedia with icon video. It has two elements:
-- The Radio_station item that has several mappings
-- The Volume item, shown as an Slider.
-
-For more info about other options have a look at the demo.sitemap file.
-
-NOTE: Items and sitemap may be changed during runtime as needed.
 
 ## Start the server!
 
