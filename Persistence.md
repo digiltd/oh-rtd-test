@@ -98,6 +98,9 @@ Here is the full list of available persistence extensions:
     <item>.maximumSince(AbstractInstant) - Gets the maximum value of the state of the item since a certain point in time
     <item>.minimumSince(AbstractInstant) - Gets the minimum value of the state of the item since a certain point in time
     <item>.averageSince(AbstractInstant) - Gets the average value of the state of a given item since a certain point in time.
+    <item>.previousState(AbstractInstant) - Retrieves the previous state of the item.
+    <item>.previousState(AbstractInstant, true) - Retrieves the previous state of the item, skips equal state values and searches the first state not equal the current state
+
 These extensions use the default persistence service that is configured in openhab.cfg. If the default service should not be used, all extensions accept a String as a further parameter for the persistence service to use (e.g. "rrd4j" or "sense").
 
 For all kinds of time and date calculations, [Jodatime](http://joda-time.sourceforge.net/) has been made available in the scripts and rules. This makes it very easy to navigate through time, here are some examples of valid expressions:
