@@ -1,14 +1,15 @@
-### News
-[Release Notes 1.6](#release-notes-160)  
-[Changelog](#changelog)  
-[Download](#download)
-
 ### Introduction
 
-The Astro binding is used for:
-- calculating the sunrise, noon and sunset time
-- scheduling of events at sunrise, noon and sunset
-- calculating the azimuth and elevation (e.g. for auto shading with RollerShutter, ...)
+The Astro binding is used for calculating many DateTime and positional values for sun and moon and for scheduling of events.
+
+### New in 1.6
+- all sun calculations are now based on those of http://www.suncalc.net/  
+- greatly extended available bindings
+- moon calculations added
+- **New item binding style!** The old style is still supported, but a warning is written to the log.
+```
+{astro="planet=..., type=..., property=..., offset=..."}
+```
 
 ### Configuration in openhab.cfg
 ```
@@ -20,79 +21,13 @@ astro:latitude=nn.nnnnnn
 # Your longitude
 astro:longitude=nn.nnnnnn
  
-# Refresh interval for azimuth and elevation calculation in seconds (optional, defaults to disabled)
+# Refresh interval for some properties in seconds (optional, defaults to disabled)
 astro:interval=nnn
 ```
 
 ### Available Items
-```
-Number   Azimuth        "Azimuth [%.2f]"         {astro="type=AZIMUTH"}
-Number   Elevation      "Elevation [%.2f]"       {astro="type=ELEVATION"}
-
-DateTime Sunrise_Time   "Sunrise [%1$tH:%1$tM]"  {astro="type=SUNRISE_TIME"}
-DateTime Noon_Time      "Noon [%1$tH:%1$tM]"     {astro="type=NOON_TIME"}
-DateTime Sunset_Time    "Sunset [%1$tH:%1$tM]"   {astro="type=SUNSET_TIME"}
-
-Switch   Sunrise_Event                           {astro="type=SUNRISE"}
-Switch   Noon_Event                              {astro="type=NOON"}
-Switch   Sunset_Event                            {astro="type=SUNSET"}
-```
-
-The Azimuth and Elevation items are updated at the configured refresh interval in openhab.cfg.
-
-At midnight, the sunrise, noon and sunset time is calculated, published and the event jobs are scheduled. The sunrise, noon and sunset Switches are updated with ON followed by a OFF at the calculated time.
-
-### Example Rules
-Rule at sunrise:
-```
-rule "Example Rule at sunrise"
-when
-    Item Sunrise_Event received update ON
-then
-    ...
-end
-```
-
-Rule to close all RollerShutters after sunset and the outside temperature is lower than 5 degrees:
-```
-rule "Close RollerShutters if cold after sunset"
-when
-    Item Temp_Outside changed
-then
-    if (now.isAfter((Sunset_Time.state as DateTimeType).calendar.timeInMillis) &&
-       (Temp_Outside.state as DecimalType).intValue < 5) {
-		
-       RollerShutters?.members.forEach(r | sendCommand(r, DOWN))
-
-    }
-end
-```
-
-Let's say, you know that the sun is shining through your livingroom window between Azimuth 100 and 130. If it's summer you want to close the RollerShutter.
-```
-rule "Autoshading RollerShutter"
-when
-    Item Azimuth changed
-then
-    var int azimuth = (Azimuth.state as DecimalType).intValue
-	
-    if (azimuth > 100 && azimuth < 130) {
-      sendCommand(Rollershutter_Livingroom, DOWN)
-    }
-
-    ...
-end
-```
-## Release Notes 1.6.0
-All sun calculations are now based on those of http://www.suncalc.net/  
-
-**New item binding style!** The old style is still supported, but a warning is written to the log.
-```
-{astro="planet=..., type=..., property=..., offset=..."}
-```
 **Important:** type and property are case sensitive! So enter the values exactly as shown.
 
-### Description  
 * **planet** `sun`
     * **type** `rise, set, noon, night, morningNight, astroDawn, nauticDawn, civilDawn, astroDusk, nauticDusk, civilDusk, eveningNight, daylight`
         * **property** `start, end` (DateTime), `duration` (Number)
@@ -125,7 +60,9 @@ All sun calculations are now based on those of http://www.suncalc.net/
 **offset** (optional, taken into account for every DateTime property)  
 offset in minutes to the calculated time
 
-You can bind a property to different item types, which has a special meaning in the binding. If you bind a DateTime property (start, end, ...) to a DateTime Item, the DateTime is simply displayed. If you bind it to a Switch, a event is scheduled and the state of the Switch is updated to ON, followed by a OFF at the calculated time. You can even specify a offset for the event and bind multiple items to the same property.
+You can bind a property to different item types, which has a special meaning in the binding. If you bind a DateTime property (start, end, ...) to a DateTime Item, the DateTime is simply displayed. If you bind it to a Switch, a event is scheduled and the state of the Switch is updated to ''ON'', immediately followed by a ''OFF'' at the calculated time. You can even specify a offset for the event and bind multiple items to the same property.
+
+The position items (azimuth, elevation) and moon items (phase, distance, perigee, apogee, zodiac) are updated at the configured refresh interval in openhab.cfg.
 
 ###Sun examples
 ```
@@ -279,6 +216,48 @@ Third\u0020Quarter=letztes Viertel
 Waning\u0020Crescent=abnehmender Halbmond
 ```
 
+### Example Rules
+Rule at sunrise:
+```
+rule "Example Rule at sunrise"
+when
+    Item Sunrise_Event received update ON
+then
+    ...
+end
+```
+
+Rule to close all RollerShutters after sunset and the outside temperature is lower than 5 degrees:
+```
+rule "Close RollerShutters if cold after sunset"
+when
+    Item Temp_Outside changed
+then
+    if (now.isAfter((Sunset_Time.state as DateTimeType).calendar.timeInMillis) &&
+       (Temp_Outside.state as DecimalType).intValue < 5) {
+		
+       RollerShutters?.members.forEach(r | sendCommand(r, DOWN))
+
+    }
+end
+```
+
+Let's say, you know that the sun is shining through your livingroom window between Azimuth 100 and 130. If it's summer you want to close the RollerShutter.
+```
+rule "Autoshading RollerShutter"
+when
+    Item Azimuth changed
+then
+    var int azimuth = (Azimuth.state as DecimalType).intValue
+	
+    if (azimuth > 100 && azimuth < 130) {
+      sendCommand(Rollershutter_Livingroom, DOWN)
+    }
+
+    ...
+end
+```
+
 ### Troubleshooting
 I assume, the binding is in your addons folder. It populates the astro items at startup and with scheduled jobs.
 
@@ -290,33 +269,5 @@ If you don't see these entries, check your item file.
 
 * If the maps for translation are not working, there might be a file encoding problem. Download the german example maps and edit the entries.
 
-### Changelog
-**07.08.2014**
-* Added moon azimuth/elevation and zodiac.
-* Small optimizations.
-
-**05.08.2014**
-* More accurate julian date to calendar conversion.
-* If there is no moon rise/set today, show the tomorrow.
-
-**04.08.2014**
-* AstroConfig logs more timezone and dst infos.
-* Fixed daylight saving offset for moon rise/set.
-
-**02.08.2014**
-* Added moon calculation.
-* Added sun and moon eclipses. 
-
-**26.07.2014**
-* Added zodiac calculation.
-* Added season calculation.
-
-**23.07.2014**
-* initial 1.6.0 release
-
 ### Download
 [German maps download] (https://drive.google.com/file/d/0Bw7zjCgsXYnHZXNNeU5XY2FTMGc/edit?usp=sharing)
-
-You can always download the latest version of the binding from the [daily builds at cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)
-
-These builds are working with openHab 1.5.x too.
