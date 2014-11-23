@@ -112,6 +112,7 @@ Community
   * [[Velleman-K8055-Binding|Velleman-K8055-Binding]]
   * [[Wake-on-LAN Binding|Wake-on-LAN-Binding-(WoL)]]
   * [[Waterkotte EcoTouch Heatpump Binding|Waterkotte-EcoTouch-Heat-Pump-Binding]]
+  * [[Weather-Binding]]
   * [[Wemo Binding|Wemo-Binding]]
   * [[Withings Binding|Withings-Binding]]
   * [[XBMC Binding|XBMC-Binding]]
