@@ -7,14 +7,19 @@ Please find below the _**preliminary** Release Notes_ of the upcoming 1.6 Releas
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=5&page=1&state=closed).
 
 ####Major features:
-
+- [#918](https://github.com/openhab/openhab/pull/918) [[xPL Binding and Action|xPL-Binding]] (@clinique)
 - [#925](https://github.com/openhab/openhab/pull/925) LgTV Binding (@martinfluchgmxnet)
 - [#1210](https://github.com/openhab/openhab/pull/1210) [[JPA Persistence Binding|JPA-Persistence]] (@mdbergmann)
+- [#1292](https://github.com/openhab/openhab/pull/1292) [[Wemo Binding|Wemo-Binding]] (@hmerk)
 - [#1334](https://github.com/openhab/openhab/pull/1334) [[DSC Alarm Binding|DSC-Alarm-Binding]] (@RSStephens)
+- [#1357](https://github.com/openhab/openhab/pull/1357) [[BenQ Projector Binding|BenQ-Projector-Binding]] (@cyclingengineer)
+- [#1370](https://github.com/openhab/openhab/pull/1370) eHealth Binding (@teichsta)
 - [#1372](https://github.com/openhab/openhab/pull/1372) [RFXCOM] Initial Support for Somfy (RFY) protocol in Rfxcom binding (@juri8)
 - [#1395](https://github.com/openhab/openhab/pull/1395) [[JSONPath Transformation Service|Transformations]] (@clinique)
 - [#1422](https://github.com/openhab/openhab/pull/1422) [[AlarmDecoder Binding|AlarmDecoder-binding]] (@berndpfrommer)
+- [#1423](https://github.com/openhab/openhab/pull/1423) [[Weather Binding|Weather-Binding]] (@gerrieg)
 - [#1469](https://github.com/openhab/openhab/pull/1469) [[MiOS (Vera) Automation Controller|MiOS-Binding]] (@mrguessed)
+- [#1496](https://github.com/openhab/openhab/pull/1496) [[Anel NET-PwrCtrl Binding|Anel-Binding]] (@paphko)
 - [#1514](https://github.com/openhab/openhab/pull/1514) [[Davis Binding|Davis-Binding]] (@tomtrath)
 - [#1595](https://github.com/openhab/openhab/pull/1595) TTS interface to Speech Dispatcher (@clinique)
 - [#1645](https://github.com/openhab/openhab/pull/1645) [[Samsung AirConditioner Binding|Samsung-AC-binding]] (@steintore)
