@@ -1,6 +1,6 @@
 ## New & Noteworthy
 
-Please find below the Release Notes of the 1.6 Release.
+Please find below the Release Notes of the 1.6 Release. This Release introduces a requirement on Java 7 so please be aware to have an appropriate JDK installed. In the upcoming 1.6.1 Bugfix Release we will try to get rid of this dependency again.
 
 ### Version 1.6.0
 
