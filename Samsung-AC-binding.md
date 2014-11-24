@@ -1,10 +1,4 @@
-Documentation of the Samsung Smart Air Conditioner binding Bundle
-
-_**Note:** This Binding will be available in the upcoming 1.6 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
-
-## Introduction
-
-Binding should be compatible with Samsung Smart Air Conditioner models
+Documentation of the Samsung Smart Air Conditioner Binding. This Binding should be compatible with Samsung Smart Air Conditioner models
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
