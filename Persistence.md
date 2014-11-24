@@ -93,12 +93,14 @@ will return the state of the item "Temperature" from 24 hours ago. You can easil
 Here is the full list of available persistence extensions:
 
     <item>.persist - Persists the current state
+    <item>.lastUpdate - Query for the last update timestamp of a given item.
     <item>.historicState(AbstractInstant) - Retrieves the state of the item at a certain point in time
     <item>.changedSince(AbstractInstant) - Checks if the state of the item has (ever) changed since a certain point in time
     <item>.updatedSince(AbstractInstant) - Checks if the state of the item has been updated since a certain point in time
     <item>.maximumSince(AbstractInstant) - Gets the maximum value of the state of the item since a certain point in time
     <item>.minimumSince(AbstractInstant) - Gets the minimum value of the state of the item since a certain point in time
     <item>.averageSince(AbstractInstant) - Gets the average value of the state of a given item since a certain point in time.
+    <item>.deltaSince(AbstractInstant) - Gets the difference value of the state of a given item since a certain point in time.
     <item>.previousState(AbstractInstant) - Retrieves the previous state of the item.
     <item>.previousState(AbstractInstant, true) - Retrieves the previous state of the item, skips equal state values and searches the first state not equal the current state
 
