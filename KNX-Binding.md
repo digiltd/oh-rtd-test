@@ -64,11 +64,16 @@ A sample configuration could look like:
 In order to bind an item to a KNX device you need to provide configuration settings. The easiest way to do so is to add  binding information in your 'item file' (in the folder configurations/items`). The syntax for the KNX binding configuration string is explained here:
 
     knx="[<][<dptId>:]<mainGA>[[+[<]<listeningGA>]+[<]<listeningGA>..], [<][<dptId>:]<mainGA>[[+[<]<listeningGA>]+[<]<listeningGA>..]"
+
+Since 1.6:
+
+    knx="[<[(<autoRefresh>)]][<dptId>:]<mainGA>[[+[<[(<autoRefresh>)]]<listeningGA>]+[<[(<autoRefresh>)]]<listeningGA>..], [<[(<autoRefresh>)]][<dptId>:]<mainGA>[[+[<[(<autoRefresh>)]]<listeningGA>]+[<[(<autoRefresh>)]]<listeningGA>..]"
+
 where parts in brackets `[]` signify an optional information.
  
 Each comma-separated section corresponds to a KNX datapoint. There is usually one datapoint defined per accepted command type of an openHAB item. If no datapoint type id is defined for the datapoint, this is automatically derived from the list of accepted command types of the item - i.e. the second datapoint definition is mapped to the second accepted command type of the item.
 
-The optional '<' sign tells whether the group address of the datapoint accepts read requests on the KNX bus (it does, if the sign is there).
+The optional '<' sign tells whether the group address of the datapoint accepts read requests on the KNX bus (it does, if the sign is there). Since 1.6: the optional autoRefresh time in seconds specifies that this datapoint is to be cyclically reread. If autoRefresh is omitted then the read will only occur once, when initializing the KNX binding.
 
 Each itemtype (see page [Items](Explanation-of-Items#itemtype)) accepts different command types. When binding an item to KNX you can provide one KNX group address ("mainGA") and several listening group addresses ("listeningGA") to each commandtype.
 
@@ -122,8 +127,11 @@ For a SwitchItem:
     knx="1/1/10"
     knx="1.001:1/1/10"
     knx="<1/1/10"
+    knx="<(5)1/1/10"
     knx="<1/1/10+0/1/13+0/1/14+0/1/15"
+    knx="<(10)1/1/10+0/1/13+0/1/14+0/1/15"
     knx="1/1/10+<0/1/13+0/1/14+0/1/15"
+    knx="1/1/10+<(60)0/1/13+0/1/14+0/1/15"
 
 For a RollershutterItem:
 
@@ -132,6 +140,7 @@ For a RollershutterItem:
     knx="4/2/10, 4/2/11, 4/2/12"
     knx="1.008:4/2/10, 5.001:4/2/11"
     knx="<4/2/10+0/2/10, 5.001:4/2/11+0/2/11"
+    knx="<(60)4/2/10+0/2/10, 5.001:4/2/11+0/2/11"
 
 As a result, your lines in the items file might look like the following:
 
