@@ -10,7 +10,7 @@ https://github.com/openhab/openhab/wiki/Waterkotte-EcoTouch-Heat-Pump-Binding
 ####Major features:
 - [#925](https://github.com/openhab/openhab/pull/925) LgTV Binding (@martinfluchgmxnet)
 - [#1130](https://github.com/openhab/openhab/pull/1130) [[Waterkotte Ecotouch Binding|Waterkotte-EcoTouch-Heat-Pump-Binding]] (@sibbi77)
-- [#1210](https://github.com/openhab/openhab/pull/1210) [[JPA Persistence Binding|JPA-Persistence]] (@mdbergmann)
+- [#1210](https://github.com/openhab/openhab/pull/1210) JPA Persistence Binding (@mdbergmann)
 - [#1292](https://github.com/openhab/openhab/pull/1292) [[Wemo Binding|Wemo-Binding]] (@hmerk)
 - [#1334](https://github.com/openhab/openhab/pull/1334) [[DSC Alarm Binding|DSC-Alarm-Binding]] (@RSStephens)
 - [#1357](https://github.com/openhab/openhab/pull/1357) [[BenQ Projector Binding|BenQ-Projector-Binding]] (@cyclingengineer)
@@ -19,7 +19,7 @@ https://github.com/openhab/openhab/wiki/Waterkotte-EcoTouch-Heat-Pump-Binding
 - [#1395](https://github.com/openhab/openhab/pull/1395) [[JSONPath Transformation Service|Transformations]] (@clinique)
 - [#1422](https://github.com/openhab/openhab/pull/1422) [[AlarmDecoder Binding|AlarmDecoder-binding]] (@berndpfrommer)
 - [#1423](https://github.com/openhab/openhab/pull/1423) [[Weather Binding|Weather-Binding]] (@gerrieg)
-- [#1469](https://github.com/openhab/openhab/pull/1469) [[MiOS (Vera) Automation Controller|MiOS-Binding]] (@mrguessed)
+- [#1469](https://github.com/openhab/openhab/pull/1469) MiOS (Vera) Automation Controller (@mrguessed)
 - [#1496](https://github.com/openhab/openhab/pull/1496) [[Anel NET-PwrCtrl Binding|Anel-Binding]] (@paphko)
 - [#1514](https://github.com/openhab/openhab/pull/1514) [[Davis Binding|Davis-Binding]] (@tomtrath)
 - [#1595](https://github.com/openhab/openhab/pull/1595) TTS interface to Speech Dispatcher (@clinique)
