@@ -131,6 +131,7 @@ Community
   * [[Exec Persistence|Exec-Persistence]]
   * [[MQTT Persistence|MQTT-Persistence]]
   * [[InfluxDB Persistence|InfluxDB-Persistence]]
+  * [[JPA Persistence|JPA-Persistence]]
  * [[Automation|Automation]]
   * [[Scripts]]
   * [[Rules]]
