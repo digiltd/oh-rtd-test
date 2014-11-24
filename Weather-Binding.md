@@ -1,5 +1,3 @@
-## Introduction
-
 The Weather binding collects current and forecast weather data from different provides with a free weather API. You can also display weather data with highly customizable html layouts and icons.
 
 ![](https://farm4.staticflickr.com/3946/15407522168_7ea34d51e1_o.png)
