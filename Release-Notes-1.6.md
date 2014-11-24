@@ -6,7 +6,6 @@ Please find below the _**preliminary** Release Notes_ of the upcoming 1.6 Releas
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=5&page=1&state=closed).
 
-https://github.com/openhab/openhab/wiki/Waterkotte-EcoTouch-Heat-Pump-Binding
 ####Major features:
 - [#925](https://github.com/openhab/openhab/pull/925) LgTV Binding (@martinfluchgmxnet)
 - [#1130](https://github.com/openhab/openhab/pull/1130) [[Waterkotte Ecotouch Binding|Waterkotte-EcoTouch-Heat-Pump-Binding]] (@sibbi77)
@@ -24,7 +23,7 @@ https://github.com/openhab/openhab/wiki/Waterkotte-EcoTouch-Heat-Pump-Binding
 - [#1514](https://github.com/openhab/openhab/pull/1514) [[Davis Binding|Davis-Binding]] (@tomtrath)
 - [#1595](https://github.com/openhab/openhab/pull/1595) TTS interface to Speech Dispatcher (@clinique)
 - [#1645](https://github.com/openhab/openhab/pull/1645) [[Samsung AirConditioner Binding|Samsung-AC-binding]] (@steintore)
-- [#1649](https://github.com/openhab/openhab/pull/1649) [[Enigma2 Binding|Enigma2-Binding]] (@sebastiankutschbach)
+- [#1649](https://github.com/openhab/openhab/pull/1649) Enigma2 Binding (@sebastiankutschbach)
 - [#1668](https://github.com/openhab/openhab/pull/1668) [[pilight Binding|pilight-Binding]] (@idserda)
 
 ####Enhancements:
