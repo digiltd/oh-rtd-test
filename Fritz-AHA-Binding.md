@@ -63,6 +63,15 @@ Example:
     fritzaha="fritzbox,012345678910,power"
     fritzaha="fritzpowerline,01:23:45:67:89:AB,energy"
 
+### New since 1.6.0: Temperature sensor
+
+Temperature is available as a new meter type to number items.
+
+Example:
+
+    fritzaha="fritzbox,012345678910,temperature"
+
+
 ## Query Script Binding Configuration
 
 The Query script is part of the Fritz!OS UI and provides lots of information at fast refresh intervals. However, it is not intended for use with external applications and occupies the host for a long time (often more than a second per request), making it ill-suited for large amounts parallel requests. Furthermore, energy consumption is only available pre-formatted for Fritz!OS use and therefore not supported.
