@@ -45,6 +45,8 @@ Furthermore, you can change the refresh interval openHAB communicates with the M
 
 Starting from 1.6.0 you can use the exclusive mode. If you are not using MAX! smartphone or desktop software, this is recommended.
 
+Please note that the MAX!Cube desktop software also keeps the connection open and openhab will not be able to connect if the MAX!Cube software is running. Close if from the windows taskbar.
+
 ## Item Configuration
 
 In order to bind an generic item to the device, you need to provide MAX!Cube configuration settings in your item file (in the folder configurations/items) containing at least the serial number of the device you wish to control (not the serial of the cube).
