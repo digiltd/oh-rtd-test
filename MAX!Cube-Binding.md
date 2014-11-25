@@ -11,19 +11,38 @@ To communicate with MAX! devices, a already setup MAX! environment including a M
 No configuration is required in basic setting. The MaxCube is automatically discovered from the network.
 You can configure the MAX!Cube Lan Gateway IP address in the openhab.cfg file. 
 If not configured via DHCP, the factory default address of the MAX!Cube is 192.168.0.222.
-
-    ################################ MAX!Cube Binding ##########################################
+    ################################ MAX!Cube Binding #####################################
     #
-    # MAX!Cube LAN gateway IP address 
+    # MAX!Cube LAN gateway IP address (Optional, can be auto-discovered)
     # maxcube:ip=192.168.0.222
+    #
     # MAX!Cube port (Optional, default to 62910)
     # maxcube:port=62910
+    #
     # MAX!Cube refresh interval in ms (Optional, default to 10000)
     # maxcube:refreshInterval=10000
+    #
+    # Max!Cube exclusive mode. (Optional, default to false)
+    # When true, the binding keeps the connection to the Cube open
+    # and polls more efficiently. No other application can use the Cube while the binding is running
+    # in exclusive mode, including Android and Desktop Max! Software.
+    # With this mode, the refreshInterval can easily set to 500 or 1000ms if you
+    # want the window contacts or eco button more responsive.
+    # maxcube:exclusive=false
+    #
+    # Max!Cube maximum requests per connection. (Optional, default to 1000)
+    # In exclusive mode, the binding will open the connection to the Cube and polls with
+    # refreshInterval maxRequestsPerConnection times. When maxRequestsPerConnection is reached
+    # it will disconnect and reconnect. This may work around issues with long going connections
+    # like slow reaction on events.
+    # When set to 0, the binding will keep the connection open as long as possible.
+    # maxcube:maxRequestsPerConnection=1000
 
 Additional you can configure the port the MAX!Cube communicates with openHAB. By default this is 62910 and should not need to be changed.
 
-Furthermore, you can change the refresh interval openHAB communicates with the MAX!Cube. By default the refresh interval is set to 10 seconds. 
+Furthermore, you can change the refresh interval openHAB communicates with the MAX!Cube. By default the refresh interval is set to 10 seconds.
+
+Starting from 1.6.0 you can enable the exclusive mode, see description above.
 
 ## Item Configuration
 
