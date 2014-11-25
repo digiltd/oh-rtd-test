@@ -139,6 +139,7 @@ Group gNumber "data" (All)
 Contact zone2  	       "zone 2 [MAP(contact.map):%s]"   (gContact) {alarmdecoder="EXP:07,08#contact"}
 Contact zone1  	       "zone 1 [MAP(contact.map):%s]"  (gContact) {alarmdecoder="REL:13,01#contact"}
 Contact motionContact  "motion sensor contact [MAP(contact.map):%s]" (gContact) {alarmdecoder="RFX:0923844#contact,bitmask=0x80"}
+Contact WindowContact  "window/door magnetic contact (5816) [MAP(contact.map):%s]" (gContact) {alarmdecoder="RFX:0923844#contact,bitmask=0x40"}
 Number  motionData     "motion sensor data [%d]"	  (gNumber)  {alarmdecoder="RFX:0923844#data"}
 Number  motionLowBattery       "motion sensor battery [%d]" (gNumber) {alarmdecoder="RFX:0923844#data,bit=1"}
 Number  motionNeedsSupervision "motion sensor supervision [%d]" (gNumber) {alarmdecoder="RFX:0923844#data,bit=2"}
