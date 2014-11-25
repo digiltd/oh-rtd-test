@@ -158,7 +158,7 @@ Bitmask values for RFX messages are as follows:
   0x80 - loop1
 ```
 
-Most wireless devices will transmit their state on loop1 (0x80).    Honeywell 5816 sensors (often used on doors/windows) use loop1 (0x80) for external contacts, and loop2 (0x40) for the magnetic contact; the 5804 remote keyfob users one zone for each button.
+Most wireless devices will transmit their state on loop1 (0x80).    Honeywell 5816 sensors (often used on doors/windows) use loop1 (0x80) for external contacts, and loop2 (0x40) for the magnetic contact; the 5804 remote keyfob uses one zone for each button.
 
 If you don't care much about security and want to operate your alarm keypad from within openhab,
 enable ```send_commands_and_compromise_security=true``` as discussed above, and add these lines to
