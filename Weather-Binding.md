@@ -324,4 +324,4 @@ If you don't see these entries, check your item file.
 
 ### Download
 [weather-data](https://drive.google.com/file/d/0Bw7zjCgsXYnHUTZXMnEwQzFjQUE/view?usp=sharing) with icons and example layout file  
-[map-files](https://drive.google.com/file/d/0Bw7zjCgsXYnHbnVIdkFGaVZIbHM/view?usp=sharing) with short condition text for the commonId  
+[map-files](https://drive.google.com/file/d/0Bw7zjCgsXYnHbnVIdkFGaVZIbHM/view?usp=sharing) with short condition text **for the commonId property** 
