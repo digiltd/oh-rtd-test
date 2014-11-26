@@ -137,4 +137,4 @@ An additional feature in this rule is the possibility to give responses by TTS (
 	end
 
 ## TODO
-Please feel free to translate this rule into english. If you have a working and well tested solution, please add/replace the rule above
+Please feel free to translate this rule into english. If you have a working and well tested solution, please add/replace the rule above.
