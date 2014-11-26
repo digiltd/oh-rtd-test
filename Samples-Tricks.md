@@ -1106,7 +1106,7 @@ _(note: I only got a german Version of FritzOS: which means its freely translate
 
 **Moving on to SIPCMD:**
 
-Did I mention that you need a sound card? Don’t got one? Pah, no probs. ALSA (http://www.alsa-project.org/main/index.php/Main_Page) got your back.
+Did I mention that you need a sound card? Don’t got one? Pah, no probs. ALSA (http://www.alsa-project.org/main/index.php/Main_Page) got your back. Under Debian just install alsa-base "apt-get install alsa-base".
 
 
 1. Download the SIPCMD Branch:
