@@ -154,7 +154,7 @@ Samples
   * [[Samples Integrate WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
   * [[Samples nest thermostate|Sample-nest-thermostate]]
  * [[Rules|Samples-Rules]]
-  *[[Controlling openHAB with your voice|Controlling-openHAB-with-your-voice]]
+  * [[Controlling openHAB with your voice|Controlling-openHAB-with-your-voice]]
  * [[REST Examples|Samples-REST]]
  * [[Tips & Tricks|Samples-Tricks]]
  * [[XSLT Transforms|Samples-XSLT-Transformations]]
