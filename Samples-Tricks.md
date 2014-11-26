@@ -1112,6 +1112,7 @@ Did I mention that you need a sound card? Don’t got one? Pah, no probs. ALSA (
 1. Download the SIPCMD Branch:
     wget https://github.com/tmakkonen/sipcmd/archive/master.zip
 2. Unzip it. Go into the sipcmd-master directory
+
 2.1 needed Packages: 
     apt-get install libopal-dev libpt-dev  
     (more infos: https://github.com/tmakkonen/sipcmd)    
