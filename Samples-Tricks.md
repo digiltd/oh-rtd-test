@@ -1416,7 +1416,7 @@ First you make a rule to wake up a certain time, for example 6:30 in the morning
 This rule call the script dimmlight wich you can use later also in a other rule.
 
 ```
-rule "Wackeup"
+rule "Wakeup"
 
 when 
 	    Time cron "0 30 06 ? * MON-FRI "  
