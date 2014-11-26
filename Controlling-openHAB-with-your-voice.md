@@ -24,9 +24,10 @@ And you need one String item named VoiceCommand
 
 	String VoiceCommand
 
-## Natural language processing rule
+## Natural language processing rule (german)
 
-This rules processes german voice commands and should be easily translatable to other languages. Basically the rule trys to read the state, the room (and the floorlevel of the room) and the purpose of the item to be changed. Based on this findings the item group "All" is searched for an item named "purpose_floorlevel_room_detail" which accepts the new state.
+This rules processes german voice commands and should be easily translatable to other languages. 
+Basically the rule trys to read the state, the room (and the floorlevel of the room) and the purpose of the item to be changed. Based on this findings the item group "All" is searched for an item named "purpose_floorlevel_room_detail" which accepts the new state.
 
 An additional feature in this rule is the possibility to give responses by TTS (currently only used when the temperature is changed in a room).
 
@@ -134,3 +135,6 @@ An additional feature in this rule is the possibility to give responses by TTS (
 				say(reply)
 		}
 	end
+
+## TODO
+Please feel free to translate this rule into english. If you have a working and well tested solution, please add/replace the rule above
