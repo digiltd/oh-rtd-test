@@ -52,6 +52,18 @@ For your convenience you can see the relevant section as follows:
     # (optional, default is 0)
     knx:autoReconnectPeriod=
 
+    ### Auto refresh feature
+    # Number of entries permissible in the item refresher queue. 
+    # (optional, defaults to 10000)
+    #knx:maxRefreshQueueEntries=
+
+    # Number of parallel threads for refreshing items. (optional, defaults to 5)
+    #knx:numberOfThreads=
+
+    # Seconds to wait for an orderly shutdown of the auto refresher's 
+    # ScheduledExecutorService. (optional, defaults to 5)
+    #knx:scheduledExecutorServiceShutdownTimeoutString=
+
 A sample configuration could look like:
 
     knx:ip=192.168.1.10
