@@ -38,8 +38,14 @@ First of all you need to introduce the port settings of your Z-Wave controller i
     # Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux
     zwave:port=COM1
 
-The zwave:port value indicates the serial port on the host system to which the Z-Wave controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
-
+<table>
+<tr><td>Option</td><td>Description</td></tr>
+<tr><td>zwave:port</td><td>value indicates the serial port on the host system to which the Z-Wave controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.</td></tr>
+<tr><td>zwave:healtime</td><td>Sets the time of day when a network heal will be performed.</td></tr>
+<tr><td>zwave:pollingQueue</td><td>Sets the maximum number of frames in th polling queue at once. This avoids swamping the network with poll messages.</td></tr>
+<tr><td>zwave:aliveCheckPeriod</td><td>Sets the time (in milliseconds) between each node health check message. This is used to periodically check if a node is alive.</td></tr>
+<tr><td>zwave:softReset</td><td>Set to true to perform a soft reset on the controller during the heal, and when the binding starts. This can help solve some problems with the stick, but it can also cause some new controllers to lock up (eg the ZWave Plus controllers)</td></tr>
+</table>
 ## Item configuration
 
 In order to bind an item to a Z-Wave device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Z-Wave binding configuration string is explained here:
