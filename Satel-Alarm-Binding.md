@@ -1,4 +1,6 @@
-This is OpenHAB binding for Satel Integra Alarm System which allows you to connect to your alarm system using TCP/IP protocol with ETHM-1 installed or RS-232 protocol with INT-RS module installed.
+## Introduction
+
+This is documentation of OpenHAB binding for Satel Integra Alarm System which allows you to connect to your alarm system using TCP/IP protocol with ETHM-1 installed or RS-232 protocol with INT-RS module installed.
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
