@@ -240,18 +240,18 @@ If you can't can't build a new device out of the existing device features (for a
     insteonplm:more_features=/usr/local/openhab/rt/my_own_features.xml
 
   In this file you can define your own features (or even overwrite an existing feature). In the example below a new feature "MyFeature" is defined, which can then be referenced from the `device_types.xml` file (or from `my_own_devices.xml`):
-   <xml>
-    <feature name="MyFeature">
-	<message-dispatcher>DefaultDispatcher</message-dispatcher>
-	<message-handler cmd="0x03">NoOpMsgHandler</message-handler>
-	<message-handler cmd="0x06">NoOpMsgHandler</message-handler>
-	<message-handler cmd="0x11">NoOpMsgHandler</message-handler>
-	<message-handler cmd="0x13">NoOpMsgHandler</message-handler>
-	<message-handler cmd="0x19">LightStateSwitchHandler</message-handler>
-	<command-handler command="OnOffType">IOLincOnOffCommandHandler</command-handler>
-	<poll-handler>DefaultPollHandler</poll-handler>
-    </feature>
-   </xml>
+    <xml>
+     <feature name="MyFeature">
+	 <message-dispatcher>DefaultDispatcher</message-dispatcher>
+	 <message-handler cmd="0x03">NoOpMsgHandler</message-handler>
+	 <message-handler cmd="0x06">NoOpMsgHandler</message-handler>
+	 <message-handler cmd="0x11">NoOpMsgHandler</message-handler>
+	 <message-handler cmd="0x13">NoOpMsgHandler</message-handler>
+	 <message-handler cmd="0x19">LightStateSwitchHandler</message-handler>
+	 <command-handler command="OnOffType">IOLincOnOffCommandHandler</command-handler>
+	 <poll-handler>DefaultPollHandler</poll-handler>
+     </feature>
+    </xml>
 
 If you cannot cobble together a suitable device feature out of existing handlers you will have to define new ones by editing the corresponding Java classes in the source tree (see below).
 
