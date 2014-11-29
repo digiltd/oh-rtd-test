@@ -19,3 +19,5 @@ Standard Squeezebox actions for controlling your devices;
 - `squeezeboxStop(String playerId)`
 - `squeezeboxNext(String playerId)`
 - `squeezeboxPrev(String playerId)`
+
+See also [[Core Actions|Actions]].
