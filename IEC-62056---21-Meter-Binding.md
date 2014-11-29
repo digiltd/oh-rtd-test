@@ -1,9 +1,9 @@
-[IR-Reader USB](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-usb-ausgang) Documentation of the IEC 62056-21 meter binding bundle
+Documentation of the IEC 62056-21 meter binding bundle
 
 ## Introduction
 
 This binding is used to communicate to metering devices supporting serial communication according IEC 62056-21 mode C master. It can be used to read metering data from slaves such as gas, water, heat, or electricity meters. 
-For further information read Wiki page of [IEC_62056-21](http://en.wikipedia.org/wiki/IEC_62056#IEC_62056-21).
+For further information read Wiki page of [IEC 62056-21](http://en.wikipedia.org/wiki/IEC_62056#IEC_62056-21).
 
 Information receive from the meter device are structured according IEC 62056-6-1:2013, Object identification system (OBIS). For further information read Wiki page of [OBIS ("Object Identification System")](http://de.wikipedia.org/wiki/OBIS-Kennzahlen).
 
@@ -53,7 +53,7 @@ Below is an example of represent the current energy counter tarif values as nume
     Number Tarif_Period	"Chart Period"
     Number Tarif1 "High price tarif [%d kwh]" (gEnergy) { iec6205621meter="meter1:1.8.1" }
     Number Tarif2 "Low price tarif [%d kwh]" (gEnergy) { iec6205621meter="meter1:1.8.2" }
-    Number ActualUsage "Actual usage [%.2f KW]" <gEnergy> () { iec6205621meter="meter1:16.7" }
+    Number ActualEnergyConsumption "Actual energy consumption [%.2f KW]" <gEnergy> () { iec6205621meter="meter1:16.7" }
 
 ### Rules
 
@@ -102,13 +102,13 @@ Third add below Frame to your sitemap:
 				Chart item=gEnergieConsumption period=D refresh=600	
 				Chart item=gEnergieConsumption period=W refresh=3600 	
 			}
-		Text item=ActualUsage icon="energy" {
+		Text item=ActualEnergyConsumption icon="energy" {
 			Frame {
-                              Text item=ActualUsage
-                              Switch item=ActualUsage_Chart_Perdiod label="Period" mappings=[0="Hour", 1="Day", 2="Week"]
-                              Chart item=ActualUsage period=h visibility=[ActualUsage_Chart_Period==0, ActualUsage_Chart_Period==Uninitialized ]
-                              Chart item=ActualUsage period=D visibility=[ActualUsage_Chart_Period==1]
-                              Chart item=ActualUsage period=W visibility=[ActualUsage_Chart_Period==2]
+                              Text item=ActualEnergyConsumption
+                              Switch item=ActualEnergyConsumption_Chart_Perdiod label="Period" mappings=[0="Hour", 1="Day", 2="Week"]
+                              Chart item=ActualEnergyConsumption  period=h visibility=[ActualEnergyConsumption_Period==0, ActualUsage_Chart_Period==Uninitialized ]
+                              Chart item=ActualEnergyConsumption  period=D visibility=[ActualEnergyConsumption_Chart_Period==1]
+                              Chart item=ActualEnergyConsumption  period=W visibility=[ActualEnergyConsumption_Chart_Period==2]
 			}
 		}	
 	}
@@ -116,5 +116,6 @@ Third add below Frame to your sitemap:
 ### Tested Hardware
 
 The binding has been successfully tested with below hardware configuration:
-* Landis & Gyr meter [ZMD120AR](http://www.landisgyr.ch/product/landisgyr-zmd120ar/)  connected with[IR-Reader RS232](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf) from open hardware project in [volkszaehler](http://volkszaehler.org/)
+* Landis & Gyr meter [ZMD120AR](http://www.landisgyr.ch/product/landisgyr-zmd120ar/)  connected with [IR-Reader RS232](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf) from open hardware project in [volkszaehler](http://volkszaehler.org/)
+* Landis & Gyr meter [E350](http://www.landisgyr.ch/product/landisgyr-e350-electricity-meter-new-generation/)  connected with [IR-Reader RS232](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf) from open hardware project in [volkszaehler](http://volkszaehler.org/)
 * Landis & Gyr meter connected the [IR-Reader USB](http://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-usb-ausgang) from open hardware project in [volkszaehler](http://volkszaehler.org/)
