@@ -59,7 +59,7 @@ satel="<object_type>[:<state_type>][:<object_number>][:<option>=<value>,...]"
 
 Name of object type, state type and option is case insensitive. For "output" objects state type cannot be specified and must be ommited. `object_number` must be integer number in range 1-256. Options are comma-separated pairs of name and value separated by `=` character.
 
-Supported item types: `Contact`, `Switch`, `Number`.
+Supported item types: `Contact`, `Switch`, `Number`. Number items can be used only if `object_number` is not given and the number specifies cardinality of objects that are in given state. For example if object is "zone" and state is "violated", item will tell you number of zones violated. See examples section for detailed configuration syntax.
 
 **Valid `object_type` values:**
 <table><tr><th>Type</th><th>Description</th></tr>
@@ -134,6 +134,11 @@ Switch Partition1 "Partition armed" { satel="partition:armed:1:force_arm" }
 Simple contact item:
 ```
 Contact	Zone1 "Zone #1 violated" { satel="zone:violation:1" }
+```
+
+Number of items violated:
+```
+Number	ZonesViolated "Zones violated [%d]" { satel="zone:violation" }
 ```
 
 Simple output item with ability to change its state:
