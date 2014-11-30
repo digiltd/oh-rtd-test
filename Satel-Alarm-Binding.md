@@ -152,6 +152,11 @@ Number PartitionsInAlarm "Partitions alarmed [%d]" { satel="partition:alarm" }
 
 ## Security considerations
 
+**User for OH integration**
+
+To control Integra partitions and outputs you need to provide security code of user in behalf all those operations will be executed. It is highly recommended to use a separate user for OpenHAB integration with only required access rights set in Integra configuration, like access to certain partitions, etc. This allows you to distinguish actions made by OH and a user using Integra panel, also it will block unwanted operations in case someone breaks into your local network.
+
+**Disarming and clearing alarms**
 TBD
 
 ## TO DO
