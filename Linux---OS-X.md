@@ -10,6 +10,7 @@
 ## Installation
 ### Add openHAB repo to the apt sources list (as root user)
     $ echo "deb http://repository-openhab.forge.cloudbees.com/release/1.5.1/apt-repo/ /" > /etc/apt/sources.list.d/openhab.list
+(Note that this will install version 1.5.1, not the latest version 1.6.0... not yet.)
 
 ### Install openHAB runtime
 
