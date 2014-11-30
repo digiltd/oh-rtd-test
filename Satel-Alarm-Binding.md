@@ -42,18 +42,80 @@ The only required parameter is _satel:host_ for the ETHM-1 module and _satel:por
 <tr><td>satel:port</td><td>For INT-RS it specifies the serial port on the host system to which the module is connected, i.e. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux<br>For ETHM-1 it specifies the TCP port on which the module listens for new connections. Defaults to 7094.</td></tr>
 <tr><td>satel:timeout</td><td>Timeout value for connect, read and write operations specified in milliseconds. Defaults to 5 seconds</td></tr>
 <tr><td>satel:refresh</td><td>Refresh interval in milliseconds. Defaults to 10 seconds.</td></tr>
-<tr><td>satel:user_code</td><td>TBD</td></tr>
-<tr><td>satel:encryption_key</td><td>TBD</td></tr></table>
+<tr><td>satel:user_code</td><td>Security code (password) of the user used for control operations, like arming, changing state of outputs, etc. It is recommended to use dedicated user for OpenHAB integration.</td></tr>
+<tr><td>satel:encryption_key</td><td>Key use for encrypting communication between OpenHAB and ETHM-1 module. To disable encrytpion leave it empty. See also the note below.</td></tr></table>
+
+**NOTE:** Encryption for ETHM-1 module is not implemented yet and therefore encryption key in the configuration must be empty.
 
 ## Item Binding
 
-In order to bind to the Integra Alarm system you can add items to an item file using the following format:
+In order to bind to the Integra Alarm system you need to add settings for items defined in your item file. Here is item configuration string syntax:
 
 ```
-satel="<object_type>[:<state_type>][:object_number][:options]"
+satel="<object_type>[:<state_type>][:<object_number>][:option=value,option=value,...]"
 ```
-Valid object_type
-TBD
+
+All name of object type, state type and option is case insensitive. For "output" objects state type cannot be specified and must be ommited.
+
+### Valid "object_type" values:
+
+<table>
+<tr><td>Type</td><td>Description</td></tr>
+<tr><td>zone</td><td>defines a zone: PIR, contact, etc.</td></tr>
+<tr><td>partition</td><td>defines a partition</td></tr>
+<tr><td>output</td><td>defines an output</td></tr>
+<tr><td>doors</td><td>defines doors</td></tr>
+</table>
+
+Valid "state_type" values for "zone" objects:
+
+<table>
+<tr><td>Type</td><td>Notes</td></tr>
+<tr><td>violation</td><td></td></tr>
+<tr><td>tamper</td><td></td></tr>
+<tr><td>alarm</td><td></td></tr>
+<tr><td>tamper_alarm</td><td></td></tr>
+<tr><td>alarm_memory</td><td></td></tr>
+<tr><td>tamper_alarm_memory</td><td></td></tr>
+<tr><td>bypass</td><td></td></tr>
+<tr><td>no_violation_trouble</td><td></td></tr>
+<tr><td>long_violation_trouble</td><td></td></tr>
+<tr><td>isolate</td><td></td></tr>
+<tr><td>masked</td><td></td></tr>
+<tr><td>masked_memory</td><td></td></tr>
+</table>
+
+### Valid "state_type" values for "partition" objects:
+
+<table>
+<tr><td>Type</td><td>Notes</td></tr>
+<tr><td>armed</td><td>ON command arms specified partition in mode 0, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
+<tr><td>really_armed</td><td>ON command arms specified partition in mode 0, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
+<tr><td>armed_mode_1</td><td>ON command arms specified partition in mode 1, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
+<tr><td>armed_mode_2</td><td>ON command arms specified partition in mode 2, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
+<tr><td>armed_mode_3</td><td>ON command arms specified partition in mode 3, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
+<tr><td>first_code_entered</td><td></td></tr>
+<tr><td>entry_time</td><td></td></tr>
+<tr><td>exit_time_gt_10</td><td></td></tr>
+<tr><td>exit_time_lt_10</td><td></td></tr>
+<tr><td>temporary_blocked</td><td></td></tr>
+<tr><td>blocked_for_guard</td><td></td></tr>
+<tr><td>alarm</td><td>OFF command clears alarms for specified partition</td></tr>
+<tr><td>alarm_memory</td><td>OFF command clears alarms for specified partition</td></tr>
+<tr><td>fire_alarm</td><td>OFF command clears alarms for specified partition</td></tr>
+<tr><td>fire_alarm_memory</td><td>OFF command clears alarms for specified partition</td></tr>
+<tr><td>violated_zones</td><td></td></tr>
+<tr><td>verified_alarms</td><td>OFF command clears alarms for specified partition</td></tr>
+<tr><td>warning_alarms</td><td>OFF command clears alarms for specified partition</td></tr>
+</table>
+
+### Valid "state_type" values for "doors" objects:
+
+<table>
+<tr><td>Type</td><td>Notes</td></tr>
+<tr><td>opened</td><td></td></tr>
+<tr><td>opened_long</td><td></td></tr>
+</table>
 
 ## Examples
 
