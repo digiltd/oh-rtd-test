@@ -32,12 +32,13 @@ There are some configuration settings that you can set in the openhab.cfg file. 
 
 # encryption key (optional, if empty communication is not encrypted)
 #satel:encryption_key=
+
 ```
 
 The only required parameter is _satel:host_ for the ETHM-1 module and _satel:port_ for the INT-RS module. The rest default to the values described in the configuration comments. In order to use ETHM-1 module it is required to enable "integration" protocol for the module in Integra configuration (DLOADX).
 
 <table>
-<tr><td>Option</td><td>Description</td></tr>
+<tr><th>Option</th><th>Description</th></tr>
 <tr><td>satel:host</td><td>Valid only for ETHM-1 module. Specifies either IP or host name of the module</td></tr>
 <tr><td>satel:port</td><td>For INT-RS it specifies the serial port on the host system to which the module is connected, i.e. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux<br>For ETHM-1 it specifies the TCP port on which the module listens for new connections. Defaults to 7094.</td></tr>
 <tr><td>satel:timeout</td><td>Timeout value for connect, read and write operations specified in milliseconds. Defaults to 5 seconds</td></tr>
@@ -52,25 +53,26 @@ The only required parameter is _satel:host_ for the ETHM-1 module and _satel:por
 In order to bind to the Integra Alarm system you need to add settings for items defined in your item file. Here is item configuration string syntax:
 
 ```
-satel="<object_type>[:<state_type>][:<object_number>][:option=value,option=value,...]"
+satel="<object_type>[:<state_type>][:<object_number>][:<option>=<value>,...]"
+
 ```
 
-All name of object type, state type and option is case insensitive. For "output" objects state type cannot be specified and must be ommited.
+Name of object type, state type and option is case insensitive. For "output" objects state type cannot be specified and must be ommited.
 
-### Valid "object_type" values:
 
+**Valid `object_type` values:**
 <table>
-<tr><td>Type</td><td>Description</td></tr>
+<tr><th>Type</th><th>Description</th></tr>
 <tr><td>zone</td><td>defines a zone: PIR, contact, etc.</td></tr>
 <tr><td>partition</td><td>defines a partition</td></tr>
 <tr><td>output</td><td>defines an output</td></tr>
 <tr><td>doors</td><td>defines doors</td></tr>
 </table>
 
-Valid "state_type" values for "zone" objects:
 
+**Valid `state_type` values for "zone" objects:**
 <table>
-<tr><td>Type</td><td>Notes</td></tr>
+<tr><th>Type</th><th>Notes</th></tr>
 <tr><td>violation</td><td></td></tr>
 <tr><td>tamper</td><td></td></tr>
 <tr><td>alarm</td><td></td></tr>
@@ -85,10 +87,10 @@ Valid "state_type" values for "zone" objects:
 <tr><td>masked_memory</td><td></td></tr>
 </table>
 
-### Valid "state_type" values for "partition" objects:
 
+**Valid `state_type` values for "partition" objects:**
 <table>
-<tr><td>Type</td><td>Notes</td></tr>
+<tr><th>Type</th><th>Notes</th></tr>
 <tr><td>armed</td><td>ON command arms specified partition in mode 0, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
 <tr><td>really_armed</td><td>ON command arms specified partition in mode 0, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
 <tr><td>armed_mode_1</td><td>ON command arms specified partition in mode 1, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
@@ -109,19 +111,21 @@ Valid "state_type" values for "zone" objects:
 <tr><td>warning_alarms</td><td>OFF command clears alarms for specified partition</td></tr>
 </table>
 
-### Valid "state_type" values for "doors" objects:
 
+**Valid `state_type` values for "doors" objects:**
 <table>
-<tr><td>Type</td><td>Notes</td></tr>
+<tr><th>Type</th><th>Notes</th></tr>
 <tr><td>opened</td><td></td></tr>
 <tr><td>opened_long</td><td></td></tr>
 </table>
+
 
 ## Examples
 
 TBD
 
 ## TO DO
+
 * support for INT-RS module
 * support for RTC and basic status
 * encryption for ETHM-1
