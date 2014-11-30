@@ -98,3 +98,57 @@ Here you'll need to configure your players; please make sure that the id's match
 		}
 
 	  end
+
+#squeeze.sitemap
+	sitemap
+	{
+		Frame label="System"  {
+			Text label="Audio" icon="squeeze"  {
+				Frame label="Alle"  {
+					Switch item=gPlayerPowerAll label="EG & OG" 				
+					Switch item=gPlayerPowerEG label="EG" 				
+					Switch item=gPlayerPowerOG label="OG" 		
+					Group item=gPlayerPower label="Ein / Aus"  {
+						Switch item=squeezeBadPower           				
+						Switch item=squeezeBastelzimmerPower  
+						Switch item=squeezeBueroPower 	      
+						Switch item=squeezeSchlafzimmerPower  
+						Switch item=squeezeTVPower 			  
+						Switch item=squeezeKuechePower 		  
+						Switch item=squeezeWohnbereichPower   
+					}
+					Group item=gPlayerVolume label="Lautstärke"  {
+						Slider item=squeezeBadVolume switchSupport 		    
+						Slider item=squeezeBastelzimmerVolume switchSupport 
+						Slider item=squeezeBueroVolume switchSupport 		
+						Slider item=squeezeSchlafzimmerVolume switchSupport 
+						Slider item=squeezeTVVolume switchSupport 		    
+						Slider item=squeezeKuecheVolume switchSupport 		
+						Slider item=squeezeWohnbereichVolume switchSupport 	
+					}
+					Slider item=gPlayerVolume label="Lautstärke" 				
+				}			
+				Frame label="Einzeln"  {				
+					Selection item=squeezeSelectedPlayer label="Gerät" mappings=[1="Bad", 2="Gästezimmer", 3="Büro", 4="Schlafzimmer", 5="TV", 6="Küche", 7="Wohnbereich"]
+					Selection item=squeezeSelectedStation label="Sender" mappings=[1="SRF 1", 2="SRF 2", 3="SRF 3", 4="Swiss Groove", 5="Argovia", 6="Swiss Jazz", 7="SWR 3"]
+					Switch item=squeezePlay label="Stop / Play" mappings=[OFF="Stop", ON="Play"]
+					
+					Switch item=squeezeBadPower           visibility=[squeezeSelectedPlayer==1]				
+					Switch item=squeezeBastelzimmerPower  visibility=[squeezeSelectedPlayer==2]
+					Switch item=squeezeBueroPower 	      visibility=[squeezeSelectedPlayer==3]
+					Switch item=squeezeSchlafzimmerPower  visibility=[squeezeSelectedPlayer==4]
+					Switch item=squeezeTVPower 			  visibility=[squeezeSelectedPlayer==5]
+					Switch item=squeezeKuechePower 		  visibility=[squeezeSelectedPlayer==6]
+					Switch item=squeezeWohnbereichPower   visibility=[squeezeSelectedPlayer==7]
+					
+					Slider item=squeezeBadVolume switchSupport 		    visibility=[squeezeSelectedPlayer==1]
+					Slider item=squeezeBastelzimmerVolume switchSupport visibility=[squeezeSelectedPlayer==2]
+					Slider item=squeezeBueroVolume switchSupport 		visibility=[squeezeSelectedPlayer==3]
+					Slider item=squeezeSchlafzimmerVolume switchSupport visibility=[squeezeSelectedPlayer==4]
+					Slider item=squeezeTVVolume switchSupport 		    visibility=[squeezeSelectedPlayer==5]
+					Slider item=squeezeKuecheVolume switchSupport 		visibility=[squeezeSelectedPlayer==6]
+					Slider item=squeezeWohnbereichVolume switchSupport 	visibility=[squeezeSelectedPlayer==7] 			
+				}		
+			}		
+		}	
+	}
