@@ -57,22 +57,20 @@ satel="<object_type>[:<state_type>][:<object_number>][:<option>=<value>,...]"
 
 ```
 
-Name of object type, state type and option is case insensitive. For "output" objects state type cannot be specified and must be ommited.
+Name of object type, state type and option is case insensitive. For "output" objects state type cannot be specified and must be ommited. `object_number` must be integer number in range 1-256. Options are comma-separated pairs of name and value separated by `=` character.
 
+Supported item types: `Contact`, `Switch`, `Number`.
 
 **Valid `object_type` values:**
-<table>
-<tr><th>Type</th><th>Description</th></tr>
+<table><tr><th>Type</th><th>Description</th></tr>
 <tr><td>zone</td><td>defines a zone: PIR, contact, etc.</td></tr>
 <tr><td>partition</td><td>defines a partition</td></tr>
 <tr><td>output</td><td>defines an output</td></tr>
-<tr><td>doors</td><td>defines doors</td></tr>
-</table>
+<tr><td>doors</td><td>defines doors</td></tr></table>
 
 
 **Valid `state_type` values for "zone" objects:**
-<table>
-<tr><th>Type</th><th>Notes</th></tr>
+<table><tr><th>Type</th><th>Notes</th></tr>
 <tr><td>violation</td><td></td></tr>
 <tr><td>tamper</td><td></td></tr>
 <tr><td>alarm</td><td></td></tr>
@@ -84,13 +82,11 @@ Name of object type, state type and option is case insensitive. For "output" obj
 <tr><td>long_violation_trouble</td><td></td></tr>
 <tr><td>isolate</td><td></td></tr>
 <tr><td>masked</td><td></td></tr>
-<tr><td>masked_memory</td><td></td></tr>
-</table>
+<tr><td>masked_memory</td><td></td></tr></table>
 
 
 **Valid `state_type` values for "partition" objects:**
-<table>
-<tr><th>Type</th><th>Notes</th></tr>
+<table><tr><th>Type</th><th>Notes</th></tr>
 <tr><td>armed</td><td>ON command arms specified partition in mode 0, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
 <tr><td>really_armed</td><td>ON command arms specified partition in mode 0, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
 <tr><td>armed_mode_1</td><td>ON command arms specified partition in mode 1, OFF disarms. Forces arming if "force_arm" option is specified.</td></tr>
@@ -108,19 +104,54 @@ Name of object type, state type and option is case insensitive. For "output" obj
 <tr><td>fire_alarm_memory</td><td>OFF command clears alarms for specified partition</td></tr>
 <tr><td>violated_zones</td><td></td></tr>
 <tr><td>verified_alarms</td><td>OFF command clears alarms for specified partition</td></tr>
-<tr><td>warning_alarms</td><td>OFF command clears alarms for specified partition</td></tr>
-</table>
+<tr><td>warning_alarms</td><td>OFF command clears alarms for specified partition</td></tr></table>
 
 
 **Valid `state_type` values for "doors" objects:**
-<table>
-<tr><th>Type</th><th>Notes</th></tr>
+<table><tr><th>Type</th><th>Notes</th></tr>
 <tr><td>opened</td><td></td></tr>
-<tr><td>opened_long</td><td></td></tr>
-</table>
+<tr><td>opened_long</td><td></td></tr></table>
 
 
 ## Examples
+
+Partition item with ability to arm and disarm:
+```
+Switch PartitionArmed "Partition armed" { satel="partition:armed:1" }
+```
+
+Sitemap definitions for above example. The second one allows only to arm the partition:
+```
+Switch item=PartitionArmed
+Switch item=PartitionArmed mappings=[ON="Arm"]
+```
+
+Partition item with ability to force arming:
+```
+Switch Partition1 "Partition armed" { satel="partition:armed:1:force_arm" }
+```
+
+Simple contact item:
+```
+Contact	Zone1 "Zone #1 violated" { satel="zone:violation:1" }
+```
+
+Simple output item with ability to change its state:
+```
+Switch	Output1 "Output #1" { satel="output:1" }
+```
+
+Number of partitions with "alarm" state:
+```
+Number PartitionsInAlarm "Partitions alarmed [%d]" { satel="partition:alarm" }
+```
+
+Sitemap definition for above example with ability to clear alarms:
+```
+Switch item=PartitionsInAlarm mappings=[OFF="Clear"]
+```
+
+## Security considerations
 
 TBD
 
