@@ -1,6 +1,23 @@
 ## New & Noteworthy
 
-Please find below the Release Notes of the 1.6 Release. This Release introduces a **requirement on Java 7** so please be aware to have an appropriate JDK installed. In the upcoming 1.6.1 Bugfix Release we will try to get rid of this dependency again.
+Please find below the Release Notes of the 1.6 Release.
+
+### Version 1.6.1
+
+This is the first Bugfix Release of the 1.6 Release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=5&page=1&state=closed).
+
+**Bugfixes**
+
+- [#1717](https://github.com/openhab/openhab/pull/1717) Fix invalid character in XML (@cdjackson)
+- [#1741](https://github.com/openhab/openhab/pull/1741) Onkyo binding: Fixed bug, which prevented to use multiple receivers (@paulianttila)
+- [#1748](https://github.com/openhab/openhab/pull/1748) Fixed samsungac project name (@gerrieg)
+- [#1749](https://github.com/openhab/openhab/pull/1749) Fixed loading configuration folder (@gerrieg)
+- [#1765](https://github.com/openhab/openhab/pull/1765) Atmos duplicate sitemap message fix (@digitaldan)
+- [#1758](https://github.com/openhab/openhab/pull/1758) fixed configuration file loading (@teichsta)
+
+### Updating the openHAB runtime 1.6 to 1.6.1
+
+For instructions how to update to the new release please refer to the "Updating" section below.
 
 ### Version 1.6.0
 
