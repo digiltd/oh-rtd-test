@@ -32,7 +32,6 @@ There are some configuration settings that you can set in the openhab.cfg file. 
 
 # encryption key (optional, if empty communication is not encrypted)
 #satel:encryption_key=
-
 ```
 
 The only required parameter is _satel:host_ for the ETHM-1 module and _satel:port_ for the INT-RS module. The rest default to the values described in the configuration comments. In order to use ETHM-1 module it is required to enable "integration" protocol for the module in Integra configuration (DLOADX).
@@ -54,7 +53,6 @@ In order to bind to the Integra Alarm system you need to add settings for items 
 
 ```
 satel="<object_type>[:<state_type>][:<object_number>][:<option>=<value>,...]"
-
 ```
 
 Name of object type, state type and option is case insensitive. For "output" objects state type cannot be specified and must be ommited. `object_number` must be integer number in range 1-256. Options are comma-separated pairs of name and value separated by `=` character.
