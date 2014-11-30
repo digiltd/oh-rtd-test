@@ -132,3 +132,6 @@ Rule file:
 Sitemap file:
 
     Selection item=Squeezebox_PlayList label="Start Playlist" mappings=[0="<Name of Playlist>", 1="<Name of Next Playlist >"] 
+
+# Example Configuration
+[[Squeezebox example configuration|SqueezeboxExample]]
