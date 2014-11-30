@@ -149,10 +149,6 @@ Number of partitions with "alarm" state:
 Number PartitionsInAlarm "Partitions alarmed [%d]" { satel="partition:alarm" }
 ```
 
-Sitemap definition for above example with ability to clear alarms:
-```
-Switch item=PartitionsInAlarm mappings=[OFF="Clear"]
-```
 
 ## Security considerations
 
@@ -160,7 +156,8 @@ TBD
 
 ## TO DO
 
-* support for INT-RS module
 * support for RTC and basic status
+* troubles support
+* support for INT-RS module
 * encryption for ETHM-1
 * RTC synchronization
