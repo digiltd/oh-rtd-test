@@ -4,7 +4,7 @@ This is documentation of OpenHAB binding for Satel Integra Alarm System which al
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
-**NOTE:** INT-RS nmodule is not supported yet.
+**NOTE:** INT-RS module is not supported yet.
 
 ## Binding Configuration
 
