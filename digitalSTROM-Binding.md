@@ -73,7 +73,7 @@ The following config params are used for the digitalSTROM binding.
 - (optional) digitalstrom:refreshinterval
 Refresh interval (defaults to 1000 ms)
 - digitalstrom:uri
-Hostname / IP address and port of the digitalSTROM server (dSS)
+**Hostname** and port of the digitalSTROM server (dSS)
 - (optional) digitalstrom:connectTimeout
 Connect timeout (defaults to 4000 ms)
 - (optional) digitalstrom:readTimeout
