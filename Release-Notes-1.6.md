@@ -15,10 +15,6 @@ This is the first Bugfix Release of the 1.6 Release. See the Github issue tracke
 - [#1765](https://github.com/openhab/openhab/pull/1765) Atmos duplicate sitemap message fix (@digitaldan)
 - [#1758](https://github.com/openhab/openhab/pull/1758) fixed configuration file loading (@teichsta)
 
-### Updating the openHAB runtime 1.6 to 1.6.1
-
-For instructions how to update to the new release please refer to the "Updating" section below.
-
 ### Version 1.6.0
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=5&page=1&state=closed).
