@@ -6,6 +6,9 @@ Binding should be compatible with Samsung TV models which support Apple and Andr
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
+**Note:**
+New models (H-Series TV´s like e.g. UEH5570 ) use a different (encrypted) protocol; they are not yet supported by this binding.
+
 ## Binding Configuration
 
 First of all you need to introduce your Samsung TV's in the openhab.cfg file (in the folder '${openhab_home}/configurations').
