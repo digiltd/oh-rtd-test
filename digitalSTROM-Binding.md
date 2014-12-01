@@ -101,7 +101,7 @@ System -> Zugriffsberechtigung
     # Refresh interval (defaults to 1000 ms)
     digitalstrom:refreshinterval=1000
     
-    # Hostname / IP address and port of the digitalSTROM server (dSS)
+    # Hostname and port of the digitalSTROM server (dSS)
     digitalstrom:uri=https://dss.local:8080
     
     # Connect timeout (defaults to 4000 ms)
