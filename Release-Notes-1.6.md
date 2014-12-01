@@ -4,7 +4,7 @@ Please find below the Release Notes of the 1.6 Release.
 
 ### Version 1.6.1
 
-This is the first Bugfix Release of the 1.6 Release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?milestone=6&page=1&state=closed).
+This is the first Bugfix Release of the 1.6 Release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.6.1).
 
 **Bugfixes**
 
