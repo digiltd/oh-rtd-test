@@ -5,9 +5,6 @@ Documentation of the Nikobus binding Bundle <br/>
 
 This binding allows openHAB to interact with the [nikobus](http://www.niko.eu/enus/niko/products/home-automation-with-nikobus/) home automation system. 
 
-      Important: This documentation has already been updated for version 1.5 of the nikobus binding.  
-      Version 1.5 is compatible with openHAB 1.4 and is the recommended version to use.
-
 More specifically, it allows openHAB to:
 - send (simulated) button presses to the nikobus
 - react to button presses which occur on the nikobus
