@@ -100,6 +100,7 @@ Community
   * [[Samsung AC Binding|Samsung-AC-binding]]
   * [[Samsung TV Binding|Samsung-TV-Binding]]
   * [[Serial Binding|Serial-Binding]]
+  * [[Satel Alarm Binding|Satel-Alarm-Binding]]
   * [[Snmp Binding|Snmp-Binding]]
   * [[Somfy URTSI II Binding|URTSI-Binding]]
   * [[Sonos Binding|Sonos-Binding]]
