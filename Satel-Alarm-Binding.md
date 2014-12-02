@@ -157,7 +157,8 @@ Number PartitionsInAlarm "Partitions alarmed [%d]" { satel="partition:alarm" }
 To control Integra partitions and outputs you need to provide security code of user in behalf all those operations will be executed. It is highly recommended to use a separate user for OpenHAB integration with only required access rights set in Integra configuration, like access to certain partitions, etc. This allows you to distinguish actions made by OH and a user using Integra panel, also it will block unwanted operations in case someone breaks into your local network.
 
 **Disarming and clearing alarms**
-TBD
+
+Although this binding allows you to configure disarming a partition and clearing alarms for a partion, this should be used only in cases when security is not the priority. Don't forget both these operations can be executed in OpenHAB without specifying user code, which is required to disarm or clear alarms using Integra panel. Also don't forget to secure your OpenHAB installation by using HTTPS protocol and setting a user with password. Here is a page about security in OpenHAB: [Security](Security)
 
 ## TO DO
 
