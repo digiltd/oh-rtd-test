@@ -14,7 +14,7 @@ openHAB server either via a serial port (Model 2413S) or a USB port
 messages and sends them on the Insteon network. Relevant messages from
 the Insteon network (like notifications about switches being toggled)
 are picked up by the modem and converted to openHAB status updates by
-the binding.
+the binding. The binding also supports sending and receiving of legacy X10 messages.
 
 ## Insteon devices
 
@@ -22,12 +22,12 @@ Every Insteon device *type* is uniquely identified by its Insteon
 *product key*, a six digit hex number. For some of the older device
 types (in particular the SwitchLinc switches and dimmers), Insteon
 does not give a product key, so an arbitrary fake one of the format
-Fxx.xx.xx is assigned by the binding.
+Fxx.xx.xx (or Xxx.xx.xx for X10 devices) is assigned by the binding.
 
 Finally, each Insteon device comes with a hard-coded Insteon *address*
 that can be found on a label on the device. This address should be
 recorded for every device in the network, as it is a mandatory part of
-the binding configuration string.
+the binding configuration string. X10 devices are addressed with `houseCode.unitCode`, e.g. `A.2`.
 
 The following devices have been tested and should work out of the box:
 <table>
@@ -98,6 +98,15 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 </tr>
 <tr>
 <td>2472D</td><td>OutletLincDimmer</td><td>0x000068</td><td></td><td>Chris Graham</td>
+</tr>
+<tr>
+<td>X10 switch</td><td>generic X10 switch</td><td>X00.00.01</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
+<td>X10 dimmer</td><td>generic X10 dimmer</td><td>X00.00.02</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
+<td>X10 motion</td><td>generic X10 motion sensor</td><td>X00.00.03</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 </table>
 
@@ -176,6 +185,12 @@ transforms directory and look like this:
 
 If you have a garage door opener, see the I/O Linc documentation for
 the meaning of the `momentary` keyword (not supported/needed for other devices).
+
+Here are some examples for configuring X10 devices. Note that X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually.
+
+    Switch x10Switch	"X10 switch" {insteonplm="A.1:X00.00.01#switch"}
+    Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
+    Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
 
 ## Removing devices from the Modem's link database
 
