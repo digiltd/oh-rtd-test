@@ -28,6 +28,8 @@ First of all you need to configure the following values in the openhab.cfg file 
 The `rfxcom:serialPort` value is the identification of the serial port on the host system where RFXCOM controller is connected, e.g. 
 "COM1" on Windows,"/dev/ttyS0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.
 
+NOTE: On Linux, should the RFXCOM device be added to the `dialout` group, you may get an error stating the the serial port cannot be opened when the RfxCom plugin tries to load.  You can get around this by adding the `openhab` user to the `dialoutz group like this: `usermod -a -G dialout openhab`.
+
 The `rfxcom:setMode` value is optional. Set mode command can be used to configure RFXCOM controller to listening to various receiver protocols. This is very useful because the receiver will become more sensitive when only the required protocols are enabled. You can use the RFXmngr application to get the valid configuration command. Command must be a 28 characters (14 bytes) hexadecimal string.  You can also use this to get the Device Ids needed below.
 
 ## Item Binding Configuration
