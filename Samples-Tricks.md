@@ -675,7 +675,7 @@ Your items file could look like this:
     Group gMobiles
     Switch Presence
     Switch phone1 (gMobiles) {nh="android-xxxxx"}
-    Switch phone1 (gMobiles) {nh="android-yyyyy"}
+    Switch phone2 (gMobiles) {nh="android-yyyyy"}
 
 My rules file looks like this:
 
