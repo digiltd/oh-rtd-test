@@ -14,6 +14,7 @@ where the parts in `[]` are optional. If no or an incorrect time zone is configu
 
 Here are some examples of valid binding configuration strings:
 
+    ntp="America/Detroit:en_EN"
     ntp="Europe/Berlin:de_DE"
     ntp="Europe/Berlin"
     ntp=""
