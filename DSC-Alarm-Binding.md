@@ -4,6 +4,8 @@ The DSC PowerSeries Alarm System is a popular do-it-yourself home security syste
 
 The OpenHAB DSC Alarm binding provides connectivity to the DSC Alarm panel via a TCP socket connection to the EyesOn Envisalink 3/2DS interface or a RS-232 serial connection to the DSC IT-100 interface.
 
+The latest snapshot version of the DSC Alarm binding can be downloaded from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
+
 ## Binding Configuration
 
 There are some configuration settings that you can set in the openhab.cfg file. Include the following in your openhab.cfg.
