@@ -2,7 +2,7 @@ Documentation of the db4o Persistence Service
 
 ## Introduction
 
-The db4o Persistence Service is the default persistence service in openHAB. db4o is a pure Java object database, which uses a simple database file for persistence. 
+db4o is a pure Java object database, which uses a simple database file for persistence. 
 
 ## Features
 
