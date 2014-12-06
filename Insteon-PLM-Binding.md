@@ -79,10 +79,25 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2342-2</td><td>Mini Remote</td><td>F00.00.10</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
+<td>2466D</td><td>ToggleLinc Dimmer</td><td>F00.00.11</td><td></td><td>Rob Nielsen</td>
+</tr>
+<tr>
+<td>2466S</td><td>ToggleLinc Switch</td><td>F00.00.12</td><td></td><td>Rob Nielsen</td>
+</tr>
+<tr>
+<td>2334-232</td><td>KeypadLink Dimmer</td><td>F00.00.13</td><td></td><td>Rob Nielsen</td>
+</tr>
+<tr>
+<td>2672-222</td><td>LED Bulb</td><td>F00.00.14</td><td></td><td>Rob Nielsen</td>
+</tr>
+<tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
 <td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td>Patrick Giasson, Joe Barnum</td>
+</tr>
+<tr>
+<td>2484DWH8</td><td>KeypadLinc Countdown Timer</td><td>0x000041</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
 <td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td></td><td>Bernd Pfrommer</td>
