@@ -12,7 +12,7 @@
     $ sudo nano /etc/apt/sources.list.d/openhab.list
 
 Add the following line in the editor:
-    deb http://repository-openhab.forge.cloudbees.com/release/1.6.1/apt-repo/ /
+`    deb http://repository-openhab.forge.cloudbees.com/release/1.6.1/apt-repo/ /`
 
 Exit with CTRL C then Y
 
