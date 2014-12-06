@@ -68,6 +68,7 @@ Community
   * [[KNX Binding|KNX-Binding]]
   * [[Koubachi Binding|Koubachi-Binding]]
   * [[Leviton/HAI Omnilink Binding|Omnilink-Binding]]
+  * [[Lg TV|Lg-TV]]
   * [[MAX!Cube-Binding]]
   * [[MAX! CUL Binding|MAX!-CUL-Binding]]
   * [[MiLight Binding|Milight-Binding]]
