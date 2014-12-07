@@ -168,6 +168,7 @@ Samples
  * [[Usecase examples|Usecase-examples]]
  * Squeezebox
   * [[Select Radio Station|SqueezeboxExample]]
+ * [[Alarm Clock|AlarmClock]]
 
 Release Notes
  * [[Version 1.6|Release-Notes-1.6]]
