@@ -166,6 +166,8 @@ Samples
  * [[Update-Scripts|openhab-Get-Snapshot]]
  * [[Controlling openHAB with Android|Controlling-openHAB-with-Android]]
  * [[Usecase examples|Usecase-examples]]
+ * Squeezebox
+  * [[Select Radio Station|SqueezeboxExample]]
 
 Release Notes
  * [[Version 1.6|Release-Notes-1.6]]
