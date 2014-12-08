@@ -443,7 +443,7 @@ The string items hold the formatted String to be displayed in the UI. The number
     import java.util.TimeZone
     import java.text.SimpleDateFormat
 
-The rules file probably needs the includes listened above.
+The rules file probably needs the includes listed above.
 
 ### How to use Colorpicker widget with KNX/DALI RGB LED STRIPE
 
