@@ -171,7 +171,7 @@ Number   Clouds   "Clouds [%.0f %%]"   {weather="locationId=home, type=clouds, p
 
 // condition
 String   Condition        "Condition [%s]"      {weather="locationId=home, type=condition, property=text"}
-String   Condition_ID     "Condition id [%s]"   {weather="locationId=home2, type=condition, property=id"}
+String   Condition_ID     "Condition id [%s]"   {weather="locationId=home, type=condition, property=id"}
 DateTime ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"   {weather="locationId=home, type=condition, property=observationTime"}
 DateTime LastUpdate       "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"        {weather="locationId=home, type=condition, property=lastUpdate"}
 String   CommonId         "Common id [%s]"      {weather="locationId=home, type=condition, property=commonId"}
