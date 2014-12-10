@@ -30,7 +30,7 @@ Miscellaneous Tips & Tricks
 * [How to use a serial port under linux](Samples-Tricks#how-to-use-a-serial-port-under-linux)
 * [openHAB and the Cubieboard, what you need to know](Samples-Tricks#openhab-and-the-cubieboard-what-you-need-to-know)
 * [Using the transceiver RFXtrx433E with Somfy RTS devices](Samples-Tricks#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
-* [Talking to a Raspberry ZWAY device with push updates](Samples-Tricks#Talking-to-a-Raspberry-ZWAY-device-with-push-updates)
+* [Talking to a Raspberry ZWAY device with push updates](Samples-Tricks#talking-to-a-raspberry-zway-device-with-push-updates)
 
 ### How to redirect your log entries to the syslog
 
