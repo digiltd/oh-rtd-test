@@ -30,6 +30,7 @@ Miscellaneous Tips & Tricks
 * [How to use a serial port under linux](Samples-Tricks#how-to-use-a-serial-port-under-linux)
 * [openHAB and the Cubieboard, what you need to know](Samples-Tricks#openhab-and-the-cubieboard-what-you-need-to-know)
 * [Using the transceiver RFXtrx433E with Somfy RTS devices](Samples-Tricks#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
+* [Talking to a Raspberry ZWAY device with push updates](Samples-Tricks#Talking-to-a-Raspberry-ZWAY-device-with-push-updates)
 
 ### How to redirect your log entries to the syslog
 
@@ -1622,3 +1623,47 @@ If you pair for example a roller shutter with the ID 1.01.01.1, then the binding
 ```
 Rollershutter rs_1 "Yoda" <rollershutter> (Rollershutters) {rfxcom=">1.01.01.1:RFY.RFY:Shutter"}
 ```
+
+### Talking to a Raspberry ZWAY device with push updates 
+
+(ZWAY version 2.0+ only)
+
+This works for any device on a ZWAY server, in this example we will bind the Alarm V1 event data for a lock to a OpenHAB item.  First create an Item to represent the alarm state, this will use the http binding to get it's initial state and periodically update (every hour) its self in case we loose a message.
+
+```
+Number ZWAY_LOCK_ALARM "Last Status [MAP(lock.map):%d]" {http="<[http://raspberry2:8083/ZWaveAPI/Run/devices%%5B2%%5D.Alarm.data.V1event.alarmType.value:3600000:REGEX((\\d*?))]"}
+``` 
+
+The URL we are hitting is `raspberry2:8083/ZWaveAPI/Run/devices[2].Alarm.data.V1event.alarmType.value` but in order to pass the '[' and ']' characters we need to escape them with '%%5B' and '%%5D'.
+
+Next we want to be updated when anything changes on the ZWAY device. We are going to load a javascript file that will bind to our device.  In the ZWAY automation UI, make sure you have the Javascript file load module enabled.  Place the following javascript file in "/opt/z-way-server/automation/storage/':
+```
+this.registerOhBinding = function(zwayName) {
+  debugPrint("OH Binding called with name: " + zwayName);
+
+  if (zwayName != "zway") return; // you want to bind to default zway instance
+
+  debugPrint("OH Binding enabled!");
+
+  var devices = global.ZWave["zway"].zway.devices;
+
+  devices[2].Alarm.data.V1event.alarmType.bind(function(){
+    debugPrint("Alarm.data.V1event.alarmType changed! " + this.value);
+    global.http.request({
+      method: 'PUT',
+      url: "http://oh.yourdomain.com:8080/rest/items/ZWAY_LOCK_ALARM/state",
+      data:this.value + "",
+      headers    : { "Content-Type": "text/plain" }
+    });
+  });
+};
+
+debugPrint("Trying to bind OH");
+// process all active bindings
+if (global.ZWave) {
+  global.ZWave().forEach(this.registerOhBinding);
+}
+// and listen for future ones
+global.controller.on("ZWave.register", this.registerOhBinding);
+```
+Replace the URL in the file to match your OpenHAB instance and item name. In the ZWAY Javascript File load module enter 'storage/zway-oh.js' as the file (or whatever you named it). This code will send a HTTP post to the Item whenever the alarm state changes. 
