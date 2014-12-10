@@ -91,6 +91,9 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2672-222</td><td>LED Bulb</td><td>F00.00.14</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
+<td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.15</td><td></td><td>Bernd Pfrommer</td>
+</tr>
+<tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
@@ -175,16 +178,18 @@ device:
 
 The following lines in your insteonplm.items file would configure a
 light switch, a dimmer, a motion sensor, and a garage door opener with
-contact sensor, a front door lock, and a button of a mini remote:
+contact sensor, a front door lock, a button of a mini remote, and a keypadlinc 2487:
 
-    Switch officeLight "office light" (office,lights) {insteonplm="24.02.dc:F00.00.02#switch"}
-    Dimmer kitchenChandelier "kitchen chandelier" (kitchen,lights) {insteonplm="20.c4.43:F00.00.01#dimmer"}
-    Contact garageMotionSensor "motion sensor [MAP(contact.map):%s]" (garage,contacts) {insteonplm="27.8c.c3:0x00004A#contact"}
-    Switch garageDoorOpener "garage door opener" <garagedoor>  (garage,openers) {insteonplm="28.c3.f1:0x00001A#switch"}
-    Contact garageDoorContact "garage door contact [MAP(contact.map):%s]" (garage,contacts)     {insteonplm="28.c3.f1:0x00001A#contact"}
+    Switch officeLight "office light" {insteonplm="24.02.dc:F00.00.02#switch"}
+    Dimmer kitchenChandelier "kitchen chandelier" {insteonplm="20.c4.43:F00.00.01#dimmer"}
+    Contact garageMotionSensor "motion sensor [MAP(contact.map):%s]" insteonplm="27.8c.c3:0x00004A#contact"}
+    Switch garageDoorOpener "garage door opener" <garagedoor> {insteonplm="28.c3.f1:0x00001A#switch"}
+    Contact garageDoorContact "garage door contact [MAP(contact.map):%s]"    {insteonplm="28.c3.f1:0x00001A#contact"}
     Switch frontDoorLock "Front Door [MAP(lock.map):%s]" {insteonplm="xx.xx.xx:F00.00.09#switch"}
-    Switch miniRemoteContactButton1	    "mini remote button 1" (garage,lights){insteonplm="2e.7c.9a:F00.00.02#switch,button=1"}
-
+    Switch miniRemoteContactButton1	    "mini remote button 1" insteonplm="2e.7c.9a:F00.00.02#buttonA"}
+    Switch keypadLoad    "main load (button 1/2)" {insteonplm="xx.xx.xx:F00.00.15#loadswitch"}
+    Switch keypadButtonA    "keypad button A"	{insteonplm="xx.xx.xx:F00.00.15#keypadbuttonA"}
+ 
 Note the use of a `MAP(contact.map)`, which should go into the
 transforms directory and look like this:
 
