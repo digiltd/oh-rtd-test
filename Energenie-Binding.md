@@ -1,5 +1,3 @@
-_**Note:** This Binding will be available in the upcoming 1.6 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
-
 ## Introduction
 
 The openHAB Energenie binding allows to send commands to multiple Gembird energenie PMS-LAN power extenders.
