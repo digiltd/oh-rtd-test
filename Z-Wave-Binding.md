@@ -59,7 +59,16 @@ The node ID indicates the number (in decimal notation) of the node, to which thi
 
 The endpoint ID is required when using the multi_instance command class. In case a node consists of multiple instances or endpoints, the instance number can be specified using this value. The default value is not to use the multi_instance command class (effectively a default value of 0). An example of a multi-endpoint device is the Fibaro FGS 221 double relay.
 
-**PLEASE NOTE THAT THE ENDPOINT NUMBERING CHANGED FOR 1.6 RELEASE.** Previously, the default value was 1, but this caused problems with multi-instance devices. This meant that a binding string of ```zwave=18:1``` and ```zwave=18``` was the same - this is now NOT the case.
+**PLEASE NOTE THAT THE ENDPOINT NUMBERING CHANGED FOR 1.6 RELEASE.**
+Previously, the default value was 1, but this caused problems with multi-instance devices. This meant that a binding string of ```zwave=18:1``` and ```zwave=18``` was the same - this is now NOT the case.
+
+If you're not sure about endpoint numbering, look in the logs to see if sensor data is being correlated. You may see the following warning -:
+```
+2014-12-14 12:51:17.065 WARN  o.o.b.z.i.ZWaveActiveBinding[:459]- NODE 8: No item bound for event, endpoint = 0, command class = SENSOR_MULTILEVEL, value = 51, ignoring.
+```
+
+This indicates that the binding can’t find an item linked to this sensor - often this is because the endpoint numbering is incorrect. If the warning above says endpoint = 0, then the binding string shouldn't include an endpoint number.
+
 
 The command is optional, but recommended if you have multiple items bound to the same device, or the device reports multiple bits of information. Without the command class, the binding can not unambiguously differentiate different data, so it is recommended to provide a command class. Z-Wave nodes support functionality through command classes. A specific command class can be specified to use that specific functionality of the node. A node can contain multiple supported command classes. If the command is omitted, the best suitable command class for the item / node combination is automatically chosen.
 
