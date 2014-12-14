@@ -70,7 +70,7 @@ Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00
 
 The **rain gauge** supports Rain: (What a surprise!)
 ```
-Number Netatmo_Rain_Gauge "Rain [%d mm]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
+Number Netatmo_Rain_Gauge "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
 ```
   
 
