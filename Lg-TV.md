@@ -6,4 +6,6 @@
 ## Usage:
 
 ## Examples:
-    Number TV_Volume	"Volume [%d]"   {lgtv="INIT:livingroom:VOLUME_CURRENT, INCREASE:livingroom:VOLUME_UP, DECREASE:livingroom:VOLUME_DOWN, *:livingroom:VOLUME_SET"}
+
+## See also:
+[Readme of Martin's implementation](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.lgtv#introduction-lgtv-binding--martin-fluch-2512014)
