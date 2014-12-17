@@ -11,7 +11,27 @@ In the following examples:
 ```
 
 ***
+Once you have defined your transformations, you can bind them with items in the items definition file.
 
+The binding has the syntax:
+
+```
+{ http="<[URL:XSLT(FILENAME)]" }
+```
+
+where URL is the url where the relevant data can be retrieved, while FILENAME is the name of the related transformation file.
+
+Don't forget the initial 'minus' symbol !!
+
+Here is an example:
+
+```
+Number Weather_Temperature "Outside Temperature [%.1f °C]" <temperature> (Weather_Chart) { http="<[http://weather.yahooapis.com/forecastrss?w=638242&u=c:60000:XSLT(yahoo_weather_temperature.xsl)]" } 
+```
+
+Here below you can find various examples of transformation files for the Yahoo Weather Forecast service.
+
+***
 
 Yahoo Weather - temperature 
 ```xml
