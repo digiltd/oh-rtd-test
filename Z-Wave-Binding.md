@@ -7,7 +7,7 @@ Connection to the Z-Wave controller is done through the serial port of your host
 
 Initialization of the binding typically takes several seconds to minutes depending on the number of devices in the network. When battery operated devices are used the binding tries to reach the device first. After one minute the node is marked sleeping. On wake up of the device initialization will continue.
 
-Please make sure that you have a functioning Z-Wave network prior to using this binding. The binding currently provides no functionality to add or remove devices. [HABmin](https://github.com/cdjackson/HABmin) can be used to configure devices ([setting configuration parameters and association groups](https://github.com/cdjackson/HABmin/wiki/Z-Wave-Configuration)) directly within openHAB. Alternatively the [open-zwave control panel](https://code.google.com/p/openzwave-control-panel/) is a good choice to set up your network. Commercial software like Homeseer can be used as well.
+[HABmin](https://github.com/cdjackson/HABmin) can be used to configure devices ([setting configuration parameters and association groups](https://github.com/cdjackson/HABmin/wiki/Z-Wave-Configuration)) directly within openHAB. Alternatively the [open-zwave control panel](https://code.google.com/p/openzwave-control-panel/) is a good choice to set up your network. Commercial software like Homeseer can be used as well.
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
@@ -45,7 +45,16 @@ First of all you need to introduce the port settings of your Z-Wave controller i
 <tr><td>zwave:pollingQueue</td><td>Sets the maximum number of frames in th polling queue at once. This avoids swamping the network with poll messages.</td></tr>
 <tr><td>zwave:aliveCheckPeriod</td><td>Sets the time (in milliseconds) between each node health check message. This is used to periodically check if a node is alive.</td></tr>
 <tr><td>zwave:softReset</td><td>Set to true to perform a soft reset on the controller during the heal, and when the binding starts. This can help solve some problems with the stick, but it can also cause some new controllers to lock up (eg the ZWave Plus controllers)</td></tr>
+<tr>
+<td>zwave:masterController</td>
+<td>This option tells the binding that it is the main controller in the network.
+This isn't necessarily the same as a primary controller - it simply means that your openhab binding is being used
+as the main network interface. If set to ```true```, the binding will configure devices automatically to send some
+communications to the binding. This would include setting the wakeup class to send notifications to openhab, and set some associations so that the binding recieves notifications of configuration change or alarms.
+(being introduced for 1.7)
+</td>
 </table>
+
 ## Item configuration
 
 In order to bind an item to a Z-Wave device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Z-Wave binding configuration string is explained here:
