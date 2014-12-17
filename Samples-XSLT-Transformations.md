@@ -16,10 +16,10 @@ Once you have defined your transformations, you can bind them with items in the 
 The binding has the syntax:
 
 ```
-{ http="<[URL:XSLT(FILENAME)]" }
+{ http="<[URL:INTERVAL:XSLT(FILENAME)]" }
 ```
 
-where URL is the url where the relevant data can be retrieved, while FILENAME is the name of the related transformation file.
+where URL is the url where the relevant data can be retrieved, INTERVAL is the interval in seconds between two queries, and FILENAME is the name of the related transformation file.
 
 Don't forget the initial 'minus' symbol !!
 
