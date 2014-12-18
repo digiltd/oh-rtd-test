@@ -1,9 +1,9 @@
 Below you'll find an example configuration for the squeezebox binding to select different radio stations.
 
- - [Binding](SqueezeboxExample#openhab.cfg)
- - [Items](SqueezeboxExample#squeeze.items)
- - [Rules](SqueezeboxExample#squeeze.rules)
- - [Sitemap](SqueezeboxExample#squeeze.sitemap) 
+ - [Binding](SqueezeboxExample#openhabcfg)
+ - [Items](SqueezeboxExample#squeezeitems)
+ - [Rules](SqueezeboxExample#squeezerules)
+ - [Sitemap](SqueezeboxExample#squeezesitemap) 
 
 ![](https://dl.dropboxusercontent.com/u/1781347/wiki/2014-12-18%2017_13_05-openHAB.png)
 
