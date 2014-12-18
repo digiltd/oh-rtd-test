@@ -134,5 +134,5 @@ Below an example on how to create an alarm clock with openHAB.
     }
 
 # References
- ## openHAB - Google Groups
+## openHAB - Google Groups
  - [How to configure openHAB for setting alarm/schedule times thru the UI](https://groups.google.com/d/msg/openhab/F2hqVwjbRC0/b1s44_MWGygJ)
