@@ -2,6 +2,8 @@
   - [Items](AlarmClock#alarmitems)
   - [Rules](AlarmClock#alarmrules)
   - [Sitemap](AlarmClock#alarmsitemap)
+ - [References] (AlarmClock#references)
+  - [openHAB - Google Groups](AlarmClock#openhab---google-groups)
 
 # Alarm Clock - Example
 
