@@ -1,4 +1,7 @@
 # Alarm Clock - Example
+ - [Items](AlarmClock#alarmitems)
+ - [Rules](AlarmClock#alarmrules)
+ - [Sitemap](AlarmClock#alarmsitemap)
 
 ![UI (greenT)](https://dl.dropboxusercontent.com/u/1781347/wiki/2014-12-07%2018_30_22-openHAB.png)
 
