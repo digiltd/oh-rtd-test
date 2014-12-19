@@ -1,4 +1,4 @@
-Below you'll find two examples on how to realize an alarm clock with openHAB. Example 1 does use only use one item to control the alarm time. Example II will control the hours and minutes seperately.
+Below you'll find two examples on how to realize an alarm clock with openHAB. Example 1 does only use one item to control the alarm time. Example II will control the hours and minutes seperately.
 
 * [Example I] (AlarmClock#alarm-clock---example-i)
  * [Items] (AlarmClock#items)
@@ -88,8 +88,6 @@ The reason I have two frames for displaying the alarm details is so I can merge 
 # Alarm Clock - Example II
 
 ![UI (greenT)](https://dl.dropboxusercontent.com/u/1781347/wiki/2014-12-07%2018_30_22-openHAB.png)
-
-Below an example on how to create an alarm clock with openHAB.
 
 ## Items
 
