@@ -1,7 +1,6 @@
 Below you'll find two example on how to realize an alarm clock with openHAB. Example 1 does use only use one item to control the alarm time. Example II will control the hours and minutes seperately.
 
  - [References] (AlarmClock#references)
-  - [openHAB - Google Groups](AlarmClock#openhab---google-groups)
 
 # Alarm Clock - Example I
 There is no 'time' widget and using numbers/dimmers/setpoints; if you do not want to have two items, one for hours and one for minutes this example is for you ...
@@ -10,7 +9,7 @@ Basically you are specifying the alarm time as a number from 0-600 mins (i.e. 0-
 
 Whenever you change the alarm time mins item using the Setpoint widget, the alarm time is calculated and a display item is updated, so you can show the nicely formatted alarm time in the sitemap. This item is not used for anything other than display. 
 
-The reason I have two frames for displaying the alarm details is so I can merge both the alarm switch and time items into one sitemap widget. So if the alarm is enabled I hardcode the presence-on icon and display the alarm time, if it is disabled I hard-code the presence-off icon. By doing this I can display the alarm time and have an icon showing the alarm state. Drilling down into that frame gives you the option to disable the alarm and change the time.
+The reason I have two frames for displaying the alarm details is so I can merge both the alarm switch and time items into one sitemap widget. So if the alarm is enabled I hardcode the presence-on icon and display the alarm time, if it is disabled I hard-code the presence-off icon. By doing this I can display the alarm time and have an icon showing the alarm state. Drilling down into that frame gives you the option to disable the alarm and change the time. [[1](https://groups.google.com/d/msg/openhab/F2hqVwjbRC0/b1s44_MWGygJ)]
 
 ## Items
     Switch     Alarm_Master          "Master Alarm"       <presence>       (Alarms)
@@ -207,5 +206,4 @@ Below an example on how to create an alarm clock with openHAB.
     }
 
 # References
-## openHAB - Google Groups
- - [How to configure openHAB for setting alarm/schedule times thru the UI](https://groups.google.com/d/msg/openhab/F2hqVwjbRC0/b1s44_MWGygJ)
+ - [1]: [How to configure openHAB for setting alarm/schedule times thru the UI](https://groups.google.com/d/msg/openhab/F2hqVwjbRC0/b1s44_MWGygJ)
