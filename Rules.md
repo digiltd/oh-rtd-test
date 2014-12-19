@@ -118,6 +118,23 @@ Besides the implicitly available variables for items and commands/states (see th
 - Every rule that has at least one command event trigger, will have the variable `receivedCommand` available, which can be used inside the execution block.
 - Every rule that has at least one status change event trigger, will have the variable `previousState` available, which can be used inside the execution block.
 
+## Concurrency Guard
+If a rule triggers on UI events it may be necessary to guard against concurrency.
+	import java.util.concurrent.locks.ReentrantLock
+
+	var java.util.concurrent.locks.ReentrantLock lock  = new java.util.concurrent.locks.ReentrantLock()
+
+	rule ConcurrentCode
+	when
+		Item Dummy received update
+	then
+		lock.lock()
+		try {
+			// do stuff (e.g. create and start a timer ...)
+		} finally{
+		   lock.unlock()
+		}
+	end
 ## Example
 
 Taking all the information together, an example rule file could look like this:
