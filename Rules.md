@@ -1,5 +1,18 @@
 How to work with automation rules
 
+* [Introduction] (Rules#introduction)
+* [Defining Rules] (Rules#defining-rules)
+  * [File Location] (Rules#file-location)
+  * [IDE Support] (Rules#ide-support)
+  * [The Syntax] (Rules#the-syntax)
+  * Triggers
+    * [Rule Triggers] (Rules#rule-triggers)
+    * [Item- / Event-based Triggers] (Rules#item---event-based-triggers)
+    * [Time-based Triggers] (Rules#time-based-triggers)
+    * [System-based Triggers] (Rules#system-based-triggers)
+  * [Implicit Variables inside the Execution Block] (Rules#implicit-variables-inside-the-execution-block)
+  * [Example] (Rules#example)
+
 ## Introduction
 
 openHAB has a highly integrated, lightweight but yet powerful rule engine included.
