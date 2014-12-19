@@ -11,6 +11,7 @@ How to work with automation rules
     * [Time-based Triggers] (Rules#time-based-triggers)
     * [System-based Triggers] (Rules#system-based-triggers)
   * [Implicit Variables inside the Execution Block] (Rules#implicit-variables-inside-the-execution-block)
+  * [Concurrency Guard] (Rules#concurrency-guard)
   * [Example] (Rules#example)
 
 ## Introduction
