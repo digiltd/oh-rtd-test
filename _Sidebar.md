@@ -25,6 +25,10 @@ Community
   * [[Android Client|HABDroid]]
   * [[GreenT UI|TouchUI]]
   * [[CometVisu|Comet-Visu]]
+ * [[Automation|Automation]]
+  * [[Scripts]]
+  * [[Rules]]
+  * [[Actions]]
  * [[Bindings]]
   * [[AlarmDecoder Binding|AlarmDecoder-binding]]
   * [[Anel Binding|Anel-binding]]
@@ -134,10 +138,7 @@ Community
   * [[MQTT Persistence|MQTT-Persistence]]
   * [[InfluxDB Persistence|InfluxDB-Persistence]]
   * [[JPA Persistence|JPA-Persistence]]
- * [[Automation|Automation]]
-  * [[Scripts]]
-  * [[Rules]]
-  * [[Actions]]
+
  * Misc
   * [[Transformations]]
   * [[REST-API]]
