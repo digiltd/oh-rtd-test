@@ -1,11 +1,82 @@
- - [Alarm Clock - Example](AlarmClock#alarm-clock---example)
-  - [Items](AlarmClock#alarmitems)
-  - [Rules](AlarmClock#alarmrules)
-  - [Sitemap](AlarmClock#alarmsitemap)
+Below you'll find two example on how to realize an alarm clock with openHAB. Example 1 does use only use one item to control the alarm time. Example II will control the hours and minutes seperately.
+
  - [References] (AlarmClock#references)
   - [openHAB - Google Groups](AlarmClock#openhab---google-groups)
 
-# Alarm Clock - Example
+# Alarm Clock - Example I
+There is no 'time' widget and using numbers/dimmers/setpoints; if you do not want to have two items, one for hours and one for minutes this example is for you ...
+
+Basically you are specifying the alarm time as a number from 0-600 mins (i.e. 0-10 hours). The base time is midnight, so this corresponds to a time between midnight and 10am. Obviously very easy to change the Setpoint config in your sitemap to extend or restrict this. I have it set to 'step' in 5 min increments, but you could make this 15 mins to make it easier to quickly set coarse alarm times if you wanted.
+
+Whenever you change the alarm time mins item using the Setpoint widget, the alarm time is calculated and a display item is updated, so you can show the nicely formatted alarm time in the sitemap. This item is not used for anything other than display. 
+
+The reason I have two frames for displaying the alarm details is so I can merge both the alarm switch and time items into one sitemap widget. So if the alarm is enabled I hardcode the presence-on icon and display the alarm time, if it is disabled I hard-code the presence-off icon. By doing this I can display the alarm time and have an icon showing the alarm state. Drilling down into that frame gives you the option to disable the alarm and change the time.
+
+## Items
+    Switch     Alarm_Master          "Master Alarm"       <presence>       (Alarms)
+    Number     Alarm_MasterTimeMins  "Master Alarm"       <clock>          (Alarms)
+    String     Alarm_MasterTime      "Master Alarm [%s]"  <clock>
+    Switch     Alarm_MasterEvent     "Master Alarm Event" <alarm>          (AlarmEvents)      { autoupdate="false" }
+
+## Rules
+	var Timer masterAlarmTime = null
+
+	rule "Master bedroom alarm time"
+	when
+		Time cron "0 5 0 * * ?" or
+		Item Alarm_MasterTimeMins received update
+	then
+		var int minutes = (Alarm_MasterTimeMins.state as DecimalType).intValue()
+
+		if (masterAlarmTime != null)
+			masterAlarmTime.cancel()
+
+		// work out when the alarm is to fire - start from midnight
+		var DateTime alarmTime = parse(now.getYear() + "-" + now.getMonthOfYear() + "-" + now.getDayOfMonth() + "T00:00")
+
+		// add the number of minutes selected
+		alarmTime = alarmTime.plusMinutes(minutes)
+
+		// if we have already past the alarm time then set it for the following day
+		if (alarmTime.beforeNow)
+			alarmTime = alarmTime.plusDays(1)
+
+		// create a timer to execute the alarm at the specified time
+		masterAlarmTime = createTimer(alarmTime) [| 
+			if (Alarm_Master.state == ON && Holiday.state == OFF && now.getDayOfWeek() < 6) 
+				Alarm_MasterEvent.sendCommand(ON)
+		]
+
+		// update the alarm display time    
+		Alarm_MasterTime.sendCommand(String::format("%02d:%02d", alarmTime.getHourOfDay(), alarmTime.getMinuteOfHour()))
+	end
+
+	rule "Master bedroom alarm"
+	when
+		Item Alarm_MasterEvent received command ON
+	then
+		// do your alarm stuff - turn on radio, dim up lights, start the coffee machine...
+	end
+
+# Sitemap
+	Frame label="Alarm" {
+		Text item=Alarm_MasterTime icon="presence-on" visibility=[Alarm_Master==ON] {
+			Frame label="Master Alarm" {
+				Switch item=Alarm_Master
+				Text item=Alarm_MasterTime
+				Setpoint item=Alarm_MasterTimeMins minValue=0 maxValue=600 step=5
+			}
+		}
+		Text item=Alarm_MasterTime icon="presence-off" visibility=[Alarm_Master==OFF] {
+			Frame label="Master Alarm" {
+				Switch item=Alarm_Master
+				Text item=Alarm_MasterTime
+				Setpoint item=Alarm_MasterTimeMins minValue=0 maxValue=600 step=5
+			}
+		}
+	}
+
+# Alarm Clock - Example II
 
 ![UI (greenT)](https://dl.dropboxusercontent.com/u/1781347/wiki/2014-12-07%2018_30_22-openHAB.png)
 
