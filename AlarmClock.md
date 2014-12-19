@@ -81,7 +81,7 @@ The reason I have two frames for displaying the alarm details is so I can merge 
 
 Below an example on how to create an alarm clock with openHAB.
 
-## alarm.items
+## Items
 
     Group   gWeckerWochentage "Wochentage"
     Group   gWeckerZeit "Zeit"
@@ -98,7 +98,7 @@ Below an example on how to create an alarm clock with openHAB.
     Number weckerZeitStunde "Stunde [%d]" <clock> (gWeckerZeit)
     Number weckerZeitMinute "Minute [%d]" <clock> (gWeckerZeit)
 
-## alarm.rules
+## Rules
 
     import org.openhab.core.library.types.*
     import org.openhab.core.persistence.*
@@ -181,7 +181,7 @@ Below an example on how to create an alarm clock with openHAB.
       
     end
 
-## alarm.sitemap
+## Sitemap
 
     sitemap alarmclock
     {
