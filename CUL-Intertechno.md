@@ -25,7 +25,7 @@ REV exmaple
 
 Classic example
 
-> {culintertechno="type=rev;group=I;address=1"}
+> {culintertechno="type=classic;group=I;address=1"}
 
 If you have an unsupported intertechno device you can fallback to the raw mode
 
