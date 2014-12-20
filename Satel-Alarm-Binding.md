@@ -194,8 +194,6 @@ Although this binding allows you to configure disarming a partition and clearing
 
 ## TO DO
 
-* support for RTC and basic status
 * troubles support
 * support for INT-RS module
 * encryption for ETHM-1
-* RTC synchronization
