@@ -64,7 +64,8 @@ Supported item types: `Contact`, `Switch`, `Number`. Number items can be used on
 <tr><td>zone</td><td>defines a zone: PIR, contact, etc.</td></tr>
 <tr><td>partition</td><td>defines a partition</td></tr>
 <tr><td>output</td><td>defines an output</td></tr>
-<tr><td>doors</td><td>defines doors</td></tr></table>
+<tr><td>doors</td><td>defines doors</td></tr>
+<tr><td>status</td><td>defines a status item</td></tr></table>
 
 
 **Valid `state_type` values for "zone" objects:**
@@ -111,6 +112,17 @@ Supported item types: `Contact`, `Switch`, `Number`. Number items can be used on
 <tr><td>opened_long</td><td></td></tr></table>
 
 
+**Valid `state_type` values for "status" objects:**
+<table><tr><th>Type</th><th>Notes</th></tr>
+<tr><td>service_mode</td><td></td></tr>
+<tr><td>troubles</td><td>OFF command clears troubles memory</td></tr>
+<tr><td>troubles_memory</td><td>OFF command clears troubles memory</td></tr>
+<tr><td>acu100_present</td><td></td></tr>
+<tr><td>intrx_present</td><td></td></tr>
+<tr><td>grade23_set</td><td></td></tr>
+<tr><td>date_time</td><td>DateTimeType or StringType command changes Integra date and time</td></tr></table>
+
+
 ## Examples
 
 Partition item with ability to arm and disarm:
@@ -149,6 +161,26 @@ Number of partitions with "alarm" state:
 Number PartitionsInAlarm "Partitions alarmed [%d]" { satel="partition:alarm" }
 ```
 
+Troubles memory item with clear ability:
+```
+Switch TroublesMemory "Troubles in the system" { satel="status:troubles_memory" }
+```
+
+Time synchronization using NTP binding:
+```
+DateTime AlarmDateTime "Current time [%1$tF %1$tR]" { satel="status:date_time" }
+DateTime NtpDateTime   "NTP time [%1$tF %1$tR]"     {ntp="Europe/Berlin:de_DE" }
+```
+
+Rule for above example:
+```
+rule "Alarm time sync"
+when
+	Item NtpDateTime received update
+then
+	AlarmDateTime.sendCommand(new StringType(NtpDateTime.state.toString))
+end
+```
 
 ## Security considerations
 
