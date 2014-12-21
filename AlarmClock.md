@@ -28,6 +28,7 @@ The reason I have two frames for displaying the alarm details is so I can merge 
     Switch     Alarm_MasterEvent     "Master Alarm Event" <alarm>          (AlarmEvents)      { autoupdate="false" }
 
 ## Rules
+```Xtend
 	var Timer masterAlarmTime = null
 
 	rule "Master bedroom alarm time"
@@ -66,7 +67,7 @@ The reason I have two frames for displaying the alarm details is so I can merge 
 	then
 		// do your alarm stuff - turn on radio, dim up lights, start the coffee machine...
 	end
-
+```
 # Sitemap
 	Frame label="Alarm" {
 		Text item=Alarm_MasterTime icon="presence-on" visibility=[Alarm_Master==ON] {
@@ -107,7 +108,7 @@ The reason I have two frames for displaying the alarm details is so I can merge 
     Number weckerZeitMinute "Minute [%d]" <clock> (gWeckerZeit)
 
 ## Rules
-
+```Xtend
     import org.openhab.core.library.types.*
     import org.openhab.core.persistence.*
     import org.openhab.model.script.actions.*
@@ -188,7 +189,7 @@ The reason I have two frames for displaying the alarm details is so I can merge 
       }
       
     end
-
+```
 ## Sitemap
 
     sitemap alarmclock
