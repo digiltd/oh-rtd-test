@@ -60,7 +60,7 @@ Here you'll need to configure your players; please make sure that the id's match
     Dimmer squeezeWohnbereichVolume  "Wohnbereich [%.1f %%]" <volume> (gPlayerVolume)       { squeeze="Wohnbereich:volume" }
 
 #squeeze.rules
-
+```Xtend
 	import org.openhab.core.library.types.*
 	import org.openhab.model.script.actions.*
 	import org.openhab.action.squeezebox.*
@@ -105,7 +105,7 @@ Here you'll need to configure your players; please make sure that the id's match
 		}
 
 	  end
-
+```
 #squeeze.sitemap
 	sitemap
 	{
