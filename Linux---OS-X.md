@@ -42,6 +42,10 @@ The deb installer adds openHAB to the system startup.
 
 openHAB comes with a built-in user interface. It works on all webkit-based browsers like Chrome, Safari, etc. Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should be looking at your sitemap. 
 
+### Paths
+- openHAB engine is installed in /usr/share/openhab.
+- Configuration is located at /etc/openhab
+
 ## Upgrade
 Changed configuration files will be retained even on upgrades!
 
