@@ -4,7 +4,7 @@ import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
-rule "Convers_Temp_EG"
+rule "Convert_Temp_EG"
 when
 	Item ZwaveTemperatureEGF changed 
 then
