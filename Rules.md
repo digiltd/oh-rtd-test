@@ -49,13 +49,13 @@ A rule file is a text file with the following structure:
 The ***Imports*** section contains import statement just like in Java. As in Java, they make the imported types available without having to use the fully qualified name for them. For further details, please see the [Xtend documentation for imports](http://www.eclipse.org/xtend/documentation.html#imports).
 
 Example:
-
+```Xtend
     import org.openhab.core.library.types.*
-
+```
 The ***Variable Declarations*** section can be used to declare variables that should be accessible to all rules in this file. You can declare variables with or without initial values and modifiable or read-only. For further details, please see the [Xtend documentation for variable declarations](http://www.eclipse.org/xtend/documentation.html#variableDeclaration).
 
 Example: 
-
+```Xtend
     // a variable with an initial value. Note that the variable type is automatically inferred
     var counter = 0 
     
@@ -64,9 +64,9 @@ Example:
     
     // an uninitialized variable where we have to provide the type (as it cannot be inferred from an initial value)
     var Number x 
-
+```
 The ***Rules*** section contains a list of rules. Each rule has the following syntax:
-
+```Xtend
     rule "rule name"
     when
         <TRIGGER CONDITION1> or 
@@ -76,7 +76,7 @@ The ***Rules*** section contains a list of rules. Each rule has the following sy
     then
         <EXECUTION_BLOCK>
     end
-
+```
 A rule can have any number of trigger conditions, but must at least have one.
 The _EXECUTION_BLOCK_ contains the code that should be executed, when a trigger condition is met. The content of the _EXECUTION_BLOCK_ is in fact a script, so please refer to the [scripts documentation](Scripts) for details.
 
@@ -92,26 +92,26 @@ Here are the details for each category:
 ### Item- / Event-based Triggers
 
 You can listen to commands for a specific item, on status updates or on status changes (an update might leave the status unchanged). You can decide whether you want to catch only a specific command/status or any. Here is the syntax for all these cases (parts in square brackets are optional):
-
+```Xtend
     Item <item> received command [<command>]
     Item <item> received update [<state>]
     Item <item> changed [from <state>] [to <state>]
-
+```
 ### Time-based Triggers
 
 You can either use some pre-defined expressions for timers or use a [cron expression](http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/tutorial-lesson-06) instead:
-
+```Xtend
     Time is midnight
     Time is noon
     Time cron "<cron expression>"
-
+```
 ### System-based Triggers
 
 Currently, you schedule rules to be executed either at system startup or shutdown. Note that newly added or modified startup rules are executed once, even if openHAB is already up and running. They are simply executed once as soon as the system is aware of them. Here's the syntax for system triggers:
-
+```Xtend
     System started
     System shuts down
-
+```
 ## Implicit Variables inside the Execution Block
 
 Besides the implicitly available variables for items and commands/states (see the [script documentation](Scripts)), rules can have additional pre-defined variables, depending on their triggers:
@@ -121,6 +121,7 @@ Besides the implicitly available variables for items and commands/states (see th
 
 ## Concurrency Guard
 If a rule triggers on UI events it may be necessary to guard against concurrency.
+```Xtend
 	import java.util.concurrent.locks.ReentrantLock
 
 	var java.util.concurrent.locks.ReentrantLock lock  = new java.util.concurrent.locks.ReentrantLock()
@@ -136,10 +137,11 @@ If a rule triggers on UI events it may be necessary to guard against concurrency
 		   lock.unlock()
 		}
 	end
+```
 ## Example
 
 Taking all the information together, an example rule file could look like this:
-
+```Xtend
     // import the decimal type as we refer to it in a rule
     import org.openhab.core.library.types.DecimalType
     
@@ -178,5 +180,5 @@ Taking all the information together, an example rule file could look like this:
     then
     	counter = receivedCommand as DecimalType
     end
-
+```
 You can find further examples in the [openHAB-samples](https://github.com/openhab/openhab/wiki/Samples-Rules) section.
