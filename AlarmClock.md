@@ -91,104 +91,118 @@ The reason I have two frames for displaying the alarm details is so I can merge 
 ![UI (greenT)](https://dl.dropboxusercontent.com/u/1781347/wiki/2014-12-07%2018_30_22-openHAB.png)
 
 ## Items
+```
+Switch	weckerMontag     "Montag"     <switch>	(gWeckerWochentage)	
+Switch	weckerDienstag   "Dienstag"   <switch>	(gWeckerWochentage)	
+Switch	weckerMittwoch   "Mittwoch"	  <switch>	(gWeckerWochentage)	
+Switch	weckerDonnerstag "Donnerstag" <switch>	(gWeckerWochentage)	
+Switch	weckerFreitag    "Freitag"    <switch>	(gWeckerWochentage)	
+Switch	weckerSamstag    "Samstag"    <switch>	(gWeckerWochentage)	
+Switch	weckerSonntag    "Sonntag"    <switch>	(gWeckerWochentage)	
 
-    Group   gWeckerWochentage "Wochentage"
-    Group   gWeckerZeit "Zeit"
-    Switch	weckerMontag	"Montag"	<switch>	(gWeckerWochentage)	
-    Switch	weckerDienstag	"Dienstag"	<switch>	(gWeckerWochentage)	
-    Switch	weckerMittwoch	"Mittwoch"	<switch>	(gWeckerWochentage)	
-    Switch	weckerDonnerstag	"Donnerstag"	<switch>	(gWeckerWochentage)	
-    Switch	weckerFreitag	"Freitag"	<switch>	(gWeckerWochentage)	
-    Switch	weckerSamstag	"Samstag"	<switch>	(gWeckerWochentage)	
-    Switch	weckerSonntag	"Sonntag"	<switch>	(gWeckerWochentage)	
+String weckerZeitMessage "%s"
 
-    String weckerZeitMessage "%s"
-
-    Number weckerZeitStunde "Stunde [%d]" <clock> (gWeckerZeit)
-    Number weckerZeitMinute "Minute [%d]" <clock> (gWeckerZeit)
-
+Number weckerZeitStunde "Stunde [%d]" <clock> (gWeckerZeit)
+Number weckerZeitMinute "Minute [%d]" <clock> (gWeckerZeit)
+```
 ## Rules
 ```Xtend
-    import org.openhab.core.library.types.*
-    import org.openhab.core.persistence.*
-    import org.openhab.model.script.actions.*
-    import org.openhab.action.squeezebox.*
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+import org.openhab.action.squeezebox.*
 
-    var Timer Wecker
+import java.util.concurrent.locks.ReentrantLock
 
-    rule "WeckzeitUpdate"
-    when
-        System started
-        or Item weckerZeitStunde changed
-        or Item weckerZeitMinute changed
-    then
-      if ((weckerZeitStunde.state instanceof DecimalType) && (weckerZeitMinute.state instanceof DecimalType)) {
+var Timer timer1 = null
+var java.util.concurrent.locks.ReentrantLock lock1 = new java.util.concurrent.locks.ReentrantLock()
 
-        var String msg = ""
-        var stunde = weckerZeitStunde.state as DecimalType
-        var minute = weckerZeitMinute.state as DecimalType
-      
-        if (stunde < 10) { msg = "0" } 
-        msg = msg + weckerZeitStunde.state.format("%d") + ":"
-        if (minute < 10) { msg = msg + "0" }
-        msg = msg + weckerZeitMinute.state.format("%d")
-        postUpdate(weckerZeitMessage,msg)
-      
-        var int weckzeit
-        weckzeit = (weckerZeitStunde.state as DecimalType).intValue * 60 + (weckerZeitMinute.state as DecimalType).intValue
-        weckzeit = weckzeit.intValue
-      
-        var int jetzt
-        jetzt = now.getMinuteOfDay
-        jetzt = jetzt.intValue
-      
-        var int delta
-        if (Wecker != null) {
-          Wecker.cancel
-          Wecker = null
-        }
-      
-        delta = (weckzeit - jetzt)
-        delta = delta.intValue
-      
-        if (jetzt > weckzeit) { delta = delta + 1440 }
-        
-        Wecker = createTimer(now.plusMinutes(delta)) [|
-            logInfo("wecker.rules", "Timer Event")
-            var Number day = now.getDayOfWeek
-            if (((day == 1) && (weckerMontag.state == ON))     ||
-                ((day == 2) && (weckerDienstag.state == ON))   ||
-                ((day == 3) && (weckerMittwoch.state == ON))   ||
-                ((day == 4) && (weckerDonnerstag.state == ON)) ||
-                ((day == 5) && (weckerFreitag.state == ON))    ||
-                ((day == 6) && (weckerSamstag.state == ON))    ||
-                ((day == 7) && (weckerSonntag.state == ON))
-                ) {
-                logInfo("wecker.rules", "Alarm")
-                sendHttpGetRequest("http://192.168.10.100/ExecuteEvent.asp?Event=Wecker")
-                sendCommand("gRollladen", "UP")
-                createTimer(now.plusSeconds(5)) [|
-                  sendCommand("ZwaveShutterEGTV", "STOP")
-                ]
-            }
-            Wecker.reschedule(now.plusHours(24))
-        ]
-        
-      } else {
-        // alarm clock not initialized ...
-        postUpdate(weckerZeitStunde, 8)
-        postUpdate(weckerZeitMinute, 15)
-        postUpdate(weckerMontag, ON)
-        postUpdate(weckerDienstag, ON)
-        postUpdate(weckerMittwoch, ON)
-        postUpdate(weckerDonnerstag, ON)
-        postUpdate(weckerFreitag, ON)
-        postUpdate(weckerSamstag, OFF)
-        postUpdate(weckerSonntag, OFF)
-        Wecker = null
-      }
-      
-    end
+rule "Initialization"
+ when 
+   System started
+ then
+     postUpdate(weckerZeitStunde,  8)
+     postUpdate(weckerZeitMinute, 15)
+     postUpdate(weckerMontag,     ON)
+     postUpdate(weckerDienstag,   ON)
+     postUpdate(weckerMittwoch,   ON)
+     postUpdate(weckerDonnerstag, ON)
+     postUpdate(weckerFreitag,    ON)
+     postUpdate(weckerSamstag,    OFF)
+     postUpdate(weckerSonntag,    OFF)
+ end
+
+rule "Weckzeit"
+when
+	Item weckerZeitStunde changed or 
+	Item weckerZeitMinute changed
+then
+  lock1.lock()
+  try {
+    
+  var String msg = ""
+  var stunde = weckerZeitStunde.state as DecimalType
+  var minute = weckerZeitMinute.state as DecimalType
+  
+  if (stunde < 10) { msg = "0" } 
+  msg = msg + weckerZeitStunde.state.format("%d") + ":"
+    
+  if (minute < 10) { msg = msg + "0" }
+  msg = msg + weckerZeitMinute.state.format("%d")
+  postUpdate(weckerZeitMessage,msg)
+  
+  var int weckzeit1
+  weckzeit1 = (weckerZeitStunde.state as DecimalType).intValue * 60 + 
+              (weckerZeitMinute.state as DecimalType).intValue
+  weckzeit1 = weckzeit1.intValue
+  
+  var int jetzt1
+  jetzt1 = now.getMinuteOfDay
+  jetzt1 = jetzt1.intValue
+  
+  var int delta1
+  if (timer1 != null) {
+    timer1.cancel
+    timer1 = null
+  }
+  
+  delta1 = (weckzeit1 - jetzt1)
+  delta1 = delta1.intValue
+  
+  if (jetzt1 > weckzeit1) { delta1 = delta1 + 1440 }
+    
+  timer1 = createTimer(now.plusMinutes(delta1)) [|
+  	var Number day = now.getDayOfWeek
+  	if (((day == 1) && (weckerMontag.state == ON))     ||
+   		((day == 2) && (weckerDienstag.state == ON))   ||
+   		((day == 3) && (weckerMittwoch.state == ON))   ||
+   		((day == 4) && (weckerDonnerstag.state == ON)) ||
+   		((day == 5) && (weckerFreitag.state == ON))    ||
+   		((day == 6) && (weckerSamstag.state == ON))    ||
+   		((day == 7) && (weckerSonntag.state == ON))
+   		) {
+   		sendHttpGetRequest("http://192.168.10.100/ExecuteEvent.asp?Event=Wecker")
+    		
+   		sendCommand(ZwaveShutterEGEingang, UP)
+   		sendCommand(ZwaveShutterEGKuecheLinks, UP)
+   		sendCommand(ZwaveShutterEGKuecheRechts, UP)
+   		sendCommand(ZwaveShutterEGWohnenRechts, UP)
+   		sendCommand(ZwaveShutterEGWohnenLinks, UP)
+   		sendCommand(ZwaveShutterOGGang, UP)
+   		sendCommand(ZwaveShutterOGBuero, UP)
+   		sendCommand(ZwaveShutterEGTV, UP)
+   		
+   		createTimer(now.plusSeconds(7)) [|
+   		  sendCommand(ZwaveShutterEGTV, STOP)
+   		  ]
+   	    }
+   	   timer1.reschedule(now.plusHours(24))
+     ]
+    }
+  } finally  {
+     lock1.unlock()
+  }
+end
 ```
 ## Sitemap
 
