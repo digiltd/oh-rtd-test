@@ -16,7 +16,7 @@ Samples for Rules
 ### How to turn on light when motion detected and is dark?
 
 Light is turned on when there is motion detected (corMotion) and brightness is below threshold. Every 1min it is checked whether there was motion since the last check. If not: turn light back off.
-
+```Xtend
     var Number counter = 0
     var Number lastCheck = 0
     
@@ -44,10 +44,10 @@ Light is turned on when there is motion detected (corMotion) and brightness is b
                     lastCheck = counter
             }
     end
-    
+```    
 
 ### How to create a rule, which only executes some code, if a value does not change for a certain period of time
-
+```Xtend
     var Timer timer
     
     rule "do something if item state is 0 for more than 10 seconds"
@@ -65,9 +65,9 @@ Light is turned on when there is motion detected (corMotion) and brightness is b
     		}
     	}
     end
-
+```
 ### How to calculate the sun position
-
+```Xtend
     import org.openhab.core.library.types.*
     import java.lang.Math
     
@@ -146,7 +146,7 @@ Light is turned on when there is motion detected (corMotion) and brightness is b
     	postUpdate(Sun_Dusk_Astronomical, if((sonnenhoehe < -12)  && (sonnenhoehe >= -18) && (hour > 12)) {ON} else {OFF})
     
     end
-
+```
 ### How to calculate public holidays
 
 Items: 
@@ -181,7 +181,7 @@ Transformation (holidays_de.map):
     new_years_eve=Silvester
 
 Rule:
-
+```Xtend
     rule "Public Holiday"
     when
         Time cron "0 0 0 * * ?" or
@@ -189,7 +189,7 @@ Rule:
     then
         callScript("holiday")
     end
-
+```
 Script (holiday.script):
 
     var int year = now.getYear
@@ -360,7 +360,7 @@ Replace <api_code> with your own API code (sign up for a developers account). Fi
     </xsl:stylesheet>
 
 **Rules**
-
+```Xtend
     import org.joda.time.*
     
     var Timer tIndoorLights
@@ -392,7 +392,7 @@ Replace <api_code> with your own API code (sign up for a developers account). Fi
     	)
         ]
     end
-
+```
 ### Send an image from your webcam by e-mail
 
 If your webcam offers a still picture in your local LAN e.g. at http://192.168.0.2/jpg/image.jpg, you can simply send it as an attachment in a rule by e-mail with a line like:
@@ -411,7 +411,7 @@ This example displays the minimum and maximum values and the time they where mea
 The string items hold the formatted String to be displayed in the UI. The number item holds the current temperature, it must be updated periodically and persistence must be configured for this item. This example assumes, that the rrd4h persistence service is used, for other services the string "rrd4j" in the rule below must be modified accordingly.
 
 **Rules**
-
+```Xtend
     rule "Update Temperature Min- and Max values"
     when
     	Item  Temperature_Garden received update
@@ -432,9 +432,9 @@ The string items hold the formatted String to be displayed in the UI. The number
     		postUpdate(Temperature_Garden_Max_Formatted, tmp)
     	}
     end
-
+```
 **Includes**
-
+```Xtend
     import org.openhab.core.library.types.*
     import org.openhab.model.script.actions.*
     import java.lang.Math
@@ -442,7 +442,7 @@ The string items hold the formatted String to be displayed in the UI. The number
     import java.util.Date
     import java.util.TimeZone
     import java.text.SimpleDateFormat
-
+```
 The rules file probably needs the includes listed above.
 
 ### How to use Colorpicker widget with KNX/DALI RGB LED STRIPE
@@ -480,7 +480,7 @@ sitemap.all
     }
 
 RGB.rules
-
+```Xtend
     import org.openhab.core.library.types.*
     
     var HSBType hsbValue
@@ -502,13 +502,13 @@ RGB.rules
             sendCommand( LedG, greenValue )
             sendCommand( LedB, blueValue )
     end
-
+```
 Any change in value of the RGB Colorpicker item fires this rule. The HSB value of the item is determined and split to percentage values for red, green and blue which then get sent to the individual KNX items LedR, LedG and LedB.
 
 ### How to log current timestamp to the openHAB log file
 
 mytimestamp.rules
-
+```Xtend
     import org.openhab.core.library.types.*
     import java.util.Date
     import java.text.SimpleDateFormat
@@ -522,9 +522,9 @@ mytimestamp.rules
     
             logInfo( "FILE", Timestamp )
     end
-
+```
 or, alternatively, if you rely on String Formatter only (e.g. in Persistence files):
-
+```Xtend
     import org.openhab.core.library.types.*
     import java.util.Date
     import java.text.SimpleDateFormat
@@ -536,7 +536,7 @@ or, alternatively, if you rely on String Formatter only (e.g. in Persistence fil
             var String Timestamp = String::format( "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS", new Date() )
             logInfo( "FILE", Timestamp )
     end
-
+```
 If you wonder, how to use the `String::format` option:<br/>
 The syntax of the format method is format( `<String>`pattern, `<object>`obj1, `<object>`obj2 `[In the pattern String, use "%1" for parsing the first object, "%2" for the second object a.s.o.
 
@@ -578,7 +578,7 @@ Items
     String 		Weather_TomorrowIcon		"Tomorrow [%s]"     			<w>  			(Weather) 				{ http="<[http://api.wunderground.com/api/<YOUR_API_KEY>/forecast/q/pws:<YOUR_PWS_ID>.xml:3600000:XSLT(<YOUR_TRANSFORM>.xsl)]" } 
 
 Rules
-
+```Xtend
     import org.openhab.core.library.types.*
     import org.openhab.core.persistence.*
     import org.openhab.model.script.actions.*
@@ -717,7 +717,7 @@ Rules
     		}
     	}
     end
-
+```
 ### Fire detection
 
 This rule will check all temperature sensors in an item group to see if any exceed a specified threshold (in my case 45oC). This means you can add/remove temperature sensors to your config whenever you like and be confident that they will all be monitored by this rule.
@@ -733,7 +733,7 @@ Items
     Number   Sensor_Temperature3  "Living [%.1f °C]"     <temperature> (SensorTemperature) { <some-binding> }
 
 Rules
-
+```Xtend
     rule "Fire detection"
     when
         Item SensorTemperature received update
@@ -761,14 +761,14 @@ Rules
         // send an email
         sendMail("ben@home.com", "FIRE ALARM!!", "The fire alarm has been activated!!!")
     end
-
+```
 
 ### Hager KNX roller shutter actor position feedback
 
 Some Hager actors have have an unusual feedback object for position and alarms. With this rule the position of the roller shutter is set according to the state of the feedback object:
 
 Rules
-
+```Xtend
     rule "Set Status Study"
     when
         Item Rollershutter_Study_Feedback received update
@@ -787,7 +787,7 @@ Rules
                 Rollershutter_Study.state = new PercentType(100)
         }
     end
-
+```
 
 Items
 
@@ -817,7 +817,7 @@ Following this two rules
 
 
 Rules
-
+```Xtend
         rule "water level"
 
         when 
@@ -889,3 +889,4 @@ Rules
 	sendCommand(plantbswitch40, OFF)
 	sendCommand(plantbswitch30, OFF)
         end
+```
