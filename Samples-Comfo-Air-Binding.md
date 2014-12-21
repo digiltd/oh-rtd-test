@@ -118,7 +118,7 @@ extended ComfoAir binding configs.
     }
 
 # airflow.rules
-
+```Xtend
     import org.openhab.core.library.types.*
     import org.openhab.core.persistence.*
     import org.openhab.model.script.actions.*
@@ -355,3 +355,4 @@ extended ComfoAir binding configs.
     		}
     	}
     end
+```
