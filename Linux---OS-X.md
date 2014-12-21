@@ -45,6 +45,7 @@ openHAB comes with a built-in user interface. It works on all webkit-based brows
 ### Paths
 - openHAB engine (including /webapps folder) is installed in /usr/share/openhab.
 - Configuration is located at /etc/openhab
+- log-files are stored in /var/log/openhab
 
 ## Upgrade
 Changed configuration files will be retained even on upgrades!
