@@ -122,6 +122,8 @@ Supported item types: `Contact`, `Switch`, `Number`. Number items can be used on
 <tr><td>grade23_set</td><td></td></tr>
 <tr><td>date_time</td><td>DateTimeType or StringType command changes Integra date and time</td></tr></table>
 
+**NOTE:** Some of the values, like 'troubles' and 'intrx_present' don't work on my ETHM-1 Plus module.
+
 
 ## Examples
 
