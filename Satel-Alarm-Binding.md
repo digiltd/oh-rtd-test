@@ -182,6 +182,34 @@ then
 end
 ```
 
+Connection status, item definition:
+```
+DateTime AlarmDateTime "Current time [%1$tF %1$tR]" { satel="status:date_time" }
+Switch AlarmConnection "Connection status" <network>
+```
+
+Connection status rule:
+```
+var Timer satelTimer = null
+
+rule "Satel connection status"
+when
+    Item AlarmDateTime received update
+then
+    var org.joda.time.DateTime timeout = now.plusSeconds(5)
+   
+    AlarmConnection.postUpdate(ON)
+    if (satelTimer != null) {
+        satelTimer.reschedule(timeout)
+    } else {
+        satelTimer = createTimer(timeout) [|
+            AlarmConnection.postUpdate(OFF)
+            satelTimer = null
+        ]
+    }
+end
+```
+
 ## Security considerations
 
 **User for OH integration**
