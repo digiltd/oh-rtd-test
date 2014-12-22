@@ -1,7 +1,7 @@
 # Lg TV Binding
 
 ## Working models:
-* Every LG TV MOdel with Netcast 3.0 and Netcast 4.0 (Model years 2012 & 2013)
+* Every LG TV Model with Netcast 3.0 and Netcast 4.0 (Model years 2012 & 2013)
 
 ## Binding Configuration¶
 
@@ -168,5 +168,88 @@ Command	Description
 - APP_TERMINATE	MF: Terminate Application
 - CONNECTION_STATUS	MF: Get Binding Connection Status 
 
-
 For those who try to POWER ON - LgTV shuts down the network port so only power off is availiable ;-(
+
+### Usage of LgTv as Openhab "screen" (beta function)
+
+As the binding is able to start an internet browser on the tv a functionality to automaticly change websites in the screen browser is embedded. 
+
+the functionality is realized via a small embedded webserver in the binding which shows a minimalistic (not visible) website (frame). this website shows the given url and refreshes it if the configured item changes the value to a new website. 
+
+to automatically enable the feature you should set the bindings location as default page in the browser - the location is: http://<ipadressofopenhab>/
+
+try the sample by creating the two files (lgtv.items and lginfoscreen.rules) in the appropriate folders and set the LgTvInfoMode to 1 
+
+#extend the item file eg. lgtv.items
+```
+String LgTvBrowserRemote                "wohnzimmer url"                (GF_Living)     {lgtv="*:wohnzimmer:BROWSER_URL"}
+Number LgTvInfoMode                     "infomode [%.1f]"               (GF_Living)
+```
+
+#create a rules file lginfoscreen.rules
+```
+import org.openhab.core.library.types.*
+import java.lang.Math
+
+var Number lgruninsec=0
+var String site=""
+var Number currentpage=0
+
+rule "infosystemstart"
+when
+ System started
+then
+        println ("infosystemstart")
+        lgruninsec = 0
+        currentpage = 0
+end
+
+
+
+rule "infostart"
+when
+        Item LgTvInfoMode received update
+then
+
+        if (LgTvInfoMode.state!=0)
+        {
+                if (lgruninsec==0)
+                {
+                        LgTvAppExecute.sendCommand("Internet")
+                        lgruninsec = lgruninsec+1
+                        currentpage=1
+                }
+                currentpage=LgTvInfoMode.state
+                if (currentpage==1) site="http://www.google.com"
+                if (currentpage==2) site="http://www.diepresse.at"
+                if (currentpage==3) site="http://www.spiegel.de"
+                if (currentpage==4) site="http://openhabserver:8080/openhab.app?sitemap=demo"
+                postUpdate(LgTvBrowserRemote,site)
+        }else
+        {
+                LgTvAppTerminate.sendCommand("Internet")
+                lgruninsec=0
+        }
+end
+rule "infolaeuft"
+when
+        Time cron "0,15,30,45 * * * * ?"
+then
+        var int s1=0
+        var int s2=0
+
+        if (LgTvInfoMode.state>0)
+        {
+                lgruninsec = lgruninsec + 1
+                currentpage=LgTvInfoMode.state
+                if (lgruninsec > 4)
+                {
+                        currentpage = currentpage+1
+                        lgruninsec=1
+                }
+                logInfo("lginfomode","infolauft: lgruninsec="+lgruninsec+" currentpage="+currentpage)
+                if (currentpage>4) currentpage=1
+                postUpdate(LgTvInfoMode,currentpage)
+        }
+end
+```
