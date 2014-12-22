@@ -172,7 +172,7 @@ For those who try to POWER ON - LgTV shuts down the network port so only power o
 
 ## BETA FUNCTION: Usage of LgTv as Openhab "screen"
 
-The overall idea behind the binding is a simple usecase. In the morning (office days) a start of the tv should automatically start a browser showing latest news, traffic information and the status of the openhab sites (eg heating, water and power consumtion of the house ...)
+The initial idea behind the binding was the following usecase: In the morning (office days) a start of the tv should automatically start a browser showing latest news, traffic information and the status of the openhab sites (eg heating, water and power consumtion of the house ...) - controlled via an openhab rule. 
 
 As the binding is able to start an internet browser on the tv a functionality to automaticly change websites in the screen browser is embedded. 
 
