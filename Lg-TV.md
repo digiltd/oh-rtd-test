@@ -170,21 +170,34 @@ Command	Description
 
 For those who try to POWER ON - LgTV shuts down the network port so only power off is availiable ;-(
 
-### Usage of LgTv as Openhab "screen" (beta function)
+### BETA FUNCTION: Usage of LgTv as Openhab "screen"
+
+The overall idea behind the binding is a simple usecase. In the morning (office days) a start of the tv should automatically start a browser showing latest news, traffic information and the status of the openhab sites (eg heating, water and power consumtion of the house ...)
 
 As the binding is able to start an internet browser on the tv a functionality to automaticly change websites in the screen browser is embedded. 
 
-the functionality is realized via a small embedded webserver in the binding which shows a minimalistic (not visible) website (frame). this website shows the given url and refreshes it if the configured item changes the value to a new website. 
+the functionality is realized via a small embedded webserver in the binding which shows a minimalistic (not visible) website (a frame). this website shows the given url described in an item and refreshes it if the configured item changes the value to a new website. 
 
-to automatically enable the feature you should set the bindings location as default page in the browser - the location is: http://<ipadressofopenhab>/
+to automatically enable the feature you should set the bindings location as default page in the browser - the location is: http://<ipadressofopenhab>:<portofopenhab>/udap/api/event?devicename=<deviceid>. 
+example: http://opnehabserver:8080/udap/api/event?devicename=wohnzimmer
 
-try the sample by creating the two files (lgtv.items and lginfoscreen.rules) in the appropriate folders and set the LgTvInfoMode to 1 
+try the sample by creating the following items in lgtv.items in the appropriate folder
 
 #extend the item file eg. lgtv.items
 ```
+String LgTvAppExecute                   "excuteapp"                     (GF_Living)     {lgtv="*:wohnzimmer:APP_EXECUTE"}
 String LgTvBrowserRemote                "wohnzimmer url"                (GF_Living)     {lgtv="*:wohnzimmer:BROWSER_URL"}
 Number LgTvInfoMode                     "infomode [%.1f]"               (GF_Living)
 ```
+
+Within a rules file you can then open a browser and set a location 
+
+```
+LgTvAppExecute.sendCommand("Internet")
+postUpdate(LgTvBrowserRemote,"http://www.profil.at")
+```
+
+With the following example rule you can automate this process and changes websites based on a timeshedule. 
 
 #create a rules file lginfoscreen.rules
 ```
