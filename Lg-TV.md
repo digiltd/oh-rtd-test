@@ -170,7 +170,7 @@ Command	Description
 
 For those who try to POWER ON - LgTV shuts down the network port so only power off is availiable ;-(
 
-### BETA FUNCTION: Usage of LgTv as Openhab "screen"
+## BETA FUNCTION: Usage of LgTv as Openhab "screen"
 
 The overall idea behind the binding is a simple usecase. In the morning (office days) a start of the tv should automatically start a browser showing latest news, traffic information and the status of the openhab sites (eg heating, water and power consumtion of the house ...)
 
@@ -183,7 +183,7 @@ example: http://opnehabserver:8080/udap/api/event?devicename=wohnzimmer
 
 try the sample by creating the following items in lgtv.items in the appropriate folder
 
-#extend the item file eg. lgtv.items
+###extend the item file eg. lgtv.items
 ```
 String LgTvAppExecute                   "excuteapp"                     (GF_Living)     {lgtv="*:wohnzimmer:APP_EXECUTE"}
 String LgTvBrowserRemote                "wohnzimmer url"                (GF_Living)     {lgtv="*:wohnzimmer:BROWSER_URL"}
@@ -199,7 +199,7 @@ postUpdate(LgTvBrowserRemote,"http://www.profil.at")
 
 With the following example rule you can automate this process and changes websites based on a timeshedule. 
 
-#create a rules file lginfoscreen.rules
+###create a rules file lginfoscreen.rules
 ```
 import org.openhab.core.library.types.*
 import java.lang.Math
