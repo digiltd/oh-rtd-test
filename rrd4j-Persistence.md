@@ -47,3 +47,5 @@ See [Persistence](Persistence) for details on configuring this file.
 ## Troubleshooting
 
 From time to time, you may find that if you change the item type of a persisted data, you may experience charting or other problems. To resolve this issue, remove the old <item_name>.rrd file in the `${openhab_home}/etc/rrd4j` folder.
+
+Restore of items after startup is take some time. Rules are already started in parallel. Especially in rules that are started via "System started" trigger, it may happen that the restore is not completed resulting in defined items. In these cases the use of restored items has to be delayed by a couple of seconds. This delay has to be determined experimentally.
