@@ -129,3 +129,7 @@ This could be done using different ways, e.g. you could use the Eclipse IDE.
 * In "Build" the "Binary Build" should be changed automatically, if you change the runtime classpath.
 * Check, if "MANIFEST.MF" and "build.properties" was changed.
 * Save file
+
+#### Restrictions
+
+Binding is not working for Windows 8.1 (both 32 and 64 bit) and MAC OS (Yosemite).
