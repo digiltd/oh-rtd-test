@@ -162,6 +162,8 @@ Samples
   * [[Convert Farenheit to Celcius|convert-farenheit-to-celcius]]
  * [[REST Examples|Samples-REST]]
  * [[Tips & Tricks|Samples-Tricks]]
+  * [[Misc.|Samples-Tricks]]
+  * [[Rollershutter Groups|RollershutterGroups]]
  * [[XSLT Transforms|Samples-XSLT-Transformations]]
  * [[Scripts|Samples-Scripts]]
  * [[Integration with other applications|Samples-Integration]]
