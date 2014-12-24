@@ -39,7 +39,7 @@ To see what we are talking about, you can directly [try it out on our demo serve
 
 ## Known Bugs
 
-None. Be a discoverer and find some :-)
+GreenT stops refreshing items after some time. User has to refresh the webpage manually. This bug severely restricts the use of GreenT for wall displays showing the status of the home automation.
 
 ## How to Install
 
