@@ -96,3 +96,7 @@ As a result, your lines in the items file might look like the following:
     String radiostation  "RadioStation [%s]"  (Sonos)   {sonos="[living:radio]", autoupdate="false"},
     Switch PlayLivingRoom "Play/Pause"        (Sonos)   {sonos="[ON:living:play],[OFF:living:pause]"}
     Switch next		  "Next track"        (Sonos)   {sonos="[ON:living:next]"}
+
+## Troubleshooting
+Sonos commands take time to execute. If applied to fast, the SONOS player will ignore the command and indicated this by an error message in the OSGi console.
+Especially the "group" and "radio" command need several seconds to execute. Also the timing is not predictable and the worst case has to be determined experimentally. In rule you may use "Thread::sleep(x)" to delay the executing of SONOS command (x: ms).
