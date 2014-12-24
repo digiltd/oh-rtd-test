@@ -99,6 +99,6 @@ As a result, your lines in the items file might look like the following:
 
 ## Troubleshooting
 Sonos commands take time to execute. If applied to fast, the SONOS player will ignore the command and indicated this by an error message in the OSGi console.
-Especially the "group" and "radio" command need several seconds to execute. Also the timing is not predictable and the worst case has to be determined experimentally. In rules you may use "Thread::sleep(x)  //(x: ms)"  to delay the executing of SONOS command accordingly.
+Especially the "group" and "radio" command need several seconds to execute. Also the timing is not predictable and the worst case has to be determined experimentally. In rules you may use "Thread::sleep(x)  //(x: ms)"  to delay the execution of SONOS command accordingly.
 
 The volume button on the loudspeakers create events and can trigger respective rule. Note: the "Play/Pause" button will not create related events.
