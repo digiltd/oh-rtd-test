@@ -16,6 +16,8 @@ the Insteon network (like notifications about switches being toggled)
 are picked up by the modem and converted to openHAB status updates by
 the binding. The binding also supports sending and receiving of legacy X10 messages.
 
+OpenHAB is not a configuration tool! To configure and set up your devices, use the free HouseLinc software provided by Insteon or link the devices manually.
+
 ## Insteon devices
 
 Every Insteon device *type* is uniquely identified by its Insteon
@@ -41,7 +43,7 @@ The following devices have been tested and should work out of the box:
 <td>2477S</td><td>SwitchLinc Switch</td><td>F00.00.02</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td></td><td>Benido Josenivaldo</td>
+<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td></td><td>Benito Josenivaldo</td>
 </tr>
 <tr>
 <td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td></td><td>Patrick Giasson</td>
@@ -50,13 +52,13 @@ The following devices have been tested and should work out of the box:
 <td>2456D3</td><td>LampLinc V2</td><td>F00.00.05</td><td></td><td>Patrick Giasson</td>
 </tr>
 <tr>
-<td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td></td><td>Benido Josenivaldo</td>
+<td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td></td><td>Benito Josenivaldo</td>
 </tr>
 <tr>
-<td>2453-222</td><td>DIN Rail On/Off</td><td>F00.00.07</td><td></td><td>Benido Josenivaldo</td>
+<td>2453-222</td><td>DIN Rail On/Off</td><td>F00.00.07</td><td></td><td>Benito Josenivaldo</td>
 </tr>
 <tr>
-<td>2452-222</td><td>DIN Rail Dimmer</td><td>F00.00.08</td><td></td><td>Benido Josenivaldo</td>
+<td>2452-222</td><td>DIN Rail Dimmer</td><td>F00.00.08</td><td></td><td>Benito Josenivaldo</td>
 </tr>
 <tr>
 <td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>
@@ -85,13 +87,16 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2466S</td><td>ToggleLinc Switch</td><td>F00.00.12</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer</td><td>F00.00.13</td><td></td><td>Rob Nielsen</td>
+<td>2672-222</td><td>LED Bulb</td><td>F00.00.13</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2672-222</td><td>LED Bulb</td><td>F00.00.14</td><td></td><td>Rob Nielsen</td>
+<td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.14</td><td>link scene buttons via modem groups</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.15</td><td>scene buttons cannot be toggled from openHAB</td><td>Bernd Pfrommer</td>
+<td>2334-232</td><td>KeypadLink Dimmer 6-Button</td><td>F00.00.15</td><td></td><td>Rob Nielsen</td>
+</tr>
+<tr>
+<td>2334-232</td><td>KeypadLink Dimmer 8-Button</td><td>F00.00.16</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
@@ -178,7 +183,7 @@ device:
 
 The following lines in your insteonplm.items file would configure a
 light switch, a dimmer, a motion sensor, and a garage door opener with
-contact sensor, a front door lock, a button of a mini remote, and a keypadlinc 2487:
+contact sensor, a front door lock, a button of a mini remote, a KeypadLinc 2487, and a 6-button keypad dimmer 2334-232:
 
     Switch officeLight "office light" {insteonplm="24.02.dc:F00.00.02#switch"}
     Dimmer kitchenChandelier "kitchen chandelier" {insteonplm="20.c4.43:F00.00.01#dimmer"}
@@ -187,9 +192,12 @@ contact sensor, a front door lock, a button of a mini remote, and a keypadlinc 2
     Contact garageDoorContact "garage door contact [MAP(contact.map):%s]"    {insteonplm="28.c3.f1:0x00001A#contact"}
     Switch frontDoorLock "Front Door [MAP(lock.map):%s]" {insteonplm="xx.xx.xx:F00.00.09#switch"}
     Switch miniRemoteContactButton1	    "mini remote button 1" insteonplm="2e.7c.9a:F00.00.02#buttonA"}
-    Switch keypadLoad    "main load (button 1/2)" {insteonplm="xx.xx.xx:F00.00.15#loadswitch"}
-    Switch keypadButtonA    "keypad button A"	{insteonplm="xx.xx.xx:F00.00.15#keypadbuttonA"}
- 
+    Switch keypadSwitch    "main load" {insteonplm="xx.xx.xx:F00.00.14#loadswitch"}
+    Switch keypadSwitchButtonA   "keypad switch button A"	{insteonplm="xx.xx.xx:F00.00.14#keypadbuttonA,group=2"}
+    Dimmer keypadDimmer "dimmer" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer"}
+    Switch keypadDimmerButtonA    "keypad dimmer button A"	{insteonplm="xx.xx.xx:F00.00.15#keypadbuttonA,group=2"}
+
+For the meaning of the ``group`` parameter, please see notes on groups and keypad buttons below.
 Note the use of a `MAP(contact.map)`, which should go into the
 transforms directory and look like this:
 
@@ -206,25 +214,15 @@ transforms directory and look like this:
 If you have a garage door opener, see the I/O Linc documentation for
 the meaning of the `momentary` keyword (not supported/needed for other devices).
 
+
 Here are some examples for configuring X10 devices. Note that X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually.
 
     Switch x10Switch	"X10 switch" {insteonplm="A.1:X00.00.01#switch"}
     Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
     Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
 
-## Removing devices from the Modem's link database
-
-When an Insteon device breaks or is no longer needed, it should be
-removed from them modem's link database. Since this is particularly tricky
-if the device is no longer operable, the binding has
-a rudimentary feature to eliminate entries: Instantiate a `Switch` item in the `.items` file,
-referencing the modem with its proper Insteon address:
-
-    Switch removeAddress		    "switch to remove address"	  	(gControllers)			{insteonplm="1E.DB.41:0x000045#control,remove_address=2e.7c.9a"}
-
-In the binding config, a `control` feature is referenced, and the address of the device
-to be removed from the modem is passed as parameter `remove_address`. Toggling the switch
-to `ON` will send a command to the modem, erasing the db entry.
+## Insteon groups and how to enable buttons on the keypads
+When a button is pressed on a keypad button, a broadcast message is sent out on the Insteon network to all members of a pre-configured group. Let's say you press the keypad button A on a 2487S, it will send out a message to group 3. You first need to configure your modem to be a responder to that group. That can be simply done by pressing the keypad button and then holding the set button (for details see instructions), just as for any Insteon device. After this step, the binding will be notified whenever you press a keypad button, and you can configure a Switch item that will reflect its state. However, if the switch is flipped from within openHAB, the keypad button will not update its state. For that, include the keypad button into an Insteon group using the HouseLinc software, such that the keypad button responds to modem broadcast messages on e.g modem group 2. Then add the parameter ``group=2`` to the binding config string (see example above). Now toggling the switch item will send out a broadcast message to group 2, which should flip the switch. You need to configure each button into a different modem group to switch them separately.
 
 ## Trouble shooting
 
@@ -299,5 +297,6 @@ If all else fails there are the Java sources, in particular the classes MessageH
 
 1. Devices cannot be linked to the modem while the binding is
 running. If new devices are linked, the binding must be restarted.
-2. Very rarely during binding startup, a message arrives at the modem while the initial read of the modem
+2. Setting up Insteon groups and linking devices cannot be done from within openHAB. Use HouseLinc for that.
+3. Very rarely during binding startup, a message arrives at the modem while the initial read of the modem
 database happens. Somehow the modem then stops sending the remaining link records and the binding no longer is able to address the missing devices. The fix is to simply restart the binding.
