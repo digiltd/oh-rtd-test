@@ -93,10 +93,10 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.14</td><td>link scene buttons via modem groups</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer 6-Button</td><td>F00.00.15</td><td></td><td>Rob Nielsen</td>
+<td>2334-232</td><td>KeypadLink Dimmer 6-Button</td><td>F00.00.15</td><td>link scene buttons via modem groups</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer 8-Button</td><td>F00.00.16</td><td></td><td>Rob Nielsen</td>
+<td>2334-232</td><td>KeypadLink Dimmer 8-Button</td><td>F00.00.16</td><td>link scene button via modem groups</td><td>Rob Nielsen</td>
 </tr>
 <tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
