@@ -87,7 +87,7 @@ Valid `<sonos variable>`'s are:
 Here are some examples of valid binding configuration strings:
 
     sonos="[ON:office:play], [OFF:office:stop]"
-    sonos="[office:getcurrenttrack]"
+    sonos="[office:currenttrack]"
 
 As a result, your lines in the items file might look like the following:
 
