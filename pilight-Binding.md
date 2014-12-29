@@ -8,7 +8,7 @@ This page describes the pilight binding, which allows openhab to communicate wit
 
 pilight is a cheap way to control 'Click On Click Off' devices. You can do this for example by using a Raspberry Pi and a cheap 433Mhz transceiver off eBay, plus an optional band pass filter.
 
-Currently, only switches and dimmers are supported by this binding. 
+Currently, switches, dimmers and string and number items are supported by this binding. 
 
 ### Installation 
 
