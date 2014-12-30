@@ -113,3 +113,8 @@ For all kinds of time and date calculations, [Jodatime](http://joda-time.sourcef
     Temperature.minimumSince(parse("2012-01-01"))
     PowerMeter.historicState(now.toDateMidnight.withDayOfMonth(1))
 The "now" variable can be used for relative time expressions, while "parse()" can define absolute dates and times. See the [Jodatime documentation](http://joda-time.sourceforge.net/api-release/org/joda/time/format/ISODateTimeFormat.html#dateTimeParser()) on what string formats are supported for parsing.
+
+## Startup Behavior
+Persistence services and rule engine are started in parallel. It may happen that rules are already executed using items that have not been persisted yet having an "undefined" state. Therefore, rules that rely on persisted information break during this time.
+A workaround which helped some cases is to introduce an item e.g. "delayed_start" that is set to "OFF" at startup and to "ON" some time later (when it can be assumed that resistance has restored all items. The time needs to be determined emphirically. It is influenced by the size of your home automation project and the performance of your platform).
+The affected rules then have to be masked by using "delayed_start".
