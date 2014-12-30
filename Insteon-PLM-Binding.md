@@ -217,8 +217,8 @@ the meaning of the `momentary` keyword (not supported/needed for other devices).
 
 Dimmers can be configured with a maximum level when turning a device on or setting a percentage level. If a maximum level is configured, openHAB will never set the level of the dimmer above the level specified. The below example sets a maximum level of 70% for dimmer 1 and 60% for dimmer2:
 
-    Dimmer dimmer1 "dimmer 1"   {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
-    Dimmer dimmer2 "dimmer 2"   {insteonplm="xx.xx.xx:F00.00.15#loaddimmer,dimmermax=60"}
+    Dimmer d1 "dimmer 1" {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
+    Dimmer d2 "dimmer 2" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer,dimmermax=60"}
 
 Setting a maximum level does not affect manual turning on or dimming a switch. 
 
