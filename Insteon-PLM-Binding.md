@@ -196,6 +196,7 @@ contact sensor, a front door lock, a button of a mini remote, a KeypadLinc 2487,
     Switch keypadSwitchButtonA   "keypad switch button A"	{insteonplm="xx.xx.xx:F00.00.14#keypadbuttonA,group=2"}
     Dimmer keypadDimmer "dimmer" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer"}
     Switch keypadDimmerButtonA    "keypad dimmer button A"	{insteonplm="xx.xx.xx:F00.00.15#keypadbuttonA,group=2"}
+    Dimmer dimmerWithMax "dimmer 2"   {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
 
 For the meaning of the ``group`` parameter, please see notes on groups and keypad buttons below.
 Note the use of a `MAP(contact.map)`, which should go into the
@@ -214,6 +215,12 @@ transforms directory and look like this:
 If you have a garage door opener, see the I/O Linc documentation for
 the meaning of the `momentary` keyword (not supported/needed for other devices).
 
+Dimmers can be configured with a maximum level when turning a device on or setting a percentage level. If a maximum level is configured, openHAB will never set the level of the dimmer above the level specified. The below example sets a maximum level of 70% for dimmer 1 and 60% for dimmer2:
+
+    Dimmer dimmer1 "dimmer 1"   {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
+    Dimmer dimmer2 "dimmer 2"   {insteonplm="xx.xx.xx:F00.00.15#loaddimmer,dimmermax=60"}
+
+Setting a maximum level does not affect manual turning on or dimming a switch. 
 
 Here are some examples for configuring X10 devices. Note that X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually.
 
