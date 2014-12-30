@@ -116,5 +116,5 @@ The "now" variable can be used for relative time expressions, while "parse()" ca
 
 ## Startup Behavior
 Persistence services and rule engine are started in parallel. It may happen that rules are already executed using items that have not been persisted yet having an "undefined" state. Therefore, rules that rely on persisted information break during this time.
-A workaround which helped some cases is to introduce an item e.g. "delayed_start" that is set to "OFF" at startup and to "ON" some time later (when it can be assumed that resistance has restored all items. The time needs to be determined emphirically. It is influenced by the size of your home automation project and the performance of your platform).
+A workaround which helped some cases is to introduce an item e.g. "delayed_start" that is set to "OFF" at startup and to "ON" some time later (when it can be assumed that persistence has restored all items. The time needs to be determined empirically. It is influenced by the size of your home automation project and the performance of your platform).
 The affected rules then have to be masked by using "delayed_start".
