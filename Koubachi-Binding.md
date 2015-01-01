@@ -36,7 +36,7 @@ The following config parameters have to be set for using Koubachi binding:
 
 ## Generic Item Binding Configuration
 
-In order to bind an item to a Koubachi resource query you need to provide configuration settings. The easiest way to do this is to add some binding information in your item file (in the folder configurations/items`). The syntax for the NTP binding configuration string is as follows:
+In order to bind an item to a Koubachi resource query you need to provide configuration settings. The easiest way to do this is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Koubachi binding configuration string is as follows:
 
     koubachi="<device | plant>:<resourceId>:<propertyName>"
 
