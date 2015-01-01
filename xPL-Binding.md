@@ -8,7 +8,7 @@ The xPL Bundle provides two packages :
 
 ## Pre-requisites
 
-The xPL Bundle relies on Gerry Duprey [xPL4Java](http://www.xpl4java.org/) Library. The library is packaged in the bundle, then you won't need to install it - but in order to make it work, you'll need a working xPL Hub on the openHAB server (please find all needed information on how-to on the [xPL Project](http://xplproject.org.uk/) website.
+The xPL Bundle relies on Gerry Duprey's [xPL4Java](http://www.xpl4java.org/) Library. The library is packaged in the bundle, then you won't need to install it - but in order to make it work, you'll need a working xPL Hub on the openHAB server (please find all needed information on how-to on the [xPL Project](http://xplproject.org.uk/) website.
 
 ## Configuration in openhab.cfg
 ```
