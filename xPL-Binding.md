@@ -1,4 +1,4 @@
-_**Note:** This Binding is available beginning in the 1.6 Release.
+**Note:** This Binding is available beginning in the 1.6 Release.
 
 ## Introduction
 
