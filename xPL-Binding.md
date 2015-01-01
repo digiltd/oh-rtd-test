@@ -4,7 +4,7 @@
 
 The xPL Bundle provides two packages :
 - Action to send messages over the xPL network
-- Bindings to grab xPL messages values in items and send xPL commands
+- Bindings to grab xPL message values in items and send xPL commands
 
 ## Pre-requisites
 
