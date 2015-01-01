@@ -21,7 +21,7 @@ or just
 
     send|update <item> <state>
 
-The commands in the `start` section will be executed at the even start time and the `end` section at the event end time. If these sections are not present, the commands will be executed at the event start time.
+The commands in the `start` section will be executed at the event start time and the `end` section at the event end time. If these sections are not present, the commands will be executed at the event start time.
 
 As a result, your lines in a Calendar event might look like this:
 
