@@ -24,17 +24,20 @@ There is a [SenchaTouch-based UI](TouchUI), which can be used with smartphones a
 ### OSGi Console
 
 openHAB adds commands to the OSGi console. If you type "help" on the console, you will see a section like
+```
     ---openHAB commands---
     	openhab send <item> <command> - sends a command for an item
     	openhab update <item> <state> - sends a status update for an item
     	openhab status <item> - shows the current status of an item
     	openhab items [<pattern>] - lists names and types of all items matching the pattern
     	openhab say <sentence to say> - Says a message through TTS on the host machine
-
+```
 With these you can manually send commands and status updates to the event bus, ask for the current status of items and browse the item registry.
 
 The "say" command also supports to include item states in the sentence to say through TTS. If the item `Weather_Temperature` has the current value 15, you can use the command 
+```
        openhab say The temperature outside is %Weather_Temperature% degrees celsius.
+```
 where `%Weather_Temperature%` is automatically replaced by `15`.
 
 ### XMPP (Jabber) Instant Messaging Console
@@ -45,8 +48,6 @@ For this, you require an XMPP account for your house - you can easily create on 
 Configure the XMPP-section of your openhab.cfg file accordingly and define, which XMPP users are allowed to use the console.
 
 Next time you start your openHAB runtime, you will see that your house automatically comes online - you can now chat with it just like on the local console (the only difference is that you do not need the "openhab" prefix of the commands, e.g. simply type `status Weather_Temperature`).
-
-![XMPP] (http://wiki.openhab.googlecode.com/hg/images/screenshots/xmpp.jpg "XMPP")
 
 ### Google Calendar Console
 
@@ -70,45 +71,6 @@ Optionally, you can also use JBoss Drools, see the [details here](Drools).
 Rules can make use of user-defined [[Scripts|scripts]], but those scripts can also be called directly from consoles. They make it very easy to define macros.
 
 openHAB defines a useful [set of actions](Actions) that can be used from within rules and scripts. They can be used to send e-mails and do other kinds of notifications as well as other common things.
-
-## Bindings
-
-As the OSGi platform allows a highly modular architecture, the bindings are realized as different bundles, which can be dynamically plugged to openHAB, so that every user can decide on the bindings he is interested in.
-
-There are many different hardware/protocol bindings available, each is documented including its configuration options on the wiki:
-
-- [[Asterisk Binding|Asterisk Binding]]
-- [[Bluetooth Binding|Bluetooth Binding]]
-- [CUPS Binding](CUPSBinding)
-- [DMX512 Binding](DMXBinding)
-- [[Exec Binding|Exec Binding]]
-- [[Fritz Box Binding|Fritz!Box Binding]]
-- [[Homematic Binding|Homematic Binding]]
-- [[Http Binding|HTTP Binding]]
-- [IHC / ELKO Binding](IHCBinding)
-- [[Insteon PLM Binding|Insteon-PLM-Binding]]
-- [KNX Binding](KNXBinding)
-- [[Koubachi Binding|Koubachi Binding]]
-- [[Modbus Tcp Binding|Modbus TCP Binding]]
-- [[Mpd Binding|MPD Binding]]
-- [[Network Health Binding|Network Health Binding]]
-- [[Novelan Heat Pump Binding|Novelan Heatpump Binding]]
-- [[Ntp Binding|NTP Binding]]
-- [[One Wire Binding|One-Wire Binding]]
-- [[Config Admin Binding|OSGi Configuration Admin Binding]]
-- [[Hue Binding|Philips Hue Binding]]
-- [[Plugwise Binding|Plugwise Binding]]
-- [PLCBus Binding](PLCBusBinding)
-- [[Pulseaudio Binding|Pulseaudio Binding]]
-- [RFXCOM Binding](RFXCOMBinding)
-- [Samsung TV Binding](SamsungTVBinding)
-- [[Serial Binding|Serial Binding]]
-- [[Snmp Binding|Snmp Binding]]
-- [Somfy URTSI II Binding](URTSIBinding)
-- [[Sonos Binding|Sonos Binding]]
-- [TCP/UDP Binding](TCPBinding)
-- [VDR Binding](VDRBinding)
-- [Wake-on-LAN Binding](WoLBinding)
 
 ## Other
 
