@@ -150,6 +150,7 @@ Examples, how to configure your items:
   <tr><td>Pressure</td><td>NumberItem</td><td></td></tr>
   <tr><td>Forecast</td><td>NumberItem</td><td></td></tr>
   <tr><td>RainRate</td><td>NumberItem</td><td></td></tr>
+  <tr><td>RainTotal</td><td>NumberItem</td><td></td></tr>
   <tr><td>WindDirection</td><td>NumberItem</td><td></td></tr>
   <tr><td>WindSpeed</td><td>NumberItem</td><td></td></tr>
   <tr><td>Gust</td><td>NumberItem</td><td></td></tr>
@@ -161,4 +162,5 @@ Examples, how to configure your items:
   <tr><td>TotalAmpHours</td><td>NumberItem</td><td></td></tr>
   <tr><td>Status</td><td>StringItem</td><td></td></tr>
   <tr><td>Mood</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Contact</td><td>ContactItem</td><td></td></tr>
 </table>
