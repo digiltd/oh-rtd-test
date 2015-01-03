@@ -39,7 +39,7 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
         git push origin master --tags
 1. Switch to the root directoy of openHAB
 
-## Channels to inform about the new Release
+### Channels to inform about the new Release
 
 1. News-Section on index.html
 1. Google-Group
