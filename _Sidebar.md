@@ -125,6 +125,7 @@ Community
   * [[Withings Binding|Withings-Binding]]
   * [[XBMC Binding|XBMC-Binding]]
   * [[xPL Binding|xPL-Binding]]
+  * [[Yamahareceiver Binding|Yamahareceiver-Binding]]
   * [[Z-Wave Binding|Z-Wave-Binding]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
