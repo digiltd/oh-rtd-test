@@ -16,6 +16,8 @@ How to work with automation rules
 
 ## Introduction
 
+"Rules" are used for automating processes: Each rule can be triggered, which invokes a script that performs any kinds of tasks, e.g. turn on lights by modifying your items, do mathematical calculations, start timers etcetera (for more details on _what_ a rule can do, see [scripts documentation](Scripts)).
+
 openHAB has a highly integrated, lightweight but yet powerful rule engine included.
 On this page you will learn how to leverage its functionality to do *real* home automation.
 
@@ -25,7 +27,7 @@ On this page you will learn how to leverage its functionality to do *real* home 
 
 Rules are placed in the folder `${openhab.home}/configurations/rules`. The runtime already comes with a demo file called `demo.rules`, which has a couple of examples, which can be a good starting point.
 
-A rule file can contain multiple rules. All rules of a file share a common execution context, i.e. they can access and exchange variables with each other. It therefore makes sense, to have different rule files for different use-cases or categories.
+A rule file can contain multiple rules. All rules of a file share a common execution context, i.e. they can access and exchange variables with each other. It therefore makes sense to have different rule files for different use-cases or categories.
 
 ### IDE Support
 
@@ -81,6 +83,8 @@ A rule can have any number of trigger conditions, but must at least have one.
 The _EXECUTION_BLOCK_ contains the code that should be executed, when a trigger condition is met. The content of the _EXECUTION_BLOCK_ is in fact a script, so please refer to the [scripts documentation](Scripts) for details.
 
 ### Rule Triggers
+
+Before a rule starts working, it has to be triggered.
 
 There are different categories of rule triggers:
 - **Item**(-Event)-based triggers: They react on events on the openHAB event bus, i.e. commands and status updates for items
