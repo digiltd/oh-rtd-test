@@ -12,6 +12,7 @@ This page contains samples for binding configurations. These samples are sorted 
 * [How to get data from Kostal Piko solar inverter via HTTP binding](Samples-Binding-Config#how-to-get-data-from-kostal-piko-solar-inverter-via-http-binding)
 * [How to send commands to Telldus Tellstick](Samples-Binding-Config#how-to-send-commands-to-telldus-tellstick)
 * [How to get power on a TV connected to HDMI with exec binding and update the status automatically](Samples-Binding-Config#how-to-get-power-on-a-tv-connected-to-hdmi-with-exec-binding-and-update-the-status-automatically)
+* [How to catch a Mobotix T24/T25 bell button signal](Samples-Binding-Config#how-to-catch-a-mobotix-bell-signal)
 
 ### KNX basic configuration
 
@@ -262,3 +263,82 @@ and you can add a line to your cron (in linux systems) with the command
     */1 * * * * /usr/local/bin/samsungTvCheck.sh
 
 Note that you have to change [OPENHAB_URL](http://blog.endpoint.com/2012/11/using-cec-client-to-control-hdmi-devices.html]), [[OPENHAB_PASS](OPENHAB_USER],) and [OPENHAB_ITEM] according to your installation. This script update the status of the item, and you can see if your childs has switch on the tv ;)
+
+### How to catch a Mobotix T24/T25 bell button signal
+
+To catch the bell ring event we make use of the Tcp/Ip binding. Please make sure to have it correctly placed in your addons directory.
+To configure the binding we edit the openhab.cfg and add the following lines:
+```
+######################### TCP - UDP Binding ################################### 
+# 
+# all parameters can be applied to both the TCP and UDP binding unless  
+# specified otherwise 
+
+# Port to listen for incoming connections 
+tcp:port=3000 
+
+# Share connections within the Item binding configurations 
+tcp:itemsharedconnections=true 
+
+# Share connections between Item binding configurationswin 
+tcp:bindingsharedconnections=true 
+
+# Share connections between inbound and outbound connections 
+tcp:directionssharedconnections=false 
+
+# Allow masks in ip:port addressing, e.g. 192.168.0.1:* etc 
+tcp:addressmask=true 
+
+# Perform all write/read (send/receive) operations in a blocking mode, e.g. the binding
+# will wait for a reply from the remote end after data has been sent
+tcp:blocking=false
+
+# Timeout - or 'refresh interval', in milliseconds, of the worker thread
+tcp:refreshinterval=250
+
+# Update the status of Items using the response received from the remote end (if the
+# remote end sends replies to commands)
+tcp:updatewithresponse=false
+```
+Now we configure the Mobotix T24 via the web GUI
+
+First we add a new IP-Notification profile: We use the Admin Menu and chose Transfer Profiles/IP Notify Profiles. Then we make the settings according to the screenshot:
+- We chose a name for the profile
+- We select user defined configuration
+- Destination address and port (of the openHab server)
+- Tcp/Ip as protocoll
+- Datatype just text
+- an the text you whish to send and parse on openHab
+- additionally you can configure the source port of the request. This tightens the security and you don't need to allow openHab to accept requests from any source port.
+
+![](http://i.pictr.com/ho9qjdt6l4.png)
+
+As a next step we assign this new Network Profile to the Event "CameraBellButton" i.e. when someone rings at the door.
+
+We chose the Setup menu Event Control/Action Group Overview and add a new group
+- We add a name for the group
+- Set it active
+- And chose the event Signal:CameraBellButton
+
+Then we add a new Action and select the previously created IP-Notification profile
+
+![](http://i.pictr.com/yrswqtkboq.png)
+
+Now we can create a new item in openHab e.g.
+```
+/*Bell*/
+
+Switch  Bell {tcp="<[ON:192.168.0.101:*:'REGEX((ON))']", autoupdate="false" } // for a Switch Item that captures the ringing from the T24 Mobotix  that connects to openHAB 
+```
+The REGEX parses the TCP message for the keyword "ON" which we have set in the Mobotix configuration.
+
+In case you want to open the door via a Switch item as well:
+```
+/*MainDoor*/
+
+Switch MainDoor { http=">[ON:GET:http://user:password@192.168.0.101/control/rcontrol?`action=customfunction&action=sigout&profile=~Door]", autoupdate="false" }
+```
+The Camera image can be put on the openHab sitemap via:
+```
+Image url="http://user:password@192.168.0.101/record/current.jpg" refresh=1000 //Camera image with 1fps
+```
