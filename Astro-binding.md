@@ -218,7 +218,7 @@ Waning\u0020Crescent=abnehmender Halbmond
 
 ### Example Rules
 Rule at sunrise:
-```
+```Xtend
 rule "Example Rule at sunrise"
 when
     Item Sunrise_Event received update ON
@@ -228,7 +228,7 @@ end
 ```
 
 Rule to close all RollerShutters after sunset and the outside temperature is lower than 5 degrees:
-```
+```Xtend
 rule "Close RollerShutters if cold after sunset"
 when
     Item Temp_Outside changed
@@ -243,7 +243,7 @@ end
 ```
 
 Let's say, you know that the sun is shining through your livingroom window between Azimuth 100 and 130. If it's summer you want to close the RollerShutter.
-```
+```Xtend
 rule "Autoshading RollerShutter"
 when
     Item Azimuth changed
