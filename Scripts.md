@@ -10,6 +10,8 @@ openHAB comes with a very powerful expression language, which can be used to def
 
 Scripts are placed in the folder `${openhab.home}/configurations/scripts`. The runtime already comes with a demo file called `demo.script`. The filename defines the name of the script (without its extension) for references.
 
+You find scripts also inside a "rules" file (placed in the folder `${openhab.home}/configurations/rules`): scripts are used to define the EXECUTION_BLOCK of a rule, each rule is composed of a trigger part and a script part. 
+
 ### The Syntax
 
 The expression language used within scripts is the same that is used in the Xtend language - see the [documentation of expressions](http://www.eclipse.org/xtend/documentation.html#Xtend_Expressions) on the Xtend homepage.
