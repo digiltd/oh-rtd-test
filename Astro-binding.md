@@ -10,7 +10,6 @@ The Astro binding is used for calculating many DateTime and positional values fo
 ```
 {astro="planet=..., type=..., property=..., offset=..."}
 ```
-
 ### Configuration in openhab.cfg
 ```
 ############################## Astro Binding ##############################
@@ -269,5 +268,8 @@ If you don't see these entries, check your item file.
 
 * If the maps for translation are not working, there might be a file encoding problem. Download the german example maps and edit the entries.
 
-### Download
+# Screenshots
+![](https://dl.dropboxusercontent.com/u/1781347/wiki/2015-01-04%2016_27_28-openHAB.png)
+
+# Download
 [German maps download] (https://drive.google.com/file/d/0Bw7zjCgsXYnHZXNNeU5XY2FTMGc/edit?usp=sharing)
