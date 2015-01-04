@@ -14,6 +14,7 @@ where the parts in `[]` are optional. If no port is configured a simple ping is 
 
 Here are some examples of valid binding configuration strings:
 
+    nh="www.google.com:80"
     nh="openhab.org"
     nh="openhab.org:443"
     nh="openhab.org:443:2000"
@@ -21,4 +22,4 @@ Here are some examples of valid binding configuration strings:
 
 As a result, your lines in the items file might look like the following:
 
-    Switch Network_OpenhabWebsite   "openHAB Web"   (Status, Network)   { nh="openhab.org" }
+    Switch Network_OpenhabWebsite   "openHAB Web"   (Status, Network)   { nh="openhab.org:80" }
