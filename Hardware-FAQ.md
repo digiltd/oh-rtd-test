@@ -99,7 +99,7 @@ On a separate system download:
 (https://www.olimex.com/wiki/A20-OLinuXino-MICRO#Linux)
 
 **2. Install Java Hard Floating point** 
-If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html)  
+If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html) or (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-arm-downloads-2187472.html) 
 It is not recommended to use any other Java than Oracle Java. Especially bindings may not work properly e.g. with OpenJava.
 
 **3. Install and setup OpenHAB**   Use apt-get as described below
