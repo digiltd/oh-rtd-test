@@ -12,7 +12,7 @@ This page contains samples for binding configurations. These samples are sorted 
 * [How to get data from Kostal Piko solar inverter via HTTP binding](Samples-Binding-Config#how-to-get-data-from-kostal-piko-solar-inverter-via-http-binding)
 * [How to send commands to Telldus Tellstick](Samples-Binding-Config#how-to-send-commands-to-telldus-tellstick)
 * [How to get power on a TV connected to HDMI with exec binding and update the status automatically](Samples-Binding-Config#how-to-get-power-on-a-tv-connected-to-hdmi-with-exec-binding-and-update-the-status-automatically)
-* [How to catch a Mobotix T24/T25 bell button signal](Samples-Binding-Config#how-to-catch-a-mobotix-T24/25-bell-button-signal)
+* [How to catch a Mobotix T24/T25 bell button signal](Samples-Binding-Config#how-to-catch-a-mobotix-T24-bell-button-signal)
 
 ### KNX basic configuration
 
@@ -264,7 +264,7 @@ and you can add a line to your cron (in linux systems) with the command
 
 Note that you have to change [OPENHAB_URL](http://blog.endpoint.com/2012/11/using-cec-client-to-control-hdmi-devices.html]), [[OPENHAB_PASS](OPENHAB_USER],) and [OPENHAB_ITEM] according to your installation. This script update the status of the item, and you can see if your childs has switch on the tv ;)
 
-### How to catch a Mobotix T24/T25 bell button signal
+### How to catch a Mobotix T24 bell button signal
 
 To catch the bell ring event we make use of the Tcp/Ip binding. Please make sure to have it correctly placed in your addons directory.
 To configure the binding we edit the openhab.cfg and add the following lines:
