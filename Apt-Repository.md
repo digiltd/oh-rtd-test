@@ -13,7 +13,7 @@ _**This Page is being merged into Quicksetup->Linux and Hardware currently. It w
 ### BeagleBone Black
 TBD
 ### Ubuntu / Debian
-Install a java 7 runtime.
+Install a java 7 runtime. On ARM boards, it is not recommended to use any other than Oracle Java, because parts of OpenHAB, in particular bindings, may not work.
 
 ### Remarks
 The runtime installation is tweaked to use separate folders for configuration, the software, log files
