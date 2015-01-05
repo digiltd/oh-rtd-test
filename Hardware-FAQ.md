@@ -81,7 +81,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 - /opt/vc/bin/tvservice -o
 - Overclocking does not seem to have big influences
 
-### CubieBoard, ODroid
+### CubieBoard, ODroid, A20-Olinuxino-Micro
 
 ![Single-Board Computers](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04_14.jpg)
 
@@ -95,8 +95,12 @@ On a separate system download:
 * For ODroid U3: Use Xubuntu
 (http://com.odroid.com/sigong/nf_file_board/nfile_board.php)
 
+* For A20-Olinuxino-Micro: Use the Debian image provided by Olimex
+(https://www.olimex.com/wiki/A20-OLinuXino-MICRO#Linux)
+
 **2. Install Java Hard Floating point** 
 If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html)  
+It is not recommended to use any other Java than Oracle Java. Especially bindings may not work properly e.g. with OpenJava.
 
 **3. Install and setup OpenHAB**   Use apt-get as described below
 (https://github.com/openhab/openhab/wiki/Apt-Repository)
