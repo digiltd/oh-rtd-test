@@ -45,6 +45,7 @@ Community
   * [[digitalSTROM Binding|digitalSTROM-Binding]]
   * [[DMX512 Binding|DMX-Binding]]
   * [[DSC Alarm Binding|DSC-Alarm-Binding]]
+  * [[DSMR Binding|DSMR-binding]]
   * [[EDS OWSever Binding|EDS-OWSever-Binding]]
   * [[eKey Binding|ekey-Binding]]
   * [[Energenie Binding|Energenie-Binding]]
