@@ -83,13 +83,13 @@ DateTime Sunset_Time   "Sunset [%1$tH:%1$tM]"   {astro="planet=sun, type=set, pr
 // schedules a event which starts 30 minutes BEFORE sunset:
 Switch Sunset_Event    {astro="planet=sun, type=set, property=end, offset=-30"}
 
-// displays the start, end and duration of the astroDawn
-DateTime Astro_Dawn_Start        "Astro Dawn Start [%1$tH:%1$tM]"  {astro="planet=sun, type=astroDawn, property=start"}
-DateTime Astro_Dawn_End          "Astro Dawn End [%1$tH:%1$tM]"    {astro="planet=sun, type=astroDawn, property=end"}
+// displays the start, end and duration of the astronomical dawn
+DateTime Astronomical_Dawn_Start        "Astronomical Dawn Start [%1$tH:%1$tM]"  {astro="planet=sun, type=astroDawn, property=start"}
+DateTime Astronomical_Dawn_End          "Astronomical Dawn End [%1$tH:%1$tM]"    {astro="planet=sun, type=astroDawn, property=end"}
 // duration in minutes
-Number   Astro_Dawn_Duration     "Astro Dawn Duration [%f]"        {astro="planet=sun, type=astroDawn, property=duration"}
+Number   Astronomical_Dawn_Duration     "Astronomical Dawn Duration [%f]"        {astro="planet=sun, type=astroDawn, property=duration"}
 // duration formatted to a string, e.g. 02:32 (2 hours, 32 minutes)
-String   Astro_Dawn_Duration_Str "Astro Dawn Duration [%s]"        {astro="planet=sun, type=astroDawn, property=duration"}
+String   Astronomical_Dawn_Duration_Str "Astronomical Dawn Duration [%s]"        {astro="planet=sun, type=astroDawn, property=duration"}
 
 
 // azimuth and elevation
