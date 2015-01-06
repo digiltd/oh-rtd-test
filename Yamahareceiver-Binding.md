@@ -17,24 +17,33 @@ please add sucessfully tested receivers!
 
 inside openhab.cfg you need only the host definition:
 
-`yamahareceiver:<uid>.host=192.168.1.1` 
+     yamahareceiver:<uid>.host=192.168.1.1 
 
 <uid> represent your instance name inside your items list
 right from the equal sign you must define the ip address from your receiver.
 
 items:
 
-`{yamahareceiver="uid=living, zone=main, bindingType=power"}
+     {yamahareceiver="uid=living, zone=main, bindingType=power"}
 
-bindingTypes:
+allowed zone entrys:
 
-* power: Openhab Type `Switch`, Switches The Receiver ON or OFF (ON only if you have the Receiver allowed insid settings to react on this Signal in OFF state!!)
+* `main`: Main Zone
+* `zone2`: Zone 2
+* `zone3`: Zone 3
+* `zone4`: Zone 4
 
-* mute: Openhab Type `Switch`, Mute or Unmute the receiver
-* volume: Openhab Type `Dimmer`, Set's the receivers Volume percent Value.
-* input: Openhab Type `String`, Set's the input selection, depends on your receiver's real inputs
+depends on the real zones implemented on your receiver.
+
+allowed bindingTypes:
+
+* `power`: Openhab Type `Switch`, Switches The Receiver ON or OFF (ON only if you have the Receiver allowed insid settings to react on this Signal in OFF state!!)
+
+* `mute`: Openhab Type `Switch`, Mute or Unmute the receiver
+* `volume`: Openhab Type `Dimmer`, Set's the receivers Volume percent Value.
+* `input`: Openhab Type `String`, Set's the input selection, depends on your receiver's real inputs
 examples: HDMI1, HDMI2, AV4, TUNER, NET RADIO, etc.
-* surroundProgram: Openhab Type `String`, Set's the surround Mode
+* `surroundProgram`: Openhab Type `String`, Set's the surround Mode
 examples: 2ch Stereo, 7ch Stereo, Hall in Munic, Straight, Surround Decoder
  
 ## Example
@@ -59,5 +68,5 @@ examples: 2ch Stereo, 7ch Stereo, Hall in Munic, Straight, Surround Decoder
      Selection item=Yamaha_Input mappings=[HDMI1="BlueRay",HDMI2="Satellite","NET RADIO"="NetRadio",TUNER="Tuner"]
      Selection item=Yamaha_Surround label="Surround Mode" mappings=["2ch Stereo"="2ch","7ch Stereo"="7ch"]
 
-the tricky thing are the `"` around `NET RADIO` this Key (left from the equal sign) is a value that must be send to the receiver **with** the space inside. If you omit the `"` the binding sends only the `NET` and the receiver do's nothing. 
+the tricky thing are the `"` around `NET RADIO`, this Key (left from the equal sign) is a value that must be send to the receiver **with** the space inside. If you omit the `"` the binding sends only the `NET` and the receiver do's nothing. 
 Same are in surround definition!
