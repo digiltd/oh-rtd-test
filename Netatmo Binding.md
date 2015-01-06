@@ -73,8 +73,28 @@ The **rain gauge** supports Rain: (What a surprise!)
 Number Netatmo_Rain_Gauge "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:00:00:00:00#Rain"}
 ```
   
+## Example items
+Example item configration:
+```
+Number Netatmo_Indoor_Temperature     "Indoor Temperature [%.2f C]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Temperature"}
+Number Netatmo_Indoor_Humidity        "Indoor Humidity [%d]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Humidity"}
+Number Netatmo_Indoor_CO2             "Indoor Carbon dioxide [%d ppm]"  (Netatmo)  {netatmo="00:00:00:00:00:00#Co2"}
+Number Netatmo_Indoor_Pressure        "Indoor Pressure [%.2f mbar]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Pressure"}
+Number Netatmo_Indoor_Noise           "Indoor Noise [%d db]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Noise"}
+Number Netatmo_Indoor_wifi            "Indoor Wifi status [%d / 4]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Wifistatus"}
+Number Netatmo_Indoor_altitude        "Indoor Altitude [%d]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Altitude"}
+Number Netatmo_Indoor_latitude        "Indoor Latitude [%d]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Latitude"}
+Number Netatmo_Indoor_longitude       "Indoor Longitude [%d]"           (Netatmo)  {netatmo="00:00:00:00:00:00#Longitude"}
+Number Netatmo_Outdoor_Temperature    "Outdoor Temperature [%.2f C]"    (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Temperature"}
+Number Netatmo_Outdoor_Humidity       "Outdoor Humidity [%.2f P]"       (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Humidity"}
+Number Netatmo_Outdoor_Rfstatus       "Outdoor RF status [%d / 5]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Rfstatus"}
+Number Netatmo_Outdoor_Batteryvp      "Outdoor battery status [%d]"     (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Batteryvp"}
+Number Netatmo_Rain_Gauge             "Rain [%d mm]"                    (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rain"}
+Number Netatmo_Rain_Rfstatus          "Rain RF Status [%d / 5]"         (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rfstatus"}
+Number Netatmo_Rain_Batteryvp         "Rain battery status [%d]"        (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Batteryvp"}
+```
 
-## Example rule
+## Example rules
 **Example rule** to send a mail if carbon dioxide reaches a certain threshold:
 ```
 var boolean co2HighWarning = false
@@ -149,22 +169,40 @@ http://www.netatmo.com/en-US/addguest/index/TIQ3797dtfOmgpqUcct3/70:ee:50:00:02:
 # Icons
 The following icons are used by original Netatmo web app:
 
+## Modules
 http://my.netatmo.com/img/my/app/module_int.png
+
 http://my.netatmo.com/img/my/app/module_ext.png
 
+http://my.netatmo.com/img/my/app/module_rain.png
+
+## Battery status
 http://my.netatmo.com/img/my/app/battery_verylow.png
+
 http://my.netatmo.com/img/my/app/battery_low.png
+
 http://my.netatmo.com/img/my/app/battery_medium.png
+
 http://my.netatmo.com/img/my/app/battery_high.png
+
 http://my.netatmo.com/img/my/app/battery_full.png
 
+## Signal status
 http://my.netatmo.com/img/my/app/signal_verylow.png
+
 http://my.netatmo.com/img/my/app/signal_low.png
+
 http://my.netatmo.com/img/my/app/signal_medium.png
+
 http://my.netatmo.com/img/my/app/signal_high.png
+
 http://my.netatmo.com/img/my/app/signal_full.png
 
+## Wifi status
 http://my.netatmo.com/img/my/app/wifi_low.png
+
 http://my.netatmo.com/img/my/app/wifi_medium.png
+
 http://my.netatmo.com/img/my/app/wifi_high.png
+
 http://my.netatmo.com/img/my/app/wifi_full.png
