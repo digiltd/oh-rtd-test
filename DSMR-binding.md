@@ -1,3 +1,5 @@
+_**Note:** This Binding will be available in the upcoming 1.6 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
+
 Documentation of the DSMR binding bundle.
 
 The DSMR-binding is targeted for Dutch users having a smart meter ('Slimme meter' in dutch). Data of Dutch smart meters can be obtained via the P1-port. When connecting this port from a serial port the data can be read out.
