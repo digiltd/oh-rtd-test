@@ -125,7 +125,7 @@ rule "Monitor carbon dioxide level"
 end
 ```
 
-**Example rule* to send notifications if the module battery level is low:
+**Example rule** to send notifications if the module battery level is low:
 ```
 rule "Monitor Netatmo battery levels"
 
