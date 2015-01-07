@@ -1,4 +1,4 @@
-Overview of avaialble actions
+Overview of available actions
 
 ## Actions available in Scripts and Rules
 
