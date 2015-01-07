@@ -125,6 +125,33 @@ rule "Monitor carbon dioxide level"
 end
 ```
 
+**Example rule* to send notifications if the module battery level is low:
+```
+rule "Monitor Netatmo battery levels"
+
+when
+
+    Time cron "00 10 * * * ?" or
+    System started
+
+then
+
+    if( Netatmo_Outdoor_Batteryvp.state < 20) {
+        logInfo("NetatmoBatteryAlerts","Netatmo Outdoor Sensor Battery is low: " + Netatmo_Outdoor_Batteryvp.state + " Sending alert!")
+        var String mailSubject = "Netatmo Outdoor Sensor Battery is low: " + Netatmo_Outdoor_Batteryvp.state + "!"
+        sendMail("<MAIL>", mailSubject, mailSubject);
+    }
+
+    if( Netatmo_Rain_Batteryvp.state < 20) {
+        logInfo("NetatmoBatteryAlerts","Netatmo Rain Battery is low: " + Netatmo_Rain_Batteryvp.state + " Sending alert!")
+        var String mailSubject = "Netatmo Rain Gauge Battery is low: " + Netatmo_Rain_Batteryvp.state + "!"
+        sendMail("<MAIL>", mailSubject, mailSubject);
+    }
+
+end
+```
+
+
 # Common problems
 
 ## Missing Certificate Authority
