@@ -57,6 +57,11 @@ Number Netatmo_Indoor_CO2 "Carbon dioxide [%d ppm]" {netatmo="00:00:00:00:00:00#
 * Co2
 * Pressure
 * Noise
+* WifiStatus
+* Altitude
+* Latitude
+* Longitude
+* TimeStamp
 
 ### Outdoor
 Example item for the **outdoor sensor** (first id is the main module, second id is the outdoor module):
@@ -67,6 +72,9 @@ Number Netatmo_Outdoor_Temperature "Outdoor temperature [%.1f °C]" {netatmo="00
 **Supported are for the outdoor modules:**
 * Temperature
 * Humidity
+* RfStatus
+* BatteryVP
+* TimeStamp
 
 The **rain gauge** supports Rain: (What a surprise!)
 ```
