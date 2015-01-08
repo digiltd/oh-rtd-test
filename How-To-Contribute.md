@@ -33,7 +33,7 @@ By attaching code to the issue tracker or posting code in the discussion groups,
 To ensure code quality in our official repository, the project owners do code reviews before merging contributions into the main repository. There are some rules that every contribution should follow:
 
 - [Java naming conventions](http://java.about.com/od/javasyntax/a/nameconventions.htm) should be used.
-- Code formatting should be done according to the Eclipse built-in code formatter (preconfigured in the openHAB Yoxos profile)
+- Code formatting should be done according to the openHAB code formatter (preconfigured in the openHAB Yoxos profile)
 - Every Java file should have the standard [license header](https://github.com/openhab/openhab/blob/master/src/etc/header.txt)
 - Every class, interface and enumeration should have JavaDoc describing its purpose and usage. @author and @since tags should be given here.
 - Every constant, field and method with default, protected or public visibility should have JavaDoc as well (optional, but encouraged for private visibility as well)
