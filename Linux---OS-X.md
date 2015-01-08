@@ -2,6 +2,7 @@
 
 * [Installation via **aptitude**](Linux---OS-X#aptitude)
 * [**Manual installation** (alternativly - including openHAB Designer)](Linux---OS-X#manual-installation-alternative-approach)
+* [Yocto Layer](Linux---OS-X#yocto-layer)
 
 
 **Note**: for Hardware specific approach please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ). 
@@ -90,3 +91,16 @@ For please visit the [configuration](https://github.com/openhab/openhab/wiki/Con
 ## Go test it!
 
 openHAB comes with a built-in user interface. It works on all webkit-based browsers like Chrome, Safari, etc. Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should be looking at your sitemap. 
+
+# Yocto Layer
+For people who make their own linux distribution using Yocto, there is a openHAB layer available:
+
+https://github.com/ulfwin/meta-openhab
+
+You can also find it through the very convenient layer search site:
+
+http://layers.openembedded.org/layerindex/branch/master/layers/
+
+The layer contains one recipe that install both the runtime engine and addons. Check the README for specific instructions for the layer. How to add and use a layer is not covered here (you need to know that in order use Yocto in the first place), but some explanation can be found here:
+
+http://www.yoctoproject.org/docs/1.6/dev-manual/dev-manual.html#understanding-and-creating-layers
