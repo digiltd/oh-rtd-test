@@ -217,8 +217,8 @@ You can delay the transmission of a command to the Homematic server for a datapo
 ```
 Switch Light "Light"  {homematic="address=KEQxxxxxx, channel=1, parameter=STATE, delay=3.5"}
 ```
-If you send a ON the the Switch, the command is delayed for 3.5 seconds. If you send ON, OFF, ON, OFF and each command is within the delay, only the last OFF is sent.
-
+If you send a ON the the Switch, the command is delayed for 3.5 seconds. If you send ON, OFF, ON, OFF and each command is within the delay, only the last OFF is sent.  
+Requires this pull request: https://github.com/openhab/openhab/pull/1952
 
 ## Homematic Action
 With the Homematic action you can send messages to a Homematic remote control with a display, currently the HM-RC-19-B (Radio remote control 19 button).
