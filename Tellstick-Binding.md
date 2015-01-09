@@ -47,8 +47,9 @@ You will have to use Telldus Center to add all your devices. It is also easiest 
 + **Protocol** if you have multiple sensors with same ID you might need to specify the protocol to make it unique
 ##Configuration examples   
 Switch:
-   
+
     Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {tellstick="Aquarium:Command"}
+
 Dimmer without absolute (dims when clicking on twice):
    
     Switch	GF_Kitchen_Wall "Wall"  { tellstick="Kitchen Backwall:Command:Dimmable:1" }
