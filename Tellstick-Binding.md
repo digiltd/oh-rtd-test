@@ -28,7 +28,7 @@ If you don't have a Tellstick Duo or the number of device events is less than 1 
 
 You will have to use Telldus Center to add all your devices. It is also easiest to find the sensor ID by using the Telldus Center. To configure a device you need the name and type of device, to configure a sensor you need the ID and Type of sensor. I recommend using tdtool -l to list all your devices and sensors. Run OpenHAB in debug mode to see that everything starts up correctly and that you are receiving sensor/device updates.
 
-The item configuration for devices is:
+### The item configuration for devices is:
 
     tellstick="<deviceName>:<deviceType>:[<specialCase>][<resendCount>]"
 
@@ -37,7 +37,7 @@ The **deviceType** is either: Command for on/off, DimmingLevel for absolute dimm
 **SpecialCase** is used for the dimmable without absolute level(devices that is dimmable with clicking twice). For this case use Dimmable as specialCase.  
 **ResendCount** is just number of times to resend command.
 
-The item configuration for a sensor is:
+### The item configuration for a sensor is:
   
     tellstick="<sensorId>:<valueType>:[<useValueType>]:[<protocol>]
 
