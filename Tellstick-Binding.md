@@ -51,7 +51,7 @@ You will have to use Telldus Center to add all your devices. It is also easiest 
 Switch:
 
      Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {tellstick="Aquarium:Command"}
-Dimmer without absolute (dims when clicking on twice):
+Dimmer without absolute (dims when clicking **on** button twice):
    
     Switch	GF_Kitchen_Wall "Wall"  { tellstick="Kitchen Backwall:Command:Dimmable:1" }
 Temp sensor:
