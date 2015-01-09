@@ -43,9 +43,9 @@ The **deviceType** is either: Command for on/off, DimmingLevel for absolute dimm
 
 **SensorId** is the sensorId taken from Telldus Center or debug logs.  
 **ValueType** is either Temperatur or Humidity, based on sensor.  
-**UseValueType** is for special cases where the value in ValueType is actually something else, supports BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion). This is implemented for homemade temp/humid and motion sensor [Forum](http://elektronikforumet.com/forum/viewtopic.php?f=3&t=63772&hilit=telldus)
+**UseValueType** is for special cases where the value in ValueType is actually something else, supports BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion). This is implemented for homemade temp/humid and motion sensor [Forum](http://elektronikforumet.com/forum/viewtopic.php?f=3&t=63772&hilit=telldus).
 **protocol** if you have multiple sensors with same ID you might need to specify the protocol to make it unique
-##Configure examples   
+##Configuration examples   
 Switch:
    
     Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {tellstick="Aquarium:Command"}
