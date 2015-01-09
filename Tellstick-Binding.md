@@ -44,7 +44,7 @@ You will have to use Telldus Center to add all your devices. It is also easiest 
 + **SensorId** is the sensorId taken from Telldus Center or debug logs.  
 + **ValueType** is either Temperatur or Humidity, based on sensor.  
 + **UseValueType** is for special cases where the value in ValueType is actually something else, supports BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion). This is implemented for homemade temp/humid and motion sensor [Forum](http://elektronikforumet.com/forum/viewtopic.php?f=3&t=63772&hilit=telldus).
-+ **protocol** if you have multiple sensors with same ID you might need to specify the protocol to make it unique
++ **Protocol** if you have multiple sensors with same ID you might need to specify the protocol to make it unique
 ##Configuration examples   
 Switch:
    
