@@ -20,9 +20,9 @@ First of all you need to make sure that your JVM is matching your installed Tell
 This normally means OpenHab must run on a 32bit JVM for windows and a 64bit JVM for linux.
 For windows the binding is hardcoded to look for Telldus Center in Programs Files ("C:/Program Files/Telldus/;C:/Program Files (x86)/Telldus/").
 If you have trouble getting the telldus core library to work you can modify the library path using
-tellstick:library_path="FOLDER OF tellduscore dll/so"
+    tellstick:library_path="FOLDER OF tellduscore dll/so"
 If you don't have a Tellstick Duo or the number of device events is less than 1 every 10 minutes you should increate the max_idle:
-tellstick:max_idle=600000
+    tellstick:max_idle=600000
 
 You will have to use Telldus Center to add all your devices. It is also easiest to find the sensor ID by using the Telldus Center. To configure a device you need the name and type of device, to configure a sensor you need the ID and Type of sensor. I recommend using tdtool -l to list all your devices and sensors. Run OpenHAB in debug mode to see that everything starts up correctly and that you are receiving sensor/device updates.
 
