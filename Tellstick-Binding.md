@@ -39,11 +39,12 @@ The **deviceType** is either: Command for on/off, DimmingLevel for absolute dimm
 
 The item configuration for a sensor is:
   
-    tellstick="<sensorId>:<valueType>:[<useValueType>]
+    tellstick="<sensorId>:<valueType>:[<useValueType>]:[<protocol>]
 
 **SensorId** is the sensorId taken from Telldus Center or debug logs.  
 **ValueType** is either Temperatur or Humidity, based on sensor.  
 **UseValueType** is for special cases where the value in ValueType is actually something else, supports BatteryLevel (Humidity:BatteryLevel) and Motion (Temperature:Motion). This is implemented for homemade temp/humid and motion sensor [Forum](http://elektronikforumet.com/forum/viewtopic.php?f=3&t=63772&hilit=telldus)
+**protocol** if you have multiple sensors with same ID you might need to specify the protocol to make it unique
 ##Configure examples   
 Switch:
    
@@ -54,6 +55,12 @@ Dimmer without absolute (dims when clicking on twice):
 Temp sensor:
       
     Number	GF_Kitchen_Temp	"Temperature [%.1f °C]"	<temperature> {tellstick="14:Temperature"}
+Temp sensor with protocol defined:
+
+    Number      GF_Temp "Temperature [%.1f °C]" <temperature> { tellstick="21:Temperature:Temperature:oregon" }﻿
+Wind sensor
+
+    Number      Outside_Wind_Avg "Wind Average [%d]"  <wind>  { tellstick="22:WindAvg" }﻿                  
 Battery Level
 
     Number	GF_Kitchen_Battery "Battery [%d]" <battery> { tellstick="82:Humidity:BatteryLevel" }
