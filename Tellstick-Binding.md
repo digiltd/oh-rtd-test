@@ -48,7 +48,7 @@ You will have to use Telldus Center to add all your devices. It is also easiest 
 ##Configuration examples   
 Switch:
 
-    Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {tellstick="Aquarium:Command"}
+     Switch	GF_Dining_Aquarium "Aquarium" <aquarium> {tellstick="Aquarium:Command"}
 
 Dimmer without absolute (dims when clicking on twice):
    
