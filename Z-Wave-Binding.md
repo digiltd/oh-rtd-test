@@ -324,7 +324,7 @@ In order to configure logging for this binding to be generated in a separate fil
       <maxHistory>30</maxHistory>
    </rollingPolicy>
    <encoder>
-     <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%-30.30logger{36}:%-4line] - %msg%n</pattern>
+     <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%-30.30logger{36}:%-4line]- %msg%n</pattern>
    </encoder>
 </appender>
     
