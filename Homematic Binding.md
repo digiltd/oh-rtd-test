@@ -101,8 +101,9 @@ Available parameters:
 - parameter: (datapoint) the name of the datapoint, e.g. PRESS_SHORT, LEVEL, ...
 - variable: (variable) the name of the CCU variable
 - program: (program) the name of the CCU program
-- forceUpdate: (datapoint, variable) if true, the new value is always sent to the CCU even it's equal the current value
+- [forceUpdate](#forceupdate): (datapoint, variable) if true, the new value is always sent to the CCU even it's equal the current value
 - action: (datapoint, variable, program) execute a action, RELOAD_VARIABLES, RELOAD_DATAPOINTS or RELOAD_RSSI
+- [delay](#delay): (datapoint, variable) delays transmission of a command to the Homematic server (in seconds), eg. 3.5
 
 ### Datapoint examples
 ```
@@ -209,6 +210,15 @@ Rollershutter Kitchen_Window  "Kitchen Window [%d %%]" <rollershutter> {homemati
 ```
 Now, if the Rollershutter is down and you send a DOWN to this item, the binding sends the value to the CCU. You hear the click of the relay in the Homematic device and nothing happens, because the Rollershutter is already down.
 In some situations it may be useful to always send the value to the CCU.
+
+### Delay
+You can delay the transmission of a command to the Homematic server for a datapoint or variable. If a command is executed, the command is delayed for the configured time and then executed. If a new command is executed within the delay of the previous command, the previous command is deleted and the new is delayed. This is useful to filter many commands and send only the last to the Homematic server. 
+
+```
+Switch Light "Light"  {homematic="address=KEQxxxxxx, channel=1, parameter=STATE, delay=3.5"}
+```
+If you send a ON the the Switch, the command is delayed for 3.5 seconds. If you send ON, OFF, ON, OFF and each command is within the delay, only the last OFF is sent.
+
 
 ## Homematic Action
 With the Homematic action you can send messages to a Homematic remote control with a display, currently the HM-RC-19-B (Radio remote control 19 button).
