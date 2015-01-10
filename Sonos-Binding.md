@@ -93,7 +93,7 @@ As a result, your lines in the items file might look like the following:
 
     Switch ledstatus     "LedStatus"     (Sonos)   {sonos="[ON:living:led], [OFF:living:led]", autoupdate="false"}
     String currenttrack  "CurrentTrack [%s]"  (Sonos)   {sonos="[RINCON_000E581369DC01400:currenttrack]", autoupdate="false"}
-    String radiostation  "RadioStation [%s]"  (Sonos)   {sonos="[living:radio]", autoupdate="false"},
+    String radiostation  "RadioStation [%s]"  (Sonos)   {sonos="[living:radio]", autoupdate="false"}
     Switch PlayLivingRoom "Play/Pause"        (Sonos)   {sonos="[ON:living:play],[OFF:living:pause]"}
     Switch next		  "Next track"        (Sonos)   {sonos="[ON:living:next]"}
 
