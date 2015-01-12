@@ -895,7 +895,7 @@ Rules
 
 If you do have two values/items like a current temperature and the toBe temperature but do not want to use to much space on the visualisations it might be usefull to combine the two values into a new item using a rule.
 
-In this case we do have a current, a ToBe and a combined items whereby the first two are listening to the KNX bus:
+In this case we do have a current, a ToBe and a combined item whereby the first two are listening to the KNX bus:
 
 Items
 ```Xtend
