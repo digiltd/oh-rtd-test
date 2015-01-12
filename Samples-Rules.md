@@ -927,6 +927,6 @@ rule UG_Flur_temperaturen
   	end
 ```
 
-In addition you might want to format the values only with one or two digits behind the comma. So the trick here is to convert the .state value first to a DecimalType and then to a floatValue. The floatValue you can then format using %1.f for one digit or %2.f for two digits after the comma if you like. Tis exercise is needed because there is a difference between on how OpenHAB handles types (.state) and how Java is handling types (float).
+In addition you might want to format the values only with one or two digits behind the comma. So the trick here is to convert the .state value first to a DecimalType and then to a floatValue. The floatValue you can then format using %1.f for one digit or %2.f for two digits after the comma if you like. This exercise is needed because there is a difference between on how OpenHAB handles types (.state) and how Java is handling types (float).
 
 Important is as well to "include" the org.openhab.core.library.types.* in the beginning of the rule so that this will work properly.
