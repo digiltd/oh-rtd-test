@@ -23,12 +23,14 @@ Note: Besides configuring each single openHAB command one could configure the sp
 
 ### New format:
 
-    in:  exec:"<[<commandLine to execute>:<refreshintervalinmilliseconds>:<transformationrule>]"
+    in:  exec:"<[<commandLine to execute>:<refreshintervalinmilliseconds>:(<transformationrule>)]"
     out: exec:">[<openHAB-command>:<commandLine to execute>] (>[<openHAB-command>:<commandLine to execute>]) (>[...])"
 
 where the parts in `()` are optional.
 
-Note: Besides configuring each single openHAB command one could configure the special wildcard command '`*`' which is called in these cases where no direct match could be found.
+Notes:
+- Besides configuring each single openHAB command one could configure the special wildcard command '`*`' which is called in these cases where no direct match could be found.
+- A description to the transformations can be found [here](https://github.com/openhab/openhab/wiki/Transformations). Transforming the command's output is optional (just skip the transformation rule after the ":").
 
 ### General
 
@@ -53,7 +55,7 @@ Here are some examples of valid binding configuration strings:
     exec="<[/bin/sh@@-c@@uptime | awk '{ print $10 }':60000:REGEX((.*?))]"
     exec="<[execute.bat %1$tY-%1$tm-%1$td %2$s %3$s:60000:REGEX((.*?))]"
     exec="<[php ./configurations/scripts/script.php:60000:REGEX((.*?))]"
-
+    exec="<[/bin/sh@@-c@@uptime | awk '{ print $10 }':]"
 
 As a result, your lines in the items file might look like the following:
 
