@@ -904,7 +904,7 @@ Number Temperatur_UG_Flur_Soll 		"UG Flur Soll [%.1f °C]" 	<temperature> 	(Temp
 String Temperatur_UG_Flur_komplett	"UG Flur [%s]"			<temperature> 	(Temperaturen, UG_Flur)	//Calculated via temperaturen.rule
 ```
 
-The idea is that on change (received update) we do update our string with the new values.
+The idea is that on change (received update) we do update our string with the new values. In case of the value has not been read from the KNX bus (status uninitialized) the post update will not convert the values to avoid a java error.
 
 Rules
 ```Xtend
@@ -916,8 +916,15 @@ rule UG_Flur_temperaturen
   		Item Temperatur_UG_Flur_IST received update or
   		Item Temperatur_UG_Flur_Soll received update
   	then
+  	if (Temperatur_UG_Flur_IST.state != Uninitialized && Temperatur_UG_Flur_Soll.state != Uninitialized)
+    	{
 		Temperatur_UG_Flur_komplett.postUpdate("Ist: " + String::format("%.1f", (Temperatur_UG_Flur_IST.state as DecimalType).floatValue()) + " °C , Soll: " + String::format("%.1f", (Temperatur_UG_Flur_Soll.state as DecimalType).floatValue()) + " °C")
-    end
+		}
+	else
+		{
+		Temperatur_UG_Flur_komplett.postUpdate("Values not yet read/updated from KNX bus")	
+		}	
+  	end
 ```
 
 In addition you might want to format the values only with one or two digits behind the comma. So the trick here is to convert the .state value first to a DecimalType and then to a floatValue. The floatValue you can then format using %1.f for one digit or %2.f for two digits after the comma if you like. Tis exercise is needed because there is a difference between on how OpenHAB handles types (.state) and how Java is handling types (float).
