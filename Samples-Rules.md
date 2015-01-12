@@ -12,6 +12,8 @@ Samples for Rules
 * [Fire detection](Samples-Rules#fire-detection)
 * [Hager KNX roller shutter actor position feedback](Samples-Rules#hager-knx-roller-shutter-actor-position-feedback)
 * [Koubachi remind the water level](Samples-Rules#koubachi-remind-the-water-level)
+* [Create text item to combine two Values and format string options)
+
 
 ### How to turn on light when motion detected and is dark?
 
@@ -763,7 +765,8 @@ Rules
     end
 ```
 
-### Hager KNX roller shutter actor position feedback
+
+### Koubachi remind the water level ### Hager KNX roller shutter actor position feedback
 
 Some Hager actors have have an unusual feedback object for position and alarms. With this rule the position of the roller shutter is set according to the state of the feedback object:
 
@@ -796,7 +799,6 @@ Items
 
 
 
-### Koubachi remind the water level 
 
 To remind you to give your plant water use the following rule.
 First need the water level Item and some block Item to don't spam your self.
@@ -890,3 +892,37 @@ Rules
 	sendCommand(plantbswitch30, OFF)
         end
 ```
+### Create text item to combine two Values and format string options
+
+If you do have two values/items like a current temperature and the toBe temperature but do not want to use to much space on the visualisations it might be usefull to combine the two values into a new item using a rule.
+
+In this case we do have a current, a ToBe and a combined items whereby the first two are listening to the KNX bus:
+
+Items
+```Xtend
+Number Temperatur_UG_Flur_IST 		"UG Flur IST [%.1f °C]" 	<temperature> 	(Temperaturen) { knx="<1/2/1" }
+Number Temperatur_UG_Flur_Soll 		"UG Flur Soll [%.1f °C]" 	<temperature> 	(Temperaturen) { knx="<1/1/1" }
+String Temperatur_UG_Flur_komplett	"UG Flur [%s]"			<temperature> 	(Temperaturen, UG_Flur)	//Calculated via temperaturen.rule
+```
+
+The idea is that on change (received update) we do update our string with the new values.
+
+Rules
+```Xtend
+import org.openhab.core.library.types.*
+
+rule UG_Flur_temperaturen
+
+	when
+  		Item Temperatur_UG_Flur_IST received update or
+  		Item Temperatur_UG_Flur_Soll received update
+  	then
+		Temperatur_UG_Flur_komplett.postUpdate("Ist: " + String::format("%.1f", (Temperatur_UG_Flur_IST.state as DecimalType).floatValue()) + " °C , Soll: " + String::format("%.1f", (Temperatur_UG_Flur_Soll.state as DecimalType).floatValue()) + " °C")
+    end
+```
+
+In addition you might want to format the values only with one or two digits behind the comma. So the trick here is to convert the .state value first to a DecimalType and then to a floatValue. The floatValue you can then format using %1.f for one digit or %2.f for two digits after the comma if you like
+
+Important is to "include" the rg.openhab.core.library.types.* in the beginning of the rule so that this will work properly.
+
+ 
