@@ -12,7 +12,7 @@ Samples for Rules
 * [Fire detection](Samples-Rules#fire-detection)
 * [Hager KNX roller shutter actor position feedback](Samples-Rules#hager-knx-roller-shutter-actor-position-feedback)
 * [Koubachi remind the water level](Samples-Rules#koubachi-remind-the-water-level)
-* [Create text item to combine two values and format string options](https://github.com/openhab/openhab/wiki/Samples-Rules#create-text-item-to-combine-two-values-and-format-string-options)
+* [Create text item to combine two values and format string options](Samples-Rules#create-text-item-to-combine-two-values-and-format-string-options)
 
 ### How to turn on light when motion detected and is dark?
 
