@@ -23,6 +23,7 @@ The first is a manual calculation of your position relative to a single fixed 'h
 
 #### Region Mode ####
 The second mode leaves the geofence definition and relative location calculations to the OwnTracks app itself. You can setup any number of 'regions' or 'waypoints' in your app and give them unique descriptions. Then in openHAB you simply add the region/waypoint description (optional third parameter of the item binding) and the binding will look for 'enter' or 'leave' events which are published by the app and switch the openHAB item accordingly. This allows you to define as many 'regions' or 'waypoints' as you like, and track a phones location relative to many points of interest - e.g. home, work, holiday house. 
+
 Note that region mode doesn't work in the OwnTracks Android app, as it doesn't publish all the required data. See (http://blog.owntracks.org/page/2).
 
 ### openhab.cfg Config
