@@ -11,6 +11,8 @@ This binding connects openhab with varoius Yamaha Receivers.
 tested Receivers:
 * V475
 * V675
+* V473
+
 please add sucessfully tested receivers!
 
 ## Configuration
