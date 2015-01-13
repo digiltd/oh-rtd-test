@@ -128,6 +128,7 @@ Community
   * [[xPL Binding|xPL-Binding]]
   * [[Yamahareceiver Binding|Yamahareceiver-Binding]]
   * [[Z-Wave Binding|Z-Wave-Binding]]
+  * [[Zibase Binding|Zibase-Binding]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
   * [[rrd4j Persistence|rrd4j-Persistence]]
