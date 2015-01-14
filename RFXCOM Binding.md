@@ -129,7 +129,7 @@ Examples, how to configure your items:
   <tr><td>THERMOSTAT1</td><td>Digimax 210 working</td><td>Temperature, SetPoint, Contact</td></tr>
 
   <tr><td>ENERGY.ELEC2</td><td>Owl CM160 Working</td><td>InstantAmps, TotalAmpHours</td></tr>
-  <tr><td>RFY.RFY</td><td>working</td><td></td>
+  <tr><td>RFY.RFY</td><td>Working</td><td></td>
 
 </table>
 
