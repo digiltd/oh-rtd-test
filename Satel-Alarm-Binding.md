@@ -45,7 +45,7 @@ The only required parameter is _satel:host_ for the ETHM-1 module and _satel:por
 <tr><td>satel:user_code</td><td>Security code (password) of the user used for control operations, like arming, changing state of outputs, etc. It is recommended to use dedicated user for OpenHAB integration.</td></tr>
 <tr><td>satel:encryption_key</td><td>Key use for encrypting communication between OpenHAB and ETHM-1 module. To disable encrytpion leave it empty. See also the note below.</td></tr></table>
 
-**NOTE:** Encryption for ETHM-1 module is not implemented yet and therefore encryption key in the configuration must be empty.
+**NOTE:** Encryption requires support for 192 bit AES keys. Oracle Java by default supports only 128 bit keys, therefore "[Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](http://www.oracle.com/technetwork/java/javase/downloads/index.html)" must be installed. OpenJDK supports unlimited AES keys by default.
 
 ## Item Binding
 
@@ -226,4 +226,3 @@ Although this binding allows you to configure disarming a partition and clearing
 
 * troubles support
 * support for INT-RS module
-* encryption for ETHM-1
