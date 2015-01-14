@@ -73,10 +73,11 @@ Examples, how to configure your items:
     String Btn2RawData { rfxcom="<636602.2:RawData" }
     Switch ChristmasTreeLights { rfxcom">636602.1:LIGHTING2.AC:Command" }
     Rollershutter CurtainDownstairs { rfxcom=">P.1:CURTAIN1.HARRISON:Shutter" }
+    Rollershutter ShutterBedroom { rfxcom=">1.0.0.1:RFY.RFY:Shutter" }
     
     SECURITY1.X10_SECURITY_MOTION  example
     Switch swMotion { rfxcom="<4541155:Motion" }
-    Number MSensor_Bat {rfxcom="<4541155:BatteryLevel" }
+    Number MSensor_Bat { rfxcom="<4541155:BatteryLevel" }
 
     THERMOSTAT1  example
     Number RFXTemp_Living { rfxcom=<30515:Temperature" 
@@ -128,6 +129,7 @@ Examples, how to configure your items:
   <tr><td>THERMOSTAT1</td><td>Digimax 210 working</td><td>Temperature, SetPoint, Contact</td></tr>
 
   <tr><td>ENERGY.ELEC2</td><td>Owl CM160 Working</td><td>InstantAmps, TotalAmpHours</td></tr>
+  <tr><td>RFY.RFY</td><td>working</td><td></td>
 
 </table>
 
