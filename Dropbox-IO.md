@@ -11,7 +11,9 @@ The intended main use cases are backing up openHAB configuration and log files t
 
 You'll have to authorize openHAB to connect to your Dropbox. This is done in a three step process. openHAB requests a token which is used as a one-time-password to get hold of an access token (second step) which will be used for all future requests against Dropbox.
 
-**Step 1** is issued by openHAB automatically. You will find some log entries like this:
+**Step 1** is to add the line "dropbox:initialize=true" in the openhab.cfg file, if it does not already exist.
+
+**Step 2** is issued by openHAB automatically on startup. You will find some log entries (also in the console) like this:
 
     17:04:35.375 INFO  o.o.i.d.i.DropboxSynchronizer[:202] - #########################################################################################
     17:04:35.376 INFO  o.o.i.d.i.DropboxSynchronizer[:203] - # Dropbox-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
@@ -20,9 +22,9 @@ You'll have to authorize openHAB to connect to your Dropbox. This is done in a t
     17:04:35.376 INFO  o.o.i.d.i.DropboxSynchronizer[:206] - # 3. Paste the authorisation code here using the command 'finishAuthentication "<token>"'
     17:04:35.376 INFO  o.o.i.d.i.DropboxSynchronizer[:207] - #########################################################################################
 
-**Step 2** needs interaction. Copy the given URL to your browser and authorize openHAB to use Dropbox in the future. Be aware that the request token is only valid for the next five minutes, so don't be to placid. After successful authorization a token is shown on the Dropbox Webpage.
+**Step 3** needs interaction. Copy the given URL to your browser and authorize openHAB to use Dropbox in the future. Be aware that the request token is only valid for the next five minutes, so don't be to placid. After successful authorization a token is shown on the Dropbox Webpage.
 
-**Step 3** needs interaction, too. Please copy the token shown on the Dropbox Webpage and issue the following command `finishAuthentication "lsdfgkj03lewkfd987349z3kjh222"` on the OSGi console.
+**Step 4** needs interaction, too. Please copy the token shown on the Dropbox Webpage and issue the following command `finishAuthentication "lsdfgkj03lewkfd987349z3kjh222"` on the OSGi console.
 
 ![](images/screenshots/dropbox-authorization.png)
 
