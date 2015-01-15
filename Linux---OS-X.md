@@ -9,6 +9,16 @@
 
 # Aptitude
 ## Installation
+### [Install Java 8](http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html)
+
+`su -`
+`echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list`
+`echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list`
+`apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886`
+`apt-get update`
+`apt-get install oracle-java8-installer`
+`exit`
+
 ### Add openHAB repo to the apt sources list 
     $ sudo nano /etc/apt/sources.list.d/openhab.list
 
