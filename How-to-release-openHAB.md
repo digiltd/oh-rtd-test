@@ -39,6 +39,11 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
         git push origin master --tags
 1. Switch to the root directoy of openHAB
 
+### Manual Steps to walk through after the Release-Build
+
+* check if start.sh and start_debug.sh has been unpacked with correct file permissions (0755)
+* Issue a rough Smoke-Test (unpack runtime and demo, start runtime, access Classic-UI)
+
 ### Channels to inform about the new Release
 
 1. News-Section on index.html
