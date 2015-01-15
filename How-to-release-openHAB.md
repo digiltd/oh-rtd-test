@@ -43,6 +43,8 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 
 * check if start.sh and start_debug.sh has been unpacked with correct file permissions (0755)
 * Issue a rough Smoke-Test (unpack runtime and demo, start runtime, access Classic-UI)
+* check if Designer (for at least xxx and Windows) works
+* upload deb and p2 Repository
 
 ### Channels to inform about the new Release
 
