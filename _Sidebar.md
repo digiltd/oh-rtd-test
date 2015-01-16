@@ -163,6 +163,7 @@ Samples
   * [[Misc. rule examples|Samples-Rules]]
   * [[Controlling openHAB with your voice|Controlling-openHAB-with-your-voice]]
   * [[Convert Farenheit to Celcius|convert-farenheit-to-celcius]]
+  * [[Taking Rules to New Heights|Taking-Rules-to-New-Heights]]
  * [[REST Examples|Samples-REST]]
  * [[Tips & Tricks|Samples-Tricks]]
   * [[Misc.|Samples-Tricks]]
