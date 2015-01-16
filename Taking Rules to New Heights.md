@@ -1,4 +1,4 @@
-# Taking OpenHAB Scripting to New Heights
+# Taking OpenHAB Rules to New Heights
 Here are some examples of how complex automation rules can be developed in OpenHAB in order to achieve whatever smart building automation that one can imagine.  The focus here being on pushing the limits, and not code simplicity or simple comprehension.
 
 ## The Mother-of-All Light-Off Rules
