@@ -3,6 +3,7 @@ Integrating openHAB with other applications.
 * [Asterisk](Samples-Integration#integration)
 * [Zoneminder](Samples-Integration#zoneminder)
 * [Telldus Tellstick](Samples-Integration#telldus-tellstick)
+* [Linux Media Players](Samples-Integration#linux-media-players)
 
 ## Integration
 
