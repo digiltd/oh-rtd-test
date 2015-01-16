@@ -7,7 +7,7 @@ This example provides a scripted mechanism for managing a very large number of s
 * turn area lights on if motion is detected and it is dark outside
 * turn off lights in an area should motion not be detected for a set time
 
-By importing and using various Java libraries is is possible to create configurable maps for each light allowing things like motion detection timeout, and auto-on after dusk to be set per light (which can later be looked up or looped through in the script).
+By importing and using various Java libraries it is possible to create configurable maps for each light allowing things like motion detection timeout, and auto-on after dusk to be set per light (which can later be looked up or looped through in the script).
 
 ### Items file
     /* First you start out by defining 3 groups: one for the switches, one for the dimmers, and one for the motion sensors */
