@@ -27,7 +27,7 @@ By importing and using various Java libraries it is possible to create configura
     Contact garageMotion "garage motion [MAP(contact.map):%s]"   (gMotionSensors) {alarmdecoder="RFX:0000000#contact,bitmask=0x80"}
     Contact officeMotion "office motion [MAP(contact.map):%s]"        (gMotionSensors) {alarmdecoder="RFX:0000000#contact,bitmask=0x80"}
 
-   /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
+    /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
       even better, but that's not too hard to hack in later */
 
     DateTime dawnStart "dawn start [%1$tH:%1$tM]" {astro="planet=sun,type=civilDawn,property=start"}
