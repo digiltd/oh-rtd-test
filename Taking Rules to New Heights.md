@@ -2,33 +2,39 @@
 Here are some examples of how complex automation rules can be developed in OpenHAB in order to achieve whatever smart building automation that one can imagine.  The focus here being on pushing the limits, and not code simplicity or simple comprehension.
 
 ## The Mother-of-All Light-Off Rules
-This example created by Bernd Pfrommer provides a scripted mechanism for managing a very large number of switches, lights, and motion detectors in order to accomplish the following functions:
+This example provides a scripted mechanism for managing a very large number of switches, lights, and motion detectors in order to accomplish the following functions:
 * turn lights on and off normally with switches
-* turn area lights on if motion is detected and it is dark out
+* turn area lights on if motion is detected and it is dark outside
 * turn off lights in an area should motion not be detected for a set time
 
-By importing and using various Java libraries, he has been able to create configurable maps for each light allowing things like motion detection timeout, and auto-on after dusk to be set per light (which can later be looked up or looped through in the script).
+By importing and using various Java libraries is is possible to create configurable maps for each light allowing things like motion detection timeout, and auto-on after dusk to be set per light (which can later be looked up or looped through in the script).
 
 ### Items file
-    // First you start out by defining 3 groups: one for the switches, one for the dimmers, and one for the motion sensors
+    /* First you start out by defining 3 groups: one for the switches, one for the dimmers, and one for the motion sensors */
 
     Group:Contact:OR(OPEN,CLOSED) gMotionSensors            "motion sensors"        (All)
     Group:Switch:OR(ON,OFF) gMotionSwitches   "motion sensored switches"        (All)
     Group gMotionDimmers    "motion sensored dimmers"        (All)
 
-    // Then put the light switches into the right groups. I use insteon switches, adjust as needed. I don't use a dimmer in this example but just put any dimmers into gMotionDimmers, you get the idea:
+    /* Then put the light switches into the right groups. This example uses insteon switches, adjust as needed. There are no dimmers in this example but you can just put dimmers into gMotionDimmers, you get the idea: */
 
     Switch officeLight	   "office light"	(gMotionSwitches) {insteonplm="xx.xx.xx:F00.00.02#switch"}
     Switch garageLightMudroomSw      "garage light mudroom sw"	(gMotionSwitches)	{insteonplm="xx.xx.xx:F00.00.02#switch"}
     Switch garageLightEastWallSw  	   "garage light east wall sw"	(gMotionSwitches)	{insteonplm="xx.xx.xx:F00.00.02#switch"}
 
-    // Then put the relevant motion sensors into the gMotionSensors group (example here uses alarmdecoder binding):
+    /* Then put the relevant motion sensors into the gMotionSensors group (example here uses alarmdecoder binding): */
 
     Contact garageMotion "garage motion [MAP(contact.map):%s]"   (gMotionSensors) {alarmdecoder="RFX:0000000#contact,bitmask=0x80"}
     Contact officeMotion "office motion [MAP(contact.map):%s]"        (gMotionSensors) {alarmdecoder="RFX:0000000#contact,bitmask=0x80"}
 
+   /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
+      even better, but that's not too hard to hack in later */
 
-### Script file
+    DateTime dawnStart "dawn start [%1$tH:%1$tM]" {astro="planet=sun,type=civilDawn,property=start"}
+    DateTime duskEnd "dusk end [%1$tH:%1$tM]" {astro="planet=sun,type=civilDusk,property=end"}
+
+
+### Rules file
 Lastly install the below rule as e.g. light_off.rule in the rules folder of your openhab configuration directory, and adjust the hash tables accordingly.
 
     import org.joda.time.*
@@ -181,7 +187,6 @@ Lastly install the below rule as e.g. light_off.rule in the rules folder of your
     			// The acceptedDataTypes.get(0) is a terrible hack. For
     			// whatever reason it won't accept a plain OnOffType here.
     			var stateOnOff = sw.getStateAs(sw.acceptedDataTypes.get(0))
-    			// logInfo("light_off", sw + " state: " + stateOnOff + " affects fixture: " + x)
     			var f = fixtures.get(x)
     			var Timer timer = f.get("timer") as Timer
     			var Integer timeOut = f.get("timeout") as Integer
