@@ -30,7 +30,7 @@ which sets refresh interval to Modbus polling service. Value is in milliseconds 
 Valid keys are
 
 <table>
-  <tr><td>connection</td><td>mandatory</td><td>for tcp connection use form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. For serial connections use just COM port name</td></tr>
+  <tr><td>connection</td><td>mandatory</td><td>for tcp connection use form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. For serial connections use just COM port name optional [:baud:dataBits:"parity":stopBits]</td></tr>
   <tr><td>id</td><td>optional</td><td>slave id, default 1</td></tr>
   <tr><td>start</td><td>optional</td><td>slave start address, default 0</td></tr>
   <tr><td>length</td><td>mandatory?</td><td>number of data item to read, default 0 (but set it to something meaningful :)</td></tr>
@@ -53,12 +53,18 @@ Modbus write functions
 with `type=holding` and `type=input` you can now only operate with datatype byte!!!
 see point 4 below
 
-Minimal construction in openhab.config will look like (for TCP connection)
+Minimal construction in openhab.config for TCP connections will look like:
 
     modbus:tcp.slave1.connection=192.168.1.50
     modbus:tcp.slave1.length=10
     modbus:tcp.slave1.type=coil
  
+Minimal construction in openhab.conf for serial connections will look like:
+
+    modbus:serial.slave1.connection=/dev/ttyUSB0
+    modbus:tcp.slave1.length=10
+    modbus:tcp.slave1.type=coil
+
 connects to slave at ip=192.168.1.50 and reads 10 coils starting from address 0
 More complex setup could look like
 
