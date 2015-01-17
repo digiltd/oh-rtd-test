@@ -59,7 +59,7 @@ These command are supported out of the box by the binding.
 * Power  
     * POWER_OFF  
     * POWER_ON  
-    * POWER_QUERY _(for reading the current power state) _
+    * POWER_QUERY _(for reading the current power state)_
 
 * Mute
     * UNMUTE
