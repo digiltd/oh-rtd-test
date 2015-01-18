@@ -19,6 +19,26 @@ Original code was used from the XBMC Binding, and then heavily modified. Snippet
 * 1.6 - First release
 
 # Configuration
+ * [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration)
+ * [Transformations](MiOS-Binding#mios-transformations)
+ * [Item configuration (Reading)](MiOS-Binding#mios-item-configuration)
+    * [MiOS - Device Binding](MiOS-Binding#item--mios-device-binding---values-reading)
+    * [MiOS - Scene Binding](MiOS-Binding#item--mios-scene-binding---values-reading)
+    * [MiOS - System Binding](MiOS-Binding#item--mios-system-binding)
+    * [Transformations (Use)](MiOS-Binding#transformations)
+ * [Item Commands (Reacting)](MiOS-Binding#item-commands-reacting)
+     * [MiOS - Device Binding - Commands (Reacting)] (MiOS-Binding#item--mios-device-binding---commands-reacting)
+        * [Device Command Binding Examples (Parameterless)] (MiOS-Binding#device-command-binding-examples-parameterless)
+            * [A Switch ...](MiOS-Binding#a-switch)
+            * [An Armed Sensor ...](MiOS-Binding#an-armed-sensor)
+            * [A Lock ...] (MiOS-Binding#a-lock)
+        * [Device Command Binding Examples (Parameterized)](MiOS-Binding#device-command-binding-examples-parameterized)
+            * [A Dimmer, Volume Control, Speed controlled Fan ...](MiOS-Binding#a-dimmer-volume-control-speed-controlled-fan)
+            * [A Thermostat ...] (MiOS-Binding#a-thermostat)
+     * [MiOS Scene Binding - Commands (Reacting)] (MiOS-Binding#item--mios-scene-binding---commands-reacting)
+        * [Scene Command Binding Examples] (MiOS-Binding#scene-command-binding-examples)
+
+***
 
 ## MiOS Unit configuration
 
