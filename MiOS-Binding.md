@@ -21,6 +21,7 @@ Original code was used from the XBMC Binding, and then heavily modified. Snippet
 # Configuration
  * [MiOS Unit configuration](MiOS-Binding#mios-unit-configuration)
  * [Transformations](MiOS-Binding#mios-transformations)
+ * [Logger](MiOS-Binding#logger)
  * [Item configuration (Reading)](MiOS-Binding#mios-item-configuration)
     * [MiOS - Device Binding](MiOS-Binding#item--mios-device-binding---values-reading)
     * [MiOS - Scene Binding](MiOS-Binding#item--mios-scene-binding---values-reading)
@@ -87,6 +88,57 @@ and placed into your openHAB installation under the directory:
     {openHAB Home}/configurations/transform/
 
 **NOTE**: These transformations can be readily extended by the user, for any use-cases that aren't covered by those pre-configured & shipped with the Binding.
+
+[Back to Table of Contents](MiOS-Binding#configuration)
+
+## Logger
+Especially during setup of the binding the log information can provide you valuable information. Therefore it is recommended to configure logging.
+
+There are two configuration files to configure the log subsystem of openHAB:
+ * \configurations\logback.xml
+ * \configurations\logback_debug.xml (if you start in debug mode)
+
+To simplify analysis and to keep things structured we'll use a dedicated logfile for this demo configuration.
+
+```xml
+    <!-- log appender to be used for MIOS binding -->
+    <appender 
+       name  = "MIOSFILE" 
+       class = "ch.qos.logback.core.rolling.RollingFileAppender">
+       <!-- target file -->
+        <file>logs/mios.log</file>
+        <!-- settings how to archive old logs and how long to rentain them [days] -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/mios-%d{yyyy-ww}.log.zip</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <!-- encoder rule (how to format the messages in the log file ) -->
+        <encoder>
+           <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%-30.30logger{36}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+```
+Next we configure the actual logger:
+```xml
+    <!-- valid log levels: OFF | ERROR | INFO | DEBUG | TRACE -->
+    <logger 
+      name       = "org.openhab.binding.mios"
+      level      = "TRACE" 
+      additivity = "FALSE">
+      <appender-ref ref="MIOSFILE"  />
+    </logger>
+```
+
+Below how it should look if the configuration is correct (TRACE):
+```
+...
+2015-01-18 16:37:18.971 [DEBUG] [.o.b.mios.internal.MiosBinding] - internalPropertyUpdate: BOUND {mios="unit:vera,device:1/service/urn:micasaverde-com:serviceId:ZWaveNetwork1/Role"}, value=Master SIS:NO PRI:YES, bound 1 time(s)
+2015-01-18 16:37:18.971 [TRACE] [.o.b.mios.internal.MiosBinding] - internalPropertyUpdate: NOT BOUND {mios="unit:vera,device:1/service/urn:micasaverde-com:serviceId:ZWaveNetwork1/LastDongleBackup"}, value=2015-01-14T23:30:57
+2015-01-18 16:37:18.971 [TRACE] [.o.b.mios.internal.MiosBinding] - internalPropertyUpdate: NOT BOUND {mios="unit:vera,device:1/service/urn:micasaverde-com:serviceId:ZWaveNetwork1/LastError"}, value=Poll failed
+2015-01-18 16:37:18.971 [TRACE] [.o.b.mios.internal.MiosBinding] - internalPropertyUpdate: NOT BOUND {mios="unit:vera,device:1/service/urn:micasaverde-com:serviceId:ZWaveNetwork1/LastHeal"}, value=2015-01-14T05:16:26
+2015-01-18 16:37:18.971 [TRACE] [.o.b.mios.internal.MiosBinding] - internalPropertyUpdate: NOT BOUND {mios="unit:vera,device:1/service/urn:micasaverde-com:serviceId:ZWaveNetwork1/LastRouteFailure"}, value=2015-01-14T04:11:33
+...
+```
 
 [Back to Table of Contents](MiOS-Binding#configuration)
 
