@@ -9,16 +9,16 @@ To automate this process there are two shell-scripts for Linux available.
 
 ### Script 1
 
-**New Version** (2014/10/10: script will copy uuid & secret for my.openhab)
+**New Version** (2015/1/18: script supports weather-binding and grafana)
 
 the script [openhab_get_snapshot.sh](http://code.google.com/p/openhab-samples/source/browse/scripts/openhab_get_snapshot.sh?repo=wiki) is a quick-and-dirty-script to download a new openHAB Snapshot to a new folder.
 
 Usage is `openhab_get_snapshot.sh [nnn]` , where nnn is the Build-Number. When nn is not set,  openhab_get_snapshot.sh will download the youngest Build. 
-**Since Version 1.5.0 there are two different Versions built, so look at the Version**
+**Since Version 1.5.0 two different Versions are built, so look at the Version!**
 
 All "dynamic" configurations (Which Designer should be downloaded? Is demo needed? What's with GreenT? Want HABmin also? Which addons should be activated?) are set in [config-file](https://code.google.com/p/openhab-samples/source/browse/scripts/getsnap.cfg?repo=wiki). This File is per default stored under `/etc/default/getsnap` but this path can be set in the Script.
 
-The script will create a subdirectory under `/srv/openhab/` with the name **version-nnn** (e.g. 1.3.0-461), then download all configured packages to a sub-subdirectory `zips/` (at least runtime and addons), unzip the packages, move configured addons and link `configurations/`, `etc/` and `webapps/images/` to `/srv/openhab/`**`subdir`**`/`. The new runtime-path is symlinked to /opt/openhab.
+The script will create a subdirectory under (per default) `/srv/openhab/` with the name **version-nnn** (e.g. 1.3.0-461), then download all configured packages to a sub-subdirectory `zips/` (at least runtime and addons), unzip the packages, move configured addons and link `configurations/`, `etc/` and `webapps/images/` to `/srv/openhab/`**`subdir`**`/`. The new runtime-path is symlinked to /opt/openhab.
 
 At the end, all that has to be done is
 
@@ -30,13 +30,17 @@ All addons are unzipped to runtime/addons_inactive, then the configured addons a
 
 A assumption is, that all user-specific Stuff resides in
  
-    /srv/openhab/configurations #the configs
+    /srv/openhab/configurations       #the configs
 
-    /srv/openhab/etc            #for persistence-data
+    /srv/openhab/etc                  #for persistence-data
 
-    /srv/openhab/images         #images for the UI
+    /srv/openhab/webapps/images       #images for the UI
 
-    /srv/openhab/webapps/static #uuid & secret for my.openhab
+    /srv/openhab/webapps/static       #uuid & secret for my.openhab
+
+    /srv/openhab/webapps/grafana      #grafana-stuff
+
+    /srv/openhab/webapps/weather-data #weather-binding-stuff
 
 which makes it necessary to move or copy the data first (only once).
 
