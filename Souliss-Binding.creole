@@ -10,7 +10,7 @@ Edit {{{.\openhab\configurations\openhab.cfg}}}
 
 Add at the bottom:
 {{{
-################################ Souliss Binding ##########################################
+########################### Souliss Binding ####################################
 #
 # Souliss  
 # 
@@ -32,7 +32,7 @@ souliss:REFRESH_MONITOR_TIME=500
 souliss:SEND_DELAY=1500
 souliss:SEND_MIN_DELAY=100
 souliss:NODE_NUMBERS=4
-###########################################################################################
+################################################################################
 }}}
 
 The following parameters need to be changed:
