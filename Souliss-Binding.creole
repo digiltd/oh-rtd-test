@@ -15,7 +15,7 @@ Add at the bottom:
 # Souliss  
 # 
 # For ITEM defination in file .item 
-#{souliss=<Typical>:<nodeID>:<slot>:[<bit>]}
+# {souliss=<Typical>:<nodeID>:<slot>:[<bit>]}
 
 souliss:IP_WAN=192.168.1.105
 souliss:IP_LAN=192.168.1.105
