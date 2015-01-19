@@ -1,5 +1,3 @@
-=openHAB Native Binding for Souliss=
-
 == Introduction ==
 The code for networking activities of this binding is based on [[SoulissApp|https://code.google.com/p/souliss/wiki/AndroidApplication]] code. It use the same approach getting from the gateway node the network structure and the relevant data. You can use [[SoulissApp|https://code.google.com/p/souliss/wiki/AndroidApplication]] and the openHAB_native binding at same time.
 
