@@ -40,7 +40,9 @@ First of all you need to introduce the port settings of your Z-Wave controller i
 
 <table>
 <tr><td>Option</td><td>Description</td></tr>
-<tr><td>zwave:port</td><td>value indicates the serial port on the host system to which the Z-Wave controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.</td></tr>
+<tr><td>zwave:port</td><td>value indicates the serial port on the host system to which the Z-Wave controller is connected, e.g. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux or "/dev/tty.PL2303-0000103D" on Mac.<br>
+Note that some controllers register themselves as a modem (/dev/ttyACM) on Linux. In this case it is necessary to add user "openhab" to the group "dialout". Else openHAB won't be able to access the controller.
+</td></tr>
 <tr><td>zwave:healtime</td><td>Sets the time of day when a network heal will be performed.</td></tr>
 <tr><td>zwave:pollingQueue</td><td>Sets the maximum number of frames in th polling queue at once. This avoids swamping the network with poll messages.</td></tr>
 <tr><td>zwave:aliveCheckPeriod</td><td>Sets the time (in milliseconds) between each node health check message. This is used to periodically check if a node is alive.</td></tr>
