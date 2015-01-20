@@ -26,6 +26,7 @@ As explained above, an action should correspond to one bundle. The naming conven
 1. active the new plugin in !RunConfiguration 'Run Configurations->openHAB Designer (xxx)->Plugins->activate your plugin->Auto-start true'
 
 Another possibility is to copy an existing action and do a search&replace for the name.
+Don't forget to add it as dependency in ./distribution/pom.xml
 
 ## Action Configuration
 
