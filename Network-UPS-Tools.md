@@ -19,7 +19,7 @@ For installation of the binding, please see Wiki page [[Bindings]].
 #
 
 # Refresh interval for state updates in milliseconds (optional)
-networkupstools:ups1:refresh=60000
+networkupstools:refresh=60000
 
 # UPS device name 
 networkupstools:ups1.device=ups
