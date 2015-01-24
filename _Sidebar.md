@@ -142,7 +142,7 @@ Community
   * [[InfluxDB Persistence|InfluxDB-Persistence]]
   * [[JPA Persistence|JPA-Persistence]]
  * [[Application Integration|Application-Integration]]
-  * [[Asterisk]]
+  * [[Asterisk|Asterisk-Integration]]
   * [[Linux Media Players|Linux-Media-Players]]
   * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
   * [[Telldus Tellstick|Telldus-Tellstick]]
