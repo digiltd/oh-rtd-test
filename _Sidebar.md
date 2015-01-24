@@ -141,7 +141,8 @@ Community
   * [[MQTT Persistence|MQTT-Persistence]]
   * [[InfluxDB Persistence|InfluxDB-Persistence]]
   * [[JPA Persistence|JPA-Persistence]]
-
+ * Application Integration
+  * [[Application Integration|Application-Integration]]
  * Misc
   * [[Transformations]]
   * [[REST-API]]
@@ -170,7 +171,6 @@ Samples
   * [[Rollershutter Groups|RollershutterGroups]]
  * [[XSLT Transforms|Samples-XSLT-Transformations]]
  * [[Scripts|Samples-Scripts]]
- * [[Integration with other applications|Samples-Integration]]
  * [[Syntax highlighting for external editors|Syntax-Highlighting-for-external-editors]]
  * [[Update-Scripts|openhab-Get-Snapshot]]
  * [[Controlling openHAB with Android|Controlling-openHAB-with-Android]]
