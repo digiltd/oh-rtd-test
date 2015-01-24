@@ -143,6 +143,10 @@ Community
   * [[JPA Persistence|JPA-Persistence]]
  * Application Integration
   * [[Application Integration|Application-Integration]]
+  * [[Asterisk]]
+  * [[Linux Media Players|Linux-Media-Players]]
+  * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
+  * [[Telldus Tellstick|Telldus-Tellstick]]
  * Misc
   * [[Transformations]]
   * [[REST-API]]
