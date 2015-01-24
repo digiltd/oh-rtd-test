@@ -141,12 +141,12 @@ Community
   * [[MQTT Persistence|MQTT-Persistence]]
   * [[InfluxDB Persistence|InfluxDB-Persistence]]
   * [[JPA Persistence|JPA-Persistence]]
- * Application Integration
-  * [[Application Integration|Application-Integration]]
+ * [[Application Integration|Application-Integration]]
   * [[Asterisk]]
   * [[Linux Media Players|Linux-Media-Players]]
   * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
   * [[Telldus Tellstick|Telldus-Tellstick]]
+  * [[Zoneminder|Zoneminder]]
  * Misc
   * [[Transformations]]
   * [[REST-API]]
