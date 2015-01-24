@@ -1,5 +1,7 @@
 If you are completely new to openHAB and you prefer listening over reading, you can [start with our webinar](http://www.element14.com/community/videos/12763/l/home-automation-at-your-fingertips-with-eclipse-smarthome-and-openhab), which was organized by element14.
 
+If you speak german, you can find an openHAB manual in german language at (http://openhabdoc.readthedocs.org/de/latest/).
+
 # Overview
 
 The openHAB project is split into two parts
