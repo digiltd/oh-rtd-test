@@ -4,9 +4,9 @@
 
 === First Step ===
 
-Starting with the Souliss Binding for openHAB require a deployed network, as minimum you need one Souliss node with Ethernet access configured as [[Gateway|]], a Gateway is a special node that is able to communicate with the user interfaces (openHAB interact as an user interface for Souliss).
+Starting with the Souliss Binding for openHAB require a deployed network, as minimum you need one Souliss node with Ethernet access configured as [[Gateway|https://code.google.com/p/souliss/wiki/Gateway]], a Gateway is a special node that is able to communicate with the user interfaces (openHAB interact as an user interface for Souliss).
 
-A starting point is the Souliss [[wiki|]], the best is start with a single node and connect with SoulissApp. The code for networking activities of this binding is based on [[SoulissApp|https://code.google.com/p/souliss/wiki/AndroidApplication]] code, so once connected with SoulissApp you can move to openHAB directly.
+A starting point is the Souliss [[wiki|https://code.google.com/p/souliss/wiki/Introduction?tm=6]], the best is start with a single node and connect with SoulissApp. The code for networking activities of this binding is based on [[SoulissApp|https://code.google.com/p/souliss/wiki/AndroidApplication]] code, so once connected with SoulissApp you can move to openHAB directly.
 
 You can use SoulissApp and the openHAB Souliss Binding at same time, and generally up to five (by default, but can be increased) user interfaces simultaneously.
 
@@ -59,6 +59,10 @@ You can get the values used by SoulissApp from the Networking menu.
 Actually the //IP_WAN// parameters is just coming from the SoulissApp code and will be deleted; currently you have to set it as same as //IP_LAN//.
 
 //NODE_NUMBERS// has to be set as the number of nodes that build your souliss network; if your network is composed by 7 nodes (the App lists them as node0-node6) sets it at 7.
+
+== Matching Items and Typicals ==
+
+Souliss provide a set of [[Typicals|https://code.google.com/p/souliss/wiki/Typicals]] those are predefined logic dedicated to Smarthome like lights, heatings or antitheft. Typicals match directly with openHAB Items, this define the interaction between the user interface in openHAB (same is for SoulissApp) and the action executed by the node. 
 
 === Configure .items file ===
 
