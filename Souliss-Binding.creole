@@ -1,7 +1,17 @@
-== Introduction ==
-The code for networking activities of this binding is based on [[SoulissApp|https://code.google.com/p/souliss/wiki/AndroidApplication]] code. It use the same approach getting from the gateway node the network structure and the relevant data. You can use [[SoulissApp|https://code.google.com/p/souliss/wiki/AndroidApplication]] and the openHAB_native binding at same time.
+== Introduction - Souliss, Arduino based SmartHome ==
+
+[[Souliss|http://www.souliss.net/]] is a networking framework for Arduino and compatibles board, is designed to build easily a smarthome distributed over multiple boards via Ethernet, wireless point-to-point and RS485 bus. 
+
+=== First Step ===
+
+Starting with the Souliss Binding for openHAB require a deployed network, as minimum you need one Souliss node with Ethernet access configured as [[Gateway|]], a Gateway is a special node that is able to communicate with the user interfaces (openHAB interact as an user interface for Souliss).
+
+A starting point is the Souliss [[wiki|]], the best is start with a single node and connect with SoulissApp. The code for networking activities of this binding is based on [[SoulissApp|https://code.google.com/p/souliss/wiki/AndroidApplication]] code, so once connected with SoulissApp you can move to openHAB directly.
+
+You can use SoulissApp and the openHAB Souliss Binding at same time, and generally up to five (by default, but can be increased) user interfaces simultaneously.
 
 == General Configuration Requirements ==
+
 === Binding Network Configuration ===
 
 The openHAB binding isn't able to locate your Souliss gateway as [[SoulissApp|https://code.google.com/p/souliss/wiki/AndroidApplication]]  does, so you should specify the networking information in the configuration file as follow.
