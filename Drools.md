@@ -2,7 +2,7 @@ How to use Drools in openHAB
 
 ## Introduction
 
-Since openHAB 0.9.0, JBoss Drools support is available as a separate download. This can be used as a replacement for the integrated rule engine, if a more powerful rule engine is needed for the definition of automation rules.
+Since openHAB 0.9.0, JBoss Drools support is available as a separate download (here?). This can be used as a replacement for the integrated rule engine, if a more powerful rule engine is needed for the definition of automation rules.
 
 To install this package, simply extract it to `${openhab.home`} and you are done.
 If you want to switch off the integrated rule engine, you have to add the parameter `-DnoRules=true` to the `start.sh/bat` script.
