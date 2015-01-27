@@ -135,6 +135,19 @@ As a result, your lines in the sitemap file might look like the following:
 Or within a rule file:
 
         sendCommand(Toggle_1, HSBType::GREEN)
+
+To set a custom color within a rule file:
+
+        var DecimalType hue = new DecimalType(240) // 0-360; 0=red, 120=green, 240=blue, 360=red(again)
+	var PercentType sat = new PercentType(100) // 0-100
+	var PercentType bright = new PercentType(100) // 0-100
+	var HSBType light = new HSBType(hue,sat,bright)
+	sendCommand(Toggle_1, light)
+
+Or change just the brightness:
+
+        var PercentType bright = new PercentType(30) // 0-100
+	sendCommand(Toggle_1, bright)
     
 For more information on the used API see the following link: http://developers.meethue.com/
 
