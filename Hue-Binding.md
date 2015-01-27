@@ -127,27 +127,27 @@ As a result, your lines in the items file might look like the following:
 
 As a result, your lines in the sitemap file might look like the following:
 
-	Switch         item=Toggle_1                                label="Bedroom"
-	Colorpicker    item=Color_1    visibility=[Toggle_1==ON]    label="Bedroom Light Color"
-	Slider         item=Dimm_1     visibility=[Toggle_1==ON]    label="Bedroom Brightness" 
-	Slider         item=CT_Dimm_1  visibility=[Toggle_1==ON]    label="Bedroom Color Temperature"  
+    Switch         item=Toggle_1                                label="Bedroom"
+    Colorpicker    item=Color_1    visibility=[Toggle_1==ON]    label="Bedroom Light Color"
+    Slider         item=Dimm_1     visibility=[Toggle_1==ON]    label="Bedroom Brightness" 
+    Slider         item=CT_Dimm_1  visibility=[Toggle_1==ON]    label="Bedroom Color Temperature"  
 
 Or within a rule file:
 
-        sendCommand(Toggle_1, HSBType::GREEN)
+    sendCommand(Toggle_1, HSBType::GREEN)
 
 To set a custom color within a rule file:
 
-        var DecimalType hue = new DecimalType(240) // 0-360; 0=red, 120=green, 240=blue, 360=red(again)
-	var PercentType sat = new PercentType(100) // 0-100
-	var PercentType bright = new PercentType(100) // 0-100
-	var HSBType light = new HSBType(hue,sat,bright)
-	sendCommand(Toggle_1, light)
+    var DecimalType hue = new DecimalType(240) // 0-360; 0=red, 120=green, 240=blue, 360=red(again)
+    var PercentType sat = new PercentType(100) // 0-100
+    var PercentType bright = new PercentType(100) // 0-100
+    var HSBType light = new HSBType(hue,sat,bright)
+    sendCommand(Toggle_1, light)
 
 Or change just the brightness:
 
-        var PercentType bright = new PercentType(30) // 0-100
-	sendCommand(Toggle_1, bright)
+    var PercentType bright = new PercentType(30) // 0-100
+    sendCommand(Toggle_1, bright)
     
 For more information on the used API see the following link: http://developers.meethue.com/
 
