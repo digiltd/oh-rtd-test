@@ -352,3 +352,5 @@ Further information for specific receivers can be found here: [http://www.pionee
 
 It has been observed that from time to time, the ip-interface of the receiver hangs up and won't accept connections any more or it stops returning results and updates. This leads to items not being updated any more. This behaviour seems to be related to use of other network features of the receiver, e.g. music streaming via Airplay.
 Currently there is no solution known to get rid of this other then to power cycle the receiver by temporary plugging out its power cord (going to standby is not sufficient). 
+
+Note: The Telnet-Connection must be exclusively usable by this binding. Means dont use telnet in terminal beforehand. This would block this binding (please confirm,20150128)
