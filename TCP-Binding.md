@@ -74,3 +74,8 @@ Here are some examples of valid binding configuration strings:
 
     tcp=">[ON:192.168.0.1:3000:'MAP(my.device.map)')], >[OFF:192.168.0.1:3000:'MAP(my.device.map)']" // for a Switch Item where values are converted using the my.device.map
     tcp="<[192.168.0.2:3000:'REGEX((.*))']" // for a String Item that captures some state of a remote device that connects to openHAB
+
+##Working item and .sitemap
+
+Here should come working item and a working sitemap definition,
+and also some netcat commands to check and prove function (by the dev). (20150128)
