@@ -43,7 +43,7 @@ ARM-based embedded computers are a popular choice among home automation enthusia
 ### Raspberry Pi
 ![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
 
-Raspberry Pi Model B - $30 - 700Mhz; 0.5 Gb RAM.  A proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
+**Raspberry Pi Model B - 0 - 700Mhz; 0.5 Gb RAM**.  A proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
 **NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [[z-wave binding]] for more information
 
@@ -80,14 +80,14 @@ These systems have considerably more power than Raspberry Pi and and range from 
 
 Recommended Linux distros:
 
-* CubieBoard2:  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
+* **CubieBoard2:**  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
 Use [Cubiuntu](http://cubiuntu.com)
 
-* ODroid C1: $37 1.5 Ghz Quad Core, 1Gb DDR3 RAM 
-- Use Ubuntu 14.04 
+* **ODroid C1: 7 1.5 Ghz Quad Core, 1Gb DDR3 RAM**  
+Use Ubuntu 14.04 
 
-* BeagleBone Black: $55  AM335x 1GHz ARM® Cortex-A8 0.5 Gb DDR3 RAM
-- Use Ubuntu 14.04 
+* **BeagleBone Black: 5  AM335x 1GHz ARM® Cortex-A8 0.5 Gb DDR3 RAM**  
+Use Ubuntu 14.04 
 
 **2. Install Java Hard Floating point** 
 If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html) or (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-arm-downloads-2187472.html) 
