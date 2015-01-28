@@ -12,10 +12,10 @@ In order to communicate with the Raspberry Pi carrying the PiFace daughter board
 
 In newer RasPi kernel versions the hardware resource allocation is handled by the [device tree](http://www.raspberrypi.org/documentation/configuration/device-tree.md). This may stop the SPI kernel module from loading after an update of the RasPi firmware (**rpi-update** command) even if the the ohpiface scripts are correctly installed and where already working. If you experiencing issues please
 
-1 Check if the SPI kernel module is loaded
-2 Check if the SPI kernel module can be loaded
-3 Modify **/boot/config.txt** to enable SPI in the device tree
-4 Reboot your Raspberry
+1. Check if the SPI kernel module is loaded
+2. Check if the SPI kernel module can be loaded
+3. Modify **/boot/config.txt** to enable SPI in the device tree
+4. Reboot your Raspberry
 
 ### Check if the SPI kernel module is loaded
 The command 
