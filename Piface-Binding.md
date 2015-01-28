@@ -10,11 +10,12 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 In order to communicate with the Raspberry Pi carrying the PiFace daughter board please install the scripts that can be found [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.piface/scripts). If you upgrade from an older openhab version make sure that you update the scripts to avoid watchdog errors in your logfile.
 
-In newer RasPi kernel versions the hardware resource allocation is handled by the [device tree](http://www.raspberrypi.org/documentation/configuration/device-tree.md). This may stop the SPI kernel module from loading after an update of the RasPi firmware (rpi-update command) even if the the ohpiface scripts are correctly installed and where already working. If you experiencing issues please
-* Check if the SPI kernel module is loaded
-* Check if the SPI kernel module can be loaded
-* Modify /boot/config.txt to enable SPI in the device tree
-* Reboot your Raspberry
+In newer RasPi kernel versions the hardware resource allocation is handled by the [device tree](http://www.raspberrypi.org/documentation/configuration/device-tree.md). This may stop the SPI kernel module from loading after an update of the RasPi firmware (**rpi-update** command) even if the the ohpiface scripts are correctly installed and where already working. If you experiencing issues please
+
+# Check if the SPI kernel module is loaded
+# Check if the SPI kernel module can be loaded
+# Modify **/boot/config.txt** to enable SPI in the device tree
+# Reboot your Raspberry
 
 ### Check if the SPI kernel module is loaded
 The command 
@@ -39,7 +40,7 @@ Add the line
 
     device_tree_param=spi=on
 
-to the file /boot/config.txt to enable SPI in the device tree and reboot. The kernel module should now load into the kernel and the ohpiface scripts should work again.
+to the file **/boot/config.txt** to enable SPI in the device tree and reboot. The kernel module should now load into the kernel and the ohpiface scripts should work again.
 
 ## Binding Configuration
 
