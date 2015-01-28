@@ -305,7 +305,7 @@ A list of all commands that are supported by the pioneer receiver can be found h
      Switch  AV_AdvCmd_Test "Adv Cmd test" { pioneeravr="INIT:livingroom:POWER_QUERY, ON:livingroom:#PO, OFF:livingroom:#PF" }
 
 ### av.sitemap:
-
+```
 sitemap av label="Main Menu"     
 Frame {
      		Text label="AV Receiver" icon="video" {
@@ -318,7 +318,7 @@ Frame {
      			Switch item=AV_Tuner_Preset  mappings=[1="WDR2", 2="1Live", 3="DLF" ]
      		}
      	}
-
+```
 ## Additional protocol information:
 
 The mapping of the source channels (AV_Source) to enumation numbers is as follows:
