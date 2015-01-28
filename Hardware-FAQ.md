@@ -17,27 +17,25 @@ openHAB can be installed and operated on AMD or Intel powered commodity laptop, 
 
 Below are configuration notes for specific hardware.
 
-## X86 Linux
+## x86 Linux
 
-**1.  Install Linux**
-
-
-**2. Install Java**
+**1. Install Java**
 If not already present
 
-**3. Install and setup OpenHAB**   Use apt-get as described below
+**2. Install and setup OpenHAB**   Use apt-get as described below
 (https://github.com/openhab/openhab/wiki/Apt-Repository)
 
-**4. Use symlinks if you use more than one USB port**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
+**3. Use symlinks if you use more than one USB port**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
 
-SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwaveUSB", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{product}=="RFXrec433", SYMLINK+="USBrfx", GROUP="dialout", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="USBzwave", GROUP="dialout", MODE="0666"
 
-to get  IdVendor and IdProduct,  you need type in the following:
-   "sudo udevadm info -q all -n /dev/ttyUSB0"
+To get  IdVendor, product, and IdProduct,  you need type in the following (for USB0, USB1, etc)
+   "sudo udevadm info --attribute-walk --path=/sys/bus/usb-serial/devices/ttyUSB0"
 
-There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwaveUSB".  You will also need to add the property to the Java command line by adding the following (device names delimited by ":" ) to the file /etc/init.d/openhab in the JAVA_ARGS section with your device names substituted.
+There you can find IdVendor, product, and IdProduct. Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/USBzwave".  You will also need to add the property to the Java command line by adding the following (device names delimited by ":" ) to the file /etc/init.d/openhab in the JAVA_ARGS section with your device names substituted.
 
--Dgnu.io.rxtx.SerialPorts=/dev/rfxcomUSB:/dev/zwaveUSB
+-Dgnu.io.rxtx.SerialPorts=/dev/USBrfxcom:/dev/USBzwave
 
 
 
@@ -53,7 +51,7 @@ Based on the community feedback and information about the openHAB requirements h
 ### Raspberry Pi
 ![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
 
-Raspberry Pi Model B has an attractive price/performance point and is a proven choice for small to medium residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
+Raspberry Pi Model B has an attractive price/performance point and is a proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
 **NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [[z-wave binding]] for more information
 
@@ -100,21 +98,12 @@ On a separate system download:
 
 **2. Install Java Hard Floating point** 
 If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html) or (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-arm-downloads-2187472.html) 
-It is not recommended to use any other Java than Oracle Java. Especially bindings may not work properly e.g. with OpenJava.
+It is not recommended to use any other Java than Oracle Java. Bindings may not work properly with OpenJava.
 
 **3. Install and setup OpenHAB**   Use apt-get as described below
 (https://github.com/openhab/openhab/wiki/Apt-Repository)
 
-**4. Use symlinks if you use more than one USB port**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
-
-SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="zwaveUSB", MODE="0666"
-
-to get  IdVendor and IdProduct,  you need type in the following:
-   "sudo udevadm info -q all -n /dev/ttyUSB0"
-
-There you can find the "ID_VENDOR_ID", "ID_MODEL_ID" . Replace these IDs in the rule and save the file. Now your stick can be referenced in OpenHab config  as "/dev/zwaveUSB".  You will also need to add the property to the Java command line by adding the following (device names delimited by ":" ) to the file /etc/init.d/openhab in the JAVA_ARGS section with your device names substituted.
-
--Dgnu.io.rxtx.SerialPorts=/dev/rfxcomUSB:/dev/zwaveUSB
+**4. Use symlinks if you use more than one USB port**    See symlinks under x86 Linux above.
 
 
 ## Synology Diskstation
