@@ -28,7 +28,6 @@ Miscellaneous Tips & Tricks
 * [Add Humidex calculation for your Feels Like Temperature value](Samples-Tricks#add-humidex-calculation-for-your-feels-like-temperature-value)
 * [Aeon Z-Stick Setup in Linux](Samples-Tricks#aeon-zstick-setup-in-linux) 
 * [How to use a serial port under linux](Samples-Tricks#how-to-use-a-serial-port-under-linux)
-* [openHAB and the Cubieboard, what you need to know](Samples-Tricks#openhab-and-the-cubieboard-what-you-need-to-know)
 * [Using the transceiver RFXtrx433E with Somfy RTS devices](Samples-Tricks#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
 * [Talking to a Raspberry ZWAY device with push updates](Samples-Tricks#talking-to-a-raspberry-zway-device-with-push-updates)
 
@@ -1180,7 +1179,7 @@ So for example, if you have a ZWave USB dongle you can configure a symlink calle
 
 However the RXTX serial connection library used in openHAB is unable to 'see' these symlinks. Therefore you need to inform RXTX about your symlinks using a system property.
 
-You can either add the property to the Java command line by adding the following (device names delimited by :);
+You can either add the property to the Java command line by adding the following (device names delimited by :
 
 `-Dgnu.io.rxtx.SerialPorts=/dev/rfxcom:/dev/zwave`
 
@@ -1608,12 +1607,6 @@ In order to access this device the user running openHAB needs to be in the group
     sudo adduser <user> lock
 
 Reboot your system.
-
-### openHAB and the Cubieboard, what you need to know
-
-Running openHAB on a Cubieboard(2) is possible. But there are some kinks to figure out.
-First you have to choose a distribution to install. At first I settled for Cubian, since I was already familiar with Raspbian. But Cubian comes only with very few kernel modules for USB to serial bridges. Since many bindings communicate that way, this was a dealbreaker. Currently I run lubuntu-server-13.06-v1.00, which has all needed kernel modules. Simply install this distribution to the NAND memory (see http://cubiebook.org/ for details).
-Another problem could be the JDK8. While it was running fine on the Raspberry Pi I had several unexplained crashes of openHAB with the early preview of JDK8. Luckily Oracle released the JDK7 for hard floar arm processors a while ago. Just grab it from here `http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html` unpack it and use it to run openHAB just like on any other platform.
 
 ### Using the transceiver RFXtrx433E with Somfy RTS devices
 
