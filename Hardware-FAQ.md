@@ -2,10 +2,7 @@ FAQ about hardware to run the openHAB runtime
 
 ## Introduction
 
-This page summarizes how to get openHAB running on specific hardware.
-Users are welcome to provide tips & tricks here, e.g. on JVM experiences, embedded systems etc.
-
-Please note: This page is NOT about home automation sensors, switches, etc. For a list of the systems openHAB can connect to, please see [available bindings](Bindings).
+This page summarizes how to get openHAB server running on specific hardware (it does not cover add-on bindings and modules).
 
 ## General Hardware Platform Requirements
 
@@ -13,7 +10,7 @@ The openHAB Runtime is a Java application. It requires JVM 1.6 or later.
 
 openHAB is expected to run on all platforms (i.e. processor architectures and operating systems) where the required JVM version is available. This includes Windows, Mac OS X, and various distributions of Linux on x86, x86_64, and ARM architectures.
 
-openHAB can be installed and operated on AMD or Intel powered commodity laptop, a desktop computer, or a special form factor platform, such as ARM based single-board computers. 
+openHAB can be installed and operated on AMD or Intel powered commodity laptop, a desktop computer, or  ARM based single-board computers. 
 
 Below are configuration notes for specific hardware.
 
@@ -41,24 +38,19 @@ There you can find IdVendor, product, and IdProduct. Replace these IDs in the ru
 
 ## ARM-based Single-Board Computers (SBC)
 
-ARM-based embedded computers are a popular choice among home automation enthusiasts due to low cost and low power consumption. They are typically extensible with available add-on components and via programmable GPIO.
-Based on the community feedback and information about the openHAB requirements here is the short comparison of the SBC platforms:
-![SBC comparison (as per April 2014)](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04_v2.png)
-(April 2014)
-[(click here for bigger picture)](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_comparison_2014_04_v2.png).
-
+ARM-based embedded computers are a popular choice among home automation enthusiasts due to low cost, small size, low power consumption and typically fan-less. They are usually extensible with available add-on components and via programmable GPIO.
 
 ### Raspberry Pi
 ![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
 
-Raspberry Pi Model B has an attractive price/performance point and is a proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
+Raspberry Pi Model B - $30 - 700Mhz; 0.5 Gb RAM.  A proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
 **NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [[z-wave binding]] for more information
 
 
 #### Java Installation
 
-Raspberry Pi has FPU coprocessor supported by Raspbian Wheezy Linux. According to [this press release](http://www.raspberrypi.org/archives/4920), the current and all future Raspbian images will ship with *hard-float* Oracle Java 7 by default.
+Raspberry Pi has FPU coprocessor supported by Raspbian Wheezy Linux. 
 
 To setup your Raspberry Pi board for openHAB:
 
@@ -67,7 +59,6 @@ To setup your Raspberry Pi board for openHAB:
 2. Install openHAB. 
 
 Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is available for download from Oracle or from [Apt Repository](https://github.com/openhab/openhab/wiki/Apt-Repository).
-
 
 #### Tweaking Performance
 
@@ -79,22 +70,24 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 - /opt/vc/bin/tvservice -o
 - Overclocking does not seem to have big influences
 
-### CubieBoard, ODroid, A20-Olinuxino-Micro
+### CubieBoard, ODroid, BeagleBone Black
 
 ![Single-Board Computers](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04_14.jpg)
 
+These systems have considerably more power than Raspberry Pi and and range from about $35 to $100.
+
 **1. Install Linux distro**
 
-On a separate system download:
+Recommended Linux distros:
 
-* For CubieBoard2:  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
-[Cubi - Lubuntu](http://cubiuntu.com)
+* CubieBoard2:  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
+Use [Cubiuntu](http://cubiuntu.com)
 
-* For ODroid U3: Use Xubuntu
-(http://com.odroid.com/sigong/nf_file_board/nfile_board.php)
+* ODroid C1: $37 1.5 Ghz Quad Core, 1Gb DDR3 RAM 
+Use Canonical Snappy Ubuntu Core
 
-* For A20-Olinuxino-Micro: Use the Debian image provided by Olimex
-(https://www.olimex.com/wiki/A20-OLinuXino-MICRO#Linux)
+* BeagleBone Black: $55  AM335x 1GHz ARM® Cortex-A8 0.5 Gb DDR3 RAM
+Use Canonical Snappy Ubuntu Core
 
 **2. Install Java Hard Floating point** 
 If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html) or (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-arm-downloads-2187472.html) 
