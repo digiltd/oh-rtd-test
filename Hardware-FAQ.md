@@ -43,7 +43,7 @@ ARM-based computers are a popular choice among home automation enthusiasts due t
 ### Raspberry Pi
 ![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
 
-**Raspberry Pi Model B - 700Mhz; 0.5 Gb RAM**.  A proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
+**Raspberry Pi Model B - $ 30 700Mhz 0.5 Gb RAM**.  A proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
 **NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [[z-wave binding]] for more information
 
@@ -83,10 +83,10 @@ Recommended Linux distros:
 * **CubieBoard2:**  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
 Use [Cubiuntu](http://cubiuntu.com)
 
-* **ODroid C1: 1.5 Ghz Quad Core, 1.0 Gb DDR3 RAM**  
+* **ODroid C1: $ 37 1.5 Ghz Quad Core, 1.0 Gb DDR3 RAM**  
 Use Ubuntu 14.04 
 
-* **BeagleBone Black: 1GHz Cortex-A8 0.5 Gb DDR3 RAM**  
+* **BeagleBone Black: $ 55 1GHz Cortex-A8 0.5 Gb DDR3 RAM**  
 Use Ubuntu 14.04 
 
 **2. Install Java Hard Floating point** 
