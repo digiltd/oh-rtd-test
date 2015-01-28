@@ -78,4 +78,6 @@ Here are some examples of valid binding configuration strings:
 ##Working item and .sitemap
 
 Here should come working item and a working sitemap definition,
-and also some netcat commands to check and prove function (by the dev). (20150128)
+and also some netcat commands to check and prove function.
+And how to receive and map via TCP/UDP-port and store to another Binding (i.e. KNX GAs).
+(by the dev?). (20150128)
