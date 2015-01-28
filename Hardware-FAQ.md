@@ -74,7 +74,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 
 ![Single-Board Computers](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04_14.jpg)
 
-These systems have considerably more power than Raspberry Pi and and range from about $35 to $100.
+These systems have considerably more power than Raspberry Pi and and range from about $35 to $70.
 
 **1. Install Linux distro**
 
@@ -84,10 +84,10 @@ Recommended Linux distros:
 Use [Cubiuntu](http://cubiuntu.com)
 
 * ODroid C1: $37 1.5 Ghz Quad Core, 1Gb DDR3 RAM 
-Use Canonical Snappy Ubuntu Core
+- Use Ubuntu 14.04 
 
 * BeagleBone Black: $55  AM335x 1GHz ARM® Cortex-A8 0.5 Gb DDR3 RAM
-Use Canonical Snappy Ubuntu Core
+- Use Ubuntu 14.04 
 
 **2. Install Java Hard Floating point** 
 If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html) or (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-arm-downloads-2187472.html) 
