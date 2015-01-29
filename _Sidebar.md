@@ -170,7 +170,7 @@ Samples
   * [[Convert Farenheit to Celcius|convert-farenheit-to-celcius]]
   * [[Taking Rules to New Heights|Taking-Rules-to-New-Heights]]
  * [[REST Examples|Samples-REST]]
- * [[Tips|Samples-Tricks]]
+ * [[Tips and Tricks|Samples-Tricks]]
  * [[Misc|Samples-Tricks]]
   * [[Rollershutter Groups|RollershutterGroups]]
  * [[XSLT Transforms|Samples-XSLT-Transformations]]
