@@ -278,3 +278,8 @@ That's all! The GreenT UI, the iOS client as well as HABDroid use this mechanism
 Besides this, server-push can be very helpful for integration with other systems, if they are interested in state changes from openHAB - there is no need to do polling in such a case.
 
 Checkout the atmosphere pages to learn more about client development: https://github.com/Atmosphere/atmosphere
+
+### Code Samples
+
+See the following for code samples:
+https://github.com/openhab/openhab/wiki/Samples-REST
