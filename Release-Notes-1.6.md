@@ -7,36 +7,36 @@ Please find below the Release Notes of the 1.6 Release.
 This is the first Bugfix Release of the 1.6 Release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.6.2).
 
 **Bugfixes**
-- #2055 - Catch null message bodies caused by status updates 
-- #2054 - Adding guest wlan to fritzbox binding 
-- #2053 - Zwave database updates 
-- #2051 - Onkyo binding: Fixed data length calculation. 
-- #2042 - Add Aeon ZW089 Door sensor 
-- #2040 - Issue1351 
-- #2033 - Add everspring HSP02 
-- #2032 - Fix RRD4J error at midnight 
-- #2028 - changed the archetype default binding project according to #2720 
-- #2026 - fix for #1294 - Firefox display for numbers (kudos goes to @slaney) 
-- #2022 - Bugfix on handling limits of segments in SCALE transform 
-- #2017 - bugfix: Changes in color should not result in changing brightness 
-- #2013 - Add workaround for SMACK-635 to XMPP action 
-- #2010 - Add Popp 123665 
-- #2009 - [RFXCOM] Add Blind types: DC106, FOREST and Chamberlain CS4330 
-- #2007 - Add additional blinds types 
-- #2006 - Update CT30/CT100 association groups 
-- #2004 - Add support for Aeotec 5th generation keyfob 
-- #2003 - Zwave database updates 
-- #2002 - Initial contribution of Astro-Action. 
-- #2000 - Initial version of the ConditionalAction action plugin (3nd attempt) 
-- #1996 - influxdb persistence bugfix for issue #1225 
-- #1994 - Influxdb persistence Bugfix for #1879 
-- #1992 - Initial version of the ConditionalAction action plugin (2nd attempt) 
-- #1990 - Fix for http binding not responding to wildcard outgoing commands 
-- #1988 - Update to allow launch from Eclipse IDE 
-- #1986 - Bugfix #1980: anel-binding caused 100% cpu usage 
-- #1985 - updated assembly (and as dependency) the jdeb maven plugins to reliably ... 
-- #1984 - Nibe heat pump: Fixed wrong compressor total operation time divider. 
-- #1982 - Initial version of the ConditionalAction action plugin 
+- [#2055](https://github.com/openhab/openhab/pull/2055) - Catch null message bodies caused by status updates
+- [#2054](https://github.com/openhab/openhab/pull/2054) - Adding guest wlan to fritzbox binding
+- [#2053](https://github.com/openhab/openhab/pull/2053) - Zwave database updates
+- [#2051](https://github.com/openhab/openhab/pull/2051) - Onkyo binding: Fixed data length calculation.
+- [#2042](https://github.com/openhab/openhab/pull/2042) - Add Aeon ZW089 Door sensor
+- [#2040](https://github.com/openhab/openhab/pull/2040) - Issue1351
+- [#2033](https://github.com/openhab/openhab/pull/2033) - Add everspring HSP02
+- [#2032](https://github.com/openhab/openhab/pull/2032) - Fix RRD4J error at midnight
+- [#2028](https://github.com/openhab/openhab/pull/2028) - changed the archetype default binding project according to #2720
+- [#2026](https://github.com/openhab/openhab/pull/2026) - fix for #1294 - Firefox display for numbers (kudos goes to @slaney)
+- [#2022](https://github.com/openhab/openhab/pull/2022) - Bugfix on handling limits of segments in SCALE transform
+- [#2017](https://github.com/openhab/openhab/pull/2017) - bugfix: Changes in color should not result in changing brightness
+- [#2013](https://github.com/openhab/openhab/pull/2013) - Add workaround for SMACK-635 to XMPP action
+- [#2010](https://github.com/openhab/openhab/pull/2010) - Add Popp 123665
+- [#2009](https://github.com/openhab/openhab/pull/2009) - [RFXCOM] Add Blind types: DC106, FOREST and Chamberlain CS4330
+- [#2007](https://github.com/openhab/openhab/pull/2007) - Add additional blinds types
+- [#2006](https://github.com/openhab/openhab/pull/2006) - Update CT30/CT100 association groups
+- [#2004](https://github.com/openhab/openhab/pull/2004) - Add support for Aeotec 5th generation keyfob
+- [#2003](https://github.com/openhab/openhab/pull/2003) - Zwave database updates
+- [#2002](https://github.com/openhab/openhab/pull/2002) - Initial contribution of Astro-Action.
+- [#2000](https://github.com/openhab/openhab/pull/2000) - Initial version of the ConditionalAction action plugin (3nd attempt)
+- [#1996](https://github.com/openhab/openhab/pull/1996) - influxdb persistence bugfix for issue #1225
+- [#1994](https://github.com/openhab/openhab/pull/1994) - Influxdb persistence Bugfix for #1879
+- [#1992](https://github.com/openhab/openhab/pull/1992) - Initial version of the ConditionalAction action plugin (2nd attempt)
+- [#1990](https://github.com/openhab/openhab/pull/1990) - Fix for http binding not responding to wildcard outgoing commands
+- [#1988](https://github.com/openhab/openhab/pull/1988) - Update to allow launch from Eclipse IDE
+- [#1986](https://github.com/openhab/openhab/pull/1986) - Bugfix #1980: anel-binding caused 100% cpu usage
+- [#1985](https://github.com/openhab/openhab/pull/1985) - updated assembly (and as dependency) the jdeb maven plugins to reliably ...
+- [#1984](https://github.com/openhab/openhab/pull/1984) - Nibe heat pump: Fixed wrong compressor total operation time divider.
+- [#1982](https://github.com/openhab/openhab/pull/1982) - Initial version of the ConditionalAction action plugin
 
 ### Version 1.6.1
 
