@@ -164,6 +164,7 @@ Samples
  * [[Binding configurations|Samples-Binding-Config]]
   * [[Comfo Air Binding | Samples-Comfo-Air-Binding]]
   * [[Nest Thermostat|Sample-nest-thermostate]]
+  * [[Squeezebox|SqueezeboxExample]]
   * [[WAC Binding|Samples WAC Binding]]
   * [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
  * [[Rules|Samples-Rules]]
@@ -180,8 +181,6 @@ Samples
  * [[Update-Scripts|openhab-Get-Snapshot]]
  * [[Controlling openHAB with Android|Controlling-openHAB-with-Android]]
  * [[Usecase examples|Usecase-examples]]
- * Squeezebox
-  * [[Select Radio Station|SqueezeboxExample]]
  * [[Alarm Clock|AlarmClock]]
 
 Release Notes
