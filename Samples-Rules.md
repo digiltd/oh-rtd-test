@@ -13,6 +13,7 @@ Samples for Rules
 * [Hager KNX roller shutter actor position feedback](Samples-Rules#hager-knx-roller-shutter-actor-position-feedback)
 * [Koubachi remind the water level](Samples-Rules#koubachi-remind-the-water-level)
 * [Create text item to combine two values and format string options](Samples-Rules#create-text-item-to-combine-two-values-and-format-string-options)
+* [Simple Wake Up Light](Samples-Rules#Simple-WakeUpLight)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -930,3 +931,19 @@ rule UG_Flur_temperaturen
 In addition you might want to format the values only with one or two digits behind the comma. So the trick here is to convert the .state value first to a DecimalType and then to a floatValue. The floatValue you can then format using %1.f for one digit or %2.f for two digits after the comma if you like. This exercise is needed because there is a difference between on how OpenHAB handles types (.state) and how Java is handling types (float).
 
 Important is as well to "include" the org.openhab.core.library.types.* in the beginning of the rule so that this will work properly.
+
+
+### Simple WakeUpLight
+
+With this script you can simulate a simple WakeUP light. Just call it via a rule at a specified time
+```javascript
+var Number wakeUpDimmer
+    
+    wakeUpDimmer=0
+    while(wakeUpDimmer<100){
+    	wakeUpDimmer=wakeUpDimmer+5
+    	sendCommand(TestDimmer1,wakeUpDimmer)
+    	Thread::sleep(20000)
+    }
+```
+Just replace the item TestDimmer1 with your dimmer item. This script will increase the brightness by 5% every 20 seconds.
