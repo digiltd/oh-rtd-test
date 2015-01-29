@@ -143,7 +143,7 @@ Community
   * [[JPA Persistence|JPA-Persistence]]
  * [[Application Integration|Application-Integration]]
   * [[Asterisk|Asterisk-Integration]]
-  * [[Google Calendar Support|GCal-Binding]]
+  * [[Google Calendar|GCal-Binding]]
   * [[Linux Media Players|Linux-Media-Players]]
   * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
   * [[Telldus Tellstick|Telldus-Tellstick]]
