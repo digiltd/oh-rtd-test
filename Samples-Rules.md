@@ -13,7 +13,6 @@ Samples for Rules
 * [Hager KNX roller shutter actor position feedback](Samples-Rules#hager-knx-roller-shutter-actor-position-feedback)
 * [Koubachi remind the water level](Samples-Rules#koubachi-remind-the-water-level)
 * [Create text item to combine two values and format string options](Samples-Rules#create-text-item-to-combine-two-values-and-format-string-options)
-* [Simple Wake Up Light](Samples-Rules#Simple-WakeUpLight)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -933,17 +932,3 @@ In addition you might want to format the values only with one or two digits behi
 Important is as well to "include" the org.openhab.core.library.types.* in the beginning of the rule so that this will work properly.
 
 
-### Simple WakeUpLight
-
-With this script you can simulate a simple WakeUP light. Just call it via a rule at a specified time
-```javascript
-var Number wakeUpDimmer
-    
-    wakeUpDimmer=0
-    while(wakeUpDimmer<100){
-    	wakeUpDimmer=wakeUpDimmer+5
-    	sendCommand(TestDimmer1,wakeUpDimmer)
-    	Thread::sleep(20000)
-    }
-```
-Just replace the item TestDimmer1 with your dimmer item. This script will increase the brightness by 5% every 20 seconds.
