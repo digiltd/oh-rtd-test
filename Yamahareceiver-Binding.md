@@ -1,8 +1,5 @@
 # Yamahareceiver Binding
 
-_Remark: this Page is Beta, please add your extensions if you know one!
-the explanations copied from various forum posts_
-
 Documentation of the Yamahareceiver binding Bundle
 
 ## Details
