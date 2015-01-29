@@ -136,6 +136,7 @@ Community
   * [[ROS Robot Operating System|ROS-Robot-Operating-System]]
   * [[Telldus Tellstick|Telldus-Tellstick]]
   * [[Twitter Action|Twitter-Action]]
+  * [[Yahoo Weather|Samples-XSLT-Transformations]]
   * [[Zoneminder|Zoneminder]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
