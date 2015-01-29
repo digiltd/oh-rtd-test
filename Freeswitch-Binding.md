@@ -11,7 +11,7 @@ You can also send any command to freeswitch , see [Freeswitch Commands](http://w
 
 Copy the binding (org.openhab.binding.freeswitch*.jar) to your addons directory.
 
-Make sure you have the freeswitch ESL module listing on a public port, your event_socket.conf.xml in freeswitch should look something like:
+Make sure you have the freeswitch ESL module listening on a public port, your event_socket.conf.xml in freeswitch should look something like:
 
 ```
 <configuration name="event_socket.conf" description="Socket Client">
