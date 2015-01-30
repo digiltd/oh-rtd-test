@@ -42,7 +42,16 @@ If the first step fails due to insufficient memory - Java's memory allowance may
 
 A binding may require general configuration settings, such as a host and port of the external system to connect to. This can be done through the OSGi Configuration Admin service, i.e. by registering an OSGi service, which implements the interface `ManagedService`.
 
-openHAB then allows to add configuration information in openhab.cfg, which is automatically dispatched to your !ManagedService. All you have to make sure is to specify the property "`service.pid`" in your component declaration as "`org.openhab.<name>`", where name is the prefix to be used in openhab.cfg.
+Besides implementing the `ManagedService` interface, you have to add the `service.pid` property as well as the `provide` element for the `ManagedService` to the OSGi Declarative Services XML file (in the `OSGI-INF` folder):
+```xml
+<service>
+   <provide interface="org.osgi.service.cm.ManagedService"/>
+</service>
+<property name="service.pid" type="String" value="org.openhab.<name>"/>
+```
+Replace `<name>` with the prefix to be used in openhab.cfg.
+
+openHAB then allows to add configuration information in openhab.cfg, which is automatically dispatched to your `ManagedService`. 
 
 Please refer to the KNX binding for an example on how to [implement a ManagedService](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/src/main/java/org/openhab/binding/knx/internal/connection/KNXConnection.java) and how to [register it through OSGi Declarative Services](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/OSGI-INF/knxconnection.xml).
 
