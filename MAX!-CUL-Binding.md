@@ -1,4 +1,4 @@
-Documentation of the MAX!CUL Binding. _Targeting 1.6.0 release_
+Documentation of the MAX!CUL Binding. _From 1.6.0 release_
 
 # Introduction
 The aim of this binding is to allow the connection OpenHAB to MAX! devices (wall thermostat/radiator valves) using the [CUL USB dongle](http://busware.de/tiki-index.php?page=CUL) rather than the MAX! Cube. This should allow greater control over the devices than the cube offers as all interaction is handled manually.
@@ -106,6 +106,15 @@ Example:
 The binding allows more than one association per device. They just need to be comma separated. Example:
 
     Number heating_wallThermMeasured "Wall Meas [%.1f °C]" { maxcul="WallThermostat:KEQ1234560:feature=temperature:associate=KEQ1234561,KEQ1234562" }
+
+# Pairing
+
+A device needs to be associated with the Max!CUL binding to work correctly. This is a simple process:
+
+1. Ensure you have an item that has the correct device serial and settings you want configured in openhab
+1. If you haven't already then create a seperate item and sitemap entry that is a switch that allows you to turn on pairing mode (NB. it will turn off automatically after 30s)
+1. Switch on pairing mode
+1. Once pairing mode is activated then you need to pair the device by pressing and holding the pairing button the device (see your device manual). You should see it start to count down a timer from 30. Once the pairing process has begun then you will see AC displayed (on Wall and Radiator thermostats at least) or for devices without a display the LED will flash as described in the manual.
 
 # Technical Information
 
