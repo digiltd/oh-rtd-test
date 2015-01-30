@@ -1,10 +1,10 @@
 ## New & Noteworthy
 
-Please find below the Release Notes of the 1.6 Release.
+Please find below the release notes of the 1.6 Release.
 
 ### Version 1.6.2
 
-This is the first Bugfix Release of the 1.6 Release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.6.2).
+This is the second bugfix release of the 1.6 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.6.2).
 
 **Bugfixes**
 - [#2055](https://github.com/openhab/openhab/pull/2055) - Catch null message bodies caused by status updates
@@ -40,7 +40,7 @@ This is the first Bugfix Release of the 1.6 Release. See the Github issue tracke
 
 ### Version 1.6.1
 
-This is the first Bugfix Release of the 1.6 Release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.6.1).
+This is the first bugfix release of the 1.6 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.6.1).
 
 **Bugfixes**
 
