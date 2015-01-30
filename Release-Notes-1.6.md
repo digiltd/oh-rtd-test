@@ -6,6 +6,10 @@ Please find below the release notes of the 1.6 Release.
 
 This is the second bugfix release of the 1.6 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.6.2).
 
+### Updating the openHAB runtime 1.6.1 to 1.6.2
+
+Many of the fixes does not require to update the Runtime itself so it would suffice to simply replace the Binding jars in your Add-Ons folder. However, if you would like have one of these [issues in the core](https://github.com/openhab/openhab/issues?q=milestone%3A1.6.2+label%3Acore) fixed you will have to update the Runtime as well.
+
 **Bugfixes**
 - [#2055](https://github.com/openhab/openhab/pull/2055) - Catch null message bodies caused by status updates
 - [#2054](https://github.com/openhab/openhab/pull/2054) - Adding guest wlan to fritzbox binding
