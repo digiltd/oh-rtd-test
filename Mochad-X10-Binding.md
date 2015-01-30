@@ -1,4 +1,4 @@
-# ------- Under Construction --------
+# ------- Currently under review --------
 
 Documentation of the Mochad X10 binding.
 
@@ -38,3 +38,11 @@ where parts in brackets indicate an optional item.
 Addressing of X10 modules is done using a so called house code and a unit code. The house code is specified by characters 'a' to 'p'. The unit code is a number from 1 to 16. This way a number of 255 X10 devices can be controlled by one X10 controller. 
 
 X10 devices can be controlled by sending commands over the power-line or by sending RF commands. To explicitly specify the transmit method a value of "pl" for power-line or "rf" for radio frequency can be used. If transmitMethod is not specified it defaults to "pl".
+
+## Examples
+
+Here are some examples of valid binding configuration strings, as defined in the items configuration file:
+
+    Dimmer Light_Corridor_Dimmer "Hallway Dimmer [%d %%]" (GF_Corridor) {mochadx10="a1"}
+    Switch Mech_Vent "Mechanical ventilation" (GF_Kitchen) {mochadx10="b12"}
+    Rollershutter "Bedroom" (FF_Bedroom) {mochadx10="m3:rf"}
