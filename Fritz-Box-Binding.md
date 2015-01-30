@@ -37,8 +37,9 @@ As a result, your lines in the items file might look like the following:
 
 ## Switching WIFI and DECT
 
-The following items switch DECT, WIFI and the answering machine 0 (default TAM):
+The following items switch DECT, WIFI, GUEST_WIFI and the answering machine 0 (default TAM):
 
     Switch DECT {fritzbox="dect"}
     Switch WIFI {fritzbox="wlan"}
+    Switch GWIFI {fritzbox="guest_wlan"}
     Switch TAM0 {fritzbox="tam0"}
