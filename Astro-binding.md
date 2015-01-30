@@ -261,7 +261,7 @@ end
 I assume, the binding is in your addons folder. It populates the astro items at startup and with scheduled jobs.
 
 * In the openHab logfile there must be a entry like this: `AstroConfig[latitude=xx.xxxx,longitude=xx.xxxx,interval=...,systemTimezone=...,daylightSavings=...]`  
-If this entry does not exist, there is a problem in your openhab.cfg. A common problem is a space in front of the config properties.
+If this entry does not exist, there is a problem in your openhab.cfg.
 
 * If the items are still not populated, switch the binding to DEBUG mode and start openHab. Now you should see for every astro item a entry in your logfile: `Adding item ... with AstroBindingConfig[planet=..., type=..., property=...]`  
 If you don't see these entries, check your item file.
