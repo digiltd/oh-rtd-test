@@ -116,6 +116,8 @@ A device needs to be associated with the Max!CUL binding to work correctly. This
 1. Switch on pairing mode
 1. Once pairing mode is activated then you need to pair the device by pressing and holding the pairing button the device (see your device manual). You should see it start to count down a timer from 30. Once the pairing process has begun then you will see AC displayed (on Wall and Radiator thermostats at least) or for devices without a display the LED will flash as described in the manual.
 
+**Please note:** If the device has been paired before you will need to factory reset it before use. Please see the device user manual for details on how to do this.
+
 # Technical Information
 
 ## Implemented Messages
