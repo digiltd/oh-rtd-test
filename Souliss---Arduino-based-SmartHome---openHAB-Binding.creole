@@ -1,4 +1,4 @@
-== Introduction - Souliss, Arduino based SmartHome ==
+== Introduction - Souliss - Arduino based SmartHome - openHAB Binding  ==
 
 [[Souliss|http://www.souliss.net/]] is a networking framework for Arduino and compatibles board, is designed to build easily a smarthome distributed over multiple boards via Ethernet, wireless point-to-point and RS485 bus. 
 
@@ -27,7 +27,6 @@ Add at the bottom:
 # For ITEM defination in file .item 
 # {souliss=<Typical>:<nodeID>:<slot>:[<bit>]}
 
-souliss:IP_WAN=192.168.1.105
 souliss:IP_LAN=192.168.1.105
 souliss:USER_INDEX=71
 souliss:NODE_INDEX=134
@@ -41,7 +40,6 @@ souliss:REFRESH_HEALTY_TIME=60000
 souliss:REFRESH_MONITOR_TIME=500
 souliss:SEND_DELAY=1500
 souliss:SEND_MIN_DELAY=100
-souliss:NODE_NUMBERS=4
 ################################################################################
 }}}
 
