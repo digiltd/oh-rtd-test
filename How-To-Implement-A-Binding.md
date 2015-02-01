@@ -72,6 +72,38 @@ Note, the `activate` and `modified` methods are called with a `Map<String,Object
 ```
 Furthermore, both methods may be declared to accept a `BundleContext` object. This object is only valid while the bundle containing the implementation is `ACTIVE`, i.e. started. While the object may be passed around to other objects, care must be taken with regard to its state. When the bundle is stopping, the `BundleContext` becomes invalid and throws exceptions on access.
 
+A binding component is automatically deactivated when its bundle is stopped, a mandatory dependency is no longer available, or the required configuration is deleted. In any of these cases, the `deactivate` callback method is called with an Integer argument that gives a hint about the reason for the deactivation.
+
+```java
+	/**
+	 * Called by the SCR to deactivate the component when either the configuration is removed or
+	 * mandatory references are no longer satisfied or the component has simply been stopped.
+	 * @param reason Reason code for the deactivation:<br>
+	 * <ul>
+	 * <li> 0 – Unspecified
+     * <li> 1 – The component was disabled
+     * <li> 2 – A reference became unsatisfied
+     * <li> 3 – A configuration was changed
+     * <li> 4 – A configuration was deleted
+     * <li> 5 – The component was disposed
+     * <li> 6 – The bundle was stopped
+     * </ul>
+	 */
+	public void deactivate(final int reason) {
+		this.bundleContext = null;
+		// deallocate resources here that are no longer needed and 
+		// should be reset when activating this binding again
+	}
+```
+
+In the `openhab.cfg` file configure the specific binding properties using the `<name>` prefix as described above.
+```
+################################ <name> Binding ##########################################
+#
+# refresh interval in milliseconds (optional, defaults to 900000 [15 minutes])
+<name>:refresh=60000
+```
+
 # Item-specific Binding Configuration
 
 t.b.d.
