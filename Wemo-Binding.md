@@ -7,7 +7,7 @@ Wemo Binding needs no configuration in openhab.cfg
 
 ## Item Binding Configuration
 
-In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
+In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). The syntax of the binding configuration strings accepted is the following:
 
     wemo="<friendlyName>"
 
