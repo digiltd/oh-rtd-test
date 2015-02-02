@@ -41,9 +41,6 @@ There you can find IdVendor, product, and IdProduct. Replace these IDs in the ru
 ARM-based computers are a popular choice among home automation enthusiasts due to low cost, small size, low power consumption and typically fan-less. They are usually extensible with available add-on components and via programmable GPIO.
 
 ### Raspberry Pi
-![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
-
-**Raspberry Pi Model B - $ 30 700Mhz 0.5 Gb RAM**.  A proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
 ![Raspberry PI 2](https://pbs.twimg.com/media/B82celWIIAAx90U.jpg:large)
 
@@ -52,6 +49,12 @@ ARM-based computers are a popular choice among home automation enthusiasts due t
 * 900MHz quad-core ARM Cortex-A7 CPU (~6x performance)
 * 1GB LPDDR2 SDRAM (2x memory)
 * Complete compatibility with Raspberry Pi 1
+
+![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
+
+**Raspberry Pi Model B - $ 30 700Mhz 0.5 Gb RAM**.  A proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
+
+
 **NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [[z-wave binding]] for more information
 
 
