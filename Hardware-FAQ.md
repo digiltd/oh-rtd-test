@@ -45,6 +45,13 @@ ARM-based computers are a popular choice among home automation enthusiasts due t
 
 **Raspberry Pi Model B - $ 30 700Mhz 0.5 Gb RAM**.  A proven choice for small residential installations. Large installations with few dozens of devices and/or a significant amount of rule logic may experience sluggish event processing and delayed response to control commands.
 
+![Raspberry PI 2](https://pbs.twimg.com/media/B82celWIIAAx90U.jpg:large)
+
+**New Version of Raspberry PI! 6 times as fast as Raspberry PI 1, same price!**
+
+* 900MHz quad-core ARM Cortex-A7 CPU (~6x performance)
+* 1GB LPDDR2 SDRAM (2x memory)
+* Complete compatibility with Raspberry Pi 1
 **NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [[z-wave binding]] for more information
 
 
