@@ -73,7 +73,16 @@ See the Example Binding Strings section below for more examples.
 
 ## Authentication
 
-After you have installed the binding JAR in your `addons` directory, configured your `openhab.cfg` file, added items to your .items file and started OpenHAB (if not previously started), when the binding performs its first poll, it will discover that is has not yet authenticated with the Ecobee servers, and will retrieve a four-character PIN from Ecobee server.  This PIN will appear prominently in your `openhab.log` file.  When it does, enter it into your Apps settings in your account at ecobee.com.  This will authenticate your instance of the binding to work with your Ecobee account.  On the next poll of the API, it will retrieve authentication tokens and continue.
+After you have installed the binding JAR in your `addons` directory, configured your `openhab.cfg` file, added items to your .items file and started OpenHAB (if not previously started), when the binding performs its first poll, it will discover that is has not yet authenticated with the Ecobee servers, and will retrieve a four-character PIN from Ecobee server.  This PIN will appear prominently in your `openhab.log` file:
+
+	#########################################################################################
+	# Ecobee-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
+	# 1. Login to www.ecobee.com using your 'DEFAULT_USER' account
+	# 2. Enter the PIN 'gxvg' in My Apps within the next 9 minutes.
+	# NOTE: Any API attempts will fail in the meantime.
+	#########################################################################################
+
+When it does, enter it into your Apps settings in your account at ecobee.com.  This will authenticate your instance of the binding to work with your Ecobee account.  On the next poll of the API, it will retrieve authentication tokens and continue.
 
 ## Example Binding Strings
 
