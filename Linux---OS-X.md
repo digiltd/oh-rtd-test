@@ -1,13 +1,13 @@
 # Content
 
-* [Installation via **aptitude**](Linux---OS-X#aptitude)
+* [Installation via **apt-get**](Linux---OS-X#aptitude)
 * [**Manual installation** (alternativly - including openHAB Designer)](Linux---OS-X#manual-installation-alternative-approach)
 * [Yocto Layer](Linux---OS-X#yocto-layer)
 
 
 **Note**: for Hardware specific approach please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ). 
 
-# Aptitude
+# apt-get
 ## Installation
 ### [Install Java 8](http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html)
 
