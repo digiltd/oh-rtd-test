@@ -172,6 +172,7 @@ Samples
   * [[Alarm Clock|AlarmClock]]
   * [[Convert Farenheit to Celcius|convert-farenheit-to-celcius]]
   * [[Taking Rules to New Heights|Taking-Rules-to-New-Heights]]
+  * [[Reusable Rules via Functions|Reusable-Rules-via-Functions]]
  * [[REST Examples|Samples-REST]]
  * [[Tips and Tricks|Samples-Tricks]]
  * [[XSLT Transforms|Samples-XSLT-Transformations]]
