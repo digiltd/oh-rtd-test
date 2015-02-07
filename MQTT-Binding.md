@@ -135,10 +135,10 @@ The properties indicated by `<...>` need to be replaced with an actual value.  T
 <table>
   <tr><td><b>Property</b></td><td><b>Description</b></td></tr>
   <tr><td>broker</td><td>Name of the broker as it is defined in the openhab.cfg. If this property is not available, no event bus MQTT binding will be created.</td></tr>
-  <tr><td>statePublishTopic</td><td>When available, all status updates which occur on the openHAB event bus are published to the provided topic. The message content will be the status. The variable ${itemName} will be replaced during publishing with the item name for which the state was received.</td></tr>
-  <tr><td>commandPublishTopic</td><td>When available, all commands which occur on the openHAB event bus are published to the provided topic. The message content will be the command. The variable ${itemName} will be replaced during publishing with the item name for which the command was received.</td></tr>
-  <tr><td>stateSubscribeTopic</td><td>When available, all status updates received on this topic will be posted to the openHAB event bus. The message content is assumed to be a string representation of the status. The topic should include the variable ${itemName} to indicate which part of the topic contains the item name which can be used for posting the received value to the event bus.</td></tr>
-  <tr><td>commandSubscribeTopic</td><td>When available, all commands received on this topic will be posted to the openHAB event bus. The message content is assumed to be a string representation of the command. The topic should include the variable ${itemName} to indicate which part of the topic contains the item name which can be used for posting the received value to the event bus.</td></tr>
+  <tr><td>statePublishTopic</td><td>When available, all status updates which occur on the openHAB event bus are published to the provided topic. The message content will be the status. The variable ${item} will be replaced during publishing with the item name for which the state was received.</td></tr>
+  <tr><td>commandPublishTopic</td><td>When available, all commands which occur on the openHAB event bus are published to the provided topic. The message content will be the command. The variable ${item} will be replaced during publishing with the item name for which the command was received.</td></tr>
+  <tr><td>stateSubscribeTopic</td><td>When available, all status updates received on this topic will be posted to the openHAB event bus. The message content is assumed to be a string representation of the status. The topic should include the variable ${item} to indicate which part of the topic contains the item name which can be used for posting the received value to the event bus.</td></tr>
+  <tr><td>commandSubscribeTopic</td><td>When available, all commands received on this topic will be posted to the openHAB event bus. The message content is assumed to be a string representation of the command. The topic should include the variable ${item} to indicate which part of the topic contains the item name which can be used for posting the received value to the event bus.</td></tr>
 </table>
 
 ### Example Configurations
@@ -147,8 +147,8 @@ Example configuration for a event bus binding, which sends all commands to an MQ
 This scenario could be used for example to link 2 openHAB instances together where the master instance sends all commands to the slave instance and the slave instance sends all status updates back to the master. The example below shows an example configuration for the master node.
 
     mqtt-eventbus:broker=m2m-eclipse
-    mqtt-eventbus:commandPublishTopic=/openHAB/out/${itemName}/command
-    mqtt-eventbus:stateSubscribeTopic=/openHAB/in/${itemName}/state
+    mqtt-eventbus:commandPublishTopic=/openHAB/out/${item}/command
+    mqtt-eventbus:stateSubscribeTopic=/openHAB/in/${item}/state
 
 ## Using the org.openhab.io.transport.mqtt bundle
 
