@@ -24,7 +24,7 @@ Currently, there are the following implementations available:
 For every persistence service that you have installed and want to use, you have to put a configuration file named `<persistenceservice>.persist` (e.g. `db4o.persist`) in the folder `${openhab.home}/configurations/persistence`. These files should be edited with the openHAB Designer, which provides syntax checks, auto-completion and more.
 
 Before going into the details of the syntax of these files, let us discuss the concept behind it first:
-The basic idea is to provide a simple way to tell openHAB, which items should be persisted when. The persistence configuration defines so called "strategies" for this. These are very similar to the triggers of [[Rules|rules]] as you will most likely also either persist a value when some bus event occurred (i.e. an item state has been updated or changed) or with a fixed schedule as the cron expressions allow to define. 
+The basic idea is to provide a simple way to tell openHAB, which items should be persisted when. The persistence configuration defines so called "strategies" for this. These are very similar to the triggers of [[Rules|rules]] as you will most likely also either persist a value when some bus event occurred (i.e. an item state has been updated or changed) or with a fixed schedule as the [cron expressions](http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/crontrigger) allow to define. 
 
 The persistence configuration files hence consist out of several sections:
 
