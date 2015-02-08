@@ -12,7 +12,7 @@
 - Groups are also defined in the .items files. Groups can be inside groups, and items can be in none, one
   or more groups. 
 
-Typically items are defined using the openHAB Designer by editing the items definition files. Doing so you will have full IDE support like syntax checking, contect assist etc.
+Typically items are defined using the openHAB Designer by editing the items definition files. Doing so you will have full IDE support like syntax checking, context assist etc.
 
 ## syntax
 
