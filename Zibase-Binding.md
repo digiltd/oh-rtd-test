@@ -1,6 +1,5 @@
-Documentation of the Zibase binding bundle
+_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
 
-## Introduction
 
 Zibase is a french home automation box that support multiple RF protocols including 433 Mhz (Chacon, Visionic, Oregon...), ZWave, EnOcean, X2D.
 
