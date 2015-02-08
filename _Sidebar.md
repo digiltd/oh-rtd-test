@@ -46,7 +46,7 @@ Community
   * [[DMX512 Binding|DMX-Binding]]
   * [[DSC Alarm Binding|DSC-Alarm-Binding]]
   * [[DSMR Binding|DSMR-binding]]
-  * [[EDS OWSever Binding|EDS-OWSever-Binding]]
+  * [[EDS OWSever Binding|EDS-OWServer-Binding]]
   * [[eKey Binding|ekey-Binding]]
   * [[Energenie Binding|Energenie-Binding]]
   * [[EnOcean Binding|EnOcean-Binding]]
