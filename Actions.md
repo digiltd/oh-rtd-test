@@ -158,3 +158,29 @@ Example:
 `sendOpenWebIfNotification("main", "Hello World!\n\nThis is a message sent from openHab!", "WARNING", 10);`
 
 ![](https://farm4.staticflickr.com/3882/15284270826_8cf0e637d8_z.jpg)
+
+
+**Astro Action**  
+With the Astro-Action you can calculate sunrise and sunset DataTime values in rules. It's been released with openHab 1.7, but you can use it now with a snapshot build from [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/).  
+**Important:** The action also requires the corresponding Astro-Binding from cloudbees!
+
+Example:
+```
+import org.openhab.core.library.types.*
+import java.util.Date
+
+rule "Astro Action Example"
+when
+	...
+then
+	var Date current = now.toDate
+	var double lat = xx.xxxxxx
+	var double lon = xx.xxxxxx
+
+	logInfo("sunRiseStart: ", new DateTimeType(getAstroSunriseStart(current, lat, lon)).toString)
+	logInfo("sunRiseEnd: ", new DateTimeType(getAstroSunriseEnd(current, lat, lon)).toString)
+
+	logInfo("sunSetStart: ", new DateTimeType(getAstroSunsetStart(current, lat, lon)).toString)
+	logInfo("sunSetEnd: ", new DateTimeType(getAstroSunsetEnd(current, lat, lon)).toString)
+end
+```
