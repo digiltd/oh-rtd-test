@@ -97,7 +97,7 @@ The SATA connection is the key if you want to run an openhab server (also a not-
 #### Performance impact
 The following data is taken from the monitoring of my openhab server which has about 75 items, 50 rules and 80 sitemap-items.
 
-Without changing anything else but the mass storage from SD card to SSD (Crucial M500) overall cpu load dropped from 2.x to about 0.8.
+Without changing anything else but the mass storage from SD card (Transcend SDHC UHC-I X600) to SSD (Crucial M500) overall cpu load dropped from 2.x to about 0.8.
 
 ![CPU load](https://lh5.googleusercontent.com/LbTyD62I1Nk3jT-sa3BJ48PQiF9xxjDHyJUVuLf4gmbcX6A85fxKy-kMGLsTd1Dm7j-4AGB_atU=w1790-h805)
 
