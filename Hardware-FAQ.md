@@ -80,6 +80,18 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 - /opt/vc/bin/tvservice -o
 - Overclocking does not seem to have big influences
 
+### Banana Pi
+
+![Banana Pi](http://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Front_of_Banana_Pi.JPG/490px-Front_of_Banana_Pi.JPG)
+
+As a variant of the original Raspberry Pi the Banana Pi is equipped with
+
+* A dual core Allwinner A20 CPU at 1GHz
+* 1 GByte RAM
+* One SATA Port
+
+The SATA Port enables users to work around the poor I/O performance of the SD card subsystem.
+
 ### CubieBoard, ODroid, BeagleBone Black
 
 ![Single-Board Computers](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04_14.jpg)
