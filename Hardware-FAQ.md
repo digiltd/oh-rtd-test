@@ -80,7 +80,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 - /opt/vc/bin/tvservice -o
 - Overclocking does not seem to have big influences
 
-### Banana Pi
+### Banana Pi (bPi)
 
 ![Banana Pi](http://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Front_of_Banana_Pi.JPG/490px-Front_of_Banana_Pi.JPG)
 
@@ -90,16 +90,23 @@ As a variant of the original Raspberry Pi the Banana Pi is equipped with
 * 1 GByte RAM
 * One SATA Port
 
-The SATA Port enables users to work around the poor I/O performance of the SD card subsystem.
+There are various system images available for the bPi but for the use with openHAB I found the "classical" Raspbian quite stable. All about performance tweaking form above is applicable for the bPi too but the most important thing is the SATA Port which enables users to work around the poor I/O performance of the SD card subsystem.
 
-The SATA connection is the key if you want to run an openhab server on such board. You can switch from SD card to SATA disks like described [here](http://www.htpcguides.com/move-linux-banana-pi-sata-setup/).
+The SATA connection is the key if you want to run an openhab server (also a not-so-small installation) on such board. You can switch from SD card to SATA disks like described [here](http://www.htpcguides.com/move-linux-banana-pi-sata-setup/).
 
 #### Performance impact
+The following data is taken from the monitoring of my openhab server which has about 75 items, 50 rules and 80 sitemap-items.
 
-Overall cpu load dropped from 2.x to about 0.8. 
+Without changing anything else but the mass storage from SD card to SSD (Crucial M500) overall cpu load dropped from 2.x to about 0.8.
+
+![CPU load](https://lh5.googleusercontent.com/LbTyD62I1Nk3jT-sa3BJ48PQiF9xxjDHyJUVuLf4gmbcX6A85fxKy-kMGLsTd1Dm7j-4AGB_atU=w1790-h805)
+
 Key to this was the reduction of I/O wait (writing to SD card) from 25% to below 5% in cpu utilization. 
 
+![CPU utilization](https://lh3.googleusercontent.com/iDnCNJpI8jFoCYTSWzq2mHPg4DySw8D9FWxfwedqMK5DT5Lhdp0VjWQq1V6296IKOZzc2P6Da5E=w1790-h805)
+
 So far the combination of Banana Pi and SATA SSD can be highly recommended. 
+
 
 #### Power supply of SATA devices
 
