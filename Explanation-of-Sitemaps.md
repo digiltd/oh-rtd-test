@@ -39,8 +39,8 @@ The following elements can be used **optionally** in a sitemap definition file (
 
 <table>
   <tr><td><b>Element name</b></td><td><b>Description</b></td></tr>
-  <tr><td>Colorpicker</td><td></td></tr>
-  <tr><td>Chart</td><td></td></tr>
+  <tr><td>Colorpicker</td><td>Allows the user to choose a color from a color wheel.</td></tr>
+  <tr><td>Chart</td><td>Adds a time-series chart object for displaying logged data.</td></tr>
   <tr><td>Frame</td><td>Area with either various other sitemap elements or further nested frames</td></tr>
   <tr><td>Group</td><td>Renders all elements of a given group defined in an items definiton file</td></tr>
   <tr><td>Image</td><td>Renders an image</td></tr>
