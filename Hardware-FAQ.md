@@ -92,6 +92,19 @@ As a variant of the original Raspberry Pi the Banana Pi is equipped with
 
 The SATA Port enables users to work around the poor I/O performance of the SD card subsystem.
 
+The SATA connection is the key if you want to run an openhab server on such board. You can switch from SD card to SATA disks like described [here](http://www.htpcguides.com/move-linux-banana-pi-sata-setup/).
+
+#### Performance impact
+
+Overall cpu load dropped from 2.x to about 0.8. 
+Key to this was the reduction of I/O wait (writing to SD card) from 25% to below 5% in cpu utilization. 
+
+So far the combination of Banana Pi and SATA SSD can be highly recommended. 
+
+#### Power supply of SATA devices
+
+Be aware of power issues if you plan to use a normal (mechanical) hard disk. The bPi is only able to supply the 5V part of SATA power. Mechanical 3.5'' hard disks usually utilize 12V for the mechanical parts (disk spin motor, head control) and 5V for the electronical part. SATA SSD's and most 2.5'' HD's only use 5V and in general they do not require the 12V supply power to be present. For running an bPi with SATA SSD or 2.5'' HD the bPi-specific SATA/Power cable is sufficient in most cases.
+
 ### CubieBoard, ODroid, BeagleBone Black
 
 ![Single-Board Computers](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04_14.jpg)
