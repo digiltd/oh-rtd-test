@@ -1678,7 +1678,10 @@ The only way to send the request is using the executeCommandLine command and the
 
 A working example looks like this:
 ```
-executeCommandLine("curl@@-k@@-H@@Authorization: Bearer c7a3****a98c@@-XPOST@@https://api.lifx.com:443/v1beta1/lights/label:Beamer/effects/pulse.json?color=green")
+var String lifxurl   = "https://api.lifx.com:443/v1beta1"
+var String lifxtoken = "Authorization: Bearer c7a3****a98c"
+
+executeCommandLine("curl@@-k@@-H@@" + lifxtoken + "@@-XPOST@@" + lifxurl + "/lights/label:Beamer/effects/pulse.json?color=green")
 ```
 (replace "c7a3****a98c" with your token)
 
