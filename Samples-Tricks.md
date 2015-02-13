@@ -30,7 +30,7 @@ Miscellaneous Tips & Tricks
 * [How to use a serial port under linux](Samples-Tricks#how-to-use-a-serial-port-under-linux)
 * [Using the transceiver RFXtrx433E with Somfy RTS devices](Samples-Tricks#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
 * [Talking to a Raspberry ZWAY device with push updates](Samples-Tricks#talking-to-a-raspberry-zway-device-with-push-updates)
-* [How to use the LIFX beta API via executeCommandLine and curl](Samples-Tricks#how-to-use-the-lifx-beta-api-via-executeCommandLine-and-curl)
+* [How to use the LIFX beta API via executeCommandLine and curl](Samples-Tricks#how-to-use-the-lifx-beta-api-via-executecommandline-and-curl)
 
 
 
