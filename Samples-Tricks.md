@@ -1682,6 +1682,10 @@ var String lifxurl   = "https://api.lifx.com:443/v1beta1"
 var String lifxtoken = "c7a3****a98c"
 
 executeCommandLine("curl@@-k@@-H@@Authorization: Bearer " + lifxtoken + "@@-XPOST@@" + lifxurl + "/lights/all/effects/pulse.json?color=green")
+
+### if you want to change the color or state you need to replace "XPOST" with "XPUT"
+executeCommandLine("curl@@-k@@-H@@Authorization: Bearer " + lifxtoken + "@@-XPUT@@" + lifxurl + "/lights/all/color.json?color=hsb:45,1,0.6")
+
 ```
 (replace "c7a3****a98c" with your token)
 
