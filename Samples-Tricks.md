@@ -1686,9 +1686,10 @@ executeCommandLine("curl@@-k@@-H@@Authorization: Bearer " + lifxtoken + "@@-XPOS
 // if you want to change the color or state you need to replace "XPOST" with "XPUT"
 // according to the documentation on https://api.lifx.com/
 executeCommandLine("curl@@-k@@-H@@Authorization: Bearer " + lifxtoken + "@@-XPUT@@" + lifxurl + "/lights/all/color.json?color=hsb:45,1,0.6")
-
 ```
-
 Notice the "@@".
 This is neccessary, because the executeCommandLine does not support using quotationmarks.
 To send the http header as one string, all other spaces need to be replaces by the delimiter "@@".
+
+You may experience some seconds delay, because this is not the best way to implement the LIFX bulbs in openHAB.
+There is a dedicated lifx binding for openhab2 wich works without internet (cloud) connection.
