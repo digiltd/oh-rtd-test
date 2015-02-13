@@ -1681,7 +1681,7 @@ A working example looks like this:
 var String lifxurl   = "https://api.lifx.com:443/v1beta1"
 var String lifxtoken = "c7a3****a98c"
 
-executeCommandLine("curl@@-k@@-H@@Authorization: Bearer " + lifxtoken + "@@-XPOST@@" + lifxurl + "/lights/label:Beamer/effects/pulse.json?color=green")
+executeCommandLine("curl@@-k@@-H@@Authorization: Bearer " + lifxtoken + "@@-XPOST@@" + lifxurl + "/lights/all/effects/pulse.json?color=green")
 ```
 (replace "c7a3****a98c" with your token)
 
