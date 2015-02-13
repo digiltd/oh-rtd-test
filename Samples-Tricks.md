@@ -1679,15 +1679,15 @@ The only way to send the request is using the executeCommandLine command and the
 A working example looks like this:
 ```
 var String lifxurl   = "https://api.lifx.com:443/v1beta1"
-var String lifxtoken = "c7a3****a98c"
+var String lifxtoken = "c7a3****a98c"       // insert your token here
 
 executeCommandLine("curl@@-k@@-H@@Authorization: Bearer " + lifxtoken + "@@-XPOST@@" + lifxurl + "/lights/all/effects/pulse.json?color=green")
 
-### if you want to change the color or state you need to replace "XPOST" with "XPUT"
+// if you want to change the color or state you need to replace "XPOST" with "XPUT"
+// according to the documentation on https://api.lifx.com/
 executeCommandLine("curl@@-k@@-H@@Authorization: Bearer " + lifxtoken + "@@-XPUT@@" + lifxurl + "/lights/all/color.json?color=hsb:45,1,0.6")
 
 ```
-(replace "c7a3****a98c" with your token)
 
 Notice the "@@".
 This is neccessary, because the executeCommandLine does not support using quotationmarks.
