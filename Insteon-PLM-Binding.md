@@ -225,6 +225,13 @@ Dimmers can be configured with a maximum level when turning a device on or setti
 
 Setting a maximum level does not affect manual turning on or dimming a switch. 
 
+The iMeter Solo reports both wattage and kilowatt hours, and is updated during the normal polling process of the devices. You can also manually update the current values from the device and reset the device. See the example below:
+ 
+    Number iMeterWatts   "iMeter [%d watts]"  {insteonplm="xx.xx.xx:F00.00.17#meter,field=watts"}
+    Number iMeterKwh     "iMeter [%.04f kwh]" {insteonplm="xx.xx.xx:F00.00.17#meter,field=kwh"}
+    Switch iMeterUpdate  "iMeter Update"      {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=update"}
+    Switch iMeterReset   "iMeter Reset"       {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=reset"}
+
 Here are some examples for configuring X10 devices. Note that X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually.
 
     Switch x10Switch	"X10 switch" {insteonplm="A.1:X00.00.01#switch"}
