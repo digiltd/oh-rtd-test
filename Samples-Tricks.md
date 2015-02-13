@@ -1677,7 +1677,9 @@ Unfortunately the HTTP binding does not support sending http headers.
 The only way to send the request is using the executeCommandLine command and the unix program curl.
 
 A working example looks like this:
-    executeCommandLine("curl@@-k@@-H@@Authorization: Bearer c7a3****a98c@@-XPOST@@https://api.lifx.com:443/v1beta1/lights/label:Beamer/effects/pulse.json?color=green")
+```
+executeCommandLine("curl@@-k@@-H@@Authorization: Bearer c7a3****a98c@@-XPOST@@https://api.lifx.com:443/v1beta1/lights/label:Beamer/effects/pulse.json?color=green")
+```
 (replace "c7a3****a98c" with your token)
 
 Notice the "@@".
