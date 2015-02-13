@@ -30,6 +30,9 @@ Miscellaneous Tips & Tricks
 * [How to use a serial port under linux](Samples-Tricks#how-to-use-a-serial-port-under-linux)
 * [Using the transceiver RFXtrx433E with Somfy RTS devices](Samples-Tricks#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
 * [Talking to a Raspberry ZWAY device with push updates](Samples-Tricks#talking-to-a-raspberry-zway-device-with-push-updates)
+* [How to use the LIFX beta API via executeCommandLine and curl](Samples-Tricks#how-to-use-the-lifx-beta-api-via-executeCommandLine-and-curl)
+
+
 
 ### How to redirect your log entries to the syslog
 
@@ -1660,3 +1663,23 @@ if (global.ZWave) {
 global.controller.on("ZWave.register", this.registerOhBinding);
 ```
 Replace the URL in the file to match your OpenHAB instance and item name. In the ZWAY Javascript File load module enter 'storage/zway-oh.js' as the file (or whatever you named it). This code will send a HTTP post to the Item whenever the alarm state changes. 
+
+### How to use the LIFX beta API via executeCommandLine and curl
+
+To control the bulbs via this API you need to send HTTP requests (GET, POST, PUT).
+For security reasons you need a authentication token to access your bulbs.
+https://github.com/chendo/lifx-http/issues/27#issuecomment-72760322
+
+Once you got the token, you can play around with the API web interface at https://api.lifx.com/
+
+Unfortunately the HTTP binding does not support sending http headers.
+
+The only way to send the request is using the executeCommandLine command and the unix program curl.
+
+A working example looks like this:
+    executeCommandLine("curl@@-k@@-H@@Authorization: Bearer c7a3****a98c@@-XPOST@@https://api.lifx.com:443/v1beta1/lights/label:Beamer/effects/pulse.json?color=green")
+(replace "c7a3****a98c" with your token)
+
+Notice the "@@".
+This is neccessary, because the executeCommandLine does not support using quotationmarks.
+To send the http header as one string, all other spaces need to be replaces by the delimiter "@@".
