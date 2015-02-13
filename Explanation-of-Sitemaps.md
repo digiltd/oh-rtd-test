@@ -60,6 +60,20 @@ Syntax:
 
     Colorpicker [item=<itemname>] [label="<labelname>"] [icon="<iconname>"] [sendFrequency=""]
 
+#### Element 'Chart'
+
+Syntax:
+
+    Chart [item=<itemname>] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
+* _refresh_ is the refresh period of the image in milliseconds
+* _service_ sets the persistence service to use. If no service is set, openHAB will use the first queryable persistence service it finds. Therefore, for an installation with only a single persistence service, this is not required.
+* _period_ sets the length of the time axis of the chart. Valid values are h, 4h, 8h, 12h, D, 3D, W, 2W, M, 2M, 4M, Y
+* The following parameters are only available in v1.5 and over the HTTP(S) request:  
+_begin_ / _end_  sets the begin / end of the time axis of the chart. Valid values are in this format: yyyyMMddHHmm (yyyy := year, MM := month, dd := day, HH := hour (0-23), mm := minutes). 
+
+
+Note that charts are rendered by a chart provider. By default, openHAB provides a default chart provider which will work with all queryable persistence services. Other chart providers can be user to render the chart by changing the `chart:provider=default` configuration in openhab.cfg to the name of the alternative provider. Currently, the only alternative is to use the rrd4j provider to render the graphs.
+
 #### Element 'Frame'
 
 Frames are used to create a visually separated area of items.
@@ -95,27 +109,11 @@ Syntax:
     Image [item=<itemname>] [icon="<iconname>"] url="<url of image>" [label="<labelname>"] [refresh=xxxx]
 refresh is the refresh period of the image in milliseconds
 
-#### Element 'Chart'
+#### Element 'List'
 
 Syntax:
 
-    Chart [item=<itemname>] [icon="<iconname>"] [label="<labelname>"] [service="<service>"] [period=xxxx] [refresh=xxxx]
-* _refresh_ is the refresh period of the image in milliseconds
-* _service_ sets the persistence service to use. If no service is set, openHAB will use the first queryable persistence service it finds. Therefore, for an installation with only a single persistence service, this is not required.
-* _period_ sets the length of the time axis of the chart. Valid values are h, 4h, 8h, 12h, D, 3D, W, 2W, M, 2M, 4M, Y
-* The following parameters are only available in v1.5 and over the HTTP(S) request:  
-_begin_ / _end_  sets the begin / end of the time axis of the chart. Valid values are in this format: yyyyMMddHHmm (yyyy := year, MM := month, dd := day, HH := hour (0-23), mm := minutes). 
-
-
-Note that charts are rendered by a chart provider. By default, openHAB provides a default chart provider which will work with all queryable persistence services. Other chart providers can be user to render the chart by changing the `chart:provider=default` configuration in openhab.cfg to the name of the alternative provider. Currently, the only alternative is to use the rrd4j provider to render the graphs.
-
-#### Element 'Switch'
-
-Syntax:
-
-    Switch item=<itemname> [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
-You can find an explanation for mappings you can [here](#wiki-mappings).
-Also note that Switch elements with and without mapping are rendered differently in the interface.
+    List item=<itemname> [label="<labelname>"] [icon="<iconname>"] [separator=""]
 
 #### Element 'Selection'
 
@@ -138,11 +136,17 @@ Syntax:
 
     Slider item=<itemname> [label="<labelname>"] [icon="<iconname>"] [sendFrequency="frequency"] [switchSupport]
 
-#### Element 'List'
+* sendFrequency: Used for distinguishing between long and short button presses in the classic (web) frontend; this parameter defines the interval in miliseconds for sending increase/decrease requests
+
+* switchSupport: If specified a short press on the "up" or "down" button/arrow in the classic (web) frontend switched the item on/off completely
+
+#### Element 'Switch'
 
 Syntax:
 
-    List item=<itemname> [label="<labelname>"] [icon="<iconname>"] [separator=""]
+    Switch item=<itemname> [label="<labelname>"] [icon="<iconname>"] [mappings="<mapping definition>"]
+You can find an explanation for mappings you can [here](#wiki-mappings).
+Also note that Switch elements with and without mapping are rendered differently in the interface.
 
 #### Element 'Text'
 
@@ -292,4 +296,3 @@ You may find descriptions like:
 * DateTime comparisons are relative to the current time and specified in seconds. So a rule >300 will return true if the DateTime item is set to a value that's newer than the past 5 minutes (300 seconds).
 
 Further examples for defining sitemaps can be found in our [openHAB-Samples](https://github.com/openhab/openhab/wiki/Samples-Sitemap-Definitions) section. 
-
