@@ -40,6 +40,8 @@ If the first step fails due to insufficient memory - Java's memory allowance may
 
 # Global Binding Configuration
 
+#####_Integrated binding configuration approach with Declarative Services and Configuration Admin service_
+
 A binding may require general configuration settings, such as a host and port of the external system to connect to. This can be done through the OSGi Configuration Admin service. If the binding requires a configuration to be present in order to function, set the configuration policy in the `OSGI-INF/binding.xml` file to `require`.
 
 ```xml
@@ -103,6 +105,26 @@ In the `openhab.cfg` file configure the specific binding properties using the `<
 # refresh interval in milliseconds (optional, defaults to 900000 [15 minutes])
 <name>:refresh=60000
 ```
+
+#####_Alternative manual binding configuration approach_
+
+This section describes how bindings can be configured using the OSGi Configuration Admin service.
+
+A binding may require general configuration settings, such as a host and port of the external system to connect to. This can be done through the OSGi Configuration Admin service, i.e. by registering an OSGi service, which implements the interface [`org.osgi.service.cm.ManagedService`](http://www.osgi.org/javadoc/r4v42/org/osgi/service/cm/package-summary.html).
+
+Besides implementing the `ManagedService` interface, you have to add the `service.pid` property as well as the provide element for the `ManagedService` to the OSGi Declarative Services XML file (in the `OSGI-INF` folder):
+
+```xml
+<service>
+   <provide interface="org.osgi.service.cm.ManagedService"/>
+</service>
+<property name="service.pid" type="String" value="org.openhab.<name>"/>
+```
+Replace `<name>` with the prefix to be used in `openhab.cfg`.
+
+openHAB then allows to add configuration information in `openhab.cfg`, which is automatically dispatched to your ManagedService.
+
+Please refer to the KNX binding for an example on how to implement a `ManagedService` and how to register it through OSGi Declarative Services.
 
 # Item-specific Binding Configuration
 
