@@ -8,7 +8,7 @@ The following components are monitored and controlled using openHAB.
 Lighting (indoor and outdoor), sockets (indoor and outdoor), shutters, window and door contacts, motion sensors (indoor and outdoor), ventilation system, heating, gas and electricity meters, various environmental sensors (temperature and humidity), intercom, doorbell, and door release and the garden watering system.
 
 #### How did openHAB help
-OpenHab is used as a central control unit and technology broker.
+OpenHAB is used as a central control unit and technology broker.
 
 #### External, Press, Video links
 http://www.intranet-of-things.com/
