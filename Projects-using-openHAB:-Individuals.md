@@ -14,7 +14,7 @@ OpenHab is used as a central control unit and technology broker.
 http://www.intranet-of-things.com/
 
 #### Contact
-Holger Hees - https://github.com/HolgerHees
+Holger Hees - http://www.intranet-of-things.com/contact
 
 <tbd>
 
