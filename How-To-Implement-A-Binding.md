@@ -124,7 +124,7 @@ Replace `<name>` with the prefix to be used in `openhab.cfg`.
 
 openHAB then allows to add configuration information in `openhab.cfg`, which is automatically dispatched to your ManagedService.
 
-Please refer to the KNX binding for an example on how to implement a `ManagedService` and how to register it through OSGi Declarative Services.
+Please refer to the KNX binding for an example on how to [implement a `ManagedService`](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/src/main/java/org/openhab/binding/knx/internal/connection/KNXConnection.java) and how to [register it through OSGi Declarative Services](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/OSGI-INF/knxconnection.xml).
 
 # Item-specific Binding Configuration
 
