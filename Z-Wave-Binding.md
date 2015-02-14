@@ -203,6 +203,35 @@ Each node in the network provides functionality in the form of Command Classes. 
 		1 = "Running"<br/>
 		2 = "Running High"<br/>
   </td></tr>
+<tr><td>INFO</td><td>This is not a 'real' zwave command class, but can be used to get information from the binding about a node and its state.</td>
+<td>
+Controller only:<br/>
+HOME_ID<br/>
+SOF<br/>
+CAN<br/>
+NAK<br/>
+OOF<br/>
+ACK<br/>
+TIME_OUT<br/>
+TX_QUEUE<br/>
+<br/>
+All Nodes:<br/>
+NODE_ID<br/>
+LISTENING<br/>
+DEAD<br/>
+ROUTING<br/>
+VERSION<br/>
+BASIC<br/>
+BASIC_LABEL<br/>
+GENERIC<br/>
+GENERIC_LABEL<br/>
+SPECIFIC<br/>
+SPECIFIC_LABEL<br/>
+MANUFACTURER<br/>
+DEVICE_ID<br/>
+DEVICE_TYPE<br/>
+LAST_UPDATE<br/>
+</td></tr>
 </table>
 
 ## Parameters that can be added to any item
