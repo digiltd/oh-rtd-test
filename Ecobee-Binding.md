@@ -2,13 +2,13 @@ Documentation of the Ecobee binding Bundle.
 
 ## Introduction
 
-Ecobee Inc. of Toronto, Canada, sells a range of Wi-Fi enabled thermostats, principally in the Americas.  The EMS, EMS Si, Smart, Smart Si and ecobee3 models are supported by this binding, which communicates with the Ecobee API over a secure, RESTful API to Ecobee's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, changing the backlight intensity, and even sending textual messages to one or a group of thermostats, can be accomplished through this binding.
+Ecobee Inc. of Toronto, Canada, sells a range of Wi-Fi enabled thermostats, principally in the Americas.  The EMS, EMS Si, Smart, Smart Si and ecobee3 models are supported by this binding, which communicates with the Ecobee API over a secure, RESTful API to Ecobee's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, changing the backlight intensity, and even sending textual messages to one or a group of thermostats, can be accomplished through this binding (and its accompanying action bundle, TBD).
 
 In order to use this binding, you must have already registered your thermostat(s) with Ecobee, registered a new app as a [developer](https://www.ecobee.com/developers/), and then login to your [web portal](https://www.ecobee.com/).
 
-For installation of the binding, please see Wiki page [Bindings](Bindings).
+For installation of the binding, please see the Wiki page [Bindings](Bindings).
 
-The snapshot version of the binding can be downloaded, together with the rest of openhab, from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
+The snapshot version of the binding can be downloaded, together with the rest of openHAB, from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
 
 ## Binding Configuration
 
@@ -39,7 +39,7 @@ You would then include `condo.` in item references (see below) for those thermos
 
 ## Item configuration
 
-In order to bind an item to a thermostat's properties and functions, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the Ecobee binding configuration string is explained below.
+In order to bind an item to a thermostat's properties and functions, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). The syntax for the Ecobee binding configuration string is explained below.
 
 Ecobee bindings start with a `<`, `>` or `=`, to indicate if the item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
 
@@ -73,7 +73,7 @@ See the Example Binding Strings section below for more examples.
 
 ## Authentication
 
-After you have installed the binding JAR in your `addons` directory, configured your `openhab.cfg` file, added items to your .items file and started OpenHAB (if not previously started), when the binding performs its first poll, it will discover that is has not yet authenticated with the Ecobee servers, and will retrieve a four-character PIN from Ecobee server.  This PIN will appear prominently in your `openhab.log` file:
+After you have installed the binding JAR in your `addons` directory, configured your `openhab.cfg` file, added items to your .items file and started OpenHAB (if not previously started), when the binding performs its first poll, it will discover that is has not yet authenticated with the Ecobee servers, and will retrieve a four-character PIN from the Ecobee server.  This PIN will appear prominently in your `openhab.log` file:
 
 	#########################################################################################
 	# Ecobee-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!
@@ -122,6 +122,8 @@ Changes the backlight sleep intensity on all thermostats at the lake house
 (meaning, all thermostats registered to the lakehouse Ecobee account).
 
 ## Known Issues
+
+More complex actions, like setting a hold and creating a vacation, require the addition of an action bundle, and for those actions to be performed from scripts or rules.  This is forthcoming.
 
 ## Examples
 
