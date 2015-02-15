@@ -151,6 +151,8 @@ Community
   * [[JPA Persistence|JPA-Persistence]]
  * Misc
   * [[Transformations]]
+    * [[XSLT|Samples-XSLT-Transformations]]
+    * [[JSON|JSON-Transformations]]
   * [[REST-API]]
   * [[Security]]
   * [[Service Discovery|Service-Discovery]]
@@ -176,7 +178,6 @@ Samples
  * [[Items, Rules and more Examples of a SmartHome|http://www.intranet-of-things.com/software/downloads]]
  * [[REST Examples|Samples-REST]]
  * [[Tips and Tricks|Samples-Tricks]]
- * [[XSLT Transforms|Samples-XSLT-Transformations]]
  * [[Scripts|Samples-Scripts]]
  * [[Syntax highlighting for external editors|Syntax-Highlighting-for-external-editors]]
  * [[Update-Scripts|openhab-Get-Snapshot]]
