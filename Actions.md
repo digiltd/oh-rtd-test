@@ -54,6 +54,23 @@ This add-on provides SMTP services (please check openhab.cfg for required config
 
 **XMPP Action**
 
+*configure XMPP (openhab.cfg)*
+
+Example: Google
+```
+xmpp:servername=talk.google.com
+xmpp:securitymode=required
+# You need this "tlspin" if openhab cannot verify the certificat from the google server
+xmpp:tlspin=CERTSHA256:9e670d6624fc0c451d8d8e3efa81d4d8246ff9354800de09b549700e8d2a730a
+xmpp:proxy=gmail.com
+xmpp:username=my.openhab@gmail.com
+xmpp:password=mysectret
+# you may need to add the cryptic talk.google.com address of your private google account to the allowed users
+# check you openhab.log to found the address after you send something via hangout to your openhab account
+xmpp:consoleusers=**cryptic**@public.talk.google.com,myname@gmail.com
+```
+*using XMPP*
+
 This add-on provides XMPP communication. Besides the action methods itself, it also contains the XMPP console (please check openhab.cfg for required configuration settings):
 - `sendXMPP(String to, String message)`: Sends a message to an XMPP user
 - `sendXMPP(String to, String message, String attachmentUrl)`: Sends a message with an attachment to an XMPP user
