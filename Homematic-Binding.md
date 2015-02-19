@@ -344,6 +344,7 @@ These devices have been tested so far and confirmed as working:
 * HM-PB-4Dis-WM (Radio push-button 4-gang with display)
 * HM-Sec-SD (Radio-controlled smoke detector)
 * ZEL STG RM FFK (a HM-Sec-SC-2 from Rotomatic)
+* HM-Sec-SCo (Radio-controlled shutter contact optical)
 
 ### Wired
 * HMW-Sen-SC-12-FM (RS485 12-channel shutter contact for flush mounting)
