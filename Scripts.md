@@ -31,6 +31,13 @@ Combining these features, you can easily write code like
     	sendCommand(Heating, ON)
     }
 
+## Differences between Rules and Scripts
+As of OpenHAB 1.7, there are a few differences between a Rules EXECUTION_BLOCK code an a script.
+
+1. You cannot use the "import" statement within a script.  You must fully qualify each and every reference with the complete package name.  For example, a JODA DateTime reference must be org.joda.time.DateTime (e.g. var org.joda.time.DateTime myDateTimeVariable).
+
+2. You cannot reference script-level variables from within a closure block. For example, in a rule, code like createTimer(now) [| myVariable = 1 ] is valid, assuming "myVariable" is defined globally for the rule.  In a script, that same access would fail with an error about myVariable not being final.
+
 ## IDE Support
 
 The openHAB Designer offers full IDE support for scripts, which includes syntax checks and coloring, validation with error markers, content assist (Ctrl+Space) etc. This makes the creation of scripts very easy!
