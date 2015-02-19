@@ -203,6 +203,10 @@ Each node in the network provides functionality in the form of Command Classes. 
 		1 = "Running"<br/>
 		2 = "Running High"<br/>
   </td></tr>
+<tr><td>CONFIGURATION</td>
+<td>Used to set configuration parameters. Normally, this is done through HABmin as most configuration is static, but some devices have parameters that need to be changed via a rule or sitemap. </td>
+<td>Use the "parameter=" option in the binding string to set the parameter number linked to this item.</td>
+</tr>
 <tr><td>INFO</td><td>This is not a 'real' zwave command class, but can be used to get information from the binding about a node and its state.</td>
 <td>
 Controller only:<br/>
