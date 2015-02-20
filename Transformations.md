@@ -25,7 +25,8 @@ tbd ...
 
 ### Scale transformation service
 
-Example item configuration: Number WuUvCode "UV Level [SCALE(uvindex.scale):%s]"
+Example item configuration: 
+Number WuUvCode "UV Level [SCALE(uvindex.scale):%s]"
 
 uvindex.scale in transform folder :
 ```
@@ -36,10 +37,9 @@ uvindex.scale in transform folder :
 [10,100]=5
 ```
 
-And directly define in item file :
-
-Or you can  do in rules :
+Calling it in a rule :
 var Number r = transform("SCALE", "uvindex.scale", WuUvIndex.state.toString)
+
 
 ### RegEx transformation service
 tbd ...
