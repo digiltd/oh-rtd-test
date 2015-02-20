@@ -23,6 +23,24 @@ Let's assume we have received a string containing `foo bar baz` and we're lookin
 ### Map transformation service
 tbd ...
 
+### Scale transformation service
+
+Example item configuration: Number WuUvCode "UV Level [SCALE(uvindex.scale):%s]"
+
+uvindex.scale in transform folder :
+```
+[0,3[=1
+[3,6[=2
+[6,8[=3
+[8,10[=4
+[10,100]=5
+```
+
+And directly define in item file :
+
+Or you can  do in rules :
+var Number r = transform("SCALE", "uvindex.scale", WuUvIndex.state.toString)
+
 ### RegEx transformation service
 tbd ...
 
