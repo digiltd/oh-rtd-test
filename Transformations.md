@@ -26,6 +26,7 @@ tbd ...
 ### Scale transformation service
 
 Example item configuration: 
+
 Number WuUvCode "UV Level [SCALE(uvindex.scale):%s]"
 
 uvindex.scale in transform folder :
