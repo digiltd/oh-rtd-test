@@ -32,6 +32,8 @@ Note: This information ist taken from [here](http://www.cometvisu.de/wiki/index.
 
 ## Configuration
 If you don´t use the given example below, please make sure that you correctly configure openHAB as backend in the CometVisu-Config by adding `backend="oh"` to the root pages-element.
+`<pages backend="oh" lib_version="8" design="metal" screensave_page="Übersicht" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../visu_config.xsd">
+`
 
 [This](https://www.dropbox.com/s/5ip5fv5h5d4st9v/cometVISU_openHAB.zip) is a first small sample implementation. Actually only the items below are used in the example config:
 * number
