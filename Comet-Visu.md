@@ -10,16 +10,16 @@ This is just a short overview, more details will be added soon!
 
 * openHAB 1.4 or greater<br>
 Note: The latest version can be downloaded from [here](https://openhab.ci.cloudbees.com/job/openHAB/)
-* CometVisu 0.8.0 or greater (https://sourceforge.net/projects/openautomation/files/CometVisu/).<br>
+* CometVisu 0.8.0 or greater (https://github.com/CometVisu/CometVisu/releases).<br>
 It might be usefull to work with the latest SVN version of CometVisu as well.<br>
-On a Raspberry Pi, the installation of the SVN version works like this:<br>
+On a Raspberry Pi, the installation of the Git version works like this:<br>
  1. Installation of subversion on the RasPi:<br>
 `sudo apt-get update` <br>
 `sudo apt-get install subversion`<br>
  2. Download of the CometVisu SVN<br>
 Assumptions: openHAB is installed in the directory openHAB, CometVisu is located in webapps/cometVISU<br>
 `cd openHAB/webapps`<br>
-`svn co svn://svn.code.sf.net/p/openautomation/code/CometVisu/trunk/src cometVISU`<br>
+`svn co https://github.com/CometVisu/CometVisu/trunk/src/ cometVISU`<br>
  3. For an update later on you just need to do this<br>
 `cd openHAB/webapps`<br> 
 `svn update cometVISU`<br>
