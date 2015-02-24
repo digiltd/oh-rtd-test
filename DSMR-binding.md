@@ -3,7 +3,7 @@ _**Note:** This Binding will be available in the upcoming 1.7 Release. For preli
 
 The DSMR-binding is targeted for Dutch users having a smart meter ('Slimme meter' in dutch). Data of Dutch smart meters can be obtained via the P1-port. When connecting this port from a serial port the data can be read out.
 
-This binding reads the P1-port of the Dutch Smart Meters that comply to DSMR v2.1, DSMR v2.2, DSMR v3.0, DSMR v4.0 or DSMR v4.04.
+This binding reads the P1-port of the Dutch Smart Meters that comply to NTA8130, DSMR v2.1, DSMR v2.2, DSMR v3.0, DSMR v4.0 or DSMR v4.04.
 
 If you are not living in the Netherlands but do want to read a meter please have look at the [IEC-62056-21 Meter Binding](https://github.com/openhab/openhab/wiki/IEC-62056---21-Meter-Binding).
 
@@ -14,9 +14,6 @@ To enable the binding please include the following configuration in openhab.cfg
 
 # Port of the DSMR port (mandatory, e.g. /dev/ttyUSB0)
 dsmr:port=/dev/ttyUSB1
-
-# version (mandatory, use v2.1, v2.2, v3.0, v4.0 or v4.04)
-dsmr:version=v3.0
 
 # Configuration of additionel meters (channel 0 is used for the main
 # electricity meter)
@@ -31,9 +28,7 @@ The channel of the additional meters correspond to the M-Bus channel of the smar
 Since the main electricity meter is always at channel 0, configuration of this meter is not necessary (and not supported).
 
 ### Differences between DSMR versions
-The serial port settings for DSMR v4 and up (115200 8n1) differ from v2.1, v2.2 and v3.0 (9600 7e1). The DSMR binding will automatically use the applicable serial port settings based on the configured DSMR version. No data will be received if the wrong version (< 4.0 or >= 4.0) is chosen.
-
-If the communication is succesful, the most elimentary electricity values will work even when the wrong version is configured. Configuring the wrong version may result in not having all values available in openHAB and the log may indicate problems.
+The serial port settings for DSMR v4 and up (115200 8n1) differ from NTA8130, v2.1, v2.2 and v3.0 (9600 7e1). The DSMR binding will automatically detect the applicable serial port settings.
 
 ### Logging
 Use the following setting in logback.xml to increase verbosity of the logging
@@ -56,9 +51,11 @@ DSMR item id|Description|Available for DSMR version|Unit|
 `P1Timestamp`|Timestamp of the P1 output|v4.0 and up|
 **Electricity meter values**||||
 `eEquipmentId`|Equipment identifier|All versions|
+`eDeliveryTariff0`|Total meter delivery tariff 0|<sup>1</sup>|kWh
 `eDeliveryTariff1`|Total meter delivery tariff 1|All versions|kWh
 `eDeliveryTariff2`|Total meter delivery tariff 2|All versions|kWh
-`eProductionTariff1`|Total meter production tariff 2|All versions|kWh|
+`eProductionTariff0`|Total meter production tariff 0|<sup>1</sup>|kWh|
+`eProductionTariff1`|Total meter production tariff 1|All versions|kWh|
 `eProductionTariff2`|Total meter production tariff 2|All versions|kWh|
 `eTariffIndicator`|Tariff indicator|All versions|
 `eActualDelivery`|Actual power delivery|All versions|kW
@@ -129,6 +126,7 @@ DSMR item id|Description|Available for DSMR version|Unit|
 `seValue`|Last hour delivery|v4.0 and up|kWh
 `seSwitchPosition`|Switch position|v4.0 and up
 
+<sup>1</sup> This item isn't part of any specification however, the ITRON ACE4000 GTMM Mk3 does use this value.
 <sup>2</sup> Gas values for DSMR v3.0 are available in a list of max. 10 entries. The binding assumes the first value is the most recent (and thus available in `gValue`)
 <h3>Examples</h3>
 ```
@@ -140,8 +138,13 @@ Number P1_Meter_DeliveryNormal "Meter reading normal tariff[%.3f kWh]" {dsmr="eD
 
 Meter | DSMR version | Electricity | Gas | Water | Heating | Cooling | General | Slave electricity
 ----- |:------------:|:-----------:|:---:|:-----:|:-------:|:-------:|:-------:|:----------------:
-Landys + Gyr E350|3.0|OK|Not tested|Not tested|Not tested|Not tested|Not tested|N/A
+ISKRA MT382|3.0|OK|OK|Not tested|Not tested|Not tested|Not tested|N/A
+Itron ACE4000 GTMM Mk3|NTA8130|OK|Not tested|Not tested|Not tested|Not tested|N/A|N/A
 Kaifa E0003|4.04|OK|OK|Not tested|Not tested|Not tested|N/A|Not tested
+Kaifa MA304|4.04|OK|Not tested|Not tested|Not tested|Not tested|N/A|Not tested
+Kamstrup 162JxC|3.0|OK|OK|Not tested|Not tested|Not tested|Not tested|N/A
+Landys + Gyr E350|3.0|OK|Not tested|Not tested|Not tested|Not tested|Not tested|N/A
+
 
 Remarks
 - A meter that conforms to DSMR v4 or higher includes a CRC on the complete message. The binding does not check the CRC yet.
