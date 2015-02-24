@@ -147,7 +147,7 @@ To set a custom color within a rule file:
 Or change just the brightness:
 
     var PercentType bright = new PercentType(30) // 0-100
-    sendCommand(Toggle_1, bright)
+    sendCommand(Dimm_1, bright)
     
 For more information on the used API see the following link: http://developers.meethue.com/
 
