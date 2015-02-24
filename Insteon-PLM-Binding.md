@@ -7,9 +7,9 @@ or both (dual-band). A considerable number of Insteon compatible
 devices such as switchable relays, thermostats, sensors etc are
 available. More about Insteon can be found on [Wikipedia](http://en.wikipedia.org/wiki/Insteon).
 
-This binding provides access to the Insteon network by means of an
-Insteon PowerLinc Modem (PLM). The modem can be connected to the
-openHAB server either via a serial port (Model 2413S) or a USB port
+This binding provides access to the Insteon network by means of either an
+Insteon PowerLinc Modem (PLM), or an Insteon Hub (2245-222 aka "Hub 2014").
+The modem can be connected to the openHAB server either via a serial port (Model 2413S) or a USB port
 (Model 2413U). The binding translates openHAB commands into Insteon
 messages and sends them on the Insteon network. Relevant messages from
 the Insteon network (like notifications about switches being toggled)
@@ -169,8 +169,8 @@ which can usually be found on a label on the device.
 1. Copy the binding (e.g. `openhab.binding.insteonplm-<version>.jar` into the `openhab/addons` folder
 2. Edit the relevant section in the openhab configuration file
    (`openhab/configurations/openhab.cfg`). Note that while multiple
-   modems are possible, the binding has never been tested for more
-   than *one* modem!
+   modems and/or hubs can be configured, the binding has never been tested for more
+   than *one* port!
 3. Add configuration information to the `.items` file (see below)
 4. Optional: configure for debug logging into a separate file (see
 trouble shooting section)
