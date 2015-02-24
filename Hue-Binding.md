@@ -132,9 +132,14 @@ As a result, your lines in the sitemap file might look like the following:
     Slider         item=Dimm_1     visibility=[Toggle_1==ON]    label="Bedroom Brightness" 
     Slider         item=CT_Dimm_1  visibility=[Toggle_1==ON]    label="Bedroom Color Temperature"  
 
-Or within a rule file use color item:
+### Rules
 
+Use the corresponding items within the rules:
+
+    sendCommand(Toggle_1, ON)
     sendCommand(Color_1, HSBType::GREEN)
+    sendCommand(Dimm_1, 20)
+    sendCommand(CT_Dimm_1, 60)
 
 To set a custom color within a rule file:
 
@@ -144,7 +149,7 @@ To set a custom color within a rule file:
     var HSBType light = new HSBType(hue,sat,bright)
     sendCommand(Color_1, light)
 
-Or change just the brightness:
+Or use variables for the brightness:
 
     var PercentType bright = new PercentType(30) // 0-100
     sendCommand(Dimm_1, bright)
