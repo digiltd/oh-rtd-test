@@ -132,7 +132,7 @@ As a result, your lines in the sitemap file might look like the following:
     Slider         item=Dimm_1     visibility=[Toggle_1==ON]    label="Bedroom Brightness" 
     Slider         item=CT_Dimm_1  visibility=[Toggle_1==ON]    label="Bedroom Color Temperature"  
 
-Or within a rule file:
+Or within a rule file use color item:
 
     sendCommand(Color_1, HSBType::GREEN)
 
