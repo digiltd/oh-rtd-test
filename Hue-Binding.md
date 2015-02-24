@@ -134,7 +134,7 @@ As a result, your lines in the sitemap file might look like the following:
 
 Or within a rule file:
 
-    sendCommand(Toggle_1, HSBType::GREEN)
+    sendCommand(Color_1, HSBType::GREEN)
 
 To set a custom color within a rule file:
 
@@ -142,7 +142,7 @@ To set a custom color within a rule file:
     var PercentType sat = new PercentType(100) // 0-100
     var PercentType bright = new PercentType(100) // 0-100
     var HSBType light = new HSBType(hue,sat,bright)
-    sendCommand(Toggle_1, light)
+    sendCommand(Color_1, light)
 
 Or change just the brightness:
 
