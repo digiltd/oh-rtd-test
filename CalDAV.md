@@ -1,6 +1,6 @@
 This binding can be used to connect through the CalDAV Interface to calendars.
 
-First of all you need to add the org.openhab.io.caldav-version.jar into the addons folder.
+First of all you need to add the org.openhab.io.caldav-version.jar to the addons folder.
 
 openhab.cfg
 `caldavio:<calendar-id>:url=`
@@ -15,7 +15,7 @@ Binding file: org.openhab.binding.caldav-version.jar
 Used to execute commands through an event, triggered at the start or the end of an event.
 Syntax is `<BEGIN|END>:<Item-Name>:<Command>`.
 
-Additionaly you can define an item to listen to the upcoming changes of an item (which will be triggered through an event). Two types are available the command which will be set and the trigger time.
+Additionaly you can define an item to listen to upcoming changes of an item (which will be triggered through an event). Two types are available the command which will be set and the trigger time.
 Syntax is `caldav="itemName:<Item-Name to listen to>:<VALUE|DATE>"`
 
 openhab.cfg
