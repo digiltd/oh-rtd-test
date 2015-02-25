@@ -31,6 +31,7 @@ Miscellaneous Tips & Tricks
 * [Using the transceiver RFXtrx433E with Somfy RTS devices](Samples-Tricks#Using-the-transceiver-RFXtrx433E-with-Somfy-RTS-devices)
 * [Talking to a Raspberry ZWAY device with push updates](Samples-Tricks#talking-to-a-raspberry-zway-device-with-push-updates)
 * [How to use the LIFX beta API via executeCommandLine and curl](Samples-Tricks#how-to-use-the-lifx-beta-api-via-executecommandline-and-curl)
+* [How to turn ON and OFF a Philips Hue with HomeMatic pushbutton](Samples-Tricks#how-to-turn-on-and-off-a-philips-hue-with-homematic-pushbutton)
 
 
 
@@ -1693,3 +1694,41 @@ To send the http header as one string, all other spaces need to be replaces by t
 
 You may experience some seconds delay, because this is not the best way to implement the LIFX bulbs in openHAB.
 There is a dedicated lifx binding for openhab2 wich works without internet (cloud) connection.
+
+### How to turn ON and OFF a Philips Hue with HomeMatic pushbutton
+
+You want to turn ON and OFF a Philips Hue with a physical pushbutton (e.g. HomeMatic HM-PBI-4-FM). You need to define the states of the HomeMatic pushbutton as items in the `.items` file:
+```
+// Unreachable:
+Switch HM_pushbutton_Unreach "Signal Strength [MAP(signal_status.map):%s]" <signal> (g_HM_Signal) {homematic="address=LEQ0012345, channel=0, parameter=UNREACH"}
+//LowBattery:
+Switch HM_pushbutton_LowBattery "Battery Status [MAP(batterie_status.map):%s]" <signal> (g_HM_Signal) {homematic="address=LEQ0012345, channel=0, parameter=LOWBAT"}
+//Channel 1:
+Switch HM_pushbutton_Channel_1 "Pushbutton 1" {homematic="address=LEQ0012345, channel=1, parameter=PRESS_SHORT"}
+//Channel 1 (Press long):
+Switch HM_pushbutton_Channel_1_long "Pushbutton 1 (long)" {homematic="address=LEQ0012345, channel=1, parameter=PRESS_LONG"}
+```
+Copy these switches for channel 2, 3, and 4 of the HomeMatic pushbutton and add your Hue bulbs like this:
+```
+Switch Toggle_1   "Hue 1"   (Switching) {hue="1"}
+```
+See also this [Link](https://github.com/openhab/openhab/wiki/Hue-Binding#examples) for the Hue Color and Dimmer item.
+To receive the signals of the pushbutton you have to set the mode of transmission within the CCU/CCU2 to be standard. (enabled security will not work. For more information see [here](https://code.google.com/p/openhab-homematic/wiki/SupportedDevices#Remote_Control))
+
+After this preparation only the rule is missing. Copy the following into your `.rules` file:
+```
+var Number Toggle_1_on = 0
+
+rule " Channel 1 press short"
+when
+	Item HM_pushbutton_Channel_1 changed to ON
+then
+	if (Toggle_1_on == 0){
+	sendCommand(Toggle_1, ON)
+	Toggle_1_on = 1}
+else{
+	sendCommand(Toggle_1, OFF)
+	Toggle_1_on = 0}
+end
+```
+Pressing the physical pushbutton connected to channel 1 of the HomeMatic HM-PBI-4-FM will now toggle the Philips Hue (Toggle_1) on and off.
