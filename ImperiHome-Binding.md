@@ -6,6 +6,8 @@ This binding is in alpha stage; currently available for download via the [OpenHA
  * [[Purpose|ImperiHome-Binding#purpose]]
  * [[Installation|ImperiHome-Binding#installation]]
  * [[Configuration|ImperiHome-Binding#configuration]]
+  * [[Items|ImperiHome-Binding#items]]
+   * [[Binding Format|ImperiHome-Binding#binding-format]]
 
 ## Purpose
 
