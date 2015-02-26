@@ -29,7 +29,8 @@ nest:client_id=e5cc5558-ec55-4c55-8555-4b95555f4979
 nest:client_secret=ZZo28toiuoiurok4WjUya1Bnc
 nest:pincode=2JTXXXJL
 ```
-Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Nest Developer agreement, and so is not implemented.
+
+Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Prohibition 3 of the [Nest Developer Terms of Service](https://developer.nest.com/documentation/cloud/tos), and so is not implemented.
 
 ## your.items file: ##
 
