@@ -6,14 +6,30 @@ TBD
 
 Your `openhab.cfg` file should contain these keys.
 
+### nest:refresh ###
+
+How often, in milliseconds, to update states.  Don't do it too frequently or you will hit API limits.
+
 ```
 nest:refresh=60000
-nest:client_id=e5cc5558-ec55-4c55-8555-4b95555f4979
-nest:client_secret=ZZo28toiuoiurok4WjUya1Bnc
-nest:pincode=<supplied after first startup>
 ```
 
-(Multiple instance support conflicts with Nest Developer agreement.)
+### nest:client_id ###
+### nest:client_secret ###
+### nest:pincode ###
+
+You will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.
+
+Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the pincode.
+
+Paste all three of these values into your openhab.cfg file like so (using your actual values):
+
+```
+nest:client_id=e5cc5558-ec55-4c55-8555-4b95555f4979
+nest:client_secret=ZZo28toiuoiurok4WjUya1Bnc
+nest:pincode=2JTXXXJL
+```
+Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Nest Developer agreement, and so is not implemented.
 
 ## your.items file: ##
 
