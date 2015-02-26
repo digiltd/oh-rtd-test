@@ -44,7 +44,7 @@ This is done by  rule based on  Anderew M's post Wink "binding" without a bindin
 This script uses the ssh technique to call Wink by JustinAike in this post http://www.reddit.com/r/winkhub/comments/2r8xuz/fastest_way_to_get_a_command_to_aprontest_locally/cneh6dc
 The rule - 
 
-rule "Den Light Control"
+    rule "Den Light Control"
 	when 
 		Item denlight received command
 	then
@@ -82,5 +82,5 @@ rule "Den Light Control"
 			 var value = percent * 2.55 
 			 executeCommandLine("/root/bin/wink.sh -u -m 6 -t 2 -v" + value.intValue)
 		 }
-end
+    end
 
