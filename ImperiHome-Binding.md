@@ -14,7 +14,7 @@ The binding will enable you to use the comercial [ImperiHome](http://www.imperih
 ![](http://www.imperihome.com/wp-content/main-screens.png)
 
 ## Installation
-...
+Copy the .jar files provided into the ./addons directory of your OH installation.
 
 [[Page Top|ImperiHome-Binding#imperihome-binding]]
 
