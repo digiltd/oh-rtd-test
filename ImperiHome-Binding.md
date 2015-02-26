@@ -19,6 +19,17 @@ Copy the .jar files provided into the ./addons directory of your OH installation
 [[Page Top|ImperiHome-Binding#imperihome-binding]]
 
 ## Configuration
-...
+The binding provides the API for ImperiHome to load the devices from openHAB and to control it.
+
+### Items
+#### Binding Format
+```
+{imperihab="room:[#room],type:[#type],watts:[#wattsitem]"}
+```
+<table>
+  <tr><td>#room</td><td>the room you want the item to appear under in ImperiHome</td></tr>
+  <tr><td>#type</td><td>Optional, only needed if the type of the device cannot be guessed from the item.  It first tries to find the type based on the values it support OpenClose, OnOff, Percentage etc and there's some best guesses for the item names e.g. if item name contains "Humidity" it thinks its a humidity sensor).  If none of these work, or if you want to override the type it guesses, you can specify it.  Using the device types for imperihome, eg. DevTemperature.</td></tr>
+  <tr><td>#wattsitem</td><td>Optional, this lets you specify another item to be the "energy" value for an item, e.g. for a z-wave power outlet Switch Item, you can link this to the Number item that has the power reading.  Then in imperihome it will show the power usage for that switch.</td></tr>
+</table>
 
 [[Page Top|ImperiHome-Binding#imperihome-binding]]
