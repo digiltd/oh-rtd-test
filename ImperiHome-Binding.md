@@ -7,7 +7,8 @@ This binding is in alpha stage; currently available for download via the [OpenHA
  * [[Installation|ImperiHome-Binding#installation]]
  * [[Configuration|ImperiHome-Binding#configuration]]
   * [[Items|ImperiHome-Binding#items]]
-   * [[Binding Format|ImperiHome-Binding#binding-format]]
+    * [[Binding Format|ImperiHome-Binding#binding-format]]
+    * [[Examples|]]
 
 ## Purpose
 
@@ -63,4 +64,13 @@ The binding provides the API for ImperiHome to load the devices from openHAB and
   <tr><td>#wattsitem</td><td>Optional, this lets you specify another item to be the "energy" value for an item, e.g. for a z-wave power outlet Switch Item, you can link this to the Number item that has the power reading.  Then in imperihome it will show the power usage for that switch.</td></tr>
 </table>
 
+[[Page Top|ImperiHome-Binding#imperihome-binding]]
+
+#### Examples
+```
+Number zWaveSensor23_1 "L1 [%.1f W]" <energy> (gZWaveNode23, gPower) {zwave="23:1:command=METER", imperihab="room:Keller,label:Verbrauch L1,type:DevElectricity,watts:zWaveSensor23_1"}
+Dimmer zWaveLightOGBedroom "Licht [%d %%]" <light> (gZWaveNode20, gLights, gHomeOGBedroom) {zwave="20:0:command=SWITCH_MULTILEVEL", imperihab="room:Schlafzimmer,label:Licht,type:DevDimmer,watts:zWaveLightOGBedroom"}
+Rollershutter zWaveShutterEGLivingroomLeft "Rollladen" <rollershutter> (gZWaveNode16, gHomeShuttersEG, gHomeEGLivingRoom) {zwave="16:0:command=SWITCH_MULTILEVEL", imperihab="room:Wohnraum,label:Rollladen,type:DevShutter,watts:zWaveShutterEGLivingroomLeft"}
+Number zWaveSensor2Temperatur "Temperatur EG [%.1f °C]" <temperature> (gZWaveNode2, gTemperature, gHomeEGTV) {zwave="2:3:command=SENSOR_MULTILEVEL, sensor_type=1, sensor_scale=0", imperihab="room:TV,label:Temperatur,type:DevTemperature,watts:zWaveSensor2Temperatur"} 
+```
 [[Page Top|ImperiHome-Binding#imperihome-binding]]
