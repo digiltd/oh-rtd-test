@@ -8,7 +8,7 @@ This binding is in alpha stage; currently available for download via the [OpenHA
  * [[Configuration|ImperiHome-Binding#configuration]]
   * [[Items|ImperiHome-Binding#items]]
     * [[Binding Format|ImperiHome-Binding#binding-format]]
-    * [[Examples|]]
+    * [[Examples|ImperiHome-Binding#examples]]
 
 ## Purpose
 
