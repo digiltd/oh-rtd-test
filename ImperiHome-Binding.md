@@ -26,10 +26,11 @@ The binding provides the API for ImperiHome to load the devices from openHAB and
 ### Items
 #### Binding Format
 ```
-{imperihab="room:[#room],type:[#type],watts:[#wattsitem]"}
+{imperihab="room:[#room],label:[#label],type:[#type],watts:[#wattsitem]"}
 ```
 <table>
   <tr><td>#room</td><td>the room you want the item to appear under in ImperiHome</td></tr>
+  <tr><td>#label</td><td>Optional, the name of the item to appear in ImperiHome, if not specified the name will be the item name replacing _ with " ", so Outside_Porch_Light would become "Outside Porch Light" automatically</td></tr>
   <tr><td>#type</td><td>Optional, only needed if the type of the device cannot be guessed from the item.  It first tries to find the type based on the values it support OpenClose, OnOff, Percentage etc and there's some best guesses for the item names e.g. if item name contains "Humidity" it thinks its a humidity sensor).  If none of these work, or if you want to override the type it guesses, you can specify it.  Using the device types for imperihome: 
 <table>
   <tr><th>Device type string</th><th>Description</th></tr>
