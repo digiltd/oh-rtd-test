@@ -34,13 +34,29 @@ The binding provides the API for ImperiHome to load the devices from openHAB and
 <table>
   <tr><th>Device type string</th><th>Description</th></tr>
   <tr><td>DevCamera</td><td>MJPEG IP Camera</td></tr>
-  <tr><td></td><td></td></tr>
-  <tr><td></td><td></td></tr>
-  <tr><td></td><td></td></tr>
-  <tr><td></td><td></td></tr>
-  <tr><td></td><td></td></tr>
-  <tr><td></td><td></td></tr>
-  <tr><td></td><td></td></tr>
+  <tr><td>DevCO2</td><td>CO2 sensor</td></tr>
+  <tr><td>DevCO2Alert</td><td>CO2 Alert sensor</td></tr>
+  <tr><td>DevDimmer</td><td>Dimmable light</td></tr>
+  <tr><td>DevDoor</td><td>Door / window security sensor</td></tr>
+  <tr><td>DevElectricity</td><td>Electricity consumption sensor</td></tr>
+  <tr><td>DevFlood</td><td>Flood security sensor</td></tr>
+  <tr><td>DevGenericSensor</td><td>Generic sensor (any value)</td></tr>
+  <tr><td>DevHygrometry</td><td>Hygro sensor</td></tr>
+  <tr><td>DevLock</td><td>Door lock</td></tr>
+  <tr><td>DevLuminosity</td><td>Luminance sensor</td></tr>
+  <tr><td>DevMotion</td><td>Motion security sensor</td></tr>
+  <tr><td>DevMultiSwitch</td><td>Multiple choice actuator</td></tr>
+  <tr><td>DevNoise</td><td>Noise sensor</td></tr>
+  <tr><td>DevPressure</td><td>Pressure sensor</td></tr>
+  <tr><td>DevRain</td><td>Rain sensor</td></tr>
+  <tr><td>DevScene</td><td>Scene (launchable)</td></tr>
+  <tr><td>DevShutter</td><td>Shutter actuator</td></tr>
+  <tr><td>DevSmoke</td><td>Smoke security sensor</td></tr>
+  <tr><td>DevSwitch</td><td>Standard on/off switch</td></tr>
+  <tr><td>DevTemperature</td><td>Temperature sensor</td></tr>
+  <tr><td>DevThermostat</td><td>Thermostat</td></tr>
+  <tr><td>DevUV</td><td>UV sensor</td></tr>
+  <tr><td>DevWind</td><td>Wind sensor</td></tr>
 </table>
 </td></tr>
   <tr><td>#wattsitem</td><td>Optional, this lets you specify another item to be the "energy" value for an item, e.g. for a z-wave power outlet Switch Item, you can link this to the Number item that has the power reading.  Then in imperihome it will show the power usage for that switch.</td></tr>
