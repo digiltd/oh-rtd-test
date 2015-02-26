@@ -137,7 +137,7 @@ Community
   * [[Telldus Tellstick|Telldus-Tellstick]]
   * [[Twitter|Twitter-Action]]
   * [[Zoneminder|Zoneminder]]
-  * [[Rooted Wink Huub]]
+  * [[Rooted Wink Hub]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
   * [[rrd4j Persistence|rrd4j-Persistence]]
