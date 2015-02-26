@@ -28,7 +28,7 @@ exit
 Add the following line in the editor:
 `    deb http://repository-openhab.forge.cloudbees.com/release/1.x.y/apt-repo/ /`
 
-Exit with CTRL C then Y
+Exit with CTRL X then Y
 
 
 ### Install openHAB runtime
