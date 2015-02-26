@@ -66,6 +66,7 @@ Community
   * [[HTTP Binding|Http-Binding]]
   * [[IEC 62056-21 Binding|IEC-62056---21-Meter-Binding]]
   * [[IHC / ELKO Binding|IHC-Binding]]
+  * [[ImperiHome Binding|ImperiHome-Binding]]
   * [[Insteon Hub Binding|Insteon-Hub-Binding]]
   * [[Insteon PLM Binding|Insteon-PLM-Binding]]
   * [[IRtrans Binding|Ir-Trans-Binding]]
