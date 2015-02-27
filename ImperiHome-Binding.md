@@ -27,7 +27,7 @@ The binding provides the API for ImperiHome to load the devices from openHAB and
 ### Items
 #### Binding Format
 ```
-{imperihab="room:[#room],label:[#label],type:[#type],watts:[#wattsitem]"}
+{imperihab="room:[#room],label:[#label],type:[#type],watts:[#wattsitem],unit:[#unit],persist:[#persist],invert:[#invert]"}
 ```
 <table>
   <tr><td>#room</td><td>the room you want the item to appear under in ImperiHome</td></tr>
@@ -62,6 +62,9 @@ The binding provides the API for ImperiHome to load the devices from openHAB and
 </table>
 </td></tr>
   <tr><td>#wattsitem</td><td>Optional, this lets you specify another item to be the "energy" value for an item, e.g. for a z-wave power outlet Switch Item, you can link this to the Number item that has the power reading.  Then in imperihome it will show the power usage for that switch.</td></tr>
+  <tr><td>#persist</td><td>Optional, this lets you specify another persist store to use instead of the default configured in openHAB.</td></tr>
+  <tr><td>#unit</td><td>Optional lets you specify the units for a numeric value</td></tr>
+  <tr><td>#invert</td><td>Optional (true|false), this lets you invert an on/off, open/closed state of an item.  This is helpful if ImperiHome is showing the wrong state for a door.  E.g. a garage door appears open when closed etc. </td></tr>
 </table>
 
 [[Page Top|ImperiHome-Binding#imperihome-binding]]
