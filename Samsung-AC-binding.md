@@ -85,7 +85,7 @@ Supported Air conditioner commands (with valid values to send):
     AC_FUN_COMODE:
         Off(0), Quiet(1), Sleep(2), Smart(3), SoftCool(4), TurboMode(5), WindMode1(6), WindMode2(7), WindMode3(8) 
     AC_FUN_DIRECTION:
-        Auto(0), SwingUD(1), Rotation(2), Fixed(3)
+        Auto(0), SwingUD(1), Rotation(2), Fixed(3), SwingLR(4)
 
  The binding asks the air conditioner for its status every 60 seconds, this is the only update from the air conditioner. Sometimes the newest changed aren't reflected at once, so you might have to wait a bit before the air conditioner returns the correct state.
  The air conditioner return an xml in the following format:
