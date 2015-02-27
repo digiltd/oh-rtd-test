@@ -16,7 +16,7 @@ the Insteon network (like notifications about switches being toggled)
 are picked up by the modem and converted to openHAB status updates by
 the binding. The binding also supports sending and receiving of legacy X10 messages.
 
-OpenHAB is not a configuration tool! To configure and set up your devices, use the free HouseLinc software provided by Insteon or link the devices manually.
+OpenHAB is not a configuration tool! To configure and set up your devices, use the free [HouseLinc software](https://www.insteon.com/houselinc) provided by Insteon or link the devices manually.
 
 ## Insteon devices
 
