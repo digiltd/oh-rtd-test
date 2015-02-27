@@ -66,7 +66,7 @@ It is important that you specify these correctly in the sitemap, as each command
         Switch item=ac_power icon="heating"
         Switch item=ac_mode label="Mode" icon="sofa" mappings=[0="Off", 1="Quiet", 2="Sleep", 3="Smart", 4="SoftCool", 5="TurboMode", 6="WindMode1", 7="WindMode2", 8="WindMode3"]
         Switch item=ac_op_mode icon="sofa" mappings=[0="Auto", 1="Cool", 2="Dry", 3="Wind", 4="Heat"]
-        Switch item=ac_direction icon="wind" mappings=[0="Auto", 1="SwingUD", 2="Rotation", 3="Fixed"]
+        Switch item=ac_direction icon="wind" mappings=[0="Auto", 1="SwingUD", 2="Rotation", 3="Fixed", 4="SwingLR"]
         Switch item=ac_windlevel icon="wind" mappings=[0="Auto", 1="Low", 2="Mid", 3="High", 4="Turbo"]
     }
 
