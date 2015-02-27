@@ -60,13 +60,13 @@ where `<property>` is one of a long list of properties than you can read and opt
 Since device and structure identifiers are so unwieldy, binding configurations allow you to use the device's textual name as a reference.  Whatever name you see in the web or mobile client is the name you would supply in an item's binding configuration.  So, for example, in order to determine the current humidity detected at the thermostat named 'Living Room', your binding configuration would look like this:
 
 ```
-Number humidity "humidity [%d %%]" { nest="<[thermostats(Living Room).humidity" }
+Number humidity "humidity [%d %%]" { nest="<[thermostats(Living Room).humidity]" }
 ```
 
 In order to change the current HVAC mode of the Living room thermostat between `off`, `heat`, `cool` and `heat-cool`, your item would look like this:
 
 ```
-String hvac_mode "HVAC Mode [%s]" { nest="=[thermostats(Living Room).hvac_mode" }
+String hvac_mode "HVAC Mode [%s]" { nest="=[thermostats(Living Room).hvac_mode]" }
 ```
 
 When you update the device with one of the four possible valid strings, you will change the HVAC mode.
@@ -80,13 +80,13 @@ Number therm_humidity "humidity [%d %%]"                { nest="<[thermostats(Na
 String therm_locale "locale [%s]"                       { nest="<[thermostats(Name).locale]" }
 String therm_temperature_scale "temperature_scale [%s]" { nest="<[thermostats(Name).temperature_scale]" }
 Switch therm_is_using_emergency_heat "is_using_emergency_heat [%s]" { nest="<[thermostats(Name).is_using_emergency_heat]" }
-String therm_has_fan "has_fan [%s]"                     { nest="<[thermostats(Name).has_fan]" }
-String therm_software_version "software_version [%s]"   { nest="<[thermostats(Name).software_version]" }
-String therm_has_leaf "has_leaf [%s]"                   { nest="<[thermostats(Name).has_leaf]" }
+Switch therm_has_fan "has_fan [%s]"                     { nest="<[thermostats(Name).has_fan]" }
+Switch therm_software_version "software_version [%s]"   { nest="<[thermostats(Name).software_version]" }
+Switch therm_has_leaf "has_leaf [%s]"                   { nest="<[thermostats(Name).has_leaf]" }
 String therm_device_id "device_id [%s]"                 { nest="<[thermostats(Name).device_id]" }
 String therm_name "name [%s]"                           { nest="<[thermostats(Name).name]" }
-String therm_can_heat "can_heat [%s]"                   { nest="<[thermostats(Name).can_heat]" }
-String therm_can_cool "can_cool [%s]"                   { nest="<[thermostats(Name).can_cool]" }
+Switch therm_can_heat "can_heat [%s]"                   { nest="<[thermostats(Name).can_heat]" }
+Switch therm_can_cool "can_cool [%s]"                   { nest="<[thermostats(Name).can_cool]" }
 String therm_hvac_mode "hvac_mode [%s]"                 { nest="=[thermostats(Name).hvac_mode]" }
 Number therm_target_temperature_c "target_temperature_c [%.1f °C]"           { nest="=[thermostats(Name).target_temperature_c]" }
 Number therm_target_temperature_f "target_temperature_f [%.1f °F]"           { nest="=[thermostats(Name).target_temperature_f]" }
@@ -101,9 +101,9 @@ Number therm_away_temperature_high_f "away_temperature_high_f [%.1f °F]"     { 
 Number therm_away_temperature_low_c "away_temperature_low_c [%.1f °C]"       { nest="<[thermostats(Name).away_temperature_low_c]" }
 Number therm_away_temperature_low_f "away_temperature_low_f [%.1f °F]"       { nest="<[thermostats(Name).away_temperature_low_f]" }
 String therm_structure_id "structure_id [%s]"           { nest="<[thermostats(Name).structure_id]" }
-String therm_fan_timer_active "fan_timer_active [%s]"   { nest="=[thermostats(Name).fan_timer_active]" }
+Switch therm_fan_timer_active "fan_timer_active [%s]"   { nest="=[thermostats(Name).fan_timer_active]" }
 String therm_name_long "name_long [%s]"                 { nest="<[thermostats(Name).name_long]" }
-String therm_is_online "is_online [%s]"                 { nest="<[thermostats(Name).is_online]" }
+Switch therm_is_online "is_online [%s]"                 { nest="<[thermostats(Name).is_online]" }
 DateTime therm_last_connection "last_connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[thermostats(Name).last_connection]" }
 
 String smoke_name "name [%s]"                           { nest="<[smoke_co_alarms(Name).name]" }
@@ -112,13 +112,13 @@ String smoke_structure_id "structure_id [%s]"           { nest="<[smoke_co_alarm
 String smoke_software_version "software_version [%s]"   { nest="<[smoke_co_alarms(Name).software_version]" }
 String smoke_device_id "device_id [%s]"                 { nest="<[smoke_co_alarms(Name).device_id]" }
 String smoke_name_long "name_long [%s]"                 { nest="<[smoke_co_alarms(Name).name_long]" }
-String smoke_is_online "is_online [%s]"                 { nest="<[smoke_co_alarms(Name).is_online]" }
+Switch smoke_is_online "is_online [%s]"                 { nest="<[smoke_co_alarms(Name).is_online]" }
 DateTime smoke_last_connection "last_connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[smoke_co_alarms(Name).last_connection]" }
 String smoke_battery_health "battery_health [%s]"       { nest="<[smoke_co_alarms(Name).battery_health]" }
 String smoke_smoke_alarm_state "smoke_alarm_state [%s]" { nest="<[smoke_co_alarms(Name).co_alarm_state]" }
 String smoke_co_alarm_state "co_alarm_state [%s]"       { nest="<[smoke_co_alarms(Name).smoke_co_alarm_state]" }
 String smoke_ui_color_state "ui_color_state [%s]"       { nest="<[smoke_co_alarms(Name).ui_color_state]" }
-String smoke_is_manual_test_active "is_manual_test_active [%s]" { nest="<[smoke_co_alarms(Name).is_manual_test_active]" }
+Switch smoke_is_manual_test_active "is_manual_test_active [%s]" { nest="<[smoke_co_alarms(Name).is_manual_test_active]" }
 DateTime smoke_last_manual_test_time "last_manual_test_time [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[smoke_co_alarms(Name).last_manual_test_time]" }
 
 String struct_name "name [%s]"                 { nest="<[structures(Name).name]" }
@@ -127,9 +127,9 @@ String struct_postal_code "postal_code [%s]"   { nest="<[structures(Name).postal
 String struct_time_zone "time_zone [%s]"       { nest="<[structures(Name).time_zone]" }
 String struct_away "away [%s]"                 { nest="=[structures(Name).away]" }
 String struct_structure_id "structure_id [%s]" { nest="<[structures(Name).structure_id]" }
-String struct_eta_trip_id "eta_trip_id [%s]"   { nest=">[structures(Name).eta.trip_id" }
-DateTime struct_eta_estimated_arrival_window_begin "estimated_arrival_window_begin [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_begin" }
-DateTime struct_eta_estimated_arrival_window_end "estimated_arrival_window_end [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_end" }
+String struct_eta_trip_id "eta_trip_id [%s]"   { nest=">[structures(Name).eta.trip_id]" }
+DateTime struct_eta_estimated_arrival_window_begin "estimated_arrival_window_begin [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_begin]" }
+DateTime struct_eta_estimated_arrival_window_end "estimated_arrival_window_end [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_end]" }
 
 /* You can reference a device in a specific structure in the case that there are duplicate names 
  * in multiple structures. 
