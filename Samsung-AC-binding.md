@@ -38,6 +38,21 @@ If you do not know your Samsung Air Conditioners IP- or Mac-address you can down
 When you have entered the host(IP) and mac details in the configuration, you will still need to retrieve a token from the air conditioner.
 During first connection attempt, you do not have a token, so pay attention to the log. It will ask you to switch on and off the air conditioner within 30 seconds. You will then receive a token printed in the log. Keep it and put it in openhab.cfg.
 
+Procedure:
+1) Turn AC on
+2) Comment the line containing token like:
+ # samsungac:Livingroom.token=
+3) Start openHAB in debug mode with:
+./start_debug.sh
+4) Watch the logs from a (different) console and look at AirConditioner messages:
+tail -f openHAB.log | grep AirConditioner
+5) You will find the messsage:
+ WARN  o.b.o.s.c.AirConditioner[:179]- NO TOKEN SET! Please switch off and on the air conditioner within 30 seconds
+6) Switch AC off and then on (be quick, you really have 20 seconds), you will then find your token in the logfile:
+WARN  o.b.o.s.c.AirConditioner[:175]- Received TOKEN from AC: 'e56a6def-1ecf-47d4-bc5d-9c818eaec76d'
+7) Copy the token to openhab.cfg and uncomment the line
+
+
 ## Item Binding Configuration
 
 In order to bind an item to the device, you need to provide some configuration settings. The way to do so is to add binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
