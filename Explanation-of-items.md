@@ -129,7 +129,7 @@ Items can be bound to specific openHAB bindings by adding a binding definition i
 
 where "nsx" is the namespace for a certain binding (e.g. "knx", "bluetooth", "serial" etc.). 
 
-For detailed binding configutation syntax of openHAB bindings please see the openHAB [[Bindings]] configuration section.
+For detailed binding configuration syntax of openHAB bindings please see the openHAB [[Bindings]] configuration section.
 
 **Example:**
 
