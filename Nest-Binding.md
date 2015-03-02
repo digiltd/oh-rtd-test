@@ -1,6 +1,6 @@
 ## Introduction
 
-Nest Labs developed the Wi-Fi enabled Nest Learning Thermostat and the Protect Smoke+CO detector.  These devices are supported by this binding, which communicates with the Nest API over a secure, RESTful API to Nest's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, monitoring and changing your "home/away" status, and monitoring your Nest Protects can be accomplished through this binding.
+Nest Labs developed the Wi-Fi enabled Nest Learning Thermostat and the Nest Protect Smoke+CO detector.  These devices are supported by this binding, which communicates with the Nest API over a secure, RESTful API to Nest's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, monitoring and changing your "home/away" status, and monitoring your Nest Protects can be accomplished through this binding.
 
 In order to use this binding, you will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.  At this point, you will have your `client_id` and `client_secret`.
 
@@ -10,17 +10,17 @@ For installation of the binding, please see the Wiki page [Bindings](Bindings).
 
 ## Binding Configuration
 
-In order to use the Nest API, you must specify the `client_id`, `client_secret` and `pincode` that will be used.  These values must be set in the `openhab.cfg` file (in the folder '${openhab_home}/configurations'). The refresh interval can also be specified, and defaults to 60000ms (one minute).
+In order to use the Nest API, you must specify the `client_id`, `client_secret` and `pin_code` that will be used.  These values must be set in the `openhab.cfg` file (in the folder '${openhab_home}/configurations'). The optional refresh interval can also be specified, and defaults to 60000ms (one minute).
 
 ### nest:refresh
 
-How often, in milliseconds, to update states.  Don't do it too frequently or you will hit API limits.
+How often, in milliseconds, to update states.  Don't do it too frequently or you will hit [data rate limits](https://developer.nest.com/documentation/cloud/data-rate-limits).  The referenced document recommends that you not set `nest:refresh` to a number lower than 60000.
 
 ```
 nest:refresh=60000
 ```
 
-## Authentication
+## Authorization
 
 You will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.
 
@@ -57,7 +57,7 @@ The first character is then followed by a section between square brackets (\[and
 
 where `<property>` is one of a long list of properties than you can read and optionally change. See the list below, and peruse the [Nest API Reference](https://developer.nest.com/documentation/api-reference) for all specifics as to their meanings.
 
-Since device and structure identifiers are so unwieldy, binding configurations allow you to use the device's textual name as a reference.  Whatever name you see in the web or mobile client is the name you would supply in an item's binding configuration.  So, for example, in order to determine the current humidity detected at the thermostat named 'Living Room', your binding configuration would look like this:
+Since device and structure identifiers are very long, cryptic strings that are hard to learn, binding configurations allow you to use the device's textual name as a reference.  Whatever name you see in the web or mobile client is the name you would supply in an item's binding configuration.  So, for example, in order to determine the current humidity detected at the thermostat named 'Living Room', your binding configuration would look like this:
 
 ```
 Number humidity "humidity [%d %%]" { nest="<[thermostats(Living Room).humidity]" }
@@ -65,9 +65,9 @@ Number humidity "humidity [%d %%]" { nest="<[thermostats(Living Room).humidity]"
 
 ### Handling special characters
 
-With the convenience of using simple names for structures, thermostats and smoke+CO detectors comes the price of having to handle special characters in the names.  Any characters in a name that could interfere with the parsing of the binding configuration string need to be either 1) removed from the device name in your account at nest.com, or 2) replaced with "URL-encoded" versions.  The characters that have to be replaced are `[`,`]`,`(`, `)`, `,`, `.` and `+`.  Here are some examples:
+With the convenience of using simple names for structures, thermostats and smoke+CO detectors, comes the price of having to handle special characters in the names.  Any characters in a name that could interfere with the parsing of the binding configuration string need to be either 1) removed from the device name in your account at nest.com, or 2) replaced with "URL-encoded" versions.  The characters that have to be replaced are `[`, `]`, `(`, `)`, `,`, `.` and `+`.  Here are some examples:
 
-The display name you see at nest.com | The escaped version to use in the Nest binding
+What you see at nest.com | The escaped version to use in the Nest binding
 -------------------------------------|-----------------------------------------------
 Dining Room (Ground Floor) | Dining Room %28Ground Floor%29
 Den Smoke+CO | Den Smoke%2BCO
@@ -85,7 +85,7 @@ String hvac_mode "HVAC Mode [%s]" { nest="=[thermostats(Living Room).hvac_mode]"
 
 When you update the device with one of the four possible valid strings, you will change the HVAC mode.
 
-Below are some examples of valid binding configuration strings, as you would define in the your .items file.  The examples represent the current set of available properties, and for each property, the example shows if it is an in-binding only (read-only), an out-binding only (write-only), or a bidirectional (read/write) binding only.
+Below are some examples of valid binding configuration strings, as you would define in the your .items file.  The examples represent the current set of available properties, and for each property, the example shows if it is an in-binding only (read-only), an out-binding only (write-only), or a bidirectional (read/write) binding only.  Note, however, that if a read/write property is only authorized for read-only access in the client you authorized, an attempt to change its value will fail.
 
 ```
 /* Nest binding items */
@@ -145,8 +145,8 @@ String smoke_name_long "name_long [%s]"                 { nest="<[smoke_co_alarm
 Switch smoke_is_online "is_online [%s]"                 { nest="<[smoke_co_alarms(Name).is_online]" }
 DateTime smoke_last_connection "last_connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[smoke_co_alarms(Name).last_connection]" }
 String smoke_battery_health "battery_health [%s]"       { nest="<[smoke_co_alarms(Name).battery_health]" }
-String smoke_smoke_alarm_state "smoke_alarm_state [%s]" { nest="<[smoke_co_alarms(Name).co_alarm_state]" }
-String smoke_co_alarm_state "co_alarm_state [%s]"       { nest="<[smoke_co_alarms(Name).smoke_co_alarm_state]" }
+String smoke_smoke_alarm_state "smoke_alarm_state [%s]" { nest="<[smoke_co_alarms(Name).smoke_alarm_state]" }
+String smoke_co_alarm_state "co_alarm_state [%s]"       { nest="<[smoke_co_alarms(Name).co_alarm_state]" }
 String smoke_ui_color_state "ui_color_state [%s]"       { nest="<[smoke_co_alarms(Name).ui_color_state]" }
 Switch smoke_is_manual_test_active "is_manual_test_active [%s]" { nest="<[smoke_co_alarms(Name).is_manual_test_active]" }
 DateTime smoke_last_manual_test_time "last_manual_test_time [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[smoke_co_alarms(Name).last_manual_test_time]" }
@@ -162,7 +162,7 @@ NOT A REAL ITEM { nest="<[structures(Name).thermostats(Name).SEE_ABOVE]" }
 ## Known Issues
 
 1. Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Prohibition 3 of the [Nest Developer Terms of Service](https://developer.nest.com/documentation/cloud/tos), and so is not implemented.
-2. The Nest API rounds humidity to 5%, degrees Fahrenheit to whole degrees, and degrees Celsius to 0.5 degrees.  So your Nest app will likely show slightly different values from what is available from the API.
+2. The Nest API rounds humidity to 5%, degrees Fahrenheit to whole degrees, and degrees Celsius to 0.5 degrees, so your Nest app will likely show slightly different values from what is available from the API.
 
 ## Logging
 
