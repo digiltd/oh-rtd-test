@@ -85,10 +85,24 @@ String hvac_mode "HVAC Mode [%s]" { nest="=[thermostats(Living Room).hvac_mode]"
 
 When you update the device with one of the four possible valid strings, you will change the HVAC mode.
 
-Here are some examples of valid binding configuration strings, as you would define in the your .items file:
+Below are some examples of valid binding configuration strings, as you would define in the your .items file.  The examples represent the current set of available properties, and for each property, the example shows if it is an in-binding only (read-only), an out-binding only (write-only), or a bidirectional (read/write) binding only.
 
 ```
 /* Nest binding items */
+
+/* Structures */
+
+String struct_name "name [%s]"                 { nest="<[structures(Name).name]" }
+String struct_country_code "country_code [%s]" { nest="<[structures(Name).country_code]" }
+String struct_postal_code "postal_code [%s]"   { nest="<[structures(Name).postal_code]" }
+String struct_time_zone "time_zone [%s]"       { nest="<[structures(Name).time_zone]" }
+String struct_away "away [%s]"                 { nest="=[structures(Name).away]" }
+String struct_structure_id "structure_id [%s]" { nest="<[structures(Name).structure_id]" }
+String struct_eta_trip_id "eta_trip_id [%s]"   { nest=">[structures(Name).eta.trip_id]" }
+DateTime struct_eta_estimated_arrival_window_begin "estimated_arrival_window_begin [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_begin]" }
+DateTime struct_eta_estimated_arrival_window_end "estimated_arrival_window_end [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_end]" }
+
+/* Thermostats */
 
 Number therm_humidity "humidity [%d %%]"                { nest="<[thermostats(Name).humidity]" }
 String therm_locale "locale [%s]"                       { nest="<[thermostats(Name).locale]" }
@@ -120,6 +134,8 @@ String therm_name_long "name_long [%s]"                 { nest="<[thermostats(Na
 Switch therm_is_online "is_online [%s]"                 { nest="<[thermostats(Name).is_online]" }
 DateTime therm_last_connection "last_connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[thermostats(Name).last_connection]" }
 
+/* Smoke+CO detectors */
+
 String smoke_name "name [%s]"                           { nest="<[smoke_co_alarms(Name).name]" }
 String smoke_locale "locale [%s]"                       { nest="<[smoke_co_alarms(Name).locale]" }
 String smoke_structure_id "structure_id [%s]"           { nest="<[smoke_co_alarms(Name).structure_id]" }
@@ -135,16 +151,6 @@ String smoke_ui_color_state "ui_color_state [%s]"       { nest="<[smoke_co_alarm
 Switch smoke_is_manual_test_active "is_manual_test_active [%s]" { nest="<[smoke_co_alarms(Name).is_manual_test_active]" }
 DateTime smoke_last_manual_test_time "last_manual_test_time [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[smoke_co_alarms(Name).last_manual_test_time]" }
 
-String struct_name "name [%s]"                 { nest="<[structures(Name).name]" }
-String struct_country_code "country_code [%s]" { nest="<[structures(Name).country_code]" }
-String struct_postal_code "postal_code [%s]"   { nest="<[structures(Name).postal_code]" }
-String struct_time_zone "time_zone [%s]"       { nest="<[structures(Name).time_zone]" }
-String struct_away "away [%s]"                 { nest="=[structures(Name).away]" }
-String struct_structure_id "structure_id [%s]" { nest="<[structures(Name).structure_id]" }
-String struct_eta_trip_id "eta_trip_id [%s]"   { nest=">[structures(Name).eta.trip_id]" }
-DateTime struct_eta_estimated_arrival_window_begin "estimated_arrival_window_begin [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_begin]" }
-DateTime struct_eta_estimated_arrival_window_end "estimated_arrival_window_end [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_end]" }
-
 /* You can reference a device in a specific structure in the case that there are duplicate names 
  * in multiple structures. 
  */
@@ -155,7 +161,8 @@ NOT A REAL ITEM { nest="<[structures(Name).thermostats(Name).SEE_ABOVE]" }
 
 ## Known Issues
 
-Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Prohibition 3 of the [Nest Developer Terms of Service](https://developer.nest.com/documentation/cloud/tos), and so is not implemented.
+1. Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Prohibition 3 of the [Nest Developer Terms of Service](https://developer.nest.com/documentation/cloud/tos), and so is not implemented.
+2. The Nest API rounds humidity to 5%, degrees Fahrenheit to whole degrees, and degrees Celsius to 0.5 degrees.  So your Nest app will likely show slightly different values from what is available from the API.
 
 ## Logging
 
