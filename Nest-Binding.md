@@ -2,9 +2,9 @@
 
 Nest Labs developed the Wi-Fi enabled Nest Learning Thermostat and the Protect Smoke+CO detector.  These devices are supported by this binding, which communicates with the Nest API over a secure, RESTful API to Nest's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, monitoring and changing your "home/away" status, and monitoring your Nest Protects can be accomplished through this binding.
 
-In order to use this binding, you will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.
+In order to use this binding, you will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.  At this point, you will have your `client_id` and `client_secret`.
 
-Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the pincode.
+Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the `pin_code`.
 
 For installation of the binding, please see the Wiki page [Bindings](Bindings).
 
@@ -24,7 +24,7 @@ nest:refresh=60000
 
 You will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.
 
-Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the pincode.
+Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the PIN code.
 
 Paste all three of these values into your openhab.cfg file like so (using your actual values):
 
@@ -33,15 +33,15 @@ Paste all three of these values into your openhab.cfg file like so (using your a
     # Data refresh interval in ms (optional, defaults to 60000)
     # nest:refresh=60000
 
-    # the client_id for the client you created (replace with your own)
+    # the Client ID for the client you created (replace with your own)
     nest:client_id=e5cc5558-ec55-4c55-8555-4b95555f4979
 
-    # the client_secret for the client you created (replace with your own)
+    # the Client Secret for the client you created (replace with your own)
     nest:client_secret=ZZo28toiuoiurok4WjUya1Bnc
 
-    # the pincode that was generated when you authorized your account to allow
+    # the PIN code that was generated when you authorized your account to allow
     # this client
-    nest:pincode=2JTXXXJL
+    nest:pin_code=2JTXXXJL
 
 ## Item configuration
 
@@ -62,6 +62,20 @@ Since device and structure identifiers are so unwieldy, binding configurations a
 ```
 Number humidity "humidity [%d %%]" { nest="<[thermostats(Living Room).humidity]" }
 ```
+
+### Handling special characters
+
+With the convenience of using simple names for structures, thermostats and smoke+CO detectors comes the price of having to handle special characters in the names.  Any characters in a name that could interfere with the parsing of the binding configuration string need to be either 1) removed from the device name in your account at nest.com, or 2) replaced with "URL-encoded" versions.  The characters that have to be replaced are `[`,`]`,`(`, `)`, `,`, `.` and `+`.  Here are some examples:
+
+The display name you see at nest.com | The escaped version to use in the Nest binding
+-------------------------------------|-----------------------------------------------
+Dining Room (Ground Floor) | Dining Room %28Ground Floor%29
+Den Smoke+CO | Den Smoke%2BCO
+123 Main St. | 123 Main St%2E
+Bogota, Colombia | Bogota%2C Colombia
+[Basement] | %5BBasement%5D
+
+To reiterate, you could change the display names of your devices at nest.com, and thereby avoid having to put escaped versions in your binding configuration strings.
 
 In order to change the current HVAC mode of the Living room thermostat between `off`, `heat`, `cool` and `heat-cool`, your item would look like this:
 
