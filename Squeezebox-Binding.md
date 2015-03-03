@@ -144,7 +144,7 @@ Rule file:
 	then
 		var String text= "Das ist ein Text mit variablem Inhalt: " + Item1.state.toString + 
 		" und " + Item2.state.toString 
-		url = "http://192.168.2.5:9000/status?p0=display&p1=&p2=" + text.encode("UTF-8") + "&p3=300&player=00:04:20:06:21:6d" 
+		var String url = "http://192.168.2.5:9000/status?p0=display&p1=&p2=" + text.encode("UTF-8") + "&p3=300&player=00:04:20:06:21:6d" 
                 sendHttpGetRequest(url)
      end
 
