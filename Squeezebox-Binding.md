@@ -138,9 +138,9 @@ Sitemap file:
 
 Rule file:
 
-    rule "Squeezebox_PlayList"
+    rule "SqueezeboxDisplay"
 	when
-		Item Squeezebox_PlayList received command
+		<any event>
 	then
 		var String text= "Das ist ein Text mit variablem Inhalt: " + Item1.state.toString + 
 		" und " + Item2.state.toString 
