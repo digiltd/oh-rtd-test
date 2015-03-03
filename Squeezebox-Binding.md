@@ -134,5 +134,22 @@ Sitemap file:
 
     Selection item=Squeezebox_PlayList label="Start Playlist" mappings=[0="<Name of Playlist>", 1="<Name of Next Playlist >"] 
 
+##Example for displaying text
+
+Rule file:
+
+    rule "Squeezebox_PlayList"
+	when
+		Item Squeezebox_PlayList received command
+	then
+		var String text= "Das ist ein Text mit variablem Inhalt: " + Item1.state.toString + 
+		" und " + Item2.state.toString 
+		url = "http://192.168.2.5:9000/status?p0=display&p1=&p2=" + text.encode("UTF-8") + "&p3=300&player=00:04:20:06:21:6d" 
+                sendHttpGetRequest(url)
+     end
+
+The is UTF-8 encoded. The URL calls the squeezebox server at port 9000 with this parameters: p1=upper display line, p2=lower display line, p3=duration of display, player= MAC address of player
+
+
 # Example Configuration
 [[Squeezebox example configuration|SqueezeboxExample]]
