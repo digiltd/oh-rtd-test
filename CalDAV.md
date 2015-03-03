@@ -58,3 +58,62 @@ Binding file: org.openhab.binding.caldav-presence-version.jar
 * START: start time (itemtype: DateTime)
 * END: end time (itemtype: DateTime)
 * TIME: start/end time (itemtype: String)
+
+## Example configuration
+openhab.cfg
+There are three calendars defined. One of them is used just for executing commands in openhab (Command-kalender). The others are used to show the upcoming events (Müllkalender, Dienstlicher/privater Kalender).
+In every case, the binding org.openhab.io.caldav-<version>.jar is needed. For executing commands the additional binding org.openhab.binding.caldav-command-<version>.jar is needed. For upcoming events or presence simulation the binding org.openhab.binding.caldav-personal-<version>.jar needs to be included.
+
+    ################################ CalDav Binding #######################################
+    #
+    #caldavio:<calendar-id>:url=
+    #caldavio:<calendar-id>:username=
+    #caldavio:<calendar-id>:password=
+    #caldavio:<calendar-id>:reloadInterval=<minutes>
+    #caldavio:<calendar-id>:preloadTime=<minutes>
+
+    # Dienstlicher/privater Kalender
+    caldavio:dienstlich:url=http://192.168.2.5/owncloud/remote.php/caldav/calendars/user/pers%C3%B6nlich
+    caldavio:dienstlich:username=user
+    caldavio:dienstlich:password=password
+    caldavio:dienstlich:reloadInterval=60
+    caldavio:dienstlich:preloadTime=2880
+
+    # Müllkalender
+    caldavio:muell:url=http://192.168.2.5/owncloud/remote.php/caldav/calendars/user/m%C3%BCll
+    caldavio:muell:username=user
+    caldavio:muell:password=password
+    caldavio:muell:reloadInterval=1440
+    caldavio:muell:preloadTime=2880
+
+    # Command-kalender``
+    caldavio:command:url=http://192.168.2.5/owncloud/remote.php/caldav/calendars/user/command
+    caldavio:command:username=user
+    caldavio:command:password=password
+    caldavio:command:reloadInterval=10
+    caldavio:command:preloadTime=1440
+
+    # Additionally needed binding: org.openhab.binding.caldav-command-<version>.jar
+    # used to execute commands by a triggered event
+    # multiple calendars (calerdar-id) can be seperated by commas
+    #caldavCommand:readCalendars=<calendar-id>
+    caldavCommand:readCalendars=command
+
+    # Additionally needed binding: org.openhab.binding.caldav-personal-<version>.jar
+    # used to record and simulate presence and to show upcoming/active events
+    # multiple calendars (calerdar-id) can be seperated by commas
+    #caldavPersonal:usedCalendars=<calendar-id>
+    caldavPersonal:usedCalendars=dienstlich,muell
+
+    # If one of these identifiers can be found inside the place of the event, 
+    # this event will not be used for presence
+    #caldavPersonal:homeIdentifiers=<values seperated by commas>
+
+The items-File:
+
+    String OfficeCalName0	"Termin jetzt"		<calendar>	{ caldavPersonal="calendar:dienstlich type:ACTIVE eventNr:1 value:NAME" } //eventNr for concurrent events
+    DateTime OfficeCalTime0	"Beginn"			<calendar>	{ caldavPersonal="calendar:dienstlich type:ACTIVE eventNr:1 value:START" } //eventNr for concurrent events
+    String OfficeCalName1	"nächster Termin"	<calendar>	{ caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:1 value:NAME" }
+    DateTime OfficeCalTime1	"Beginn"			<calendar>	{ caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:1 value:START" }
+    String OfficeCalName2	"übernächster Termin" <calendar> { caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:2 value:NAME" }
+    DateTime OfficeCalTime2	"Beginn" 			<calendar> { caldavPersonal="calendar:dienstlich type:UPCOMING eventNr:2 value:START" }
