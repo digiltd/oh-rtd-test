@@ -117,17 +117,17 @@ Switch therm_can_heat "can_heat [%s]"                   { nest="<[thermostats(Na
 Switch therm_can_cool "can_cool [%s]"                   { nest="<[thermostats(Name).can_cool]" }
 String therm_hvac_mode "hvac_mode [%s]"                 { nest="=[thermostats(Name).hvac_mode]" }
 Number therm_target_temperature_c "target_temperature_c [%.1f °C]"           { nest="=[thermostats(Name).target_temperature_c]" }
-Number therm_target_temperature_f "target_temperature_f [%f °F]"           { nest="=[thermostats(Name).target_temperature_f]" }
+Number therm_target_temperature_f "target_temperature_f [%.1f °F]"           { nest="=[thermostats(Name).target_temperature_f]" }
 Number therm_target_temperature_high_c "target_temperature_high_c [%.1f °C]" { nest="=[thermostats(Name).target_temperature_high_c]" }
-Number therm_target_temperature_high_f "target_temperature_high_f [%f °F]" { nest="=[thermostats(Name).target_temperature_high_f]" }
+Number therm_target_temperature_high_f "target_temperature_high_f [%.1f °F]" { nest="=[thermostats(Name).target_temperature_high_f]" }
 Number therm_target_temperature_low_c "target_temperature_low_c [%.1f °C]"   { nest="=[thermostats(Name).target_temperature_low_c]" }
-Number therm_target_temperature_low_f "target_temperature_low_f [%f °F]"   { nest="=[thermostats(Name).target_temperature_low_f]" }
+Number therm_target_temperature_low_f "target_temperature_low_f [%.1f °F]"   { nest="=[thermostats(Name).target_temperature_low_f]" }
 Number therm_ambient_temperature_c "ambient_temperature_c [%.1f °C]"         { nest="<[thermostats(Name).ambient_temperature_c]" }
-Number therm_ambient_temperature_f "ambient_temperature_f [%f °F]"         { nest="<[thermostats(Name).ambient_temperature_f]" }
+Number therm_ambient_temperature_f "ambient_temperature_f [%.1f °F]"         { nest="<[thermostats(Name).ambient_temperature_f]" }
 Number therm_away_temperature_high_c "away_temperature_high_c [%.1f °C]"     { nest="<[thermostats(Name).away_temperature_high_c]" }
-Number therm_away_temperature_high_f "away_temperature_high_f [%f °F]"     { nest="<[thermostats(Name).away_temperature_high_f]" }
+Number therm_away_temperature_high_f "away_temperature_high_f [%.1f °F]"     { nest="<[thermostats(Name).away_temperature_high_f]" }
 Number therm_away_temperature_low_c "away_temperature_low_c [%.1f °C]"       { nest="<[thermostats(Name).away_temperature_low_c]" }
-Number therm_away_temperature_low_f "away_temperature_low_f [%f °F]"       { nest="<[thermostats(Name).away_temperature_low_f]" }
+Number therm_away_temperature_low_f "away_temperature_low_f [%.1f °F]"       { nest="<[thermostats(Name).away_temperature_low_f]" }
 String therm_structure_id "structure_id [%s]"           { nest="<[thermostats(Name).structure_id]" }
 Switch therm_fan_timer_active "fan_timer_active [%s]"   { nest="=[thermostats(Name).fan_timer_active]" }
 String therm_name_long "name_long [%s]"                 { nest="<[thermostats(Name).name_long]" }
@@ -156,8 +156,8 @@ DateTime smoke_last_manual_test_time "last_manual_test_time [%1$tm/%1$td/%1$tY %
  * same structure, or duplicate-named structures, you will have to rename them at nest.com.
  */
 
-Number house_temp "House temperature [%f °F]" { nest="<[structures(House).thermostats(Dining Room).ambient_temperature_f]" }
-Number condo_temp "Condo temperature [%f °F]" { nest="<[structures(Condo).thermostats(Dining Room).ambient_temperature_f]" }
+Number house_temp "House temperature [%.1f °F]" { nest="<[structures(House).thermostats(Dining Room).ambient_temperature_f]" }
+Number condo_temp "Condo temperature [%.1f °F]" { nest="<[structures(Condo).thermostats(Dining Room).ambient_temperature_f]" }
 ```
 
 ## Known Issues
@@ -167,13 +167,13 @@ Number condo_temp "Condo temperature [%f °F]" { nest="<[structures(Condo).therm
 3. There is currently a bug where attempting to update an item with a binding configuration of this form will not work:
 
 ```
-Number condo_temp "condo_temp [%f °F]" { nest="=[structures(Condo).thermostats(Dining Room).target_temperature_f]" }
+Number condo_temp "condo_temp [%f °.1F]" { nest="=[structures(Condo).thermostats(Dining Room).target_temperature_f]" }
 ```
 
 While this form should work:
 
 ```
-Number condo_temp "condo_temp [%f °F]" { nest="=[thermostats(Dining Room).target_temperature_f]" }
+Number condo_temp "condo_temp [%.1f °F]" { nest="=[thermostats(Dining Room).target_temperature_f]" }
 ```
 
 ## Logging
