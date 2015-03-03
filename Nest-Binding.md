@@ -152,11 +152,12 @@ Switch smoke_is_manual_test_active "is_manual_test_active [%s]" { nest="<[smoke_
 DateTime smoke_last_manual_test_time "last_manual_test_time [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[smoke_co_alarms(Name).last_manual_test_time]" }
 
 /* You can reference a device in a specific structure in the case that there are duplicate names 
- * in multiple structures. 
+ * in multiple structures. If you have duplicate-named thermostats or smoke+CO detectors in the
+ * same structure, or duplicate-named structures, you will have to rename them at nest.com.
  */
 
-NOT A REAL ITEM { nest="<[structures(Name).smoke_co_alarms(Name).SEE_ABOVE]" }
-NOT A REAL ITEM { nest="<[structures(Name).thermostats(Name).SEE_ABOVE]" }
+Number house_temp "House temperature [%f °F]" { nest="<[structures(House).thermostats(Dining Room).ambient_temperature_f]" }
+Number condo_temp "Condo temperature [%f °F]" { nest="<[structures(Condo).thermostats(Dining Room).ambient_temperature_f]" }
 ```
 
 ## Known Issues
