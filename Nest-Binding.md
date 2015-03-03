@@ -102,9 +102,6 @@ String   Nest_postal_code "Postal Code [%s]"   {nest="<[structures(Home).postal_
 String   Nest_time_zone "Time Zone [%s]"       {nest="<[structures(Home).time_zone]"}
 String   Nest_away "Away [%s]"                 {nest="=[structures(Home).away]"}
 String   Nest_structure_id "Structure Id [%s]" {nest="<[structures(Home).structure_id]"}
-String   Nest_eta_trip_id "ETA Trip Id [%s]"   {nest=">[structures(Home).eta.trip_id]"}
-DateTime Nest_eta_estimated_arrival_window_begin "Estimated arrival window begin [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest=">[structures(Home).eta.estimated_arrival_window_begin]"}
-DateTime Nest_eta_estimated_arrival_window_end "Estimated arrival window end [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest=">[structures(Home).eta.estimated_arrival_window_end]"}
 
 /* Thermostats - change Upstairs to your thermostat's name */
 
