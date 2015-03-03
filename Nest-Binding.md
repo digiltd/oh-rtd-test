@@ -94,7 +94,7 @@ In this example, there is a Nest Account called `Home`, a Thermostat called `Ups
 ```
 /* Nest binding Items */
 
-/* Structures */
+/* Structures - change Home to your structure's name */
 
 String   Nest_name "Name [%s]"                 {nest="<[structures(Home).name]"}
 String   Nest_country_code "Country Code [%s]" {nest="<[structures(Home).country_code]"}
@@ -106,7 +106,7 @@ String   Nest_eta_trip_id "ETA Trip Id [%s]"   {nest=">[structures(Home).eta.tri
 DateTime Nest_eta_estimated_arrival_window_begin "Estimated arrival window begin [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest=">[structures(Home).eta.estimated_arrival_window_begin]"}
 DateTime Nest_eta_estimated_arrival_window_end "Estimated arrival window end [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest=">[structures(Home).eta.estimated_arrival_window_end]"}
 
-/* Thermostats */
+/* Thermostats - change Upstairs to your thermostat's name */
 
 Number   NestTStatUpstairs_humidity "Humidity [%d %%]"                                   {nest="<[thermostats(Upstairs).humidity]"}
 String   NestTStatUpstairs_locale "Locale [%s]"                                          {nest="<[thermostats(Upstairs).locale]"}
@@ -138,7 +138,7 @@ String   NestTStatUpstairs_name_long "Name Long [%s]"                           
 Switch   NestTStatUpstairs_is_online "Is Online [%s]"                                    {nest="<[thermostats(Upstairs).is_online]"}
 DateTime NestTStatUpstairs_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[thermostats(Upstairs).last_connection]"}
 
-/* Smoke+CO detectors */
+/* Smoke+CO detectors - change Master Bedroom to your Smoke+CO detector's name */
 
 String   NestSmokeMaster_name "Name [%s]"                                   {nest="<[smoke_co_alarms(Master Bedroom).name]"}
 String   NestSmokeMaster_locale "Locale [%s]"                               {nest="<[smoke_co_alarms(Master Bedroom).locale]"}
