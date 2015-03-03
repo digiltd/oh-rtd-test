@@ -1,6 +1,6 @@
 ## Introduction
 
-Nest Labs developed the Wi-Fi enabled Nest Learning Thermostat and the Nest Protect Smoke+CO detector.  These devices are supported by this binding, which communicates with the Nest API over a secure, RESTful API to Nest's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, monitoring and changing your "home/away" status, and monitoring your Nest Protects can be accomplished through this binding.
+[Nest Labs](https://nest.com/) developed the Wi-Fi enabled Nest Learning Thermostat and the Nest Protect Smoke+CO detector.  These devices are supported by this binding, which communicates with the Nest API over a secure, RESTful API to Nest's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, monitoring and changing your "home/away" status, and monitoring your Nest Protects can be accomplished through this binding.
 
 In order to use this binding, you will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.  At this point, you will have your `client_id` and `client_secret`.
 
@@ -10,23 +10,25 @@ For installation of the binding, please see the Wiki page [Bindings](Bindings).
 
 ## Binding Configuration
 
-In order to use the Nest API, you must specify the `client_id`, `client_secret` and `pin_code` that will be used.  These values must be set in the `openhab.cfg` file (in the folder '${openhab_home}/configurations'). The optional refresh interval can also be specified, and defaults to 60000ms (one minute).
+In order to use the Nest API, you must specify the `nest:client_id`, `nest:client_secret` and `nest:pin_code` parameters to be used in interactions with Nest's cloud service.
 
-### nest:refresh
+These values must be set in the `openhab.cfg` file in `${openhab_home}/configurations/`.
 
-How often, in milliseconds, to update states.  Don't do it too frequently or you will hit [data rate limits](https://developer.nest.com/documentation/cloud/data-rate-limits).  The referenced document recommends that you not set `nest:refresh` to a number lower than 60000.
+An optional _refresh interval_ setting may also be specified, via the `nest:refresh` parameter, and defaults to a polling rate of one call per every 60000ms (one minute).
+
+:warning: Setting the _refresh interval_ aggressively may cause you to hit [data rate limits](https://developer.nest.com/documentation/cloud/data-rate-limits).  Nest Documentation recommends the `nest:refresh` not be set lower than 60000.
 
 ```
 nest:refresh=60000
 ```
 
-## Authorization
+## Nest Authorization
 
 You will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.
 
-Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the PIN code.
+Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will present the Nest generated PIN code.
 
-Paste all three of these values into your openhab.cfg file like so (using your actual values):
+Paste all three of these values into your `openhab.cfg` file like so (using _your_ values):
 
     ############################## Nest binding ########################################
     #
@@ -45,9 +47,9 @@ Paste all three of these values into your openhab.cfg file like so (using your a
 
 ## Item configuration
 
-In order to bind an item to a Nest Learning Thermostat's or Nest Protect's properties, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). The syntax for the Nest binding configuration string is explained below.
+In order to bind an Item to a Nest Learning Thermostat's or Nest Protect's properties, you need to provide configuration settings. The easiest way to do so is to add some binding information in your Item file (in  `configurations/items/`). The syntax for the Nest binding configuration string is explained below.
 
-Nest bindings start with a `<`, `>` or `=`, to indicate if the item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
+Nest bindings start with a `<`, `>` or `=`, to indicate if the Item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
 
 The first character is then followed by a section between square brackets (\[and \] characters):
 
@@ -57,10 +59,10 @@ The first character is then followed by a section between square brackets (\[and
 
 where `<property>` is one of a long list of properties than you can read and optionally change. See the list below, and peruse the [Nest API Reference](https://developer.nest.com/documentation/api-reference) for all specifics as to their meanings.
 
-Since device and structure identifiers are very long, cryptic strings that are hard to learn, binding configurations allow you to use the device's textual name as a reference.  Whatever name you see in the web or mobile client is the name you would supply in an item's binding configuration.  So, for example, in order to determine the current humidity detected at the thermostat named 'Living Room', your binding configuration would look like this:
+Since device and structure identifiers are very long, cryptic strings that are hard to learn, binding configurations allow you to use the device's textual name as a reference.  Whatever name you see in the web or mobile client is the name you would supply in an Item's binding configuration.  So, for example, in order to determine the current humidity detected at the thermostat named 'Living Room', your binding configuration would look like this:
 
 ```
-Number humidity "humidity [%d %%]" { nest="<[thermostats(Living Room).humidity]" }
+Number NestTStatUpstairs_humidity "Humidity [%d %%]" {nest="<[thermostats(Living Room).humidity]"}
 ```
 
 ### Handling special characters
@@ -77,103 +79,106 @@ Bogota, Colombia | Bogota%2C Colombia
 
 To reiterate, you could change the display names of your devices at nest.com, and thereby avoid having to put escaped versions in your binding configuration strings.
 
-In order to change the current HVAC mode of the Living room thermostat between `off`, `heat`, `cool` and `heat-cool`, your item would look like this:
+In order to change the current HVAC mode of the Living room thermostat between `off`, `heat`, `cool` and `heat-cool`, your Item would look like:
 
 ```
-String hvac_mode "HVAC Mode [%s]" { nest="=[thermostats(Living Room).hvac_mode]" }
+String NestTStatUpstairs_hvac_mode "HVAC Mode [%s]" {nest="=[thermostats(Living Room).hvac_mode]"}
 ```
 
 When you update the device with one of the four possible valid strings, you will change the HVAC mode.
 
 Below are some examples of valid binding configuration strings, as you would define in the your .items file.  The examples represent the current set of available properties, and for each property, the example shows if it is an in-binding only (read-only), an out-binding only (write-only), or a bidirectional (read/write) binding only.  Note, however, that if a read/write property is only authorized for read-only access in the client you authorized, an attempt to change its value will fail.
 
+In this example, there is a Nest Account called `Home`, a Thermostat called `Upstairs` and a Smoke/CO Sensor called `Master Bedroom`
+
 ```
-/* Nest binding items */
+/* Nest binding Items */
 
 /* Structures */
 
-String struct_name "name [%s]"                 { nest="<[structures(Name).name]" }
-String struct_country_code "country_code [%s]" { nest="<[structures(Name).country_code]" }
-String struct_postal_code "postal_code [%s]"   { nest="<[structures(Name).postal_code]" }
-String struct_time_zone "time_zone [%s]"       { nest="<[structures(Name).time_zone]" }
-String struct_away "away [%s]"                 { nest="=[structures(Name).away]" }
-String struct_structure_id "structure_id [%s]" { nest="<[structures(Name).structure_id]" }
-String struct_eta_trip_id "eta_trip_id [%s]"   { nest=">[structures(Name).eta.trip_id]" }
-DateTime struct_eta_estimated_arrival_window_begin "estimated_arrival_window_begin [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_begin]" }
-DateTime struct_eta_estimated_arrival_window_end "estimated_arrival_window_end [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest=">[structures(Name).eta.estimated_arrival_window_end]" }
+String   Nest_name "Name [%s]"                 {nest="<[structures(Home).name]"}
+String   Nest_country_code "Country Code [%s]" {nest="<[structures(Home).country_code]"}
+String   Nest_postal_code "Postal Code [%s]"   {nest="<[structures(Home).postal_code]"}
+String   Nest_time_zone "Time Zone [%s]"       {nest="<[structures(Home).time_zone]"}
+String   Nest_away "Away [%s]"                 {nest="=[structures(Home).away]"}
+String   Nest_structure_id "Structure Id [%s]" {nest="<[structures(Home).structure_id]"}
+String   Nest_eta_trip_id "ETA Trip Id [%s]"   {nest=">[structures(Home).eta.trip_id]"}
+DateTime Nest_eta_estimated_arrival_window_begin "Estimated arrival window begin [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest=">[structures(Home).eta.estimated_arrival_window_begin]"}
+DateTime Nest_eta_estimated_arrival_window_end "Estimated arrival window end [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest=">[structures(Home).eta.estimated_arrival_window_end]"}
 
 /* Thermostats */
 
-Number therm_humidity "humidity [%d %%]"                { nest="<[thermostats(Name).humidity]" }
-String therm_locale "locale [%s]"                       { nest="<[thermostats(Name).locale]" }
-String therm_temperature_scale "temperature_scale [%s]" { nest="<[thermostats(Name).temperature_scale]" }
-Switch therm_is_using_emergency_heat "is_using_emergency_heat [%s]" { nest="<[thermostats(Name).is_using_emergency_heat]" }
-Switch therm_has_fan "has_fan [%s]"                     { nest="<[thermostats(Name).has_fan]" }
-Switch therm_software_version "software_version [%s]"   { nest="<[thermostats(Name).software_version]" }
-Switch therm_has_leaf "has_leaf [%s]"                   { nest="<[thermostats(Name).has_leaf]" }
-String therm_device_id "device_id [%s]"                 { nest="<[thermostats(Name).device_id]" }
-String therm_name "name [%s]"                           { nest="<[thermostats(Name).name]" }
-Switch therm_can_heat "can_heat [%s]"                   { nest="<[thermostats(Name).can_heat]" }
-Switch therm_can_cool "can_cool [%s]"                   { nest="<[thermostats(Name).can_cool]" }
-String therm_hvac_mode "hvac_mode [%s]"                 { nest="=[thermostats(Name).hvac_mode]" }
-Number therm_target_temperature_c "target_temperature_c [%.1f °C]"           { nest="=[thermostats(Name).target_temperature_c]" }
-Number therm_target_temperature_f "target_temperature_f [%.1f °F]"           { nest="=[thermostats(Name).target_temperature_f]" }
-Number therm_target_temperature_high_c "target_temperature_high_c [%.1f °C]" { nest="=[thermostats(Name).target_temperature_high_c]" }
-Number therm_target_temperature_high_f "target_temperature_high_f [%.1f °F]" { nest="=[thermostats(Name).target_temperature_high_f]" }
-Number therm_target_temperature_low_c "target_temperature_low_c [%.1f °C]"   { nest="=[thermostats(Name).target_temperature_low_c]" }
-Number therm_target_temperature_low_f "target_temperature_low_f [%.1f °F]"   { nest="=[thermostats(Name).target_temperature_low_f]" }
-Number therm_ambient_temperature_c "ambient_temperature_c [%.1f °C]"         { nest="<[thermostats(Name).ambient_temperature_c]" }
-Number therm_ambient_temperature_f "ambient_temperature_f [%.1f °F]"         { nest="<[thermostats(Name).ambient_temperature_f]" }
-Number therm_away_temperature_high_c "away_temperature_high_c [%.1f °C]"     { nest="<[thermostats(Name).away_temperature_high_c]" }
-Number therm_away_temperature_high_f "away_temperature_high_f [%.1f °F]"     { nest="<[thermostats(Name).away_temperature_high_f]" }
-Number therm_away_temperature_low_c "away_temperature_low_c [%.1f °C]"       { nest="<[thermostats(Name).away_temperature_low_c]" }
-Number therm_away_temperature_low_f "away_temperature_low_f [%.1f °F]"       { nest="<[thermostats(Name).away_temperature_low_f]" }
-String therm_structure_id "structure_id [%s]"           { nest="<[thermostats(Name).structure_id]" }
-Switch therm_fan_timer_active "fan_timer_active [%s]"   { nest="=[thermostats(Name).fan_timer_active]" }
-String therm_name_long "name_long [%s]"                 { nest="<[thermostats(Name).name_long]" }
-Switch therm_is_online "is_online [%s]"                 { nest="<[thermostats(Name).is_online]" }
-DateTime therm_last_connection "last_connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[thermostats(Name).last_connection]" }
+Number   NestTStatUpstairs_humidity "Humidity [%d %%]"                                   {nest="<[thermostats(Upstairs).humidity]"}
+String   NestTStatUpstairs_locale "Locale [%s]"                                          {nest="<[thermostats(Upstairs).locale]"}
+String   NestTStatUpstairs_temperature_scale "Temperature Scale [%s]"                    {nest="<[thermostats(Upstairs).temperature_scale]"}
+Switch   NestTStatUpstairs_is_using_emergency_heat "Is using emergency heat [%s]"        {nest="<[thermostats(Upstairs).is_using_emergency_heat]"}
+Switch   NestTStatUpstairs_has_fan "Has Fan [%s]"                                        {nest="<[thermostats(Upstairs).has_fan]"}
+Switch   NestTStatUpstairs_software_version "Software Version [%s]"                      {nest="<[thermostats(Upstairs).software_version]"}
+Switch   NestTStatUpstairs_has_leaf "Has Leaf [%s]"                                      {nest="<[thermostats(Upstairs).has_leaf]"}
+String   NestTStatUpstairs_device_id "Device Id [%s]"                                    {nest="<[thermostats(Upstairs).device_id]"}
+String   NestTStatUpstairs_name "Name [%s]"                                              {nest="<[thermostats(Upstairs).name]"}
+Switch   NestTStatUpstairs_can_heat "Can Heat [%s]"                                      {nest="<[thermostats(Upstairs).can_heat]"}
+Switch   NestTStatUpstairs_can_cool "Can Cool [%s]"                                      {nest="<[thermostats(Upstairs).can_cool]"}
+String   NestTStatUpstairs_hvac_mode "HVAC Mode [%s]"                                    {nest="=[thermostats(Upstairs).hvac_mode]"}
+Number   NestTStatUpstairs_target_temperature_c "Target Temperature [%.1f °C]"           {nest="=[thermostats(Upstairs).target_temperature_c]"}
+Number   NestTStatUpstairs_target_temperature_f "Target Temperature [%.1f °F]"           {nest="=[thermostats(Upstairs).target_temperature_f]"}
+Number   NestTStatUpstairs_target_temperature_high_c "Target Temperature High [%.1f °C]" {nest="=[thermostats(Upstairs).target_temperature_high_c]"}
+Number   NestTStatUpstairs_target_temperature_high_f "Target Temperature High [%.1f °F]" {nest="=[thermostats(Upstairs).target_temperature_high_f]"}
+Number   NestTStatUpstairs_target_temperature_low_c "Target Temperature Low [%.1f °C]"   {nest="=[thermostats(Upstairs).target_temperature_low_c]"}
+Number   NestTStatUpstairs_target_temperature_low_f "Target Temperature Low [%.1f °F]"   {nest="=[thermostats(Upstairs).target_temperature_low_f]"}
+Number   NestTStatUpstairs_ambient_temperature_c "Ambient Temperature [%.1f °C]"         {nest="<[thermostats(Upstairs).ambient_temperature_c]"}
+Number   NestTStatUpstairs_ambient_temperature_f "Ambient Temperature [%.1f °F]"         {nest="<[thermostats(Upstairs).ambient_temperature_f]"}
+Number   NestTStatUpstairs_away_temperature_high_c "Away Temperature High [%.1f °C]"     {nest="<[thermostats(Upstairs).away_temperature_high_c]"}
+Number   NestTStatUpstairs_away_temperature_high_f "Away Temperature High [%.1f °F]"     {nest="<[thermostats(Upstairs).away_temperature_high_f]"}
+Number   NestTStatUpstairs_away_temperature_low_c "Away Temperature Low [%.1f °C]"       {nest="<[thermostats(Upstairs).away_temperature_low_c]"}
+Number   NestTStatUpstairs_away_temperature_low_f "Away Temperature Low [%.1f °F]"       {nest="<[thermostats(Upstairs).away_temperature_low_f]"}
+String   NestTStatUpstairs_structure_id "Structure Id [%s]"                              {nest="<[thermostats(Upstairs).structure_id]"}
+Switch   NestTStatUpstairs_fan_timer_active "Fan Timer Active [%s]"                      {nest="=[thermostats(Upstairs).fan_timer_active]"}
+String   NestTStatUpstairs_name_long "Name Long [%s]"                                    {nest="<[thermostats(Upstairs).name_long]"}
+Switch   NestTStatUpstairs_is_online "Is Online [%s]"                                    {nest="<[thermostats(Upstairs).is_online]"}
+DateTime NestTStatUpstairs_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[thermostats(Upstairs).last_connection]"}
 
 /* Smoke+CO detectors */
 
-String smoke_name "name [%s]"                           { nest="<[smoke_co_alarms(Name).name]" }
-String smoke_locale "locale [%s]"                       { nest="<[smoke_co_alarms(Name).locale]" }
-String smoke_structure_id "structure_id [%s]"           { nest="<[smoke_co_alarms(Name).structure_id]" }
-String smoke_software_version "software_version [%s]"   { nest="<[smoke_co_alarms(Name).software_version]" }
-String smoke_device_id "device_id [%s]"                 { nest="<[smoke_co_alarms(Name).device_id]" }
-String smoke_name_long "name_long [%s]"                 { nest="<[smoke_co_alarms(Name).name_long]" }
-Switch smoke_is_online "is_online [%s]"                 { nest="<[smoke_co_alarms(Name).is_online]" }
-DateTime smoke_last_connection "last_connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[smoke_co_alarms(Name).last_connection]" }
-String smoke_battery_health "battery_health [%s]"       { nest="<[smoke_co_alarms(Name).battery_health]" }
-String smoke_smoke_alarm_state "smoke_alarm_state [%s]" { nest="<[smoke_co_alarms(Name).smoke_alarm_state]" }
-String smoke_co_alarm_state "co_alarm_state [%s]"       { nest="<[smoke_co_alarms(Name).co_alarm_state]" }
-String smoke_ui_color_state "ui_color_state [%s]"       { nest="<[smoke_co_alarms(Name).ui_color_state]" }
-Switch smoke_is_manual_test_active "is_manual_test_active [%s]" { nest="<[smoke_co_alarms(Name).is_manual_test_active]" }
-DateTime smoke_last_manual_test_time "last_manual_test_time [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" { nest="<[smoke_co_alarms(Name).last_manual_test_time]" }
+String   NestSmokeMaster_name "Name [%s]"                                   {nest="<[smoke_co_alarms(Master Bedroom).name]"}
+String   NestSmokeMaster_locale "Locale [%s]"                               {nest="<[smoke_co_alarms(Master Bedroom).locale]"}
+String   NestSmokeMaster_structure_id "Structure Id [%s]"                   {nest="<[smoke_co_alarms(Master Bedroom).structure_id]"}
+String   NestSmokeMaster_software_version "Software Version [%s]"           {nest="<[smoke_co_alarms(Master Bedroom).software_version]"}
+String   NestSmokeMaster_device_id "Device Id [%s]"                         {nest="<[smoke_co_alarms(Master Bedroom).device_id]"}
+String   NestSmokeMaster_name_long "Name Long [%s]"                         {nest="<[smoke_co_alarms(Master Bedroom).name_long]"}
+Switch   NestSmokeMaster_is_online "Is Online [%s]"                         {nest="<[smoke_co_alarms(Master Bedroom).is_online]"}
+DateTime NestSmokeMaster_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[smoke_co_alarms(Master Bedroom).last_connection]"}
+String   NestSmokeMaster_battery_health "Battery Health [%s]"               {nest="<[smoke_co_alarms(Master Bedroom).battery_health]"}
+String   NestSmokeMaster_smoke_alarm_state "Smoke Alarm State [%s]"         {nest="<[smoke_co_alarms(Master Bedroom).smoke_alarm_state]"}
+String   NestSmokeMaster_co_alarm_state "CO Alarm State [%s]"               {nest="<[smoke_co_alarms(Master Bedroom).co_alarm_state]"}
+String   NestSmokeMaster_ui_color_state "UI Color State [%s]"               {nest="<[smoke_co_alarms(Master Bedroom).ui_color_state]"}
+Switch   NestSmokeMaster_is_manual_test_active "Is Manual Test Active [%s]" {nest="<[smoke_co_alarms(Master Bedroom).is_manual_test_active]"}
+DateTime NestSmokeMaster_last_manual_test_time "Last Manual Test Time [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[smoke_co_alarms(Master Bedroom).last_manual_test_time]"}
+
 
 /* You can reference a device in a specific structure in the case that there are duplicate names 
  * in multiple structures. If you have duplicate-named thermostats or smoke+CO detectors in the
  * same structure, or duplicate-named structures, you will have to rename them at nest.com.
  */
 
-Number house_temp "House temperature [%.1f °F]" { nest="<[structures(House).thermostats(Dining Room).ambient_temperature_f]" }
-Number condo_temp "Condo temperature [%.1f °F]" { nest="<[structures(Condo).thermostats(Dining Room).ambient_temperature_f]" }
+Number NestHome_temp "Home temperature [%.1f °F]"   {nest="<[structures(Home).thermostats(Dining Room).ambient_temperature_f]"}
+Number NestCondo_temp "Condo temperature [%.1f °F]" {nest="<[structures(Condo).thermostats(Dining Room).ambient_temperature_f]"}
 ```
 
 ## Known Issues
 
 1. Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Prohibition 3 of the [Nest Developer Terms of Service](https://developer.nest.com/documentation/cloud/tos), and so is not implemented.
 2. The Nest API rounds humidity to 5%, degrees Fahrenheit to whole degrees, and degrees Celsius to 0.5 degrees, so your Nest app will likely show slightly different values from what is available from the API.
-3. There is currently a bug where attempting to update an item with a binding configuration of this form will not work:
+3. There is currently a bug where attempting to update an Item with a binding configuration of this form will not work:
 
 ```
-Number condo_temp "condo_temp [%f °.1F]" { nest="=[structures(Condo).thermostats(Dining Room).target_temperature_f]" }
+Number NestCondo_temp "Condo Temperature [%f °.1F]" {nest="=[structures(Condo).thermostats(Dining Room).target_temperature_f]"}
 ```
 
 While this form should work:
 
 ```
-Number condo_temp "condo_temp [%.1f °F]" { nest="=[thermostats(Dining Room).target_temperature_f]" }
+Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining Room).target_temperature_f]"}
 ```
 
 ## Logging
