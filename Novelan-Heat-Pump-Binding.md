@@ -4,7 +4,7 @@ Documentation of the Novelan (Siemens) HeatPump binding Bundle
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-This Binding was created for Novelan Heatpump. Novelan is identical in construction to Luxtronic (Alpha Innotec). So this bundle can be used with Loxtronic, too.
+This Binding was created for Novelan Heatpump. Novelan is identical in construction to Luxtronic (Alpha Innotec) and Buderus Logamatic. So this bundle can be used with Loxtronic, too.
 
 ## Disclaimer
 
@@ -47,7 +47,10 @@ new since 1.3
 - thermalenergy_pool - total energy for heating pool in KWh
 - thermalenergy_total - sum of all total energy in KWh
 - extended_state – contains the time of the state and the state; Possible states are error, heating, standby, switch-on delay, switching cycle blocked, provider lock time, service water, screed heat up, defrosting, pump flow, desinfection, cooling, pool water, heating ext., service water ext., flow monitoring, ZWE operation
-
+- heating_operation_mode - operation mode (0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus")
+- heating_temperatur - heating curve offset
+- warmwater_operation_mode (0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus")
+- warmwater_temperatur - target temperatur for warm water
 There are some more values listed in the example configuration. But these are only values for "heatpump professionals".
 
 As a result, your lines in the items file might look like the following:
@@ -91,6 +94,27 @@ As a result, your lines in the items file might look like the following:
     Number HeatPump_Massflow 	"Massentrom [%.1f L/h]"	<energy> (Heatpump) { novelanheatpump="massflow" }
     String HeatPump_State   "Status [%s]"   <temperature> (Heatpump) { novelanheatpump="extended_state" }
 
+    //new since 1.7
+    Number heatPump_heating_operation_mode   "Heizung Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="heating_operation_mode" }
+    Number heatPump_heating_temperatur   "Heizung Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="heating_temperatur" }
+    Number heatPump_warmwater_operation_mode   "Warmwasser Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="warmwater_operation_mode" }
+    Number heatPump_warmwater_temperatur   "Warmwasser Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="warmwater_temperatur" }
+
+## Set parameters
+This parameters can be changed:
+- Heating operation mode
+- Warm wather operation mode
+- Offset of the heating curve
+- Target temperature for warm wather
+
+Sitemap exmaple:
+
+    Switch item=heatPump_heating_operation_mode  mappings=[0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus"]
+    Setpoint item=heatPump_heating_temperatur minValue=-10 maxValue=10 step=0.5
+    Switch item=heatPump_warmwater_operation_mode  mappings=[0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus"]
+    Setpoint item=heatPump_warmwater_temperatur minValue=10 maxValue=65 step=1
+
+
 ## Gallery
 
 The following charts are created via the rrd4j chart and heatpump bundle. <br/>
@@ -102,5 +126,4 @@ The following charts are created via the rrd4j chart and heatpump bundle. <br/>
 ## Further planned features (not yet implemented)
 
 - accesc the errorlog
-- change state of Heatpump  (on/off/party)
  
