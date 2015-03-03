@@ -172,7 +172,7 @@ Number NestCondo_temp "Condo temperature [%.1f °F]" {nest="<[structures(Condo).
 3. There is currently a bug where attempting to update an Item with a binding configuration of this form will not work:
 
 ```
-Number NestCondo_temp "Condo Temperature [%.1f °.1F]" {nest="=[structures(Condo).thermostats(Dining Room).target_temperature_f]"}
+Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[structures(Condo).thermostats(Dining Room).target_temperature_f]"}
 ```
 
 While this form should work:
