@@ -110,7 +110,7 @@ String   NestTStatUpstairs_locale "Locale [%s]"                                 
 String   NestTStatUpstairs_temperature_scale "Temperature Scale [%s]"                    {nest="<[thermostats(Upstairs).temperature_scale]"}
 Switch   NestTStatUpstairs_is_using_emergency_heat "Is using emergency heat [%s]"        {nest="<[thermostats(Upstairs).is_using_emergency_heat]"}
 Switch   NestTStatUpstairs_has_fan "Has Fan [%s]"                                        {nest="<[thermostats(Upstairs).has_fan]"}
-Switch   NestTStatUpstairs_software_version "Software Version [%s]"                      {nest="<[thermostats(Upstairs).software_version]"}
+String   NestTStatUpstairs_software_version "Software Version [%s]"                      {nest="<[thermostats(Upstairs).software_version]"}
 Switch   NestTStatUpstairs_has_leaf "Has Leaf [%s]"                                      {nest="<[thermostats(Upstairs).has_leaf]"}
 String   NestTStatUpstairs_device_id "Device Id [%s]"                                    {nest="<[thermostats(Upstairs).device_id]"}
 String   NestTStatUpstairs_name "Name [%s]"                                              {nest="<[thermostats(Upstairs).name]"}
