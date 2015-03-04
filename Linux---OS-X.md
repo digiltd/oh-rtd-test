@@ -5,7 +5,7 @@
 * [Yocto Layer](Linux---OS-X#yocto-layer)
 
 
-**Note**: for Hardware specific approach please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ). 
+**Note**: for Hardware specific approach (e.g. ARM boards like Raspberry Pi) please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ). 
 
 # apt-get
 ## Installation
@@ -27,6 +27,8 @@ exit
 
 Add the following line in the editor:
 `    deb http://repository-openhab.forge.cloudbees.com/release/1.x.y/apt-repo/ /`
+
+Replace the x and the y by the appropriate version numbers. You can find the latest stable version at the OpenHAB [downloads page](http://www.openhab.org/downloads.html).
 
 Exit with CTRL X then Y
 
