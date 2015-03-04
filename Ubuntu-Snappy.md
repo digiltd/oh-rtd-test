@@ -7,7 +7,7 @@ With _snappy_, you can install so called _snaps_, which can contain Frameworks o
 
 This is all about openHAB 1. For version 2, instructions will be added later.
 
-**Hint**: At the moment, snappy is changed very rapidly. We depend on some changes, so we wait for a bit stabilization there.
+**Hint: At the moment, snappy is changed very rapidly. We depend on some changes, so we wait for a bit stabilization there.**
 
 ## Installation
 
