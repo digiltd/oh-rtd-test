@@ -88,6 +88,7 @@ Community
   * [[Nest Binding]]
   * [[Netatmo Binding|Netatmo-Binding]]
   * [[Network Health Binding|Network-Health-Binding]]
+  * [[Network UPS Tools Binding|Network-UPS-Tools]]
   * [[Nibe Heatpump Binding|Nibe-Heat-Pump-Binding]]
   * [[Nikobus Binding|Nikobus-Binding]]
   * [[Novelan/Luxtronic Heatpump Binding|Novelan-Heat-Pump-Binding]]
