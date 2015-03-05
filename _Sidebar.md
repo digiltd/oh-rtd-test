@@ -84,7 +84,7 @@ Community
   * [[MPD Binding|Mpd-Binding]]
   * [[MQTT Binding|MQTT-Binding]]
   * [[MQTTitude binding|Mqttitude-Binding]]
-  * [[Neohub Binding (Preview)|NeoHub-Binding]]
+  * [[Neohub Binding|NeoHub-Binding]]
   * [[Nest Binding]]
   * [[Netatmo Binding|Netatmo-Binding]]
   * [[Network Health Binding|Network-Health-Binding]]
