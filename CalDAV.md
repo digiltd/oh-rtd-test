@@ -8,6 +8,7 @@ openhab.cfg
 * `caldavio:<calendar-id>:password=`
 * `caldavio:<calendar-id>:reloadInterval=<minutes>`
 * `caldavio:<calendar-id>:preloadTime=<minutes>`
+* `caldavio:<calendar-id>:disableCertificateVerification:<true|false>`
 
 ***
 
