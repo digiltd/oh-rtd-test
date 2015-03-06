@@ -59,15 +59,12 @@ The `<thermostat>` specification can be optionally prepended with a specific "us
 
 `<property>` is one of a long list of thermostat properties than you can read and optionally change. See the list below, and peruse this binding's JavaDoc for all specifics as to their meanings.
 
-<table>
-<thead><tr><th>Property</th><th>In</th><th>Out</th><th>Type</th></tr></thead>
-<tbody>
-<tr><td>name</td><td>X</td><td>X</td><td>StringType</td></tr>
-<tr><td>runtime.actualTemperature</td><td>X</td><td></td><td>DecimalType</td></tr>
-<tr><td>runtime.actualHumidity</td><td>X</td><td></td><td>DecimalType</td></tr>
-<tr><td>settings.hvacMode</td><td>X</td><td>X</td><td>StringType</td></tr>
-</tbody>
-</table>
+Property | In | Out | Type
+---------|----|-----|-----
+name     | X  | X   | StringType
+runtime.actualTemperature | X | | DecimalType
+runtime.actualHumidity | X | | DecimalType
+settings.hvacMode | X | X | StringType
 
 See the Example Binding Strings section below for more examples.
 
@@ -86,40 +83,40 @@ When it does, enter it into your Apps settings in your account at ecobee.com.  T
 
 ## Example Binding Strings
 
+Return or set the name of the thermostat whose ID is 123456789 using the default
+Ecobee app instance (configured in openhab.cfg):
+
 ```
 { ecobee="=[123456789#name]" }
 ```
 
-Return or set the name of the thermostat whose ID is 123456789 using the default
-Ecobee app instance (configured in openhab.cfg).
+Return the current temperature read by the thermostat using the condo account
+at ecobee.com:
 
 ```
 { ecobee="<[condo.987654321#runtime.actualTemperature]" }
 ```
 
-Return the current temperature read by the thermostat using the condo account
-at ecobee.com.
+Return or set the minimum number of minutes per hour the fan will run on thermostat ID
+543212345:
 
 ```
 { ecobee="=[543212345#settings.fanMinOnTime]" }
 ```
 
-Return or set the minimum number of minutes per hour the fan will run on thermostat ID
-543212345.
+Change the HVAC mode to one of `auto`, `auxHeatOnly`, `cool`, `heat`, or
+`off` on all thermostats registered in the default app instance:
 
 ```
 { ecobee=">[*#settings.hvacMode]" }
 ```
 
-Change the HVAC mode to one of "auto", "auxHeatOnly", "cool", "heat", or
-"off" on all thermostats registered in the default app instance.
+Changes the backlight sleep intensity on all thermostats at the lake house
+(meaning, all thermostats registered to the lakehouse Ecobee account):
 
 ```
 { ecobee=">[lakehouse.*#settings.backlightSleepIntensity]" }
 ```
-
-Changes the backlight sleep intensity on all thermostats at the lake house
-(meaning, all thermostats registered to the lakehouse Ecobee account).
 
 ## Known Issues
 
@@ -127,9 +124,9 @@ More complex actions, like setting a hold and creating a vacation, require the a
 
 ## Examples
 
-Here are some examples of valid binding configuration strings, as you would define in the your .items file:
+Here are some examples of valid binding configuration strings, as you would define in the your .items file.  Each item binding indicates if it is an in-only binding or bidirectional binding string in the examples.
 
-	/* Ecobee binding items */
+	/* Ecobee binding items (replace 123456789012 with your thermostat ID) */
 
 	String identifier       "identifier [%s]"                                      { ecobee="<[123456789012#identifier]" }
 	String name             "name [%s]"                                            { ecobee="=[123456789012#name]" }
