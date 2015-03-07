@@ -48,9 +48,9 @@ new since 1.3
 - thermalenergy_total - sum of all total energy in KWh
 - extended_state – contains the time of the state and the state; Possible states are error, heating, standby, switch-on delay, switching cycle blocked, provider lock time, service water, screed heat up, defrosting, pump flow, desinfection, cooling, pool water, heating ext., service water ext., flow monitoring, ZWE operation
 - heating_operation_mode - operation mode (0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus")
-- heating_temperatur - heating curve offset
+- heating_temperature - heating curve offset
 - warmwater_operation_mode (0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus")
-- warmwater_temperatur - target temperatur for warm water
+- warmwater_temperature - target temperature for warm water
 There are some more values listed in the example configuration. But these are only values for "heatpump professionals".
 
 As a result, your lines in the items file might look like the following:
@@ -96,9 +96,9 @@ As a result, your lines in the items file might look like the following:
 
     //new since 1.7
     Number heatPump_heating_operation_mode   "Heizung Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="heating_operation_mode" }
-    Number heatPump_heating_temperatur   "Heizung Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="heating_temperatur" }
+    Number heatPump_heating_temperatur   "Heizung Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="heating_temperature" }
     Number heatPump_warmwater_operation_mode   "Warmwasser Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="warmwater_operation_mode" }
-    Number heatPump_warmwater_temperatur   "Warmwasser Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="warmwater_temperatur" }
+    Number heatPump_warmwater_temperatur   "Warmwasser Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="warmwater_temperature" }
 
 ## Set parameters
 This parameters can be changed:
@@ -110,9 +110,9 @@ This parameters can be changed:
 Sitemap exmaple:
 
     Switch item=heatPump_heating_operation_mode  mappings=[0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus"]
-    Setpoint item=heatPump_heating_temperatur minValue=-10 maxValue=10 step=0.5
+    Setpoint item=heatPump_heating_temperature minValue=-10 maxValue=10 step=0.5
     Switch item=heatPump_warmwater_operation_mode  mappings=[0="Auto", 1="Zuheizer", 2="Party", 3="Ferien", 4="Aus"]
-    Setpoint item=heatPump_warmwater_temperatur minValue=10 maxValue=65 step=1
+    Setpoint item=heatPump_warmwater_temperature minValue=10 maxValue=65 step=1
 
 
 ## Gallery
