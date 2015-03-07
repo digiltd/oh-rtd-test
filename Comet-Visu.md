@@ -76,4 +76,5 @@ will be available soon, meanwhile some screenshots can be found here:
 ## Links
 
 * German CometVisu Support Forum: http://knx-user-forum.de/cometvisu/
-* Some documentation about CometVisu: http://www.cometvisu.org
+* User documentation for the CometVisu: http://www.cometvisu.org/
+* GitHub project page of the CometVisu: https://github.com/CometVisu/CometVisu
