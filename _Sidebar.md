@@ -169,7 +169,7 @@ Samples
  * [[Sitemap definitions|Samples-Sitemap-Definitions]]
  * [[Binding configurations|Samples-Binding-Config]]
   * [[Comfo Air Binding | Samples-Comfo-Air-Binding]]
-  * [[Nest Binding Example (new)|Nest-Binding-Example-(new)]]
+  * [[Nest Binding (new)|Nest-Binding-Example-(new)]]
   * [[Nest Thermostat|Sample-nest-thermostate]]
   * [[Rollershutter Groups|RollershutterGroups]]
   * [[Squeezebox|SqueezeboxExample]]
