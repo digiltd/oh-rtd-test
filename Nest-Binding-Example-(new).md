@@ -1,4 +1,4 @@
-## Nest Binding Example
+## [[Nest Binding|Nest-Binding]] Example
 
 The contents of `nest.items` and `nest.sitemap` demonstrate a possible user interface that's backed by the Nest binding.
 
