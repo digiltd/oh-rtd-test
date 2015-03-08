@@ -24,7 +24,7 @@ Community
   * [[iOS Client|iOS-UI]]
   * [[Android Client|HABDroid]]
   * [[GreenT UI|TouchUI]]
-  * [[CometVisu|Comet-Visu]]
+  * [[CometVisu|CometVisu]]
  * [[Automation|Automation]]
   * [[Scripts]]
   * [[Rules]]
