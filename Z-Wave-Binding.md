@@ -344,6 +344,9 @@ Here are some examples of valid binding configuration strings, as defined in the
 The binding can perform a nightly heal. This will try to update the neighbor node list, associations and routes. The actual routing is performed by the controller.
 Two options are possible in the config file to set the healing. ```healtime``` sets the time (in hours) that the automatic heal will occur. ```softReset``` can also be set to true to perform a soft reset on the controller before the heal. Note that it has been observed that this can cause some zwave-plus sticks to lock up, so you should test this first.
 
+## Database
+The binding uses a database of devices so that it can work around any quirks, or present information about association groups and configuration data. The format for the database is [here](https://github.com/cdjackson/HABmin2/wiki/Z-Wave-Product-Database).
+
 ## Logging
 
 The ZWave binding can generate a lot of debug/trace logging when enabled so it is advisable to generate a separate log file for this binding. This also makes it easier for analysis since there is nothing from other bindings/openHAB polluting the logs.
