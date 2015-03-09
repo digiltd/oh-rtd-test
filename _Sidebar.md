@@ -164,6 +164,7 @@ Community
   * [[Dropbox Bundle|Dropbox-IO]]
   * [[Voice Control|Controlling-openHAB-with-your-voice]]
   * [[BritishGasHive-Using-Ruby]]
+
 Samples
  * [[Item definitions|Samples-Item-Definitions]]
  * [[Sitemap definitions|Samples-Sitemap-Definitions]]
