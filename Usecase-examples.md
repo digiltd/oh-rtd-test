@@ -15,13 +15,13 @@ Please link to corresponding rules in the samples section.
 ## location based
 * Predicting when you will arrive from work, and preheating the home 20 minutes sooner via calendar or geofence.
 * Cut off power (with some exceptions, like fridge, openHab server, etc), water supply, etc. when alarm is armed or via geofence
-* RFID / ibeacons in shoes, and reader in door mats, so you can be tracked which room are u in (and music can follow u), or other high AI stuff based on ur profile
+* RFID / ibeacons in shoes, and reader in door mats, so you can be tracked which room are you in (and music can follow you), or other high AI stuff based on your profile
 
 
 ## environmental
 * Start irrigation when soil is dry and no rain is coming during morning or evening hours and the temperature is not below 0° C.
 * Run the air exchange if CO2 is too high.
-* Run the air exchange if humidity is too high and increase heating if temperature ist low.
+* Run the air exchange if humidity is too high and increase heating if temperature is low.
 * In Summer when the outside temp is higher than the inside close the windows or rollershutters (or notify to close them)
 * Switch off tv and pc rack if power consumption has decreased below a certain level at 00.00 / 01.00 / 02.00 assuming units have been switched of to reduce standby power consumption.
 
