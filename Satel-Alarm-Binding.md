@@ -1,8 +1,8 @@
-_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
+_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openHAB.ci.cloudbees.com/job/openHAB/)._
 
 ## Introduction
 
-This is documentation of OpenHAB binding for Satel Integra Alarm System which allows you to connect to your alarm system using TCP/IP protocol with ETHM-1 module installed or RS-232 protocol with INT-RS module installed.
+This is documentation of openHAB binding for Satel Integra Alarm System which allows you to connect to your alarm system using TCP/IP protocol with ETHM-1 module installed or RS-232 protocol with INT-RS module installed.
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
@@ -44,8 +44,8 @@ The only required parameter is _satel:host_ for the ETHM-1 module and _satel:por
 <tr><td>satel:port</td><td>For INT-RS it specifies the serial port on the host system to which the module is connected, i.e. "COM1" on Windows, "/dev/ttyS0" or "/dev/ttyUSB0" on Linux<br>For ETHM-1 it specifies the TCP port on which the module listens for new connections. Defaults to 7094.</td></tr>
 <tr><td>satel:timeout</td><td>Timeout value for connect, read and write operations specified in milliseconds. Defaults to 5 seconds</td></tr>
 <tr><td>satel:refresh</td><td>Refresh interval in milliseconds. Defaults to 10 seconds.</td></tr>
-<tr><td>satel:user_code</td><td>Security code (password) of the user used for control operations, like arming, changing state of outputs, etc. It is recommended to use dedicated user for OpenHAB integration.</td></tr>
-<tr><td>satel:encryption_key</td><td>Key use for encrypting communication between OpenHAB and ETHM-1 module. To disable encrytpion leave it empty. See also the note below.</td></tr></table>
+<tr><td>satel:user_code</td><td>Security code (password) of the user used for control operations, like arming, changing state of outputs, etc. It is recommended to use dedicated user for openHAB integration.</td></tr>
+<tr><td>satel:encryption_key</td><td>Key use for encrypting communication between openHAB and ETHM-1 module. To disable encrytpion leave it empty. See also the note below.</td></tr></table>
 
 **NOTE:** Encryption requires support for 192 bit AES keys. Oracle Java by default supports only 128 bit keys, therefore "[Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](http://www.oracle.com/technetwork/java/javase/downloads/index.html)" must be installed. OpenJDK supports unlimited AES keys by default.
 
@@ -218,11 +218,11 @@ end
 
 **User for OH integration**
 
-To control Integra partitions and outputs you need to provide security code of user in behalf all those operations will be executed. It is highly recommended to use a separate user for OpenHAB integration with only required access rights set in Integra configuration, like access to certain partitions, etc. This allows you to distinguish actions made by OH and a user using Integra panel, also it will block unwanted operations in case someone breaks into your local network.
+To control Integra partitions and outputs you need to provide security code of user in behalf all those operations will be executed. It is highly recommended to use a separate user for openHAB integration with only required access rights set in Integra configuration, like access to certain partitions, etc. This allows you to distinguish actions made by OH and a user using Integra panel, also it will block unwanted operations in case someone breaks into your local network.
 
 **Disarming and clearing alarms**
 
-Although this binding allows you to configure disarming a partition and clearing alarms for a partion, this should be used only in cases when security is not the priority. Don't forget both these operations can be executed in OpenHAB without specifying user code, which is required to disarm or clear alarms using Integra panel. Also don't forget to secure your OpenHAB installation by using HTTPS protocol and setting a user with password. Here is a page about security in OpenHAB: [Security](Security)
+Although this binding allows you to configure disarming a partition and clearing alarms for a partion, this should be used only in cases when security is not the priority. Don't forget both these operations can be executed in openHAB without specifying user code, which is required to disarm or clear alarms using Integra panel. Also don't forget to secure your openHAB installation by using HTTPS protocol and setting a user with password. Here is a page about security in openHAB: [Security](Security)
 
 ## TO DO
 
