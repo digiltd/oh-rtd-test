@@ -16,6 +16,10 @@ Create a Number item with a binding to call the Ruby script and use the output t
 
 ![OpenHAB Item](http://puu.sh/gsOh7/17ba674daa.png)
 
+Here is the event bus update
+
 ![OpenHAB Update](http://puu.sh/gsOfi/66f11bf9e6.png)
+
+And the corresponding UI
 
 ![UI](http://puu.sh/gsOzz/8ef9e932f9.png)
