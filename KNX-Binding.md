@@ -80,7 +80,7 @@ In order to bind an item to a KNX device you need to provide configuration setti
 Since 1.6:
 
 <!-- not very nice, but a bug in markdown (see below) requires pure html -->
-<pre><code>knx=[&lt;[(&lt;autoRefresh&gt;)]][&lt;dptId&gt;:]&lt;mainGA&gt;[[+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;]+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;..], [&lt;[(&lt;autoRefresh&gt;)]][&lt;dptId&gt;:]&lt;mainGA&gt;[[+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;]+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;..]
+<pre><code>knx="[&lt;[(&lt;autoRefresh&gt;)]][&lt;dptId&gt;:]&lt;mainGA&gt;[[+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;]+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;..], [&lt;[(&lt;autoRefresh&gt;)]][&lt;dptId&gt;:]&lt;mainGA&gt;[[+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;]+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;..]"
 </code></pre>
 <!-- the following isn't working: everything after <mainGA>[[+[ is swallowed
     knx=[<[(<autoRefresh>)]][<dptId>:]<mainGA>[[+[<[(<autoRefresh>)]]<listeningGA>]+[<[(<autoRefresh>)]]<listeningGA>..], [<[(<autoRefresh>)]][<dptId>:]<mainGA>[[+[<[(<autoRefresh>)]]<listeningGA>]+[<[(<autoRefresh>)]]<listeningGA>..]
