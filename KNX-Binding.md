@@ -79,8 +79,12 @@ In order to bind an item to a KNX device you need to provide configuration setti
 
 Since 1.6:
 
-    knx="[<[(<autoRefresh>)]][<dptId>:]<mainGA>[[+[<[(<autoRefresh>)]]<listeningGA>]+[<[(<autoRefresh>)]]<listeningGA>..], [<[(<autoRefresh>)]][<dptId>:]<mainGA>[[+[<[(<autoRefresh>)]]<listeningGA>]+[<[(<autoRefresh>)]]<listeningGA>..]"
-
+<!-- not very nice, but a bug in markdown (see below) requires pure html -->
+<pre><code>knx=[&lt;[(&lt;autoRefresh&gt;)]][&lt;dptId&gt;:]&lt;mainGA&gt;[[+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;]+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;..], [&lt;[(&lt;autoRefresh&gt;)]][&lt;dptId&gt;:]&lt;mainGA&gt;[[+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;]+[&lt;[(&lt;autoRefresh&gt;)]]&lt;listeningGA&gt;..]
+</code></pre>
+<!-- the following isn't working: everything after <mainGA>[[+[ is swallowed
+    knx=[<[(<autoRefresh>)]][<dptId>:]<mainGA>[[+[<[(<autoRefresh>)]]<listeningGA>]+[<[(<autoRefresh>)]]<listeningGA>..], [<[(<autoRefresh>)]][<dptId>:]<mainGA>[[+[<[(<autoRefresh>)]]<listeningGA>]+[<[(<autoRefresh>)]]<listeningGA>..]
+-->
 where parts in brackets `[]` signify an optional information.
  
 Each comma-separated section corresponds to a KNX datapoint. There is usually one datapoint defined per accepted command type of an openHAB item. If no datapoint type id is defined for the datapoint, this is automatically derived from the list of accepted command types of the item - i.e. the second datapoint definition is mapped to the second accepted command type of the item.
