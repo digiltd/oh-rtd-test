@@ -71,10 +71,10 @@ If you get an 403 - Access Denied error, when you try to open the cometVISU in y
 ## Screenshots
 
 will be available soon, meanwhile some screenshots can be found here:
-- http://knx-user-forum.de/cometvisu/26139-allgemeine-frage-wie-sieht-eure-cv-startseite-aus.html
+- http://knx-user-forum.de/forum/supportforen/cometvisu/26809-allgemeine-frage-wie-sieht-eure-cv-startseite-aus
 
 ## Links
 
-* German CometVisu Support Forum: http://knx-user-forum.de/cometvisu/
+* German CometVisu Support Forum: http://knx-user-forum.de/forum/supportforen/cometvisu
 * User documentation for the CometVisu: http://www.cometvisu.org/
 * GitHub project page of the CometVisu: https://github.com/CometVisu/CometVisu
