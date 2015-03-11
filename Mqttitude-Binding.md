@@ -69,3 +69,6 @@ This is a far more powerful mode and gives greater flexibility. It also stops th
 In 'Region Mode' the OwnTracks apps detects when you cross a geofence boundary and ALWAYS sends a location update (either enter or leave), meaning openHAB should never lose track of your position. 
 
 All regions/waypoints configured in the OwnTracks apps must to be set as 'Shared' as otherwise the description field is not sent, which the binding needs to match to an item.
+
+#### Iphone considerations ####
+Due to power management policies, OwnTracks on iphone running in the background is only updating the location roughly every 10 minutes and sometimes even longer. This is blocking for many use cases that need timing wise short response.
