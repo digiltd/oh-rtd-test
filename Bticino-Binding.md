@@ -5,7 +5,7 @@ Documentation of the Bticino Binding Bundle
 The openHAB Bticino binding allows to connect to Bticino My Home Automation installations by OpenWebNet protocol.
 For example you can switching lights on and off, activating your roller shutters etc.
 
-To access your Bticino My Home bus you either need an IP gateway (like e.g. the MH200N, F453).
+To access your Bticino My Home bus you either need an IP gateway (like e.g. the [MH200N](http://www.homesystems-legrandgroup.com/BtHomeSystems/productDetail.action?lang=EN&productId=016), [F453](http://www.homesystems-legrandgroup.com/BtHomeSystems/productDetail.action?productId=027)).
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -28,7 +28,7 @@ A sample configuration could look like:
 ## Bind Items to Bticino
 
 ### Description
-In order to bind an item to a Bticino device you need to provide configuration settings. The easiest way to do so is to add  binding information in your 'item file' (in the folder configurations/items`). The syntax for the Bticino binding configuration string is explained here:
+In order to bind an item to a Bticino device you need to provide configuration settings. The easiest way to do so is to add  binding information in your 'item file' (in the folder configurations/items). The syntax for the Bticino binding configuration string is explained here:
 
     bticino="if=webserver;who=<who>;what=<what>;where=<where>"
 
@@ -54,7 +54,7 @@ In order to bind an item to a Bticino device you need to provide configuration s
 
 For more details refer to the official document [OpenWebNet Introduction](http://www.myopen-legrandgroup.com/resources/own_protocol/m/own_documents/16.aspx).
 
-At the moment only 2 (Automation) , 1 (Lightning), 25 (CEN plus) and part of the 4 (Temperature Control) are supported.
+At the moment only 2 (Automation), 1 (Lightning), 25 (CEN plus) and part of the 4 (Temperature Control) are supported.
 
 ### Example
 
