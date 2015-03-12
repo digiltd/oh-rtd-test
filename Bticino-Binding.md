@@ -58,5 +58,46 @@ At the moment only 2 (Automation) , 1 (Lightning), 25 (CEN plus) and part of the
 
 ### Example
 
-    Switch        Lig_FF_Bed_Cei  "Ceiling" (FF_Bed, Lights) {bticino="if=webserver;who=1;what=1;where=35"}
-    Rollershutter Shu_GF_Liv_Left "Living"  (GF_Liv, Shu)    {bticino="if=webserver;who=2;what=1;where=46"}
+    Switch Movies_Scenery "Movies scenery"
+
+    // Plugs
+    Switch Plug_AV_Amplifier "Audio Video amplifier" (Living, Plugs) <socket> {bticino="if=webserver;who=1;what=0;where=1"}
+    Switch Plug_Subwoofer "Subwoofer" (Living, Plugs) <socket> {bticino="if=webserver;who=1;what=0;where=2"}
+
+    // Lights
+    Switch Spotlights_TV "TV spotlights" (Living, Lights) {bticino="if=webserver;who=1;what=0;where=35"}
+
+    // Rollershutters 
+    Rollershutter RollUpShutter_1 "Roller-up shutter 1" (Living, RollerUpShutters) {bticino="if=webserver;who=2;what=0;where=46"}
+    Rollershutter RollUpShutter_2 "Roller-up shutter 2" (Living, RollerUpShutters) {bticino="if=webserver;who=2;what=0;where=47"}
+
+## Rule example
+
+    rule "Movies scenery"
+    when
+        Item Movies_Scenery received command
+    then
+        
+	if (receivedCommand == ON) {
+
+		sendCommand(Plug_AV_Amplifier, ON)	
+		sendCommand(Plug_Subwoofer, ON)
+		sendCommand(Spotlights_TV, ON)
+		sendCommand(RollUpShutter_1, DOWN)
+		sendCommand(RollUpShutter_2, DOWN)
+		
+		postUpdate(Movies_Scenery, ON)
+	
+	} else if (receivedCommand == OFF) {
+		
+		sendCommand(Plug_Subwoofer, OFF)
+		sendCommand(Plug_AV_Amplifier, OFF)	
+		sendCommand(Spotlights_TV, ON)
+		sendCommand(RollUpShutter_1, UP)
+		sendCommand(RollUpShutter_2, UP)
+		
+		postUpdate(Movies_Scenery, OFF)
+	
+	}
+		
+    end
