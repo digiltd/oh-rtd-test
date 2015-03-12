@@ -44,7 +44,7 @@ In order to bind an item to a Bticino device you need to provide configuration s
      6    VDES
     13    Gateway Management
     15    CEN commands
-    16/22 Sound diffusion**
+    16/22 Sound diffusion
     17    MH200N scenarios
     18    Energy management
     25    CEN plus/ scenarios plus/ dry contacts
