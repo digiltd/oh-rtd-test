@@ -47,7 +47,7 @@ In order to bind an item to a Bticino device you need to provide configuration s
     16/22 Sound diffusion
     17    MH200N scenarios
     18    Energy management
-    25    CEN plus/ scenarios plus/ dry contacts
+    25    CEN plus / scenarios plus / dry contacts
     1001  Automation diagnostic
     1004  Thermoregulation diagnostic
     1013  Device diagnostic
