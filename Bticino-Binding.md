@@ -54,7 +54,7 @@ In order to bind an item to a Bticino device you need to provide configuration s
 
 For more details refer to the official document [OpenWebNet Introduction](http://www.myopen-legrandgroup.com/resources/own_protocol/m/own_documents/16.aspx).
 
-At the moment only Automation , Lightning, CEN plus and part of the Temperature Control are supported.
+At the moment only 2 (Automation) , 1 (Lightning), 25 (CEN plus) and part of the 4 (Temperature Control) are supported.
 
 ### Example
 
