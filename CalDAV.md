@@ -9,6 +9,7 @@ openhab.cfg
 * `caldavio:<calendar-id>:reloadInterval=<minutes>`
 * `caldavio:<calendar-id>:preloadTime=<minutes>`
 * `caldavio:<calendar-id>:disableCertificateVerification:<true|false>`
+* `caldavio:timeZone:<Timezone>`
 
 ***
 
@@ -59,6 +60,7 @@ Binding file: org.openhab.binding.caldav-presence-version.jar
 * START: start time (itemtype: DateTime)
 * END: end time (itemtype: DateTime)
 * TIME: start/end time (itemtype: String)
+* NAMEANDTIME: name und start- bis endzeit
 
 ## Example configuration
 
