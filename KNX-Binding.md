@@ -181,6 +181,15 @@ The KNX binding supports a limited set of Datapoint types (DPTs). If your item c
 
 To get an overview of the supported DPTs, it's best to look into the source code of the KNX binding and the library it depends on. The DPTs for the binding are defined in [KNXCoreTypeMapper](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.knx/src/main/java/org/openhab/binding/knx/internal/dpt/KNXCoreTypeMapper.java). The constants (and their mapping to DPTs) are defined in the library [calimero](https://github.com/calimero-project/calimero/tree/master/src/tuwien/auto/calimero/dptxlator).
 
+### Forward Data from other Bindings to another Binding (KNX)
+You may want in some cases to get Data from one Binding (for example 1Wire) to KNX. You will be able to do this through rules, but also can do this by an Item definition.
+
+Number Temperature_UG_HWR	"HWR [%.1f °C]"				<temperature>	(Temperature_UG, UG_HWR)      {onewire="28.7871CF040000#temperature", knx="5/1/40"}
+
+In this Example a 1Wire Temperature Sensor will also be available on knx adress 5/1/40
+
+### Further examples
+
 ## KNX Logging
 
 Since version 1.5.0 of this binding, it is possible to capture log events from calimero. These log events contain detailed information from the KNX bus (what is written to the bus, what gets read from the bus, ...)
