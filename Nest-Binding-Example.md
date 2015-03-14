@@ -7,7 +7,7 @@ The contents of `nest.items` and `nest.sitemap` demonstrate a possible user inte
 ### nest.items
 
 The items file assumes your structure is called "Home," your thermostat is called "Dining Room," and you have two Nest Protects called "Upstairs" and "Basement."  Change these to match how your devices are named at nest.com. 
-```
+```xtend
 String home_away "Home/Away [%s]" <present> { nest="=[structures(Home).away]" }
 DateTime dining_room_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[thermostats(Dining Room).last_connection]"}
 String dining_room_hvac_mode "HVAC Mode" <climate> { nest="=[thermostats(Dining Room).hvac_mode]" }
@@ -33,7 +33,7 @@ DateTime upstairs_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$t
 ### nest.sitemap
 
 The sitemap will show the ambient temperature in the same scale (C or F) that the thermostat is set to.  It will only show the away temperature range if the structure is currently in away mode.  It will show the single setpoint if the thermostat is either in "heat" or "cool" mode, or will show the low and high setpoints if the thermostat is in "heat-cool" (auto) mode.  The smoke+CO detectors show their status colors in the same color as the Nest Protect's light ring.
-```
+```xtend
 sitemap nest label="Nest"
 {
   Frame label="Home" icon="house" {
@@ -67,7 +67,7 @@ sitemap nest label="Nest"
 ### ${openhabhome}/webapps/images/
 
 I also created co*.png, smoke*.png, humidity.png and other icons by copying existing icons:
-```
+```shell
 cp shield.png co.png
 cp shield-1.png co-ok.png
 cp shield-0.png co-warning.png
@@ -81,3 +81,55 @@ cp present.png present-home.png
 cp present-off.png present-away.png
 cp present-off.png present-auto-away.png
 ```
+
+### Rules
+
+#### Opening Windows, set the Thermostat to away-mode to save Energy
+This rule assumes that the windows are all `Contact` Items, are all in a Group called `GWindows`, and that the members are `Bedroom2ZoneTripped` ... `StairsWindowsZoneTripped` per the list below.
+
+```xtend
+rule "Windows Opened (any)"
+  when
+    Item Bedroom2ZoneTripped changed from CLOSED to OPEN or
+    Item Bedroom3ZoneTripped changed from CLOSED to OPEN or
+    Item FamilyRoomZoneTripped changed from CLOSED to OPEN or
+    Item GuestBathZoneTripped changed from CLOSED to OPEN or
+    Item KitchenZoneTripped changed from CLOSED to OPEN or
+    Item LivingRoomZoneTripped changed from CLOSED to OPEN or
+    Item MasterBath1ZoneTripped changed from CLOSED to OPEN or
+    Item MasterBath2ZoneTripped changed from CLOSED to OPEN or
+    Item MasterBath3ZoneTripped changed from CLOSED to OPEN or
+    Item MasterBedroomZoneTripped changed from CLOSED to OPEN or
+    Item StairsWindowsZoneTripped changed from CLOSED to OPEN
+  then
+    if (GWindow.members.filter(s|s.state==OPEN).size == 1) {
+      home_away.sendCommand("away")
+    }
+end
+```
+
+#### Closing Windows, set the Thermostat to home-mode when all windows are closed
+
+As the counterpart of the above rule, set the Thermostat to `home` once all the windows are closed.
+
+```xtend
+rule "Windows Closed (all)"
+  when
+    Item Bedroom2ZoneTripped changed from OPEN to CLOSED or
+    Item Bedroom3ZoneTripped changed from OPEN to CLOSED or
+    Item FamilyRoomZoneTripped changed from OPEN to CLOSED or
+    Item GuestBathZoneTripped changed from OPEN to CLOSED or
+    Item KitchenZoneTripped changed from OPEN to CLOSED or
+    Item LivingRoomZoneTripped changed from OPEN to CLOSED or
+    Item MasterBath1ZoneTripped changed from OPEN to CLOSED or
+    Item MasterBath2ZoneTripped changed from OPEN to CLOSED or
+    Item MasterBath3ZoneTripped changed from OPEN to CLOSED or
+    Item MasterBedroomZoneTripped changed from OPEN to CLOSED or
+    Item StairsWindowsZoneTripped changed from OPEN to CLOSED
+  then
+    if (GWindow.members.filter(s|s.state==OPEN).size == 0) {
+      home_away.sendCommand("home")
+    }
+end
+```
+
