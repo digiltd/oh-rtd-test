@@ -85,7 +85,7 @@ cp present-off.png present-auto-away.png
 ### Rules
 
 #### Opening Windows, set the Thermostat to away-mode to save Energy
-This rule assumes that the windows are all `Contact` Items, are all in a Group called `GWindows`, and that the members are `Bedroom2ZoneTripped` ... `StairsWindowsZoneTripped` per the list below.
+This rule assumes that the windows are all `Contact` Items, are all in a Group called `GWindow`, and that the members are `Bedroom2ZoneTripped` ... `StairsWindowsZoneTripped` per the list below.
 
 ```xtend
 rule "Windows Opened (any)"
