@@ -105,7 +105,7 @@ Number   Temperature_OWM   "Temperature-OWM [%.2f °C]"   {weather="locationId=h
 ```
 ### Available bindings
 * **type** `athmosphere`
-    * **property** `humidity, visibility, visibility, pressure, pressure, pressureTrend, ozone`
+    * **property** `humidity, visibility, visibility, pressure, pressure, pressureTrend, ozone, uvIndex`
 * **type** `clouds`
     * **property** `percent`
 * **type** `condition`
@@ -165,6 +165,7 @@ Number   Pressure    	  "Pressure [%.2f mb]"    {weather="locationId=home, type=
 Number   Pressure_Inches  "Pressure [%.2f in]"    {weather="locationId=home, type=athmosphere, property=pressure, unit=inches"}
 String   Pressure_Trend   "Pressuretrend [%s]"    {weather="locationId=home, type=athmosphere, property=pressureTrend"}
 Number   Ozone            "Ozone [%d ppm]"    	  {weather="locationId=home, type=athmosphere, property=ozone"}
+Number   UV_Index         "UV Index"              {weather="locationId=home, type=athmosphere, property=uvIndex, scale=0"}
 
 // clouds
 Number   Clouds   "Clouds [%.0f %%]"   {weather="locationId=home, type=clouds, property=percent"}
