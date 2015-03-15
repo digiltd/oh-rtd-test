@@ -112,8 +112,9 @@ The icon name is used to reference a png image file from folder `${openhab_home}
 
 Please use the filename (without extension) of icons in above mentioned folder.
 If you append e.g. "-on" and "-off" to the file name the icon will change its appearance depending on the switch item state.
-Resp. you can add "-0", "-1" etc. to the filename for number items etc. 
+Resp. you can add "-0", "-1" etc. to the filename for number items, "-on" / "-off" for switches and anything else for string items etc. 
 A file amongst files having such additions that has no addition representes an uninitialized state.
+Make shure to to use small letters for filenames only.
 
 **Example:**
 
