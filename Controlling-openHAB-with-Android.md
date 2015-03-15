@@ -38,7 +38,7 @@ To send a command (set a value to an item) you can use the build-in action "HTTP
 Now you can run the task and see if it works.
 
 ### Read a item value from openHAB via RESTask
-In order to read a value of an item via the [[REST-API|REST-API]] you can use a the tasker plugin [RESTask](https://play.google.com/store/apps/details?id=com.freehaha.restask).
+In order to read a value of an item via the [[REST-API|REST-API]] you can use the tasker plugin [RESTask](https://play.google.com/store/apps/details?id=com.freehaha.restask).
 * Read the description in the Play Store
 * add the RESTask action to your task
 * Configure
