@@ -1,3 +1,13 @@
+* [Introduction](Explanation-of-items/#introduction)
+* [syntax](Explanation-of-items/#syntax)
+* [itemtype](Explanation-of-items/#itemtype)
+* [itemname](Explanation-of-items/#itemname)
+* [labeltext](Explanation-of-items/#labeltext)
+* [iconname](Explanation-of-items/#iconname)
+* [groups](Explanation-of-items/#groups)
+* [bindingconfig](Explanation-of-items/#bindingconfig)
+* [examples](Explanation-of-items/#examples)
+
 ## introduction
 
 - Items are objects that can be read from or written to in order to interact with them.
