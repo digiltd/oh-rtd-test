@@ -31,6 +31,72 @@ end
 ```
 
 ### Examples for Co-existing
+#### When opening/closing Windows keep Nest _Away_ state in sync to save energy.
+
+This originally ran as a Scene on the MiOS Unit, but was replaced with an openHAB Rule.  The Items are a mix of Items, from an Alarm system running on MiOS, and the [[Nest Binding|Nest-Binding]], running locally.
+
+Explicitly check for the `OPEN` » `CLOSED` state transition, to avoid issues when openHAB restarts (`Uninitialized` » `OPEN`) or when _duplicate_ values come in from the MiOS System (`OPEN` » `OPEN`).
+
+Item declaration (`house.items`):
+```xtend
+Group GPersist (All)
+Group GWindow "All Windows [%d]" <contact> (GContact)
+
+Contact  LivingRoomZoneTripped "Living Room (Zone 2) [MAP(en.map):%s]" <contact>        (GWindow,GPersist) {mios="unit:house,device:117/service/SecuritySensor1/Tripped"}
+Contact  KitchenZoneTripped "Kitchen (Zone 3) [MAP(en.map):%s]" <contact>               (GWindow,GPersist) {mios="unit:house,device:118/service/SecuritySensor1/Tripped"}
+Contact  FamilyRoomZoneTripped "Family Room (Zone 5) [MAP(en.map):%s]" <contact>        (GWindow,GPersist) {mios="unit:house,device:120/service/SecuritySensor1/Tripped"}
+Contact  MasterBedroomZoneTripped "Master Bedroom (Zone 8) [MAP(en.map):%s]" <contact>  (GWindow,GPersist) {mios="unit:house,device:122/service/SecuritySensor1/Tripped"}
+Contact  Bedroom3ZoneTripped "Bedroom #3 (Zone 9) [MAP(en.map):%s]" <contact>           (GWindow,GPersist) {mios="unit:house,device:123/service/SecuritySensor1/Tripped"}
+Contact  Bedroom2ZoneTripped "Bedroom #2 (Zone 10) [MAP(en.map):%s]" <contact>          (GWindow,GPersist) {mios="unit:house,device:124/service/SecuritySensor1/Tripped"}
+Contact  GuestBathZoneTripped "Guest Bathroom (Zone 11) [MAP(en.map):%s]" <contact>     (GWindow,GPersist) {mios="unit:house,device:125/service/SecuritySensor1/Tripped"}
+Contact  StairsWindowsZoneTripped "Stairs Windows (Zone 12) [MAP(en.map):%s]" <contact> (GWindow,GPersist) {mios="unit:house,device:126/service/SecuritySensor1/Tripped"}
+Contact  MasterBath1ZoneTripped "Master Bath (Zone 19) [MAP(en.map):%s]" <contact>      (GWindow,GPersist) {mios="unit:house,device:133/service/SecuritySensor1/Tripped"}
+Contact  MasterBath2ZoneTripped "Master Bath (Zone 20) [MAP(en.map):%s]" <contact>      (GWindow,GPersist) {mios="unit:house,device:134/service/SecuritySensor1/Tripped"}
+Contact  MasterBath3ZoneTripped "Master Bath (Zone 21) [MAP(en.map):%s]" <contact>      (GWindow,GPersist) {mios="unit:house,device:135/service/SecuritySensor1/Tripped"}
+```
+
+Rule declaration (house.rules): 
+```xtend
+rule "Windows Closed (all)"
+	when
+		Item Bedroom2ZoneTripped changed from OPEN to CLOSED or
+		Item Bedroom3ZoneTripped changed from OPEN to CLOSED or
+		Item FamilyRoomZoneTripped changed from OPEN to CLOSED or
+		Item GuestBathZoneTripped changed from OPEN to CLOSED or
+		Item KitchenZoneTripped changed from OPEN to CLOSED or
+		Item LivingRoomZoneTripped changed from OPEN to CLOSED or
+		Item MasterBath1ZoneTripped changed from OPEN to CLOSED or
+		Item MasterBath2ZoneTripped changed from OPEN to CLOSED or
+		Item MasterBath3ZoneTripped changed from OPEN to CLOSED or
+		Item MasterBedroomZoneTripped changed from OPEN to CLOSED or
+		Item StairsWindowsZoneTripped changed from OPEN to CLOSED
+	then
+		if (GWindow.members.filter(s|s.state==OPEN).size == 0) {
+			say("Attention: All Windows closed.")
+			Nest_away.sendCommand("home")
+		}
+end
+
+rule "Windows Opened (any)"
+	when
+		Item Bedroom2ZoneTripped changed from CLOSED to OPEN or
+		Item Bedroom3ZoneTripped changed from CLOSED to OPEN or
+		Item FamilyRoomZoneTripped changed from CLOSED to OPEN or
+		Item GuestBathZoneTripped changed from CLOSED to OPEN or
+		Item KitchenZoneTripped changed from CLOSED to OPEN or
+		Item LivingRoomZoneTripped changed from CLOSED to OPEN or
+		Item MasterBath1ZoneTripped changed from CLOSED to OPEN or
+		Item MasterBath2ZoneTripped changed from CLOSED to OPEN or
+		Item MasterBath3ZoneTripped changed from CLOSED to OPEN or
+		Item MasterBedroomZoneTripped changed from CLOSED to OPEN or
+		Item StairsWindowsZoneTripped changed from CLOSED to OPEN
+	then
+		if (GWindow.members.filter(s|s.state==OPEN).size == 1) {
+			say("Attention: First Window opened.")
+			Nest_away.sendCommand("away")
+		}
+end
+```
 
 ### Examples for Replacing
 #### Publishing data to SmartEnergyGroups.com (SEG)
