@@ -22,15 +22,58 @@ String   AlarmArea1Alarm "Alarm Area 1 Alarm [%s]" (GAlarmArea1) {mios="unit:hou
 Rule declaration (`alarm.rules`):
 ```xtend
 rule "Alarm Panel Breach"
-	when
-		Item AlarmArea1Alarm changed from None to Active
-	then
-		pushNotification("House-Alarm", "House in ALARM!! Notification")
-		say("Alert: House in Alarm Notification")
+when
+	Item AlarmArea1Alarm changed from None to Active
+then
+	pushNotification("House-Alarm", "House in ALARM!! Notification")
+	say("Alert: House in Alarm Notification")
 end 
 ```
 
 ### Examples for Co-existing
+#### When Motion detected, turn Lights ON and, after 5 minutes, turn them OFF
+This is typical of a declarative Scene in MiOS.  In this case, the lights are left on for 5 minutes, and if new motion is detected in that time, another 5 minute clock is started.
+
+The logging can be removed as needed.
+
+Item declaration (`house.items`):
+```xtend
+Group GSwitch All
+
+Switch   MasterClosetLightsStatus "Master Closet Lights" (GSwitch) {mios="unit:house,device:391/service/SwitchPower1/Status"}
+Switch   MasterClosetFibaroLightStatus "Master Closet Fibaro Light" (GSwitch) {mios="unit:house,device:431/service/SwitchPower1/Status"}
+```
+
+Rule declaration (`house-master.rules`):
+```xtend
+import org.openhab.model.script.actions.Timer
+import org.joda.time.*
+
+val int DELAY_SECONDS = 300
+var Timer mclTimer = null
+
+rule "Master Closet Motion"
+when
+	Item MasterClosetZoneTripped changed from CLOSED to OPEN
+then
+	logInfo("house-master", "Master-Closet-Motion Timer lights ON")
+	sendCommand(MasterClosetLightsStatus, ON)
+	sendCommand(MasterClosetFibaroLightStatus, ON)
+
+	if (mclTimer == null) {
+		mclTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
+			mclTimer = null
+			logInfo("house-master", "Master-Closet-Motion Timer lights OFF")
+			sendCommand(MasterClosetLightsStatus, OFF)
+			sendCommand(MasterClosetFibaroLightStatus, OFF)
+		]
+	} else {
+		logInfo("house-master", "Master-Closet-Motion Timer extend")
+		mclTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
+	}
+end
+```
+
 #### When opening/closing Windows keep Nest _Away_ state in sync to save energy.
 
 This originally ran as a Scene on the MiOS Unit, but was replaced with an openHAB Rule.  The Items are a mix of Items, from an Alarm system running on MiOS, and the [[Nest Binding|Nest-Binding]], running locally.
@@ -57,44 +100,44 @@ Contact  MasterBath3ZoneTripped "Master Bath (Zone 21) [MAP(en.map):%s]" <contac
 
 Rule declaration (house.rules): 
 ```xtend
-rule "Windows Closed (all)"
-	when
-		Item Bedroom2ZoneTripped changed from OPEN to CLOSED or
-		Item Bedroom3ZoneTripped changed from OPEN to CLOSED or
-		Item FamilyRoomZoneTripped changed from OPEN to CLOSED or
-		Item GuestBathZoneTripped changed from OPEN to CLOSED or
-		Item KitchenZoneTripped changed from OPEN to CLOSED or
-		Item LivingRoomZoneTripped changed from OPEN to CLOSED or
-		Item MasterBath1ZoneTripped changed from OPEN to CLOSED or
-		Item MasterBath2ZoneTripped changed from OPEN to CLOSED or
-		Item MasterBath3ZoneTripped changed from OPEN to CLOSED or
-		Item MasterBedroomZoneTripped changed from OPEN to CLOSED or
-		Item StairsWindowsZoneTripped changed from OPEN to CLOSED
-	then
-		if (GWindow.members.filter(s|s.state==OPEN).size == 0) {
-			say("Attention: All Windows closed.")
-			Nest_away.sendCommand("home")
-		}
+rule "Windows Closed (all)
+when
+	Item Bedroom2ZoneTripped changed from OPEN to CLOSED or
+	Item Bedroom3ZoneTripped changed from OPEN to CLOSED or
+	Item FamilyRoomZoneTripped changed from OPEN to CLOSED or
+	Item GuestBathZoneTripped changed from OPEN to CLOSED or
+	Item KitchenZoneTripped changed from OPEN to CLOSED or
+	Item LivingRoomZoneTripped changed from OPEN to CLOSED or
+	Item MasterBath1ZoneTripped changed from OPEN to CLOSED or
+	Item MasterBath2ZoneTripped changed from OPEN to CLOSED or
+	Item MasterBath3ZoneTripped changed from OPEN to CLOSED or
+	Item MasterBedroomZoneTripped changed from OPEN to CLOSED or
+	Item StairsWindowsZoneTripped changed from OPEN to CLOSED
+then
+	if (GWindow.members.filter(s|s.state==OPEN).size == 0) {
+		say("Attention: All Windows closed.")
+		Nest_away.sendCommand("home")
+	}
 end
 
 rule "Windows Opened (any)"
-	when
-		Item Bedroom2ZoneTripped changed from CLOSED to OPEN or
-		Item Bedroom3ZoneTripped changed from CLOSED to OPEN or
-		Item FamilyRoomZoneTripped changed from CLOSED to OPEN or
-		Item GuestBathZoneTripped changed from CLOSED to OPEN or
-		Item KitchenZoneTripped changed from CLOSED to OPEN or
-		Item LivingRoomZoneTripped changed from CLOSED to OPEN or
-		Item MasterBath1ZoneTripped changed from CLOSED to OPEN or
-		Item MasterBath2ZoneTripped changed from CLOSED to OPEN or
-		Item MasterBath3ZoneTripped changed from CLOSED to OPEN or
-		Item MasterBedroomZoneTripped changed from CLOSED to OPEN or
-		Item StairsWindowsZoneTripped changed from CLOSED to OPEN
-	then
-		if (GWindow.members.filter(s|s.state==OPEN).size == 1) {
-			say("Attention: First Window opened.")
-			Nest_away.sendCommand("away")
-		}
+when
+	Item Bedroom2ZoneTripped changed from CLOSED to OPEN or
+	Item Bedroom3ZoneTripped changed from CLOSED to OPEN or
+	Item FamilyRoomZoneTripped changed from CLOSED to OPEN or
+	Item GuestBathZoneTripped changed from CLOSED to OPEN or
+	Item KitchenZoneTripped changed from CLOSED to OPEN or
+	Item LivingRoomZoneTripped changed from CLOSED to OPEN or
+	Item MasterBath1ZoneTripped changed from CLOSED to OPEN or
+	Item MasterBath2ZoneTripped changed from CLOSED to OPEN or
+	Item MasterBath3ZoneTripped changed from CLOSED to OPEN or
+	Item MasterBedroomZoneTripped changed from CLOSED to OPEN or
+	Item StairsWindowsZoneTripped changed from CLOSED to OPEN
+then
+	if (GWindow.members.filter(s|s.state==OPEN).size == 1) {
+		say("Attention: First Window opened.")
+		Nest_away.sendCommand("away")
+	}
 end
 ```
 
@@ -145,37 +188,37 @@ import org.openhab.core.library.types.*
 import java.util.Locale
 
 rule "Log Data to SmartEnergyGroups (SEG)"
-	when
-		Time cron "0 0/2 * * * ?" or
-		Item NestTStatUpstairs_ambient_temperature_f changed or
-		Item NestTStatDownstairs_ambient_temperature_f changed or
-		Item WeatherTemperatureCurrentTemperature changed or
-		Item WeatherLowTemperatureCurrentTemperature changed or
-		Item WeatherHighTemperatureCurrentTemperature changed or
-		Item NestTStatUpstairs_humidity changed or
-		Item NestTStatDownstairs_humidity changed or
-		Item WeatherHumidityCurrentLevel changed
-	then
-		val String SEG_SITE = "<yourSiteKeyHere>"
-		val String SEG_URL = "http://api.smartenergygroups.com/api_sites/stream"
-		val String NODE_NAME = "openHAB"
-		val Locale LOCALE = Locale::getDefault
+when
+	Time cron "0 0/2 * * * ?" or
+	Item NestTStatUpstairs_ambient_temperature_f changed or
+	Item NestTStatDownstairs_ambient_temperature_f changed or
+	Item WeatherTemperatureCurrentTemperature changed or
+	Item WeatherLowTemperatureCurrentTemperature changed or
+	Item WeatherHighTemperatureCurrentTemperature changed or
+	Item NestTStatUpstairs_humidity changed or
+	Item NestTStatDownstairs_humidity changed or
+	Item WeatherHumidityCurrentLevel changed
+then
+	val String SEG_SITE = "<yourSiteKeyHere>"
+	val String SEG_URL = "http://api.smartenergygroups.com/api_sites/stream"
+	val String NODE_NAME = "openHAB"
+	val Locale LOCALE = Locale::getDefault
 
-		var String segData = ""
+	var String segData = ""
 
-		GMonitorTemperature?.members.forEach(item|
-			segData = segData + String::format(LOCALE, "(t_%s %s)", item.name, (item.state as Number).toString)
-		)
+	GMonitorTemperature?.members.forEach(item|
+		segData = segData + String::format(LOCALE, "(t_%s %s)", item.name, (item.state as Number).toString)
+	)
 
-		GMonitorHumidity?.members.forEach(item |
-			segData = segData + String::format(LOCALE, "(h_%s %s)", item.name, (item.state as Number).toString)
-		)
+	GMonitorHumidity?.members.forEach(item |
+		segData = segData + String::format(LOCALE, "(h_%s %s)", item.name, (item.state as Number).toString)
+	)
 
-		GMonitorEnergy?.members.forEach(item |
-			segData = segData + String::format(LOCALE, "(e_%s %s)", item.name, (item.state as Number).toString)
-		)
+	GMonitorEnergy?.members.forEach(item |
+		segData = segData + String::format(LOCALE, "(e_%s %s)", item.name, (item.state as Number).toString)
+	)
 
-		segData = String::format("(site %s (node %s ? %s))", SEG_SITE, NODE_NAME, segData)
-		sendHttpPostRequest(SEG_URL, "application/x-www-form-urlencoded", segData)
+	segData = String::format("(site %s (node %s ? %s))", SEG_SITE, NODE_NAME, segData)
+	sendHttpPostRequest(SEG_URL, "application/x-www-form-urlencoded", segData)
 end
 ```
