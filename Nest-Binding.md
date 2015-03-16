@@ -91,19 +91,21 @@ When you update the device with one of the four possible valid strings, you will
 
 Below are some examples of valid binding configuration strings, as you would define in the your .items file.  The examples represent the current set of available properties, and for each property, the example shows if it is an in-binding only (read-only), an out-binding only (write-only), or a bidirectional (read/write) binding only.  Note, however, that if a read/write property is only authorized for read-only access in the client you authorized, an attempt to change its value will fail.
 
-In this example, there is a Nest Account called `Home`, a Thermostat called `Upstairs` and a Smoke/CO Sensor called `Master Bedroom`
+In this example, there is a Nest structure called `Home`, a Thermostat called `Upstairs` and a Smoke/CO Sensor called `Master Bedroom`
 
 ```
 /* Nest binding Items */
 
+DateTime Nest_last_connection "Last Nest Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM]" {nest="<[last_connection]"}
+
 /* Structures - change Home to your structure's name */
 
-String   Nest_name "Name [%s]"                 {nest="<[structures(Home).name]"}
-String   Nest_country_code "Country Code [%s]" {nest="<[structures(Home).country_code]"}
-String   Nest_postal_code "Postal Code [%s]"   {nest="<[structures(Home).postal_code]"}
-String   Nest_time_zone "Time Zone [%s]"       {nest="<[structures(Home).time_zone]"}
-String   Nest_away "Away [%s]"                 {nest="=[structures(Home).away]"}
-String   Nest_structure_id "Structure Id [%s]" {nest="<[structures(Home).structure_id]"}
+String   NestHome_name "Name [%s]"                 {nest="<[structures(Home).name]"}
+String   NestHome_country_code "Country Code [%s]" {nest="<[structures(Home).country_code]"}
+String   NestHome_postal_code "Postal Code [%s]"   {nest="<[structures(Home).postal_code]"}
+String   NestHome_time_zone "Time Zone [%s]"       {nest="<[structures(Home).time_zone]"}
+String   NestHome_away "Away [%s]"                 {nest="=[structures(Home).away]"}
+String   NestHome_structure_id "Structure Id [%s]" {nest="<[structures(Home).structure_id]"}
 
 /* Thermostats - change Upstairs to your thermostat's name */
 
