@@ -79,13 +79,13 @@ end
 A variant of the above, this Rule has parts that only run at Nighttime.  Here we use the [[Astro Binding|Astro-Binding]] to compute daylight hours.  See the Astro Binding configuration for details on how to setup that Binding's `configuration/openhab.cfg` entry.
 
 Item declaration (`sunrise.items`):
-```
+```xtend
 DateTime ClockDaylightStart "Daylight Start [%1$tH:%1$tM]" <calendar> {astro="planet=sun, type=daylight, property=start, offset=-30"}
 DateTime ClockDaylightEnd   "Daylight End [%1$tH:%1$tM]" <calendar>   {astro="planet=sun, type=daylight, property=end, offset=+30"}
 ```
 
 Item declaration (`house.items`):
-```
+```xtend
 Switch   KitchenSinkLightStatus "Kitchen Sink Light" (GSwitch) {mios="unit:house,device:99/service/SwitchPower1/Status"}
 Switch   KitchenPantryLightStatus "Kitchen Pantry Light" (GSwitch) {mios="unit:house,device:425/service/SwitchPower1/Status"}
 Switch   PowerHotWaterPumpStatus "Power Hot Water Pump" (GSwitch) {mios="unit:house,device:303/service/SwitchPower1/Status"}
@@ -140,8 +140,8 @@ then
                 kTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
         }
 end
-
 ```
+
 #### When opening/closing Windows keep Nest _Away_ state in sync to save energy.
 
 This originally ran as a Scene on the MiOS Unit, but was replaced with an openHAB Rule.  The Items are a mix of Items, from an Alarm system running on MiOS, and the [[Nest Binding|Nest-Binding]], running locally.
