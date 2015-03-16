@@ -31,7 +31,7 @@ end
 ```
 
 ### Examples for Co-existing
-#### When Motion detected, turn Lights ON and, after 5 minutes, turn them OFF
+#### When Motion detected turn Lights ON (OFF after 5 minutes)
 This is typical of a declarative Scene in MiOS.  In this case, the lights are left on for 5 minutes, and if new motion is detected in that time, another 5 minute clock is started.
 
 The logging can be removed as needed.
@@ -74,6 +74,74 @@ then
 end
 ```
 
+#### When Motion detected turn Lights ON (if nighttime) and OFF after 5 minutes.
+
+A variant of the above, this Rule has parts that only run at Nighttime.  Here we use the [[Astro Binding|Astro-Binding]] to compute daylight hours.  See the Astro Binding configuration for details on how to setup that Binding's `configuration/openhab.cfg` entry.
+
+Item declaration (`sunrise.items`):
+```
+DateTime ClockDaylightStart "Daylight Start [%1$tH:%1$tM]" <calendar> {astro="planet=sun, type=daylight, property=start, offset=-30"}
+DateTime ClockDaylightEnd   "Daylight End [%1$tH:%1$tM]" <calendar>   {astro="planet=sun, type=daylight, property=end, offset=+30"}
+```
+
+Item declaration (`house.items`):
+```
+Switch   KitchenSinkLightStatus "Kitchen Sink Light" (GSwitch) {mios="unit:house,device:99/service/SwitchPower1/Status"}
+Switch   KitchenPantryLightStatus "Kitchen Pantry Light" (GSwitch) {mios="unit:house,device:425/service/SwitchPower1/Status"}
+Switch   PowerHotWaterPumpStatus "Power Hot Water Pump" (GSwitch) {mios="unit:house,device:303/service/SwitchPower1/Status"}
+Switch   KitchenPantryZoneArmed "Zone Armed [%s]" {mios="unit:house,device:426/service/SecuritySensor1/Armed"}
+```
+
+Rule declaration (`house-kitchen.rules`):
+```xtend
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.Timer
+import org.joda.time.*
+
+val int DELAY_SECONDS = 240
+var Timer kTimer = null
+
+rule "Kitchen Motion"
+when
+        Item KitchenMotionZoneTripped changed from CLOSED to OPEN
+then
+        logInfo("house-kitchen", "Kitchen-Motion Timer ON")
+
+        // Ignore this Rule if the Motion sensor is bypassed.
+        if (KitchenMotionZoneArmed.state != ON) {
+                logInfo("house-kitchen", "Kitchen-Motion Not Armed, skipping")
+                return void
+        }
+
+        val DateTime daylightStart = new DateTime((ClockDaylightStart.state as DateTimeType).getCalendar)
+        val DateTime daylightEnd = new DateTime((ClockDaylightEnd.state as DateTimeType).getCalendar)
+
+        var boolean night = daylightStart.isAfterNow || daylightEnd.isBeforeNow
+
+        if (night) {
+                logInfo("house-kitchen", "Kitchen-Motion Night Time")
+                sendCommand(KitchenSinkLightStatus, ON)
+                sendCommand(KitchenPantryLightStatus, ON)
+        }
+
+        logInfo("house-kitchen", "Kitchen-Motion Any Time")
+        sendCommand(PowerHotWaterPumpStatus, ON)
+
+        if (kTimer == null) {
+                kTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
+                        kTimer = null
+                        logInfo("house-kitchen", "Kitchen-Motion Timer OFF")
+                        sendCommand(KitchenSinkLightStatus, OFF)
+                        sendCommand(KitchenPantryLightStatus, OFF)
+                        sendCommand(PowerHotWaterPumpStatus, OFF)
+                ]
+        } else {
+                logInfo("house-kitchen", "Kitchen-Motion Timer Extend")
+                kTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
+        }
+end
+
+```
 #### When opening/closing Windows keep Nest _Away_ state in sync to save energy.
 
 This originally ran as a Scene on the MiOS Unit, but was replaced with an openHAB Rule.  The Items are a mix of Items, from an Alarm system running on MiOS, and the [[Nest Binding|Nest-Binding]], running locally.
