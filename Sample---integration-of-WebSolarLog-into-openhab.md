@@ -14,6 +14,7 @@ With this you should be able to see a XML File with the relevant information nee
 * now you need to create a transformation file in the transform directory of openhab:
  
 wsl_pv_GP.xsl: 
+```xml
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
         
@@ -28,68 +29,72 @@ wsl_pv_GP.xsl:
         </xsl:template>
 
 </xsl:stylesheet> 
-
+```
 
 ## OH items
-`Number DiehlWtemp	"Diehl W  [%.3f]"	{ http="<[http://<yourWSLIP>/websolarlog/json2xml.php?url=<yourWSLIP>/websolarlog/api.php/Live?url=<yourWSLIP>/websolarlog/api.php/Live:60000:XSLT(wsl_pv_GP.xsl)]" }`  
-`Number DiehlKW     "Diehl KW [%.3f kW]"`
+```
+Number DiehlWtemp	"Diehl W  [%.3f]"	{ http="<[http://<yourWSLIP>/websolarlog/json2xml.php?url=<yourWSLIP>/websolarlog/api.php/Live?url=<yourWSLIP>/websolarlog/api.php/Live:60000:XSLT(wsl_pv_GP.xsl)]" }
+Number DiehlKW     "Diehl KW [%.3f kW]"
+```
    
 I then transformed the same by a rule into kW.  
    
 ## Sample Rules 
 Created to react on the kW generated to close down some shutters:  
-   
-`// Calculate based on Input from Script the kW  ` 
-`rule "Calc KW"  ` 
-`when  ` 
-   `Item DiehlW received update  ` 
-`then  ` 
-   `{  ` 
-    `var diehlW  = DiehlW.state as DecimalType  ` 
-    `var diehlKW = (diehlW / 1000)  ` 
-    `postUpdate(DiehlKW, diehlKW)  ` 
-   `}  ` 
-`end  ` 
+
+```xtend
+// Calculate based on Input from Script the kW
+rule "Calc KW"
+when
+   Item DiehlW received update
+then
+   {
+    var diehlW  = DiehlW.state as DecimalType
+    var diehlKW = (diehlW / 1000)
+    postUpdate(DiehlKW, diehlKW)
+   }
+end
   
-`// Calculate the average kW from last 90 minutes  ` 
-`rule "Calc SolarAverage"  ` 
-`when   ` 
-   `Item DiehlKW received update  ` 
-`then  ` 
-   `var diehlAV = DiehlKW.averageSince(now.minusMinutes(90)) as DecimalType  ` 
-   `postUpdate(DiehlAV, diehlAV)  ` 
-`end  ` 
+// Calculate the average kW from last 90 minutes
+rule "Calc SolarAverage"
+when
+   Item DiehlKW received update
+then
+   var diehlAV = DiehlKW.averageSince(now.minusMinutes(90)) as DecimalType
+   postUpdate(DiehlAV, diehlAV)
+end
   
-`// Activate the Solar actions based on an average kW above 1.8   ` 
-`rule "Activate SunAuto based on SolarAverage"  ` 
-`when   ` 
-   `Item DiehlAV received update  ` 
-`then  ` 
-   `if (DiehlAV.state >= 1.8)  ` 
-    `{    ` 
-     `sendCommand(SunAuto, ON)  ` 
-    `}  ` 
-   `else sendCommand(SunAuto, OFF)   ` 
-`end  `  
-`   ` 
-`// Activate shutter down when SunAuto.state is ON between 11-17 every 15 minutes` 
-`rule "Sonnenschutz Automatisch"  ` 
-`when  ` 
-   `Time cron "0 */15 11-17 * * ?"  ` 
-`then  ` 
-   `if(SunAuto.state==ON){` 
-     `postUpdate(SunAutoActive, ON)   ` 
-     `sendCommand(Shutter_DG_West, DOWN)   ` 
-     `Thread::sleep(15000)   ` 
-     `sendCommand(Shutter_DG_West, STOP)   ` 
-   `}   ` 
-   `else if(SunAuto.state==OFF){   ` 
-        `if (SunAutoActive.state==ON){   ` 
-            `postUpdate(SunAutoActive, OFF)   ` 
-            `sendCommand(Shutter_DG_West, UP)   ` 
-        `}  ` 
-   `}   ` 
-`end`  
+// Activate the Solar actions based on an average kW above 1.8
+rule "Activate SunAuto based on SolarAverage"
+when
+   Item DiehlAV received update
+then
+   if (DiehlAV.state >= 1.8)
+    {
+     sendCommand(SunAuto, ON)
+    }
+   else sendCommand(SunAuto, OFF)
+end
+
+// Activate shutter down when SunAuto.state is ON between 11-17 every 15 minutes
+rule "Sonnenschutz Automatisch"
+when
+   Time cron "0 */15 11-17 * * ?"
+then
+   if(SunAuto.state==ON){
+     postUpdate(SunAutoActive, ON)
+     sendCommand(Shutter_DG_West, DOWN)
+     Thread::sleep(15000)
+     sendCommand(Shutter_DG_West, STOP)
+   }
+   else if(SunAuto.state==OFF){
+        if (SunAutoActive.state==ON){
+            postUpdate(SunAutoActive, OFF)
+            sendCommand(Shutter_DG_West, UP)
+        }
+   }
+end
+```
 
 Have fun!   
 Karsten
