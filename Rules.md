@@ -12,6 +12,7 @@ How to work with automation rules
     * [System-based Triggers] (Rules#system-based-triggers)
   * [Implicit Variables inside the Execution Block] (Rules#implicit-variables-inside-the-execution-block)
   * [Concurrency Guard] (Rules#concurrency-guard)
+  * [Logging] (Rules#logging)
   * [Example] (Rules#example)
 
 ## Introduction
@@ -142,6 +143,28 @@ If a rule triggers on UI events it may be necessary to guard against concurrency
 		}
 	end
 ```
+## Logging
+
+You can emit log messages from your rules to aid debugging. There are a number of logging methods available from your rules, the java signatures are:
+```java
+    logDebug(String loggerName, String format, Object... args)
+    logInfo(String loggerName, String format, Object... args)
+    logWarn(String loggerName, String format, Object... args)
+    logError(String loggerName, String format, Object... args)
+```
+
+In each case, the `loggerName` parameter is combined with the string `org.openhab.model.script.` to create the log4j logger name. For example, if your rules file contained the following log message:
+
+```java
+    logDebug("kitchen", "Kitchen light turned on")
+```
+
+then the logger you would have to enable in your logbook.xml file to allow that message to appear in your logs would be:
+
+```xml
+    <logger name="org.openhab.model.script.kitchen" level="DEBUG"/>
+```
+
 ## Example
 
 Taking all the information together, an example rule file could look like this:
