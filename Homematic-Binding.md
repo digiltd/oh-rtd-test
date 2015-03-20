@@ -91,8 +91,15 @@ homematic:host=
 # The interval in seconds to check if the communication with the CCU is still alive.
 # If no message receives from the CCU, the binding restarts. (optional, default is 300)
 # homematic:alive.interval=
-```
 
+# The interval in seconds to reconnect to the Homematic server (optional, default is disabled)
+# If you have no sensors which sends messages in regular intervals and/or you have low communication, 
+# the alive.interval may restart the connection to the Homematic server to often.
+# The reconnect.interval disables the alive.interval and reconnects after a fixed period of time. 
+# Think in hours when configuring (one hour = 3600)
+# homematic:reconnect.interval=
+```
+**Note:** homematic:reconnect.interval is available with PR https://github.com/openhab/openhab/pull/2332
 ## Item Binding
 
 Available parameters:
