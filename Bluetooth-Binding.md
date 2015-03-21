@@ -106,7 +106,7 @@ Generate (missing) JNI header files
   com.intel.bluetooth.BluetoothStackBlueZNativeTests</pre>
 
 Resume build
-<pre>mvn -rf:bluecove</pre>
+<pre>mvn -rf :bluecove</pre>
 
 Necessary build results:
 <pre>./bluecove/target/bluecove-2.1.0.jar
