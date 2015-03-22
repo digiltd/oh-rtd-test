@@ -197,12 +197,12 @@ Number Solar_Gesamt             "Ertrag (gesamt) [%.0f kWh]"  <energy>     { htt
 Number Solar_Tagesenergie       "Ertrag (am Tag) [%.2f kWh]"  <energy>     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*Tagesenergie</td>.*?([0-9\\.]*)</td>.*)]" }
 
 /* PV Generator String 1*/
-Number Solar_PVG_Str1_Spannung  "String1 Spannung [%d]"                    { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Spannung</td>.*?(\\d*)</td>.*)]" }
-Number Solar_PVG_Str1_Strom     "String1 Strom [%.2f]"                     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Strom</td>.*?([0-9.]*)</td>.*)]" }
+Number Solar_PVG_Str1_Spannung  "String1 Spannung [%d V]"                    { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Spannung</td>.*?(\\d*)</td>.*)]" }
+Number Solar_PVG_Str1_Strom     "String1 Strom [%.2f A]"                     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Strom</td>.*?([0-9.]*)</td>.*)]" }
 
 /* PV Generator String 2*/
-Number Solar_PVG_Str2_Spannung  "String2 Spannung [%d]"                    { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 2.*?Spannung</td>.*?(\\d*)</td>.*)]" }
-Number Solar_PVG_Str2_Strom     "String2 Strom [%.2f]"                     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 2.*?Strom</td>.*?([0-9.]*)</td>.*)]" }
+Number Solar_PVG_Str2_Spannung  "String2 Spannung [%d V]"                    { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 2.*?Spannung</td>.*?(\\d*)</td>.*)]" }
+Number Solar_PVG_Str2_Strom     "String2 Strom [%.2f A]"                     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 2.*?Strom</td>.*?([0-9.]*)</td>.*)]" }
 
 /* Ausgangsleistung & Spannung L1 */
 Number Solar_AL_L1_Spannung     "L1 Spannung [%d V]"                       { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Spannung</td>.*?Spannung</td>.*?(\\d*)</td>.*)]" }
