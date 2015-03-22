@@ -189,38 +189,38 @@ Sample output for this definition would then be "Window 1 is opened" or "Window 
 
 ![Kostal Piko](https://lh4.googleusercontent.com/-pa3EqaUPe_E/Ud8lK56J_-I/AAAAAAAALT0/KNOfi7gWe_c/w563-h634-no/openhab_kostal_piko_screenshot.PNG)
 ```
-/* AC Leistung */
-Number Solar_Aktuell            "aktuelle Leistung [%.0f W]"  <inverter>   { http="<[kostal-wechselrichter-cache:30000:REGEX(.*aktuell</td>.*?([0-9]*)</td>.*)]" }
+/* solar power (AC) */
+Number solar_active_power     "active power [%.0f W]"               <inverter>   { http="<[kostal-inverter-cache:30000:REGEX(.*aktuell</td>.*?([0-9]*)</td>.*)]" }
 
-/* Energie */
-Number Solar_Gesamt             "Ertrag (gesamt) [%.0f kWh]"  <energy>     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*Gesamtenergie</td>.*?(\\d*)</td>.*)]" }
-Number Solar_Tagesenergie       "Ertrag (am Tag) [%.2f kWh]"  <energy>     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*Tagesenergie</td>.*?([0-9\\.]*)</td>.*)]" }
+/* solar energy */
+Number solar_energy_total     "solar production total [%.0f kWh]"   <energy>     { http="<[kostal-inverter-cache:30000:REGEX(.*Gesamtenergie</td>.*?(\\d*)</td>.*)]" }
+Number solar_energy_day       "solar production per day [%.2f kWh]" <energy>     { http="<[kostal-inverter-cache:30000:REGEX(.*Tagesenergie</td>.*?([0-9\\.]*)</td>.*)]" }
 
-/* PV Generator String 1*/
-Number Solar_PVG_Str1_Spannung  "String1 Spannung [%d V]"                    { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Spannung</td>.*?(\\d*)</td>.*)]" }
-Number Solar_PVG_Str1_Strom     "String1 Strom [%.2f A]"                     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Strom</td>.*?([0-9.]*)</td>.*)]" }
+/* solar inverter String 1*/
+Number solar_Str1_voltage     "String1 voltage [%d V]"                           { http="<[kostal-inverter-cache:30000:REGEX(.*?String 1.*?Spannung</td>.*?(\\d*)</td>.*)]" }
+Number solar_Str1_current     "String1 current [%.2f A]"                         { http="<[kostal-inverter-cache:30000:REGEX(.*?String 1.*?Strom</td>.*?([0-9.]*)</td>.*)]" }
 
-/* PV Generator String 2*/
-Number Solar_PVG_Str2_Spannung  "String2 Spannung [%d V]"                    { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 2.*?Spannung</td>.*?(\\d*)</td>.*)]" }
-Number Solar_PVG_Str2_Strom     "String2 Strom [%.2f A]"                     { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 2.*?Strom</td>.*?([0-9.]*)</td>.*)]" }
+/* solar inverter String 2*/
+Number solar_Str2_voltage     "String2 voltage [%d V]"                           { http="<[kostal-inverter-cache:30000:REGEX(.*?String 2.*?Spannung</td>.*?(\\d*)</td>.*)]" }
+Number Solar_Str2_current     "String2 current [%.2f A]"                         { http="<[kostal-inverter-cache:30000:REGEX(.*?String 2.*?Strom</td>.*?([0-9.]*)</td>.*)]" }
 
-/* Ausgangsleistung & Spannung L1 */
-Number Solar_AL_L1_Spannung     "L1 Spannung [%d V]"                       { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Spannung</td>.*?Spannung</td>.*?(\\d*)</td>.*)]" }
-Number Solar_AL_L1_Leistung     "L1 Leistung [%d W]"                       { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?String 1.*?Leistung</td>.*?(\\d*)</td>.*)]" }
+/* solar inverter output voltage and power phase 1 (L1) */
+Number solar_out_L1_voltage   "L1 voltage [%d V]"                                { http="<[kostal-inverter-cache:30000:REGEX(.*?String 1.*?Spannung</td>.*?Spannung</td>.*?(\\d*)</td>.*)]" }
+Number solar_out_L1_power     "L1 power [%d W]"                                  { http="<[kostal-inverter-cache:30000:REGEX(.*?String 1.*?Leistung</td>.*?(\\d*)</td>.*)]" }
 
-/* Ausgangsleistung & Spannung L2 */
-Number Solar_AL_L2_Spannung     "L2 Spannung [%d V]"                       { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?L2</u></td>.*?Spannung</td>.*?Spannung</td>.*?(\\d*)</td>.*)]" }
-Number Solar_AL_L2_Leistung     "L2 Leistung [%d W]"                       { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?L2</u></td>.*?Leistung</td>.*?(\\d*)</td>.*)]" }
+/* solar inverter output voltage and power phase 2 (L2) */
+Number solar_out_L2_voltage   "L2 voltage [%d V]"                                { http="<[kostal-inverter-cache:30000:REGEX(.*?L2</u></td>.*?Spannung</td>.*?Spannung</td>.*?(\\d*)</td>.*)]" }
+Number Solar_out_L2_power     "L2 power [%d W]"                                  { http="<[kostal-inverter-cache:30000:REGEX(.*?L2</u></td>.*?Leistung</td>.*?(\\d*)</td>.*)]" }
 
-/* Ausgangsleistung & Spannung L3 */
-Number Solar_AL_L3_Spannung     "L3 Spannung [%d V]"                       { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?L3</u></td>.*?Spannung</td>.*?(\\d*)</td>.*)]" }
-Number Solar_AL_L3_Leistung     "L3 Leistung [%d W]"                       { http="<[kostal-wechselrichter-cache:30000:REGEX(.*?L3</u></td>.*?Leistung</td>.*?(\\d*)</td>.*)]" }
+/* solar inverter output voltage and power phase 3 (L3) */
+Number solar_out_L3_voltage   "L3 voltage [%d V]"                                { http="<[kostal-inverter-cache:30000:REGEX(.*?L3</u></td>.*?Spannung</td>.*?(\\d*)</td>.*)]" }
+Number solar_out_L3_power     "L3 power [%d W]"                                  { http="<[kostal-inverter-cache:30000:REGEX(.*?L3</u></td>.*?Leistung</td>.*?(\\d*)</td>.*)]" }
 ```
 To avoid loading the HTML page for each entry add a HTTP cache entry (for the HTTP binding) to your openhab.cfg like:
 
 ```
-http:kostal-wechselrichter-cache.url=http://pvserver:password@192.168.1.1/index.fhtml
-http:kostal-wechselrichter-cache.updateInterval=60000
+http:kostal-inverter-cache.url=http://pvserver:password@192.168.1.1/index.fhtml
+http:kostal-inverter-cache.updateInterval=60000
 ```
 
 **Make sure you replace "password" with your password and edit the ip address!**
