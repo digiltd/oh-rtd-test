@@ -68,7 +68,6 @@ then
 	// Perform deferred notifications, as the User.state may not have been processed yet. 
 	createTimer(now.plusSeconds(1)) [
 		logDebug("house-alarm", "Alarm-Panel-Disarmed-Fully Deferred notification")
-
 		var user = AlarmArea1LastUser.state as StringType
 
 		if (user == null) user = "user unknown"
