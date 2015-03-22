@@ -17,17 +17,67 @@ Here we check the specific transition between those two states as we want to avo
 Item declaration (`house.items`):
 ```xtend
 String   AlarmArea1Alarm "Alarm Area 1 Alarm [%s]" (GAlarmArea1) {mios="unit:house,device:228/service/AlarmPartition2/Alarm"}
+String   AlarmArea1ArmMode "Alarm Area 1 Arm Mode [%s]" (GAlarmArea1) {mios="unit:house,device:228/service/AlarmPartition2/ArmMode"}
+String   AlarmArea1LastUser "Alarm Area 1 Last User [%s]" (GAlarmArea1) {mios="unit:house,device:228/service/AlarmPartition2/LastUser"}
 ```
 
-Rule declaration (`alarm.rules`):
+Rule declaration (`house-alarm.rules`):
 ```xtend
 rule "Alarm Panel Breach"
 when
-	Item AlarmArea1Alarm changed from None to Active
+	Item AlarmArea1Alarm changed to Active
 then
+	var t = now
+
 	pushNotification("House-Alarm", "House in ALARM!! Notification")
 	say("Alert: House in Alarm Notification")
-end 
+
+	var long x = now.getMillis - t.getMillis
+	logInfo("house-alarm", "PERF Alarm-Panel-Breach elapsed: " + String::valueOf(x) + "ms")
+end
+
+rule "Alarm Panel Armed (Any)"
+when
+	Item AlarmArea1ArmMode changed from Disarmed to Armed
+then
+	var t = now
+
+	say("Warning! House Armed Notification")
+
+	// Perform deferred notifications, as the User.state may not have been processed yet.
+	createTimer(now.plusSeconds(1)) [
+		logDebug("house-alarm", "Alarm-Panel-Armed-Any Deferred notification")
+		var user = AlarmArea1LastUser.state as StringType
+
+		if (user == null) user = "user unknown"
+		pushNotification("House-Armed", "House Armed Notification (" + user + ")")
+	]
+
+	var long x = now.getMillis - t.getMillis
+	logInfo("house-alarm", "PERF Alarm-Panel-Armed-Any elapsed: " + String::valueOf(x) + "ms")
+end
+
+rule "Alarm Panel Disarmed (Fully)"
+when
+	Item AlarmArea1ArmMode changed from Armed to Disarmed
+then
+	var t = now
+
+	say("Warning! House Disarmed Notification")
+
+	// Perform deferred notifications, as the User.state may not have been processed yet. 
+	createTimer(now.plusSeconds(1)) [
+		logDebug("house-alarm", "Alarm-Panel-Disarmed-Fully Deferred notification")
+
+		var user = AlarmArea1LastUser.state as StringType
+
+		if (user == null) user = "user unknown"
+		pushNotification("House-Disarmed", "House Disarmed Notification (" + user + ")")
+	]
+
+	var long x = now.getMillis - t.getMillis
+	logInfo("house-alarm", "PERF Alarm-Panel-Disarmed-Fully elapsed: " + String::valueOf(x) + "ms")
+end
 ```
 
 ### Examples for Co-existing
