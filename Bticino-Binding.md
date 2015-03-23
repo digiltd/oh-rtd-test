@@ -58,7 +58,12 @@ At the moment only 2 (Automation), 1 (Lightning), 25 (CEN plus) and part of the 
 
 ### Example
 
-    Switch Movies_Scenery "Movies scenery"
+    Group Living                                                                                                                                                                                 
+    Group Plugs
+    Group RollerUpShutters
+   
+    // Sceneries
+    Switch Movie_Scenery "Movie scenery"
 
     // Plugs
     Switch Plug_AV_Amplifier "Audio Video amplifier" (Living, Plugs) <socket> {bticino="if=webserver;who=1;what=0;where=1"}
@@ -71,11 +76,24 @@ At the moment only 2 (Automation), 1 (Lightning), 25 (CEN plus) and part of the 
     Rollershutter RollUpShutter_1 "Roller-up shutter 1" (Living, RollerUpShutters) {bticino="if=webserver;who=2;what=0;where=46"}
     Rollershutter RollUpShutter_2 "Roller-up shutter 2" (Living, RollerUpShutters) {bticino="if=webserver;who=2;what=0;where=47"}
 
+## Sitemap example
+
+    sitemap demo label="Main panel" {
+
+    	 Frame label="Rooms" {                                                                                                                                                             
+                Group item=Living label="Living room"
+         }
+    	 Frame label="Sceneries" {                                                              
+                Switch item=Movie_Scenery mappings=[OFF="Turn OFF",ON="Turn ON"]                                                                                                                                                                         
+        }  
+
+    }
+
 ## Rule example
 
-    rule "Movies scenery"
+    rule "Movie scenery"
     when
-        Item Movies_Scenery received command
+        Item Movie_Scenery received command
     then
         
 	if (receivedCommand == ON) {
@@ -85,8 +103,6 @@ At the moment only 2 (Automation), 1 (Lightning), 25 (CEN plus) and part of the 
 		sendCommand(Spotlights_TV, ON)
 		sendCommand(RollUpShutter_1, DOWN)
 		sendCommand(RollUpShutter_2, DOWN)
-		
-		postUpdate(Movies_Scenery, ON)
 	
 	} else if (receivedCommand == OFF) {
 		
@@ -95,8 +111,6 @@ At the moment only 2 (Automation), 1 (Lightning), 25 (CEN plus) and part of the 
 		sendCommand(Spotlights_TV, ON)
 		sendCommand(RollUpShutter_1, UP)
 		sendCommand(RollUpShutter_2, UP)
-		
-		postUpdate(Movies_Scenery, OFF)
 	
 	}
 		
