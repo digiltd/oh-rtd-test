@@ -100,16 +100,16 @@ then
 	sendCommand(MasterClosetFibaroLightStatus, ON)
 
 	mclLock.lock()
-	if (mclTimer == null) {
-		mclTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
-			logInfo("house-master", "Master-Closet-Motion Timer lights OFF")
-			sendCommand(MasterClosetLightsStatus, OFF)
-			sendCommand(MasterClosetFibaroLightStatus, OFF)
-		]
-	} else {
-		logInfo("house-master", "Master-Closet-Motion Timer extend")
-		mclTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
+	if (mclTimer != null) {
+		mclTimer.cancel
+		logInfo("house-master", "Master-Closet-Motion Timer Cancel")
 	}
+
+	mclTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
+		logInfo("house-master", "Master-Closet-Motion Timer lights OFF")
+		sendCommand(MasterClosetLightsStatus, OFF)
+		sendCommand(MasterClosetFibaroLightStatus, OFF)
+	]
 	mclLock.unlock()
 end
 ```
@@ -166,7 +166,7 @@ then
 	if (night) {
 		logInfo("house-kitchen", "Kitchen-Motion Night Time")
 		sendCommand(KitchenSinkLightStatus, ON)
-	sendCommand(KitchenPantryLightStatus, ON)
+		sendCommand(KitchenPantryLightStatus, ON)
 	}
 
 	logInfo("house-kitchen", "Kitchen-Motion Any Time")
@@ -174,16 +174,16 @@ then
 
 	kLock.lock()
 	if (kTimer == null) {
-		kTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
-			logInfo("house-kitchen", "Kitchen-Motion Timer OFF")
-			sendCommand(KitchenSinkLightStatus, OFF)
-			sendCommand(KitchenPantryLightStatus, OFF)
-			sendCommand(PowerHotWaterPumpStatus, OFF)
-		]
-	} else {
-		logInfo("house-kitchen", "Kitchen-Motion Timer Extend")
-		kTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
+		kTimer.cancel
+		logInfo("house-kitchen", "Kitchen-Motion Timer Cancel")
 	}
+
+	kTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
+		logInfo("house-kitchen", "Kitchen-Motion Timer OFF")
+		sendCommand(KitchenSinkLightStatus, OFF)
+		sendCommand(KitchenPantryLightStatus, OFF)
+		sendCommand(PowerHotWaterPumpStatus, OFF)
+	]
 	kLock.unlock()
 end
 ```
