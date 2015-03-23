@@ -27,21 +27,14 @@ rule "Alarm Panel Breach"
 when
 	Item AlarmArea1Alarm changed to Active
 then
-	var t = now
-
 	pushNotification("House-Alarm", "House in ALARM!! Notification")
 	say("Alert: House in Alarm Notification")
-
-	var long x = now.getMillis - t.getMillis
-	logInfo("house-alarm", "PERF Alarm-Panel-Breach elapsed: " + String::valueOf(x) + "ms")
 end
 
 rule "Alarm Panel Armed (Any)"
 when
 	Item AlarmArea1ArmMode changed from Disarmed to Armed
 then
-	var t = now
-
 	say("Warning! House Armed Notification")
 
 	// Perform deferred notifications, as the User.state may not have been processed yet.
@@ -52,17 +45,12 @@ then
 		if (user == null) user = "user unknown"
 		pushNotification("House-Armed", "House Armed Notification (" + user + ")")
 	]
-
-	var long x = now.getMillis - t.getMillis
-	logInfo("house-alarm", "PERF Alarm-Panel-Armed-Any elapsed: " + String::valueOf(x) + "ms")
 end
 
 rule "Alarm Panel Disarmed (Fully)"
 when
 	Item AlarmArea1ArmMode changed from Armed to Disarmed
 then
-	var t = now
-
 	say("Warning! House Disarmed Notification")
 
 	// Perform deferred notifications, as the User.state may not have been processed yet. 
@@ -73,9 +61,6 @@ then
 		if (user == null) user = "user unknown"
 		pushNotification("House-Disarmed", "House Disarmed Notification (" + user + ")")
 	]
-
-	var long x = now.getMillis - t.getMillis
-	logInfo("house-alarm", "PERF Alarm-Panel-Disarmed-Fully elapsed: " + String::valueOf(x) + "ms")
 end
 ```
 
@@ -163,43 +148,43 @@ var Lock kLock = new ReentrantLock()
 
 rule "Kitchen Motion"
 when
-        Item KitchenMotionZoneTripped changed from CLOSED to OPEN
+	Item KitchenMotionZoneTripped changed from CLOSED to OPEN
 then
-        logInfo("house-kitchen", "Kitchen-Motion Timer ON")
+	logInfo("house-kitchen", "Kitchen-Motion Timer ON")
 
-        // Ignore this Rule if the Motion sensor is bypassed.
-        if (KitchenMotionZoneArmed.state != ON) {
-                logInfo("house-kitchen", "Kitchen-Motion Not Armed, skipping")
-                return void
-        }
+	// Ignore this Rule if the Motion sensor is bypassed.
+	if (KitchenMotionZoneArmed.state != ON) {
+		logInfo("house-kitchen", "Kitchen-Motion Not Armed, skipping")
+		return void
+	}
 
-        val DateTime daylightStart = new DateTime((ClockDaylightStart.state as DateTimeType).getCalendar)
-        val DateTime daylightEnd = new DateTime((ClockDaylightEnd.state as DateTimeType).getCalendar)
+	val DateTime daylightStart = new DateTime((ClockDaylightStart.state as DateTimeType).getCalendar)
+	val DateTime daylightEnd = new DateTime((ClockDaylightEnd.state as DateTimeType).getCalendar)
 
-        var boolean night = daylightStart.isAfterNow || daylightEnd.isBeforeNow
+	var boolean night = daylightStart.isAfterNow || daylightEnd.isBeforeNow
 
-        if (night) {
-                logInfo("house-kitchen", "Kitchen-Motion Night Time")
-                sendCommand(KitchenSinkLightStatus, ON)
-                sendCommand(KitchenPantryLightStatus, ON)
-        }
+	if (night) {
+		logInfo("house-kitchen", "Kitchen-Motion Night Time")
+		sendCommand(KitchenSinkLightStatus, ON)
+	sendCommand(KitchenPantryLightStatus, ON)
+	}
 
-        logInfo("house-kitchen", "Kitchen-Motion Any Time")
-        sendCommand(PowerHotWaterPumpStatus, ON)
+	logInfo("house-kitchen", "Kitchen-Motion Any Time")
+	sendCommand(PowerHotWaterPumpStatus, ON)
 
-        kLock.lock()
-        if (kTimer == null) {
-                kTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
-                        logInfo("house-kitchen", "Kitchen-Motion Timer OFF")
-                        sendCommand(KitchenSinkLightStatus, OFF)
-                        sendCommand(KitchenPantryLightStatus, OFF)
-                        sendCommand(PowerHotWaterPumpStatus, OFF)
-                ]
-        } else {
-                logInfo("house-kitchen", "Kitchen-Motion Timer Extend")
-                kTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
-        }
-        kLock.unlock()
+	kLock.lock()
+	if (kTimer == null) {
+		kTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
+			logInfo("house-kitchen", "Kitchen-Motion Timer OFF")
+			sendCommand(KitchenSinkLightStatus, OFF)
+			sendCommand(KitchenPantryLightStatus, OFF)
+			sendCommand(PowerHotWaterPumpStatus, OFF)
+		]
+	} else {
+		logInfo("house-kitchen", "Kitchen-Motion Timer Extend")
+		kTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
+	}
+	kLock.unlock()
 end
 ```
 
