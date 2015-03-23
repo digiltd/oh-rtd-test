@@ -56,7 +56,7 @@ For more details refer to the official document [OpenWebNet Introduction](http:/
 
 At the moment only 2 (Automation), 1 (Lightning), 25 (CEN plus) and part of the 4 (Temperature Control) are supported.
 
-### Example
+### Items example
 
     Group Living                                                                                                                                                                                 
     Group Plugs
