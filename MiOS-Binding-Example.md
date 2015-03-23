@@ -96,10 +96,15 @@ Switch   MasterClosetFibaroLightStatus "Master Closet Fibaro Light" (GSwitch) {m
 Rule declaration (`house-master.rules`):
 ```xtend
 import org.openhab.model.script.actions.Timer
+
 import org.joda.time.*
+
+import java.util.concurrent.locks.Lock
+import java.util.concurrent.locks.ReentrantLock
 
 val int DELAY_SECONDS = 300
 var Timer mclTimer = null
+var Lock mclLock = new ReentrantLock()
 
 rule "Master Closet Motion"
 when
@@ -109,9 +114,9 @@ then
 	sendCommand(MasterClosetLightsStatus, ON)
 	sendCommand(MasterClosetFibaroLightStatus, ON)
 
+	mclLock.lock()
 	if (mclTimer == null) {
 		mclTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
-			mclTimer = null
 			logInfo("house-master", "Master-Closet-Motion Timer lights OFF")
 			sendCommand(MasterClosetLightsStatus, OFF)
 			sendCommand(MasterClosetFibaroLightStatus, OFF)
@@ -120,6 +125,7 @@ then
 		logInfo("house-master", "Master-Closet-Motion Timer extend")
 		mclTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
 	}
+	mclLock.unlock()
 end
 ```
 
@@ -145,10 +151,15 @@ Rule declaration (`house-kitchen.rules`):
 ```xtend
 import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.Timer
+
 import org.joda.time.*
+
+import java.util.concurrent.locks.Lock
+import java.util.concurrent.locks.ReentrantLock
 
 val int DELAY_SECONDS = 240
 var Timer kTimer = null
+var Lock kLock = new ReentrantLock()
 
 rule "Kitchen Motion"
 when
@@ -176,9 +187,9 @@ then
         logInfo("house-kitchen", "Kitchen-Motion Any Time")
         sendCommand(PowerHotWaterPumpStatus, ON)
 
+        kLock.lock()
         if (kTimer == null) {
                 kTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
-                        kTimer = null
                         logInfo("house-kitchen", "Kitchen-Motion Timer OFF")
                         sendCommand(KitchenSinkLightStatus, OFF)
                         sendCommand(KitchenPantryLightStatus, OFF)
@@ -188,6 +199,7 @@ then
                 logInfo("house-kitchen", "Kitchen-Motion Timer Extend")
                 kTimer.reschedule(now.plusSeconds(DELAY_SECONDS))
         }
+        kLock.unlock()
 end
 ```
 
