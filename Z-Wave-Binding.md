@@ -68,7 +68,7 @@ where parts in brackets indicate an optional item. Usually only one item is boun
 
 The node ID indicates the number (in decimal notation) of the node, to which this item is bound. To find out your devices nodeIds either look at the startup log of openhab or use other Z-Wave configuration programs like openzwave control panel to detect and configure your setup.
 
-The endpoint ID is required when using the multi_instance command class. In case a node consists of multiple instances or endpoints, the instance number can be specified using this value. The default value is not to use the multi_instance command class (effectively a default value of 0). An example of a multi-endpoint device is the Fibaro FGS 221 double relay.
+The endpoint ID is only required/allowed when using the multi_instance command class. In case a node consists of multiple instances or endpoints, the instance number can be specified using this value. The default value is not to use the multi_instance command class - the number must be positive and must not be 0. An example of a multi-endpoint device is the Fibaro FGS 221 double relay.
 
 **PLEASE NOTE THAT THE ENDPOINT NUMBERING CHANGED FOR 1.6 RELEASE.**
 Previously, the default value was 1, but this caused problems with multi-instance devices. This meant that a binding string of ```zwave=18:1``` and ```zwave=18``` was the same - this is now NOT the case.
