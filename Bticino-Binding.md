@@ -85,7 +85,7 @@ At the moment only 2 (Automation), 1 (Lightning), 25 (CEN plus) and part of the 
          }
     	 Frame label="Sceneries" {                                                              
                 Switch item=Movie_Scenery mappings=[OFF="Turn OFF",ON="Turn ON"]                                                                                                                                                                         
-        }  
+         }  
 
     }
 
