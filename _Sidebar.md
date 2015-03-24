@@ -40,7 +40,7 @@ Community
   * [[Comfo Air Binding|Comfo-Air-Binding]]
   * [[Config Admin Binding|Config-Admin-Binding]]
   * [[CUL Binding|CUL-Binding]]
-  * [[CUL Intertechno-Binding|CUL Intertechno]]
+  * [[CUL Intertechno Binding|CUL Intertechno]]
   * [[CUPS Binding|CUPS-Binding]]
   * [[DAIKIN Binding|Daikin-Binding]]
   * [[Davis Binding|Davis-Binding]]
