@@ -84,12 +84,11 @@ import org.openhab.model.script.actions.Timer
 
 import org.joda.time.*
 
-import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 
-val int DELAY_SECONDS = 300
+val int MCL_DELAY_SECONDS = 300
 var Timer mclTimer = null
-var Lock mclLock = new ReentrantLock()
+var ReentrantLock mclLock = new ReentrantLock(false)
 
 rule "Master Closet Motion"
 when
@@ -99,18 +98,18 @@ then
 	sendCommand(MasterClosetLightsStatus, ON)
 	sendCommand(MasterClosetFibaroLightStatus, ON)
 
-	mclLock.lock()
+	mclLock.lock
 	if (mclTimer != null) {
 		mclTimer.cancel
 		logInfo("house-master", "Master-Closet-Motion Timer Cancel")
 	}
 
-	mclTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
+	mclTimer = createTimer(now.plusSeconds(MCL_DELAY_SECONDS)) [
 		logInfo("house-master", "Master-Closet-Motion Timer lights OFF")
 		sendCommand(MasterClosetLightsStatus, OFF)
 		sendCommand(MasterClosetFibaroLightStatus, OFF)
 	]
-	mclLock.unlock()
+	mclLock.unlock
 end
 ```
 
@@ -139,12 +138,11 @@ import org.openhab.model.script.actions.Timer
 
 import org.joda.time.*
 
-import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 
-val int DELAY_SECONDS = 240
+val int K_DELAY_SECONDS = 240
 var Timer kTimer = null
-var Lock kLock = new ReentrantLock()
+var ReentrantLock kLock = new ReentrantLock(false)
 
 rule "Kitchen Motion"
 when
@@ -172,19 +170,19 @@ then
 	logInfo("house-kitchen", "Kitchen-Motion Any Time")
 	sendCommand(PowerHotWaterPumpStatus, ON)
 
-	kLock.lock()
+	kLock.lock
 	if (kTimer == null) {
 		kTimer.cancel
 		logInfo("house-kitchen", "Kitchen-Motion Timer Cancel")
 	}
 
-	kTimer = createTimer(now.plusSeconds(DELAY_SECONDS)) [
+	kTimer = createTimer(now.plusSeconds(K_DELAY_SECONDS)) [
 		logInfo("house-kitchen", "Kitchen-Motion Timer OFF")
 		sendCommand(KitchenSinkLightStatus, OFF)
 		sendCommand(KitchenPantryLightStatus, OFF)
 		sendCommand(PowerHotWaterPumpStatus, OFF)
 	]
-	kLock.unlock()
+	kLock.unlock
 end
 ```
 
@@ -230,7 +228,7 @@ when
 then
 	if (GWindow.members.filter(s|s.state==OPEN).size == 0) {
 		say("Attention: All Windows closed.")
-		Nest_away.sendCommand("home")
+		sendCommand(Nest_away, "home")
 	}
 end
 
@@ -250,7 +248,7 @@ when
 then
 	if (GWindow.members.filter(s|s.state==OPEN).size == 1) {
 		say("Attention: First Window opened.")
-		Nest_away.sendCommand("away")
+		sendCommand(Nest_away, "away")
 	}
 end
 ```
