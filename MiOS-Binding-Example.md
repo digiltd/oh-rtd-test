@@ -171,7 +171,7 @@ then
 	sendCommand(PowerHotWaterPumpStatus, ON)
 
 	kLock.lock
-	if (kTimer == null) {
+	if (kTimer != null) {
 		kTimer.cancel
 		logInfo("house-kitchen", "Kitchen-Motion Timer Cancel")
 	}
