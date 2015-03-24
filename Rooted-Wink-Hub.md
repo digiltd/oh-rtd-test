@@ -41,7 +41,7 @@ Local control
 
 This is done by  rule based on  Anderew M's post Wink "binding" without a binding  - currently I am duplicating the rules for each device which is inelegant but I will have at most 10-15 lights so I can live with it for now.  I was trying to duplicate the dual nature of buttons in the wink app that they are both dimmers and switches unfortunately openhab's dimmer control doesn't seem to work that way, I can either turn the light off by changing the level to 0% but the state will still be on and upon power failure the light will come back on.  In the end I ended up forcing an ON and OFF and 0% and 100%.
 
-This script uses the ssh technique to call Wink by JustinAike in this post http://www.reddit.com/r/winkhub/comments/2r8xuz/fastest_way_to_get_a_command_to_aprontest_locally/cneh6dc
+This script uses the ssh technique to call Wink by @JustinAiken in this post http://www.reddit.com/r/winkhub/comments/2r8xuz/fastest_way_to_get_a_command_to_aprontest_locally/cneh6dc
 The rule - 
 
     rule "Den Light Control"
