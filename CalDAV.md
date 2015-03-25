@@ -62,7 +62,12 @@ Binding file: org.openhab.binding.caldav-presence-version.jar
 * TIME: start/end time (itemtype: String)
 * NAMEANDTIME: name und start- bis endzeit
 
-## Example configuration
+# Logging
+> <logger name="org.openhab.binding.caldav_personal" level="TRACE"/>
+> <logger name="org.openhab.binding.caldav_presence" level="TRACE"/>
+> <logger name="org.openhab.io.caldav" level="TRACE"/>
+
+# Example configuration
 
 There are three calendars defined. One of them is used just for executing commands in openhab (Command-kalender). The others are used to show the upcoming events (Müllkalender, Dienstlicher/privater Kalender).
 In every case, the binding org.openhab.io.caldav-<version>.jar is needed. For executing commands the additional binding org.openhab.binding.caldav-command-<version>.jar is needed. For upcoming events or presence simulation the binding org.openhab.binding.caldav-personal-<version>.jar needs to be included.
@@ -76,6 +81,7 @@ openhab.cfg
     #caldavio:<calendar-id>:password=
     #caldavio:<calendar-id>:reloadInterval=<minutes>
     #caldavio:<calendar-id>:preloadTime=<minutes>
+    #caldavio:timeZone=<e. g. Europe/Berlin>
 
     # Dienstlicher/privater Kalender
     caldavio:dienstlich:url=http://192.168.2.5/owncloud/remote.php/caldav/calendars/user/pers%C3%B6nlich
@@ -83,6 +89,7 @@ openhab.cfg
     caldavio:dienstlich:password=password
     caldavio:dienstlich:reloadInterval=60
     caldavio:dienstlich:preloadTime=2880
+    caldavio:timeZone=Europe/Berlin
 
     # Müllkalender
     caldavio:muell:url=http://192.168.2.5/owncloud/remote.php/caldav/calendars/user/m%C3%BCll
@@ -90,6 +97,7 @@ openhab.cfg
     caldavio:muell:password=password
     caldavio:muell:reloadInterval=1440
     caldavio:muell:preloadTime=2880
+    caldavio:timeZone=Europe/Berlin
 
     # Command-kalender``
     caldavio:command:url=http://192.168.2.5/owncloud/remote.php/caldav/calendars/user/command
@@ -97,6 +105,7 @@ openhab.cfg
     caldavio:command:password=password
     caldavio:command:reloadInterval=10
     caldavio:command:preloadTime=1440
+    caldavio:timeZone=Europe/Berlin
 
     # Additionally needed binding: org.openhab.binding.caldav-command-<version>.jar
     # used to execute commands by a triggered event
