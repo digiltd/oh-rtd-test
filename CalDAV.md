@@ -9,7 +9,7 @@ openhab.cfg
 * `caldavio:<calendar-id>:reloadInterval=<minutes>`
 * `caldavio:<calendar-id>:preloadTime=<minutes>`
 * `caldavio:<calendar-id>:disableCertificateVerification:<true|false>`
-* `caldavio:timeZone:<Timezone>`
+* `caldavio:timeZone=<Timezone>`
 
 ***
 
