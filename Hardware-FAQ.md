@@ -40,13 +40,13 @@ There you can find IdVendor, product, and IdProduct. Replace these IDs in the ru
 
 ARM-based computers are a popular choice among home automation enthusiasts due to low cost, small size, low power consumption and typically fan-less. They are usually extensible with available add-on components and via programmable GPIO.
 
-| System   | Cost | Cores | Ghz | Model | Gb RAM | IO
-| -------- | ---- | ------|-----|-------| ------ | --- |
-| RaspPi B | $30  | 1     | 0.7 | A5    | 0.5    | GPIO |
-| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | GPIO |
-| BananaPi | $40  | 2     | 1.0 |       | 1.0    | GPIO SATA |
-| ODROID C1 | $36  | 4     | 1.5 | A7    | 1.0    | GPIO |
-| BeagleBlk | $50  | ?     | 1.0 | A8    | 0.5    | GPIO |
+| System   | Cost | Cores | Ghz | Model | Gb RAM | IO  |  Primary OS  |
+| -------- | ---- | ------|-----|-------| ------ | --- |----|
+| RaspPi B | $30  | 1     | 0.7 | A5    | 0.5    | GPIO |Raspbian |
+| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | GPIO |Raspbian |
+| BananaPi | $40  | 2     | 1.0 |       | 1.0    | GPIO SATA |Raspbian |
+| ODROID C1 | $36  | 4     | 1.5 | A7    | 1.0    | GPIO | Ubuntu |
+| BeagleBlk | $50  | 2     | 1.0 | A8    | 0.5    | GPIO | Ubuntu |
 
 
 
@@ -56,8 +56,8 @@ ARM-based computers are a popular choice among home automation enthusiasts due t
 
 ** Raspberry PI2 is 6 times as fast as Raspberry PI 1**
 
-* 900MHz quad-core ARM Cortex-A7 CPU (~6x performance)
-* 1GB LPDDR2 SDRAM (2x memory)
+* 900MHz quad-core ARM Cortex-A7 CPU 
+* 1GB LPDDR2 SDRAM 
 * Complete compatibility with Raspberry Pi 1
 
 ![Raspberry Pi interfaces](http://www.raspberrypi.org/wp-content/uploads/2014/03/raspberry-pi-model-b-300x199.jpg)
