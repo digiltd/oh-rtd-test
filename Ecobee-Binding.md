@@ -51,6 +51,14 @@ The first character is then followed by a section between square brackets (\[and
 
 Where `<thermostat>` is a decimal thermostat identifier for in (`<`), out (`>`) and bidirectional (`=`) bindings.
 
+> *Where can I find my thermostat identifier?*
+> A thermostat identifier is a long, decimal number.  For ecobee3 users, one way to find the number is to login to your Ecobee portal and read the URL you were taken to in the browser's address bar:
+>```
+https://www.ecobee.com/consumerportal/index.html#/thermostats/318937256426
+```
+> The final component of the URL is your thermostat identifier.
+> For non-ecobee3 users who are using the older web portal, you can go to the Home IQ&trade; tab and choose Download Data from the Report chart.  The thermostat identifier can be found in the report.
+
 For out (`>`) bindings only, `<thermostat>` can instead be selection criteria that specify which thermostats to change. You can use either a comma-separated list of thermostat identifiers (no spaces), or, for non-EMS thermostats only, a wildcard (the `*` character).
 
 In the case of out bindings for EMS or Utility accounts, the `<thermostat>` criteria can be a path to a management set (for example, `/Toronto/Campus/BuildingA`).  Please note that management set path elements that contain the `.` or `#` characters cannot be specified.
