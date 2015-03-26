@@ -7,13 +7,15 @@ Examples for accessing REST API
 
 ## Introduction
 
-There are three main interfaces:
+This page has samples in multiple languages for utilizing the three main REST interfaces for Items in OpenHAB:
 
-* **Send Command** - This will send a COMMAND to an item to tell it to take some action (e.g. turn on light).
+* **Send Command** - This will send a command to an item to tell it to take some action (e.g. turn on light).
 
 * **Send Status** - This is to indicate that the status of an item has changed (e.g. window is now open).
 
 * **Get Status** - Gets the current status of an item.  (This can also be used to continuously get updates as shown in the Python section).
+
+There is also a sitemap interface.
 
 ## Language Samples
 
