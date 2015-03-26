@@ -7,9 +7,7 @@ Examples for accessing REST API
 
 ## Introduction
 
-Please see below sample code for accessing openhab's REST API.  
-
-Note that there are three main interfaces:
+There are three main interfaces:
 
 * **Send Command** - This will send a COMMAND to an item to tell it to take some action (e.g. turn on light).
 
@@ -17,6 +15,7 @@ Note that there are three main interfaces:
 
 * **Get Status** - Gets the current status of an item.  (This can also be used to continuously get updates as shown in the Python section).
 
+## Language Samples
 
 ### jquery
 
@@ -107,7 +106,7 @@ _Send command to an item:_
 
 ### PHP
 
-Simple PHP function to post a command to a switch using the REST interface.
+Accessing REST API via PHP.  Simple PHP function to post a command to a switch using the REST interface.
 
 _Send command to an item:_
 
@@ -136,7 +135,7 @@ If the post was successful the function will return the state you set, EG above 
 
 ### Python
 
-Python code snippets.  Note that for the request interface, this is set up to continuously receive updates rather than just getting a one time response.  This is done with the "polling header" and the last section decodes the JSON response.
+Accessing REST API via Python.  Note that the rget status interface is set up to continuously receive updates rather than just getting a one time response.  This is done with the "polling header" and the last section decodes the JSON response.
 
 _Send command to an item_
 
