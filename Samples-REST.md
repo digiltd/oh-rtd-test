@@ -134,7 +134,7 @@ If the post was successful the function will return the state you set, EG above 
 
 ### Python
 
-Python code snippets for the OpenHAB REST API
+Python code snippets for the OpenHAB REST API.  Note that for the request interface, this is set up to continuously receive updates rather than just getting a one time response.  This is done with the "polling header" and the last section decodes the JSON response.
 
     def polling_header(self):
         """ Header for OpenHAB REST request - polling """
