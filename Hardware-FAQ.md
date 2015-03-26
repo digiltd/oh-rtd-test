@@ -40,11 +40,20 @@ There you can find IdVendor, product, and IdProduct. Replace these IDs in the ru
 
 ARM-based computers are a popular choice among home automation enthusiasts due to low cost, small size, low power consumption and typically fan-less. They are usually extensible with available add-on components and via programmable GPIO.
 
+| System   | Cost | Cores | Ghz | Model | Gb RAM | GPIO
+| -------- | ---- | ------|-----|-------| ------ | --- |
+| RaspPi 1 | $30  | 1     | 0.7 | A5    | 0.5    | yes |
+| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | yes |
+| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | yes |
+| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | yes |
+
+
+
 ### Raspberry Pi
 
 ![Raspberry PI 2](https://pbs.twimg.com/media/B82celWIIAAx90U.jpg:large)
 
-**New Version of Raspberry PI! 6 times as fast as Raspberry PI 1, same price!**
+** Raspberry PI2 is 6 times as fast as Raspberry PI 1**
 
 * 900MHz quad-core ARM Cortex-A7 CPU (~6x performance)
 * 1GB LPDDR2 SDRAM (2x memory)
@@ -80,7 +89,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 - /opt/vc/bin/tvservice -o
 - Overclocking does not seem to have big influences
 
-### Banana Pi (bPi)
+### Banana Pi (bPi) $ 40
 
 ![Banana Pi](http://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Front_of_Banana_Pi.JPG/490px-Front_of_Banana_Pi.JPG)
 
