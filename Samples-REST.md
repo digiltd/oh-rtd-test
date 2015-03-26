@@ -11,9 +11,9 @@ Please see below sample code for accessing openhab's REST API.
 
 Note that there are two ways to update an item:
 
-POST Command - This will send a COMMAND to an item to tell it to take some action (e.g. raise the blind).
+POST Command - This will send a COMMAND to an item to tell it to take some action (e.g. turn on light).
 
-PUT Status - This is to indicate that the status of an item has changed.  F(e.g. window is now open).
+PUT Status - This is to indicate that the status of an item has changed (e.g. window is now open).
 
 
 ### jquery
