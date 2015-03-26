@@ -40,12 +40,13 @@ There you can find IdVendor, product, and IdProduct. Replace these IDs in the ru
 
 ARM-based computers are a popular choice among home automation enthusiasts due to low cost, small size, low power consumption and typically fan-less. They are usually extensible with available add-on components and via programmable GPIO.
 
-| System   | Cost | Cores | Ghz | Model | Gb RAM | GPIO
+| System   | Cost | Cores | Ghz | Model | Gb RAM | IO
 | -------- | ---- | ------|-----|-------| ------ | --- |
-| RaspPi 1 | $30  | 1     | 0.7 | A5    | 0.5    | yes |
-| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | yes |
-| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | yes |
-| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | yes |
+| RaspPi B | $30  | 1     | 0.7 | A5    | 0.5    | GPIO |
+| RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | GPIO |
+| BananaPi | $40  | 2     | 1.0 |       | 1.0    | GPIO SATA |
+| ODROID C1 | $36  | 4     | 1.5 | A7    | 1.0    | GPIO |
+| BeagleBlk | $50  | ?     | 1.0 | A8    | 0.5    | GPIO |
 
 
 
