@@ -138,7 +138,7 @@ If the post was successful the function will return the state you set, EG above 
 
 Python code snippets.  Note that for the request interface, this is set up to continuously receive updates rather than just getting a one time response.  This is done with the "polling header" and the last section decodes the JSON response.
 
-_To send command to an item_
+_Send command to an item_
 
     def post_command(self, key, value):
         """ Post a command to OpenHAB - key is item, value is command """
@@ -191,7 +191,7 @@ _Get state updates of an item_
                 if do_publish:
                     self.publish(name, state)
 
-_Header definitions_
+_HTTP Header definitions_
 
     def polling_header(self):
         """ Header for OpenHAB REST request - polling """
