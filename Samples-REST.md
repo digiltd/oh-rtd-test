@@ -7,7 +7,13 @@ Examples for accessing REST API
 
 ## Introduction
 
-Please see below sample code for accessing openhab's REST API.
+Please see below sample code for accessing openhab's REST API.  
+
+Note that there are two ways to update an item:
+
+POST Command - This will send a COMMAND to an item to tell it to take some action (e.g. raise the blind).
+
+PUT Status - This is to indicate that the status of an item has changed.  F(e.g. window is now open).
 
 
 ### jquery
@@ -99,11 +105,11 @@ Send command:
 
 ### PHP
 
-Simple PHP function to set a switch state using the REST interface.
+Simple PHP function to post a command to a switch using the REST interface.
 
-Set state:
+Post command:
 
-    function doPostRequest($item, $data) {
+    function doPostCommand($item, $data) {
       $url = "http://192.168.1.121:8080/rest/items/" . $item;
     
       $options = array(
@@ -122,7 +128,7 @@ Set state:
 
 Example function use:
 
-    doPostRequest("doorbellSwitch", "ON");
+    doPostCommand("doorbellSwitch", "ON");
 
 If the post was successful the function will return the state you set, EG above returns "ON"
 
