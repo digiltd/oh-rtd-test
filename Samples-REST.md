@@ -165,7 +165,7 @@ _Get state updates of an item_
         """ Request updates for any item in group NAME from OpenHAB.
          Long-polling will not respond until item updates.
         """
-        # When an item in Group NAME changes we will get all items in group ROS
+        # When an item in Group NAME changes we will get all items in the group 
         # and need to determine which has changed
         url = 'http://%s:%s/rest/items/%s'%(self.openhab_host,
                                         self.openhab_port, name)
