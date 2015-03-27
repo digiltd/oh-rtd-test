@@ -13,7 +13,7 @@ For the moment, only the server-side chart creation as PNG through rrd4j is impl
 ## Using RRD4j Charts
 
 To use the rrd4j charting solution, you must have installed the addon bundle org.openhab.persistence.rrd4j.
-The items that you want to show on the graphs must be persisted through the rrd4j persistence service once a minute, see the [[Persistence|persistence documentation]] on how to set this up.
+The items that you want to show on the graphs must be persisted through the rrd4j persistence service once a minute, see the [[Persistence documentation|Persistence]] on how to set this up.
 
 Charts are not created in a regular interval, but on-the-fly upon access, which means that they are always up-to-date. To access the charts, the org.openhab.persistence.rrd4j bundle registers a servlet that can be accessed at `http://<server>:<port>/rrdchart.png`.
 
