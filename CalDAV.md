@@ -11,6 +11,7 @@ openhab.cfg
 * `caldavio:<calendar-id>:disableCertificateVerification:<true|false>`
 * `caldavio:timeZone=<Timezone>`
 
+The calendar-id must be just upper- and lowercase characters. (e. g. private or work, something like 1 or private-home is not allowed)
 ***
 
 # CalDAV Command
