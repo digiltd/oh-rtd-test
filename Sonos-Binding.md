@@ -104,4 +104,4 @@ Especially the "group" and "radio" command need several seconds to execute. Also
 The volume button on the loudspeakers create events and can trigger respective rule. Note: the "Play/Pause" button will not create related events.
 
 ## UPNP Problems
-The binding is making use of a buggy UPNP library that result in memory leaks which may crash OPENHAB occasionally.
+Note:The binding is making use of a buggy UPNP library that result in memory leaks which may crash OPENHAB occasionally.
