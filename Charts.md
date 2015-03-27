@@ -2,7 +2,7 @@
 
 # Introduction
 
-With [[Persistence|persistence services]] being available in openHAB, one frequent requirement is to visualize time series of values in the UI. openHAB supports the easy definition and creation of such charts.
+With [[Persistence|Persistence]] being available in openHAB, one frequent requirement is to visualize time series of values in the UI. openHAB supports the easy definition and creation of such charts.
 
 # Available Solutions
 
