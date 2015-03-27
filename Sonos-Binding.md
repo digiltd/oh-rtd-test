@@ -102,3 +102,6 @@ Sonos commands take time to execute. If applied to fast, the SONOS player will i
 Especially the "group" and "radio" command need several seconds to execute. Also the timing is not predictable and the worst case has to be determined experimentally. In rules you may use "Thread::sleep(x)  //(x: ms)"  to delay the execution of SONOS command accordingly.
 
 The volume button on the loudspeakers create events and can trigger respective rule. Note: the "Play/Pause" button will not create related events.
+
+## UPNP Problems
+The binding is making use of a buggy UPNP library that result in memory leaks which may crash OPENHAB occasionally.
