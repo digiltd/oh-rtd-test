@@ -49,7 +49,7 @@ To make these actions available in the Designer as well, you need to copy the ja
 **Mail Action**
 
 This add-on provides SMTP services (please check openhab.cfg for required configuration settings):
-- `sendMail(String to, String subject, String message)`: Sends an email via SMTP
+- `sendMail(String to, String subject, String message)`: Sends an email via SMTP, to parameter can contain semicolon seperated multiple email addresses
 - `sendMail(String to, String subject, String message, String attachmentUrl)`: Sends an email with attachment via SMTP
 
 **XMPP Action**
