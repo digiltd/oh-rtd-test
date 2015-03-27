@@ -74,6 +74,22 @@ runtime.actualTemperature | X | | DecimalType
 runtime.actualHumidity | X | | DecimalType
 settings.hvacMode | X | X | StringType
 
+### ecobee3 Remote Sensors
+
+If you have an ecobee3 thermostat with remote, wireless temperature/occupancy sensors, the binding can read their values.  
+
+The binding configuration string uses the simple name you gave the remote sensor.  The characters `(`,`)`,`[`,`]`, and `.` are not permitted in sensor names when used with the binding.
+
+The ecobee3 sensors are known to report temperature or occupancy, and so you would specify either `temperature` or `occupancy` as the capability you wish to retrieve.  `temperature` returns a `DecimalType` temperature in the binding's chosen temperature scale, and `occupancy` returns an `OnOffType` value as you would use in a switch.  If either value is unavailable for some reason, such as loss of connectivity, the binding returns an `UnDefType.NULL` value.
+
+>Note that `occupancy` is computed (by Ecobee, not the binding) to mean presence within the last 30 minutes, not current occupancy.
+
+```
+Number "Kitchen temperature [%.1f °F]" { ecobee="<[123456789#remoteSensors(Kitchen).capability(temperature).value]" }
+Number "Basement temperature [%.1f °F]" { ecobee="<[123456789#remoteSensors(Basement).capability(temperature).value]" }
+Switch "Bedroom occupancy [%s]" { ecobee="<[123456789#remoteSensors(Bedroom).capability(occupancy).value]" }
+```
+
 See the Example Binding Strings section below for more examples.
 
 ## Authentication
@@ -125,6 +141,13 @@ Changes the backlight sleep intensity on all thermostats at the lake house
 ```
 { ecobee=">[lakehouse.*#settings.backlightSleepIntensity]" }
 ```
+
+Determine if there was any occupancy in the condo's kitchen within the last 30 minutes:
+
+```
+{ ecobee="<[condo.987654321#remoteSensors(Kitchen).capability(occupancy).value]" }
+```
+
 
 ## Known Issues
 
