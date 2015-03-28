@@ -1200,7 +1200,10 @@ When you have a device unable to send REST requests (f.e. Webcams), you may use
 Example:
 
     http://<openhab-host>:8080/CMD?Light=ON
+    http://<openhab-host>:8080/CMD?Light=OFF
+    http://<openhab-host>:8080/CMD?Light=TOGGLE
 
+TOGGLE changes the current status of a switch item from ON to OFF or from OFF to ON.
 ## Extract caller and called number from Fritzbox Call object
 
 If you define an item like the following in your site.items config
