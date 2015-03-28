@@ -12,8 +12,6 @@ The Bluetooth binding supports three different types of openhab items: Switches,
 
 For each item you can configure whether to observe: only paired, unpaired or all devices.
 
-For installation of the binding, please see Wiki page [[Bindings]].
-
 #### Restrictions
 
 Binding is not working for Windows 8.1 (both 32 and 64 bit) and MAC OS (Yosemite).
@@ -53,6 +51,7 @@ As a result, your lines in the items file might look like follows:
 
 ## Installation
 
+* For general installation of the binding, please see Wiki page [[Bindings]].
 * To access the local bluetooth device, the binding uses [BlueCove](http://bluecove.org/).
 * BlueCove uses native libraries (JNI) to access the platform specific bluetooth stack.
 * There are prebuilt native libraries for Windows and Mac OS X (IMHO).
@@ -63,7 +62,7 @@ As a result, your lines in the items file might look like follows:
 To access the bluetooth stack on linux systems, we have to build the native libraries.
 We have to replace the bluecove stuff that is bundled with the mainline bluetooth binding with the new one, and then rebuild the binding for our target system (so the correct stuff comes with it).
 
-### 1. Build BlueCove
+#### 1. Build BlueCove
 
 _Install necessary packages to build:_  base-devel subversion maven bluez-libs
 
@@ -122,7 +121,7 @@ This could be done using different ways, e.g. you could use the Eclipse IDE.
 * Check, if "MANIFEST.MF" and "build.properties" was changed.
 * Save file
 
-### 3. Build openHAB Bluetooth binding
+#### 3. Build openHAB Bluetooth binding
 
 * Delete the bluecove jar file in the lib subdirectory of the binding.
 * Add the two build jar files (bluecove-2.1.0.jar and bluecove-gpl-2.1.0.jar) to the lib subdirectory of the binding.
