@@ -76,11 +76,15 @@ settings.hvacMode | X | X | StringType
 
 ### ecobee3 Remote Sensors
 
-If you have an ecobee3 thermostat with remote, wireless temperature/occupancy sensors, the binding can read their values.  
+If you have an ecobee3 thermostat with remote, wireless temperature/occupancy sensors, the binding can read their values.  Format:
 
-The binding configuration string uses the simple name you gave the remote sensor.  The characters `(`,`)`,`[`,`]`, and `.` are not permitted in sensor names when used with the binding.
+```
+... { ecobee="<[<thermostat_id>#remoteSensors(<sensor_name>).capability(<capability>).value]" }
+```
 
-The ecobee3 sensors are known to report temperature or occupancy, and so you would specify either `temperature` or `occupancy` as the capability you wish to retrieve.  `temperature` returns a `DecimalType` temperature in the binding's chosen temperature scale, and `occupancy` returns an `OnOffType` value as you would use in a switch.  If either value is unavailable for some reason, such as loss of connectivity, the binding returns an `UnDefType.NULL` value.
+Supply the long, decimal thermostat ID as in other in-binding configurations.  The binding configuration string uses the simple name you gave the remote sensor for `<sensor_name>`.  The characters `(`,`)`,`[`,`]`, and `.` are not permitted in sensor names when used with the binding.
+
+The ecobee3 sensors are known to report temperature or occupancy, and so you would specify either `temperature` or `occupancy` as the `<capability>` you wish to retrieve.  `temperature` returns a `DecimalType` temperature in the binding's chosen temperature scale, and `occupancy` returns an `OnOffType` value as you would use in a switch or rule.  If either value is unavailable for some reason, such as loss of connectivity, the binding returns an `UnDefType.NULL` value.
 
 >Note that `occupancy` is computed (by Ecobee, not the binding) to mean presence within the last 30 minutes, not current occupancy.
 
@@ -349,6 +353,13 @@ Here are some examples of valid binding configuration strings, as you would defi
 	Number houseDetails_numberOfRooms "numberOfRooms [%d]"                         (gHouseDetails) { ecobee="=[123456789012#houseDetails.numberOfRooms]" }
 	Number houseDetails_numberOfOccupants "numberOfOccupants [%d]"                 (gHouseDetails) { ecobee="=[123456789012#houseDetails.numberOfOccupants]" }
 	Number houseDetails_age "age [%d]"                                             (gHouseDetails) { ecobee="=[123456789012#houseDetails.age]" }
+	
+	/* If you have remote sensors named Kitchen and Bedroom connected to an ecobee3 with ID 123456789012 */
+	
+	Group gRemoteSensors (All)
+
+	Number remoteSensors_Kitchen_capability_temperature "Kitchen temp. [%.1f °F]" (gRemoteSensors) { ecobee="<[123456789012#remoteSensors(Kitchen).capability(temperature).value]" }
+	Switch remoteSensors_Bedroom_capability_occupancy "Bedroom occu. [%s]"        (gRemoteSensors) { ecobee="<[123456789012#remoteSensors(Bedroom).capability(occupancy).value]" }
 
 ## Logging
 
