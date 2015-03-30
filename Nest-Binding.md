@@ -4,7 +4,6 @@ _**Note:** This Binding will be available in the upcoming 1.7 Release. For preli
 
 * [Introduction](#introduction)
 * [Binding Configuration](#binding-configuration)
-* [Nest Authorization](#nest-authorization)
 * [Item configuration](#item-configuration)
  * [Handling special characters](#handling-special-characters)
 * [Binding Examples](#binding-examples)
