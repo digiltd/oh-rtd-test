@@ -1,36 +1,29 @@
 _**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
 
+## Table of Contents
+
+* [Introduction](#introduction)
+* [Binding Configuration](#binding-configuration)
+* [Nest Authorization](#nest-authorization)
+* [Item configuration](#item-configuration)
+ * [Handling special characters](#handling-special-characters)
+* [Binding Examples](#binding-examples)
+* [Known Issues](#known-issues)
+* [Logging](#logging)
+
 ## Introduction
 
 [Nest Labs](https://nest.com/) developed the Wi-Fi enabled Nest Learning Thermostat and the Nest Protect Smoke+CO detector.  These devices are supported by this binding, which communicates with the Nest API over a secure, RESTful API to Nest's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, monitoring and changing your "home/away" status, and monitoring your Nest Protects can be accomplished through this binding.
 
-In order to use this binding, you will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.  At this point, you will have your `client_id` and `client_secret`.
-
-Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the `pin_code`.
-
-For installation of the binding, please see the Wiki page [Bindings](Bindings).
+>For installation of the binding JAR on your system, please see the Wiki page [Bindings](Bindings).
 
 ## Binding Configuration
 
-In order to use the Nest API, you must specify the `nest:client_id`, `nest:client_secret` and `nest:pin_code` parameters to be used in interactions with Nest's cloud service.
+In order to use this binding, you will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.  At this point, you will have your `nest:client_id` and `nest:client_secret`.
 
-These values must be set in the `openhab.cfg` file in `${openhab_home}/configurations/`.
+Once you've created your [client](https://developer.nest.com/clients) as above, paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will then present the `nest:pin_code`.  Prepare to copy and paste your values for `nest:client_id`, `nest:client_secret` and `nest:pin_code` in order to configure the binding.
 
-An optional _refresh interval_ setting may also be specified, via the `nest:refresh` parameter, and defaults to a polling rate of one call per every 60000ms (one minute).
-
-:warning: Setting the _refresh interval_ aggressively may cause you to hit [data rate limits](https://developer.nest.com/documentation/cloud/data-rate-limits).  Nest Documentation recommends the `nest:refresh` not be set lower than 60000.
-
-```
-nest:refresh=60000
-```
-
-## Nest Authorization
-
-You will have to register as a [Nest Developer](https://nest.com/developer/) and [Register a new client](https://developer.nest.com/clients/new).  Make sure to grant all the permissions you intend to use.
-
-Once you've created your [client](https://developer.nest.com/clients), paste the Authorization URL into a new tab in your browser.  This will have you login to your normal Nest account, and will present the Nest generated PIN code.
-
-Paste all three of these values into your `openhab.cfg` file like so (using _your_ values):
+Edit the file `openhab.cfg` located in `${openhab_home}/configurations/`.  Paste all three of these values into your `openhab.cfg` file like so (using _your_ values):
 
     ############################## Nest binding ########################################
     #
@@ -46,6 +39,12 @@ Paste all three of these values into your `openhab.cfg` file like so (using _you
     # the PIN code that was generated when you authorized your account to allow
     # this client
     nest:pin_code=2JTXXXJL
+
+An optional _refresh interval_ setting may also be specified, via the `nest:refresh` parameter, and defaults to a polling rate of one call per every 60000ms (one minute).
+
+:warning: Setting the _refresh interval_ aggressively may cause you to hit [data rate limits](https://developer.nest.com/documentation/cloud/data-rate-limits).  Nest Documentation recommends the `nest:refresh` not be set lower than 60000.
+
+    nest:refresh=60000
 
 ## Item configuration
 
