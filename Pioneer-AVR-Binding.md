@@ -326,6 +326,7 @@ The mapping of the source channels (AV_Source) to enumation numbers is as follow
 * 04: DVD
 * 25: BD
 * 05: TV/SAT
+* 06: SAT/CBL
 * 15: DVR/BDR
 * 10: VIDEO 1(VIDEO)
 * 14: VIDEO 2
