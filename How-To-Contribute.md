@@ -18,6 +18,9 @@ If you are in doubt whether it is a bug or not, you can also first refer to [the
 
 The same is true if you intend to implement/contribute a new feature. Please always first discuss your idea in the group as this will ensure a clear project direction and avoid the situation that different people unknowingly work on the same feature.
 
+**Important:** Please note that while openHAB 1.x is the major version to use at the moment, the evolution of the core runtime is by now taking place at the [Eclipse SmartHome](https://www.eclipse.org/smarthome/) project, which builds the foundation for [openHAB 2.x](https://github.com/openhab/openhab2). You can find some background information about that in [this blogpost](http://kaikreuzer.blogspot.de/2014/06/openhab-20-and-eclipse-smarthome.html). Out of this reason, we are very reluctant to accept any pull requests for "core" functionality - if you plan such contributions, better discuss on the mailing list if it makes sense to do this in Eclipse SmartHome.
+Pull requests for any kind of add-on (binding, action, etc.) are not concerned by this, as we will do our best that they will work on openHAB 2 without modification.
+
 ## Code Handling
 
 To make code changes to the openHAB code base yourself, all you have to do is to create a local clone of the repository (git clone https://github.com/openhab/openhab/). See [IDE Setup](IDE-Setup) on how to set up a development environment and read [How to implement a binding](How-To-Implement-A-Binding) if you plan to implement a new binding.
