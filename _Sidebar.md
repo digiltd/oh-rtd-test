@@ -106,6 +106,7 @@ Community
   * [[Piface Binding|Piface-Binding]]
   * [[pilight Binding|pilight-Binding]]
   * [[Pioneer-AVR-Binding]]
+  * [[Plex Binding|Plex-Binding]]
   * [[Plugwise Binding|Plugwise-Binding]]
   * [[PLCBus Binding|PLC-Bus-Binding]]
   * [[Pulseaudio Binding|Pulseaudio-Binding]]
