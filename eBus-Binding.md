@@ -1,4 +1,4 @@
-_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
+_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) or download it from my [webpage](http://www.cs-dev.de/2015/03/openhab-ebus-binding.html)._
 
 ## Change log
 
