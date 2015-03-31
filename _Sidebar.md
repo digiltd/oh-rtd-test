@@ -50,6 +50,7 @@ Community
   * [[DSMR Binding|DSMR-binding]]
   * [[Ecobee Binding|Ecobee-Binding]]
   * [[EDS OWSever Binding|EDS-OWServer-Binding]]
+  * [[eBus Binding|eBus-Binding]]
   * [[eKey Binding|ekey-Binding]]
   * [[Energenie Binding|Energenie-Binding]]
   * [[EnOcean Binding|EnOcean-Binding]]
