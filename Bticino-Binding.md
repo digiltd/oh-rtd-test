@@ -54,14 +54,16 @@ In order to bind an item to a Bticino device you need to provide configuration s
 
 For more details refer to the official document [OpenWebNet Introduction](http://www.myopen-legrandgroup.com/resources/own_protocol/m/own_documents/16.aspx).
 
-At the moment only 2 (Automation), 1 (Lightning) and part of the 4 (Temperature Control) are supported.
+At the moment only 2 (Automation), 1 (Lightning) 15 (Basic & Evolved CEN) and part of the 4 (Temperature Control) are supported.
 
 ### Items example
 
+    Group Entrance
+    Group Corridor
     Group Living                                                                                                                                                                                 
     Group Plugs
     Group RollerUpShutters
-   
+
     // Sceneries
     Switch Movie_Scenery "Movie scenery"
 
@@ -71,6 +73,9 @@ At the moment only 2 (Automation), 1 (Lightning) and part of the 4 (Temperature 
 
     // Lights
     Switch Spotlights_TV "TV spotlights" (Living, Lights) {bticino="if=webserver;who=1;what=0;where=35"}
+    Switch Corridor_Warning "Corridor warning light" (Corridor, Lights) {bticino="if=webserver;who=1;what=0;where=36"}
+    // CEN example
+    Switch Doorbell_Light "Doorbell courtesy light" (Entrance, Lights) {bticino="if=webserver;who=15;what=01;where=98"}
 
     // Rollershutters 
     Rollershutter RollUpShutter_1 "Roller-up shutter 1" (Living, RollerUpShutters) {bticino="if=webserver;who=2;what=0;where=46"}
@@ -80,9 +85,11 @@ At the moment only 2 (Automation), 1 (Lightning) and part of the 4 (Temperature 
 
     sitemap demo label="Main panel" {
 
-    	 Frame label="Rooms" {                                                                                                                                                             
+    	 Frame label="Rooms" {
+                Group item=Entrance label="Entrance"                                                                                                                                                   
                 Group item=Living label="Living room"
          }
+
     	 Frame label="Sceneries" {                                                              
                 Switch item=Movie_Scenery mappings=[OFF="Turn OFF",ON="Turn ON"]                                                                                                                                                                         
          }  
@@ -91,27 +98,49 @@ At the moment only 2 (Automation), 1 (Lightning) and part of the 4 (Temperature 
 
 ## Rule example
 
+    // Movie scenery management
     rule "Movie scenery"
     when
         Item Movie_Scenery received command
     then
-        
-	if (receivedCommand == ON) {
+        if (receivedCommand == ON) {
 
-		sendCommand(Plug_AV_Amplifier, ON)	
-		sendCommand(Plug_Subwoofer, ON)
-		sendCommand(Spotlights_TV, ON)
-		sendCommand(RollUpShutter_1, DOWN)
-		sendCommand(RollUpShutter_2, DOWN)
+            sendCommand(Plug_AV_Amplifier, ON)	
+            sendCommand(Plug_Subwoofer, ON)
+            sendCommand(Spotlights_TV, ON)
+            sendCommand(RollUpShutter_1, DOWN)
+            sendCommand(RollUpShutter_2, DOWN)
 	
-	} else if (receivedCommand == OFF) {
+        } else if (receivedCommand == OFF) {
 		
-		sendCommand(Plug_Subwoofer, OFF)
-		sendCommand(Plug_AV_Amplifier, OFF)	
-		sendCommand(Spotlights_TV, ON)
-		sendCommand(RollUpShutter_1, UP)
-		sendCommand(RollUpShutter_2, UP)
+            sendCommand(Plug_Subwoofer, OFF)
+            sendCommand(Plug_AV_Amplifier, OFF)	
+            sendCommand(Spotlights_TV, ON)
+            sendCommand(RollUpShutter_1, UP)
+            sendCommand(RollUpShutter_2, UP)
 	
-	}
-		
+        }	
+    end
+
+    // Doorbel ringer light
+    rule "Doorbel ringer"
+    when
+        Item Doorbell_Light received update
+    then
+        if (Doorbell_Light.state == ON) {
+
+                var Number idx = 0
+                
+                // Number of rings
+                while (idx < 5) {
+
+                        sendCommand(Corridor_Warning, ON)
+                        Thread::sleep(1500)
+                        sendCommand(Corridor_Warning, OFF)
+                        Thread::sleep(1500)
+                        idx = idx + 1
+
+                }
+
+        }
     end
