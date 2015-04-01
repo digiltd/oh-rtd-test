@@ -4,9 +4,13 @@ Overview of available transformation services
 tbd ...
 
 ### Java Script transformation service
-OpenHab supports transformation scripts written in Javascript. Example item configuration:
+OpenHab supports transformation scripts written in Javascript. 
 
+Example item configuration:
 `http="<[http://example.com/var/value:60000:JS(getValue.js)]" }`
+
+Example in rules:
+`transform("JS", "getValue.js", "foo bar baz")`
 
 Let's assume we have received a string containing `foo bar baz` and we're looking for a length of the last word (`baz`).
 
