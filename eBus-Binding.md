@@ -1,4 +1,4 @@
-_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) or download it from my [webpage](http://www.cs-dev.de/2015/03/openhab-ebus-binding.html)._
+_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://buildhive.cloudbees.com/job/openhab/job/openhab/org.openhab.binding$org.openhab.binding.ebus/)._
 
 ## Change log
 
@@ -20,7 +20,7 @@ The eBus binding allows you to control your heating system. The eBus protocol is
 To access your heating system you either need an eBus interface. You can buy a ready interface or solder your own circuit (examples: [eBus Wiki](http://ebus.webhop.org/twiki/bin/view.pl/EBus/EBusKonverter)). A simple read-only interface can be build with an Arduino device.
 
 For installation of the binding, please see Wiki page [[Bindings]]. You can download the latest binding from here: 
-[eBus binding 1.7.0 SNAPSHOT](https://buildhive.cloudbees.com/job/openhab/job/openhab/2067/org.openhab.binding$org.openhab.binding.ebus/artifact/org.openhab.binding/org.openhab.binding.ebus/1.7.0-SNAPSHOT/org.openhab.binding.ebus-1.7.0-SNAPSHOT.jar)
+[eBus binding 1.7.0 SNAPSHOT](https://buildhive.cloudbees.com/job/openhab/job/openhab/org.openhab.binding$org.openhab.binding.ebus/)
 
 ## Binding Configuration in openhab.cfg
 
