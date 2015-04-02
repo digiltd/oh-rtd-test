@@ -363,6 +363,7 @@ Replace <api_code> with your own API code (sign up for a developers account). Fi
 **Rules**
 ```Xtend
     import org.joda.time.*
+    import org.openhab.model.script.actions.Timer
     
     var Timer tIndoorLights
     
