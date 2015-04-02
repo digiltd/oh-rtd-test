@@ -344,6 +344,20 @@ Here are some examples of valid binding configuration strings, as defined in the
 The binding can perform a nightly heal. This will try to update the neighbor node list, associations and routes. The actual routing is performed by the controller.
 Two options are possible in the config file to set the healing. ```healtime``` sets the time (in hours) that the automatic heal will occur. ```softReset``` can also be set to true to perform a soft reset on the controller before the heal. Note that it has been observed that this can cause some zwave-plus sticks to lock up, so you should test this first.
 
+## Battery Devices and Wakeup
+One of the questions that gets asked a lot is _"my battery device is sending information, so it's clearly awake, but I can't change parameters"_. ZWave battery devices only 'wake up' periodically however they will send their data whenever THEY want. So if the door opens, then a sensor will send its data immediately (otherwise it would be of no use!) and for temperature sensors, or multi sensors, there's normally a configuration that allows you to configure how often the sensor will send the data, or how much change there needs to be before it will send an update (or a combination of the two).
+
+However, wakeup is different. In the above scenarios, the device is not 'awake' - it's just sending notifications. When a device wakes up, it sends a special message to the binding to say "I'm awake, do you have anything to send me". We can then send data to the device (configuration setting, parameter requests etc), and the device can respond. When we have no more messages to send to the device, we tell it to go back to sleep (this currently happens 1 second after we send the last message - just to give the system time to respond to any rules etc before the device goes to sleep again).
+
+A device will wake up based on the information in the wakeup command class, which is available in HABmin. If wakeup isn't set correctly, then we can't command the device, even though we may receive sensor data etc. The binding will attempt to configure this automatically when the device/binding initialises - it will make sure that the node is set to reference the binding, but in general it won't touch the time. The exception to this is where the time is set to 0, it will set it to 1 hour.
+
+If wakeup hasn't been set, then we will never be able to send commands to the device to initialise it, or change parameters. In this case, you need to wake the device up manually. Normally, this is achieved by pressing a button on the device (maybe 3 times). This causes the device to send what's called a NIF (Node Information Frame) - this is sent as a broadcast though so it's not routed. This means that the device MUST be able to communicate directly to the controller, so it needs to be close by.
+
+The last wakeup time is shown in HABmin in the wakeup area for a battery device.
+
+One last point on the wakeup configuration node. There is (currently) no way to set the target node - the binding will automatically set it to its own ID when the interval is changed. Some people have used a value of 255 for the target node, or it may come as the default value - this means that the wakeup is broadcast to anyone who wants to listen. This might seem a good idea as multiple controllers can receive the message however, broadcast messages do not get routed, so this only works if the controller is in direct contact with the device which is often not the case.
+
+
 ## Database
 The binding uses a database of devices so that it can work around any quirks, or present information about association groups and configuration data. The format for the database is [here](https://github.com/cdjackson/HABmin2/wiki/Z-Wave-Product-Database).
 
