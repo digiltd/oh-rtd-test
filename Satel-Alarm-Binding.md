@@ -192,7 +192,7 @@ DateTime AlarmDateTime "Current time [%1$tF %1$tR]" { satel="status:date_time" }
 Switch AlarmConnection "Connection status" <network>
 ```
 
-Connection status rule:
+Connection status rule, assuming refresh time is configured to less than 5 seconds:
 ```
 var Timer satelTimer = null
 
