@@ -180,6 +180,7 @@ Samples
   * [[Squeezebox|SqueezeboxExample]]
   * [[WAC Binding|Samples WAC Binding]]
   * [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
+  * [[B-Control Manager|Example-to-read-the-wattage-and-electric-energy-from-a-B-control-Energy-Manager-EM100,-EM210,-EM300]
  * [[Rules|Samples-Rules]]
   * [[Misc. rule examples|Samples-Rules]]
   * [[Alarm Clock|AlarmClock]]
