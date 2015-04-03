@@ -1,3 +1,5 @@
+Example to read the wattage and electric energy from a B control Energy Manager EM100, EM210, EM300  
+
 ## Introduction
 The B-Control Energy Manager is mostly used in combination with an solar power system to measure the energy and wattage.
 B-Control released the specification of the
