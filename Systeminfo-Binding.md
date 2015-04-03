@@ -7,7 +7,7 @@ System information binding provides operating system monitoring data including:
 - File system metrics
 - Network interface metrics
 
-Binding use Hyperic SIGAR API to access system information regardless of the underlying platform (Windows, Linux, OS X...). 
+Binding uses Hyperic SIGAR API to access system information regardless of the underlying platform (Windows, Linux, OS X...). 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -30,17 +30,18 @@ The SystemInformation binding does not include SIGAR native libraries currently.
 
 ## Item Binding Configuration
 
-In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
+In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items). The syntax of the binding configuration strings accepted is the following:
 
     systeminfo="<commandType>:<refreshPeriod>(<target>)"
 
 Where 
 
-`<commandType>` corresponds the command type. See complite list below.
+`<commandType>` corresponds to the command type. See complete list below.
+Note that the output of some commands (eg. DirUsage) will be affected by filesystem permissions. ie. Directories that the process is not permitted access to cannot be include in the tally.
 
-`<refreshPeriod>` corresponds update interval of the item in milliseconds.
+`<refreshPeriod>` corresponds to the update interval of the item in milliseconds.
 
-`<target>` corresponds target of the command. Target field is mandatory only for commands, which need target. See further details from supported command list below.
+`<target>` corresponds to the target of the command. Target field is mandatory only for commands, which need target. See further details from supported command list below.
 
 ## List of supported commands (commandType)
 
