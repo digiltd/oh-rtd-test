@@ -14,6 +14,8 @@ This page contains samples for binding configurations. These samples are sorted 
 * [How to get power on a TV connected to HDMI with exec binding and update the status automatically](Samples-Binding-Config#how-to-get-power-on-a-tv-connected-to-hdmi-with-exec-binding-and-update-the-status-automatically)
 * [How to catch a Mobotix T24/T25 bell button signal](Samples-Binding-Config#how-to-catch-a-mobotix-t24-bell-button-signal)
 
+
+
 ### KNX basic configuration
 
 The openhab.cfg file
@@ -350,4 +352,80 @@ Switch MainDoor { http=">[ON:GET:http://user:password@192.168.0.101/control/rcon
 The Camera image can be put on the openHab sitemap via:
 ```
 Image url="http://user:password@192.168.0.101/record/current.jpg" refresh=1000 //Camera image with 1fps
+```
+
+### Serial Modbus Nilan Heatpump configuration
+openhab.cfg
+```
+# See: org.openhab.binding.modbus/src/main/java/net/wimpi/modbus/util/SerialParameters.java
+# See: org.openhab.binding.modbus/src/main/java/org/openhab/binding/modbus/internal/ModbusBinding.java
+modbus:serial.nilan.connection=/dev/ttyUSB0:19200:8:even:1:rtu
+modbus:serial.nilan.id=30
+
+modbus:serial.nilan.start=200
+modbus:serial.nilan.length=16
+modbus:serial.nilan.type=input
+modbus:serial.pollinterval=2000
+
+modbus:serial.nilan.valuetype=int16
+```
+rules/demo.rules
+```
+/* nilan computations */
+rule "nilan t0-15 sensor division"
+when 
+	Time cron "0/1 * * * * ?" or
+	System started
+then
+	heat_nilan?.members.forEach(sourceEl| {
+			var Number temp = (sourceEl.state as DecimalType) 
+			if(temp > 0x8000) {temp = temp - 0xFFFF }
+			temp = temp / 100
+			
+			nilan_aggregated?.members.forEach[targetEl |
+				if(targetEl.name.toString == sourceEl.name.toString + "_div"){
+					postUpdate(targetEl, temp)
+				} ]
+		}
+	)
+end
+```
+items/demo.item
+```
+/* Nilan */
+Group heat_nilan (All)
+Number nilan_t0		"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:0"}
+Number nilan_t1		"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:1"}
+Number nilan_t2		"t2_tmp variable [%2.2f °C]" 		<temperature> (heat_nilan)		{modbus="nilan:2"}
+Number nilan_t3		"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:3"}
+Number nilan_t4		"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:4"}
+Number nilan_t5		"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:5"}
+Number nilan_t6		"temporary variable will be processed in .rules file[%2.2f °C]" 		<temperature> (heat_nilan)	{modbus="nilan:6"}
+Number nilan_t7		"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:7"}
+Number nilan_t8		"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:8"}
+Number nilan_t9		"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:9"}
+Number nilan_t10	"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:10"}
+Number nilan_t11	"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:11"}
+Number nilan_t12	"temporary variable will be processed in .rules file[%2.2f °C]" 		<temperature> (heat_nilan)	{modbus="nilan:12"}
+Number nilan_t13	"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:13"}
+Number nilan_t14	"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:14"}
+Number nilan_t15	"temporary variable will be processed in .rules file" 		<temperature> (heat_nilan)		{modbus="nilan:15"}
+
+Group nilan_aggregated (All)
+Number nilan_t0_div		"Controller board (t0) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t1_div		"Fresh air intake (t1) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t2_div		"Inlet (before heater) (t2) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t3_div		"Room exhaust (t3) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t4_div		"Outlet (t4) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t5_div		"Condenser (t5) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t6_div		"Evaporator (t6) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t7_div		"Inlet (after heater) (t7) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t8_div		"Outdoor (t8) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t9_div		"Heating surface (t9) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t10_div	"External room (t10) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t11_div	"Boiler Top (t11) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t12_div	"Boiler Bottom (t12) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t13_div	"EK return (t13) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t14_div	"EK supply (t14) [%2.2f °C]" <temperature> (nilan_aggregated)
+Number nilan_t15_div	"User Panel room (t15) [%2.2f °C]" <temperature> (nilan_aggregated)
 ```
