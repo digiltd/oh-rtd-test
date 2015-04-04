@@ -180,7 +180,6 @@ Samples
   * [[Squeezebox|SqueezeboxExample]]
   * [[WAC Binding|Samples WAC Binding]]
   * [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
-  * [[B-Control Manager|Example-to-use-B-Control-Energy-Manager-with-openHAB]]
  * [[Rules|Samples-Rules]]
   * [[Misc. rule examples|Samples-Rules]]
   * [[Alarm Clock|AlarmClock]]
@@ -195,6 +194,7 @@ Samples
  * [[Update-Scripts|openhab-Get-Snapshot]]
  * [[Controlling openHAB with Android|Controlling-openHAB-with-Android]]
  * [[Usecase examples|Usecase-examples]]
+ * [[B-Control Manager|Example-to-use-B-Control-Energy-Manager-with-openHAB]]
 
 Release Notes
  * [[Version 1.6|Release-Notes-1.6]]
