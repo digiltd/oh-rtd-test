@@ -164,7 +164,7 @@ Syntax:
 Syntax:
 
     Video item=<itemname>  [icon="<iconname>"] url="<url of video to embed>" [encoding="<video encoding>"]
-encoding is the video encoding. Use "mjpeg" for MJPEG video or leave empty for autoselection
+encoding is the video encoding. Be sure to specify "mjpeg" for MJPEG video.  Leave empty for autoselection, but autoselection does not work properly for MJPEG.
 
 #### Element 'Webview'
 
