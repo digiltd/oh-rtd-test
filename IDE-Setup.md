@@ -37,7 +37,7 @@ To run a single test you have to use following command: `mvn -o org.eclipse.tych
 
 After the first successful local build it might be a good idea to build with maven -o (offline) afterwards. This option accelerates the project dependency resolution by 10-20x since it lets maven search it's local repository. Normally, snapshot-enabled projects are using external repositories to find latest built packages.
 
-Note that the IDE being installed by the above mentioned method _does **not** contain any code generation facilities_ (MWE, Xtext) itself since that setup caused difficulties on certain machines. The code generation is accomplished through the maven build.
+Note that the IDE being installed by the above mentioned method _does **not** contain any code generation facilities_ (MWE, Xtext) itself since that setup caused difficulties on certain machines. The code generation is accomplished through the maven build though.
 
 ## 'Vagrant' Instructions
 
