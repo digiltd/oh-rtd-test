@@ -22,7 +22,7 @@ To produce a binary zip yourself from your code, you can simply call `mvn clean 
 
 To run a single test you have to use following command: `mvn -o org.eclipse.tycho:tycho-surefire-plugin:0.18.1:test` which activates the tycho-surefire-specific goal for OSGI unit test using the fragment bundle xxxx.test on xxxx bundle. The maven -o (offline) option accelerates the project dependency resolution by 10-20x since it lets maven search it's local repository. Normally, snapshot-enabled projects are using external repositories to find latest built packages. 
 
-## 'Pure' Instructions
+## 'Pure Eclipse' Instructions
 
 1. Create a local clone of the openHAB repository by running "git clone https://github.com/openhab/openhab" in a suitable folder.
 1. Download and install oracle jdk 1.7
@@ -37,7 +37,7 @@ To run a single test you have to use following command: `mvn -o org.eclipse.tych
 
 After the first successful local build it might be a good idea to build with maven -o (offline) afterwards. This option accelerates the project dependency resolution by 10-20x since it lets maven search it's local repository. Normally, snapshot-enabled projects are using external repositories to find latest built packages.
 
-Note that the IDE being installed by the above mentioned method _doesn't contain any code generation facilities_ (MWE, Xtext) itself since that setup caused difficulties on certain machines. The code generation is accomplished through the maven build.
+Note that the IDE being installed by the above mentioned method _does **not** contain any code generation facilities_ (MWE, Xtext) itself since that setup caused difficulties on certain machines. The code generation is accomplished through the maven build.
 
 ## 'Vagrant' Instructions
 
