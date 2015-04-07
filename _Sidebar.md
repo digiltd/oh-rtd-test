@@ -23,6 +23,7 @@ Community
   * [[Classic UI|Web-AppUI]]
   * [[iOS Client|iOS-UI]]
   * [[Android Client|HABDroid]]
+  * [[Windows Phone Client|Windows-PhoneUI]]
   * [[GreenT UI|TouchUI]]
   * [[CometVisu|CometVisu]]
  * [[Automation|Automation]]
