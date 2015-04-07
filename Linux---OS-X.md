@@ -1,8 +1,10 @@
 # Content
 
 * [Installation via **apt-get**](Linux---OS-X#aptitude)
-* [**Manual installation** (alternativly - including openHAB Designer)](Linux---OS-X#manual-installation-alternative-approach)
+* [**Manual installation** (alternatively - including openHAB Designer)](Linux---OS-X#manual-installation-alternative-approach)
 * [Yocto Layer](Linux---OS-X#yocto-layer)
+* [Via Chef](Linux---OS-X#via-chef)
+
 
 
 **Note**: for Hardware specific approach (e.g. ARM boards like Raspberry Pi) please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ). 
@@ -119,3 +121,7 @@ http://layers.openembedded.org/layerindex/branch/master/layers/
 The layer contains one recipe that install both the runtime engine and addons. Check the README for specific instructions for the layer. How to add and use a layer is not covered here (you need to know that in order use Yocto in the first place), but some explanation can be found here:
 
 http://www.yoctoproject.org/docs/1.6/dev-manual/dev-manual.html#understanding-and-creating-layers
+
+# Via Chef
+
+There is a chef cookbook available at [github.com/JustinAiken/openhab-cookbook](https://github.com/JustinAiken/openhab-cookbook).  It can install from the Debian packages or via source.
