@@ -37,10 +37,9 @@ The name might not be self explaining.
 The rule is fired, when any of the readings (different Items, belonging to the same Thermostat) changes.
 It than triggers the function tempLogic to update the value and afterwards ther function tempOutput to actually displaying the values.
 
-(({
 # And this is where the magic happens (temperature.rule)
 
-
+```
 	import org.joda.time.*
 	import org.openhab.core.items.*
 	import org.openhab.core.items.GenericItem
@@ -582,11 +581,11 @@ It than triggers the function tempLogic to update the value and afterwards ther 
 			}
 			tempOutput.apply(room, fixtures, outputItems)
 		end
-}))
+```
 
 # Just for the sake of completeness (haus.items)
 
-(({
+```
 	Group All
 	Group gGF 		(All)
 	Group gFF 		(All)
@@ -1036,4 +1035,4 @@ It than triggers the function tempLogic to update the value and afterwards ther 
 	String 	TF_GZ_HT_mode 								"Betriebsmodus [%s]" 					<calendar2> 	(gTF_GZ_HT) 						{ maxcube="LEQ1004560:type=mode" }
 	Number 	TF_GZ_HT_actual 							"IST-Temperatur [%.1f °C]" 				<temperature> 	(gTF_GZ_HT) 						{ maxcube="LEQ1004560:type=actual" }
 	String	TF_GZ_HT_komplett							"Komplett [%s]"							<heating>		(gTF_GZ_HT)							//populated by temperatur.rule
-}))
+```
