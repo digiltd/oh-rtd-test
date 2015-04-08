@@ -1,4 +1,4 @@
-Technical description for the WebApp UI
+Technical description for the Classic UI
 
 ## Introduction
 
