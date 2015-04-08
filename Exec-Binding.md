@@ -49,13 +49,13 @@ Here are some examples of valid binding configuration strings:
     exec="1:open /path/to/my/mp3/gong.mp3, 2:open /path/to/my/mp3/greeting.mp3, *:open /path/to/my/mp3/generic.mp3"
     exec="OFF:ssh user@host shutdown -p now"
     exec="OFF:some command, ON:'some other\, more \'complex\' \\command\\ to execute', *:fallback command"
-    exec=">[ON:/bin/sh@@-c@@echo on >> /tmp/sw_log] >[OFF:/bin/sh@@-c@@echo off >> /tmp/sw_log]"
-    exec=">[1:open /mp3/gong.mp3] >[2:open /mp3/greeting.mp3] >[*:open /mp3/generic.mp3]"
-    exec="<[curl -s http://weather.yahooapis.com/forecastrss?w=566473&u=c:60000:XSLT(demo_yahoo_weather.xsl)]"
-    exec="<[/bin/sh@@-c@@uptime | awk '{ print $10 }':60000:REGEX((.*?))]"
-    exec="<[execute.bat %1$tY-%1$tm-%1$td %2$s %3$s:60000:REGEX((.*?))]"
-    exec="<[php ./configurations/scripts/script.php:60000:REGEX((.*?))]"
-    exec="<[/bin/sh@@-c@@uptime | awk '{ print $10 }':]"
+    exec:">[ON:/bin/sh@@-c@@echo on >> /tmp/sw_log] >[OFF:/bin/sh@@-c@@echo off >> /tmp/sw_log]"
+    exec:">[1:open /mp3/gong.mp3] >[2:open /mp3/greeting.mp3] >[*:open /mp3/generic.mp3]"
+    exec:"<[curl -s http://weather.yahooapis.com/forecastrss?w=566473&u=c:60000:XSLT(demo_yahoo_weather.xsl)]"
+    exec:"<[/bin/sh@@-c@@uptime | awk '{ print $10 }':60000:REGEX((.*?))]"
+    exec:"<[execute.bat %1$tY-%1$tm-%1$td %2$s %3$s:60000:REGEX((.*?))]"
+    exec:"<[php ./configurations/scripts/script.php:60000:REGEX((.*?))]"
+    exec:"<[/bin/sh@@-c@@uptime | awk '{ print $10 }':]"
 
 As a result, your lines in the items file might look like the following:
 
