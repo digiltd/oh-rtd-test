@@ -187,6 +187,7 @@ Samples
   * [[Convert Farenheit to Celcius|convert-farenheit-to-celcius]]
   * [[Taking Rules to New Heights|Taking-Rules-to-New-Heights]]
   * [[Reusable Rules via Functions|Reusable-Rules-via-Functions]]
+  * [[Combining different Items|Rule-example:-Combining-different-items]]
  * [[Items, Rules and more Examples of a SmartHome|http://www.intranet-of-things.com/software/downloads]]
  * [[REST Examples|Samples-REST]]
  * [[Tips and Tricks|Samples-Tricks]]
