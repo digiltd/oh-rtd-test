@@ -15,6 +15,7 @@ November 07, 2013 - The [Eclipse SmartHome](http://www.eclipse.org/smarthome) pr
 September 22, 2013 -- We are proud to announce that openHAB is a winner of the [Duke's Choice Award 2013](https://www.java.net/dukeschoice)!
 
 September 20, 2013 -- We have moved our sources from Google Code to GitHub - check out our [new git repository](https://github.com/openhab/openhab)!
+
 August 22, 2013 -- We are happy to announce that we now have an official [project proposal at Eclipse](http://eclipse.org/proposals/technology.smarthome/). 
 
 June 28, 2013 -- openHAB is the foundation of the [research project IEM](http://www.oberberg-aktuell.de/index.php?id=144&tx_ttnews%5Btt_news%5D=147147) of the university of applied science in cologne (campus Gummersbach).
