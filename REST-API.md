@@ -283,3 +283,8 @@ Checkout the atmosphere pages to learn more about client development: https://gi
 
 See the following for code samples:
 https://github.com/openhab/openhab/wiki/Samples-REST
+
+### Accessing historical data from persistence service
+
+In order to access historical data you need to install [HABmin](https://github.com/cdjackson/HABmin/releases).
+Afterwards check how to use its [REST Persistance API in the according documentation](https://github.com/cdjackson/HABmin/wiki/REST-Persistence).
