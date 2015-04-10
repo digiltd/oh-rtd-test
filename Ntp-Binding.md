@@ -32,6 +32,13 @@ where 11.001 is the KNX date type and 10.001 is the KNX time type
 
 [Here](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html) is an overview of how you can format the output of date and time.
 
+## Settings
+
+Via ```openhab.cfg``` following NTP Binding settings can be set:
+
+ - ```ntp:refresh``` default: 15 minutes
+ - ```ntp:hostname``` default: ptbtime1.ptb.de
+
 ## Example configurations
 
 Example configurations can be found [here](https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig).
