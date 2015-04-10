@@ -107,6 +107,14 @@ These map files have to be structured as simple key/value pairs:
 See the sample map files in the source code repository online here:
 https://github.com/openhab/openhab/tree/master/distribution/openhabhome/configurations/transform
 
+**Example:**
+
+An item defined like 
+    ```DateTime Weather_LastUpdate	"Last Update [%1$ta %1$tR]"```
+outputs two components which both are taken from the DateTime variable itself. So both have to reference the variable. This is done by ```1$```. Following ```t``` marks a [time object](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax). ```a``` and ```R``` represent the [date formatter](http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#dt) "abbreviated month name" and "24-hour clock", respectively.
+
+Note: The first ```1$``` is optional, as the first components always takes the first input argument. However, as the second components would take the second input argument by default but there is only one input argument (namely the DateTime variable itself), the second ```1$``` is essential.
+
 ### iconname
 
 The icon name is used to reference a png image file from folder `${openhab_home}/webapps/images/`. These icons are used in the openHAB frontends.
