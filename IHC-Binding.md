@@ -43,6 +43,35 @@ Keytool usage example (OS X):
 
 IHC / ELKO LS binding use resource ID's to control and listening notification to/from the controller. You can find correct resource ID's from your IHC / ELKO LS project file. Binding support both decimal and hexadecimal values for resource ID's values. Hexadecimal value need to be specified with 0x prefix.
 
+### New configuration syntax
+The syntax of the binding configuration to an item can contain the following:
+
+One InOut-Binding (+Out-Bindings): If defined the item receives updates from the IHC and received commands from openhab gets mapped to the IHC accordingly. 
+
+    ihc="ResourceId[:refreshintervalinseconds]"
+
+One In-Binding (+Out-Bindings): If defined, the item receives updates from the IHC.
+
+    ihc="<ResourceId"
+
+A set of Out-Binding: Multiple Out-Bindings can be defined. If the item receives a command specified in this list, the corresponding resourceId and value will be set.
+
+    ihc=">[Command:ResourceId(:VALUE)]"
+
+Command: The Command that should be mapped.
+<table>
+  <tr><th>VALUE</th><th>Meaning</th></tr>
+  <tr><td>undefined</td><td>Default mapping will be used, see below</td>
+  <tr><td>0</td><td>OnOffType.OFF</td></tr>
+  <tr><td>1</td><td>OnOffType.ON</td></tr>
+  <tr><td>>1</td><td>Switch (OnOffType.ON, sleep for VALUE ms, OnOffType.OFF)</td></tr>
+</table>
+
+Example:
+
+    Rollershutter Rollershutter_Demo "Rollershutter Demo" (Rollershutters) {ihc=">[UP:15675921:100],>[DOWN:15676177:100]"}
+
+### Old configuration syntax (before 1.7.0, still supported in newer versions)
 The syntax of the binding configuration strings accepted is the following:
 
     ihc="[>]ResourceId[:refreshintervalinseconds]"
