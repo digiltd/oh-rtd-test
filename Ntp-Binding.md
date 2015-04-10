@@ -39,6 +39,8 @@ Via ```openhab.cfg``` following NTP Binding settings can be set:
  - ```ntp:refresh``` default: 15 minutes
  - ```ntp:hostname``` default: ptbtime1.ptb.de
 
+Note: Via openHAB console a time update can be forced using ```update org.openhab.binding.ntp```.
+
 ## Example configurations
 
 Example configurations can be found [here](https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig).
