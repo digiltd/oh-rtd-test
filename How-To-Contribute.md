@@ -29,6 +29,8 @@ If you want to contribute your code or just want to share it with others, you ca
 
 Once your code is ready and accepted (see code style section below), it is then easy for the project owners to pull your changesets into the official repository - all you have to do is to [create a pull request](https://help.github.com/articles/creating-a-pull-request).
 
+**Please note:** Your pull request should contain only one single commit before merging. You can achieve that by [squashing your commits into one](https://github.com/ginatrapani/todo.txt-android/wiki/Squash-All-Commits-Related-to-a-Single-Issue-into-a-Single-Commit).
+
 ## Licensing
 
 As openHAB is licensed under the Eclipse Public License (EPL), your code should include the [standard openHAB license headers](https://github.com/openhab/openhab/blob/master/src/etc/header.txt) as well. To automatically add it to your code, you can run `mvn license:format`.
