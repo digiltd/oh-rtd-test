@@ -36,12 +36,13 @@ Parts in square brackets [are optional.
 
     Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}
 
-Above example defines a `Number` item...
-- with name `Temperature_GF_Living`
-- formatting its output in format `xx.y °C`
-- displaying icon `temperature`
-- belonging to group `GF_Living`
-- bound to openHAB binding `knx` with write group address `1/0/15` and listening group address `0/0/15`
+Above example defines an item...
+- of [type](#itemtype) `Number`
+- with [name](#itemname) `Temperature_GF_Living`
+- formatting its [output](#labeltext) in format `xx.y °C`
+- displaying [icon](#iconname) `temperature`
+- belonging to [group](#groups) `GF_Living`
+- bound to openHAB [binding](#bindingconfig) `knx` with write group address `1/0/15` and listening group address `0/0/15`
 
 ### itemtype
 
