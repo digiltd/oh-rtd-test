@@ -45,7 +45,7 @@ GreenT stops refreshing items after some time. User has to refresh the webpage m
 
 1. Download the [GreenT UI](http://www.openhab.org/downloads.html).
 2. Unzip and put the folder "greent" in ***${openhab.home}/webapps/***.
-3. Install openHAB Exec binding.
+3. Install openHAB Exec binding by copying the according JAR file from the [addon packet](http://www.openhab.org/downloads.html) to openHAB's addon folder.
 4. Place ***${openhab.home}/webapps/greent/greent.items*** file in ***${openhab.home}/configurations/items*** folder.
 
 5. If necessary edit ***${openhab.home}/webapps/greent/configs/settings.cfg***
