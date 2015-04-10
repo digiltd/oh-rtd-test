@@ -39,19 +39,19 @@ The following elements can be used **optionally** in a sitemap definition file (
 
 <table>
   <tr><td><b>Element name</b></td><td><b>Description</b></td></tr>
-  <tr><td>Colorpicker</td><td>Allows the user to choose a color from a color wheel.</td></tr>
-  <tr><td>Chart</td><td>Adds a time-series chart object for displaying logged data.</td></tr>
-  <tr><td>Frame</td><td>Area with either various other sitemap elements or further nested frames</td></tr>
-  <tr><td>Group</td><td>Renders all elements of a given group defined in an items definiton file</td></tr>
-  <tr><td>Image</td><td>Renders an image</td></tr>
-  <tr><td>List</td><td></td></tr>
-  <tr><td>Selection</td><td>Gives access to a new page where the user can choose among values defined in the mappings parameter.</td></tr>
-  <tr><td>Setpoint</td><td>Shows a value and allows the user to modify it. Optionally, it is possible to specify maximum and minimum allowed values, as well as a step.</td></tr>
-  <tr><td>Slider</td><td>Renders a slider</td></tr>
-  <tr><td>Switch</td><td>Renders a switch item</td></tr>
-  <tr><td>Text</td><td>Renders a text element</td></tr>
-  <tr><td>Video</td><td>Displays a video</td></tr>
-  <tr><td>Webview</td><td></td></tr>
+  <tr><td><a href="#element-colorpicker">Colorpicker</a></td><td>Allows the user to choose a color from a color wheel.</td></tr>
+  <tr><td><a href="#element-chart">Chart</a></td><td>Adds a time-series chart object for displaying logged data.</td></tr>
+  <tr><td><a href="#element-frame">Frame</a></td><td>Area with either various other sitemap elements or further nested frames</td></tr>
+  <tr><td><a href="#element-group">Group</a></td><td>Renders all elements of a given group defined in an items definiton file</td></tr>
+  <tr><td><a href="#element-image">Image</a></td><td>Renders an image</td></tr>
+  <tr><td><a href="#element-list">List</a></td><td></td></tr>
+  <tr><td><a href="#element-selection">Selection</a></td><td>Gives access to a new page where the user can choose among values defined in the mappings parameter.</td></tr>
+  <tr><td><a href="#element-setpoint">Setpoint</a></td><td>Shows a value and allows the user to modify it. Optionally, it is possible to specify maximum and minimum allowed values, as well as a step.</td></tr>
+  <tr><td><a href="#element-slider">Slider</a></td><td>Renders a slider</td></tr>
+  <tr><td><a href="#element-switch">Switch</a></td><td>Renders a switch item</td></tr>
+  <tr><td><a href="#element-text">Text</a></td><td>Renders a text element</td></tr>
+  <tr><td><a href="#element-video">Video</a></td><td>Displays a video</td></tr>
+  <tr><td><a href="#element-webview">Webview</a></td><td></td></tr>
 </table>
 
 #### <a name="colorpicker"/>Element 'Colorpicker'
