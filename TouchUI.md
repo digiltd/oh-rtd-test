@@ -41,6 +41,8 @@ To see what we are talking about, you can directly [try it out on our demo serve
 
 GreenT stops refreshing items after some time. User has to refresh the webpage manually. This bug severely restricts the use of GreenT for wall displays showing the status of the home automation.
 
+Chart buttons ```Hour```, ```Day```, ```Week``` require a page reload to work.
+
 ## How to Install
 
 1. Download the [GreenT UI](http://www.openhab.org/downloads.html).
