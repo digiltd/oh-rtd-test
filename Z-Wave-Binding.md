@@ -26,8 +26,8 @@ The binding supports all controllers that implement the Z-Wave Serial API. A lis
   <tr><td>Z-Wave.me Z-StickC</td><td>No remarks</td></tr>
   <tr><td>Sigma UZB ZWave-Plus</td><td>No Windows drivers ?</td></tr>
 </table>
-#Sigma UZB ZWave-Plus driver can be get there https://github.com/benoit934/drivers/blob/master/ZW050x_USB_VCP_PC_Driver.zip 
-#This is an official driver for the RS232 chip, you just have to install it manually using the inf file, actually working on Windows 7, probably any Windows version.
+**NOTE:** Sigma UZB ZWave-Plus driver can be get there https://github.com/benoit934/drivers/blob/master/ZW050x_USB_VCP_PC_Driver.zip 
+This is an official driver for the RS232 chip, you just have to install it manually using the inf file, actually working on Windows 7, probably any Windows version.
 
 ## Binding Configuration
 
