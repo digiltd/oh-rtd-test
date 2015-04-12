@@ -203,14 +203,6 @@ contact sensor, a front door lock, a button of a mini remote, a KeypadLinc 2487,
     Dimmer keypadDimmer "dimmer" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer"}
     Switch keypadDimmerButtonA    "keypad dimmer button A"	{insteonplm="xx.xx.xx:F00.00.15#keypadbuttonA,group=2"}
     Dimmer dimmerWithMax "dimmer 2"   {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
-    Number  FF_Temperature     "Temperature [%d °F]"        { insteonplm="32.F8.2F:F00.00.18#temperature" }
-    Number  FF_Humidity        "Humidity [%d %%]"           { insteonplm="32.F8.2F:F00.00.18#humidity" }
-    Number  FF_Cool_SetPoint   "Cool SetPoint [%.1f °F]"    { insteonplm="32.F8.2F:F00.00.18#coolsetpoint" }
-    Number  FF_Heat_SetPoint   "Heat SetPoint [%.1f °F]"    { insteonplm="32.F8.2F:F00.00.18#heatsetpoint" }
-    Number  FF_Thermostat_FanMode       "Fan"               { insteonplm="32.F8.2F:F00.00.18#fancontrol" }
-    Number  FF_Thermostat_OpMode        "Mode"              { insteonplm="32.F8.2F:F00.00.18#modecontrol" }
-    Number  FF_Thermostat_MasterMode    "Master Mode"       { insteonplm="32.F8.2F:F00.00.18#mastercontrol" }
-
 
 For the meaning of the ``group`` parameter, please see notes on groups and keypad buttons below.
 Note the use of a `MAP(contact.map)`, which should go into the
@@ -249,8 +241,17 @@ Here are some examples for configuring X10 devices. Note that X10 switches/dimme
     Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
     Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
 
-Here is the recommended sitemap configuration for the Insteon Thermostat 2441TH:
+Here are the recommended item and sitemap configurations for the Insteon Thermostat 2441TH:
+###Items
+    Number  FF_Temperature     "Temperature [%d °F]"        { insteonplm="32.F8.2F:F00.00.18#temperature" }
+    Number  FF_Humidity        "Humidity [%d %%]"           { insteonplm="32.F8.2F:F00.00.18#humidity" }
+    Number  FF_Cool_SetPoint   "Cool SetPoint [%.1f °F]"    { insteonplm="32.F8.2F:F00.00.18#coolsetpoint" }
+    Number  FF_Heat_SetPoint   "Heat SetPoint [%.1f °F]"    { insteonplm="32.F8.2F:F00.00.18#heatsetpoint" }
+    Number  FF_Thermostat_FanMode       "Fan"               { insteonplm="32.F8.2F:F00.00.18#fancontrol" }
+    Number  FF_Thermostat_OpMode        "Mode"              { insteonplm="32.F8.2F:F00.00.18#modecontrol" }
+    Number  FF_Thermostat_MasterMode    "Master Mode"       { insteonplm="32.F8.2F:F00.00.18#mastercontrol" }
 
+###Sitemap
     Text item=FF_Temperature
     Text item=FF_Humidity
     Setpoint item=FF_Cool_SetPoint icon="temperature" minValue=63 maxValue=85 step=1
