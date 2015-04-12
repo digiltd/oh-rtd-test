@@ -245,13 +245,13 @@ Here are the recommended item and sitemap configurations for the Insteon Thermos
 
 **Items**
 
-    Number  FF_Temperature     "Temperature [%d °F]"        { insteonplm="32.F8.2F:F00.00.18#temperature" }
-    Number  FF_Humidity        "Humidity [%d %%]"           { insteonplm="32.F8.2F:F00.00.18#humidity" }
-    Number  FF_Cool_SetPoint   "Cool SetPoint [%.1f °F]"    { insteonplm="32.F8.2F:F00.00.18#coolsetpoint" }
-    Number  FF_Heat_SetPoint   "Heat SetPoint [%.1f °F]"    { insteonplm="32.F8.2F:F00.00.18#heatsetpoint" }
-    Number  FF_Thermostat_FanMode       "Fan"               { insteonplm="32.F8.2F:F00.00.18#fancontrol" }
-    Number  FF_Thermostat_OpMode        "Mode"              { insteonplm="32.F8.2F:F00.00.18#modecontrol" }
-    Number  FF_Thermostat_MasterMode    "Master Mode"       { insteonplm="32.F8.2F:F00.00.18#mastercontrol" }
+    Number  FF_Temperature     "Temperature [%d °F]"        { insteonplm="xx.xx.xx:F00.00.18#temperature" }
+    Number  FF_Humidity        "Humidity [%d %%]"           { insteonplm="xx.xx.xx:F00.00.18#humidity" }
+    Number  FF_Cool_SetPoint   "Cool SetPoint [%.1f °F]"    { insteonplm="xx.xx.xx:F00.00.18#coolsetpoint" }
+    Number  FF_Heat_SetPoint   "Heat SetPoint [%.1f °F]"    { insteonplm="xx.xx.xx:F00.00.18#heatsetpoint" }
+    Number  FF_Thermostat_FanMode       "Fan"               { insteonplm="xx.xx.xx:F00.00.18#fancontrol" }
+    Number  FF_Thermostat_OpMode        "Mode"              { insteonplm="xx.xx.xx:F00.00.18#modecontrol" }
+    Number  FF_Thermostat_MasterMode    "Master Mode"       { insteonplm="xx.xx.xx:F00.00.18#mastercontrol" }
 
 **Sitemap**
 
