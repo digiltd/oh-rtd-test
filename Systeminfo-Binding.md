@@ -108,55 +108,103 @@ Check supported disk names by iostat or openhab debug log "21:56:12.931 DEBUG o.
 
 Examples, how to configure your items:
 
-    Number loadAverage1min	"Load avg. 1min [%.1f]"	(System) { systeminfo="LoadAverage1Min:5000" }
-    Number loadAverage5min	"Load avg. 5min [%.1f]"	(System) { systeminfo="LoadAverage5Min:5000" }
-    Number loadAverage15min "Load avg. 15min [%.1f]"	(System) { systeminfo="LoadAverage15Min:5000" }
-    
-    Number cpuCompined	"CPU combined [%.1f]"	(System) { systeminfo="CpuCombined:5000" }
-    Number cpuUser	"CPU user [%.1f]"	(System) { systeminfo="CpuUser:5000" }
-    Number cpuSystem	"CPU system [%.1f]"	(System) { systeminfo="CpuSystem:5000" }
-    Number cpuNice	"CPU nice [%.1f]"	(System) { systeminfo="CpuNice:5000" }
-    Number cpuWait "CPU wait [%.1f]"	(System) { systeminfo="CpuWait:5000" }
-    
-    Number uptime	"Uptime [%.1f]"	(System) { systeminfo="Uptime:5000" }
-    String uptimeFormatted	"Update formatted [%s]"	(System) { systeminfo="UptimeFormatted:5000" }
-    
-    Number MemFree "Mem free [%.1f]"	(System) { systeminfo="MemFree:5000" }
-    Number MemFreePercent	"Mem free [%.1f%%]"	(System) { systeminfo="MemFreePercent:5000" }
-    Number MemUsed	"Mem used [%.1f]"	(System) { systeminfo="MemUsed:5000" }
-    Number MemUsedPercent	"Mem used [%.1f%%]"	(System) { systeminfo="MemUsedPercent:5000" }
-    Number MemActualFree	"Mem actual free [%.1f]"	(System) { systeminfo="MemActualFree:5000" }
-    Number MemActualUsed	"Mem actual used [%.1f]"	(System) { systeminfo="MemActualUsed:5000" }
-    Number MemTotal	"Mem total [%.1f]"	(System) { systeminfo="MemTotal:5000" }
-    
-    Number SwapFree	"Swap free [%.1f]"	(System) { systeminfo="SwapFree:5000" }
-    Number SwapTotal	"Swap total [%.1f]"	(System) { systeminfo="SwapTotal:5000" }
-    Number SwapUsed	"Swap used [%.1f]"	(System) { systeminfo="SwapUsed:5000" }
-    Number SwapPageIn	"Swap pagein [%.1f]"	(System) { systeminfo="SwapPageIn:5000" }
-    Number SwapPageOut	"Swap pageout [%.1f]"	(System) { systeminfo="SwapPageOut:5000" }
-    
-    Number NetTxBytes	"Next tx bytes [%.1f]"	(System) { systeminfo="NetTxBytes:5000:en1" }
-    Number NetRxBytes	"Next rx bytes [%.1f]"	(System) { systeminfo="NetRxBytes:5000:en1" }
-    
-    Number DiskReads	"Disk reads [%.1f]"	(System) { systeminfo="DiskReads:5000:/dev/disk1" }
-    Number DiskWrites	"Disk writes [%.1f]"	(System) { systeminfo="DiskWrites:5000:/dev/disk1" }
-    Number DiskReadBytes	"Disk read bytes [%.1f]"	(System) { systeminfo="DiskReadBytes:5000:/dev/disk1" }
-    Number DiskWriteBytes	"Disk write bytes [%.1f]"	(System) { systeminfo="DiskWriteBytes:5000:/dev/disk1" }
-    
-    Number DirUsage	"Dir usage [%.1f]"	(System) { systeminfo="DirUsage:5000:/Users/foo" }
-    Number DirFiles	"Dir files [%.1f]"	(System) { systeminfo="DirFiles:5000:/Users/foo" }
-    
-    Number OpenhabRealMem	"Real mem [%.1f]"	(System) { systeminfo="ProcessRealMem:5000:$$" }
-    Number OpenhabVirtualMem	"Virtual mem [%.1f]"	(System) { systeminfo="ProcessVirtualMem:5000:$$" }
-    Number OpenhabCpuPercent	"Cpu percent [%.1f%%]"	(System) { systeminfo="ProcessCpuPercent:5000:$$" }
-    Number OpenhabCpuSystem	"CPU system [%.1f]"	(System) { systeminfo="ProcessCpuSystem:5000:$$" }
-    Number OpenhabCpuUser	"CPU user [%.1f]"	(System) { systeminfo="ProcessCpuUser:5000:$$" }
-    Number OpenhabCpuTotal	"CPU total [%.1f]"	(System) { systeminfo="ProcessCpuTotal:5000:$$" }
-    Number OpenhabUptime	"Uptime [%d]"	(System) { systeminfo="ProcessUptime:5000:$$" }
-    String OpenhabUptimeFormatted	"Uptime form. [%s]"	(System) { systeminfo="ProcessUptimeFormatted:5000:$$" }
-    
-    Number EclipseRealMem1	"Real mem1 [%.1f]"	(System) { systeminfo="<ProcessCpuPercent:10000:eclipse" }
-    Number EclipseRealMem2	"Real mem2 [%.1f]"	(System) { systeminfo="<ProcessCpuPercent:10000:*eclipse" }
-    Number EclipseRealMem3	"Real mem3 [%.1f]"	(System)  { systeminfo="<ProcessCpuPercent:10000:eclipse*" }
-    Number EclipseRealMem4	"Real mem4 [%.1f]"	(System) { systeminfo="<ProcessCpuPercent:10000:=eclipse" }
-    Number EclipseRealMem5	"Real mem5 [%.1f]"	(System) { systeminfo="<ProcessCpuPercent:10000:#State.Name.eq=eclipse"
+	Group System
+	Number loadAverage1min  "Load avg. 1min [%.1f]" (System) { systeminfo="LoadAverage1Min:5000" }
+	Number loadAverage5min  "Load avg. 5min [%.1f]" (System) { systeminfo="LoadAverage5Min:5000" }
+	Number loadAverage15min "Load avg. 15min [%.1f]"    (System) { systeminfo="LoadAverage15Min:5000" }
+
+	Number cpuCompined  "CPU combined [%.1f]"   (System) { systeminfo="CpuCombined:5000" }
+	Number cpuUser  "CPU user [%.1f]"   (System) { systeminfo="CpuUser:5000" }
+	Number cpuSystem    "CPU system [%.1f]" (System) { systeminfo="CpuSystem:5000" }
+	Number cpuNice  "CPU nice [%.1f]"   (System) { systeminfo="CpuNice:5000" }
+	Number cpuWait "CPU wait [%.1f]"    (System) { systeminfo="CpuWait:5000" }
+
+	Number uptime   "Uptime [%.1f]" (System) { systeminfo="Uptime:5000" }
+	String uptimeFormatted  "Update formatted [%s]" (System) { systeminfo="UptimeFormatted:5000" }
+
+	Number memFreePercentPeriod "MemFree chart selected [%.1f]" (System)
+	Number memFreePercent   	"Mem free [%.1f%%]" (System) { systeminfo="MemFreePercent:5000" }
+	Number memUsed  			"Mem used [%.1f]"   (System) { systeminfo="MemUsed:5000" }
+	Number memUsedPercent   	"Mem used [%.1f%%]" (System) { systeminfo="MemUsedPercent:5000" }
+	Number memActualFree    	"Mem actual free [%.1f]"    (System) { systeminfo="MemActualFree:5000" }
+	Number memActualUsed    	"Mem actual used [%.1f]"    (System) { systeminfo="MemActualUsed:5000" }
+	Number memTotal 			"Mem total [%.1f]"  (System) { systeminfo="MemTotal:5000" }
+
+	Number swapFree "Swap free [%.1f]"  (System) { systeminfo="SwapFree:5000" }
+	Number swapTotal    "Swap total [%.1f]" (System) { systeminfo="SwapTotal:5000" }
+	Number swapUsed "Swap used [%.1f]"  (System) { systeminfo="SwapUsed:5000" }
+	Number swapPageIn   "Swap pagein [%.1f]"    (System) { systeminfo="SwapPageIn:5000" }
+	Number swapPageOut  "Swap pageout [%.1f]"   (System) { systeminfo="SwapPageOut:5000" }
+
+	Number netTxBytes   "Next tx bytes [%.1f]"  (System) { systeminfo="NetTxBytes:5000:en1" }
+	Number netRxBytes   "Next rx bytes [%.1f]"  (System) { systeminfo="NetRxBytes:5000:en1" }
+
+	Number diskReads    "Disk reads [%.1f]" (System) { systeminfo="DiskReads:5000:/dev/disk1" }
+	Number diskWrites   "Disk writes [%.1f]"    (System) { systeminfo="DiskWrites:5000:/dev/disk1" }
+	Number diskReadBytes    "Disk read bytes [%.1f]"    (System) { systeminfo="DiskReadBytes:5000:/dev/disk1" }
+	Number diskWriteBytes   "Disk write bytes [%.1f]"   (System) { systeminfo="DiskWriteBytes:5000:/dev/disk1" }
+
+	Number dirUsage "Dir usage [%.1f]"  (System) { systeminfo="DirUsage:5000:/Users/foo" }
+	Number dirFiles "Dir files [%.1f]"  (System) { systeminfo="DirFiles:5000:/Users/foo" }
+
+	Number openhabRealMem   "Real mem [%.1f]"   (System) { systeminfo="ProcessRealMem:5000:$$" }
+	Number openhabVirtualMem    "Virtual mem [%.1f]"    (System) { systeminfo="ProcessVirtualMem:5000:$$" }
+	Number openhabCpuPercent    "Cpu percent [%.1f%%]"  (System) { systeminfo="ProcessCpuPercent:5000:$$" }
+	Number openhabCpuSystem "CPU system [%.1f]" (System) { systeminfo="ProcessCpuSystem:5000:$$" }
+	Number openhabCpuUser   "CPU user [%.1f]"   (System) { systeminfo="ProcessCpuUser:5000:$$" }
+	Number openhabCpuTotal  "CPU total [%.1f]"  (System) { systeminfo="ProcessCpuTotal:5000:$$" }
+	Number openhabUptime    "Uptime [%d]"   (System) { systeminfo="ProcessUptime:5000:$$" }
+	String openhabUptimeFormatted   "Uptime form. [%s]" (System) { systeminfo="ProcessUptimeFormatted:5000:$$" }
+
+	Number eclipseRealMem1  "Real mem1 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:eclipse" }
+	Number eclipseRealMem2  "Real mem2 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:*eclipse" }
+	Number eclipseRealMem3  "Real mem3 [%.1f]"  (System)  { systeminfo="<ProcessCpuPercent:10000:eclipse*" }
+	Number eclipseRealMem4  "Real mem4 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:=eclipse" }
+	Number eclipseRealMem5  "Real mem5 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:#State.Name.eq=eclipse"
+
+Examples, how to configure your sitemap:
+
+	Frame {
+		Group item=System label="System Info" icon="system" {
+			Frame {
+				Text item=uptime
+				Text item=cpuCombined icon="system"
+			}
+			
+			Frame label="Load" {
+				Text item=loadAverage1min
+				Text item=loadAverage5min
+				Text item=loadAverage15min
+			}
+			Frame label="Memory" {
+				Text item=memFreePercent  {
+					Frame {
+						Switch item=memFreePercentPeriod label="Periode" mappings=[0="Time", 1="Dag", 2="Uke"]
+						Chart item=memFreePercent period=h refresh=30000 visibility=[memFreePercentPeriod==0, memFreePercentPeriod=="Uninitialized"]
+						Chart item=memFreePercent period=D refresh=30000 visibility=[memFreePercentPeriod==1]
+						Chart item=memFreePercent period=W refresh=30000 visibility=[memFreePercentPeriod==2]
+					}
+				}
+				Text item=memUsed 
+				Text item=memUsedPercent
+				Text item=memActualFree 
+				Text item=memActualUsed 
+				Text item=memTotal 
+			}
+			
+			Frame label="Swap" {
+				Text item=swapFree 
+				Text item=swapTotal
+				Text item=swapUsed 
+			}
+			
+			Frame label="Openhab" {
+				Text item=openhabRealMem
+				Text item=openhabVirtualMem
+				Text item=openhabCpuPercent
+				Text item=openhabCpuSystem
+				Text item=openhabUptime
+				Text item=openhabUptimeFormatted
+			}
+		}
+	}
