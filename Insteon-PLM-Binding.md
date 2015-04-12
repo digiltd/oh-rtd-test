@@ -242,7 +242,8 @@ Here are some examples for configuring X10 devices. Note that X10 switches/dimme
     Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
 
 Here are the recommended item and sitemap configurations for the Insteon Thermostat 2441TH:
-###Items
+
+**Items**
     Number  FF_Temperature     "Temperature [%d °F]"        { insteonplm="32.F8.2F:F00.00.18#temperature" }
     Number  FF_Humidity        "Humidity [%d %%]"           { insteonplm="32.F8.2F:F00.00.18#humidity" }
     Number  FF_Cool_SetPoint   "Cool SetPoint [%.1f °F]"    { insteonplm="32.F8.2F:F00.00.18#coolsetpoint" }
@@ -251,7 +252,7 @@ Here are the recommended item and sitemap configurations for the Insteon Thermos
     Number  FF_Thermostat_OpMode        "Mode"              { insteonplm="32.F8.2F:F00.00.18#modecontrol" }
     Number  FF_Thermostat_MasterMode    "Master Mode"       { insteonplm="32.F8.2F:F00.00.18#mastercontrol" }
 
-###Sitemap
+**Sitemap**
     Text item=FF_Temperature
     Text item=FF_Humidity
     Setpoint item=FF_Cool_SetPoint icon="temperature" minValue=63 maxValue=85 step=1
