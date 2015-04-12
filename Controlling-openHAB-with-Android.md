@@ -12,6 +12,9 @@ HABdroid supports NFC
 ## HABsweetie
 [HABSweetie](https://github.com/dereulenspiegel/HABSweetie) is an alternative android app.  
 
+## 3Hou.se
+[3Hou.se](https://play.google.com/store/apps/details?id=treehou.se.habit) Alternative android app with widgets. in active beta now.
+
 # Automation
 ## Tasker
 Since you are already playing with home **automation**, you might as well try to automate some thing with your phone.  
