@@ -5,7 +5,7 @@ As for almost all open-source projects, contributions to the project are always 
 
 1. ask the [Google Group](https://groups.google.com/forum/#!forum/openhab) for a certain bug, behaviour, idea or missing feature
 1. discuss and refine the Requirement/Bug (if any) on the Group
-1. create an Issue in the [Github Issuetracker](https://github.com/openhab/openhab/issues) with reference to the discussion on the Group
+1. create an Issue in the [Github Issuetracker](https://github.com/openhab/openhab/issues) or contribute the necessary code changes through a [pull request](https://help.github.com/articles/creating-a-pull-request/) with reference to the discussion on the Group.
 1. keep track of the created Issue (even if it doesn't apply anymore, etc.)
 
 The remainder of this page will give you the details of how to contribute more specifically:
