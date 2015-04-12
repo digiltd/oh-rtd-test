@@ -249,6 +249,17 @@ Here are some examples for configuring X10 devices. Note that X10 switches/dimme
     Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
     Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
 
+Here is the recommended sitemap configuration for the Insteon Thermostat 2441TH:
+
+    Text item=FF_Temperature
+    Text item=FF_Humidity
+    Setpoint item=FF_Cool_SetPoint icon="temperature" minValue=63 maxValue=85 step=1
+    Setpoint item=FF_Heat_SetPoint icon="temperature"
+    Switch item=FF_Thermostat_OpMode label="Mode" mappings=[1="Cool", 2="Heat", 3="Auto"]
+    Switch item=FF_Thermostat_FanMode label="Fan" mappings=[1="Off", 2="On", 3="Auto"]
+    Switch item=FF_Thermostat_MasterMode mappings=[1="FF", 2="SF"]
+                        }         
+
 ## Insteon groups and how to enable buttons on the keypads
 When a button is pressed on a keypad button, a broadcast message is sent out on the Insteon network to all members of a pre-configured group. Let's say you press the keypad button A on a 2487S, it will send out a message to group 3. You first need to configure your modem to be a responder to that group. That can be simply done by pressing the keypad button and then holding the set button (for details see instructions), just as for any Insteon device. After this step, the binding will be notified whenever you press a keypad button, and you can configure a Switch item that will reflect its state. However, if the switch is flipped from within openHAB, the keypad button will not update its state. For that, include the keypad button into an Insteon group using the HouseLinc software, such that the keypad button responds to modem broadcast messages on e.g modem group 2. Then add the parameter ``group=2`` to the binding config string (see example above). Now toggling the switch item will send out a broadcast message to group 2, which should flip the switch. You need to configure each button into a different modem group to switch them separately.
 
