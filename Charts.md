@@ -25,7 +25,13 @@ What kind of data should be displayed is configured through HTTP parameters. The
 - groups: A comma separated list of group names, whose members should be displayed - mandatory, unless "items" parameter is provided
 
 A valid request hence could look like this:
+
     http://localhost:8080/rrdchart.png?items=Weather_Temperature,Weather_Temp_Max,Weather_Temp_Min&period=W
-http://wiki.openhab.googlecode.com/hg/images/screenshots/rrdchart.png
 
 The created chart will be automatically formatted with some sensible defaults. There is currently no way to change e.g. the y-axis range, the line colors, the legend, etc. A flexible configuration solution that allows full control of all rrd tool features is planned for later.
+
+## Using default Charts
+
+Default charts are accessible via ```http://localhost:8080/chart``` using same parameter as above. Example:
+
+    http://localhost:8080/chart?groups=Heizung&period=W&random=1&h=800&w=1200
