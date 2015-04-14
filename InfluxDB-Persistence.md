@@ -27,11 +27,11 @@ An example entry for an item with the name "AmbientLight" would look like this:
 ## Installation and Configuration
 ### Database Setup
 First of all you have to setup and run a InfluxDB server. This is very easy and you will find good
-documentation on it on the InfluxDB web site.
+documentation on it on the [InfluxDB web site](http://influxdb.com/docs/v0.8/introduction/installation.html).
 
 Then database and the user must be created. This can be done using the influxdb 
 admin web interface. If you want to use the defaults then create a database called
-openhab and a user with write access on the database called openhab. 
+```openhab``` and a user with write access on the database called ```openhab```. 
 Choose a password and remember it.
 
 ### openhab.cfg
