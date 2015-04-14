@@ -15,8 +15,7 @@ The snapshot version of the binding can be downloaded, together with the rest of
 
 **NOTE:** There is an issue with using the RPi with the zwave binding - see the known issues below.
 
-## Further Reading and Reference
-Chris Jackson maintains an excellent technical resource for the ZWave binding on the [HABmin Wiki] (https://github.com/cdjackson/HABmin/wiki/Z-Wave-Configuration)
+**For technical reference and implementation:** Chris Jackson maintains an excellent technical resource for the ZWave binding on the [HABmin Wiki] (https://github.com/cdjackson/HABmin/wiki/Z-Wave-Configuration)
 ## Supported controllers
 
 The binding supports all controllers that implement the Z-Wave Serial API. A list of confirmed supported controllers is
