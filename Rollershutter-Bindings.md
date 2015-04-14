@@ -1,4 +1,4 @@
-# Rollershutter Binding
+# Rollershutter Groups
 
 ![](https://dl.dropboxusercontent.com/u/1781347/wiki/2014-12-24%2014_16_16-Ehrendingen.png)
 
