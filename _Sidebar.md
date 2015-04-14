@@ -177,7 +177,7 @@ Samples
   * [[Comfo Air Binding | Samples-Comfo-Air-Binding]]
   * [[Nest Binding (new)|Nest-Binding-Example]]
   * [[Nest Thermostat|Sample-nest-thermostate]]
-  * [[Rollershutter Groups|RollershutterGroups]]
+  * [[Rollershutter Bindings|Rollershutter-Bindings]]
   * [[Squeezebox|SqueezeboxExample]]
   * [[WAC Binding|Samples WAC Binding]]
   * [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
