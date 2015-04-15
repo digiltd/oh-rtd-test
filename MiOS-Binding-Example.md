@@ -267,6 +267,7 @@ Group GPersist (All)
 Group GMonitor (All)
 Group GMonitorTemperature (GMonitor)
 Group GMonitorHumidity (GMonitor)
+Group GMonitorPower (GMonitor)
 Group GMonitorEnergy (GMonitor)
 
 Number   WeatherTemperatureCurrentTemperature "Outside [%.1f °F]" <temperature>          (GPersist,GMonitorTemperature) {mios="unit:house,device:318/service/TemperatureSensor1/CurrentTemperature"}
@@ -324,6 +325,10 @@ then
 
 	GMonitorHumidity?.members.forEach(item |
 		segData = segData + String::format(LOCALE, "(h_%s %s)", item.name, (item.state as Number).toString)
+	)
+
+	GMonitorPower?.members.forEach(item |
+		segData = segData + String::format(LOCALE, "(p_%s %s)", item.name, (item.state as Number).toString)
 	)
 
 	GMonitorEnergy?.members.forEach(item |
