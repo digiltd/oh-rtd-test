@@ -70,7 +70,7 @@ Use following snippets:
     when
         Item shutter changed	
     then
-        shutterOldState = previousState as DecimalType	
+        shutterOldState = previousState
     end
 
     rule "Shutter Control Rule"
