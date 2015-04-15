@@ -208,7 +208,7 @@ This will introduce a Switch item with an associated rule that will send the Pla
 
 ### Item
 
-String LG_OpenTVChannel    "Open TV Channel [%s]"  { xbmc=">[#woonkamer|PVR.OpenTV]" }
+    String LG_OpenTVChannel    "Open TV Channel [%s]"  { xbmc=">[#woonkamer|PVR.OpenTV]" }
 
 ### rule
 
