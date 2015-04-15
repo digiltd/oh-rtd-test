@@ -104,6 +104,9 @@ System.Reboot     | >         | Send OFF to reboot the system
 System.State      | <         | State of the XBMC application (ON if connected, OFF is XBMC unavailable)
 GUI.ShowNotification | >         | Show a notification in the XBMC UI
 Application.Volume   | =         | Show and adjust the volume in the XBMC application
+PVR.OpenTV       | >         | Open a PVR TV Channel by name for playback
+PVR.OpenRadio       | >         | Open a PVR Radio Channel for playback
+Screensaver.State    | <         | Current screensaver state: (ON if screensaver active)
 
 Incoming properties that are not part of any XBMC notification, will be refreshed with each refresh interval of the binding (default 60 seconds). Currently this applies to the 'Player.Label' and 'Player.Title'  properties. 
 
@@ -178,3 +181,40 @@ This will introduce a Switch item with an associated rule that will send the Pla
 ### Sitemap
 
     Slider item=XBMC_Volume step=10
+
+## Example of Screensaver.State
+
+### Item
+
+    Switch LG_Screensaver "XBMC Screensaver Living Room" {xbmc="<[#woonkamer|Screensaver.State]"}
+
+### Rule
+
+    rule "turn tv on or off"
+	when
+		Item LG_Screensaver  changed
+	then
+		if(LG_Screensaver.state == ON)
+		{
+			logInfo("screensaver", "turn tv OFF")
+			sendCommand(TV_Power,OFF)
+                } else{
+			logInfo("screensaver", "turn tv ON")
+			sendCommand(TV_Power,ON)
+		}
+    end
+
+## Example of PVR.OpenTV
+
+### Item
+
+String LG_OpenTVChannel    "Open TV Channel [%s]"  { xbmc=">[#woonkamer|PVR.OpenTV]" }
+
+### rule
+
+    rule "Voice Command open tv channel"
+     when
+        Item VoiceCommand received command
+     then
+        sendCommand(LG_OpenTVChannel,VoiceCommand.state.toString)
+    end
