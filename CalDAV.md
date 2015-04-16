@@ -18,6 +18,7 @@ The calendar-id must be just upper- and lowercase characters. (e. g. private or 
 Binding file: org.openhab.binding.caldav-version.jar
 
 Used to execute commands through an event, triggered at the start or the end of an event.
+The event summary is free selectable. The event description must fullfill special syntax.
 Syntax is `<BEGIN|END>:<Item-Name>:<Command>`.
 
 Additionaly you can define an item to listen to upcoming changes of an item (which will be triggered through an event). Two types are available the command which will be set and the trigger time.
