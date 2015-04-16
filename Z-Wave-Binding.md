@@ -263,7 +263,7 @@ When the basic command class is used, devices support setting values and reporti
 
 You can force a device to work with the basic command set (or any specific command set for that matter using a syntax like:
 
-    Switch    ZwaveDevice        { zwave="3:0:command=BASIC" }
+    Switch    ZwaveDevice        { zwave="3:1:command=BASIC" }
 
 
 To find out which command classes are supported by your Z-Wave device, you can look in the manual or use the list at http://www.pepper1.net/zwavedb/ or http://products.z-wavealliance.org/. In case your command class is supported by the device and binding, but you have a problem, you can create an issue at: https://github.com/openhab/openhab/issues. In case you want a command class implemented by the binding, please create an issue.
