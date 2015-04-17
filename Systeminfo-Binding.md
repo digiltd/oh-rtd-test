@@ -88,6 +88,17 @@ Note that the output of some commands (eg. DirUsage) will be affected by filesys
   <tr><td>ProcessCpuPercent</td><td>Number</td><td></td><td>target = process name (3</td></tr>
 </table>
 
+Since 1.7.0
+<table>
+  <tr><th>Command</th><th>Item Type</th><th>Purpose</th><th>Note</th></tr>
+  <tr><td>FileSystemUsed</td><td>Number</td><td></td><td>target = name of the directory on which filesystem is mounted</td></tr>
+  <tr><td>FileSystemFree</td><td>Number</td><td></td><td>target = name of the directory on which filesystem is mounted</td></tr>
+  <tr><td>FileSystemTotal</td><td>Number</td><td></td><td>target = name of the directory on which filesystem is mounted</td></tr>
+  <tr><td>FileSystemUsagePercent</td><td>Number</td><td></td><td>target = name of the directory on which filesystem is mounted</td></tr>
+  <tr><td>FileSystemFiles</td><td>Number</td><td></td><td>target = name of the directory on which filesystem is mounted</td></tr>
+  <tr><td>FileSystemFreeFiles</td><td>Number</td><td></td><td>target = name of the directory on which filesystem is mounted</td></tr>
+</table>
+
 (1 interface name:
 Check supported interface names by ifconfig, ipconfig or openhab debug log E.g. "21:56:12.930 DEBUG o.o.b.s.internal.SysteminfoBinding[- valid net interfaces: [lo0, en0, en1, p2p0, vboxnet0](:479])
 
