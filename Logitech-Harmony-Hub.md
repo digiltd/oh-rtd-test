@@ -57,7 +57,15 @@ Press the specified button on the given device (where device can either be the d
 
 #### Actions
 
-There is also a action addon available to send PuchButton or StartActivity to the hub.
+The following actions are supported in rules:
+
+##### Press button
+
+	harmonyPressButton(<devId>, <device>, <command>)
+
+##### Start activity
+
+	harmonyStartActivity(<devId>, <activity>)
 
 ### Shell
 
