@@ -81,6 +81,8 @@ A few technical constraints and details to be aware of:
  * Despite the chart refresh option, charts do not appear to refresh properly according to this setting
  * The visibility of multiple chart objects can be toggled to simulate changing the chart period, and the non-visible chart widgets are NOT generated behind the scenes until it becomes visible.
 
+Charts from rrd4j can also be generated and shown as images. Visit [Charts](https://github.com/openhab/openhab/wiki/Charts) ins the Wiki for examples.
+
 #### Element 'Frame'
 
 Frames are used to create a visually separated area of items.
