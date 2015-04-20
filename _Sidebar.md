@@ -38,6 +38,7 @@ Community
   * [[BenQ Projector Binding|BenQ-Projector-Binding]]
   * [[Bluetooth Binding|Bluetooth-Binding]]
   * [[Bticino Binding|Bticino-Binding]]
+  * [[CalDAV Binding|CalDAV]]
   * [[Comfo Air Binding|Comfo-Air-Binding]]
   * [[Config Admin Binding|Config-Admin-Binding]]
   * [[CUL Binding|CUL-Binding]]
