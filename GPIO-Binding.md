@@ -59,3 +59,46 @@ Examples:
     Contact NormallyOpenPushButton "Normally Open Push Button" { gpio="pin:3 debounce:10" }
     Contact PIR "PIR" { gpio="pin:4 activelow:yes" }
     Contact NormallyClosedPushButton "Normally Closed Push Button" { gpio="pin:5 debounce:10 activelow:yes" }
+
+## automatic unexport when using init.d script
+
+When using the init.d startup script from this wiki ([link](https://github.com/openhab/openhab/wiki/Samples-Tricks#how-to-configure-openhab-to-start-automatically-on-linux)) and you try to stop openhab it will not unexport your gpio pins. You can do this manually or edit the startup script like bellow.
+First find the stop section: Look for the do_stop() function and insert your unexports:
+
+Init.d script:
+		
+	do_stop()
+	{
+    # Return
+    #   0 if daemon has been stopped
+    #   1 if daemon was already stopped
+    #   2 if daemon could not be stopped
+    #   other if a failure occurred
+    start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 --pidfile $PIDFILE $
+    #unexport all gpio's
+    echo 22 > /sys/class/gpio/unexport
+    echo 23 > /sys/class/gpio/unexport
+    echo 24 > /sys/class/gpio/unexport
+    echo 10 > /sys/class/gpio/unexport
+    echo 9 > /sys/class/gpio/unexport
+    echo 25 > /sys/class/gpio/unexport
+    echo 11 > /sys/class/gpio/unexport
+    echo 8 > /sys/class/gpio/unexport
+    RETVAL="$?"
+    [ "$RETVAL" = 2 ] && return 2
+    # Wait for children to finish too if this is a daemon that forks
+    # and if the daemon is only ever run from this initscript.
+    # If the above conditions are not satisfied then add some other code
+    # that waits for the process to drop all resources that could be
+    # needed by services started subsequently.  A last resort is to
+    # sleep for some time.
+    start-stop-daemon --stop --quiet --oknodo --retry=0/30/KILL/5 --exec $DAEMON
+    [ "$?" = 2 ] && return 2
+    # Many daemons don't delete their pidfiles when they exit.
+    rm -f $PIDFILE
+    return "$RETVAL"
+	}
+
+Naturally edit the number after the echo to the gpio pin you use and insert or remove lines matchin the number off gpio's in use.
+
+Now you can stop and start openhab without your GPIO pins getting blocked!
