@@ -80,8 +80,9 @@ A few technical constraints and details to be aware of:
  * When using rrd4j persistence, you must use the everyMinute (60 seconds) logging strategy otherwise rrd4j thinks that there is no data and will not properly draw the charts
  * Despite the chart refresh option, charts do not appear to refresh properly according to this setting
  * The visibility of multiple chart objects can be toggled to simulate changing the chart period, and the non-visible chart widgets are NOT generated behind the scenes until it becomes visible.
+ * When charting a group of items make sure every label is unique. Identical labels result in an empty chart (as of 1.7.0).
 
-Charts from rrd4j can also be generated and shown as images. Visit [Charts](https://github.com/openhab/openhab/wiki/Charts) ins the Wiki for examples.
+Charts from rrd4j can also be generated and shown as images. Visit [Charts](https://github.com/openhab/openhab/wiki/Charts) in the Wiki for examples.
 
 #### Element 'Frame'
 
