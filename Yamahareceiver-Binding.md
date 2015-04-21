@@ -9,6 +9,7 @@ tested Receivers:
 * V475
 * V675
 * V473
+* V575
 * V773
 
 please add sucessfully tested receivers!
