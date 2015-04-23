@@ -54,12 +54,14 @@ The only required parameter is _satel:host_ for the ETHM-1 module and _satel:por
 In order to bind to the Integra Alarm system you need to add settings for items defined in your item file. Here is item configuration string syntax:
 
 ```
-satel="<object_type>[:<state_type>][:<object_number>][:<option>=<value>,...]"
+satel="<object_type>[:<state_type>][:<object_number>,...][:<option>=<value>,...]"
 ```
 
 Name of object type, state type and option is case insensitive. For "output" objects state type cannot be specified and must be ommited. `object_number` must be integer number in range 1-256. Options are comma-separated pairs of name and value separated by `=` character.
 
-Supported item types: `Contact`, `Switch`, `Number`. Number items can be used only if `object_number` is not given and the number specifies cardinality of objects that are in given state. For example if object is "zone" and state is "violated", item will tell you number of zones violated. See examples section for detailed configuration syntax.
+Supported item types: `Contact`, `Switch`, `Number`, `Rollershutter`. 
+For all but `Rollershutter` item type only one `object_number` is allowed. For `Rollershutter` item there must be exactly two object numbers specified. As there is no information about roller shutter position, state is updated to 0% when "UP" command is received and 100% when "DOWN" command is received, assuming the state will be eventually reached.
+Number items can be used only if `object_number` is not given and the number specifies cardinality of objects that are in given state. For example if object is "zone" and state is "violated", item will tell you number of zones violated. See examples section for detailed configuration syntax.
 
 **Valid `object_type` values:**
 <table><tr><th>Type</th><th>Description</th></tr>
@@ -127,6 +129,12 @@ Supported item types: `Contact`, `Switch`, `Number`. Number items can be used on
 **NOTE:** Some of the values, like 'troubles' and 'intrx_present' don't work on my ETHM-1 Plus module.
 
 
+**Valid options:**
+<table><tr><th>Name</th><th>Description</th></tr>
+<tr><td>force_arm</td><td>forces arming for arming commands</td></tr>
+<tr><td>commands_only</td><td>item accepts commands, but state of the item is not updated</td></tr></table>
+
+
 ## Examples
 
 Partition item with ability to arm and disarm:
@@ -168,6 +176,11 @@ Number PartitionsInAlarm "Partitions alarmed [%d]" { satel="partition:alarm" }
 Troubles memory item with clear ability:
 ```
 Switch TroublesMemory "Troubles in the system" { satel="status:troubles_memory" }
+```
+
+Roller shutter item:
+```
+Rollershutter KitchenBlinds "Kitchen blinds" { satel="output:10,11" }
 ```
 
 Time synchronization using NTP binding:
