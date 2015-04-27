@@ -1,14 +1,11 @@
 You Will Need
 
-RUBY [https://www.ruby-lang.org/en/documentation/installation/](Ruby)
-
-BritishGasHive Gem [https://rubygems.org/gems/BritishGasHive](BritishGasHive Gem)
+* [RUBY](https://www.ruby-lang.org/en/documentation/installation/)
+* [BritishGasHive Gem](https://rubygems.org/gems/BritishGasHive)
 
 This looks simple but I created the Ruby Gem for this so you don't have to do the hard work, you could do it all in one script.
 
-One you have Ruby installed you can get the example script from
-
-[https://github.com/josephdouce/rubygem-BritishGasHive](Git Hub)
+One you have Ruby installed you can get the example script from [GitHub](https://github.com/josephdouce/rubygem-BritishGasHive)
 
 ![Ruby Script](http://puu.sh/gsOe7/74648a719e.png)
 
