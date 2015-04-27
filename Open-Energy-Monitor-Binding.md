@@ -2,7 +2,7 @@ Documentation of the Open Energy Monitor binding Bundle
 
 ## Introduction
 
-Open Energy Monitor binding is used to get live data from open energy monitor devices.
+[Open Energy Monitor](http://openenergymonitor.org) binding is used to get live data from open energy monitor devices.
 
 ## RFM12Pi gateway
 
