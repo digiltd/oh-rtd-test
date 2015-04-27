@@ -1,4 +1,4 @@
-Documentation of the VDR Binding Bundle
+Documentation of the [VDR](http://www.tvdr.de) Binding Bundle
 
 ## Introduction
 
