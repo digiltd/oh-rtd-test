@@ -134,7 +134,7 @@ String TIMESTAMP_Nodo1_GF_Servizio "Timestamp Nodo 1 [%1$td.%1$tm.%1$tY %1$tk:%1
 == Get Support with the Community ==
 
 Souliss is an open-source and community driven project, you can use the 
-[[http://www.souliss.net|site]]
+[[site|http://www.souliss.net]]
 and
 [[Community|https://github.com/souliss/souliss/wiki/Community]]
 to get help and share you results.
