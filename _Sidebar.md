@@ -26,6 +26,7 @@ Community
   * [[Windows Phone Client|Windows-PhoneUI]]
   * [[GreenT UI|TouchUI]]
   * [[CometVisu|CometVisu]]
+  * [[Kodi|https://github.com/enishoca/openhab-kodi]]
  * [[Automation|Automation]]
   * [[Scripts]]
   * [[Rules]]
