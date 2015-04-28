@@ -138,3 +138,4 @@ Souliss is an open-source and community driven project, you can use the
 and
 [[Community|https://github.com/souliss/souliss/wiki/Community]]
 to get help and share you results.
+Our wiki [[here|https://github.com/souliss/souliss/wiki]]
