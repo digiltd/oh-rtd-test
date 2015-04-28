@@ -121,6 +121,7 @@ Community
   * [[Snmp Binding|Snmp-Binding]]
   * [[Somfy URTSI II Binding|URTSI-Binding]]
   * [[Sonos Binding|Sonos-Binding]]
+  * [[Souliss Binding|Souliss---Arduino-based-SmartHome---openHAB-Binding]]
   * [[Squeezebox Binding|Squeezebox-Binding]]
   * [[Swegon ventilation Binding|Swegon-Ventilation-Binding]]
   * [[System Info Binding|Systeminfo-Binding]]
