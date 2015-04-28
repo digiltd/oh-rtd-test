@@ -131,6 +131,11 @@ Number HEALTH_Nodo1_GF_Servizio "Health Nodo 1 [%1d]" <keyring> (Diagnostic, Tec
 String TIMESTAMP_Nodo1_GF_Servizio "Timestamp Nodo 1 [%1$td.%1$tm.%1$tY %1$tk:%1$tM:%1$tS]" <keyring> (Diagnostic, TechnicView_Node0) {souliss="D99:0:999"}
 }}}
 
+
+=== Download ===
+Latest version of Souliss binding bundle is available [[here|https://drive.google.com/drive/u/0/folders/0BzyjHRwlzov4WlgtSG0tejJ3aE0]] 
+
+
 == Get Support with the Community ==
 
 Souliss is an open-source and community driven project, you can use the 
