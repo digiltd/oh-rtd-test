@@ -105,7 +105,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2423A1</td><td>Thermostat 2441TH</td><td>F00.00.18</td><td></td><td>Daniel Campbell</td>
 </tr>
 <tr>
-<td>2457D2</td><td>LampLinc Dimmer</td><td>F00.00.18</td><td></td><td>Jonathan Huizingh</td>
+<td>2457D2</td><td>LampLinc Dimmer</td><td>F00.00.19</td><td></td><td>Jonathan Huizingh</td>
 </tr>
 <tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
