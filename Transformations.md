@@ -33,7 +33,7 @@ tbd ...
 
 Example item configuration: 
 
-Number WuUvCode "UV Level [SCALE(uvindex.scale):%s]"
+`Number WuUvCode "UV Level [SCALE(uvindex.scale):%s]"`
 
 uvindex.scale in transform folder :
 ```
@@ -45,8 +45,8 @@ uvindex.scale in transform folder :
 ```
 
 Calling it in a rule :
-var Number r = transform("SCALE", "uvindex.scale", WuUvIndex.state.toString)
 
+`var Number r = transform("SCALE", "uvindex.scale", WuUvIndex.state.toString)`
 
 ### RegEx transformation service
 tbd ...
