@@ -11,6 +11,12 @@ Currently, it's able to report :
 - Last call (number, duration, status)
 And act on : 
 - wifi network status
+- FTP server status (from v1.7)
+- UPnP AV status (from v1.7)
+- AirMedia status (from v1.7)
+- Windows file sharing status (from v1.7)
+- Windows printer sharing status (from v1.7)
+- network devices reachable status (from v1.7)
 - Reboot
 
 ## Authentication
@@ -63,7 +69,14 @@ Group gfbLCD				"LCD"						(gFreebox)
 Group gfbXdsl				"xDsl Status"					(gFreebox)
 
 // Wifi Entries
-Switch freebox_wifi			"Wifi"						(gfbWifi)  {freebox="wifi_status"}
+Switch freebox_wifi			"Wifi"						(gfbWifi)  {freebox="wifi_status", autoupdate="false"}
+
+// (from v1.7) FTP server, UPnP AV, AirMedia and Windows sharings status
+Switch FreeboxFTP			"FTP"						(gFreebox) {freebox="ftp_status", autoupdate="false"}
+Switch FreeboxUPnPAV			"UPnP AV"					(gFreebox) {freebox="upnpav_status", autoupdate="false"}
+Switch FreeboxAirMedia			"AirMedia"					(gFreebox) {freebox="airmedia_status", autoupdate="false"}
+Switch FreeboxSambaFiles		"Partage fichiers Win"				(gFreebox) {freebox="sambafileshare_status", autoupdate="false"}
+Switch FreeboxSambaPrinters		"Partage imprimantes Win"			(gFreebox) {freebox="sambaprintershare_status", autoupdate="false"}
 
 // Call Entries
 String freebox_call_lastnum		"Last call [%s]"				(gfbCalls) {freebox="call_number"}
@@ -96,10 +109,20 @@ Switch freebox_lcd_forced		"LCD Forced"					(gfbLCD) {freebox="lcd_forced"}
 // xDSL Status Items
 String freebox_xdsl_status		"Status [%s]"					(gfbXdsl) {freebox="xdsl_status"}
 
+// (from v1.7) Network devices reachable status
+Switch NetDevice1			"Net device (MAC)"				(gFreebox) {freebox="reachable_mac/00:1B:D2:D5:97:01", autoupdate="false"}
+Switch NetDevice2			"Net device (IP)"				(gFreebox) {freebox="reachable_ip/192.168.0.50", autoupdate="false"}
+Switch NetDevice3			"Net device (name)"				(gFreebox) {freebox="reachable_name/Téléviseur", autoupdate="false"}
+
 ```
 
 The following items are available for read/write actions :
 * switch on/off wifi
+* switch on/off FTP server (from v1.7)
+* switch on/off UPnP AV (from v1.7)
+* switch on/off AirMedia (from v1.7)
+* switch on/off Windows file sharing (from v1.7)
+* switch on/off Windows printer sharing (from v1.7)
 * switch to reboot the freebox
 * switch to force lcd orientation
 * lcd orientation to use (0,90,180,270).
