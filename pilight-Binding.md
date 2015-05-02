@@ -8,7 +8,14 @@ This page describes the pilight binding, which allows openhab to communicate wit
 
 pilight is a cheap way to control 'Click On Click Off' devices. You can do this for example by using a Raspberry Pi and a cheap 433Mhz transceiver off eBay, plus an optional band pass filter.
 
-Currently, switches, dimmers and string and number items are supported by this binding. 
+There are some differences between version 1.6 and 1.7 of this binding:
+
+| openHAB version | Supported pilight version | Supported Items
+|-----------------|-----------------|-----------------|
+| 1.6 | 5.0 | Switch, Dimmer, String, Number
+| 1.7 | 6.0 | Switch, Dimmer, Contact, String, Number
+
+In openHAB 1.6, pilight version 5 is supported. In the latest version of openHAB (1.7), only **pilight 6.0** is supported. Make sure you're running the right version of pilight, since the API between those two versions is quite different. 
 
 ### Installation 
 
@@ -39,11 +46,11 @@ This binding supports multiple pilight instances. You must set the .host and .po
 
 ### Item configuration
 
-Item configuration follows this format: 
+**openHAB 1.6**
 
-    pilight="<instance>#<room>:<device>"
+    pilight="<instance>#<room>:<device>,property=value"
 
-Room and device are the same as specified in your pilight config.json. 
+Room and device are the same as specified in your pilight config.json. The 'property=value' part is only needed for String and Number items. 
 
 Examples:
 
@@ -52,13 +59,43 @@ Switch  KakuDeskLamp    "Desk lamp"             (Lamps)         {pilight="kaku#s
 Switch  KakuFloorLamp   "Floor lamp"            (Lamps)         {pilight="kaku#study:floorlamp"}
 
 Dimmer  KakuCeiling     "Ceiling"               (Lamps)         {pilight="kaku#living:ceiling"}
+
+Number  KakuTemperature  "Temperature"           (Sensors)      {pilight="kaku#outside:weather,property=temperature"}
+Number  KakuHumidity     "KakuHumidity [%.0f%%]" (Sensors)      {pilight="kaku#outside:weather,property=humidity"}
+String  KakuBattery      "Battery [%s]"          (Sensors)      {pilight="kaku#outside:weather,property=battery"}
 ```
+
+**openHAB 1.7**
+
+    pilight="<instance>#<device>,property=value"
+
+Device names are the same as specified in your pilight config.json. The 'property=value' part is only needed for String and Number items. 
+
+Examples:
+
+```
+Switch  KakuDeskLamp    "Desk lamp"             (Lamps)         {pilight="kaku#desklamp"}
+Switch  KakuFloorLamp   "Floor lamp"            (Lamps)         {pilight="kaku#floorlamp"}
+
+Dimmer  KakuCeiling     "Ceiling"               (Lamps)         {pilight="kaku#ceiling"}
+
+Number  KakuTemperature  "Temperature"           (Sensors)      {pilight="kaku#weather,property=temperature"}
+Number  KakuHumidity     "KakuHumidity [%.0f%%]" (Sensors)      {pilight="kaku#weather,property=humidity"}
+String  KakuBattery      "Battery [%s]"          (Sensors)      {pilight="kaku#weather,property=battery"}
+
+Contact KakuDoorSensor  "Door sensor [%s]"      (Sensors)       {pilight="kaku#doorsensor"}
+```
+
 ### Usage in sitemap
 
 ```
 Switch item=KakuDeskLamp
 Switch item=KakuFloorLamp
 Slider item=KakuCeiling
+Text item=KakuTemperature
+Text item=KakuHumidity
+Text item=KakuBattery
+Text item=KakuDoorSensor
 ```
 
 ### Additional info
