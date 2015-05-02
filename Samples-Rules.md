@@ -13,6 +13,7 @@ Samples for Rules
 * [Hager KNX roller shutter actor position feedback](Samples-Rules#hager-knx-roller-shutter-actor-position-feedback)
 * [Koubachi remind the water level](Samples-Rules#koubachi-remind-the-water-level)
 * [Create text item to combine two values and format string options](Samples-Rules#create-text-item-to-combine-two-values-and-format-string-options)
+* [Get an email when battery powered devices are running low on power](Samples-Rules#get-an-email-when-battery-powered-devices-are-running-low-on-power)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -932,4 +933,37 @@ In addition you might want to format the values only with one or two digits behi
 
 Important is as well to "include" the org.openhab.core.library.types.* in the beginning of the rule so that this will work properly.
 
+### Get an email when battery powered devices are running low on power
 
+One of my motion sensors ran out of battery because I wasn't paying attention, so I implemented a rule to send me an email if any of my battery operated devices are running low.
+
+The rule fires every day at 7pm, and if any of the devices are reporting less than 10% charge I get an email giving the battery status of all devices, in ascending order of charge. I deliberately chose to list all devices as for example some of them might be quite close to 10% but still above it, and I might want to buy batteries for those as well while I'm at it.
+
+All of my battery powered items have a `Number` entry in my .items files. The `Number` item is always in a group called Battery. For example:
+
+```
+Number	Battery_Hallway_Motion	"Hallway motion battery [%s %%]"	<energy>	(F0_Hallway,Battery)		{ zwave="40:command=BATTERY" }
+```
+
+The rule:
+
+```Xtend
+import org.openhab.core.library.types.DecimalType
+
+val String mailTo = "you@example.com"
+val int lowBatteryThreshold = 10
+
+rule "Battery Monitor"
+when Time cron "0 0 19 * * ?"
+then
+    if (! Battery.allMembers.filter([state < lowBatteryThreshold]).empty) {
+        val report = Battery.allMembers.filter([state instanceof DecimalType]).sortBy([state]).map[
+            name + ": " + state.format("%d%%")
+        ].join("\n")
+        
+        val message = "Battery levels:\n\n" + report + "\n\nRegards,\n\nopenHab"
+        
+        sendMail(mailTo, "Low battery alert", message)
+    }
+end
+```
