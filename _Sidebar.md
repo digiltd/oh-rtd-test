@@ -202,6 +202,7 @@ Samples
  * [[B-Control Manager|Example-to-use-B-Control-Energy-Manager-with-openHAB]]
 
 Release Notes
+ * [[Version 1.7|Release-Notes-1.7]]
  * [[Version 1.6|Release-Notes-1.6]]
  * [[Version 1.5|Release-Notes-1.5]]
  * [[Version 1.4|Release-Notes-1.4]]
