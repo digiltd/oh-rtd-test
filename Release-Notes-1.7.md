@@ -1,6 +1,6 @@
 ## New & Noteworthy
 
-Please find below the release notes of the 1.7 Release.
+Please find below the _intermediary_ release notes of the 1.7 Release.
 
 ### Version 1.7.0
 
