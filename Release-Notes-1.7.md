@@ -93,8 +93,6 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 ####major API changes
 * none
 
-The complete list of issues can be obtained from the [Github Issue Tracker](https://github.com/openhab/openhab/issues?direction=asc&labels=&milestone=4&page=1&sort=created&state=closed).
-
 ## Updating the openHAB runtime 1.6 to 1.7
 
 If you have a running openHAB runtime 1.6 installation, you can easily update it to version 1.7 by following these steps:
