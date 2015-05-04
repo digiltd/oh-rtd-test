@@ -7,8 +7,6 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 1. Set project version to release version with the Tycho Versions plugin
 
         export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=1024m"; mvn -P prepare-release initialize -DnewVersion=1.x.0
-1. Manually change `./products/org.openhab.runtime.product/category.xml` file. Replace `1.x.0.qualifier` by `1.x.0`
-1. Manually change `./products/org.openhab.designer.product/category.xml` file. Replace `1.x.0.qualifier` by `1.x.0`
 1. Manually change version in `.//bundles/archetype/org.openhab.archetype.binding/pom.xml` file.
 1. Manually change version in `.//bundles/archetype/org.openhab.archetype.action/pom.xml` file.
 1. Execute a Maven build
@@ -24,8 +22,6 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 1. Increment to next development version
 
         mvn -P prepare-next-snapshot initialize -DnewVersion=1.y.0.qualifier
-1. Manually change `./products/org.openhab.runtime.product/category.xml` file. Replace `1.y.0` by `1.y.0.qualifier`
-1. Manually change `./products/org.openhab.designer.product/category.xml` file. Replace `1.y.0` by `1.y.0.qualifier`
 1. Manually change version in `.//bundles/archetype/org.openhab.archetype.binding/pom.xml` file.
 1. Manually change version in `.//bundles/archetype/org.openhab.archetype.action/pom.xml` file.
 1. Execute a Maven build with goals clean verify to assure that everything builds
