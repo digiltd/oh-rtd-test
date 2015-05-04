@@ -6,25 +6,25 @@ Please find below the release notes of the 1.7 Release.
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.7.0).
 
-Major Features:
-* [#2329](https://github.com/openhab/openhab/pull/2329) - Initial commit of the Logitech Harmony Hub Binding for OpenHAB (@digitaldan)
-* [#2264](https://github.com/openhab/openhab/pull/2264) - MapDb persistence (@JSurf)
-* [#2224](https://github.com/openhab/openhab/pull/2224) - Initial Nest binding. (@watou)
-* [#2190](https://github.com/openhab/openhab/pull/2190) - [new binding] Initial version of Satel Integra security system binding (@druciak)
-* [#2076](https://github.com/openhab/openhab/pull/2076) - Ecobee Binding (@watou)
-* [#2046](https://github.com/openhab/openhab/pull/2046) - Create Mochad X10 Binding (@Jakey69)
-* [#2025](https://github.com/openhab/openhab/pull/2025) - MiOS Add initial Action/Rule support for the MiOS Bridge Binding. (@mrguessed)
-* [#2002](https://github.com/openhab/openhab/pull/2002) - Initial contribution of Astro-Action. (@gerrieg)
-* [#1950](https://github.com/openhab/openhab/pull/1950) - Initial version of Google TTS bundle (@dominicdesu)
-* [#1929](https://github.com/openhab/openhab/pull/1929) - Initial eBus (heating system communication protocol) binding (@csowada)
-* [#1862](https://github.com/openhab/openhab/pull/1862) - Plex binding (@idserda)
-* [#1813](https://github.com/openhab/openhab/pull/1813) - Network UPS Tools (NUT) binding added (@jaroslawmazgaj)
-* [#1698](https://github.com/openhab/openhab/pull/1698) - openhab - Bticino / legrand openweb binding (@TomDeVlaminck)
-* [#1684](https://github.com/openhab/openhab/pull/1684) - Implementation of a new Binding for Zibase (@jit06)
-* [#984](https://github.com/openhab/openhab/pull/984) - Initial commit for wago binding [new attempt] (@BinaryCraX)
+####Major Features:
+* [#2329](https://github.com/openhab/openhab/pull/2329) - Initial commit of the Logitech Harmony Hub Binding (@digitaldan)
+* [#2264](https://github.com/openhab/openhab/pull/2264) - Initial commit of the MapDb persistence service (@JSurf)
+* [#2224](https://github.com/openhab/openhab/pull/2224) - Initial commit of the Nest binding. (@watou)
+* [#2190](https://github.com/openhab/openhab/pull/2190) - Initial commit of Satel Integra security system binding (@druciak)
+* [#2076](https://github.com/openhab/openhab/pull/2076) - Initial commit of the Ecobee Binding (@watou)
+* [#2046](https://github.com/openhab/openhab/pull/2046) - Initial commit of the Mochad X10 Binding (@Jakey69)
+* [#2025](https://github.com/openhab/openhab/pull/2025) - Initial commit of Action/Rule support for the MiOS Bridge Binding. (@mrguessed)
+* [#2002](https://github.com/openhab/openhab/pull/2002) - Initial commit of Astro-Action (@gerrieg)
+* [#1950](https://github.com/openhab/openhab/pull/1950) - Initial commit of the Google TTS bundle (@dominicdesu)
+* [#1929](https://github.com/openhab/openhab/pull/1929) - Initial commit of the eBus (heating system communication protocol) Binding (@csowada)
+* [#1862](https://github.com/openhab/openhab/pull/1862) - Initial commit of the Plex Binding (@idserda)
+* [#1813](https://github.com/openhab/openhab/pull/1813) - Initial commit of the Network UPS Tools (NUT) Binding (@jaroslawmazgaj)
+* [#1698](https://github.com/openhab/openhab/pull/1698) - Initial commit of the Bticino/Legrand OpenWebIf Binding (@TomDeVlaminck)
+* [#1684](https://github.com/openhab/openhab/pull/1684) - Initial commit of Zibase Binding (@jit06)
+* [#984](https://github.com/openhab/openhab/pull/984) - Initial commit for Wago Binding (@BinaryCraX)
 
-Enhancements:
-* [#2540](https://github.com/openhab/openhab/pull/2540) - Fix issue #1845, try 2 (@J-N-K)
+####Enhancements:
+* [#2540](https://github.com/openhab/openhab/pull/2540) - Fix issue #1845 2 (@J-N-K)
 * [#2538](https://github.com/openhab/openhab/pull/2538) - Refactor HUE int deviceNumber to String deviceId (@mstolt)
 * [#2534](https://github.com/openhab/openhab/pull/2534) - Improve log messages when attempting a meter reset (@sumnerboy12)
 * [#2532](https://github.com/openhab/openhab/pull/2532) - Add extended configuration to rrd4j persistence (@J-N-K)
@@ -55,7 +55,7 @@ Enhancements:
 * [#2412](https://github.com/openhab/openhab/pull/2412) - [CometVisu] Support for PersistenceService (for Charts) and GroupFunctions added (@peuter)
 * [#2409](https://github.com/openhab/openhab/pull/2409) - Make mysql persistent documentation more clear (@schinken)
 
-Bugfixes:
+####Bugfixes:
 * [#2518](https://github.com/openhab/openhab/pull/2518) - TF binding: Fix for configuration handling of device aliases (@theoweiss)
 * [#2512](https://github.com/openhab/openhab/pull/2512) - Use name of sitemap file when creating sitemap page bean, as it may be d... (@llamahunter)
 * [#2507](https://github.com/openhab/openhab/pull/2507) - - fixes broken refresh/update (@peuter)
