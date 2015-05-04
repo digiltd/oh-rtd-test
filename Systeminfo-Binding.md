@@ -26,7 +26,47 @@ openhab.cfg file (in the folder '${openhab_home}/configurations').
 
 ## Hyperic SIGAR Native libraries
 
-The SystemInformation binding does not include SIGAR native libraries currently. The platform dependent Sigar native libraries can be found [here](http://sourceforge.net/projects/sigar/files/sigar/1.6/hyperic-sigar-1.6.4.tar.gz/download) for several platforms (see sigar-bin/lib folder). The Pre-built libraries need to be moved into the ${openhabhome]/lib folder. ARM-based devices, such as Raspberry PI require manual setup. See [discussion](https://groups.google.com/forum/#!searchin/openhab/systeminfo/openhab/18C7FYpxWTQ/BT_iGycwcKsJ).
+The SystemInformation binding does not include SIGAR native libraries currently. The platform dependent Sigar native libraries can be found [here](http://sourceforge.net/projects/sigar/files/sigar/1.6/hyperic-sigar-1.6.4.tar.gz/download) for several platforms (see sigar-bin/lib folder). The Pre-built libraries need to be moved into the ${openhabhome]/lib folder. 
+
+### ARM-based devices
+
+ARM-based devices, such as Raspberry PI require manual setup. See [discussion](https://groups.google.com/forum/#!searchin/openhab/systeminfo/openhab/18C7FYpxWTQ/BT_iGycwcKsJ).
+
+There are 3 pre-compiled libraries:
+
+* [Raspbian](https://groups.google.com/group/openhab/attach/ab7030271be23f05/sigar-raspbian.zip?part=0.1)
+* [Cubian](https://groups.google.com/group/openhab/attach/ab7030271be23f05/sigar-cubian.zip?part=0.2)
+* [Odroid-U3](https://groups.google.com/group/openhab/attach/9a73ad8e7b990530/sigar-odroid-u3.zip?part=0.1)
+
+The instructions below help you to install the library. The example uses raspbian and an ``apt-get`` installation as an example, please modify to suit your needs.
+
+Download raspbian library to your RPi:
+
+    $ wget https://groups.google.com/group/openhab/attach/ab7030271be23f05/sigar-raspbian.zip?part=0.1 -O ~/sigar-raspbian.zip
+
+Unzip archive:
+
+    $ unzip ~/sigar-raspbian.zip -d ~
+
+Create a ``lib`` folder first for ``apt-get`` installations:
+
+    $ sudo mkdir /usr/share/openhab/lib
+
+(If you run openHAB from one single folder, please find the path to ``lib`` yourself.)
+
+Then copy the downloaded files to the new ``lib`` folder:
+
+    $ sudo cp ~/sigar-raspbian/lib/* /usr/share/openhab/lib
+
+Remove temporary files:
+
+    $ rm -r ~/sugar-raspbian
+
+If you do not want to keep the .zip file, remove it, too.
+
+    $ rm ~/sugar-raspbian.zip
+
+Done! Now install the binding and add your items.
 
 ## Item Binding Configuration
 
