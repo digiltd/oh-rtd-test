@@ -54,6 +54,9 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2424](https://github.com/openhab/openhab/pull/2424) - [satel] Basic support for rollershutter items added (@druciak)
 * [#2412](https://github.com/openhab/openhab/pull/2412) - [CometVisu] Support for PersistenceService (for Charts) and GroupFunctions added (@peuter)
 * [#2409](https://github.com/openhab/openhab/pull/2409) - Make mysql persistent documentation more clear (@schinken)
+* [#2136](https://github.com/openhab/openhab/pull/2136) - Refactor zwave initialisation to improve stability (@cdjackson)
+* [#2603](https://github.com/openhab/openhab/pull/2603) - zwave crc 16 encapsulation command class implemented (@pluimpje)
+* [#2327](https://github.com/openhab/openhab/pull/2327) - Reduced zwave wakeup time to improve battery life (@cdjackson)
 
 ####Bugfixes:
 * [#2518](https://github.com/openhab/openhab/pull/2518) - TF binding: Fix for configuration handling of device aliases (@theoweiss)
