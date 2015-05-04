@@ -1,7 +1,7 @@
 openhab-harmony-binding
 =======================
 
-openHAB Binding for the Logitech Harmony Hub
+openHAB Binding for the Logitech Harmony Hub (since 1.7.0)
 
 
 ### Introduction
