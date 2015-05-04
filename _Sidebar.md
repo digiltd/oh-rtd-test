@@ -83,7 +83,7 @@ Community
   * [[Koubachi Binding|Koubachi-Binding]]
   * [[Leviton/HAI Omnilink Binding|Omnilink-Binding]]
   * [[Lg TV Binding|Lg-TV]]
-  * [[Logitech Harmony Hub|Harmony-Hub-Binding]]
+  * [[Logitech Harmony Hub|Logitech-Harmony-Hub-Binding]]
   * [[MAX!Cube-Binding]]
   * [[MAX! CUL Binding|MAX!-CUL-Binding]]
   * [[MiLight Binding|Milight-Binding]]
