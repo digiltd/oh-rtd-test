@@ -17,6 +17,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2002](https://github.com/openhab/openhab/pull/2002) - Astro-Action (@gerrieg)
 * [#1950](https://github.com/openhab/openhab/pull/1950) - Google TTS bundle (@dominicdesu)
 * [#1929](https://github.com/openhab/openhab/pull/1929) - eBus (heating system communication protocol) Binding (@csowada)
+* [#1911](https://github.com/openhab/openhab/pull/1911) - DSMR Binding (@mvolaart)
 * [#1862](https://github.com/openhab/openhab/pull/1862) - Plex Binding (@idserda)
 * [#1813](https://github.com/openhab/openhab/pull/1813) - Network UPS Tools (NUT) Binding (@jaroslawmazgaj)
 * [#1698](https://github.com/openhab/openhab/pull/1698) - Bticino/Legrand OpenWebIf Binding (@TomDeVlaminck)
