@@ -52,6 +52,8 @@ Use following snippets:
 
 ###Rules###
 
+    import org.openhab.core.library.types.DecimalType
+
     //variables to store current state of shutter
     var Number shutterOldState = 50
     var Number shutterLastUp = 0
@@ -70,7 +72,7 @@ Use following snippets:
     when
         Item shutter changed	
     then
-        shutterOldState = previousState
+        shutterOldState = previousState as DecimalType
     end
 
     rule "Shutter Control Rule"
