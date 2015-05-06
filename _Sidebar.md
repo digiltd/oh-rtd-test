@@ -48,6 +48,7 @@ Community
   * [[CUPS Binding|CUPS-Binding]]
   * [[DAIKIN Binding|Daikin-Binding]]
   * [[Davis Binding|Davis-Binding]]
+  * [[Denon Binding|Denon-Binding]]
   * [[digitalSTROM Binding|digitalSTROM-Binding]]
   * [[DMX512 Binding|DMX-Binding]]
   * [[DSC Alarm Binding|DSC-Alarm-Binding]]
