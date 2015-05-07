@@ -1121,9 +1121,7 @@ Did I mention that you need a sound card? Don’t got one? Pah, no probs. ALSA (
     apt-get install libopal-dev libpt-dev  
     (more infos: https://github.com/tmakkonen/sipcmd)    
 3. Now just run “make”
-
 4. Copy the sipcmd. To your preferd BIN Dir (/bin or /usr/bin)
-
 5. That’s it.
 
 Now go and Record some Wav-Files! You’ll need them later… you also could use text-to-speech engines to get some wav-files – be free. 
