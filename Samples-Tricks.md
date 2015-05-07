@@ -1113,16 +1113,15 @@ _(note: I only got a german Version of FritzOS: which means its freely translate
 Did I mention that you need a sound card? Don’t got one? Pah, no probs. ALSA (http://www.alsa-project.org/main/index.php/Main_Page) got your back. Under Debian just install alsa-base "apt-get install alsa-base".
 
 
-1. Download the SIPCMD Branch:
-    wget https://github.com/tmakkonen/sipcmd/archive/master.zip
-2. Unzip it. Go into the sipcmd-master directory
-
-2.1 needed Packages: 
-    apt-get install libopal-dev libpt-dev  
+1. Download the SIPCMD Branch:  
+     `wget https://github.com/tmakkonen/sipcmd/archive/master.zip`
+1. Unzip it. Go into the sipcmd-master directory  
+   needed Packages:  
+    `apt-get install libopal-dev libpt-dev`  
     (more infos: https://github.com/tmakkonen/sipcmd)    
-3. Now just run “make”
-4. Copy the sipcmd. To your preferd BIN Dir (/bin or /usr/bin)
-5. That’s it.
+1. Now just run “make”  
+1. Copy the sipcmd. To your preferd BIN Dir (/bin or /usr/bin)  
+1. That’s it.
 
 Now go and Record some Wav-Files! You’ll need them later… you also could use text-to-speech engines to get some wav-files – be free. 
 
