@@ -8,7 +8,7 @@ The easiest way is start with a simple example to control an ON/OFF light (thoug
 
 === Load the sketch on your Arduino with Ethernet Shield ===
 
-Use the following sketch onn your Arduino, before compile ensure that you have installed the Souliss framework from the [[Library Manager | http://www.arduino.cc/en/guide/libraries]], just search for __souliss__ inside the Library Manager and select _Install-.
+Use the following sketch onn your Arduino, before compile ensure that you have installed the Souliss framework from the [[Library Manager | http://www.arduino.cc/en/guide/libraries]], just search for souliss inside the Library Manager and select Install.
 
 You need to change the IP address inside the sketch according to one free IP address in your network.
 
@@ -103,7 +103,7 @@ void loop()
 
 === Configure the binding ===
 
-On the openHAB side, you need to install the _souliss binding_ if not yet available in your openHAB _Addons_ configurue it like follows, having care to use the IP address loaded in your Arduino sketch
+On the openHAB side, you need to install the souliss binding if not yet available in your openHAB Addons configure it like follows, having care to use the IP address loaded in your Arduino sketch
 
 {{{
 
@@ -170,7 +170,7 @@ String TIMESTAMP_Nodo0 "Update Node 0 [%1$td.%1$tm.%1$tY %1$tk:%1$tM:%1$tS]" <ke
 === The Result ===
 
 If you have configured correctly Souliss and openHAB, you can see and control the switch from the openHAB interface
-https://github.com/souliss/wiki-images/blob/master/examples/openHAB_example.png?raw=true
+{{https://github.com/souliss/wiki-images/blob/master/examples/openHAB_example.png?raw=true|openHAB and Souliss}}
 
 == General Configuration Requirements ==
 
