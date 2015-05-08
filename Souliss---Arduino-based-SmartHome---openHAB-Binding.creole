@@ -8,7 +8,7 @@ The easiest way is start with a simple example to control an ON/OFF light (thoug
 
 === Load the sketch on your Arduino with Ethernet Shield ===
 
-Use the following sketch onn your Arduino, before compile ensure that you have installed the Souliss framework from the [[Library Manager | http://www.arduino.cc/en/guide/libraries]], just search for souliss inside the Library Manager and select Install.
+Use the following sketch on your Arduino, before compile ensure that you have installed the Souliss framework from the [[Library Manager | http://www.arduino.cc/en/guide/libraries]], just search for souliss inside the Library Manager and select Install.
 
 You need to change the IP address inside the sketch according to one free IP address in your network.
 
