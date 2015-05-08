@@ -26,10 +26,20 @@ To be able to do something useful with the scripts, openHAB provides access to
 - all [standard actions](Actions) to make something happen
 
 Combining these features, you can easily write code like
-
+```
     if(Temperature.state < 20) {
     	sendCommand(Heating, ON)
     }
+```
+### The return Statement
+
+If you want to stop the rule/script execution you have to qualify a return value. If you don't explicitly provide this it can result in unintended rule behaviour.
+E.g.:
+```
+if(Temperature.state >= 20) return false
+
+sendCommand(Heating, ON)
+```
 
 ## Differences between Rules and Scripts
 As of OpenHAB 1.7, there are a few differences between a Rules EXECUTION_BLOCK code an a script.
