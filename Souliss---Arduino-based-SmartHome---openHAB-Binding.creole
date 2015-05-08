@@ -1,16 +1,173 @@
 == Introduction ==
 
-[[Souliss|http://www.souliss.net/]] is a networking framework for Arduino and compatibles board, is designed to build easily a smarthome distributed over multiple boards via Ethernet, wireless point-to-point and RS485 bus. 
+[[Souliss|http://www.souliss.net/]] is a networking framework for Arduino and compatibles board, is designed to build easily a Smart Home distributed over multiple boards via Ethernet, wireless point-to-point and RS485 bus. 
 
-=== First Step ===
+== Start with an Example ==
+
+The easiest way is start with a simple example to control an ON/OFF light (though a relay), in this section we just show you the code to upload on your Arduino with Ethernet shield (based on W5100 / W5200 / ENC28J60) and the configuration of your openHAB, the next section will explain the details.
+
+=== Load the sketch on your Arduino with Ethernet Shield ===
+
+Use the following sketch onn your Arduino, before compile ensure that you have installed the Souliss framework from the [[Library Manager | http://www.arduino.cc/en/guide/libraries]], just search for **souliss** inside the Library Manager and select *Install*.
+
+You need to change the IP address inside the sketch according to one free IP address in your network.
+
+{{{
+/**************************************************************************
+    Souliss - Hello World
+    
+    This is the basic example, control one LED via a push-button or Android
+    using SoulissApp (get it from Play Store).  
+    
+    Run this code on one of the following boards:
+      - Arduino with ENC28J60 Ethernet Shield
+        
+***************************************************************************/
+
+// Configure the framework
+#include "bconf/StandardArduino.h"          // Use a standard Arduino
+#include "conf/ethW5100.h"                  // Ethernet through Wiznet W5100
+#include "conf/Gateway.h"                   // The main node is the Gateway, we have just one node
+
+/*
+  If you are using W5200 or ENC28J60, you just need to change the #include "conf/ethW5100.h" with
+  #include "conf/ethW5200.h" or #include "conf/ethENC28J60.h"
+
+  This assume that your SPI Chip Select (CS) is on pin 10 as in most of the Ethernet shield.
+*/
+
+// Include framework code and libraries
+#include <SPI.h>
+#include "Souliss.h"
+
+// This identify the number of the LED logic
+#define MYLEDLOGIC          0               
+
+// Define the network configuration according to your router settings
+uint8_t ip_address[4]  = {192, 168, 1, 77};
+uint8_t subnet_mask[4] = {255, 255, 255, 0};
+uint8_t ip_gateway[4]  = {192, 168, 1, 1};
+#define Gateway_address 77
+#define myvNet_address  ip_address[3]       // The last byte of the IP address (77) is also the vNet address
+#define myvNet_subnet   0xFF00
+#define myvNet_supern   Gateway_address
+
+void setup()
+{   
+    Initialize();
+
+     // Set network parameters
+    Souliss_SetIPAddress(ip_address, subnet_mask, ip_gateway);
+    SetAsGateway(myvNet_address);                                   // Set this node as gateway for SoulissApp  
+     
+    Set_SimpleLight(MYLEDLOGIC);        // Define a simple LED light logic
+    
+    // We connect a pushbutton between 5V and pin2 with a pulldown resistor 
+    // between pin2 and GND, the LED is connected to pin9 with a resistor to
+    // limit the current amount
+    pinMode(2, INPUT);                  // Hardware pulldown required
+    pinMode(9, OUTPUT);                 // Power the LED
+}
+
+void loop()
+{ 
+    // Here we start to play
+    EXECUTEFAST() {                     
+        UPDATEFAST();   
+        
+        FAST_50ms() {   // We process the logic and relevant input and output every 50 milliseconds
+            DigIn(2, Souliss_T1n_ToggleCmd, MYLEDLOGIC);            // Use the pin2 as ON/OFF toggle command
+            Logic_SimpleLight(MYLEDLOGIC);                          // Drive the LED as per command
+            DigOut(9, Souliss_T1n_Coil, MYLEDLOGIC);                // Use the pin9 to give power to the LED according to the logic
+        } 
+              
+        // Here we handle here the communication with Android, commands and notification
+        // are automatically assigned to MYLEDLOGIC
+        FAST_GatewayComms();                                        
+        
+    }
+} 
+
+}}}
+
+=== Configure the binding ===
+
+On the openHAB side, you need to install the *souliss binding* if not yet available in your openHAB *Addons* configurue it like follows, having care to use the IP address loaded in your Arduino sketch
+
+{{{
+
+#######################################################################################
+#####                        Binding configurations                               #####
+#######################################################################################
+
+
+################################ Souliss Binding ##########################################
+#
+# Souliss TEST 
+# 
+# For ITEM defination in file .item 
+#{souliss=<Typical>:<nodeID>:<slot>:[<bit>]}
+
+souliss:IP_LAN=192.168.1.77
+souliss:USER_INDEX=72
+souliss:NODE_INDEX=133
+#SERVERPORT - Leave empty for casual port
+souliss:SERVERPORT=
+
+#time in mills
+souliss:REFRESH_DBSTRUCT_TIME=600000
+souliss:REFRESH_SUBSCRIPTION_TIME=120000
+souliss:REFRESH_HEALTY_TIME=60000
+souliss:REFRESH_MONITOR_TIME=500
+souliss:SEND_DELAY=1500
+souliss:SEND_MIN_DELAY=100
+souliss:SECURE_SEND_TIMEOUT_TO_REQUEUE=5000
+souliss:SECURE_SEND_TIMEOUT_TO_REMOVE_PACKET=30000
+}}}
+
+=== Configure the Sitemap ===
+
+Define your sitemap as follow, this will build a ligh siwtch a two items with health and last data access.
+
+{{{
+sitemap default label="Main Menu"
+{
+Frame label="Souliss - Hello World" {
+		Switch item=SimpleLight mappings=[ON="ON", OFF="OFF"]
+		Text item=HEALTHNodo0 icon="icon16x16"
+		Text item=TIMESTAMP_Nodo0 icon="icon16x16"
+	}		
+}
+}}}
+
+=== Configure Items ===
+
+The *Items* match the [[Typicals|https://github.com/souliss/souliss/wiki/Typicals]], in this configuration file you are simply matching the type of logic (that is the Typical itself) and the location as node and slot.
+
+```java
+Group All
+Group grp1              (All)
+Group Diagnostic        (All)
+Group TechnicView_Node0 (All)
+
+Switch SimpleLight 	"SimpleLight" (grp1, TechnicView_Node0) {souliss="T11:0:0", autoupdate="false"}
+
+Number HEALTHNodo0 "Health Node 0 [%1d]" <keyring> (Diagnostic, TechnicView_Node0, Health) {souliss="D98:0:998"}
+String TIMESTAMP_Nodo0 "Update Node 0 [%1$td.%1$tm.%1$tY %1$tk:%1$tM:%1$tS]" <keyring> (Diagnostic, TechnicView_Node0) {souliss="D99:0:999"}
+}}}
+
+=== The Result ===
+
+If you have configured correctly Souliss and openHAB, you can see and control the switch from the openHAB interface
+![](https://github.com/souliss/wiki-images/blob/master/examples/openHAB_example.png?raw=true)
+
+== General Configuration Requirements ==
 
 Starting with the Souliss Binding for openHAB require a deployed network, as minimum you need one Souliss node with Ethernet access configured as [[Gateway|https://github.com/souliss/souliss/wiki/Gateway]], a Gateway is a special node that is able to communicate with the user interfaces (openHAB interact as an user interface for Souliss).
 
 A starting point is the Souliss [[wiki|https://github.com/souliss/souliss/wiki]], the best is start with a single node and connect with SoulissApp. The code for networking activities of this binding is based on [[SoulissApp|https://github.com/souliss/souliss/wiki/SoulissApp]] code, so once connected with SoulissApp you can move to openHAB directly.
 
 You can use SoulissApp and the openHAB Souliss Binding at same time, and generally up to five (by default, but can be increased) user interfaces simultaneously.
-
-== General Configuration Requirements ==
 
 === Binding Network Configuration ===
 
