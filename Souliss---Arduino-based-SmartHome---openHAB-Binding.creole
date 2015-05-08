@@ -8,7 +8,7 @@ The easiest way is start with a simple example to control an ON/OFF light (thoug
 
 === Load the sketch on your Arduino with Ethernet Shield ===
 
-Use the following sketch onn your Arduino, before compile ensure that you have installed the Souliss framework from the [[Library Manager | http://www.arduino.cc/en/guide/libraries]], just search for **souliss** inside the Library Manager and select *Install*.
+Use the following sketch onn your Arduino, before compile ensure that you have installed the Souliss framework from the [[Library Manager | http://www.arduino.cc/en/guide/libraries]], just search for __souliss__ inside the Library Manager and select _Install-.
 
 You need to change the IP address inside the sketch according to one free IP address in your network.
 
@@ -25,15 +25,17 @@ You need to change the IP address inside the sketch according to one free IP add
 ***************************************************************************/
 
 // Configure the framework
-#include "bconf/StandardArduino.h"          // Use a standard Arduino
-#include "conf/ethW5100.h"                  // Ethernet through Wiznet W5100
-#include "conf/Gateway.h"                   // The main node is the Gateway, we have just one node
+#include "bconf/StandardArduino.h"          
+#include "conf/ethW5100.h"                  
+#include "conf/Gateway.h"                  
 
 /*
-  If you are using W5200 or ENC28J60, you just need to change the #include "conf/ethW5100.h" with
-  #include "conf/ethW5200.h" or #include "conf/ethENC28J60.h"
+  If you are using W5200 or ENC28J60, you just need to  change 
+  the #include "conf/ethW5100.h" with   #include "conf/ethW5200.h" 
+  or #include "conf/ethENC28J60.h"
 
-  This assume that your SPI Chip Select (CS) is on pin 10 as in most of the Ethernet shield.
+  This assume that your SPI Chip Select (CS) is on pin 10 as in 
+  most of the Ethernet shield.
 */
 
 // Include framework code and libraries
@@ -43,12 +45,13 @@ You need to change the IP address inside the sketch according to one free IP add
 // This identify the number of the LED logic
 #define MYLEDLOGIC          0               
 
-// Define the network configuration according to your router settings
+// Define the network configuration according 
+// to your router settings
 uint8_t ip_address[4]  = {192, 168, 1, 77};
 uint8_t subnet_mask[4] = {255, 255, 255, 0};
 uint8_t ip_gateway[4]  = {192, 168, 1, 1};
 #define Gateway_address 77
-#define myvNet_address  ip_address[3]       // The last byte of the IP address (77) is also the vNet address
+#define myvNet_address  ip_address[3]  
 #define myvNet_subnet   0xFF00
 #define myvNet_supern   Gateway_address
 
@@ -58,15 +61,17 @@ void setup()
 
      // Set network parameters
     Souliss_SetIPAddress(ip_address, subnet_mask, ip_gateway);
-    SetAsGateway(myvNet_address);                                   // Set this node as gateway for SoulissApp  
-     
-    Set_SimpleLight(MYLEDLOGIC);        // Define a simple LED light logic
+    SetAsGateway(myvNet_address);  
     
-    // We connect a pushbutton between 5V and pin2 with a pulldown resistor 
-    // between pin2 and GND, the LED is connected to pin9 with a resistor to
-    // limit the current amount
-    pinMode(2, INPUT);                  // Hardware pulldown required
-    pinMode(9, OUTPUT);                 // Power the LED
+	// Define a simple LED light logic
+    Set_SimpleLight(MYLEDLOGIC);        
+    
+    // We connect a pushbutton between 5V and pin2 with a 
+	// pulldown resistor between pin2 and GND, the LED is 
+	// connected to pin9 with a resistor to limit the 
+	// current amount
+    pinMode(2, INPUT);   // Hardware pulldown required
+    pinMode(9, OUTPUT);  // Power the LED
 }
 
 void loop()
@@ -75,14 +80,20 @@ void loop()
     EXECUTEFAST() {                     
         UPDATEFAST();   
         
-        FAST_50ms() {   // We process the logic and relevant input and output every 50 milliseconds
-            DigIn(2, Souliss_T1n_ToggleCmd, MYLEDLOGIC);            // Use the pin2 as ON/OFF toggle command
-            Logic_SimpleLight(MYLEDLOGIC);                          // Drive the LED as per command
-            DigOut(9, Souliss_T1n_Coil, MYLEDLOGIC);                // Use the pin9 to give power to the LED according to the logic
+		// We process the logic and relevant input 
+		// and output every 50 milliseconds
+        FAST_50ms() {   
+		    // Use the pin2 as ON/OFF toggle command
+            DigIn(2, Souliss_T1n_ToggleCmd, MYLEDLOGIC);  
+
+			// Drive the LED as per command
+            Logic_SimpleLight(MYLEDLOGIC);    
+
+			// Use the pin9 to give power to the LED according to the logic
+            DigOut(9, Souliss_T1n_Coil, MYLEDLOGIC);                
         } 
               
-        // Here we handle here the communication with Android, commands and notification
-        // are automatically assigned to MYLEDLOGIC
+        // Here we handle here the communication
         FAST_GatewayComms();                                        
         
     }
@@ -92,7 +103,7 @@ void loop()
 
 === Configure the binding ===
 
-On the openHAB side, you need to install the *souliss binding* if not yet available in your openHAB *Addons* configurue it like follows, having care to use the IP address loaded in your Arduino sketch
+On the openHAB side, you need to install the _souliss binding_ if not yet available in your openHAB _Addons_ configurue it like follows, having care to use the IP address loaded in your Arduino sketch
 
 {{{
 
@@ -142,7 +153,7 @@ Frame label="Souliss - Hello World" {
 
 === Configure Items ===
 
-The *Items* match the [[Typicals|https://github.com/souliss/souliss/wiki/Typicals]], in this configuration file you are simply matching the type of logic (that is the Typical itself) and the location as node and slot.
+The _Items_ match the [[Typicals|https://github.com/souliss/souliss/wiki/Typicals]], in this configuration file you are simply matching the type of logic (that is the Typical itself) and the location as node and slot.
 
 ```java
 Group All
@@ -159,7 +170,7 @@ String TIMESTAMP_Nodo0 "Update Node 0 [%1$td.%1$tm.%1$tY %1$tk:%1$tM:%1$tS]" <ke
 === The Result ===
 
 If you have configured correctly Souliss and openHAB, you can see and control the switch from the openHAB interface
-![](https://github.com/souliss/wiki-images/blob/master/examples/openHAB_example.png?raw=true)
+[https://github.com/souliss/wiki-images/blob/master/examples/openHAB_example.png?raw=true]
 
 == General Configuration Requirements ==
 
