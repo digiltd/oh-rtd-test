@@ -170,7 +170,7 @@ String TIMESTAMP_Nodo0 "Update Node 0 [%1$td.%1$tm.%1$tY %1$tk:%1$tM:%1$tS]" <ke
 === The Result ===
 
 If you have configured correctly Souliss and openHAB, you can see and control the switch from the openHAB interface
-[https://github.com/souliss/wiki-images/blob/master/examples/openHAB_example.png?raw=true]
+https://github.com/souliss/wiki-images/blob/master/examples/openHAB_example.png?raw=true
 
 == General Configuration Requirements ==
 
