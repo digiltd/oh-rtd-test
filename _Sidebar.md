@@ -152,7 +152,7 @@ Community
   * [[Twitter|Twitter-Action]]
   * [[Zoneminder|Zoneminder]]
   * [[Rooted Wink Hub]]
-  *[[Monitoring Wink | https://github.com/JustinAiken/openhab_monitor]]
+  * [[Monitoring Wink | https://github.com/JustinAiken/openhab_monitor]]
  * [[Persistence]]
   * [[db4o Persistence|db4o-Persistence]]
   * [[rrd4j Persistence|rrd4j-Persistence]]
