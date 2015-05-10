@@ -363,6 +363,12 @@ One last point on the wakeup configuration node. There is (currently) no way to 
 ## Database
 The binding uses a database of devices so that it can work around any quirks, or present information about association groups and configuration data. The format for the database is [here](https://github.com/cdjackson/HABmin2/wiki/Z-Wave-Product-Database).
 
+If you are not able to produce the XML file yourself, then please open an issue. The following information is required -:
+* Type and ID for the device - HABmin will print this information when a device is not in the database
+* Manufacturer
+* Reference to the device manual (ie link to PDF)
+* Link to device in pepper1 database (if it exists). [http://www.pepper1.net/zwavedb/](http://www.pepper1.net/zwavedb/)
+
 ## Logging
 
 The ZWave binding can generate a lot of debug/trace logging when enabled so it is advisable to generate a separate log file for this binding. This also makes it easier for analysis since there is nothing from other bindings/openHAB polluting the logs.
