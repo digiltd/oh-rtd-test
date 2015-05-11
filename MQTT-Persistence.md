@@ -20,23 +20,20 @@ This persistence service can be configured in the "MQTT Persistence Service" sec
 
 The MQTT persistence can be configured with the following properties:
 
-<table>
-  <tr><td>**Property**</td><td>**Description**</td></tr>
-  <tr><td>mqtt-persistence:broker</td><td>The name of the broker as defined in the mqtt:`<broker>`.url.  See the [MQTTBinding] for more information on how to configure MQTT broker connections.</td></tr>
-  <tr><td>mqtt-persistence:topic</td><td>The MQTT topic to which the persistence messages should be sent. This string may include parameters, see table below.</td></tr>
-  <tr><td>mqtt-persistence:message</td><td>A string representing the persistence message content. This string may include parameters, see table below.</td></tr>
-</table>
+| **Property** | **Description** |
+|--------------|-----------------|
+| mqtt-persistence:broker | The name of the broker as defined in the mqtt:`<broker>`.url.  See the [MQTTBinding] for more information on how to configure MQTT broker connections. |
+| mqtt-persistence:topic | The MQTT topic to which the persistence messages should be sent. This string may include parameters, see table below. |
+| mqtt-persistence:message | A string representing the persistence message content. This string may include parameters, see table below. |
 
 Both the topic and message values are reformatted using String.format at the time of publishing.  During this reformat, the following parameters are provided to the format function:
 
-<table>
-  <tr><td>**Parameter**</td><td>**Description**</td></tr>
-  <tr><td>1$</td><td>Item name.</td></tr>
-  <tr><td>2$</td><td>Item alias as defined in the `mqtt.persist` file.</td></tr>
-  <tr><td>3$</td><td>Item state. A string representation of the item state. ON/OFF, OPEN/CLOSED and UP/DOWN states are transformed to 1/0 values respectively.</td></tr>
-  <tr><td>4$</td><td>Current DateTime in long format.</td></tr>
-</table>
-
+| **Parameter** | **Description** |
+|:-------------:|------------------|
+|     1$        | Item name.    |
+|     2$        | Item alias as defined in the `mqtt.persist` file. |
+|     3$        | Item state. A string representation of the item state. ON/OFF, OPEN/CLOSED and UP/DOWN states are transformed to 1/0 values respectively. |
+|     4$        | Current DateTime in long format. |
 
 All item and timing related configuration is done in the mqtt.persist file using the standard [[Persistence|persistence configuration]].
 
