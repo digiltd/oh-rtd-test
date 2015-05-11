@@ -63,7 +63,7 @@ Command types for rgb bulbs:
 	discoMode           changes the discoMode for rgb bulbs
 	discoSpeed	     	changes the speed of your chosen discoMode
 
-The following command is valid vor RGBW bulbs only :
+The following command is valid for RGBW bulbs only :
 
     whiteMode 			sets RGBW bulbs to white mode
 
