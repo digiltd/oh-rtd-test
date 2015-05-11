@@ -229,7 +229,12 @@ Dimmers can be configured with a maximum level when turning a device on or setti
     Dimmer d1 "dim 1" {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
     Dimmer d2 "dim 2" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer,dimmermax=60"}
 
-Setting a maximum level does not affect manual turning on or dimming a switch. 
+Setting a maximum level does not affect manual turning on or dimming a switch.
+
+When an Insteon device changes its state because it is directly operated (for example by flipping a switch manually), it sends out a broadcast message to announce the state change, and the binding (if the PLM modem is properly linked as a responder) should update the corresponding openHAB items. Other linked devices however may also change their state in response, but those devices will *not* send out a broadcast message, and so openHAB will not learn about their state change until the next poll. One common scenario is e.g. a switch in a 3-way configuration, with one switch controlling the load, and the other switch being linked as a controller. In this scenario, the "related" keyword can be used to cause the binding to poll a related device whenever a state change occurs for another device. A typical example would be two dimmers (A and B) in a 3-way configuration:
+
+    Dimmer A "dimmer 1" {insteonplm="aa.bb.cc:F00.00.01#dimmer,related=dd.ee.ff"}
+    Dimmer B "dimmer 2" {insteonplm="dd.ee.ff:F00.00.01#dimmer,related=aa.bb.cc"}
 
 The iMeter Solo reports both wattage and kilowatt hours, and is updated during the normal polling process of the devices. You can also manually update the current values from the device and reset the device. See the example below:
  
