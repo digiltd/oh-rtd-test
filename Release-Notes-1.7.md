@@ -7,6 +7,7 @@ Please find below the _intermediary_ release notes of the 1.7 Release.
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.7.0).
 
 ####Major Features:
+* [#2574](https://github.com/openhab/openhab/pull/2574) - Mailcontrol Binding (@apereverzin)
 * [#2329](https://github.com/openhab/openhab/pull/2329) - Logitech Harmony Hub Binding (@digitaldan & @tuck182)
 * [#2264](https://github.com/openhab/openhab/pull/2264) - MapDb persistence service (@JSurf)
 * [#2233](https://github.com/openhab/openhab/pull/2233) - Autelis Binding (@digitaldan)
