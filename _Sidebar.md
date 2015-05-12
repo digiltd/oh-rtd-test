@@ -31,6 +31,7 @@ Community
   * [[Scripts]]
   * [[Rules]]
   * [[Actions]]
+  * [[Addon: Jsr223 Script-Engine]]
  * [[Bindings]]
   * [[AlarmDecoder Binding|AlarmDecoder-binding]]
   * [[Anel Binding|Anel-binding]]
