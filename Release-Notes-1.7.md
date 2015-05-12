@@ -9,7 +9,8 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 ####Major Features:
 * [#2329](https://github.com/openhab/openhab/pull/2329) - Logitech Harmony Hub Binding (@digitaldan & @tuck182)
 * [#2264](https://github.com/openhab/openhab/pull/2264) - MapDb persistence service (@JSurf)
-* [#2224](https://github.com/openhab/openhab/pull/2224) - Nest Binding. (@watou)
+* [#2233](https://github.com/openhab/openhab/pull/2233) - Autelis Binding (@digitaldan)
+* [#2224](https://github.com/openhab/openhab/pull/2224) - Nest Binding (@watou)
 * [#2190](https://github.com/openhab/openhab/pull/2190) - Satel Integra security system Binding (@druciak)
 * [#2076](https://github.com/openhab/openhab/pull/2076) - Ecobee Binding (@watou)
 * [#2046](https://github.com/openhab/openhab/pull/2046) - Mochad X10 Binding (@Jakey69)
@@ -18,6 +19,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#1950](https://github.com/openhab/openhab/pull/1950) - Google TTS bundle (@dominicdesu)
 * [#1929](https://github.com/openhab/openhab/pull/1929) - eBus (heating system communication protocol) Binding (@csowada)
 * [#1911](https://github.com/openhab/openhab/pull/1911) - DSMR Binding (@mvolaart)
+* [#1910](https://github.com/openhab/openhab/pull/1910) - Denon Binding (@idserda)
 * [#1862](https://github.com/openhab/openhab/pull/1862) - Plex Binding (@idserda)
 * [#1813](https://github.com/openhab/openhab/pull/1813) - Network UPS Tools (NUT) Binding (@jaroslawmazgaj)
 * [#1698](https://github.com/openhab/openhab/pull/1698) - Bticino/Legrand OpenWebIf Binding (@TomDeVlaminck)
