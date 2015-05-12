@@ -76,3 +76,13 @@ Now for the archives: As already said, each datasource can have several archives
 So in the above example, we have 480 boxes, which each represent the value of one minute (Step is set to 60s, Granularity = 1). If more than one value is added to the database within (steps*step) second (and thus more than one value would be stored in one box), the "consolidation function" is used. OpenHAB uses AVERAGE as default for numeric values, so if you add 20 and 21 within one minute, 20.5 would be stored. 480 minutes is 8 hours, so we have a 8h with the granularity of one minute.
 
 The same goes for the next archives, for larger time spans, the stored values are less "exact". However, usually you are not interested in the exact temperature for a selected minute two years ago.
+
+## New in 1.7
+As of Openhab 1.7 it is possible to configure the earlier described values. Example:
+# rrd4j:<dsname>.def=<dstype>,<heartbeat>,[<min>|U],[<max>|U],<step>
+# rrd4j:<dsname>.fcn=<consolidationfunction>,<xff>,<steps>,<rows>    
+# rrd4j:<dsname>.items=<list of items for this dsname>
+rrd4j:ctr5min.def=COUNTER,900,0,U,300
+rrd4j.ctr5min.fcn=AVERAGE,0.5,1,365
+rrd4j.ctr5min.fcn=AVERAGE,0.5,7,300 
+rrd4j:ctr5min.items=Item1,Item2
