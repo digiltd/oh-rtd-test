@@ -128,3 +128,12 @@ Use following snippets:
             }
         }
     end
+
+###Controlling###
+
+Use a simple HTTP GET to control the shutter:
+
+* [http://localhost:8080/CMD?shutter=UP](http://localhost:8080/CMD?shutter=UP)
+* [http://localhost:8080/CMD?shutter=DOWN](http://localhost:8080/CMD?shutter=DOWN)
+* [http://localhost:8080/CMD?shutter=STOP](http://localhost:8080/CMD?shutter=STOP)
+
