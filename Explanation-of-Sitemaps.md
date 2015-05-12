@@ -125,6 +125,10 @@ Syntax:
 
     List item=<itemname> [label="<labelname>"] [icon="<iconname>"] [separator=""]
 
+Splits a String item at each separator into multiple rows.
+
+Note: Seems not supported by any user interface at the moment.
+
 #### Element 'Selection'
 
 Syntax:
