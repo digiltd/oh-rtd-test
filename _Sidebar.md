@@ -38,7 +38,7 @@ Community
   * [[Arduino SmartHome Souliss Binding|Souliss---Arduino-based-SmartHome---openHAB-Binding]]
   * [[Asterisk Binding|Asterisk-Binding]]
   * [[Astro Binding|Astro-binding]]
-  * [[Autelis Pool Control Binding|Autelis-Binding
+  * [[Autelis Pool Control Binding|Autelis-Binding]]
   * [[BenQ Projector Binding|BenQ-Projector-Binding]]
   * [[Bluetooth Binding|Bluetooth-Binding]]
   * [[Bticino Binding|Bticino-Binding]]
