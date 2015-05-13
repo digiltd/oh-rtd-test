@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a OpenHab binding for Autelis pool controllers
+This is a OpenHab binding for Autelis pool controllers (since 1.7.0)
 
 Autelis manufactures a network enabled pool interface for many popular pool systems.  See [the Autelis webiste](http://www.autelis.com) and the  [Autelis Command Protocol](http://www.autelis.com/wiki/index.php?title=Pool_Control_(PI)_HTTP_Command_Reference) for more information.
 
