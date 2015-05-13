@@ -135,6 +135,7 @@ Community
   * [[Tivo Binding|Tivo-Binding]]
   * [[VDR Binding|VDR-Binding]]
   * [[Velleman-K8055-Binding|Velleman-K8055-Binding]]
+  * [[Wago Binding|Wago-Binding]]
   * [[Wake-on-LAN Binding|Wake-on-LAN-Binding-(WoL)]]
   * [[Waterkotte EcoTouch Heatpump Binding|Waterkotte-EcoTouch-Heat-Pump-Binding]]
   * [[Weather Binding|Weather-Binding]]
