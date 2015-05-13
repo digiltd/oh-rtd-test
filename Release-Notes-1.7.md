@@ -10,7 +10,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2574](https://github.com/openhab/openhab/pull/2574) - Mailcontrol Binding (@apereverzin)
 * [#2329](https://github.com/openhab/openhab/pull/2329) - Logitech Harmony Hub Binding (@digitaldan & @tuck182)
 * [#2264](https://github.com/openhab/openhab/pull/2264) - MapDb persistence service (@JSurf)
-* [#2233](https://github.com/openhab/openhab/pull/2233) - Autelis Binding (@digitaldan)
+* [#2233](https://github.com/openhab/openhab/pull/2233) - [[Autelis Binding|Autelis-Binding]] (@digitaldan)
 * [#2224](https://github.com/openhab/openhab/pull/2224) - Nest Binding (@watou)
 * [#2190](https://github.com/openhab/openhab/pull/2190) - Satel Integra security system Binding (@druciak)
 * [#2076](https://github.com/openhab/openhab/pull/2076) - Ecobee Binding (@watou)
