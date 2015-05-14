@@ -5,6 +5,7 @@ To make this more effectiv there are some files to enable syntax highlighting fo
 * [mcedit](Syntax-Highlighting-for-external-editors#mcedit)
 * [Notepad++](Syntax-Highlighting-for-external-editors#notepad)
 * [vi](Syntax-Highlighting-for-external-editors#vi)
+* [nano](Syntax-Highlighting-for-external-editors#nano)
 
 ## mcedit
 
@@ -44,7 +45,40 @@ because it interferes with openHABs rules-files.
 ## Notepad++
 
 Notepad++ Version 6.2 or above is required to support UDL2 (User Defined Language v2).
-
+# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"# Comments
+color brightgreen "//.*"
+color brightgreen start="/\*" end="\*/"
+color brightgreen start="/\*\*" end="\*/"
 http://notepad-plus-plus.org/news/notepad-6.2-release-udl2.html
 
 ### How to import UDL2-files?
@@ -83,3 +117,15 @@ curl -L -o ~/.vim/ftdetect/openhab.vim https://github.com/cyberkov/openhab-vim/r
 - Download the syntax files from https://github.com/cyberkov/openhab-vim
 - place them in your home directory under ~/.vim/
 - start vim with an openHAB configuration file and it should work.
+
+## nano
+
+Nano is a common editor in linux systems
+
+### Installing the syntax-files
+-Downlod the syntax file openhab.nanorc from https://github.com/airix1/openhabnano
+- place them in your nanorc directory ie: ~/.nano or /usr/share/nano. The simply include the openhab.nanorc file in your ~/.nanorc or /etc/nanorc file ie:
+````
+## Openhab
+include /usr/share/nano/openhab.nanorc
+````
