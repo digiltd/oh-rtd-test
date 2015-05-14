@@ -123,8 +123,8 @@ curl -L -o ~/.vim/ftdetect/openhab.vim https://github.com/cyberkov/openhab-vim/r
 Nano is a common editor in linux systems
 
 ### Installing the syntax-files
--Downlod the syntax file openhab.nanorc from https://github.com/airix1/openhabnano
-- place them in your nanorc directory ie: ~/.nano or /usr/share/nano. The simply include the openhab.nanorc file in your ~/.nanorc or /etc/nanorc file ie:
+- Download the syntax file openhab.nanorc from https://github.com/airix1/openhabnano
+- place them in your nanorc directory ie: ~/.nano or /usr/share/nano. Then simply include the openhab.nanorc file in your ~/.nanorc or /etc/nanorc file ie:
 ````
 ## Openhab
 include /usr/share/nano/openhab.nanorc
