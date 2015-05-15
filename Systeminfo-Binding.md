@@ -164,7 +164,7 @@ Examples, how to configure your items:
 	Number loadAverage5min  "Load avg. 5min [%.1f]" (System) { systeminfo="LoadAverage5Min:5000" }
 	Number loadAverage15min "Load avg. 15min [%.1f]"    (System) { systeminfo="LoadAverage15Min:5000" }
 
-	Number cpuCompined  "CPU combined [%.1f]"   (System) { systeminfo="CpuCombined:5000" }
+	Number cpuCombined  "CPU combined [%.1f]"   (System) { systeminfo="CpuCombined:5000" }
 	Number cpuUser  "CPU user [%.1f]"   (System) { systeminfo="CpuUser:5000" }
 	Number cpuSystem    "CPU system [%.1f]" (System) { systeminfo="CpuSystem:5000" }
 	Number cpuNice  "CPU nice [%.1f]"   (System) { systeminfo="CpuNice:5000" }
