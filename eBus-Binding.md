@@ -290,3 +290,23 @@ Here is a longer example.
 	
 	Number HU_PollingExample1			"Polling Example 1 [%s]"									(HeatingUnit)				{ ebus="id:fw_version2, data:FF 08 50 22 03 CC 9A 01 00, refresh:60"}
 	Number HU_PollingExample2			"Polling Example 2 [%s]"										(HeatingUnit)				{ ebus="id:no_of_firing, class:heating_kw, cmd:no_of_firing, dst:08, refresh:10"}
+
+## Logging
+Normally the binding is quiet and you can only see errors or important messages in your log files. But if you need more information then you can modify the logging file ``configuration/logback.xml``.
+
+``org.openhab.binding.ebus.parser.EBusTelegramParser``
+
+This is the standard logger for this binding
+
+``org.openhab.binding.ebus.parser.Analyses``
+
+This is a special logger to show/analyse the received telegrams
+
+``org.openhab.binding.ebus.parser.BruteForce``
+
+This is a special logger to show raw telegram data
+
+## Custom Parser
+You can add your own parser configuration by setting the property ``ebus:parserUrl`` in your ``openhab.cfg`` file.
+
+More information [here](https://github.com/csowada/openhab-bindings/wiki/eBus-Parser-Config) (german language, use translator)
