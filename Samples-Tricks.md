@@ -1738,4 +1738,138 @@ Pressing the physical pushbutton connected to channel 1 of the HomeMatic HM-PBI-
 
 ### How to create a simple Remote for controlling a Dune HD Player with Http and Denon Bindings
 
-text
+A Dune HD multimedia player (http://dune-hd.com/eng) is easily manageable via Http Binding. The golden rule is to remember that any 4-byte NEC IR code supported by Dune (see http://dune-hd.com/support/rc) needs to be written in the opposite order (e.g. RC button "1" = 00 BF 0B F4 => F40BBF00).
+
+Here a very simple Remote control with some basic commands:
+
+```
+/* Dune items */
+/* Living */
+Switch Dune_Living		"power"     (Dune, Persistence)
+Number Dune_RC1_Living  "" 			(Dune)					{autoupdate="false"}
+Number Dune_RC2_Living  "" 			(Dune)					{autoupdate="false"}
+Number Dune_RC3_Living  "" 			(Dune)					{autoupdate="false"}
+
+rule "Dune Living Room Remote Control line 1"
+        when 
+                Item Dune_RC1_Living received command 
+        then 
+                switch(receivedCommand)
+                
+                {
+                    case 1 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=EA15BF00") 
+
+                    case 2 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E916BF00") 
+
+                    case 3 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E817BF00") 
+
+                    case 4 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E718BF00")
+
+                    case 5 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=EB14BF00")
+		}
+end
+
+rule "Dune Living Room Remote Control line 2"
+        when 
+                Item Dune_RC2_Living received command 
+        then 
+                switch(receivedCommand)
+                
+                {
+                    case 1 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=B748BF00") 
+
+                    case 2 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E11EBF00") 
+
+                    case 3 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E619BF00") 
+
+                    case 4 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=B649BF00")
+
+                    case 5 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E21DBF00")
+		}
+end
+
+rule "Dune Living Room Remote Control line 3"
+        when 
+                Item Dune_RC3_Living received command 
+        then 
+                switch(receivedCommand)
+    
+                {
+                    case 1 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=BB44BF00") 
+
+                    case 2 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=AB54BF00") 
+
+                    case 3 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=AF50BF00") 
+
+                    case 4 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=F807BF00")
+
+                    case 5 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=FB04BF00")
+		}
+end
+```
+
+And here an example how to integrate with your AVR. In this case, a Denon AVR 3311: e.g. when I click ON I need to switch on the AVR, set the channel to BD (HDMI connected to Dune HD Player) and switch on the Dune Player:
+
+```
+rule "Dune Living"
+when
+	Item Dune_Living received command
+then
+	if(receivedCommand==ON) {
+		// switch on AVR, set input to BD, switch on Dune HD
+		sendCommand(DenonPower, ON)
+		sendCommand(DenonInputBluray, ON)
+		sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=A05FBF00")
+	} else if(receivedCommand==OFF) {
+		// turn off Dune HD and AVR
+		sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=A15EBF00")
+		sendCommand(DenonPower, OFF)
+	}
+end
+```
+
+Then, a very simple sitemap:
+
+```
+Text label="Dune HD" icon="dune_hd3"{
+	Switch item=Dune_Living icon="control_standby"
+	Slider item=DenonVolume icon="audio_audio"
+	Text item=DenonVolumedB
+	Switch item=DenonMute icon="audio_volume_mute"
+	Switch item=Dune_RC1_Living mappings=[1=" Up ", 2=Down, 3=Left, 4=Right, 5=Select]
+	Switch item=Dune_RC2_Living mappings=[1=" Play ", 2=Pause, 3=Stop, 4=Prev, 5=Next]
+	Switch item=Dune_RC3_Living mappings=[1=" Audio", 2=Subtitle, 3=Info, 4="Pop Up", 5=" Return "]
+}
+```
+
+Last few notes for DenonVolume, how to see dB and how to start with a predefined level (in this case, 40 dB):
+
+```
+Dimmer DenonVolume          "volume [%.1f]"     (Denon)	{denon="avr3311#MV"}
+Number DenonVolumedB		"[%.1f dB]"	(Denon)
+
+rule "DENON DB to Volume"
+when
+	Item DenonPower changed from OFF to ON
+then
+/* 	var Number volume = (DenonVolumedB.state as DecimalType)+80 */
+	sendCommand(DenonVolume, 40)
+	logInfo("Rules", "DENON Volume initialized");
+end
+
+rule "DENON Volume to DB"
+when
+	Item DenonVolume changed
+then
+	if (DenonVolume.state == Undefined || DenonVolume.state == Uninitialized) 
+		return false
+	else {
+		var Number volumedB = (DenonVolume.state as DecimalType)-80
+		postUpdate(DenonVolumedB, volumedB)
+	}
+end
+```
+
+final result is something like this:
+
+![](/Users/anriela/Desktop/articoli/casa/image.jpg)
