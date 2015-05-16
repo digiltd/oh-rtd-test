@@ -4,6 +4,7 @@ _**Note:** This Binding will be available in the upcoming 1.7 Release. For preli
 
 Date        | Description
 ---         | ---
+16.05.2015  | Corrected logging id's
 30.03.2015  | Change internal event handling from Thread to ThreadPool, enhance java doc
 21.01.2015  | Add new vaillant configuration ``vaillant-bai00``
 
@@ -298,11 +299,11 @@ Normally the binding is quiet and you can only see errors or important messages 
 
 This is the standard logger for this binding
 
-``org.openhab.binding.ebus.parser.Analyses``
+``org.openhab.binding.ebus.internal.parser.Analyses``
 
 This is a special logger to show/analyse the received telegrams
 
-``org.openhab.binding.ebus.parser.BruteForce``
+``org.openhab.binding.ebus.internal.parser.BruteForce``
 
 This is a special logger to show raw telegram data
 
