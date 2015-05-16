@@ -215,6 +215,13 @@ Number   Wind_Gust_Mps        "Wind gust [%.2f mps]"     {weather="locationId=ho
 Number   Wind_Gust_Mph        "Wind gust [%.2f mph]"     {weather="locationId=home, type=wind, property=gust, unit=mph"}
 Number   Wind_Chill           "Wind chill [%.2f °C]"     {weather="locationId=home, type=wind, property=chill"}
 Number   Wind_Chill_F         "Wind chill [%.2f °F]"     {weather="locationId=home, type=wind, property=chill, unit=fahrenheit"}
+
+// weather station (only Wunderground and Hamweather), needs version 1.7 of the binding
+String   Station_Name         "Station Name [%s]"        {weather="locationId=home, type=station, property=name"}
+String   Station_Id           "Station Id [%s]"          {weather="locationId=home, type=station, property=id"}
+Number   Station_Latitude     "Station Latitude [%.6f]"  {weather="locationId=home, type=station, property=latitude, scale=6"}
+Number   Station_Longitude    "Station Longitude [%.6f]" {weather="locationId=home, type=station, property=longitude, scale=6"}
+
 ```
 ### Forecast
 All bindings can also be used for forecasts. You only have to add the forecast day in the item.  
