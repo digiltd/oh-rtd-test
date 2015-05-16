@@ -32,6 +32,7 @@ Miscellaneous Tips & Tricks
 * [Talking to a Raspberry ZWAY device with push updates](Samples-Tricks#talking-to-a-raspberry-zway-device-with-push-updates)
 * [How to use the LIFX beta API via executeCommandLine and curl](Samples-Tricks#how-to-use-the-lifx-beta-api-via-executecommandline-and-curl)
 * [How to turn ON and OFF a Philips Hue with HomeMatic pushbutton](Samples-Tricks#how-to-turn-on-and-off-a-philips-hue-with-homematic-pushbutton)
+* [How to create a simple Remote for controlling a Dune HD Player with Http and Denon Bindings](Samples-Tricks#how-to-create-a-simple-remote-for-controlling-a-dune-hd-player-with-http-and-denon-bindings)
 
 
 
@@ -1734,3 +1735,7 @@ else{
 end
 ```
 Pressing the physical pushbutton connected to channel 1 of the HomeMatic HM-PBI-4-FM will now toggle the Philips Hue (Toggle_1) on and off.
+
+### How to create a simple Remote for controlling a Dune HD Player with Http and Denon Bindings
+
+text
