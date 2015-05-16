@@ -1869,7 +1869,3 @@ then
 	}
 end
 ```
-
-final result is something like this:
-
-/Users/anriela/Desktop/articoli/casa/image.jpg
