@@ -1872,4 +1872,4 @@ end
 
 final result is something like this:
 
-![](/Users/anriela/Desktop/articoli/casa/image.jpg)
+/Users/anriela/Desktop/articoli/casa/image.jpg
