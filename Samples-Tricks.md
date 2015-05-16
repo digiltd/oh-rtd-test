@@ -1757,15 +1757,15 @@ rule "Dune Living Room Remote Control line 1"
                 switch(receivedCommand)
                 
                 {
-                    case 1 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=EA15BF00") 
+                    case 1 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=EA15BF00") 
 
-                    case 2 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E916BF00") 
+                    case 2 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=E916BF00") 
 
-                    case 3 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E817BF00") 
+                    case 3 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=E817BF00") 
 
-                    case 4 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E718BF00")
+                    case 4 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=E718BF00")
 
-                    case 5 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=EB14BF00")
+                    case 5 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=EB14BF00")
 		}
 end
 
@@ -1776,15 +1776,15 @@ rule "Dune Living Room Remote Control line 2"
                 switch(receivedCommand)
                 
                 {
-                    case 1 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=B748BF00") 
+                    case 1 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=B748BF00") 
 
-                    case 2 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E11EBF00") 
+                    case 2 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=E11EBF00") 
 
-                    case 3 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E619BF00") 
+                    case 3 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=E619BF00") 
 
-                    case 4 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=B649BF00")
+                    case 4 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=B649BF00")
 
-                    case 5 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=E21DBF00")
+                    case 5 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=E21DBF00")
 		}
 end
 
@@ -1795,15 +1795,15 @@ rule "Dune Living Room Remote Control line 3"
                 switch(receivedCommand)
     
                 {
-                    case 1 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=BB44BF00") 
+                    case 1 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=BB44BF00") 
 
-                    case 2 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=AB54BF00") 
+                    case 2 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=AB54BF00") 
 
-                    case 3 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=AF50BF00") 
+                    case 3 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=AF50BF00") 
 
-                    case 4 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=F807BF00")
+                    case 4 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=F807BF00")
 
-                    case 5 : sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=FB04BF00")
+                    case 5 : sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=FB04BF00")
 		}
 end
 ```
@@ -1819,10 +1819,10 @@ then
 		// switch on AVR, set input to BD, switch on Dune HD
 		sendCommand(DenonPower, ON)
 		sendCommand(DenonInputBluray, ON)
-		sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=A05FBF00")
+		sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=A05FBF00")
 	} else if(receivedCommand==OFF) {
 		// turn off Dune HD and AVR
-		sendHttpGetRequest("http://192.168.17.10/cgi-bin/do?cmd=ir_code&ir_code=A15EBF00")
+		sendHttpGetRequest("http://<ip_address>/cgi-bin/do?cmd=ir_code&ir_code=A15EBF00")
 		sendCommand(DenonPower, OFF)
 	}
 end
