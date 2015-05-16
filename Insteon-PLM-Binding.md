@@ -108,6 +108,9 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2457D2</td><td>LampLinc Dimmer</td><td>F00.00.19</td><td></td><td>Jonathan Huizingh</td>
 </tr>
 <tr>
+<td>2475SDB</td><td>In-LineLinc Relay</td><td>F00.00.1A</td><td></td><td>Jim Howard</td>
+</tr>
+<tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
