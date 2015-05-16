@@ -25,6 +25,7 @@ The binding supports all controllers that implement the Z-Wave Serial API. A lis
   <tr><td>The Razberry-Zwave-Daughterboard</td><td>See known issues</td></tr>
   <tr><td>Vision USB stick Z-wave</td><td>Do NOT enable Soft Reset</td></tr>
   <tr><td>Z-Wave.me Z-StickC</td><td>No remarks</td></tr>
+  <tr><td>Z-Wave.me ZME-UZB1</td><td>Do NOT enable Soft Reset</td></tr>
   <tr><td>Sigma UZB ZWave-Plus</td><td>No Windows drivers ?</td></tr>
 </table>
 **NOTE:** Sigma UZB ZWave-Plus driver can be get there https://github.com/benoit934/drivers/blob/master/ZW050x_USB_VCP_PC_Driver.zip 
