@@ -140,6 +140,11 @@ Create according refresh script `configurations/rules_refresh.sh` and make runna
 
     # This script is called by openHAB after persistance service was started
     sleep 5
-    touch /data/openHAB/runtime/configurations/rules/demo.rules
+    cd [full_path_to_openhab]/configurations/rules/
+    RULES=`find *.rules | grep -v refresh.rules`
+    for f in $RULES
+    do
+      touch $f
+    done 
 
 The script waits for 5 seconds, then touches file `demo.rules` which causes openHAB to reload the file. Other rules-files may be added on new lines.
