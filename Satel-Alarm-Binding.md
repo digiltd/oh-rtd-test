@@ -241,3 +241,4 @@ Although this binding allows you to configure disarming a partition and clearing
 
 * troubles support
 * support for INT-RS module
+* support for automatic updates available in the newest firmware for INT-RS Plus and ETHM-1 Plus
