@@ -51,10 +51,9 @@ The package needs to be installed to addons like any other addon. But by default
         -cp $cp org.eclipse.equinox.launcher.Main $* \
         -console
 </code>
-- profit
 
 ## Scripts
-Each Script needs to be located in configurations/jsr_scripts with a correct script ending (".py", ".jy" for jython interpreter). Each Script can contain multiple rules.
+Each Script needs to be located in configurations/scripts with a correct script ending (".py", ".jy" for jython interpreter). Each Script can contain multiple rules.
 
 ### Rule-Class
 Each rule is basically a class in the given scripting language. It needs to implement two functions:
