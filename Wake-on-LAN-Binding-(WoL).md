@@ -32,5 +32,4 @@ The example below is for openHab running on a linux host.
 
 `Switch networkPC "Computer" (network, gOGBuero) { wol="192.168.10.255#00-DE-AD-BE-EF-00", exec=">[OFF:net rpc shutdown -C MESSAGE -I 192.168.10.23 -U USER%%PASSWORD -f -t 120]" }`
 
-Note: For windows computers not in a Domain the firewall must be configured properly (allow remote shutdowns) and the DWORD-Regkey `LocalAccountTokenFilterPolicy` in `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System` must be set to 1.
 
