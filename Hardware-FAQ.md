@@ -82,13 +82,19 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 
 #### Tweaking Performance
 
-- Stay up to date with rpi-update (https://github.com/Hexxeh/rpi-update/)
-- For headless, use a memory split of 240 (e.g. run `sudo rpi-update 240`)
-- For headless, add these to /etc/rc.local:
-- # Limit GPU IRQs
-- fbset -xres 16 -yres 16 -vyres 16 -depth 8
-- /opt/vc/bin/tvservice -o
-- Overclocking does not seem to have big influences
+Stay up to date with rpi-update (https://github.com/Hexxeh/rpi-update/)
+
+##### Change GPU memory usage
+For headless, reduce memory down to 16, this can be done by using **raspi-config**
+
+##### Disabling TV Service
+For headless, add these to /etc/rc.local:
+
+    # Limit GPU IRQs
+    fbset -xres 16 -yres 16 -vyres 16 -depth 8
+    /opt/vc/bin/tvservice -o
+
+Overclocking does not seem to have big influences
 
 ### Banana Pi (bPi) $ 40
 
