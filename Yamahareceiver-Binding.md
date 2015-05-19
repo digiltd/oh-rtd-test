@@ -11,6 +11,7 @@ tested Receivers:
 * V473
 * V575
 * V773
+* RX-A2020
 
 please add sucessfully tested receivers!
 
