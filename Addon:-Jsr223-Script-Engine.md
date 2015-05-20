@@ -1,4 +1,4 @@
-**Note**: This Script-Engine comes with no forward compatibility guarantee. It is currently untested against OpenHAB2 and therefore it can happen that scripts need to be rewritten for OpenHAB2 compatibility.
+**Note**: This Script-Engine comes with no forward compatibility guarantee. It is currently untested against openHAB2 and therefore it can happen that scripts need to be rewritten for openHAB2 compatibility.
 
 # Script-Engines
 **Since Version 1.7.0, currently pending as Pull-Request**
