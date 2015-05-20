@@ -1,25 +1,28 @@
-Example to read the wattage and electric energy from a B control Energy Manager EM100, EM210, EM300  
+How to read the wattage and electric energy from B-control energy managers EM100, EM210 and EM300  
 
 ## Introduction
-The B-Control Energy Manager is mostly used in combination with an solar power system to measure the energy and wattage.
-B-Control released the specification of the
+The B-control energy manager is mostly used in combination with an solar powered system to measure the energy and wattage. B-control released the specification of the
 [JSON](http://www.b-control.com/fileadmin/Webdata/b-control/Uploads/Energiemanagement_PDF/B-control_Energy_Manager_-_JSON-API_0100.pdf)
 and the
 [Modbus](http://www.b-control.com/fileadmin/Webdata/b-control/Uploads/Energiemanagement_PDF/B-control_Energy_Manager_Modbus_Master.0100.pdf)
-interface. With this information, it is possible to get the date an use it with openHAB.
+interface. With this information, it is possible to get the data and use it with openHAB.
 
-## Get data over JSON
-This solution use the exec Binding in combination with an Linux Bash scrip.
-Additional are the software tools curl and jq required.
-Curl and JQ is in the most Linux distributions included. If jq is not availabel on your Linux distribution,
+## Getting data over JSON
+The following instruction use the [Exec Binding](https://github.com/openhab/openhab/wiki/Exec-Binding)
+in combination with a Linux bash script.
+Additionally the software tools
+[cURL](http://curl.haxx.se/)
+and
+[jq](http://stedolan.github.io/jq/)
+are required.
+CURL and JQ are included in most Linux distributions. If jq is not available on a particular Linux distribution,
 you can download it from the [project homepage](http://stedolan.github.io/jq/).
 
-The Bash script *bcontrol* read the data over the B-Control Energy Manager JSON interface and write the output to the file bcontrol.out
-to the path /opt/bcontrol.  
+The Bash script *bcontrol* reads the data over the B-Control Energy Manager JSON interface and writes the output to the file bcontrol.out in the path /opt/bcontrol.  
 
-Before continue with the example, create the folder *bcontrol* in /opt!  
+Before continuing with this example, create the folder *bcontrol* in /opt.  
 
-Create the file*bcontrol* and copy the folowing content in it. Make the file executable!  
+Create the file *bcontrol* and copy the folowing content in to it. Make the file executable.  
 
 ```
 #!/bin/bash
@@ -70,17 +73,17 @@ esac
 exit 0
 ```  
 
-Please replace <serial-no> with the USER name (default is this the serialnumber), <password> with the password of the B-Control Manager (if no password is set, the let it free) and change the IP Address of the B-Control Manager!  
+Replace /<serial-no/> with the *USER name* (default is this the serial number of the B-control manager), /<password/> with the *password* of the B-control manager (if no password has been set, leave it blank) and change the *IP Address* of the B-control manager.
 
 
-Now you can test the script without openHAB with command:  
+Now you can test the script without openHAB with the command:  
 ```
 /opt/TQManager/bcontrol TotalConsumption
 ```  
 
-If all is okay, you will get an valid value. You are now able to use the scrit in openHAB.  
+If everything is okay, you will get a valid value. You are now able to use the scrit in openHAB.  
 
-To use the script in openHAB, copy the exec Binding to folder addons. In your items file you define the following Number-items.  
+To use the script in openHAB, copy the *Exec Binding* to the folder called *addons*. In your items file you can define the following *Number items*.  
 
 ```
 Number BCM_consumption_wattage		"current wattage consumption [%.1f W]"	{exec="<[/opt/bcontrol/bcontrol@@CurrentConsumption:5000:REGEX((.*?))]"}
