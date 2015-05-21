@@ -8,7 +8,7 @@ This page summarizes how to get openHAB server running on specific hardware (it 
 
 The openHAB Runtime is a Java application. It requires JVM 1.6 or later.
 
-openHAB is expected to run on all platforms (i.e. processor architectures and operating systems) where the required JVM version is available. This includes Windows, Mac OS X, and various distributions of Linux on x86, x86_64, and ARM architectures.
+openHAB is expected to run on all platforms where the required JVM version is available. This includes Windows, Mac OS X, and Linux on x86, x86_64, and ARM architectures.
 
 openHAB can be installed and operated on AMD or Intel powered commodity laptop, a desktop computer, or  ARM based single-board computers. 
 
@@ -35,15 +35,15 @@ There you can find IdVendor, product, and IdProduct. Replace these IDs in the ru
 
 ## ARM Single-Board Computers
 
-ARM-based computers are a popular choice among home automation enthusiasts due to low cost, small size, low power consumption and typically being fan-less. They are usually extensible with available add-on components and via programmable GPIO.
+ARM-based computers are a popular choice due to low cost, small size, low power consumption and typically being fan-less. They are usually extensible with available add-on components and via programmable GPIO.
 
 | System   | Cost | Cores | Ghz | Model | Gb RAM | IO  |  Primary OS  |
 | -------- | ---- | ------|-----|-------| ------ | --- |----|
-| RaspPi B | $30  | 1     | 0.7 | A5    | 0.5    | GPIO |Raspbian |
+| ODROID C1 | $36  | 4     | 1.5 | A7    | 1.0    | GPIO | Ubuntu |
 | RaspPi 2 | $36  | 4     | 0.9 | A7    | 1.0    | GPIO |Raspbian |
 | BananaPi | $40  | 2     | 1.0 |       | 1.0    | GPIO SATA |Raspbian |
-| ODROID C1 | $36  | 4     | 1.5 | A7    | 1.0    | GPIO | Ubuntu |
 | BeagleBlk | $50  | 2     | 1.0 | A8    | 0.5    | GPIO | Ubuntu |
+| RaspPi B | $30  | 1     | 0.7 | A5    | 0.5    | GPIO |Raspbian |
 
 
 
@@ -95,20 +95,22 @@ Overclocking does not seem to have big influences
 
 ![Single-Board Computers](http://www.pi-studio.eu/wp-content/uploads/2014/04/SBC_platforms_2014_04_14.jpg)
 
-These systems have considerably more power than Raspberry Pi 1 and and range from about $35 to $70.
+These systems have considerably more power than Raspberry Pi 1 and and range from about $35 to $70 and work well with OpenHAB for relatively large installations.
 
 **1. Install Linux distro**
 
 Recommended Linux distros:
 
-* **CubieBoard2:**  The CubieBoard2 or CubieTruck works very well with OpenHAB for relatively large installations.  The following Linux distros work with OpenHAB
-Use [Cubiuntu](http://cubiuntu.com)
+
 
 * **ODroid C1: $ 37 1.5 Ghz Quad Core, 1.0 Gb DDR3 RAM**  
 Use Ubuntu 14.04 
 
 * **BeagleBone Black: $ 55 1GHz Cortex-A8 0.5 Gb DDR3 RAM**  
 Use Ubuntu 14.04 
+
+* **CubieBoard2:**  The CubieBoard2 or CubieTruck   The following Linux distros work with OpenHAB
+Use [Cubiuntu](http://cubiuntu.com)
 
 **2. Install Java Hard Floating point** 
 If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html). 
