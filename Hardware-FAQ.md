@@ -20,7 +20,7 @@ Below are configuration notes for specific hardware.
 If not already present
 
 **2. Install and setup OpenHAB**   Use apt-get as described below
-(https://github.com/openhab/openhab/wiki/Apt-Repository)
+[[Linux---OS-X]]
 
 **3. Use symlinks if you use more than one USB port**  Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
 
