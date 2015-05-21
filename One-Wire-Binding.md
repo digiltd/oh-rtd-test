@@ -1,7 +1,7 @@
 Documentation of the OneWire binding Bundle
 
 ## Redesigned Version 
-For redesigned Version included in 1.7.0 see: https://github.com/Dennis650/openhab/wiki/One-Wire-Binding
+For redesigned Version included in 1.7.0: https://github.com/Dennis650/openhab/wiki/One-Wire-Binding
 
 ## Introduction
 
