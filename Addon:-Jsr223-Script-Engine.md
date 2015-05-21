@@ -52,6 +52,8 @@ The package needs to be installed to addons like any other addon. But by default
         -console
 </code>
 
+- symlink jython.jar into /opt/openhab/lib/ (mkdir /opt/openhab/lib; cd /opt/openhab/lib; ln -s /opt/jython/jython.jar .)  or add jython.jar to classpath in start-script
+
 ## Scripts
 Each Script needs to be located in configurations/scripts with a correct script ending (".py", ".jy" for jython interpreter). Each Script can contain multiple rules.
 
