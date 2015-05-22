@@ -1,12 +1,23 @@
-Documentation of the Frontier Silicon Radio binding for Internet Radios based on the Fronstier Silicon chipset.
+Documentation of the Frontier Silicon Radio binding for Internet Radios based on the [Frontier Silicon chipset](http://www.frontier-silicon.com/digital-radio-solutions).
 
 ## Introduction
 
-TODO: Listing of the radios that are known to work.
+This binding has been developed and tested with the [Hama IR110](https://de.hama.com/00054823/hama-internetradio-ir110) and [Medion MD87180](https://www.medion.com/de/service/start/_product.php?msn=50047825&gid=00) internet radios.
+
+[<img src="http://internetradio.medion.com/images/md87180_small.jpg" alt="MEDION LIFE P85044 (MD 87180)" height="160">](http://internetradio.medion.com/)
+[<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
+
+You can easily check if your IP radio is supported:
+
+1. Figure out the *IP* of your radio (e.g. by looking it up in your router)
+2. Figure out the *PIN* that is configured for the radio (somewhere hidden in the radio's on-screen menu); or try the default pin `1234`
+3. Go to your web browser and enter: `http://<IP>/fsapi/CREATE_SESSION?pin=<PIN>`
+4. If the response is similar to `FS_OK 6836164442`, your radio is most likely compatible with this binding
+5. If you radio works with this binding, please add it to the list above by [Editing this page](_edit)!
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
-The Anel binding is included since openHAB 1.7.0.
+The Frontier Silicon Radio binding is included since openHAB 1.7.0.
 
 
 ## Binding Configuration
