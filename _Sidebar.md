@@ -65,6 +65,7 @@ Community
   * [[Exec Binding|Exec-Binding]]
   * [[Freebox Binding|Freebox-Binding]]
   * [[Freeswitch Binding|Freeswitch-Binding]]
+  * [[Frontier Silicon Binding|Frontier-Silicon-Radio-Binding]]
   * [[Fritz AHA Binding|Fritz-AHA-Binding]]
   * [[Fritz!Box Binding|Fritz-Box-Binding]]
   * [[FS20 Binding|FS20-Binding]]
