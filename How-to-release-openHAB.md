@@ -42,6 +42,26 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 * check if Designer (for at least xxx and Windows) works
 * upload deb and p2 Repository
 
+### Upload the deb Repository to bintray
+* open a web browser go to the bintray openHAB organisation, step into the apt-repo repository, add a new __Version__ to the openhab package: e.g. 1.7.0.RC2
+* open a command-line and go to the local apt-repo directory
+* execute the /distribution/src/deb/bintray-upload-debs.sh script from the repository
+ * the first argument is your bintray username
+ * the second argument is your bintray api key
+ * the third argument is the openHAB version
+ * the fourth argument is the distribution name. Use:
+   * "stable" for releases
+   * "testing" for release canditates
+   * "unstable" for snapshots
+ * Examples
+```
+sh bintray-upload-debs.sh theoweiss 9999999999999999 1.7.0-RC2 testing
+```
+```
+sh bintray-upload-debs.sh theoweiss 9999999999999999 1.7.0 stable
+```
+* open a web browser go to the bintray openHAB organisation, step into the apt-repo and publih the files
+
 ### Channels to inform about the new Release
 
 1. News-Section on index.html
