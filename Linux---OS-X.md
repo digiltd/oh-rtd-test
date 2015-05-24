@@ -16,57 +16,66 @@
 ## Installation
 1. You will need to install Java if not already installed.
 1. Add openHAB apt repository to the apt sources list
-```
-echo "deb https://dl.bintray.com/openhab/apt-repo stable main" | sudo tee -a /etc/apt/sources.list
-```
+
+  ```
+  echo "deb https://dl.bintray.com/openhab/apt-repo stable main" | sudo tee -a /etc/apt/sources.list
+  ```
 1. Resynchronize the package index
-```
-sudo apt-get update
-```
+
+  ```
+  sudo apt-get update
+  ```
 1. Install the openHAB runtime
-```
-sudo apt-get install openhab-runtime
-```
+
+  ```
+  sudo apt-get install openhab-runtime
+  ```
 1. Start the openHAB runtime
   1. Init based on sysVinit (e.g. Debian 7)
-```
-sudo /etc/init.d/openhab start
-```
+ 
+  ```
+  sudo /etc/init.d/openhab start
+  ```
   1. Init based on systemd (e.g. Debian 8)
-```
-sudo systemctl start openhab
-```
+
+  ```
+  sudo systemctl start openhab
+  ```
 1. Start openHAB at System Startup
   1. Init based on sysVinit
-```
-sudo update-rc.d openhab defaults
-```
+
+  ```
+  sudo update-rc.d openhab defaults
+  ```
   1. Init based on systemd
-```
-sudo systemctl daemon-reload
-sudo systemctl enable openhab
-```
+
+  ```
+  sudo systemctl daemon-reload
+  sudo systemctl enable openhab
+  ```
 1. Install the add-ons as you need them
-```
-sudo apt-get install openhab-addon-${addon-type}-${addon-name}
-```
-Examples:
-```
-apt-get install openhab-addon-binding-knx
-apt-get install openhab-addon-persistence-rrd4j
-apt-get install openhab-addon-io-dropbox
-apt-get install openhab-addon-action-twitter
-```
+
+  ```
+  sudo apt-get install openhab-addon-${addon-type}-${addon-name}
+  ```
+  Examples:
+  ```
+  apt-get install openhab-addon-binding-knx
+  apt-get install openhab-addon-persistence-rrd4j
+  apt-get install openhab-addon-io-dropbox
+  apt-get install openhab-addon-action-twitter
+  ```
 1. A list of all available packages can be retrieved with
-```
-sudo apt-cache search openhab
-```
+
+  ```
+  sudo apt-cache search openhab
+  ```
 
 ## Upgrade
 Changed configuration files will be retained even on upgrades.
 
-    $ sudo apt-get update
-    $ sudo apt-get upgrade
+    sudo apt-get update
+    sudo apt-get upgrade
 
 ## Configuration
 In terms of configuration please visit the [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s).
@@ -89,11 +98,11 @@ If you want to stick your installation to a specific version use one of these di
 The installation will only be upgraded if you change the sources.list to another version.
 Therefore "apt-get update && apt-get upgrade" can be safely used for the other linux software.
 
- Examples:
-```
-echo "deb https://dl.bintray.com/openhab/apt-repo 1.7.0 main" | sudo tee -a /etc/apt/sources.list
-echo "deb https://dl.bintray.com/openhab/apt-repo 1.7.0.RC1 main" | sudo tee -a /etc/apt/sources.list
-```
+  Examples:
+  ```
+  echo "deb https://dl.bintray.com/openhab/apt-repo 1.7.0 main" | sudo tee -a /etc/apt/sources.list
+  echo "deb https://dl.bintray.com/openhab/apt-repo 1.7.0.RC1 main" | sudo tee -a /etc/apt/sources.list
+  ```
 
 ## Go test it!
 
