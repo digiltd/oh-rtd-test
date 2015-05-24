@@ -53,8 +53,71 @@ Some notes:
 
 ## Item Binding Configuration
 
-TODO: all item types and binding options with explanation
+There are different types of item bindings, all of them are qualified with the device's identifier used in the `openhab.cfg` file:
+
+    frontiersiliconradio="<identifier>:<property>"
+
+Example for the power state of a device with identifier `radio`:
+
+    Swtich RadioPower "Radio Power" { frontiersiliconradio="radio:POWER" }
+
+A list of all properties and their possible item types is given below:
+
+| item | item type | purpose | changeable |
+| --- | --- | --- | --- |
+| `POWER` | Switch | power state | yes
+| `MODE` | Number | radio mode (details about mapping below) | yes
+| `VOLUME` | Number | volume | yes
+| `MUTE` | Swtich | mute | yes
+| `PLAYINFONAME` | String | title of current playback, e.g. radio station | no
+| `PLAYINFOTEXT` | String | additional information, e.g. current song | no
+| `PRESET` | Number | select preset, e.g. configured radio stations | yes
+
+The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](_edit), if it differs!):
+
+| radio mode | Hama IR110 | Medion MD87180 |
+| --- | --- | --- | --- |
+| 0 | Internet Radio | Internet Radio
+| 1 | Spotify | Music Player (USB, LAN)
+| 2 | Player | DAB Radio
+| 3 | AUX in | FM Radio
+| 4 | - | AUX in
+
 
 ## Example
 
-TODO
+Items:
+
+    Switch RadioPower         "Radio Power" (gRadio) { frontiersiliconradio="radio:POWER" }
+    Number RadioMode          "Radio Mode [%d]" (gRadio) { frontiersiliconradio="radio:MODE" }
+    Switch RadioMute          "Radio Mute" (gRadio) { frontiersiliconradio="radio:MUTE" } 
+    Number RadioVolDimmer     "Radio Volume [%d %%]" (gRadio) { frontiersiliconradio="radio:VOLUME" } 
+    String RadioPlayInfoName  "Play Info Name [%s]" (gRadio) { frontiersiliconradio="radio:PLAYINFONAME" }
+    String RadioPlayInfoText  "Play Info Text [%s]" (gRadio) { frontiersiliconradio="radio:PLAYINFOTEXT" }
+    Number RadioPreset        "Preset" (gRadio) { frontiersiliconradio="radio:PRESET" }
+
+Sitemap (presets and mode are radio-specific, this is why their mapping is specified here):
+
+    Frame label="Radio Control" {
+        Switch     item=RadioPower
+        Selection  visibility=[RadioPower==ON] item=RadioPreset mappings=[0="1Live", 1="WDR2", 2="SWR3"]
+        Selection  visibility=[RadioPower==ON] item=RadioMode   mappings=[0="Internet Radio", 1="Spotify", 2="Player", 3="AUX IN"]
+        Slider     visibility=[RadioPower==ON] item=RadioVolDimmer
+        Switch     visibility=[RadioPower==ON] item=RadioMute
+        Text       visibility=[RadioPower==ON] item=RadioPlayInfoName
+        Text       visibility=[RadioPower==ON] item=RadioPlayInfoText
+    }
+
+
+## Developer Info
+
+If you would like to extend this binding and contribute further functionality, here is some technical information about it. The communication with the radio is realized via simple HTTP requests. Unfortunately, there is no official documentation of the API for the frontier silicon chipset, but there are some sources around the internet ([flammy/fsapi on github](https://github.com/flammy/fsapi/blob/master/classes/fsapi.php), for example). Until now, only the following requests are implemented:
+* netRemote.sys.power
+* netRemote.sys.mode
+* netRemote.sys.audio.volume
+* netRemote.sys.audio.mute
+* netRemote.nav.action.selectPreset
+* netRemote.play.info.text
+* netRemote.play.info.name
+
+If you like to add further actions, have a look at [FrontierSiliconRadio.java](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.frontiersiliconradio/src/main/java/org/openhab/binding/frontiersiliconradio/internal/FrontierSiliconRadio.java).
