@@ -27,6 +27,7 @@ Community
   * [[GreenT UI|TouchUI]]
   * [[CometVisu|CometVisu]]
   * [[Kodi|https://github.com/enishoca/openhab-kodi]]
+  * [[Slack|https://github.com/openhab/openhab/wiki/Slack-integration]]
  * [[Automation|Automation]]
   * [[Scripts]]
   * [[Rules]]
