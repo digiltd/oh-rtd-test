@@ -2,21 +2,18 @@ Documentation of the TinkerForge binding bundle
 
 ## Introduction
 
-[TinkerForge](http://www.tinkerforge.com) is a system of open source hardware building blocks that 
-allows you to combine sensor and actuator blocks by plug and play. You can create your individual 
-hardware system by choosing the necessary building blocks for your project and combine it with other 
-home automation products. There are many blocks available e.g for temperature, humidity or air pressure 
-measurement as well as for I/O, LCDs and motor control. You will find a complete List of available 
+[TinkerForge](http://www.tinkerforge.com) is a system of open source hardware building blocks that
+allows you to combine sensor and actuator blocks by plug and play. You can create your individual
+hardware system by choosing the necessary building blocks for your project and combine it with other
+home automation products. There are many blocks available e.g for temperature, humidity or air pressure
+measurement as well as for I/O, LCDs and motor control. You will find a complete List of available
 blocks [here](http://www.tinkerforge.com/en/doc/Product_Overview.html).
 
-This binding connects the [TinkerForge](http://tinkerforge.com) devices to the openHAB event bus. 
-Sensor values from devices are made available to openHAB and actions on  devices can be triggered by 
+This binding connects the [TinkerForge](http://tinkerforge.com) devices to the openHAB event bus.
+Sensor values from devices are made available to openHAB and actions on  devices can be triggered by
 openHAB.
 
-For now only a subset of the TinkerForge devices and features are supported, but more devices and 
-features will be added in the near future.
-
-The following devices are supported for now:
+The following devices are supported:
 - Servo Brick
 - DC Brick
 - Dual Relay Bricklet
@@ -27,34 +24,40 @@ The following devices are supported for now:
 - Ambient Light Bricklet
 - LCD 20×4 Bricklet (LCD, backlight and 4 buttons)
 - Industrial Quad Relay
-- Bricklet Industrial Digital In 4
-- Bricklet IO-16
-- Bricklet Remote Switch
-- Bricklet Motion Detector
-- Bricklet MultiTouch
-- Bricklet TemperatureIR
-- Bricklet SoundIntensity
-- Bricklet Moisture
-- Bricklet DistanceUS
-- Bricklet VoltageCurrent
-- Bricklet Tilt
-- Bricklet IO-4
-- Bricklet Industrial Digital Out 4
-- Bricklet Segment Display 4x7
-- Bricklet LED Strip
+- Industrial Digital In 4
+- IO-16
+- Remote Switch
+- Motion Detector
+- MultiTouch
+- TemperatureIR
+- SoundIntensity
+- Moisture
+- DistanceUS
+- VoltageCurrent
+- Tilt
+- IO-4
+- Industrial Digital Out 4
+- Segment Display 4x7
+- LED Strip
+- Joystick
+- Linear Poti
+- Dual Button
+- PTC
+- Industrial Dual 0-20mA
+- Solid State Relay
 
-The TinkerForge binding bundle is available as a separate (optional) download. For installation of 
+The TinkerForge binding bundle is available as a separate (optional) download. For installation of
 the binding, please see Wiki page [[Bindings]].
 
 ## Upgrading from 1.3
 - LCDBacklight now is a sub device of LCD20x4 Bricklet (items file has to be changed)
 - LCD20x4Button now posts an update not a command anymore (rules has to be changed)
-- IndustrialQuadRelay sub id numbering now starts from zero (items file has to be changed) 
+- IndustrialQuadRelay sub id numbering now starts from zero (items file has to be changed)
 
 ## Upgrading from 1.4
 * Threshold values now have the same unit as the sensor value (incompatible change, you may have to update your openhab.cfg).
    * Background:
-     Some getters for sensor values of the TinkerForge API return higher precision values by using short values with fractions of the common units, e.g. the Temperature Bricklet returns hundredths of a celsius degree. The binding converts these values to common units using a BigDecimal. Until now the threshold values were applied to the sensor value before this conversion. Because of that the threshold values had to be given as the appropriate fraction. With the drawback that the openHAB users need some knowledge about the behavior of the TinkerForge API. Now the threshold is applied after converting the original values. Therefore the units used for the sensor values and the threshold values are equal. 
+     Some getters for sensor values of the TinkerForge API return higher precision values by using short values with fractions of the common units, e.g. the Temperature Bricklet returns hundredths of a celsius degree. The binding converts these values to common units using a BigDecimal. Until now the threshold values were applied to the sensor value before this conversion. Because of that the threshold values had to be given as the appropriate fraction. With the drawback that the openHAB users need some knowledge about the behavior of the TinkerForge API. Now the threshold is applied after converting the original values. Therefore the units used for the sensor values and the threshold values are equal.
     * Humidity Bricklet
        * calculate new threshold values from values of your current configuration: divide by 10
        * unity: relative humidity in percent
@@ -71,24 +74,115 @@ the binding, please see Wiki page [[Bindings]].
        * calculate new threshold values from values of your current configuration: divide 10
        * unity: Lux
 
+## 1.7 New & Noteworthy
+### New Devices
+ * Joystick Bricklet
+ * Linear Poti Bricklet
+ * Dual Button Bricklet
+ * PTC
+ * Industrial Dual 0-20mA
+ * Solid State Relay
+
+### New Features
+ * Tinkerforge Action Addon
+ * Brick DC fully supported
+ * Brick Servo fully supported
+ * Authentication support for brickd
+ * Tactile feature for Dualbutton, LCD Buttons, Joystick Button.
+ * LED Strip: sub devices and switching capabilities, configurable Frameduration, ChipType and Clockfrequency
+ * Remote Switch dimmer support
+
+### Bugfixes
+* Fix for configuration handling of device aliases
+
+### Other changes
+ * Updated Tinkerforge API to 2.1.4
+ * [Example configurations](https://github.com/theoweiss/openhab-tinkerforge-configuration-examples) available on github
+
+### Brick DC
+#### Incompatible changes
+* DriveMode now is one of "brake" or "coast" instead of "0" or "1"
+```
+tinkerforge:dc_garage.driveMode=brake
+```
+
+* switchOnVelocity in openhab.cfg is no longer needed and has gone.
+It is replaced by per item configuration:
+With the benefit that you can have serveral switch items with different speeds.
+~~tinkerforge:dc_garage.switchOnVelocity=10000~~
+```
+Switch DCSWITCH "DC Switch" {tinkerforge="uid=62Zduj, speed=14000"}
+```
+
+#### Whats new?
+Support for Dimmer, Rollershuter and Number items. Besides that the speed
+can be set using a percent value.
+
+The number items show the current velocity. The values are reported using the VelocityListener.
+"callbackPeriod" and "threshold" for the listener can be configured in openhab.cfg. There is more
+documentation about callback listeners at the official openHAB TinkerForgeBindig wiki page.
+
+* callbackPeriod: milliseconds
+* threshold: numeric value
+
+#### New item configuration options
+* speed: the target speed (Switch)
+* max: the maximum speed (Dimmer, Rollershutter)
+* min: the minimum speed (Dimmer, Rollershutter)
+* step: the step value for increasing decreasing speed (Dimmer)
+* leftspeed: the speed when the left rollershutter controller is pressed or command "DOWN" was send
+* rightspeed: the speed when the right rollershutter controller is pressed or command "UP" was send
+* acceleration: acceleration overrides value from openhab.cfg
+* drivemode: drivemode  overrides value from openhab.cfg
+
+### Brick Servo
+#### Whats new?
+Support for Dimmer, Rollershuter and Number items. Besides that the speed
+can be set using a percent value.
+
+Number items will show the current position.
+
+#### New item configuration options
+* velocity: the velocity used to reach the new position
+* max: the maximum position (Dimmer, Rollershutter)
+* min: the minimum position (Dimmer, Rollershutter)
+* step: the step value for increasing decreasing position (Dimmer)
+* leftposition: the target position to reach when the left rollershutter controller is pressed or command "DOWN" was send
+* rightposition: the target position to reach when the right rollershutter controller is pressed or command "UP" was send
+* acceleration: the acceleration
+
+### TinkerForge Action
+The new openHAB action [[TinkerForgeAction|Actions]] comes up with the actions tfServoSetposition, tfClearLCD and tfDCMotorSetspeed.
+tfServoSetposition(uid, num, position, velocity, acceleration) can be used to control the servo.
+tfClearLCD(uid) uid is the uid of the LCD display. A call of tfClearLCD will clear the LCD display.
+tfDCMotorSetspeed(String uid, String speed, String acceleration, String drivemode) can be used to control a DC motor.
+
+  Example:
+
+  ```
+  tfServoSetposition("6Crt5W", "servo0", "-9000", "65535", "65535")
+  ```
+
 ## General Remarks
 The binding supports the connection to several brickd instances.
 
-The binding supports the TinkerForge auto reconnect feature. Furthermore even if the initial connect 
-failed the binding will make retries to get connected to the brickd.
+The TinkerForge auto reconnect feature is supported. Furthermore even if the initial connect failed the binding will make retries to get connected to the brickd.
+
+## RED Brick
+openHAB is preinstalled on the RED Brick image and can be configured with the TinkerForge BrickViewer.
 
 ## Generic Item Binding Configuration
 
 ### Basic Configuration
 
-In order to connect openHAB to TinkerForge devices you need to define all the brickd hosts and ports 
+In order to connect openHAB to TinkerForge devices you need to define all the brickd hosts and ports
 in the openhab.cfg file.
 
 The following properties must be configured to define a brickd connection:
 
     tinkerforge:hosts="<IP address>[:port] ..."
 
-The properties indicated by '<...>' need to be replaced with an actual value. Properties surrounded 
+The properties indicated by '<...>' need to be replaced with an actual value. Properties surrounded
 by square brackets are optional.
 
 | <b>Property</b> | <b>Description</b> |
@@ -100,7 +194,7 @@ For connecting several brickds, use multiple &lt;IP address&gt; statements delim
 
 Devices which do not support callbacks will be polled with a configurable interval, the default
  is 60000 milliseconds. This value can be changed in openhab.cfg:
- 
+
     tinkerforge.refresh=<value in milliseconds>
 
 
@@ -116,14 +210,14 @@ Example for several brickd connections using different ports:
 
 ## Advanced Configuration
 
-There are several configuration parameters to control the behavior of the devices. The available 
+There are several configuration parameters to control the behavior of the devices. The available
 parameters depend on the device type.
 
 ### Overview
-For most of the devices **no configuration** is needed in openhab.cfg, they can be used with reasonable 
+For most of the devices **no configuration** is needed in openhab.cfg, they can be used with reasonable
 defaults. The only exception is the IO16 Bricklet (see below).
 
-If you want to get rid of _uid_ and _subid_ statements in the items or rule file, you can use openhab.cfg 
+If you want to get rid of _uid_ and _subid_ statements in the items or rule file, you can use openhab.cfg
 to get a _symbolic name_.
 
 A configuration line for a TinkerForge Device looks like this in openhab.cfg:
@@ -180,17 +274,17 @@ The following table shows the TinkerForge device, its device type, subid and if 
 
 ### Callback and Threshold
 
-The TinkerForge CallbackListeners - if available - are used to observe the sensor values of the 
-devices. These listeners are configured to update sensor values at a given time period 
-(callbackPeriod). The default configuration sets the **callbackPeriod** to 1 second. This value can 
-be changed in openhab.cfg. For now this value must be changed for every single device. The values 
+The TinkerForge CallbackListeners - if available - are used to observe the sensor values of the
+devices. These listeners are configured to update sensor values at a given time period
+(callbackPeriod). The default configuration sets the **callbackPeriod** to 1 second. This value can
+be changed in openhab.cfg. For now this value must be changed for every single device. The values
 must be given in milliseconds.
 
 The callbackPeriod controls the amount of traffic from the TF hardware to the binding.
 
-In addition to the Callback a **threshold value** can be configured. This threshold means that even 
-if the listener reports a changed value, the value is only send to the openHAB eventbus if: the 
-difference between the last value and the current value is bigger than the threshold value. You can 
+In addition to the Callback a **threshold value** can be configured. This threshold means that even
+if the listener reports a changed value, the value is only send to the openHAB eventbus if: the
+difference between the last value and the current value is bigger than the threshold value. You can
 think of it as a kind of hysteresis, it dampens the oscillation of openHAB item values.
 
 The threshold controls the amount of  traffic from the binding to the openHAB eventbus.
@@ -249,7 +343,7 @@ sitemap file entry (e.g tinkerforge.sitemap):
     Switch item=DualRelay2
 
 #### Humidity Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or
 if you want to use a _symbolic name_.
 
 openhab.cfg:
@@ -276,7 +370,7 @@ sitemap file entry (e.g tinkerforge.sitemap):
     Text item=Humidity
 
 #### Moisture Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or
 if you want to use a _symbolic name_.
 
 openhab.cfg:
@@ -302,7 +396,7 @@ Number Moisture                 "Moisture [%.1f]"  { tinkerforge="uid=kve" }
 
 sitemap file entry (e.g tinkerforge.sitemap):
 ```
-Text item=Moisture 
+Text item=Moisture
 ```
 
 #### Motion Detector Bricklet
@@ -337,7 +431,7 @@ MOTIONOPEN=montion detected
 ```
 
 #### Multi Touch Bricklet
-An entry in openhab.cfg is only needed if you want to adjust sensitivity, recalibrate, disable 
+An entry in openhab.cfg is only needed if you want to adjust sensitivity, recalibrate, disable
 electrodes or use a _symbolic name_.
 
 openhab.cfg
@@ -516,7 +610,7 @@ Switch item=rc
 ```
 
 #### Distance IR Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or
 if you want to use a _symbolic name_.
 
 openhab.cfg:
@@ -575,7 +669,7 @@ Text item=DistanceUS
 ```
 
 #### Temperature Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or
 if you want to use a _symbolic name_.
 
 openhab.cfg:
@@ -601,10 +695,10 @@ sitemap file entry (e.g tinkerforge.sitemap):
     Text item=Temperature
 
 #### Barometer Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or
 if you want to use a _symbolic name_.
 
-The temperature sub device does not support callbackPeriod, it will be polled. The polling interval 
+The temperature sub device does not support callbackPeriod, it will be polled. The polling interval
 can be configured using tinkerforge:refresh property).
 
 bricklet:
@@ -640,7 +734,7 @@ sitemap file entry (e.g tinkerforge.sitemap):
     Text item=Barometer
 
 #### TemperatureIR Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod, 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod,
 if you want to use a _symbolic name_ or adjust the emissivity of the object temperature device.
 
 bricklet:
@@ -700,8 +794,8 @@ Text item=ObjectTemperature
 ```
 
 #### Voltage / Current Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod, 
-if you want to use a _symbolic name_ or adjust the averaging, voltage conversion time, 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod,
+if you want to use a _symbolic name_ or adjust the averaging, voltage conversion time,
 current conversion time of the device.
 
 bricklet:
@@ -795,7 +889,7 @@ Text item=Power
 
 
 #### Ambient Light Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or
 if you want to use a _symbolic name_.
 
 bricklet:
@@ -820,10 +914,10 @@ items file entry (e.g. tinkerforge.items):
 
 sitemap file entry (e.g tinkerforge.sitemap):
 
-    Text item=AmbientLight 
+    Text item=AmbientLight
 
 #### Sound Intensity Bricklet
-An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or 
+An entry in openhab.cfg is only needed if you want to adjust threshold and / or callbackPeriod or
 if you want to use a _symbolic name_.
 
 bricklet:
@@ -894,7 +988,7 @@ en.map file entry (optional)
 ```
 
 #### Segment Display 4x7
-The LCD20x4 is a bit special as it acts as actuator which can receive number messages. To 
+The LCD20x4 is a bit special as it acts as actuator which can receive number messages. To
 achieve this, you have to configure the device as Number item.
 
 An entry in openhab.cfg is only needed if you want to use a _symbolic name_.
@@ -911,7 +1005,7 @@ rule would do the trick for you.
 
 ```
 rule "Weatherstation Segment update ObjectTemperature"
-        when 
+        when
                 Item ObjectTemperature received update
         then
                 sendCommand(Segment7, ObjectTemperature.state))
@@ -920,7 +1014,7 @@ end
 
 #### LCD20x4 Bricklet
 
-The LCD20x4 is a bit special as it acts as actuator which can receive text messages. To 
+The LCD20x4 is a bit special as it acts as actuator which can receive text messages. To
 achieve this, you have to configure the device as String item.
 
 
@@ -929,11 +1023,11 @@ What’s the meaning of this magic string?
     sendCommand(TF_LCD, String::format("TFNUM<213>%4s"Barometer.state.format("%d")
                       ))
 
-TFNUM is just a flag to signal the binding that some position information is passed. The first 
-number is the line number, starting from 0. The second and third number are interpreted as the 
-position in the line, starting from 0. 
+TFNUM is just a flag to signal the binding that some position information is passed. The first
+number is the line number, starting from 0. The second and third number are interpreted as the
+position in the line, starting from 0.
 
-The above example would write the current value of the barometer bricklet to line 3 starting from 
+The above example would write the current value of the barometer bricklet to line 3 starting from
 position 14, with a fixed width of 4 (this is because of %4s).
 
 openhab.cfg:
@@ -979,78 +1073,85 @@ rules file (e.g. tinkerforge.rules):
 
     import org.openhab.core.library.types.*
 
+    var Number initialSleepTime = 10
+
     rule "Weatherstation LCD init from Backlight"
     when
-        Item LCDBacklight changed from UNDEF or
+        Item TF_LCDBacklight changed from UNDEF or
             System started
     then
-        sendCommand(LCD, "TFNUM<00>Temperature:       C")
-        sendCommand(LCD, "TFNUM<10>Humidity   :       %")
-        sendCommand(LCD, "TFNUM<20>Pressure   :     hPa")
-        sendCommand(LCD, "TFNUM<30>Luminance  :     Lux")
-        sendCommand(LCDBacklight, ON)
-        sendCommand(LCD, String::format("TFNUM<013>%4s", 
-                                Barometer_Temperature.state.format("%.1f")
-                        ))
-        sendCommand(LCD, String::format("TFNUM<113>%4s", 
-                                Humdity.state.format("%.1f")
+        createTimer(now.plusSeconds(initialSleepTime)) [|
+            sendCommand(TF_LCD, "TFNUM<00>Temperature:       C")
+            sendCommand(TF_LCD, "TFNUM<10>Humidity   :       %")
+            sendCommand(TF_LCD, "TFNUM<20>Pressure   :     hPa")
+            sendCommand(TF_LCD, "TFNUM<30>Luminance  :     Lux")
+            sendCommand(TF_LCDBacklight, ON)
+            sendCommand(TF_LCD, String::format("TFNUM<013>%4s",
+                                    TF_Barometer_Temperature.state.format("%.1f")
                             ))
-        sendCommand(LCD, String::format("TFNUM<213>%4s",
-                                  Barometer.state.format("%d")
-                                  ))
-        sendCommand(LCD, String::format("TFNUM<313>%4s", 
-                                AmbientLight.state.format("%d")
+            sendCommand(TF_LCD, String::format("TFNUM<113>%4s",
+                                    TF_Humdity.state.format("%.1f")
                                 ))
+            sendCommand(TF_LCD, String::format("TFNUM<213>%4s",
+                                      TF_Barometer.state.format("%.0f")
+                                      ))
+            sendCommand(TF_LCD, String::format("TFNUM<313>%4s",
+                                    TF_AmbientLight.state.format("%.0f")
+                                    ))
+        ]
+
     end
 
     rule Goodbye
-    when 
-        System shuts down
+    when
+            System shuts down
     then
-        sendCommand(LCDBacklight, OFF)
+            sendCommand(TF_LCDBacklight, OFF)
     end
 
     rule "Weatherstation LCD Backlight"
-        when
-                Item Button0 received update
-        then
-                if (Button0.state == ON)
-                sendCommand(LCDBacklight, ON)
+            when
+                    Item TF_Button0 received update
+            then
+            if (TF_Button0.state == ON)
+                sendCommand(TF_LCDBacklight, ON)
             else
-                sendCommand(LCDBacklight, OFF)
+                sendCommand(TF_LCDBacklight, OFF)
+
     end
+
     rule "Weatherstation LCD update temperature"
-        when 
-                Item Barometer_Temperature received update 
-        then
-                sendCommand(LCD, String::format("TFNUM<013>%4s", 
-                                Barometer_Temperature.state.format("%.1f")
-                        ))
+            when
+                    Item TF_Barometer_Temperature received update
+            then
+                    sendCommand(TF_LCD, String::format("TFNUM<013>%4s",
+                                    TF_Barometer_Temperature.state.format("%.1f")
+                            ))
     end
 
     rule "Weatherstation LCD update humidity"
-        when 
-                Item Humdity received update
-        then
-                sendCommand(LCD, String::format("TFNUM<113>%4s", 
-                                Humdity.state.format("%.1f")
-                            ))
+            when
+                    Item TF_Humdity received update
+            then
+                    sendCommand(TF_LCD, String::format("TFNUM<113>%4s",
+                                    TF_Humdity.state.format("%.1f")
+                                ))
     end
     rule "Weatherstation LCD update airpressure"
-        when 
-                Item Barometer received update
-        then
-                sendCommand(LCD, String::format("TFNUM<213>%4s",
-                                  Barometer.state.format("%d")
-                                  ))
+            when
+                    Item TF_Barometer received update
+            then
+                    sendCommand(TF_LCD, String::format("TFNUM<213>%4s",
+                                      TF_Barometer.state.format("%.0f")
+                                      ))
     end
     rule "Weatherstation LCD update ambientLight"
-        when 
-                Item AmbientLight received update
-        then
-                sendCommand(LCD, String::format("TFNUM<313>%4s", 
-                                AmbientLight.state.format("%d")
-                                ))
+            when
+                    Item TF_AmbientLight received update
+            then
+                    sendCommand(TF_LCD, String::format("TFNUM<313>%4s",
+                                    TF_AmbientLight.state.format("%.0f")
+                                    ))
     end
 
 #### Industrial Quad Relay Bricklet
@@ -1190,12 +1291,12 @@ io_actor sub device:
     tinkerforge:io16ina0.subid=ina0
     tinkerforge:io16ina0.type=iosensor
     tinkerforge:io16ina0.pullUpResistorEnabled=true
-    
+
     tinkerforge:io16ina1.uid=efY
     tinkerforge:io16ina1.subid=ina1
     tinkerforge:io16ina1.type=iosensor
     tinkerforge:io16ina1.pullUpResistorEnabled=true
-    
+
     tinkerforge:io16outa2.uid=efY
     tinkerforge:io16outa2.subid=outa2
     tinkerforge:io16outa2.type=io_actuator
@@ -1295,7 +1396,7 @@ Switch item=out3
 
 #### DC Brick
 
-For the DC Brick you can configure the acceleration, the pwm frequency, the drive mode (break=0, coast=1) 
+For the DC Brick you can configure the acceleration, the pwm frequency, the drive mode (break=0, coast=1)
 and the switchOnVelocity. The device type is brick_dc. Valid values for driveMode are Break and Coast.
 
 | property | descripition | values |
@@ -1327,11 +1428,11 @@ sitemap file entry (e.g tinkerforge.sitemap):
 
 #### Servo Brick
 
-For the Servo Brick you can configure the velocity, acceleration, servo voltage, pulse width min, 
-pulse width max, period and the output voltage (must be equal for all servos). The device type is 
+For the Servo Brick you can configure the velocity, acceleration, servo voltage, pulse width min,
+pulse width max, period and the output voltage (must be equal for all servos). The device type is
 "servo". Available subid's are servo0 to servo6.
 
-The current implementation is more or less for demo purposes. The servo can only be used as a switch 
+The current implementation is more or less for demo purposes. The servo can only be used as a switch
 item, to move the servo to the most left or most right position.
 
 brick:
@@ -1386,17 +1487,17 @@ sitemap file entry (e.g tinkerforge.sitemap):
 
 ## Item Binding Configuration
 
-In order to bind an item to a device, you need to provide configuration settings. The easiest way 
-to do so is to add binding information in your item file (in the folder '${openhab_home}/configurations/items'). 
+In order to bind an item to a device, you need to provide configuration settings. The easiest way
+to do so is to add binding information in your item file (in the folder '${openhab_home}/configurations/items').
 
 The configuration of the TinkerForge binding item looks like this:
 
     tinkerforge="(uid=<id> [, subid=<id>] | name=<name>)"
 
-The configuration is quite simple. You either have to set a value for the uid and optionally for the 
+The configuration is quite simple. You either have to set a value for the uid and optionally for the
 subid of the device, or - if the device is configured in openhab.cfg - the "symbolic name" of the device.
 
-| Property | Description | 
+| Property | Description |
 | -------- | ----------- |
 | uid      | TinkerForge uid of the device (Use the Brick Viewer to get this value) |
 | subid    | optional subid of the device|
