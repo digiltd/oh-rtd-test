@@ -26,6 +26,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#1698](https://github.com/openhab/openhab/pull/1698) - Bticino/Legrand OpenWebIf Binding (@TomDeVlaminck)
 * [#1684](https://github.com/openhab/openhab/pull/1684) - Zibase Binding (@jit06)
 * [#984](https://github.com/openhab/openhab/pull/984) - Wago Binding (@BinaryCraX)
+* [#2143](https://github.com/openhab/openhab/pull/2143) - Action/Rule support for the TinkerForge Binding (@theoweiss)
 
 ####Enhancements:
 * [#2540](https://github.com/openhab/openhab/pull/2540) - Fix issue #1845 2 (@J-N-K)
@@ -61,6 +62,8 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2136](https://github.com/openhab/openhab/pull/2136) - Refactor zwave initialisation to improve stability (@cdjackson)
 * [#2603](https://github.com/openhab/openhab/pull/2603) - zwave crc 16 encapsulation command class implemented (@pluimpje)
 * [#2327](https://github.com/openhab/openhab/pull/2327) - Reduced zwave wakeup time to improve battery life (@cdjackson)
+* [#2143](https://github.com/openhab/openhab/pull/2143), [#2417](https://github.com/openhab/openhab/pull/2417) - TinkerForge Binding new devices: Joystick, Linear Poti and Dual Button Bricklet, PTC Bricklet, Industrial Dual 0-20mA Bricklet, Solid State Relay Bricklet. Full support for Brick DC and Brick Servo. Tinkerforge API update to 2.1.4. Authentication support for brickd. Tactile feature for Dualbutton, LCD Buttons, Joystick Button. (@theoweiss)
+* [#2141](https://github.com/openhab/openhab/pull/2141) - systemd support for the openHAB runtime deb package (@theoweiss)
 
 ####Bugfixes:
 * [#2518](https://github.com/openhab/openhab/pull/2518) - TF binding: Fix for configuration handling of device aliases (@theoweiss)
@@ -93,6 +96,9 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2325](https://github.com/openhab/openhab/pull/2325) - MiOS Tools - For Percentages, the %% should be inside the String/Format of the Item (@mrguessed)
 * [#2320](https://github.com/openhab/openhab/pull/2320) - DSCAlarm Binding Features and Fixes (@RSStephens)
 * [#2315](https://github.com/openhab/openhab/pull/2315) - Correcting Netatmo bug #2314 (@clinique)
+* [#2141](https://github.com/openhab/openhab/pull/2141) - Fix permission issues for runtime deb package (@theoweiss)
+* [#2211](https://github.com/openhab/openhab/pull/2211) - Influxdb fix for restoring switch or contact state (@theoweiss)
+* [#2519](https://github.com/openhab/openhab/pull/2519) - Fix for influxdb type handling (@theoweiss, @Chel)
 
 ####Removals:
 * none
@@ -106,3 +112,7 @@ If you have a running openHAB runtime 1.6 installation, you can easily update it
  1. Unzip the runtime 1.7 and all required addons to a new installation folder
  1. Replace the folder "configurations" by the version from your 1.6 installation
  1. Copy all other customizations you might have done to the new installation (e.g. additional images, sounds, etc.)
+
+If you use the openHAB deb packages from the apt repository
+ 1. Add this line to your sources.list: "deb http://dl.bintray.com/openhab/apt-repo   stable    main“
+ 1. Open a command-line  and execute: apt-get update && apt-get upgrade
