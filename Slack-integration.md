@@ -26,8 +26,8 @@ Examples;
 `@slackhab items temp`
 ```
 GroupItem      SensorTemperature       Undefined
-NumberItem     Sensor_Temperature1     18.699999999999999289457264239899814128875732421875
-NumberItem     Sensor_Temperature2     19.60000000000000142108547152020037174224853515625
+NumberItem     Sensor_Temperature1     18.6
+NumberItem     Sensor_Temperature2     19.6
 NumberItem     Sensor_HallwayTemp      20.1
 NumberItem     Sensor_EnsuiteTemp      20.2
 NumberItem     Weather_TempOut         11
