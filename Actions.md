@@ -103,9 +103,9 @@ Sends push messages to your Android devices. All configuration in openhab.cfg is
 
 **Squeezebox Action**
 
-Interact directly with your Squeezebox devices from within rules and scripts. In order to use these actions you must also install the **org.openhab.io.squeezeserver** bundle and configure the 'squeeze' properties in openhab.cfg. 
+Interact directly with your Squeezebox devices from within rules and scripts. In order to use these actions you must also install the **org.openhab.io.squeezeserver** bundle and configure the 'squeeze' properties in openhab.cfg.
 
-See the [[Squeezebox Action]] section for more details. 
+See the [[Squeezebox Action]] section for more details.
 
 **Pushover Action**
 
@@ -201,3 +201,85 @@ then
 	logInfo("sunSetEnd: ", new DateTimeType(getAstroSunsetEnd(current, lat, lon)).toString)
 end
 ```
+
+**TinkerForge Action**
+
+The TinkerForge Action provides direct interaction with some of the TinkerForge devices (since 1.7.0). The TinkerForge action depends on
+the TinkerForge binding. In order to use these actions you must install the [TinkerForge Binding](https://github.com/openhab/openhab/wiki/Tinkerforge-Binding) and configure it in openhab.cfg.
+These actions are available:
+1. tfClearLCD(String uid)
+
+	Clears the display of the LCD with the given uid.
+
+  Example:
+  ```
+  rule "clear lcd"
+      when
+          Item ClearLCD received command ON
+      then
+         tfClearLCD("d4j")
+  end
+  ```
+1. tfServoSetposition(String uid, String num, String position, String velocity, String acceleration)
+
+  Sets the position of a TinkerForge servo with the uid $uid and servo number to the position $position using the speed $speed and acceleration $acceleration.
+
+  Example:
+	```
+	rule "move servo"
+    when
+        Item MoveServo received command ON
+    then
+       tfServoSetposition("6Crt5W", "servo0", "0", "65535", "65535")
+       Thread::sleep(1000)
+       tfServoSetposition("6Crt5W", "servo0", "-9000", "65535", "65535")
+       Thread::sleep(1000)
+      tfServoSetposition("6Crt5W", "servo0", "9000", "65535", "65535")
+  end
+	```
+1. tfDCMotorSetspeed(String uid, String speed, String acceleration, String drivemode)
+
+  Sets the speed of a TinkerForge DC motor with the given uid to $speed using the acceleration $acceleration and the drivemode $drivemode.
+	* speed: value between -32767 - 32767
+	* drivemode is either "break" or "coast"
+
+	Example:
+	```
+	rule "move motor"
+    when
+        Item DCMOVE received command ON
+    then
+       var String acceleration = "10000"
+       var String speed = "15000"
+       tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
+       Thread::sleep(1000)
+       tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
+       Thread::sleep(1000)
+       tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
+       Thread::sleep(1000)
+       tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
+  end
+	```
+1. tfDCMotorSetspeed(String uid, Short speed, Integer acceleration, String drivemode)
+
+  Sets the speed of a TinkerForge DC motor with the given uid to $speed using the acceleration $acceleration and the drivemode $drivemode.
+  * speed: value between -32767 - 32767
+  * drivemode is either "break" or "coast"
+
+  Example:
+	```
+	rule "move motor"
+    when
+        Item DCMOVE received command ON
+    then
+       var Integer acceleration = 10000
+       var Short speed = 15000
+       tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
+       Thread::sleep(1000)
+       tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
+       Thread::sleep(1000)
+       tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
+       Thread::sleep(1000)
+       tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
+	end
+  ```
