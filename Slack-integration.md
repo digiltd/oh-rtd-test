@@ -1,4 +1,4 @@
-[Slack](www.slack.com) is a wonderful team collaboration tool. One of the best things about Slack is the integrations with other systems that are possible. Below are instructions for adding a plugin to Slack which enables you to send commands and updates to openHAB items, as well as querying current state.
+[Slack](https://www.slack.com) is a wonderful team collaboration tool. One of the best things about Slack is the integrations with other systems that are possible. Below are instructions for adding a plugin to Slack which enables you to send commands and updates to openHAB items, as well as querying current state.
 
 Follow the instructions [here](https://github.com/slackhq/python-rtmbot) to install the Slack RTM bot. You will need to create a new Real-Time Messaging integration in your Slack account and copy the generated API token into the python-rtmbot config file.
 
