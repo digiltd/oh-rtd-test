@@ -13,7 +13,7 @@ You can easily check if your IP radio is supported:
 2. Figure out the *PIN* that is configured for the radio (somewhere hidden in the radio's on-screen menu); or try the default pin `1234`
 3. Go to your web browser and enter: `http://<IP>/fsapi/CREATE_SESSION?pin=<PIN>`
 4. If the response is similar to `FS_OK 6836164442`, your radio is most likely compatible with this binding
-5. If you radio works with this binding, please add it to the list above by [Editing this page](_edit)!
+5. If you radio works with this binding, please add it to the list above by [Editing this page](Frontier-Silicon-Radio-Binding/_edit)!
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -73,7 +73,7 @@ A list of all properties and their possible item types is given below:
 | `PLAYINFOTEXT` | String | additional information, e.g. current song | no
 | `PRESET` | Number | select preset, e.g. configured radio stations | yes
 
-The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](_edit), if it differs!):
+The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](Frontier-Silicon-Radio-Binding/_edit), if it differs!):
 
 | radio mode | Hama IR110 | Medion MD87180 |
 | --- | --- | --- | --- |
