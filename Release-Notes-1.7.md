@@ -62,7 +62,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2136](https://github.com/openhab/openhab/pull/2136) - Refactor zwave initialisation to improve stability (@cdjackson)
 * [#2603](https://github.com/openhab/openhab/pull/2603) - zwave crc 16 encapsulation command class implemented (@pluimpje)
 * [#2327](https://github.com/openhab/openhab/pull/2327) - Reduced zwave wakeup time to improve battery life (@cdjackson)
-* [#2143](https://github.com/openhab/openhab/pull/2143), [#2417](https://github.com/openhab/openhab/pull/2417) - TinkerForge Binding new devices: Joystick, Linear Poti and Dual Button Bricklet, PTC Bricklet, Industrial Dual 0-20mA Bricklet, Solid State Relay Bricklet. Full support for Brick DC and Brick Servo. Tinkerforge API update to 2.1.4. Authentication support for brickd. Tactile feature for Dualbutton, LCD Buttons, Joystick Button. (@theoweiss)
+* [#2143](https://github.com/openhab/openhab/pull/2143), [#2417](https://github.com/openhab/openhab/pull/2417) - TinkerForge Binding new devices: Joystick, Linear Poti, Dual Button Bricklet, PTC Bricklet, Industrial Dual 0-20mA Bricklet, Solid State Relay Bricklet. Full support for Brick DC and Brick Servo. Tinkerforge API update to 2.1.4. Authentication support for brickd. Tactile feature for Dualbutton, LCD Buttons, Joystick Button. (@theoweiss)
 * [#2141](https://github.com/openhab/openhab/pull/2141) - systemd support for the openHAB runtime deb package (@theoweiss)
 
 ####Bugfixes:
