@@ -204,9 +204,8 @@ end
 
 **TinkerForge Action**
 
-The TinkerForge Action provides direct interaction with some of the TinkerForge devices (since 1.7.0). The TinkerForge action depends on
-the TinkerForge binding. In order to use these actions you must install the [TinkerForge Binding](https://github.com/openhab/openhab/wiki/Tinkerforge-Binding) and configure it in openhab.cfg.
-These actions are available:
+The TinkerForge Action plugin provides direct interaction with some of the TinkerForge devices (since 1.7.0). The action depends on the TinkerForge binding. In order to use these actions you must install the TinkerForge Action bundle and the [TinkerForge Binding](https://github.com/openhab/openhab/wiki/Tinkerforge-Binding) and add at least a hosts configuration value for the binding in openhab.cfg.
+These action functions are available:
 1. tfClearLCD(String uid)
 
 	Clears the display of the LCD with the given uid.
