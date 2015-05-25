@@ -62,6 +62,7 @@ Community
   * [[eKey Binding|ekey-Binding]]
   * [[Energenie Binding|Energenie-Binding]]
   * [[EnOcean Binding|EnOcean-Binding]]
+  * [[Enphase Energy Binding|Enphase-Energy-Binding]]
   * [[Epson Projector Binding|Epson-Projector-Binding]]
   * [[Exec Binding|Exec-Binding]]
   * [[Freebox Binding|Freebox-Binding]]
