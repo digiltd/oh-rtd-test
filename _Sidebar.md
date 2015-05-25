@@ -122,6 +122,7 @@ Community
   * [[PLCBus Binding|PLC-Bus-Binding]]
   * [[Pulseaudio Binding|Pulseaudio-Binding]]
   * [[RFXCOM Binding|RFXCOM-Binding]]
+  * [[Sager WeatherCaster Binding|SagerWeatherCaster-Binding]]
   * [[Samsung AC Binding|Samsung-AC-binding]]
   * [[Samsung TV Binding|Samsung-TV-Binding]]
   * [[Serial Binding|Serial-Binding]]
