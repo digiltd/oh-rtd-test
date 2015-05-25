@@ -2,7 +2,7 @@ Documentation of the Frontier Silicon Radio binding for Internet Radios based on
 
 ## Introduction
 
-This binding has been developed and tested with the [Hama IR110](https://de.hama.com/00054823/hama-internetradio-ir110) and [Medion MD87180](https://www.medion.com/de/service/start/_product.php?msn=50047825&gid=00) internet radios.
+This binding has been developed and tested with the [Hama IR110](https://de.hama.com/00054823/hama-internetradio-ir110) and [Medion MD87180](https://www.medion.com/de/service/start/_product.php?msn=50047825&gid=00) internet radios. The Wireless LAN Internet Radio MEDION® LIFE® P85040 (MD 86988) is also supported. http://www.medion.com/nl/shop/audio-systemen-medion-life-p85040-wifi-internet-radio-50048570a1.html
 
 [<img src="http://internetradio.medion.com/images/md87180_small.jpg" alt="MEDION LIFE P85044 (MD 87180)" height="160">](http://internetradio.medion.com/)
 [<img src="https://de.hama.com/bilder/00054/abb/00054823abb.jpg" alt="Hama Internetradio IR110" height="180">](https://de.hama.com/00054823/hama-internetradio-ir110)
@@ -75,13 +75,13 @@ A list of all properties and their possible item types is given below:
 
 The *radio mode* property is just a number that specifies the radio mode which may differ for each radio. This is why there is no fixed mapping implemented. For radios listed above, the mapping is as follows (please [add your radio mapping](Frontier-Silicon-Radio-Binding/_edit), if it differs!):
 
-| radio mode | Hama IR110 | Medion MD87180 |
+| radio mode | Hama IR110 | Medion MD87180 |Medion MD 86988
 | --- | --- | --- | --- |
-| 0 | Internet Radio | Internet Radio
-| 1 | Spotify | Music Player (USB, LAN)
-| 2 | Player | DAB Radio
-| 3 | AUX in | FM Radio
-| 4 | - | AUX in
+| 0 | Internet Radio | Internet Radio | Internet Radio
+| 1 | Spotify | Music Player (USB, LAN) | Music Player
+| 2 | Player | DAB Radio | FM Radio
+| 3 | AUX in | FM Radio | AUX in
+| 4 | - | AUX in | - 
 
 
 ## Example
