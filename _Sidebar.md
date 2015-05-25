@@ -115,6 +115,7 @@ Community
   * [[OpenPaths presence detection binding|OpenPaths-Binding]]
   * [[OpenSprinkler Binding|Open-Sprinkler]]
   * [[OSGi Configuration Admin Binding|Config-Admin-Binding]]
+  * [[Panasonic TV Bindung|Panasonic-TV-Binding]]
   * [[Philips Hue Binding|Hue-Binding]]
   * [[Piface Binding|Piface-Binding]]
   * [[pilight Binding|pilight-Binding]]
