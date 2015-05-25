@@ -1,16 +1,7 @@
-FAQ about hardware to run the openHAB runtime
 
 ## Introduction
 
-This page summarizes how to get openHAB server running on specific hardware (it does not cover add-on bindings and modules).
-
-
-Below are configuration notes for specific hardware.
-
-## x86 Linux
-
-**1. Install and setup OpenHAB** As described in:
-[[Linux---OS-X]]
+This page summarizes how to get openHAB server running on specific ARM hardware (it does not cover add-on bindings and modules).
 
 ## ARM Single-Board Computers
 
