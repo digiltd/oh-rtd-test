@@ -1,7 +1,7 @@
 Installation
  * [[Quick Setup|Quick-Setup-an-openHAB-Server]]
   * [[Linux / OS X|Linux---OS-X]]
-    * [[Hardware FAQ|Hardware-FAQ]]
+    * [[ARM based systems|Hardware-FAQ]]
     * [[Synology and QNAP servers|Synology and QNAP]]
     * [[Multiple USB ports and symlinks|symlinks]]
   * [[Windows|Windows]]
