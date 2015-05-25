@@ -71,6 +71,8 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2496](https://github.com/openhab/openhab/pull/2496) - [Weather] Added chancetstorms to Wunderground common-id mapping (@gerrieg)
 
 ####Bugfixes:
+* [#2645](https://github.com/openhab/openhab/pull/2645) - Fix for #2210 - Dimmer item keeps sending INCREASING/DECREASING command (@sja)
+* [#2644](https://github.com/openhab/openhab/pull/2644) - ClassicUI: Fix invalid empty reponse (@sja)
 * [#2641](https://github.com/openhab/openhab/issues/2641) - Incorrect sourcepath for joda-time library in persistence bundle (@dominicdesu)
 * [#2623](https://github.com/openhab/openhab/pull/2623) - Add anchor to proxy URL (@LukeOwncloud)
 * [#2618](https://github.com/openhab/openhab/pull/2618) - Fix for #2031 - Enocean temperature sensors cause NullPointerException in version 1.6.1 binding (@wnagele)
