@@ -7,7 +7,7 @@
 
 
 
-**Note**: for Hardware specific details (e.g. Synology Diskstation, QNAP, and ARM boards like Raspberry Pi) please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ).
+**Note**: for Hardware specific details (e.g. Synology Diskstation, QNAP, and ARM boards like Raspberry Pi) please visit the [ARM based systems](https://github.com/openhab/openhab/wiki/Hardware-FAQ) or [Synology and QNAP servers] (https://github.com/openhab/openhab/wiki/Synology-and-QNAP)
 
 The openHAB Runtime is a Java application. 
 
