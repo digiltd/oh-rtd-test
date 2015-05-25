@@ -10,6 +10,7 @@ if your serial device is /dev/ttyACM0
 This binding can only handle HMS components returning temperature or humidity values. Since these values are of type number, it only makes sence to use items of type Number or Text. In your items configuration file this could look like
 
 `Number Temperature_Outdoor "Temp [%.1f °C]"      <temperature>	(Weather)	{hms="address=A1DB;datapoint=TEMPERATURE"}`
+
 `Number Humidity_Outdoor     "Humidity [%.1f %%]" <humidity>	(Weather)	{hms="address=A1DB;datapoint=HUMIDITY"}`
 
 In the example above the address of the HMS device is `A1DB`. By use of the attribute `datapoint` one can either assign the `HUMIDITY` or the `TEMPERATURE` value to a device.
