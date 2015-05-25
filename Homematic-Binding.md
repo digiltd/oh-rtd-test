@@ -132,6 +132,24 @@ undefined=unknown
 ```
 A documentation which device is proving which datapoint, please check the documentation from EQ3:
 [Datapoints for CCU1](http://www.eq-3.de/Downloads/PDFs/Dokumentation_und_Tutorials/HM_Script_Teil_4_Datenpunkte_1_503.pdf), [Datapoints for CCU2](http://www.eq-3.de/Downloads/Software/HM-CCU2-Firmware_Updates/Tutorials/hm_devices_Endkunden.pdf)
+
+To get the address from Homegear:
+
+1. `sudo homegear -r`
+2. `families select 0`
+3. `devices select central`
+4. `peers list`
+
+The result should be a table similar to this one, the address needed for OpenHAB is the serial number column in this table:
+
+	         ID │ Name                      │  Address │ Serial Number │ Type │ Type String               │ Firmware │ Config Pending │ Unreach
+	────────────┼───────────────────────────┼──────────┼───────────────┼──────┼───────────────────────────┼──────────┼────────────────┼────────
+	            │                           │          │               │      │                           │          │                │        
+	          1 │ Hutschiene                │   3840A6 │    MEQ0023488 │ 0061 │              HM-LC-Sw4-DR │      2.4 │             No │      No
+	────────────┴───────────────────────────┴──────────┴───────────────┴──────┴───────────────────────────┴──────────┴────────────────┴────────
+
+
+
 ### Program examples
 ```
 // binds to the Homematic program 'Testprogram'. 
