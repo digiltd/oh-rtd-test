@@ -14,7 +14,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2289](https://github.com/openhab/openhab/pull/2289) - LightwaveRf Binding (@foxy82)
 * [#2264](https://github.com/openhab/openhab/pull/2264) - MapDb persistence service (@JSurf)
 * [#2233](https://github.com/openhab/openhab/pull/2233) - [[Autelis Binding|Autelis-Binding]] (@digitaldan)
-* [#2228](https://github.com/openhab/openhab/pull/2228) - SagerWeatherCaster Binding (@clinique)
+* [#2228](https://github.com/openhab/openhab/pull/2228) - [[Sager WeatherCaster Binding|SagerWeatherCaster-Binding]] (@clinique)
 * [#2227](https://github.com/openhab/openhab/pull/2227) - [[Enphase Energy solar system Binding|Enphase-Energy-Binding]] (@sarnau)
 * [#2224](https://github.com/openhab/openhab/pull/2224) - [[Nest Binding|Nest-Binding]] (@watou)
 * [#2190](https://github.com/openhab/openhab/pull/2190) - [[Satel Integra security system Binding|Satel-Alarm-Binding]] (@druciak)
