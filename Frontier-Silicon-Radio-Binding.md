@@ -61,7 +61,7 @@ There are different types of item bindings, all of them are qualified with the d
 
 Example for the power state of a device with identifier `radio`:
 
-    Swtich RadioPower "Radio Power" { frontiersiliconradio="radio:POWER" }
+    Switch RadioPower "Radio Power" { frontiersiliconradio="radio:POWER" }
 
 A list of all properties and their possible item types is given below:
 
