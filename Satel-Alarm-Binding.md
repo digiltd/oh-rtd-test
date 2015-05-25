@@ -237,6 +237,9 @@ To control Integra partitions and outputs you need to provide security code of u
 
 Although this binding allows you to configure disarming a partition and clearing alarms for a partion, this should be used only in cases when security is not the priority. Don't forget both these operations can be executed in openHAB without specifying user code, which is required to disarm or clear alarms using Integra panel. Also don't forget to secure your openHAB installation by using HTTPS protocol and setting a user with password. Here is a page about security in openHAB: [Security](Security)
 
+## Media
+* [Arming and clearing troubles](https://www.youtube.com/watch?v=ogdgn0Dk1G8)
+
 ## TO DO
 
 * troubles support
