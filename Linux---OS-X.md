@@ -30,6 +30,8 @@
   ```
   sudo apt-get install openhab-runtime
   ```
+1. If you have more than one USB device, refer to [[symlinks]]
+
 1. Start the openHAB runtime
   1. Init based on sysVinit (e.g. Debian 7)
  
