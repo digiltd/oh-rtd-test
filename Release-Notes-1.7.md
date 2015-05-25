@@ -23,6 +23,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2227](https://github.com/openhab/openhab/pull/2227) - [[Enphase Energy solar system Binding|Enphase-Energy-Binding]] (@sarnau)
 * [#2224](https://github.com/openhab/openhab/pull/2224) - [[Nest Binding|Nest-Binding]] (@watou)
 * [#2190](https://github.com/openhab/openhab/pull/2190) - [[Satel Integra security system Binding|Satel-Alarm-Binding]] (@druciak)
+* [#2143](https://github.com/openhab/openhab/pull/2143) - Action/Rule support for the TinkerForge Binding (@theoweiss)
 * [#2076](https://github.com/openhab/openhab/pull/2076) - [[Ecobee Binding|Ecobee-Binding]] (@watou)
 * [#2046](https://github.com/openhab/openhab/pull/2046) - [[Mochad X10 Binding|Mochad-X10-Binding]] (@Jakey69)
 * [#2025](https://github.com/openhab/openhab/pull/2025) - Action/Rule support for the MiOS Bridge Binding. (@mrguessed)
@@ -37,7 +38,6 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#1698](https://github.com/openhab/openhab/pull/1698) - [[Bticino/Legrand OpenWebIf Binding|Bticino-Binding]] (@TomDeVlaminck)
 * [#1684](https://github.com/openhab/openhab/pull/1684) - [[Zibase Binding|Zibase-Binding]] (@jit06)
 * [#984](https://github.com/openhab/openhab/pull/984) - [[Wago Binding|WAGO-Binding]] (@BinaryCraX)
-* [#2143](https://github.com/openhab/openhab/pull/2143) - Action/Rule support for the TinkerForge Binding (@theoweiss)
 
 ####Enhancements:
 * [#2635](https://github.com/openhab/openhab/pull/2635) - [IHC] improved timeout handling (@paulianttila)
