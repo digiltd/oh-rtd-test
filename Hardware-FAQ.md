@@ -37,6 +37,9 @@ There you can find IdVendor, product, and IdProduct. Replace these IDs in the ru
 
 ARM-based computers are a popular choice due to low cost, small size, low power consumption and typically being fan-less. They are usually extensible with available add-on components and via programmable GPIO.
 
+**ONLY use the vendor forums recommended Wifi, SD card and power supply.**  These systems have NO headroom in any of their specs and may be flaky with other devices.  A lot of power supplies don't actually deliver what they claim, so again, go with a recommended model or you will get random flakiness.  
+
+
 | System   | Cost | Cores | Ghz | Model | Gb RAM | IO  |  Primary OS  |
 | -------- | ---- | ------|-----|-------| ------ | --- |----|
 | ODROID C1 | $36  | 4     | 1.5 | A7    | 1.0    | GPIO | Ubuntu |
