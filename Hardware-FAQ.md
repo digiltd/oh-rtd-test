@@ -37,7 +37,7 @@ There you can find IdVendor, product, and IdProduct. Replace these IDs in the ru
 
 ARM-based computers are a popular choice due to low cost, small size, low power consumption and typically being fan-less. They are usually extensible with available add-on components and via programmable GPIO.
 
-**ONLY use the vendor forums recommended Wifi, SD card and power supply.**  These systems have NO headroom in any of their specs and may be flaky with other devices.  A lot of power supplies don't actually deliver what they claim, so again, go with a recommended model or you will get random flakiness.  
+**ONLY use the vendor forums recommended Wifi, SD card and power supply.**  These systems have NO headroom in any of their specs and may be flaky with other devices.  A lot of power supplies don't actually deliver what they claim, so again, go with a recommended model or you will get random flakiness and reboots.  If you experience dropped or duplicated packets from a USB device (keyboard, wifi, Z-Wave), search the vendor's forums for "keyboard not working".  You may need to upgrade firmware or use specific ports and settings for the USB devices.
 
 
 | System   | Cost | Cores | Ghz | Model | Gb RAM | IO  |  Primary OS  |
