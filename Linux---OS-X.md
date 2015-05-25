@@ -15,10 +15,10 @@
 
 ## Installation
 1. You will need to install Java if not already installed.
-1. Add openHAB apt repository to the apt sources list
+1. Add openHAB apt repository to the apt sources list (Hint: the current openhab.list file will be overwritten)
 
   ```
-  echo "deb https://dl.bintray.com/openhab/apt-repo stable main" | sudo tee -a /etc/apt/sources.list
+  echo "deb http://dl.bintray.com/openhab/apt-repo stable main" | sudo tee /etc/apt/sources.list.d/openhab.list
   ```
 1. Resynchronize the package index
 
