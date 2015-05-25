@@ -4,13 +4,6 @@ FAQ about hardware to run the openHAB runtime
 
 This page summarizes how to get openHAB server running on specific hardware (it does not cover add-on bindings and modules).
 
-## General Hardware Platform Requirements
-
-The openHAB Runtime is a Java application. It requires JVM 1.6 or later.
-
-openHAB is expected to run on all platforms where the required JVM version is available. This includes Windows, Mac OS X, and Linux on x86, x86_64, and ARM architectures.
-
-openHAB can be installed and operated on AMD or Intel powered commodity laptop, a desktop computer, or  ARM based single-board computers. 
 
 Below are configuration notes for specific hardware.
 
