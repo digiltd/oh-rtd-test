@@ -50,11 +50,7 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 **NOTE** There is an issue with the zwave binding on the RPi and the RPi is **NOT RECOMMENDED** if you intend on using zwave. Refer to the [[z-wave binding]] for more information
 
 
-#### Java Installation
-
-Raspberry Pi has FPU coprocessor supported by Raspbian Wheezy Linux. 
-
-To setup your Raspberry Pi board for openHAB:
+#### Installation
 
 1. Install Raspbian Wheezy release 2014-01-07 or later. It includes Java 7 JRE that meets openHAB pre-requisite JVM requirements.
 
@@ -90,8 +86,6 @@ These systems have considerably more power than Raspberry Pi 1 and and range fro
 
 Recommended Linux distros:
 
-
-
 * **ODroid C1: $ 37 1.5 Ghz Quad Core, 1.0 Gb DDR3 RAM**  
 Use Ubuntu 14.04 
 
@@ -101,14 +95,9 @@ Use Ubuntu 14.04
 * **CubieBoard2:**  The CubieBoard2 or CubieTruck   The following Linux distros work with OpenHAB
 Use [Cubiuntu](http://cubiuntu.com)
 
-**2. Install Java Hard Floating point** 
-If not already present, use (http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html). 
-Note: Oracle JAVA is recommended.  Bindings may not work properly with OpenJava.
-
-**3. Install and setup OpenHAB**   Use apt-get as described below
+**2. Install and setup OpenHAB**   - as described in
 [[Linux---OS-X]]
 
-**4. Use symlinks if you use more than one USB port**    See [[symlinks]]
 
 
 ## Synology Diskstation
