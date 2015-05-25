@@ -54,7 +54,7 @@ ARM-based computers are a popular choice due to low cost, small size, low power 
 
 1. Install Raspbian Wheezy release 2014-01-07 or later. It includes Java 7 JRE that meets openHAB pre-requisite JVM requirements.
 
-2. Install openHAB. 
+1. Install openHAB. 
 
 Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is available for download from Oracle or from [Apt Repository](https://github.com/openhab/openhab/wiki/Apt-Repository).
 
@@ -95,7 +95,9 @@ Use Ubuntu 14.04
 * **CubieBoard2:**  The CubieBoard2 or CubieTruck   The following Linux distros work with OpenHAB
 Use [Cubiuntu](http://cubiuntu.com)
 
-**2. Install and setup OpenHAB**   - as described in
+**2. Install JAVA** - see [java installation](http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html)
+
+**3. Install and setup OpenHAB**   - as described in
 [[Linux---OS-X]]
 
 
