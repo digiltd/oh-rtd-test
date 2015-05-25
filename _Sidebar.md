@@ -120,6 +120,7 @@ Community
   * [[Plex Binding|Plex-Binding]]
   * [[Plugwise Binding|Plugwise-Binding]]
   * [[PLCBus Binding|PLC-Bus-Binding]]
+  * [[Primare Binding|Primare-binding]]
   * [[Pulseaudio Binding|Pulseaudio-Binding]]
   * [[RFXCOM Binding|RFXCOM-Binding]]
   * [[Sager WeatherCaster Binding|SagerWeatherCaster-Binding]]
