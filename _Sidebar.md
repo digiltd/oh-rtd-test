@@ -2,6 +2,7 @@ Installation
  * [[Quick Setup|Quick-Setup-an-openHAB-Server]]
   * [[Linux / OS X|Linux---OS-X]]
     * [[Hardware FAQ|Hardware-FAQ]]
+    * [[Multiple USB ports and symlinks|symlinks]]
   * [[Windows|Windows]]
  * [[Configuration|Configuring-the-openHAB-runtime]]
   * [[Items|Explanation-of-Items]]
