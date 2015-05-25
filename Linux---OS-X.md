@@ -7,7 +7,7 @@
 
 
 
-**Note**: for Hardware specific approach (e.g. ARM boards like Raspberry Pi) please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ).
+**Note**: for Hardware specific details (e.g. ARM boards like Raspberry Pi) please visit the [Hardware FAQ](https://github.com/openhab/openhab/wiki/Hardware-FAQ).
 
 # apt-get
 * Prerequisites: java 7 or newer
