@@ -1,4 +1,5 @@
-**Use symlinks if you use more than one USB port.** Create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
+**Use symlinks if you use more than one USB port.**  If you have more than one USB device (e.g. a Zwave dongle and an RFXCOM dongle, the USB name will change every time you reboot.  To prevent this, 
+create or add to existing file (/etc/udev/rules.d/50-usb-serial.rules) a rule like the following:
 
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{product}=="RFXrec433", SYMLINK+="USBrfx", GROUP="dialout", MODE="0666" SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="USBzwave", GROUP="dialout", MODE="0666"
 
