@@ -1,5 +1,3 @@
-Documentation for the Denon AV-receiver binding
-
 ## Introduction
 
 This binding supports Denon AV receivers. It is available from openHAB 1.7.0 onwards. It should be compatible with previous generation receivers (AVR-X2000/X3000 etc) as well as the current ones (X2100W/X3100W). 
