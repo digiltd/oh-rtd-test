@@ -1,6 +1,6 @@
-# openHAB Enphase Energy Binding
+## Introduction
 
-openHAB [Enphase Energy](http://enphase.com) Binding.
+This is the documentation for the [Enphase Energy](http://enphase.com) Binding.
 
 ## Configuration
 
