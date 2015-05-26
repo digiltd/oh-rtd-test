@@ -41,6 +41,7 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 * Issue a rough Smoke-Test (unpack runtime and demo, start runtime, access Classic-UI)
 * check if Designer (for at least xxx and Windows) works
 * upload deb and p2 Repository
+* add new bindings to http://www.openhab.org/features-tech.html
 
 ### Upload the deb Repository to bintray
 * open a web browser go to the bintray openHAB organisation, step into the apt-repo repository, add a new __Version__ to the openhab package: e.g. 1.7.0.RC2
