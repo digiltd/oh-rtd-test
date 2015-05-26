@@ -4,9 +4,13 @@ Documentation of the mapdb Persistence Service
 
 The mapdb Persistence Service is based on simple key-value store http://www.mapdb.org/
 
+## Since 
+
+1.7.0
+
 ## Features
 
-The mapdb Persistence Service is a simple persistence provider that only saves the last value. Intention is to use this for "reloadOnStartup" items because all other presistence options have their drawbacks if values are only needed for reload
+The mapdb Persistence Service is a simple persistence provider that only saves the last value. Intention is to use this for "reloadOnStartup" items because all other persistence options have their drawbacks if values are only needed for reload
 
 They:
 a) grow in time
