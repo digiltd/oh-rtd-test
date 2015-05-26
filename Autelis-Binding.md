@@ -1,5 +1,3 @@
-_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
-
 ## Introduction
 
 Autelis manufactures a network enabled pool interface for many popular pool systems.  See [the Autelis webiste](http://www.autelis.com) and the  [Autelis Command Protocol](http://www.autelis.com/wiki/index.php?title=Pool_Control_(PI)_HTTP_Command_Reference) for more information.
