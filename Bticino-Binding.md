@@ -1,5 +1,3 @@
-Documentation of the Bticino Binding Bundle
-
 ### Introduction
 
 The openHAB Bticino binding allows to connect to Bticino My Home Automation installations by OpenWebNet protocol.
