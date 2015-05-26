@@ -1,5 +1,3 @@
-Documentation for the Plex binding
-
 ## Introduction
 
 This binding supports multiple clients connected to a [Plex Media Server](http://plex.tv). With this binding it's possible to dim your lights when a video starts playing for example. Here's a [short demo video](https://www.youtube.com/watch?v=igAUFCZ-zXc).
