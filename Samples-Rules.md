@@ -14,6 +14,7 @@ Samples for Rules
 * [Koubachi remind the water level](Samples-Rules#koubachi-remind-the-water-level)
 * [Create text item to combine two values and format string options](Samples-Rules#create-text-item-to-combine-two-values-and-format-string-options)
 * [Get an email when battery powered devices are running low on power](Samples-Rules#get-an-email-when-battery-powered-devices-are-running-low-on-power)
+* [Initialize all items in a group which are still uninitialized after startup](Samples-Rules#Initialize-all-items-which-are-still-ininitialized-after-startup)
 
 ### How to turn on light when motion detected and is dark?
 
@@ -967,3 +968,35 @@ then
     }
 end
 ```
+
+### Initialize all items which are still uninitialized after startup
+With some databases it takes time until all values are initialized.
+This script checks if after some time there are still uninitialized
+items in a group called "gInitializeZero" and sets them to zero.
+[Link to Gist](https://gist.github.com/spacemanspiff2007/6463d71d5c73a566bad1)
+```
+rule "Initialize all items"
+when
+	System started
+then
+	logInfo(	"Initializer", "Started Timer ...")
+	
+	
+	createTimer(now.plusSeconds(45)) [|
+		
+		logInfo(	"Initializer", "... initializing!")
+		//Wir warten 45 Sekunden, dann initalisieren wir alle die nicht aus der Datenbank befüllt wurden
+		gInitializeZero.members.filter( x | x.state == Uninitialized).forEach[ item |
+			
+			postUpdate( item, 0)
+		]
+	]
+end
+
+```
+
+items-File
+```
+Number  cTemperature_Chart_Period   (gInitializeZero)
+```
+
