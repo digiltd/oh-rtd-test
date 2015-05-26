@@ -1,4 +1,3 @@
-Documentation of the SagerWeatherCaster binding bundle.
 
 ## Introduction
 
