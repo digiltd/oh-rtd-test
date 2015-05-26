@@ -1,4 +1,3 @@
-_**Note:** This Binding will be available in the upcoming 1.7 Release. For preliminary builds please see the [CI server at Cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/)._
 
 ## Introduction
 
