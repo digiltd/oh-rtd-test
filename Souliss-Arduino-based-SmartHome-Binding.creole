@@ -20,7 +20,7 @@ You need to change the IP address inside the sketch according to one free IP add
     using SoulissApp (get it from Play Store).  
     
     Run this code on one of the following boards:
-      - Arduino with ENC28J60 Ethernet Shield
+      - Arduino with W5100 Ethernet Shield
         
 ***************************************************************************/
 
