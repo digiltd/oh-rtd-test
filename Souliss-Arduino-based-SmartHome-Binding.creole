@@ -302,7 +302,7 @@ String TIMESTAMP_Nodo1_GF_Servizio "Timestamp Nodo 1 [%1$td.%1$tm.%1$tY %1$tk:%1
 
 == Download ==
 
-The Souliss binding is actually in the approval process to be included in openHAB, you can download it directly from the Souliss project [[download page|https://github.com/souliss/souliss/wiki/Downloads]] or get always the laster available via direct link [[here|https://drive.google.com/drive/u/0/folders/0BzyjHRwlzov4WlgtSG0tejJ3aE0]] 
+The Souliss binding has been included starting from openHAB 1.7. As alternative you can also download it directly from the Souliss project [[download page|https://github.com/souliss/souliss/wiki/Downloads]] page. 
 
 
 == Get Support with the Community ==
