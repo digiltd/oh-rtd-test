@@ -38,7 +38,7 @@ Community
  * [[Bindings]]
   * [[AlarmDecoder Binding|AlarmDecoder-binding]]
   * [[Anel Binding|Anel-binding]]
-  * [[Arduino SmartHome Souliss Binding|Souliss---Arduino-based-SmartHome---openHAB-Binding]]
+  * [[Arduino SmartHome Souliss Binding|Souliss-Arduino-based-SmartHome-Binding]]
   * [[Asterisk Binding|Asterisk-Binding]]
   * [[Astro Binding|Astro-binding]]
   * [[Autelis Pool Control Binding|Autelis-Binding]]
