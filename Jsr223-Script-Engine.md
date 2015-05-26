@@ -6,7 +6,7 @@
 This addon allows the usage of different scripting languages as basis for rules. It was tested with the Jython-Scripting-Runtime and all examples rely on this scripting language. Feel free to contribute to this wiki, if you are using another language like JRuby.
 
 ## Installation
-The package needs to be installed to addons like any other addon. But by default it does not come with any scripting language except the build-in Nashorn-Engine. But this JavaScript-Engine is not that comportable to use, so it is recommended to use another scripting language like Jython.
+The package needs to be installed to addons like any other addon. But by default it does not come with any scripting language except the build-in Nashorn-Engine. But this JavaScript-Engine is not that comfortable to use, so it is recommended to use another scripting language like Jython.
 
 ### Jython-Installation
 - Download Jython 2.7.0 from http://www.jython.org/downloads.html as an installer package.
@@ -103,9 +103,9 @@ def getRules():
 ```
 
 ## Interaction with Openhab
-In general all interaction is done throw the oh object. It has support for the following
+In general all interaction is done through the oh object. It has support for the following:
 
-### logging
+### Logging
 * oh.logDebug(logger_name, format, arg0,....)
 * oh.logInfo(logger_name, format, arg0,....)
 * oh.logWarn(logger_name, format, arg0,....)
@@ -123,14 +123,14 @@ In general all interaction is done throw the oh object. It has support for the f
 * oh.restoreStates([Map<Item, State>] statesMap)
 
 ### ItemRegistry
-*  ItemRegistry.getItem(itemName) 
+* ItemRegistry.getItem(itemName) 
 * ItemRegistry.getItemByPattern(String name)
 * ItemRegistry.getItems()
 * ItemRegistry.getItems(String pattern)
 * ItemRegistry.isValidItemName(String itemName)
 
-### Accessing actions:
-To access the old known methods (all actions) the openhab interface supports getActions() and getAction(name_of_action_provider)
+### Accessing actions
+To access the old known methods (all actions) the openhab interface supports getActions() and getAction(name_of_action_provider).
 
 ```
 oh.getActions()
