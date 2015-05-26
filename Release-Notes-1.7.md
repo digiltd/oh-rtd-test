@@ -6,7 +6,7 @@ Please find below the _intermediary_ release notes of the 1.7 Release.
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.7.0).
 
-####Major Features:
+#### Major Features:
 * [#2626](https://github.com/openhab/openhab/pull/2626) - Redesigned version of onewire binding (@Dennis650)
 * [#2625](https://github.com/openhab/openhab/pull/2625) - [[Primare Binding|Primare-binding]] (@vpjuslin)
 * [#2585](https://github.com/openhab/openhab/pull/2585) - [[Souliss Binding|Souliss-Arduino-based-SmartHome-Binding]] (@fazioa)
@@ -100,7 +100,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 ####Removals:
 * none
 
-####major API changes
+#### Major API changes
 * none
 
 ## Updating the openHAB runtime 1.6 to 1.7
@@ -113,3 +113,5 @@ If you have a running openHAB runtime 1.6 installation, you can easily update it
 If you use the openHAB deb packages from the apt repository
  1. Add this line to your sources.list: "deb http://dl.bintray.com/openhab/apt-repo   stable    main“
  1. Open a command-line  and execute: apt-get update && apt-get upgrade
+
+**NOTE: The upgrade process may overwrite your start script, so any custom modifications added to the openHAB launch command may need to be re-customized.**  An example of this is the use of named serial port instances with the option `-Dgnu.io.rxtx.SerialPorts=/dev/ttyAMA0`.  A restart may also be required.
