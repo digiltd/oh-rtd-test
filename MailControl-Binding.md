@@ -1,3 +1,5 @@
+## Introduction
+
 MailControl binding provides possibility to receive commands sent via email in JSON format.
 
 Commands of the following types can be sent:
