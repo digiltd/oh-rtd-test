@@ -92,6 +92,7 @@ Community
   * [[Leviton/HAI Omnilink Binding|Omnilink-Binding]]
   * [[Lg TV Binding|Lg-TV]]
   * [[Logitech Harmony Hub|Logitech-Harmony-Hub-Binding]]
+  * [[MailControl Binding|MailControl-Binding]]
   * [[MAX!Cube-Binding]]
   * [[MAX! CUL Binding|MAX!-CUL-Binding]]
   * [[MiLight Binding|Milight-Binding]]
