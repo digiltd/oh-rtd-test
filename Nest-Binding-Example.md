@@ -2,7 +2,7 @@
 
 The contents of `nest.items` and `nest.sitemap` demonstrate a possible user interface that's backed by the Nest binding.
 
-![sample](https://lh4.googleusercontent.com/-3xl5cUr2wqs/VPo41XcUkAI/AAAAAAAAAvc/s8xY5gHuC0I/s1600/sample.jpg)
+![sample](http://watou.github.io/images/nest-binding-example.jpg)
 
 ### nest.items
 
@@ -132,4 +132,3 @@ rule "Windows Closed (all)"
     }
 end
 ```
-
