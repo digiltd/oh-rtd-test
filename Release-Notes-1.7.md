@@ -91,6 +91,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2327](https://github.com/openhab/openhab/pull/2327) - Reduced zwave wakeup time to improve battery life (@cdjackson)
 * [#2143](https://github.com/openhab/openhab/pull/2143), [#2417](https://github.com/openhab/openhab/pull/2417) - TinkerForge Binding new devices: Joystick, Linear Poti, Dual Button Bricklet, PTC Bricklet, Industrial Dual 0-20mA Bricklet, Solid State Relay Bricklet. Full support for Brick DC and Brick Servo. Tinkerforge API update to 2.1.4. Authentication support for brickd. Tactile feature for Dualbutton, LCD Buttons, Joystick Button. (@theoweiss)
 * [#2141](https://github.com/openhab/openhab/pull/2141) - systemd support for the openHAB runtime deb package (@theoweiss)
+* [#2347](https://github.com/openhab/openhab/pull/2347) - [Icons] Added more advanced icons (@cniweb)
 
 ####Bugfixes:
 * [#2645](https://github.com/openhab/openhab/pull/2645) - Fix for #2210 - Dimmer item keeps sending INCREASING/DECREASING command (@sja)
@@ -143,6 +144,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2315](https://github.com/openhab/openhab/pull/2315) - Correcting Netatmo bug #2314 (@clinique)
 * [#2141](https://github.com/openhab/openhab/pull/2141) - Fix permission issues for runtime deb package (@theoweiss)
 * [#2211](https://github.com/openhab/openhab/pull/2211) - Influxdb fix for restoring switch or contact state (@theoweiss)
+* [#1697](https://github.com/openhab/openhab/pull/1697) - Weather: Update yahoo weather XSLs and add german scale for humidex (@cniweb)
 
 ####Removals:
 * none
