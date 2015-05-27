@@ -169,7 +169,7 @@ Number NestCondo_temp "Condo temperature [%.1f °F]" {nest="<[structures(Condo).
 
 * [[Nest Binding Example (new)|Nest-Binding-Example]]
 
-  ![sample](https://lh4.googleusercontent.com/-3xl5cUr2wqs/VPo41XcUkAI/AAAAAAAAAvc/s8xY5gHuC0I/s1600/sample.jpg)
+  ![sample](http://watou.github.io/images/nest-binding-example.jpg)
 
 
 ## Known Issues
