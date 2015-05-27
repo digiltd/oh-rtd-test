@@ -11,7 +11,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2625](https://github.com/openhab/openhab/pull/2625) - [[Primare Binding|Primare-binding]] (@vpjuslin)
 * [#2585](https://github.com/openhab/openhab/pull/2585) - [[Souliss Binding|Souliss-Arduino-based-SmartHome-Binding]] (@fazioa)
 * [#2576](https://github.com/openhab/openhab/pull/2576) - [[Frontiersiliconradio Binding|Frontier-Silicon-Radio-Binding]] (@paphko)
-* [#2574](https://github.com/openhab/openhab/pull/2574) - Mailcontrol Binding (@apereverzin)
+* [#2574](https://github.com/openhab/openhab/pull/2574) - [[Mailcontrol Binding|MailControl-Binding]] (@apereverzin)
 * [#2547](https://github.com/openhab/openhab/pull/2547) - my.openHAB Bundle (@belovictor)
 * [#2378](https://github.com/openhab/openhab/pull/2378) - [[JSR 223 Script-Engine|Jsr223-Script-Engine]] (@smerschjohann)
 * [#2333](https://github.com/openhab/openhab/pull/2333) - [[HMS Binding|HMS-Binding]] (@swatchy2dot0)
