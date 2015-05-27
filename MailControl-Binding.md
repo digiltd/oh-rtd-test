@@ -19,6 +19,9 @@ MailControl binding is getting use of the following libraries:
 1) access-email-1.0.2.jar (https://github.com/apereverzin/access-email) which needs the following jars: mail-1.4.jar, activation-1.1.jar
 2) openhab-mailcontrol-model-1.0.0.jar (https://github.com/apereverzin/openhab-mailcontrol-model) which needs json-simple-1.1.jar
 
+
+## Configuration
+
 Example of configuration properties for the Message Control binding:
 
 mailcontrol:username=email.address@some.com
@@ -32,6 +35,8 @@ mailcontrol:pop3host=pop.mail.some.com
 mailcontrol:pop3port=995
 mailcontrol:pop3socketfactoryport=995
 mailcontrol:pop3socketfactoryclass=javax.net.ssl.SSLSocketFactory
+
+## Examples
 
 Examples of messages for different types of commands:
 
