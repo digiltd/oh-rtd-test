@@ -439,7 +439,7 @@ Number nilan_t14_div	"EK supply (t14) [%2.2f °C]" <temperature> (nilan_aggregat
 Number nilan_t15_div	"User Panel room (t15) [%2.2f °C]" <temperature> (nilan_aggregated)
 
 Switch nilan_onoff	"Device main power"		(heat_nilan) {modbus="nilan2:0"}
-Number nilan_user_operation_mode "User ventilation step select" (heat_nilan) {modbus="nilan2:1"}
+Number nilan_user_operation_mode "User operation mode" (heat_nilan) {modbus="nilan2:1"}
 Number nilan_vent	"User ventilation step select [Level]" (heat_nilan) {modbus="nilan2:2"}
 Number nilan_user_tempset	"User temperature selection [%d °C]" (heat_nilan) {modbus="nilan2:3"}
 Number nilan_user_tempset_div "User temperature selection [%d °C]" (nilan_aggregated)
