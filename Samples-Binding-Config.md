@@ -368,6 +368,14 @@ modbus:serial.nilan.type=input
 modbus:serial.pollinterval=2000
 
 modbus:serial.nilan.valuetype=int16
+
+# write out nilan connection
+modbus:writemultipleregisters=true
+modbus:serial.nilan2.connection=/dev/ttyUSB0:19200:8:even:1:rtu
+modbus:serial.nilan2.id=30
+modbus:serial.nilan2.start=1001
+modbus:serial.nilan2.length=4
+modbus:serial.nilan2.type=holding
 ```
 rules/demo.rules
 ```
@@ -428,4 +436,41 @@ Number nilan_t12_div	"Boiler Bottom (t12) [%2.2f °C]" <temperature> (nilan_aggr
 Number nilan_t13_div	"EK return (t13) [%2.2f °C]" <temperature> (nilan_aggregated)
 Number nilan_t14_div	"EK supply (t14) [%2.2f °C]" <temperature> (nilan_aggregated)
 Number nilan_t15_div	"User Panel room (t15) [%2.2f °C]" <temperature> (nilan_aggregated)
+
+Switch nilan_onoff	"nilan device power"		(heat_nilan) {modbus="nilan2:0"}
+Number nilan_vent	"nilan User ventilation step selec" (heat_nilan) {modbus="nilan2:2"}
+```
+
+sitemaps/demo.sitemap
+```
+sitemap demo label="Main Menu"
+{
+Frame label="Nilan Overview" {
+	Text item=nilan icon="firstfloor" label="Nilan heatpump" {
+		Frame {
+			Switch item=nilan_onoff
+			Selection item=nilan_vent mappings=[1="1", 2="2", 3="3", 4="4"]
+			
+			Text item=nilan_t15_div
+			Text item=nilan_t11_div valuecolor=[>45="green",<=40"blue",<20"red"]
+			Text item=nilan_t12_div valuecolor=[>45="green",<=45"blue",<20"red"]
+			
+			Text item=nilan_t7_div
+			Text item=nilan_t10_div
+		}
+		Frame {
+			//in & outlets
+			Text item=nilan_t1_div
+			Text item=nilan_t4_div
+			Text item=nilan_t8_div
+			Text item=nilan_t5_div
+			Text item=nilan_t6_div
+			
+			Text item=nilan_t0_div
+			Text item=nilan_t2
+			//Text item=Weather_Humidity
+		}
+	}
+}
+}
 ```
