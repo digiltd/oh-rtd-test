@@ -438,8 +438,11 @@ Number nilan_t13_div	"EK return (t13) [%2.2f °C]" <temperature> (nilan_aggregat
 Number nilan_t14_div	"EK supply (t14) [%2.2f °C]" <temperature> (nilan_aggregated)
 Number nilan_t15_div	"User Panel room (t15) [%2.2f °C]" <temperature> (nilan_aggregated)
 
-Switch nilan_onoff	"nilan device power"		(heat_nilan) {modbus="nilan2:0"}
-Number nilan_vent	"nilan User ventilation step selec" (heat_nilan) {modbus="nilan2:2"}
+Switch nilan_onoff	"Device main power"		(heat_nilan) {modbus="nilan2:0"}
+Number nilan_user_operation_mode "User ventilation step select" (heat_nilan) {modbus="nilan2:1"}
+Number nilan_vent	"User ventilation step select [Level]" (heat_nilan) {modbus="nilan2:2"}
+Number nilan_user_tempset	"User temperature selection [%d °C]" (heat_nilan) {modbus="nilan2:3"}
+Number nilan_user_tempset_div "User temperature selection [%d °C]" (nilan_aggregated)
 ```
 
 sitemaps/demo.sitemap
@@ -450,7 +453,9 @@ Frame label="Nilan Overview" {
 	Text item=nilan icon="firstfloor" label="Nilan heatpump" {
 		Frame {
 			Switch item=nilan_onoff
-			Selection item=nilan_vent mappings=[1="1", 2="2", 3="3", 4="4"]
+			Selection item=nilan_user_operation_mode mappings=[0="Off", 1="Heat", 2="Cool", 3="AUTO", 4="Service"]
+			Switch item=nilan_vent mappings=[1="1", 2="2", 3="3", 4="4"]
+			Text item=nilan_user_tempset_div
 			
 			Text item=nilan_t15_div
 			Text item=nilan_t11_div valuecolor=[>45="green",<=40"blue",<20"red"]
