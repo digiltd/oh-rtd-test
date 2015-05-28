@@ -43,7 +43,7 @@ By attaching code to the issue tracker or posting code in the discussion groups,
 To ensure code quality in our official repository, the project owners do code reviews before merging contributions into the main repository. There are some rules that every contribution should follow:
 
 1. The [Java naming conventions](http://java.about.com/od/javasyntax/a/nameconventions.htm) should be used.
-1. Every Java file must have a [license header](https://github.com/openhab/openhab/blob/master/src/etc/header.txt). You can run ```mvn license:format``` on the root of the repo to automatically add missing headers.
+1. Every Java file must have a [license header](https://github.com/openhab/openhab/blob/master/src/etc/header.txt). You can run ```mvn license:format -Dtycho.mode=maven``` on the root of the repo to automatically add missing headers.
 1. Every class, interface and enumeration should have JavaDoc describing its purpose and usage.
 1. Every class, interface and enumeration must have an @author tag in its JavaDoc for every author that wrote a substantial part of the file.
 1. Every constant, field and method with default, protected or public visibility should have JavaDoc (optional, but encouraged for private visibility as well)
