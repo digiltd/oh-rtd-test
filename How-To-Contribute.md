@@ -33,7 +33,7 @@ Once your code is ready and accepted (see code style section below), it is then 
 
 ## Licensing
 
-As openHAB is licensed under the Eclipse Public License (EPL), your code should include the [standard openHAB license headers](https://github.com/openhab/openhab/blob/master/src/etc/header.txt) as well. To automatically add it to your code, you can run `mvn license:format`.
+As openHAB is licensed under the Eclipse Public License (EPL), your code should include the [standard openHAB license headers](https://github.com/openhab/openhab/blob/master/src/etc/header.txt) as well. To automatically add it to your code, you can run `mvn license:format -Dtycho.mode=maven`.
 
 By contributing code to openHAB, we therefore implicitly assume your approval to make it available under the EPL and that you have the right to give us the approval (i.e. the code does not contain any intellectual property that belongs to somebody else).
 By attaching code to the issue tracker or posting code in the discussion groups, the contributor implicitly grants rights to use the code under the above mentioned terms and conditions. 
