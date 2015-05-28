@@ -10,8 +10,8 @@ Date        | Description
 ## Introduction
 The eBUS binding allows you to control your heating system. The eBus protocol is used by heating system vendors like Wolf, Vaillant, Kromschröder etc. You can read temperatures, pump performance, gas consumption etc.
 
-	┌────────┐                                          ┌──────┐
-	│        │  serial (eBUS)  ┌───┐ serial/usb (rs232) │ ──── │
+	┌────────┐                       serial/usb (rs232) ┌──────┐
+	│        │  serial (eBUS)  ┌───┐ or ethernet        │ ──── │
 	│        │<--------------->│ X │<------------------>│ :    │
 	│  ◊◊◊◊  │                 └───┘                    └──────┘
 	└────────┘
