@@ -1,5 +1,5 @@
 
-## Change log
+## Changelog
 
 Date        | Description
 ---         | ---
@@ -8,27 +8,27 @@ Date        | Description
 21.01.2015  | Add new vaillant configuration ``vaillant-bai00``
 
 ## Introduction
-The eBus binding allows you to control your heating system. The eBus protocol is used by heating system vendors like Wolf, Vaillant, Kromschröder etc. You can read temperatures, pump performance, gas consumption etc.
+The eBUS binding allows you to control your heating system. The eBus protocol is used by heating system vendors like Wolf, Vaillant, Kromschröder etc. You can read temperatures, pump performance, gas consumption etc.
 
 	┌────────┐                                          ┌──────┐
-	│        │  serial (eBus)  ┌───┐ serial/usb (rs232) │ ──── │
+	│        │  serial (eBUS)  ┌───┐ serial/usb (rs232) │ ──── │
 	│        │<--------------->│ X │<------------------>│ :    │
 	│  ◊◊◊◊  │                 └───┘                    └──────┘
 	└────────┘
-	Heating Unit             eBus Adapter              openHAB Server
+	Heating Unit             eBUS Adapter              openHAB Server
 
-To access your heating system you either need an eBus interface. You can buy a ready interface or solder your own circuit (examples: [eBus Wiki](http://ebus.webhop.org/twiki/bin/view.pl/EBus/EBusKonverter)). A simple read-only interface can be build with an Arduino device.
+To access your heating system you either need an eBus interface. You can buy a ready interface or solder your own circuit (examples: [eBUS Wiki](http://ebus.webhop.org/twiki/bin/view.pl/EBus/EBusKonverter)). A simple read-only interface can be build with an Arduino device.
 
 For installation of the binding, please see Wiki page [[Bindings]]. You can download the latest binding from here: 
-[eBus binding 1.7.0 SNAPSHOT](https://buildhive.cloudbees.com/job/openhab/job/openhab/lastStableBuild/org.openhab.binding$org.openhab.binding.ebus/artifact/org.openhab.binding/org.openhab.binding.ebus/1.7.0-SNAPSHOT/org.openhab.binding.ebus-1.7.0-SNAPSHOT.jar)
+[eBUS binding 1.7.0 SNAPSHOT](https://buildhive.cloudbees.com/job/openhab/job/openhab/lastStableBuild/org.openhab.binding$org.openhab.binding.ebus/artifact/org.openhab.binding/org.openhab.binding.ebus/1.7.0-SNAPSHOT/org.openhab.binding.ebus-1.7.0-SNAPSHOT.jar)
 
 ## Binding Configuration in openhab.cfg
 
-You can find the configuration section for the eBus binding in file configurations/openhab.cfg, section "eBus Binding". 
+You can find the configuration section for the eBus binding in file configurations/openhab.cfg, section "eBUS Binding". 
 
 For your convenience you can see the relevant section as follows:
 
-	# Serial port of eBus interface
+	# Serial port of eBUS interface
 	# Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux
 	ebus:serialPort=COM2
 	
@@ -59,10 +59,10 @@ A sample configuration could look like:
 	ebus:serialPort=COM2
 	ebus:parsers=common,wolf
 	
-## Bind Items to eBus
+## Bind Items to eBUS
 
 ### Description
-In order to bind an item to a eBus value you need to provide configuration settings. The easiest way to do so is to add binding information in your 'item file' (in the folder configurations/items`). The syntax for the eBus binding configuration string is explained here:
+In order to bind an item to a eBus value you need to provide configuration settings. The easiest way to do so is to add binding information in your 'item file' (in the folder configurations/items`). The syntax for the eBUS binding configuration string is explained here:
 
 ### Parameters
 
@@ -79,10 +79,10 @@ Sometimes more than one bus participant will send telegrams with given ``id`` an
 
 Parameter      | Description
 ---            | ---
-id             | Defined together with ``class`` to read a value from eBus. The ``class`` is required to distinguish modules in your system. Sometimes you can access the same value with different id/class combinations with different precisions.
+id             | Defined together with ``class`` to read a value from eBUS. The ``class`` is required to distinguish modules in your system. Sometimes you can access the same value with different id/class combinations with different precisions.
 class          | Together with ``id`` it addresses a unique value from your system.
-dst            | Filter telegrams for a specified destination eBus address (hex string).
-src            | Filter telegrams for a specified source eBus address (hex string).
+dst            | Filter telegrams for a specified destination eBUS address (hex string).
+src            | Filter telegrams for a specified source eBUS address (hex string).
 
 #### Writing parameter
 
@@ -103,30 +103,30 @@ The binding tries to send a commando up to five times before it cancels a reques
 On some systems it is required to request answers from bus participants regularly. In this case you can use the parameter ``refresh`` to send the command or RAW data automatically every n seconds.
 
 ##### RAW data
-It is also possible to send a raw eBus telegram directly without any programmatic help. You have to write the telegram as hex string like ``FF 08 50 22 03 CC 9A 01 00``. The last byte will be automatic replaced by a valid checksum if it not the sync byte ``FF``.
+It is also possible to send a raw eBUS telegram directly without any programmatic help. You have to write the telegram as hex string like ``FF 08 50 22 03 CC 9A 01 00``. The last byte will be automatic replaced by a valid checksum if it not the sync byte ``FF``.
 
 You should use this parameter only in special cases and prefere ``cmd`` instead.
 
 Parameter      | Description
 ---            | ---
-cmd            | This allows you to send a command to the eBus. This parameter also needs the ``class`` parameter to addresses a unique command.
+cmd            | This allows you to send a command to the eBUS. This parameter also needs the ``class`` parameter to addresses a unique command.
 class          | Together with ``cmd`` it addresses a unique value from your system.
-dst            | Define the destination eBus address as hex value for the telegram. 
-src            | Defines the source eBus address as hex value for the telegram. Or default value ``FF`` would be used. You can overwrite this inf ``openhab.cfg``.
-refresh        | If you set a refresh interval (sec.) the command will be automatic send via eBus. This is usually used to poll data from your system.
+dst            | Define the destination eBUS address as hex value for the telegram. 
+src            | Defines the source eBUS address as hex value for the telegram. Or default value ``FF`` would be used. You can overwrite this inf ``openhab.cfg``.
+refresh        | If you set a refresh interval (sec.) the command will be automatic send via eBUS. This is usually used to poll data from your system.
 data           | Instead of the ``cmd`` parameter you can send a raw telegram as hex string. The last byte will be replaced by the calculated crc value if is not ``FF``.
 data-{STATE}   | Same as parameter ``data``, but is only send on the specified state of the item. As example you can define a switch item with ``data-ON`` and ``data-OFF`` to send two different telegrams per state.
 
 ## Examples
 
-### Receive values from eBus
+### Receive values from eBUS
 
 	ebus="id:no_of_firing, class:heating_kw, dst:08"
 
-This item configuration receives the number of firings from the eBus. This is defined by parameter ``id`` and ``class``. But in this case we only want telegrams with the destination address 0x08. But keep in mind that this a read-only configuration. So we can only receive values that are submitted as broadcast or requested by a device.
+This item configuration receives the number of firings from the eBUS. This is defined by parameter ``id`` and ``class``. But in this case we only want telegrams with the destination address 0x08. But keep in mind that this a read-only configuration. So we can only receive values that are submitted as broadcast or requested by a device.
 Optionally you can also filter the source address with the parameter ``src``.
 
-### Reading values from eBus regularly (Polling)
+### Reading values from eBUS regularly (Polling)
 
 	ebus="id:no_of_firing, class:heating_kw, cmd:no_of_firing, dst:08, src:FF, refresh:60"
 
@@ -136,7 +136,7 @@ This example is similar to the previous example, but here we active request this
 
 	ebus="id:no_of_firing, class:heating_kw, data:FF 08 50 22 03 CC 1A 27 00"
 
-In this example we send a raw telegram as hex string instead a already defined command. The last byte is replaced by the calculated crc value if it's not 0xFF (eBus sync byte). But you should prefer the ``cmd`` parameter. 
+In this example we send a raw telegram as hex string instead a already defined command. The last byte is replaced by the calculated crc value if it's not 0xFF (eBUS sync byte). But you should prefer the ``cmd`` parameter. 
 
 ### Send raw telegram by item satus
 
@@ -148,7 +148,7 @@ Similar to the last example, but we use different telegrams per item state. If y
 
 ### Common
 
-This is a list based on the eBus specification - Application Layer - OSI 7 V1.6.3 from 03/2007
+This is a list based on the eBUS specification - Application Layer - OSI 7 V1.6.3 from 03/2007
 
 ID                     | Class             | Command                | Item type | Description
 ---                    | ---               | ---                    | ---       | ---
