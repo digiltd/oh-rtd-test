@@ -58,7 +58,7 @@ Community
   * [[DMX512 Binding|DMX-Binding]]
   * [[DSC Alarm Binding|DSC-Alarm-Binding]]
   * [[DSMR Binding|DSMR-binding]]
-  * [[eBus Binding|eBus-Binding]]
+  * [[eBUS Binding|eBus-Binding]]
   * [[Ecobee Binding|Ecobee-Binding]]
   * [[EDS OWSever Binding|EDS-OWServer-Binding]]
   * [[eKey Binding|ekey-Binding]]
