@@ -201,8 +201,8 @@ contact sensor, a front door lock, a button of a mini remote, a KeypadLinc 2487,
     Dimmer kitchenChandelier "kitchen chandelier" {insteonplm="20.c4.43:F00.00.01#dimmer"}
 
     Contact garageMotionSensor "motion sensor [MAP(contact.map):%s]" insteonplm="27.8c.c3:0x00004A#contact"}
-    Contact garageMotionSensorBatteryLevel "motion sensor battery level [%.1f]" insteonplm="27.8c.c3:0x00004A#contact,field=battery_level"}
-    Contact garageMotionSensorLightLevel "motion sensor light level [%.1f]" insteonplm="27.8c.c3:0x00004A#contact,field=light_level"}
+    Contact garageMotionSensorBatteryLevel "motion sensor battery level [%.1f]" insteonplm="27.8c.c3:0x00004A#data,field=battery_level"}
+    Contact garageMotionSensorLightLevel "motion sensor light level [%.1f]" insteonplm="27.8c.c3:0x00004A#data,field=light_level"}
 
     Switch garageDoorOpener "garage door opener" <garagedoor> {insteonplm="28.c3.f1:0x00001A#switch"}
     Contact garageDoorContact "garage door contact [MAP(contact.map):%s]"    {insteonplm="28.c3.f1:0x00001A#contact"}
