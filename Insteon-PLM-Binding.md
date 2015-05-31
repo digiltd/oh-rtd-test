@@ -43,7 +43,7 @@ The following devices have been tested and should work out of the box:
 <td>2477S</td><td>SwitchLinc Switch</td><td>F00.00.02</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td></td><td>Josenivaldo Benito</td>
+<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td>battery level available as #data,field=battery_level</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
 <td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td></td><td>Patrick Giasson</td>
@@ -126,7 +126,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2843-222</td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td></td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td></td><td>Bernd Pfrommer</td>
+<td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td>battery level available as #data,field=battery_level<br>light level available as #data,field=light_level</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
 <td>2486DWH8</td><td>KeypadLinc Dimmer</td><td>0x000051</td><td></td><td>Chris Graham</td>
