@@ -184,7 +184,7 @@ To get an overview of the supported DPTs, it's best to look into the source code
 ### Forward Data from other Bindings to another Binding (KNX)
 You may want in some cases to get Data from one Binding (for example 1Wire) to KNX. You will be able to do this through rules, but also can do this by an Item definition.
 
-Number Temperature_UG_HWR	"HWR [%.1f °C]"				<temperature>	(Temperature_UG, UG_HWR)      {onewire="28.7871CF040000#temperature", knx="5/1/40"}
+    Number Temperature_UG_HWR	"HWR [%.1f °C]"  <temperature>	(Temperature_UG, UG_HWR) {onewire="28.7871CF040000#temperature", knx="5/1/40"}
 
 In this Example a 1Wire Temperature Sensor will also be available on knx adress 5/1/40
 
