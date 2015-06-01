@@ -64,6 +64,55 @@ then
 end
 ```
 
+#### Adding Notifications when Battery Powered devices are running low.
+MiOS Systems standardize Battery Level indications (0-100%) for all battery-power devices (Alarm sensors, Z-Wave Door Locks, etc) and Nest uses a simple "ok" String to represent the Battery Status.
+
+Item declaration (`house.items`):
+```xtend
+Number   GarageDeadboltBatteryLevel "Garage Deadbolt Battery Level [%d %%]" <energy> (GBattery,GPersist) {mios="unit:house,device:189/service/HaDevice1/BatteryLevel"}
+Number   HallCupboardZoneBatteryLevel "Hall Cupboard Battery Level [%d %%]" <energy> (GBattery,GPersist) {mios="unit:house,device:301/service/HaDevice1/BatteryLevel"}
+Number   EXTFrontMotionZoneBatteryLevel "EXT Front Motion Zone Battery Level [%d %%]" <energy> (GBattery,GPersist) {mios="unit:house,device:302/service/HaDevice1/BatteryLevel"}
+Number   EXTRearMotionZoneBatteryLevel "EXT Rear Motion Battery Level [%d %%]" <energy> (GBattery,GPersist) {mios="unit:house,device:396/service/HaDevice1/BatteryLevel"}
+String   NestSmokeGuestBedroom_battery_health "Guest Bedroom Smoke Battery Health [%s]" <energy>       (GSmoke,GBattery,GPersist) {nest="<[smoke_co_alarms(Guest Bedroom).battery_health]"}
+```
+
+Rule declaration (`house-battery.rules`):
+```xtend
+import org.openhab.core.library.types.*
+
+val Number LOW_BATTERY_THRESHOLD = 60 // for Z-Wave Battery devices
+val String OK_BATTERY_STATE = 'ok'    // for Nest Thermostat and Protect devices
+
+rule "Low Battery Alert"
+when
+        Time cron "0 0 8,12,20 * * ?"
+then
+        GBattery?.members.filter(s|s.state instanceof DecimalType).forEach[item |
+                var Number level = item.state as Number
+                var String name = item.name
+
+                if (level < LOW_BATTERY_THRESHOLD) {
+                        logInfo('Low-Battery-Alert', 'Bad: ' + name)
+                        pushNotification("Low-Battery-Alert", "House Low Battery Notification (" + name + ")")
+                } else {
+                        logDebug('Low-Battery-Alert', 'Good: ' + name)
+                }
+        ]
+
+        GBattery?.members.filter(s|s.state instanceof StringType).forEach[item |
+                var String level = (item.state as StringType).toString
+                var String name = item.name
+
+                if (level != OK_BATTERY_STATE) {
+                        logInfo('Low-Battery-Alert', 'Bad: ' + name)
+                        pushNotification("Low-Battery-Alert", "House Low Battery Notification (" + name + ")")
+                } else {
+                        logDebug('Low-Battery-Alert', 'Good: ' + name)
+                }
+        ] 
+end
+```
+
 ### Examples for Co-existing
 #### When Motion detected turn Lights ON (OFF after 5 minutes)
 This is typical of a declarative Scene in MiOS.  In this case, the lights are left on for 5 minutes, and if new motion is detected in that time, another 5 minute clock is started.
