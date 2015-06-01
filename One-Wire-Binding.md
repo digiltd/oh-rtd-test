@@ -190,7 +190,7 @@ I use this with a simple rule. Every item (with binding to a onewire-device), wh
 	end
 
 
-# Configuration (OneWire binding openhab Version < 1.7.0)
+# Configuration (OneWire binding openhab Version <= 1.6.2)
 
 If your 1-Wire Bus System is physically connected to your server and working properely please follow the steps:
 
@@ -198,7 +198,7 @@ If your 1-Wire Bus System is physically connected to your server and working pro
 1. Copy the binding (e.g. openhab.binding.onewire-1.1.0.jar in the openhab/addons folder
 1. Edit the relevant section in the openhab configuration file (openhab/configurations/openhab.cfg). If you are running the 1-wire server on the same machine please insert the local ip adress of the server (127.0.0.1) and not localhost in the line onewire:ip. In this case on every onewire update you will have an file system access to the /etc/hosts file.
 
-# Generic Item Binding Configuration (OneWire binding openhab Version < 1.7.0)
+# Generic Item Binding Configuration (OneWire binding openhab Version <= 1.6.2)
 
 In order to bind an item to a OneWire device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the OneWire binding configuration string is explained here:
 
