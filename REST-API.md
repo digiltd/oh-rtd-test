@@ -91,6 +91,8 @@ Likewise, you can send a status update using the HTTP verb PUT to the same uri, 
 
 In order to send a command to an item, you would use the item uri (`http://localhost:8080/rest/items/Temperature_FF_Office`) and send an HTTP POST with the according command in the request body as text/plain.
 
+It's also possible to send a status update using a HTTP GET request (`http://localhost:8080/CMD?Temperature_FF_Office=12.3`). This way it's actually possible to send status updates simply through a web browser address bar.
+
 ## Sitemap Resource
 
 The request
