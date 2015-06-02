@@ -9,7 +9,9 @@ Binding for local GPIO subsystem, currently only this exposed to user space by [
  * Automatically determined if `procfs` is mounted under path `/proc`, this is the default path in almost all configurations
  * Manually set in openHAB configuration file, key `gpio:sysfs`
 3. Installed package for native JNA library, e.g. for debian-based OS use `apt-get install libjna-java`. Version 3.2.7 is used, it's the only available package in Debian currently. If the library isn't in system library path (which is true for most of the cases) you need to add a parameter in command line which starts openHAB and specify the path to JNA library, e.g. edit the last line in "start.sh" and append `-Djna.boot.library.path=/usr/lib/jni` right after `java`.
-4. Root privileges, openHAB should be run under "root" account
+4. Root privileges, openHAB should be run under "root" account.  
+Alternatively you can add the user "openhab" to the usergroup "gpio", if your distribution (like rasbian) does have such group.  
+`sudo adduser openhab gpio`
 
 _NOTE: Some boards may need additional pin configuration prior using them, for example OMAP-based processors are using pin multiplexing which require changing the mode for some of the pins. Please refer to board's System Reference Manual for more information whether preliminary configuration is needed and how to do it._
 
