@@ -14,7 +14,7 @@ Samples for Rules
 * [Koubachi remind the water level](Samples-Rules#koubachi-remind-the-water-level)
 * [Create text item to combine two values and format string options](Samples-Rules#create-text-item-to-combine-two-values-and-format-string-options)
 * [Get an email when battery powered devices are running low on power](Samples-Rules#get-an-email-when-battery-powered-devices-are-running-low-on-power)
-* [Initialize all items in a group which are still uninitialized after startup](Samples-Rules#Initialize-all-items-which-are-still-ininitialized-after-startup)
+* [Initialize all items in a group which are still uninitialized after startup](Samples-Rules#initialize-all-items-which-are-still-uninitialized-after-startup)
 
 ### How to turn on light when motion detected and is dark?
 
