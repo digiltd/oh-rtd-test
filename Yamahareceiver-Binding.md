@@ -11,6 +11,7 @@ tested Receivers:
 * V473
 * V575
 * V773
+* V775
 * RX-A2020
 * RX-A810
 
