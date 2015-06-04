@@ -188,12 +188,14 @@ alternative approach if above solution does not work:
 sudo keytool -delete -alias StartCom-Root-CA -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit  
 ```  
     
-download the certificate from https://api.netatmo.net to $JAVA_HOME/jre/lib/security/ and save it as api.netatmo.net.crt
+download the certificate from https://api.netatmo.net to $JAVA_HOME/jre/lib/security/ and save it as api.netatmo.net.crt (X09 / PEM)
 
 
 ```      
 sudo $JAVA_HOME/bin/keytool -import -keystore $JAVA_HOME/jre/lib/security/cacerts -alias StartCom-Root-CA -file api.netatmo.net.crt 
 ```  
+The password is "changeit".
+
 # Sample data
 
 If you want to evaluate this binding but have not got a Netatmo station yourself
