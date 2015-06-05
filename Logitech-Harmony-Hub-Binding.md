@@ -109,6 +109,8 @@ The following actions are supported in rules:
 
 #### Other
  Under debug logging the IO bundle will print the list of devices, activities and the full JSON config for each hub.  This can be used to populate items.
+
+The JSON configuration can also be obtained using the Harmony Android app by syncing with the hub (Menu-> Harmony Setup - > Sync).  The configuration will be saved in  <home folder>/Harmony/userConfig.json. 
  
 ### Shell
 
