@@ -7,8 +7,6 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 1. Set project version to release version with the Tycho Versions plugin
 
         export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=1024m"; mvn -P prepare-release initialize -DnewVersion=1.x.0
-1. Manually change version in `.//bundles/archetype/org.openhab.archetype.binding/pom.xml` file.
-1. Manually change version in `.//bundles/archetype/org.openhab.archetype.action/pom.xml` file.
 1. Execute a Maven build
 
         mvn -P deploy clean deploy -Drepo.id=cloudbees-public-release-repo -Drepo.url=dav:https://repository-openhab.forge.cloudbees.com/release/1.x.0 -Dp2.repo.dir=p2 -Dapt.repo.dir=apt-repo
@@ -22,8 +20,6 @@ Follow these steps if you want to release a new version of openHAB. Later we pla
 1. Increment to next development version
 
         mvn -P prepare-next-snapshot initialize -DnewVersion=1.y.0.qualifier
-1. Manually change version in `.//bundles/archetype/org.openhab.archetype.binding/pom.xml` file.
-1. Manually change version in `.//bundles/archetype/org.openhab.archetype.action/pom.xml` file.
 1. Execute a Maven build with goals clean verify to assure that everything builds
 
         mvn clean verify
