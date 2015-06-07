@@ -39,12 +39,12 @@ openHAB can be installed and operated on AMD or Intel powered commodity laptop, 
 1. If you have more than one USB device, refer to [[symlinks]]
 
 1. Start the openHAB runtime
-  1. Init based on sysVinit (e.g. Debian 7)
+  1. Init based on sysVinit (e.g. Debian 7 / Ubuntu 14.x and earlier)
  
   ```
   sudo /etc/init.d/openhab start
   ```
-  1. Init based on systemd (e.g. Debian 8)
+  1. Init based on systemd (e.g. Debian 8 / Ubuntu 15.x and higher)
 
   ```
   sudo systemctl start openhab
