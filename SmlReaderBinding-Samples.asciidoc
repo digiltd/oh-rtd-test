@@ -1,0 +1,38 @@
+As mentioned at the documentation of SmlReaderBinding, the binding is capable to use the transformation service provided by the openHAB runtime. To do so, you have to provide the type of service and the function to transform the value from your SML device in your binding configuration.
+
+## Supported Transformation services
+* JS
+* XSLT
+* REGEX
+
+## Items
+### With transformation
+The shown item definition use the JS (JavaScript) service to transform the value with the function smlreader_kilo.js.
+
+```
+Number Obis_180 "Bezug Gesamt [%.2f kWh]" (g_energy) { smlreader="device=edl300,obis=1-0:1.8.0,transform=JS(smlreader_kilo.js)" }
+```
+
+### Without Transformation
+The shown item definition doesn't use any transformation, so the item is refreshed with the value from the configured SML device 'as is'.
+
+```
+Number Obis_180 "Bezug Gesamt [%.2f kWh]" (g_energy) { smlreader="device=edl300,obis=1-0:1.8.0" }
+```
+
+## Transformation function
+In order to transform a value returned by SmlReaderBinding, you have to provide the transformation function, which in fact is just a simple file containing the transformation logic. openHAB looks after the transformation files in the folder '${openhab_home}/configurations/transform'.
+
+## Sample: transform 'Wh' to 'kWh'
+* Create the (text) file 'smlreader_kilo.js' at the folder '${openhab_home}/configurations/transform'.
+* Open the file with your preferred editor.
+* Copy and paste the source at the end of this section.
+* Save and close the file.
+
+```
+(function(i) {
+    var kilo = i / 1000;
+    return kilo;
+})(input)
+```
+
