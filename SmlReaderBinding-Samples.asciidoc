@@ -24,10 +24,10 @@ Number Obis_180 "Bezug Gesamt [%.2f kWh]" (g_energy) { smlreader="device=edl300,
 In order to transform a value returned by SmlReaderBinding, you have to provide the transformation function, which in fact is just a simple file containing the transformation logic. openHAB looks after the transformation files in the folder '${openhab_home}/configurations/transform'.
 
 ## Sample: transform 'Wh' to 'kWh'
-* Create the (text) file 'smlreader_kilo.js' at the folder '${openhab_home}/configurations/transform'.
-* Open the file with your preferred editor.
-* Copy and paste the source at the end of this section.
-* Save and close the file.
+1. Create the (text) file 'smlreader_kilo.js' at the folder '${openhab_home}/configurations/transform'.
+2. Open the file with your preferred editor.
+3. Copy and paste the source at the end of this section.
+4. Save and close the file.
 
 ```
 (function(i) {
