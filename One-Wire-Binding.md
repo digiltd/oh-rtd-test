@@ -40,32 +40,32 @@ Ignores the power-on reset value (+85°C) of DS18B20 devices.
 
 **Examples**
 
-	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10“
-	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;ignore85CPowerOnResetValues“
+	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10"
+	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;ignore85CPowerOnResetValues"
 
 # Type-modifiers
 
 Type-Modifiers can be optional configured to the items. The binding provides the following modfiers. For example: by using modifiers you can calibrate onewire temperature devices or invert the value of contacts and switches.
 
 ### Number Items
-* "add=<value>“ - the AddModifier adds a given value to a read-value on read. On write, the given value is subtracted of the value to write.
-* "multiply=<value>“ - the MultiplyModifier multiplies a given value with the read-value on read. On write, value to write is divided by given value.
-* "tukeyfilter“ -  Modifier to filter sensor data. Restricts the data point value to be between lowerbound = qbottom - alpha * r and upperbound = qtop + alpha * r where qtop = top n-tile, qbottom = bottom ntile, and the range r = qtop - qbottom. The original Tukey filter drops points if they are outside of 1.5 * range, i.e. alpha = 1.5, and takes quartiles. Another implementation wrinkle: for slow changing data such as e.g. temperature, the binding may pick up the same data point over and over again. This compresses the range artificially, and will lead to spurious filtering. For that reason a point is added to the sample set only if it is not present there.
+* "add=<value>" - the AddModifier adds a given value to a read-value on read. On write, the given value is subtracted of the value to write.
+* "multiply=<value>" - the MultiplyModifier multiplies a given value with the read-value on read. On write, value to write is divided by given value.
+* "tukeyfilter" -  Modifier to filter sensor data. Restricts the data point value to be between lowerbound = qbottom - alpha * r and upperbound = qtop + alpha * r where qtop = top n-tile, qbottom = bottom ntile, and the range r = qtop - qbottom. The original Tukey filter drops points if they are outside of 1.5 * range, i.e. alpha = 1.5, and takes quartiles. Another implementation wrinkle: for slow changing data such as e.g. temperature, the binding may pick up the same data point over and over again. This compresses the range artificially, and will lead to spurious filtering. For that reason a point is added to the sample set only if it is not present there.
 
 ### Switch Items
-* "invert“ - the InvertModifier inverts the given Value to the opposite
+* "invert" - the InvertModifier inverts the given Value to the opposite
 
 ### Contact Items
-* "invert“ - the InvertModifier inverts the given Value to the opposite
+* "invert" - the InvertModifier inverts the given Value to the opposite
 
 ## Configuration of modifiers:
 The modifier name must be set in binding configuration:
 
-	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;<modifier-name>“
+	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;<modifier-name>"
 
 ### Example
 	
-onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;add=0.8;multiply=1.2;tukeyfilter“
+onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;add=0.8;multiply=1.2;tukeyfilter"
 
 # AlarmSwitch
 
@@ -73,27 +73,27 @@ A special Binding is the binding of numeric one wire device propertis to openhab
 
 **Configuration**
 
-	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;maxWarning=<value>;minWarning=<value>“
+	onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;maxWarning=<value>;minWarning=<value>"
 
 # Examples
 
 ### Number Item
 
-	Number OneWireTempSensor "Temp [%.1f °C]“ {onewire="deviceId=28.67C6697351FF;propertyName=temperature;add=0.8;multiply=1.1;refreshinterval=10“}
+	Number OneWireTempSensor "Temp [%.1f °C]" {onewire="deviceId=28.67C6697351FF;propertyName=temperature;add=0.8;multiply=1.1;refreshinterval=10"}
 	
 This example uses the add and multiply modifier.
 
-	Number OneWireTempSensor "Temp [%.1f °C]“ {onewire="deviceId=28.67C6697351FF;propertyName=temperature;add=0.8;tukeyfilter;refreshinterval=10“}
+	Number OneWireTempSensor "Temp [%.1f °C]" {onewire="deviceId=28.67C6697351FF;propertyName=temperature;add=0.8;tukeyfilter;refreshinterval=10"}
 	
 This example uses the add modifier and the tukey filter.
 
 ### Switch Item
 	
-	Switch OneWireSwitch "OneWireSwitch 6 [%s]"	{onewire="deviceId=29.F2FBE3467CC2;propertyName=PIO.6;invert;refreshinterval=10“}
+	Switch OneWireSwitch "OneWireSwitch 6 [%s]"	{onewire="deviceId=29.F2FBE3467CC2;propertyName=PIO.6;invert;refreshinterval=10"}
 	
 This example uses a (inverted) PIO of an DS2408 as Switch, which can be turned on and off. The logic of the OneWire PIO is inverted in OpenHab (On=OFF and OFF=ON) by the InvertModifier
 
-	Switch OneWireSwitch "OneWireSwitch 6 [%s]" {onewire="deviceId=29.F2FBE3467CC2;propertyName=PIO.6;refreshinterval=10“}
+	Switch OneWireSwitch "OneWireSwitch 6 [%s]" {onewire="deviceId=29.F2FBE3467CC2;propertyName=PIO.6;refreshinterval=10"}
 	
 Same example as before, but the logic is not inverted.
 
@@ -105,15 +105,15 @@ This example uses a sensedA property of an DS2406 as Contact, which is inverted 
 
 ### Alarm Switch
 	
-	Switch OneWireTempWarnMax "TempWarnMax [%s]" {onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=5;maxWarning=30“}
+	Switch OneWireTempWarnMax "TempWarnMax [%s]" {onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=5;maxWarning=30"}
 
 Switch turns on, when value of device property is greater then maxWarning (30)
 
-	Switch OneWireTempWarnMin "TempWarnMin [%s]" onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;minWarning=5“}
+	Switch OneWireTempWarnMin "TempWarnMin [%s]" onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;minWarning=5"}
 
 Switch turns on, when value of device property is less then minWarning (5)
 
-	Switch OneWireTempWarnMin "TempWarnMin [%s]" onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;maxWarning=30;minWarning=5“}
+	Switch OneWireTempWarnMin "TempWarnMin [%s]" onewire="deviceId=28.67C6697351FF;propertyName=temperature;refreshinterval=10;maxWarning=30;minWarning=5"}
 
 Switch turns on, when value of device property s greater then maxWarning (30) or is less then minWarning (5)
 
@@ -183,7 +183,7 @@ I use this with a simple rule. Every item (with binding to a onewire-device), wh
 	then
 	    grpOneWireDevices2Check?.members.forEach[element1,index1|
 	      if (element1.state==Undefined || element1.state==Uninitialized) {
-	              logError("OneWire“,"State of OneWireDevice: "+element1.name+" is +element1.state.toString)
+	              logError("OneWire","State of OneWireDevice: "+element1.name+" is +element1.state.toString)
  	             OneWireClearCacheOneItem.sendCommand(element1.name)
  	     }  
  	   ]
