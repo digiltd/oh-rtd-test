@@ -178,8 +178,8 @@ Example:
 
 
 **Astro Action**  
-With the Astro-Action you can calculate sunrise and sunset DataTime values in rules. It's been released with openHab 1.7, but you can use it now with a snapshot build from [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/).  
-**Important:** The action also requires the corresponding Astro-Binding from cloudbees!
+With the Astro-Action you can calculate sunrise and sunset DataTime values in rules.  
+**Important:** The action also requires the corresponding Astro-Binding!
 
 Example:
 ```
