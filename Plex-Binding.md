@@ -132,8 +132,8 @@ val Functions$Function1 dimLiving = [ int dimlevel |
 
 rule "Lights on when paused or stopped"
 when
-    Item PlexTvStatus changed to Paused or 
-    Item PlexTvStatus changed to Stopped
+    Item PlexTVStatus changed to Paused or 
+    Item PlexTVStatus changed to Stopped
 then 
 	logInfo("PlexLight", "Play to pause")
 	dimLiving.apply(80)
@@ -141,7 +141,7 @@ end
 
 rule "Lights dimmed when playing"
 when
-	Item PlexTvStatus changed to Playing  
+	Item PlexTVStatus changed to Playing  
 then
 	logInfo("PlexLight", "Pause to play")	
 	dimLiving.apply(30)
