@@ -24,11 +24,13 @@ The snapshot version of the binding can be downloaded, together with the rest of
 
 ## Binding Configuration
 
-In order to use the Ecobee API, you must specify the `appkey` and `scope` that will be used.  You must generate your own `appkey` on the Ecobee developer dashboard.  Typically, `scope` will be set to `smartWrite`, but if you have an EMS thermostat, set `scope` to `ems`.  These values must be set in the openhab.cfg file (in the folder '${openhab_home}/configurations'). The refresh interval can also be specified, and defaults to 180000ms (three minutes) in OpenHAB 1.8, (in 1.7, defaults to 60000ms).
+In order to use the Ecobee API, you must specify the `appkey` and `scope` that will be used.  You must generate your own `appkey` on the Ecobee developer dashboard.  Typically, `scope` will be set to `smartWrite`, but if you have an EMS thermostat, set `scope` to `ems`.  These values must be set in the openhab.cfg file (in the folder '${openhab_home}/configurations'). The refresh interval can also be specified, and defaults to 180000ms (three minutes).
+
+>In OpenHAB 1.7, `ecobee:refresh` defaulted to 60000ms (one minute).
 
     ############################## Ecobee binding ########################################
     #
-    # Data refresh interval in ms (optional, defaults to 180000) (60000 in OpenHAB 1.7)
+    # Data refresh interval in ms (optional, defaults to 180000)
     # ecobee:refresh=180000
 
     # the temperature scale to use when sending or receiving temperatures
