@@ -182,4 +182,4 @@ The following code will display a map based on your home location; and auto zoom
 </html>
 ```
 
-Store that file on your OH system in "\webapps\static" (e.g. as Map.html). You can the use it in our site definitions; or directly in a browser.
+Store that file on your OH system in "\webapps\static" (e.g. as Map.html). You can then use it in our site definitions; or directly in a browser.
