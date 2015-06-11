@@ -3,7 +3,7 @@
  * [Pre-Requisits](GoogleMap#pre-requisits)
  * [Configuration](GoogleMap#configuration)
   * [Parse the raw data ...](GoogleMap#parse-the-raw-data-)
-
+  * [The HTML code ...](GoogleMap#the-html-code-)
 
 ## Introduction
 
@@ -181,3 +181,5 @@ The following code will display a map based on your home location; and auto zoom
   </body>
 </html>
 ```
+
+Store that file on your OH system in "\webapps\static" (e.g. as Map.html). You can the use it in our site definitions; or directly in a browser.
