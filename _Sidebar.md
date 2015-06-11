@@ -209,6 +209,7 @@ Samples
  * [[Items, Rules and more Examples of a SmartHome|http://www.intranet-of-things.com/software/downloads]]
  * [[REST Examples|Samples-REST]]
  * [[Tips and Tricks|Samples-Tricks]]
+  * [[Google Map|GoogleMap]]
  * [[Scripts|Samples-Scripts]]
  * [[Syntax highlighting for external editors|Syntax-Highlighting-for-external-editors]]
  * [[Update-Scripts|openhab-Get-Snapshot]]
