@@ -1,6 +1,9 @@
-# Use Google MAP V3 API with openHAB
+# Use Google MAP V3 API
  * [Introduction](GoogleMap#Introduction)
  * [Pre-Requisits](GoogleMap#pre-requisits)
+ * [Configuration](GoogleMap#configuration)
+  * [Parse the raw data ...](GoogleMap#parse-the-raw-data-)
+
 
 ## Introduction
 
@@ -43,4 +46,3 @@ rule "MqttPostionParsePatrik"
 	}
   end
 ```
-
