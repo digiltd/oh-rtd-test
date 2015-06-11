@@ -46,3 +46,138 @@ rule "MqttPostionParsePatrik"
 	}
   end
 ```
+
+### The HTML code ...
+The following code will display a map based on your home location; and auto zoom to show all markers:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>    
+    <style type="text/css"> 
+    <!--
+    .Flexible-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 30px;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .Flexible-container iframe,   
+    .Flexible-container object,  
+    .Flexible-container embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+   -->
+   </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    
+    <script type="text/javascript">
+        ////////////////////////////////////////////////////////////////////////
+        // Google Maps JavaScript API:
+        // https://developers.google.com/maps/documentation/javascript/?hl=de
+        // Marker Icons:
+        // https://sites.google.com/site/gmapsdevelopment/
+        ////////////////////////////////////////////////////////////////////////
+        
+        var map = null;
+        // LatLng's we want to show 
+        var latlngHome   = new google.maps.LatLng("47.501006", "8.344842");
+        var latlngPatrik = new google.maps.LatLng("47.501006", "8.344842"); // initialize to home ...
+        var latlngKarin  = new google.maps.LatLng("47.501006", "8.344842"); // initialize to home ...
+        
+        function startup() {
+            var map_canvas  = document.getElementById('map_canvas');
+            var map_options = { center    : latlngHome,
+                                zoom      : 14,
+                                mapTypeId : google.maps.MapTypeId.ROADMAP };
+
+            map = new google.maps.Map(map_canvas, map_options); 
+            
+            var marker = new google.maps.Marker({
+                            position  : latlngHome,
+                            map       : map,
+                            icon      : 'http://maps.google.com/mapfiles/kml/pal2/icon10.png',
+                            title     : "Ehrendingen"
+                        })
+        } // end of function - startup
+        
+        function updateZoom() {
+            // Array of google.maps.LatLng we want to be visible on screen ...
+            var latLngArray = [];
+            latLngArray.push(latlngHome);
+            latLngArray.push(latlngPatrik);
+            latLngArray.push(latlngKarin);
+
+            var viewPointBounds = new google.maps.LatLngBounds ();
+            for (var i = 0, length = latLngArray.length; i < length; i++) {
+                viewPointBounds.extend(latLngArray[i]);
+            }
+            map.fitBounds(viewPointBounds);
+        } // end of function - zoom
+        
+        $(function() {
+            $.ajax({
+              url     : "http://192.168.10.100:8080/rest/items/mqttPatrikLatitude/state",
+              data    : { },
+              success : function( data ) {
+                 var Latitude = data;
+ 
+                 $.ajax({
+                     url     : "http://192.168.10.100:8080/rest/items/mqttPatrikLongitude/state",
+                     data    : { },
+                     success : function( data ) {
+                        var Longitude = data;
+                        latlngPatrik = new google.maps.LatLng(Latitude, Longitude);
+                        var marker = new google.maps.Marker({
+                            position  : latlngPatrik,
+                            map       : map,
+                            icon      : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                            title     : "Patrik"
+                        })
+                        updateZoom();
+                        ////////////////////////////////////////////////////////////////////////
+                     }
+                })
+              }
+              
+            }); // end of $.ajax - Patrik
+            $.ajax({
+              url     : "http://192.168.10.100:8080/rest/items/mqttKarinLatitude/state",
+              data    : { },
+              success : function( data ) {
+                 var Latitude = data;
+                 
+                 $.ajax({
+                     url     : "http://192.168.10.100:8080/rest/items/mqttKarinLongitude/state",
+                     data    : { },
+                     success : function( data ) {
+                        var Longitude = data;
+                        latlngKarin = new google.maps.LatLng(Latitude, Longitude);
+                        var marker = new google.maps.Marker({
+                            position  : latlngKarin,
+                            map       : map,
+                            icon      : 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+                            title     : "Karin"
+                        })
+                        updateZoom();
+                        ////////////////////////////////////////////////////////////////////////
+                     }
+                })
+              }
+              
+            }); // end of $.ajax - Karin
+        }); // end of $(function)
+    </script>
+  </head>
+  <body onload="startup()">
+    <div id="map_canvas" class="Flexible-container" />
+  </body>
+</html>
+```
