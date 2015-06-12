@@ -138,7 +138,7 @@ DateTime NestTStatUpstairs_fan_timer_timeout "Fan Timer Timeout [%1$tm/%1$td/%1$
 String   NestTStatUpstairs_name_long "Name Long [%s]"                                    {nest="<[thermostats(Upstairs).name_long]"}
 Switch   NestTStatUpstairs_is_online "Is Online [%s]"                                    {nest="<[thermostats(Upstairs).is_online]"}
 DateTime NestTStatUpstairs_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[thermostats(Upstairs).last_connection]"}
-/* Added in OpenHAB 1.8: */
+/* Added in OpenHAB 1.7.1: */
 String   NestTStatUpstairs_hvac_state "HVAC State [%s]"                                  {nest="<[thermostats(Upstairs).hvac_state]"}
 
 /* Smoke+CO detectors - change Master Bedroom to your Smoke+CO detector's name */
@@ -176,7 +176,7 @@ Number NestCondo_temp "Condo temperature [%.1f °F]" {nest="<[structures(Condo).
 
 
 ## Change Log
-### OpenHAB 1.8
+### OpenHAB 1.7.1
 
 * Added the property `hvac_state` that was [added to the Nest API in May 2015](https://developer.nest.com/documentation/cloud/release-notes).  Please note that if you created your Nest client before the addition of this property to the API, your client's permissions may be set to "Thermostat read/write v2," which does not have access to this new property.  To access it, you will have to edit your [client](https://developer.nest.com/clients) to update the permission to v3.  Click the little gear icon to edit your client, click the Change Permissions button, and generate a new `nest:pin_code` for your nest.com account to put into `openhab.cfg` to replace the older `nest:pin_code`.
 
