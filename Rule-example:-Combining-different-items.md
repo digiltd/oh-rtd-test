@@ -39,7 +39,7 @@ It than triggers the function tempLogic to update the value and afterwards ther 
 
 # And this is where the magic happens (temperature.rule)
 
-```
+```xtend
 	import org.joda.time.*
 	import org.openhab.core.items.*
 	import org.openhab.core.items.GenericItem
@@ -585,7 +585,7 @@ It than triggers the function tempLogic to update the value and afterwards ther 
 
 # Just for the sake of completeness (haus.items)
 
-```
+```xtend
 	Group All
 	Group gGF 		(All)
 	Group gFF 		(All)
