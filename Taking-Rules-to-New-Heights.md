@@ -10,33 +10,34 @@ This example provides a scripted mechanism for managing a very large number of s
 By importing and using various Java libraries it is possible to create configurable maps for each light allowing things like motion detection timeout, and auto-on after dusk to be set per light (which can later be looked up or looped through in the script).
 
 ### Items file
+```xtend
     /* First you start out by defining 3 groups: one for the switches, one for the dimmers, and one for the motion sensors */
 
-    Group:Contact:OR(OPEN,CLOSED) gMotionSensors            "motion sensors"        (All)
-    Group:Switch:OR(ON,OFF) gMotionSwitches   "motion sensored switches"        (All)
-    Group gMotionDimmers    "motion sensored dimmers"        (All)
+    Group:Contact:OR(OPEN,CLOSED) gMotionSensors    "motion sensors"                 (All)
+    Group:Switch:OR(ON,OFF)       gMotionSwitches   "motion sensored switches"       (All)
+    Group gMotionDimmers                            "motion sensored dimmers"        (All)
 
     /* Then put the light switches into the right groups. This example uses insteon switches, adjust as needed. There are no dimmers in this example but you can just put dimmers into gMotionDimmers, you get the idea: */
 
-    Switch officeLight	   "office light"	(gMotionSwitches) {insteonplm="xx.xx.xx:F00.00.02#switch"}
-    Switch garageLightMudroomSw      "garage light mudroom sw"	(gMotionSwitches)	{insteonplm="xx.xx.xx:F00.00.02#switch"}
-    Switch garageLightEastWallSw  	   "garage light east wall sw"	(gMotionSwitches)	{insteonplm="xx.xx.xx:F00.00.02#switch"}
+    Switch officeLight	           "office light"               (gMotionSwitches)  {insteonplm="xx.xx.xx:F00.00.02#switch"}
+    Switch garageLightMudroomSw    "garage light mudroom sw"    (gMotionSwitches)  {insteonplm="xx.xx.xx:F00.00.02#switch"}
+    Switch garageLightEastWallSw   "garage light east wall sw"  (gMotionSwitches)  {insteonplm="xx.xx.xx:F00.00.02#switch"}
 
     /* Then put the relevant motion sensors into the gMotionSensors group (example here uses alarmdecoder binding): */
 
-    Contact garageMotion "garage motion [MAP(contact.map):%s]"   (gMotionSensors) {alarmdecoder="RFX:0000000#contact,bitmask=0x80"}
-    Contact officeMotion "office motion [MAP(contact.map):%s]"        (gMotionSensors) {alarmdecoder="RFX:0000000#contact,bitmask=0x80"}
+    Contact garageMotion "garage motion [MAP(contact.map):%s]"  (gMotionSensors)   {alarmdecoder="RFX:0000000#contact,bitmask=0x80"}
+    Contact officeMotion "office motion [MAP(contact.map):%s]"  (gMotionSensors)   {alarmdecoder="RFX:0000000#contact,bitmask=0x80"}
 
     /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
       even better, but that's not too hard to hack in later */
 
     DateTime dawnStart "dawn start [%1$tH:%1$tM]" {astro="planet=sun,type=civilDawn,property=start"}
-    DateTime duskEnd "dusk end [%1$tH:%1$tM]" {astro="planet=sun,type=civilDusk,property=end"}
-
+    DateTime duskEnd   "dusk end [%1$tH:%1$tM]"   {astro="planet=sun,type=civilDusk,property=end"}
+```
 
 ### Rules file
 Lastly install the below rule as e.g. light_off.rule in the rules folder of your openhab configuration directory, and adjust the hash tables accordingly.
-
+```xtend
     import org.joda.time.*
     import org.openhab.core.library.types.*
     import org.openhab.core.library.types.PercentType
@@ -230,5 +231,5 @@ Lastly install the below rule as e.g. light_off.rule in the rules folder of your
     	logInfo("switch_flipped", "motion timed switch change state finished!")
     	lock.unlock()
     end
-
+```
 
