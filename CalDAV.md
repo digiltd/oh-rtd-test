@@ -11,7 +11,11 @@ openhab.cfg
 * `caldavio:<calendar-id>:disableCertificateVerification=<true|false>`
 * `caldavio:timeZone=<Timezone>`
 
-The calendar-id must be just upper- and lowercase characters. (e. g. private or work, something like 1 or private-home is not allowed)
+**Restrictions**
+* The calendar-id must be just upper- and lowercase characters. (e. g. private or work, something like 1 or private-home is not allowed)
+* disableCertificateVerification can just be set to true (default is false) if ssl is used.
+* timeZone must just be used if the local timezone of the pc is not the correct one. E. g. if you are living in Berlin and your calendar timezone is Berlin and your local pc timezone is Berlin you must not define this setting
+
 ***
 
 # CalDAV Command
@@ -65,9 +69,9 @@ Binding file: org.openhab.binding.caldav-presence-version.jar
 * NAMEANDTIME: name und start- bis endzeit
 
 # Logging
-> <logger name="org.openhab.binding.caldav_personal" level="TRACE"/>
-> <logger name="org.openhab.binding.caldav_presence" level="TRACE"/>
-> <logger name="org.openhab.io.caldav" level="TRACE"/>
+* `<logger name="org.openhab.binding.caldav_personal" level="TRACE"/>`
+* `<logger name="org.openhab.binding.caldav_presence" level="TRACE"/>`
+* `<logger name="org.openhab.io.caldav" level="TRACE"/>`
 
 # Example configuration
 
