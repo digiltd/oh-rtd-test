@@ -191,6 +191,7 @@ Community
 Samples
  * [[Item definitions|Samples-Item-Definitions]]
  * [[Sitemap definitions|Samples-Sitemap-Definitions]]
+  * [[Multiple Items on one row|Multiple Items on One Row]]
  * [[Binding configurations|Samples-Binding-Config]]
   * [[Comfo Air Binding | Samples-Comfo-Air-Binding]]
   * [[Nest Binding (new)|Nest-Binding-Example]]
