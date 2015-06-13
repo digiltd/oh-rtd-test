@@ -84,7 +84,7 @@ As of Openhab 1.7 it is possible to configure the earlier described values. Exam
 # rrd4j:<dsname>.fcn=<consolidationfunction>,<xff>,<steps>,<rows>    
 # rrd4j:<dsname>.items=<list of items for this dsname>
 rrd4j:ctr5min.def=COUNTER,900,0,U,300
-rrd4j.ctr5min.fcn=AVERAGE,0.5,1,365
-rrd4j.ctr5min.fcn=AVERAGE,0.5,7,300 
+rrd4j:ctr5min.fcn=AVERAGE,0.5,1,365
+rrd4j:ctr5min.fcn=AVERAGE,0.5,7,300 
 rrd4j:ctr5min.items=Item1,Item2
 ```
