@@ -189,9 +189,6 @@ Community
   * [[BritishGasHive-Using-Ruby]]
 
 Samples
- * [[Item definitions|Samples-Item-Definitions]]
- * [[Sitemap definitions|Samples-Sitemap-Definitions]]
-  * [[Multiple Items on one row|Multiple Items on One Row]]
  * [[Binding configurations|Samples-Binding-Config]]
   * [[Comfo Air Binding | Samples-Comfo-Air-Binding]]
   * [[Nest Binding (new)|Nest-Binding-Example]]
@@ -200,6 +197,9 @@ Samples
   * [[Squeezebox|SqueezeboxExample]]
   * [[WAC Binding|Samples WAC Binding]]
   * [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
+ * [[Item definitions|Samples-Item-Definitions]]
+ * [[Sitemap definitions|Samples-Sitemap-Definitions]]
+  * [[Multiple Items on one row|Multiple Items on One Row]]
  * [[Rules|Samples-Rules]]
   * [[Misc. rule examples|Samples-Rules]]
   * [[Alarm Clock|AlarmClock]]
