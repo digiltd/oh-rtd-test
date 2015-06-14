@@ -2,14 +2,6 @@
 
 The Astro binding is used for calculating many DateTime and positional values for sun and moon and for scheduling of events.
 
-### New in 1.6
-- all sun calculations are now based on those of http://www.suncalc.net/  
-- greatly extended available bindings
-- moon calculations added
-- **New item binding style!** The old style is still supported, but a warning is written to the log.
-```
-{astro="planet=..., type=..., property=..., offset=..."}
-```
 ### Configuration in openhab.cfg
 ```
 ############################## Astro Binding ##############################
