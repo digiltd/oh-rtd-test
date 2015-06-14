@@ -63,7 +63,7 @@ weather:location.home.updateInterval=10
 **Item**
 ```
 Number   Temperature   "Temperature [%.2f °C]"   {weather="locationId=home, type=temperature, property=current"}
-Number   Humidity      "Humidity [%d %%]"        {weather="locationId=home, type=athmosphere, property=humidity"}
+Number   Humidity      "Humidity [%d %%]"        {weather="locationId=home, type=atmosphere, property=humidity"}
 ```
 For Yahoo you don't need a apikey. The location has the locationId *home* and updates the weather data every 10 minutes.  
 In the item file, you reference the locationId and the type and property to display (see below for more).  
@@ -96,7 +96,7 @@ weather:location.home-OWM.updateInterval=10
 **Item**
 ```
 Number   Temperature   "Temperature [%.2f °C]"   {weather="locationId=home-FIO, type=temperature, property=current"}
-Number   Humidity      "Humidity [%d %%]"        {weather="locationId=home-OWM, type=athmosphere, property=humidity"}
+Number   Humidity      "Humidity [%d %%]"        {weather="locationId=home-OWM, type=atmosphere, property=humidity"}
 ```
 Or you want to see the current temperature if there is a difference between providers and which one gives the best result for your location. This can be done with all available type/properties of course.
 ```
@@ -104,7 +104,7 @@ Number   Temperature_FIO   "Temperature-FIO [%.2f °C]"   {weather="locationId=h
 Number   Temperature_OWM   "Temperature-OWM [%.2f °C]"   {weather="locationId=home-OWM, type=temperature, property=current"}
 ```
 ### Available bindings
-* **type** `athmosphere`
+* **type** `atmosphere`
     * **property** `humidity, visibility, visibility, pressure, pressure, pressureTrend, ozone, uvIndex`
 * **type** `clouds`
     * **property** `percent`
@@ -157,15 +157,15 @@ All possible conversions can be found in the following Items section.
 ### Items
 If you copy and paste, don't forget to change the locationId to the one you specified.
 ```
-// athmosphere
-Number   Humidity    	  "Humidity [%d %%]"  	  {weather="locationId=home, type=athmosphere, property=humidity"}
-Number   Visibility    	  "Visibility [%.2f km]"  {weather="locationId=home, type=athmosphere, property=visibility"}
-Number   Visibility_Mph   "Visibility [%.2f mi]"  {weather="locationId=home, type=athmosphere, property=visibility, unit=mph"}
-Number   Pressure    	  "Pressure [%.2f mb]"    {weather="locationId=home, type=athmosphere, property=pressure"}
-Number   Pressure_Inches  "Pressure [%.2f in]"    {weather="locationId=home, type=athmosphere, property=pressure, unit=inches"}
-String   Pressure_Trend   "Pressuretrend [%s]"    {weather="locationId=home, type=athmosphere, property=pressureTrend"}
-Number   Ozone            "Ozone [%d ppm]"    	  {weather="locationId=home, type=athmosphere, property=ozone"}
-Number   UV_Index         "UV Index"              {weather="locationId=home, type=athmosphere, property=uvIndex, scale=0"}
+// atmosphere
+Number   Humidity    	  "Humidity [%d %%]"  	  {weather="locationId=home, type=atmosphere, property=humidity"}
+Number   Visibility    	  "Visibility [%.2f km]"  {weather="locationId=home, type=atmosphere, property=visibility"}
+Number   Visibility_Mph   "Visibility [%.2f mi]"  {weather="locationId=home, type=atmosphere, property=visibility, unit=mph"}
+Number   Pressure    	  "Pressure [%.2f mb]"    {weather="locationId=home, type=atmosphere, property=pressure"}
+Number   Pressure_Inches  "Pressure [%.2f in]"    {weather="locationId=home, type=atmosphere, property=pressure, unit=inches"}
+String   Pressure_Trend   "Pressuretrend [%s]"    {weather="locationId=home, type=atmosphere, property=pressureTrend"}
+Number   Ozone            "Ozone [%d ppm]"    	  {weather="locationId=home, type=atmosphere, property=ozone"}
+Number   UV_Index         "UV Index"              {weather="locationId=home, type=atmosphere, property=uvIndex, scale=0"}
 
 // clouds
 Number   Clouds   "Clouds [%.0f %%]"   {weather="locationId=home, type=clouds, property=percent"}
@@ -278,7 +278,7 @@ ${config:latitude}
 ${config:longitude}
 
 // weather and forecast data directly from the weather objects
-${weather:athmosphere.humidity}
+${weather:atmosphere.humidity}
 ${weather:temperature.current}
 ${forecast(0):temperature.minMax}
 
