@@ -8,6 +8,11 @@ As for almost all open-source projects, contributions to the project are always 
 1. create an Issue in the [Github Issuetracker](https://github.com/openhab/openhab/issues) or contribute the necessary code changes through a [pull request](https://help.github.com/articles/creating-a-pull-request/) with reference to the discussion on the Group.
 1. keep track of the created Issue (even if it doesn't apply anymore, etc.)
 
+## A Note on openHAB 2 Compatibility
+
+Please note that the core runtime and the designer are considered to be frozen in openHAB 1.x - only critical bug fixes should be contributed to it. The code of the core runtime and the designer is now actively maintained and heavily extended at [Eclipse SmartHome](https://github.com/eclipse/smarthome), where [it has moved in 2014](http://kaikreuzer.blogspot.de/2014/06/openhab-20-and-eclipse-smarthome.html) already and which is the base of [openHAB 2](https://github.com/openhab/openhab2). So if there is the need to change anything in the 1.x repository, please make sure that the same change is also contributed to the Eclipse SmartHome repository.
+With regards to the addons (like bindings, actions, persistence services, etc.), openHAB 2 comes with a compatibility layer, which should make it possible to run 1.x addons on the 2.x runtime. All new addons that are contributed as a PR should also tested on openHAB 2 - once you have done that, you should create a [PR like this one](https://github.com/openhab/openhab2/pull/282/files) against openHAB 2. This is a mandatory prerequisite for having the contribution merged in openHAB 1.x. If you have any questions or concerns about this, please feel free to ask on the mailing list.
+
 The remainder of this page will give you the details of how to contribute more specifically:
 
 ## Best Practices for Contributors
@@ -17,9 +22,6 @@ The simplest way of contributing is probably to report bugs. You can do so using
 If you are in doubt whether it is a bug or not, you can also first refer to [the forum](http://groups.google.com/group/openhab) instead of entering a bug report.
 
 The same is true if you intend to implement/contribute a new feature. Please always first discuss your idea in the group as this will ensure a clear project direction and avoid the situation that different people unknowingly work on the same feature.
-
-**Important:** Please note that while openHAB 1.x is the major version to use at the moment, the evolution of the core runtime is by now taking place at the [Eclipse SmartHome](https://www.eclipse.org/smarthome/) project, which builds the foundation for [openHAB 2.x](https://github.com/openhab/openhab2). You can find some background information about that in [this blogpost](http://kaikreuzer.blogspot.de/2014/06/openhab-20-and-eclipse-smarthome.html). Out of this reason, we are very reluctant to accept any pull requests for "core" functionality - if you plan such contributions, better discuss on the mailing list if it makes sense to do this in Eclipse SmartHome.
-Pull requests for any kind of add-on (binding, action, etc.) are not concerned by this, as we will do our best that they will work on openHAB 2 without modification.
 
 ## Code Handling
 
