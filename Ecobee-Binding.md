@@ -349,7 +349,7 @@ Here are some examples of valid binding configuration strings, as you would defi
 	Number weather_forecasts0_pressure "pressure [%d]"                             (gWeather) { ecobee="<[123456789012#weather.forecasts[0].pressure]" }
 	Number weather_forecasts0_relativeHumidity "relativeHumidity [%d %%]"          (gWeather) { ecobee="<[123456789012#weather.forecasts[0].relativeHumidity]" }
 	Number weather_forecasts0_dewpoint "dewpoint [%d]"                             (gWeather) { ecobee="<[123456789012#weather.forecasts[0].dewpoint]" }
-	Number weather_forecasts0_visibility "visibility [%d]"                         (gWeather) { ecobee="<[123456789012#weather.forecasts[0].visibility]" }
+	Number weather_forecasts0_visibility "visibility [%d meters]"                  (gWeather) { ecobee="<[123456789012#weather.forecasts[0].visibility]" }
 	Number weather_forecasts0_windSpeed "windSpeed [%d]"                           (gWeather) { ecobee="<[123456789012#weather.forecasts[0].windSpeed]" }
 	Number weather_forecasts0_windGust "windGust [%d]"                             (gWeather) { ecobee="<[123456789012#weather.forecasts[0].windGust]" }
 	String weather_forecasts0_windDirection "windDirection [%s]"                   (gWeather) { ecobee="<[123456789012#weather.forecasts[0].windDirection]" }
@@ -357,7 +357,7 @@ Here are some examples of valid binding configuration strings, as you would defi
 	Number weather_forecasts0_pop "pop [%d %%]"                                    (gWeather) { ecobee="<[123456789012#weather.forecasts[0].pop]" }
 	Number weather_forecasts0_tempHigh "tempHigh [%.1f °F]"                        (gWeather) { ecobee="<[123456789012#weather.forecasts[0].tempHigh]" } 
 	Number weather_forecasts0_tempLow "tempLow [%.1f °F]"                          (gWeather) { ecobee="<[123456789012#weather.forecasts[0].tempLow]" } 
-	Number weather_forecasts0_sky "sky [%d]"                                       (gWeather) { ecobee="<[123456789012#weather.forecasts[0].sky]" } 
+	Number weather_forecasts0_sky "sky [MAP(ecobeeSky.map):%d]"                    (gWeather) { ecobee="<[123456789012#weather.forecasts[0].sky]" } 
 
 	Group gHouseDetails (All)
 
@@ -402,6 +402,46 @@ The mapping of [weather symbol numbers](https://www.ecobee.com/home/developer/ap
 20=smoke
 21=dust
 -=unknown
+```
+
+The mapping of the [sky numbers](https://www.ecobee.com/home/developer/api/documentation/v1/objects/WeatherForecast.shtml) to their meanings can be specified if you place the following in the file `configurations/transform/ecobeeSky.map`:
+
+```
+1=SUNNY 
+2=CLEAR 
+3=MOSTLY SUNNY 
+4=MOSTLY CLEAR 
+5=HAZY SUNSHINE 
+6=HAZE 
+7=PASSING CLOUDS 
+8=MORE SUN THAN CLOUDS 
+9=SCATTERED CLOUDS 
+10=PARTLY CLOUDY 
+11=A MIXTURE OF SUN AND CLOUDS 
+12=HIGH LEVEL CLOUDS 
+13=MORE CLOUDS THAN SUN 
+14=PARTLY SUNNY 
+15=BROKEN CLOUDS 
+16=MOSTLY CLOUDY 
+17=CLOUDY 
+18=OVERCAST 
+19=LOW CLOUDS 
+20=LIGHT FOG 
+21=FOG 
+22=DENSE FOG 
+23=ICE FOG 
+24=SANDSTORM 
+25=DUSTSTORM 
+26=INCREASING CLOUDINESS 
+27=DECREASING CLOUDINESS 
+28=CLEARING SKIES 
+29=BREAKS OF SUN LATE 
+30=EARLY FOG FOLLOWED BY SUNNY SKIES 
+31=AFTERNOON CLOUDS 
+32=MORNING CLOUDS 
+33=SMOKE 
+34=LOW LEVEL HAZE
+-=UNKNOWN
 ```
 
 ## Logging
