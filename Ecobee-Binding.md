@@ -342,7 +342,7 @@ Here are some examples of valid binding configuration strings, as you would defi
 	DateTime weather_timestamp "timestamp [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"   (gWeather) { ecobee="<[123456789012#weather.timestamp]" }
 	String weather_weatherStation "weatherStation [%s]"                            (gWeather) { ecobee="<[123456789012#weather.weatherStation]" }
 
-	Number weather_forecasts0_weatherSymbol "weatherSymbol [%d]"                   (gWeather) { ecobee="<[123456789012#weather.forecasts[0].weatherSymbol]" }
+	Number weather_forecasts0_weatherSymbol "weatherSymbol [MAP(ecobeeWeatherSymbol.map):%d]" (gWeather) { ecobee="<[123456789012#weather.forecasts[0].weatherSymbol]" }
 	DateTime weather_forecasts0_dateTime "dateTime [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" (gWeather) { ecobee="<[123456789012#weather.forecasts[0].dateTime]" }
 	String weather_forecasts0_condition "condition [%s]"                           (gWeather) { ecobee="<[123456789012#weather.forecasts[0].condition]" }
 	Number weather_forecasts0_temperature "temperature [%.1f °F]"                  (gWeather) { ecobee="<[123456789012#weather.forecasts[0].temperature]" }
@@ -374,6 +374,35 @@ Here are some examples of valid binding configuration strings, as you would defi
 
 	Number remoteSensors_Kitchen_capability_temperature "Kitchen temp. [%.1f °F]" (gRemoteSensors) { ecobee="<[123456789012#remoteSensors(Kitchen).capability(temperature).value]" }
 	Switch remoteSensors_Bedroom_capability_occupancy "Bedroom occu. [%s]"        (gRemoteSensors) { ecobee="<[123456789012#remoteSensors(Bedroom).capability(occupancy).value]" }
+
+The mapping of [weather symbol numbers](https://www.ecobee.com/home/developer/api/documentation/v1/objects/WeatherForecast.shtml) to their meanings can be specified if you place the following in the file `configurations/transform/ecobeeWeatherSymbol.map`:
+
+```
+-2=no_symbol
+0=sunny
+1=few_clouds
+2=partly_cloudy
+3=mostly_cloudy
+4=overcast
+5=drizzle
+6=rain
+7=freezing_rain
+8=showers
+9=hail
+10=snow
+11=flurries
+12=freezing_snow
+13=blizzard
+14=pellets
+15=thunderstorm
+16=windy
+17=tornado
+18=fog
+19=haze
+20=smoke
+21=dust
+-=unknown
+```
 
 ## Logging
 
