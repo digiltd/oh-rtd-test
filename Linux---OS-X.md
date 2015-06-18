@@ -43,6 +43,7 @@ openHAB can be installed and operated on AMD or Intel powered commodity laptop, 
  
   ```
   sudo /etc/init.d/openhab start
+  sudo /etc/init.d/openhab status
   ```
   1. Init based on systemd (e.g. Debian 8 / Ubuntu 15.x and higher)
 
