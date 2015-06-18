@@ -86,7 +86,7 @@ You will need to configure your system as shown here: [configuration](https://gi
 
 1. Test it
 
-openHAB comes with a built-in user interface. Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should be looking at your sitemap.
+Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should see your sitemap.
 
 
 ## To Upgrade
