@@ -21,7 +21,7 @@ openHAB can be installed and operated on AMD or Intel powered commodity laptop, 
 
 ## Installation
 1. You will need to install Java if not already installed.
-1. Add openHAB apt repository to the apt sources list (Hint: the current openhab.list file will be overwritten)
+1. Add openHAB apt repository to the apt sources list (Note: the current openhab.list file will be overwritten)
 
   ```
   echo "deb http://dl.bintray.com/openhab/apt-repo stable main" | sudo tee /etc/apt/sources.list.d/openhab.list
@@ -38,7 +38,7 @@ openHAB can be installed and operated on AMD or Intel powered commodity laptop, 
   ```
 1. If you have more than one OpenHAB binding with a USB device (Z-Wave, RFXCOM, etc), refer to [[symlinks]]
 
-1. Start the openHAB runtime
+1. Start openHAB - manually
   1. Init based on sysVinit (e.g. Debian 7 / Ubuntu 14.x and earlier)
  
   ```
@@ -50,7 +50,7 @@ openHAB can be installed and operated on AMD or Intel powered commodity laptop, 
   ```
   sudo systemctl start openhab
   ```
-1. Start openHAB at System Startup
+1. Start openHAB - at system startup
   1. Init based on sysVinit
 
   ```
