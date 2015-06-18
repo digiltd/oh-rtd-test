@@ -81,8 +81,7 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   ```
   sudo apt-cache search openhab
   ```
-1. Configure your system
-You will need to configure your system as shown here: [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s).
+1. Configure your system as outlined here: [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime).
 
 1. Test it
 
