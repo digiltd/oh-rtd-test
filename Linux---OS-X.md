@@ -15,11 +15,14 @@
 openHAB is a Java application and is expected to run on all platforms where JVM 1.6 or later is available. This includes Windows, Mac OS X, and Linux on x86, x86_64, and ARM architectures.  openHAB can be run on laptops, desktop computers, or  ARM based single-board computers. 
 
 # apt-get
-* Prerequisites: java 7 or newer
-* The packages are not signed therefore you will get a warning.
+* Note: The packages are not signed therefore you will get a warning.
 
 ## Installation
-1. You will need to install Java if not already installed.
+1. Install Java if 1.6 or higher is not already installed.  The following will display your current Java version.
+
+  ```
+  java -version
+  ```
 1. Add openHAB apt repository to the apt sources list (Note: the current openhab.list file will be overwritten)
 
   ```
@@ -44,7 +47,7 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   sudo /etc/init.d/openhab start
   sudo /etc/init.d/openhab status
   ```
-  1. Init based on systemd (e.g. Debian 8 / Ubuntu 15.x and higher)
+  2. Init based on systemd (e.g. Debian 8 / Ubuntu 15.x and higher)
 
   ```
   sudo systemctl start openhab
@@ -55,13 +58,13 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   ```
   sudo update-rc.d openhab defaults
   ```
-  1. Init based on systemd
+  2. Init based on systemd
 
   ```
   sudo systemctl daemon-reload
   sudo systemctl enable openhab
   ```
-1. Install the add-ons as you need them
+1. Install the add-ons / bindings as you need them (see list on right side-bar)
 
   ```
   sudo apt-get install openhab-addon-${addon-type}-${addon-name}
@@ -73,20 +76,24 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   apt-get install openhab-addon-io-dropbox
   apt-get install openhab-addon-action-twitter
   ```
-1. A list of all available packages can be retrieved with
+  A list of all available packages can be retrieved with
 
   ```
   sudo apt-cache search openhab
   ```
+1. Configure your system
+You will need to configure your system as shown here: [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s).
 
-## Upgrade
-Changed configuration files will be retained even on upgrades.
+1. Test it
+
+openHAB comes with a built-in user interface. Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should be looking at your sitemap.
+
+
+## To Upgrade
+Note: changed configuration files will be retained even on upgrades.
 
     sudo apt-get update
     sudo apt-get upgrade
-
-## Configuration
-In terms of configuration please visit the [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime) page(s).
 
 ## Advanced Setup
 ### Apt Repository Distributions
@@ -112,9 +119,7 @@ Therefore "apt-get update && apt-get upgrade" can be safely used for the other l
   echo "deb https://dl.bintray.com/openhab/apt-repo 1.7.0.RC1 main" | sudo tee -a /etc/apt/sources.list
   ```
 
-## Go test it!
 
-openHAB comes with a built-in user interface. It works on all webkit-based browsers like Chrome, Safari, etc. Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should be looking at your sitemap.
 
 ## Files and Directories
 * service execution configuration /etc/default/openhab
