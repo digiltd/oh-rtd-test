@@ -36,7 +36,7 @@ openHAB can be installed and operated on AMD or Intel powered commodity laptop, 
   ```
   sudo apt-get install openhab-runtime
   ```
-1. If you have more than one USB device, refer to [[symlinks]]
+1. If you have more than one OpenHAB binding with a USB device (Z-Wave, RFXCOM, etc), refer to [[symlinks]]
 
 1. Start the openHAB runtime
   1. Init based on sysVinit (e.g. Debian 7 / Ubuntu 14.x and earlier)
