@@ -8,7 +8,7 @@ This page describes the different places in which the openHAB runtime can be con
 
 **Note**: Items and sitemap(s) may be changed during runtime as needed.
 
-**Note**: Use the demofiles if you wish: http://www.openhab.org/downloads.html
+**Note**: Use the demo setup if you wish: http://www.openhab.org/downloads.html
 
 ## General Configuration - openhab.cfg
 
