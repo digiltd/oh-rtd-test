@@ -94,6 +94,14 @@ Note: changed configuration files will be retained even on upgrades.
     sudo apt-get update
     sudo apt-get upgrade
 
+## File locations
+* **service configuration** /etc/default/openhab
+* **site configuration**  /etc/openhab
+* **log files**  /var/log/openhab
+* **userdata like rrd4j databases**  /var/lib/openhab
+* **openHAB engine, addons and /webapps folder**  /usr/share/openhab
+
+
 ## Advanced Setup
 ### Apt Repository Distributions
 1. stable
@@ -117,15 +125,6 @@ Therefore "apt-get update && apt-get upgrade" can be safely used for the other l
   echo "deb https://dl.bintray.com/openhab/apt-repo 1.7.0 main" | sudo tee -a /etc/apt/sources.list
   echo "deb https://dl.bintray.com/openhab/apt-repo 1.7.0.RC1 main" | sudo tee -a /etc/apt/sources.list
   ```
-
-
-
-## Files and Directories
-* service execution configuration /etc/default/openhab
-* openHAB engine (including /webapps folder) is installed in /usr/share/openhab.
-* configuration is located at /etc/openhab
-* log files are stored in /var/log/openhab
-* userdata like rrd4j or db4o databases are in /var/lib/openhab
 
 ## Snapshot builds
 Not yet available.
