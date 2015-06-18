@@ -7,13 +7,12 @@
 
 
 
-**Note**: for Hardware specific details (e.g. Synology Diskstation, QNAP, and ARM boards like Raspberry Pi) please visit the [ARM based systems](https://github.com/openhab/openhab/wiki/Hardware-FAQ) or [Synology and QNAP servers] (https://github.com/openhab/openhab/wiki/Synology-and-QNAP)
+**Note**: for Hardware specific details for Synology Diskstation, QNAP, and ARM boards like Raspberry Pi  visit:
+* [ARM based systems](https://github.com/openhab/openhab/wiki/Hardware-FAQ)
+* [Synology and QNAP servers] (https://github.com/openhab/openhab/wiki/Synology-and-QNAP)
 
-The openHAB Runtime is a Java application. 
-
-openHAB is expected to run on all platforms where JVM 1.6 or later is available. This includes Windows, Mac OS X, and Linux on x86, x86_64, and ARM architectures.
-
-openHAB can be installed and operated on AMD or Intel powered commodity laptop, a desktop computer, or  ARM based single-board computers. 
+# Overview
+openHAB is a Java application and is expected to run on all platforms where JVM 1.6 or later is available. This includes Windows, Mac OS X, and Linux on x86, x86_64, and ARM architectures.  openHAB can be run on laptops, desktop computers, or  ARM based single-board computers. 
 
 # apt-get
 * Prerequisites: java 7 or newer
