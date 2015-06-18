@@ -1,7 +1,7 @@
 
 ## Introduction
 
-This page summarizes how to get openHAB server running on specific ARM hardware (it does not cover add-on bindings).
+This page summarizes how to get openHAB server running on specific ARM hardware.
 
 ## ARM Single-Board Computers
 
