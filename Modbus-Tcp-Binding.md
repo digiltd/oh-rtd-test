@@ -30,7 +30,7 @@ which sets refresh interval to Modbus polling service. Value is in milliseconds 
 Valid keys are
 
 <table>
-  <tr><td>connection</td><td>mandatory</td><td>for tcp connection use form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. For serial connections use just COM port name optional [:baud:dataBits:"parity":stopBits]</td></tr>
+  <tr><td>connection</td><td>mandatory</td><td>for tcp connection use form host_ip[:port] e.g. 192.168.1.55 or 192.168.1.55:511. If you omit port, default 502 will be used. For serial connections use just COM port name optional [:baud:dataBits:parity:stopBits:encoding] <br/>opitons are: parity={even,odd}; encoding={ascii,rtu,bin} (default is ascii, supported since v1.7)</td></tr>
   <tr><td>id</td><td>optional</td><td>slave id, default 1</td></tr>
   <tr><td>start</td><td>optional</td><td>slave start address, default 0</td></tr>
   <tr><td>length</td><td>mandatory?</td><td>number of data item to read, default 0 (but set it to something meaningful :)</td></tr>
