@@ -11,13 +11,15 @@ In logback.xml
 
 ## Folder Scanning
 
-In jetty.xml change the scan interval to 240 seconds. 
+In jetty.xml change  scanInterval to 240 seconds. You need to do this for the 3 places listed below.
 For Linux, jetty.xml is normally in /etc/openhab/jetty/etc
 
     <New class="org.eclipse.jetty.deploy.providers.ContextProvider">
-    <Set name="monitoredDir"><Property name="jetty.home" default="." />/contexts</Set>
+    <New class="org.eclipse.jetty.deploy.providers.WebAppProvider">
+    <New class="org.eclipse.jetty.osgi.boot.OSGiAppProvider">
+
     <Set name="scanInterval">240</Set>
-    </New>
+    
 
 In openhab.cfg, change the folder scan interval to 240 seconds.
 
