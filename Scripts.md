@@ -42,7 +42,7 @@ sendCommand(Heating, ON)
 ```
 
 ## Differences between Rules and Scripts
-As of OpenHAB 1.7, there are a few differences between a Rules EXECUTION_BLOCK code an a script.
+As of OpenHAB 1.7, there are a few differences between a Rules EXECUTION_BLOCK code and a script.
 
 1. You cannot use the "import" statement within a script.  You must fully qualify each and every reference with the complete package name.  For example, a JODA DateTime reference must be org.joda.time.DateTime (e.g. var org.joda.time.DateTime myDateTimeVariable).
 
