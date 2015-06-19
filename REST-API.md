@@ -23,6 +23,11 @@ callback({"type":"NumberItem","name":"Temperature_FF_Office","state":"Undefined"
 
 The parameter `jsoncallback` is optional. If not provided, `callback` will be used as a default.
 
+### Code Samples
+
+See the following for code samples:
+https://github.com/openhab/openhab/wiki/Samples-REST
+
 # Details
 
 The entry url for the REST API is the following:
@@ -212,7 +217,8 @@ openHAB makes use of the Atmosphere framework for server-push functionality.
 By this, you automatically have the option to use long-polling, HTTP streaming or websockets, depending on what your client supports.  
 
 You can subscribe on the following resources:
-- a single item (or item group)
+- a single item
+- an item group
 - an item state
 - a single page of a sitemap
 
@@ -280,11 +286,6 @@ That's all! The GreenT UI, the iOS client as well as HABDroid use this mechanism
 Besides this, server-push can be very helpful for integration with other systems, if they are interested in state changes from openHAB - there is no need to do polling in such a case.
 
 Checkout the atmosphere pages to learn more about client development: https://github.com/Atmosphere/atmosphere
-
-### Code Samples
-
-See the following for code samples:
-https://github.com/openhab/openhab/wiki/Samples-REST
 
 ### Accessing historical data from persistence service
 
