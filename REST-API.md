@@ -23,12 +23,12 @@ callback({"type":"NumberItem","name":"Temperature_FF_Office","state":"Undefined"
 
 The parameter `jsoncallback` is optional. If not provided, `callback` will be used as a default.
 
-### Code Samples
+## Code Samples
 
 See the following for code samples:
 https://github.com/openhab/openhab/wiki/Samples-REST
 
-# Details
+## Details
 
 The entry url for the REST API is the following:
 
