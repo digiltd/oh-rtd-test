@@ -87,6 +87,9 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
 
 Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should see your sitemap.
 
+## Performance Tuning
+Once your system is stable and configured the way you want it, review [[Performance Tuning|Performance]]
+
 
 ## To Upgrade
 Note: changed configuration files will be retained even on upgrades.
