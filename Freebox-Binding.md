@@ -9,6 +9,7 @@ Currently, it's able to report :
 - System informations (Version number, uptime, different cpu temperature, fan speed)
 - Connection Status informations (line status, public ip address, upload/download rate, up/downloaded volumes)
 - Last call (number, duration, status)
+- network devices reachable status (from v1.7)
 
 And act on : 
 - wifi network status
@@ -17,7 +18,6 @@ And act on :
 - AirMedia status (from v1.7)
 - Windows file sharing status (from v1.7)
 - Windows printer sharing status (from v1.7)
-- network devices reachable status (from v1.7)
 - Reboot
 
 ## Authentication
