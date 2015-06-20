@@ -9,6 +9,9 @@ Currently, it's able to report :
 - System informations (Version number, uptime, different cpu temperature, fan speed)
 - Connection Status informations (line status, public ip address, upload/download rate, up/downloaded volumes)
 - Last call (number, duration, status)
+- Last accepted call (from v1.7)
+- Last missed call (from v1.7)
+- Last outgoing call (from v1.7)
 - network devices reachable status (from v1.7)
 
 And act on : 
