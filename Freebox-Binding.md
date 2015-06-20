@@ -8,10 +8,11 @@ This binding is intended to users of the french DSL operator Free, using Freebox
 Currently, it's able to report : 
 - System informations (Version number, uptime, different cpu temperature, fan speed)
 - Connection Status informations (line status, public ip address, upload/download rate, up/downloaded volumes)
-- Last call (number, duration, status)
-- Last accepted call (from v1.7)
-- Last missed call (from v1.7)
-- Last outgoing call (from v1.7)
+- Last phone call (number, duration, status)
+- Caller name when contact entry is defined (from v1.7)
+- Last accepted phone call (from v1.7)
+- Last missed phone call (from v1.7)
+- Last outgoing phone call (from v1.7)
 - network devices reachable status (from v1.7)
 
 And act on : 
