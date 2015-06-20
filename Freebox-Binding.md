@@ -9,6 +9,7 @@ Currently, it's able to report :
 - System informations (Version number, uptime, different cpu temperature, fan speed)
 - Connection Status informations (line status, public ip address, upload/download rate, up/downloaded volumes)
 - Last call (number, duration, status)
+
 And act on : 
 - wifi network status
 - FTP server status (from v1.7)
