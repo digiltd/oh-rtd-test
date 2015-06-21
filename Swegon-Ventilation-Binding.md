@@ -1,50 +1,45 @@
-Documentation of the Swegon ventilation binding Bundle
-
 ## Introduction
 
-Swegon ventilation is used to get live data from from Swegon ventilation systems. Binding should be compatible at least Swegon CASA models.
+Swegon ventilation binding is used to get live data from Swegon ventilation systems. Binding should be compatible with at least Swegon CASA models.
 
 ## Swegon gateway
 
-**swegongw** is application read telegram from serial port (need RS-485 adapter) and relay untouched telegrams to openhab via UDP packet. Swegon ventilation binding listening UDP port and parse register data from UDP telegrams.
+**swegongw** is an application that reads packets from serial port (RS-485 adapter is needed) and relays them to openHAB via UDP. Swegon ventilation binding listens on the UDP port and extracts control data from UDP packets.
 
-C code is available on [here](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.swegonventilation/SwegonGW/swegongw.c)  
+C code is available [here](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.swegonventilation/SwegonGW/swegongw.c)  
 
-build command: 
+Build command: 
 
     gcc -std=gnu99 -o swegongw swegongw.c
 
-execution:
+Execution:
 
     swegongw -v -d /dev/ttyUSB0 -a 192.168.1.10
 
-Swegongw help is avail be by command
-execution:
+`swegongw` help is available by executing the following command:
 
     swegongw -h 
 
-For installation of the binding, please see Wiki page [[Bindings]].
+For the installation of the binding, please see Wiki page [[Bindings]].
 
 ## Binding Configuration
 
-openhab.cfg file (in the folder '${openhab_home}/configurations').
+`openhab.cfg` file (in `${openhab_home}/configurations` folder).
 
     ######################## Swegon ventilation Binding ###################################
     #
     # UDP port (optional, defaults to 9998)
     # swegonventilation:udpPort =9998
 
-The `swegonventilation:udpPort ` value specify UDP port which binding will listening. Configuration is optional, by default binding listening UDP port 9998.
+The `swegonventilation:udpPort` value specifies UDP port on which the binding will listen. Configuration is optional, by default binding listens on UDP port 9998.
 
 ## Item Binding Configuration
 
-In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax of the binding configuration strings accepted is the following:
+In order to bind an item to the device, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder `configurations/items`). Example of the item binding:
 
-    swegonventilation ="<data>"
+    swegonventilation="<data>"
 
-Where 
-
-`<data>` corresponds the data item. See complite list below.
+Where `<data>` identifies a data item. See a complete list below.
 
 ## List of supported data items
 
