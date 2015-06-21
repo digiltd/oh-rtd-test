@@ -42,6 +42,7 @@ Valid `<sonos command>`'s are:
   <tr><td><b>Command</b></td><td><b>Item Type</b></td><td><b>Purpose</b></td><td><b>Note</b></td></tr>
   <tr><td>add</td><td>String</td><td>add another Sonos Player to this Player's group</td><td>String is the id of the player to add</td></tr>
   <tr><td>alarm</td><td>OnOff</td><td>set the first occurring alarm either ON or OFF</td><td>Alarms have to be first defined through the Sonos Desktop Controller</td></tr>
+ <tr><td>favorite</td><td>String</td><td>play the named favorite entry</td><td>the entry has to be defined in the Sonos Favorites List in the Sonos Desktop or Mobile Controller (since 1.8)</td></tr>
   <tr><td>led</td><td>OnOff</td><td>get or set the white led on the front of the Player</td><td></td></tr>
   <tr><td>mute</td><td>!OnOff</td><td>get or set the mute state of the Master volume of the Player</td><td></td></tr>
   <tr><td>next</td><td>OnOff</td><td>skip to next track</td><td>both ON and OFF can be used to trigger this command</td></tr>
@@ -96,6 +97,14 @@ As a result, your lines in the items file might look like the following:
     String radiostation  "RadioStation [%s]"  (Sonos)   {sonos="[living:radio]", autoupdate="false"}
     Switch PlayLivingRoom "Play/Pause"        (Sonos)   {sonos="[ON:living:play],[OFF:living:pause]"}
     Switch next		  "Next track"        (Sonos)   {sonos="[ON:living:next]"}
+
+Favorites item example:
+
+    String Sonos_Office_favorite  						(Sonos)   {sonos="[office:favorite]"}
+
+Favorites sitemap example:
+
+    Switch item=Sonos_Office_favorite mappings=["Ben Harper Radio"="Ben Harper","Today's Hits Radio"="Hits","Today's Alternative Radio"="Alt"]
 
 ## Troubleshooting
 Sonos commands take time to execute. If applied to fast, the SONOS player will ignore the command and indicated this by an error message in the OSGi console.
