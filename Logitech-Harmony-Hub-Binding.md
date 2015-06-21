@@ -5,7 +5,8 @@ The Harmony Hub binding is used to enable communication between openHAB and mult
 
 ### Installing
 
-Add the org.openhab.binding.harmonyhub<version>.jar, org.openhab.io.harmonyhub<version>.jar and optionally the org.openhab.action.harmonyhub<version>.jar to the addons folder of an openHAB runtime installation and restart.
+Add the org.openhab.binding.harmonyhub<version>.jar, org.openhab.io.harmonyhub<version>.jar and _optionally_ the org.openhab.action.harmonyhub<version>.jar to the addons folder of an openHAB runtime installation and restart.  
+****The IO bundle is required for the action or binding bundle to work.**** 
 
 ### Usage
 
