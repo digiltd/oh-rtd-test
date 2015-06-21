@@ -18,16 +18,16 @@ Commands are parsed, converted into instances of classes from org.openhab.core.l
 
 MailControl binding is getting use of the following libraries:
 
-1) access-email-1.0.2.jar (https://github.com/apereverzin/access-email) which needs the following jars: mail-1.4.jar, activation-1.1.jar
-2) openhab-mailcontrol-model-1.0.0.jar (https://github.com/apereverzin/openhab-mailcontrol-model) which needs json-simple-1.1.jar
+1. [access-email-1.0.2.jar](https://github.com/apereverzin/access-email) which needs the following jars: mail-1.4.jar, activation-1.1.jar
+2. [openhab-mailcontrol-model-1.0.0.jar](https://github.com/apereverzin/openhab-mailcontrol-model) which needs json-simple-1.1.jar
 
 MailControl binding allows to send commands to the OpenHAB home server remotely without any additional server running somewhere else (for example, in a cloud).
-
 
 ## Configuration
 
 Example of configuration properties for the Message Control binding:
 
+```
 mailcontrol:username=email.address@some.com
 mailcontrol:password=XXXXXXXXXX
 mailcontrol:smtphost=smtp.mail.some.com
@@ -39,6 +39,7 @@ mailcontrol:pop3host=pop.mail.some.com
 mailcontrol:pop3port=995
 mailcontrol:pop3socketfactoryport=995
 mailcontrol:pop3socketfactoryclass=javax.net.ssl.SSLSocketFactory
+```
 
 ## Examples of Messages
 
@@ -46,6 +47,7 @@ The subject of an email message must be OpenHAB.
 
 Examples of messages for different types of commands:
 
+```
 decimal: {"messageType":"110","productVersion":"1.0","itemCommand":{"timeSent":"0","command":{"commandType":"DECIMAL","value":"1.2"},"item_id":"Item"},"senderEmail":"email.address@some.com"}
 
 HSB: {"messageType":"110","productVersion":"1.0","itemCommand":{"timeSent":"0","command":{"brightness":30,"saturation":50,"commandType":"HSB","hue":150},"item_id":"Item"},"senderEmail":"email.address@some.com"}
@@ -63,3 +65,4 @@ stop - move: {"messageType":"110","productVersion":"1.0","itemCommand":{"timeSen
 string: {"messageType":"110","productVersion":"1.0","itemCommand":{"timeSent":"0","command":{"value":"someValue","commandType":"STRING"},"item_id":"Item"},"senderEmail":"email.address@some.com"}
 
 up - down: {"messageType":"110","productVersion":"1.0","itemCommand":{"timeSent":"0","command":{"value":"UP","commandType":"UP_DOWN"},"item_id":"Item"},"senderEmail":"email.address@some.com"}
+```
