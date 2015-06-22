@@ -1,5 +1,5 @@
 ### ROS - Robot Operating System
-The **iot_bridge** provides a  bridge between the Robot Operating System (ROS) and OpenHAB. The bridge runs on the ROS system and uses the OpenHAB REST API.
+The **iot_bridge** (formerly named openhab_bridge) provides a  bridge between the Robot Operating System (ROS) and OpenHAB. The bridge runs on the ROS system and uses the OpenHAB REST API. 
 
  * **ROS** is an extremely powerful open source set of libraries and tools that help you build robot applications - providing drivers and state-of-the-art algorithms for computer vision (object detection, recognition and tracking), facial recognition, movement, environment mapping, etc.
  <http://www.ros.org>
