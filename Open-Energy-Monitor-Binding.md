@@ -10,7 +10,7 @@ Documentation of the Open Energy Monitor binding Bundle
 
 C code is available on [here](https://github.com/openhab/openhab/blob/master/bundles/binding/org.openhab.binding.openenergymonitor/RFM12PiGW/rfm12pigw.c)  
 
-''Note: To work with the new [http://wiki.openenergymonitor.org/index.php/RFM69Pi_V3 RFM69Pi module] serial baud 38400 must be used''
+#Note: To work with the new [RFM69Pi module](http://wiki.openenergymonitor.org/index.php/RFM69Pi_V3) serial baud 38400 must be used
 
 build command: 
 
