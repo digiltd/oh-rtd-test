@@ -218,6 +218,7 @@ Samples
  * [[Controlling openHAB with Android|Controlling-openHAB-with-Android]]
  * [[Usecase examples|Usecase-examples]]
  * [[B-Control Manager|Example-to-use-B-Control-Energy-Manager-with-openHAB]]
+ * [[Spell checking for foreign languages|Spell-checking-for-foreign-languages]]
 
 Release Notes
  * [[Version 1.7|Release-Notes-1.7]]
