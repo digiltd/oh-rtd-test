@@ -20,6 +20,7 @@ The binding currently offers the following features:
  * Can receive battery status
  * Can receive operating mode
  * Can factory reset device
+ * Can be configured to display current temperature or current setpoint
 * Radiator Thermostat Valve
  * Can send set point temperature
  * Can receive set point temperature
@@ -73,7 +74,7 @@ Some quick Examples:
 
 The following devices have the following valid features:
 * RadiatorThermostat - `thermostat` (default),`temperature`,`battery`,`valvepos`,`reset`
-* WallThermostat - `thermostat` (default),`temperature`,`battery`,`reset`
+* WallThermostat - `thermostat` (default),`temperature`,`battery`,`reset`,`displaySetting`
 * PushButton - `switch`,`reset`
 
 Example:
@@ -125,18 +126,19 @@ The table below shows what messages are implemented and to what extent. Transmit
 
 | Message               | Transmit | Decode           |Comments                                    |
 |-----------------------|:--------:|:----------------:|--------------------------------------------|
-|ACK                    | Y        | Y                |                                            |
-|PAIR PING              | N        | Y                |                                            |
-|PAIR PONG              | Y        | Y                |                                            |
-|SET GROUP ID           | Y        | Y                |                                            |
-|SET TEMPERATURE        | Y        | Y                | Allows setting of temperature of (wall)therm |
-|TIME INFO              | Y        | Y                |                                            |
-|WAKEUP                 | Y        | N                |                                            |
-|WALL THERMOSTAT CONTROL| N        | Y                | Provides measured temp and set point       |
-|THERMOSTAT STATE       | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
-| WALL THERMOSTAT STATE | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
-| PUSH BUTTON STATE     | N        | Y                | Auto maps to ON, Eco maps to OFF           |
-| ADD LINK PARTNER      | Y        | N                | Links a device with another                |
+|ACK                      | Y        | Y                |                                            |
+|PAIR PING                | N        | Y                |                                            |
+|PAIR PONG                | Y        | Y                |                                            |
+|SET GROUP ID             | Y        | Y                |                                            |
+|SET TEMPERATURE          | Y        | Y                | Allows setting of temperature of (wall)therm |
+|TIME INFO                | Y        | Y                |                                            |
+|WAKEUP                   | Y        | N                |                                            |
+|WALL THERMOSTAT CONTROL  | N        | Y                | Provides measured temp and set point       |
+|THERMOSTAT STATE         | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
+| WALL THERMOSTAT STATE   | N        | Y                | Provides battery/valvepos/temperature/thermostat set point |
+| PUSH BUTTON STATE       | N        | Y                | Auto maps to ON, Eco maps to OFF           |
+| ADD LINK PARTNER        | Y        | N                | Links a device with another                |
+| SET DISPLAY ACTUAL TEMP | Y        | Y                | Set a wall thermostat to show current measured or current setpoint temperature |
 
 ## Message Sequences
 For situations such as the pairing where a whole sequences of messages is required the binding has implemented a message sequencing system. This allows the implementation of a state machine for the system to pass through as messages are passed back and forth.
@@ -146,13 +148,9 @@ This will be documented in more detail in due course.
 ## Planned Future Features
 These are in no particular priority and are simply ideas. They may not get implemented at all.
 
-1. ~~Implement association of devices with each other so that they won't need rules to keep the Wall Thermostat and the Radiator Thermostat in sync~~ DONE
-1. ~~Add the ability to configure night/comfort/etc temperatures~~ DONE
-1. ~~Add the ability to interface with the Eco switch~~ DONE
 1. If there is a pending SET_TEMPERATURE message in the queue and we receive a SET_TEMPERATURE from the thermostat we are waiting to send to then we should clear the message from the queue as it will be outdated.
 1. Add the ability to interface with the window contact devices
 1. Add the ability pretend to be a wall thermostat. This would allow us to associate with a radiator thermostat and send measured temperatures to it. These could be then sent from another binding for example.
 1. Add the ability to simulated a window contact. This would allow us to associate with a radiator thermostat and send window events to it.
 1. Explore how to avoid the queue getting too long due to lack of credits with many devices.
 1. Add ability to setup device groups which should help reduce lack of credit issue
-1. ~~Use the 'get cul raw X' command to get credit information from CUL transport so we don't have to handle credit counting ourselves.~~ DONE
