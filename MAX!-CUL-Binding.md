@@ -20,7 +20,7 @@ The binding currently offers the following features:
  * Can receive battery status
  * Can receive operating mode
  * Can factory reset device
- * Can be configured to display current temperature or current setpoint
+ * Can be configured to display current temperature or current setpoint (_likely 1.8.0+_)
 * Radiator Thermostat Valve
  * Can send set point temperature
  * Can receive set point temperature
