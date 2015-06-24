@@ -27,7 +27,16 @@ Let's assume we have received a string containing `foo bar baz` and we're lookin
     // input variable contains data passed by openhab
 
 ### Map transformation service
-tbd ...
+
+Example of MAP transform inside a rule to translate weather condition:
+
+`String wuToday "Heute: [MAP(weather_de.map):%s]" {weather="locationId=home-WU, forecast=0, type=condition, property=commonId"}`
+
+To translate the commonID to german using the supplied MAP file use the following command in the rule:
+
+`var String wetter = transform("MAP","weather_de.map",wuToday.state.toString)`
+
+Important: The input variable has to be of type String!
 
 ### Scale transformation service
 
