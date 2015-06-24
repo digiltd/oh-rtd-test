@@ -67,7 +67,8 @@ Some quick Examples:
 * `Switch pushBtn { maxcul="PushButton:JEQ1234567" }` - ON maps to Auto, OFF maps to Eco
 * `Switch pair { maxcul="PairMode" }` - Switch only, ON enables pair mode for 60s. Will automatically switch off after this time.
 * `Switch listen { maxcul="ListenMode" }` - Switch only, puts binding into mode where it doesn't process messages - just listens to traffic, parses and outputs it in the log. Mainly used for debugging and checking behaviours. Can monitor devices associated with another controller, e.g a Max! Cube.
-* `Number txCredit { maxcul="CreditMonitor" }` - Will be updated with the latest value for the TX credit whenever it receives an update or command to a maxcul binding item. This number is used to adhere to the 1% transmission time rule. This is 1% rule is enforced by the CUL firmware.
+* `Number txCredit { maxcul="CreditMonitor" }` - Will be updated with the latest value for the TX credit whenever it receives an update or command to a maxcul binding item. This number is used to adhere to the 1% transmission time rule. The 1% rule is enforced by the CUL USB device firmware.
+* `Switch heating_display { maxcul="WallThermostat:JEQ1234567:feature=displaySetting" }` - This allows the wall thermostat display to be switched between actual temperature ("ON") and setpoint temperature ("OFF").
 
 ## Additional options
 ### feature
