@@ -36,6 +36,16 @@ As a result, your lines in the items file might look like the following:
 
 The above configuration allows reading the state of the Power over Ethernet on a Netgear switch, and to change the state of the power. In this configuration, it allows reading back the status, and turning on and off the power of a powered WiFi Access Point.
 
+In case your Switch item stay "uninitialized" you may need to add a mapping to translate the value (like 0 or 1) to ON and OFF.
+
+    Switch Switch_POEEnable2 "PoE WiFi Enable [%s]"  { snmp="<[192.168.2.111:public:.1.3.6.1.4.1.4526.11.16.1.1.1.3.1.2:10000:MAP(SwitchState.map)] >[OFF:192.168.2.111:private:.1.3.6.1.4.1.4526.11.16.1.1.1.3.1.2:2] >[ON:192.168.2.111:private:.1.3.6.1.4.1.4526.11.16.1.1.1.3.1.2:1]" }
+
+SwitchState.map
+
+    0=ON
+    1=OFF
+    -=undefiniert 
+
 ## openhab.cfg configuration
 
 The following configuration items can be set in the openhab file -:
