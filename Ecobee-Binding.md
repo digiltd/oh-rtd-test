@@ -8,9 +8,9 @@ _**Note:** This Binding is available in 1.7 and later releases._
  * [ecobee3 Remote Sensors](#ecobee3-remote-sensors)
 * [Authentication](#authentication)
 * [Example Binding Strings](#example-binding-strings)
-* [Known Issues](#known-issues)
 * [Examples](#examples)
 * [Logging](#logging)
+* [Change Log](#change-log)
 
 ## Introduction
 
@@ -165,11 +165,6 @@ Determine if there was any occupancy in the condo's kitchen within the last 30 m
 ```
 { ecobee="<[condo.987654321#remoteSensors(Kitchen).capability(occupancy).value]" }
 ```
-
-
-## Known Issues
-
-More complex actions, like setting a hold and creating a vacation, require the addition of an action bundle, and for those actions to be performed from scripts or rules.  This is forthcoming.
 
 ## Examples
 
@@ -466,3 +461,15 @@ In order to configure logging for this binding to be generated in a separate fil
    <appender-ref ref="ECOBEEFILE" />
 </logger>
 ```
+
+## Change Log
+
+### OpenHAB 1.7.1
+
+* Changed default polling to 3 minutes to comply with API documentation. ([#2713](https://github.com/openhab/openhab/pull/2713))
+* For users of the Ecobee binding who have more than one thermostat that are managed under the same account at ecobee.com, sets of bound items were toggling between `Uninitialized` and their proper values. ([#2765](https://github.com/openhab/openhab/pull/2765))
+* For users who set `ecobee:tempscale=C` for Celsius temperature values, certain temperatures would cause `ArithmeticException` exceptions and the temperature values would come back as `Uninitialized`. ([#2793](https://github.com/openhab/openhab/pull/2793))
+
+### OpenHAB 1.8.0
+
+* Added an Action bundle that allows users to perform more complex actions, like setting holds for different durations to temperature setpoints or comfort settings, to send messages to the thermostat's display, to resume the normal program, create vacation events, etc.
