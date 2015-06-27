@@ -85,7 +85,7 @@ Number Netatmo_Rain_Gauge "Rain [%.1f mm]" {netatmo="00:00:00:00:00:00#00:00:00:
 Example item configration:
 ```
 Number Netatmo_Indoor_Temperature     "Indoor Temperature [%.2f C]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Temperature"}
-Number Netatmo_Indoor_Humidity        "Indoor Humidity [%d %%]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Humidity"}
+Number Netatmo_Indoor_Humidity        "Indoor Humidity [%d %%]"         (Netatmo)  {netatmo="00:00:00:00:00:00#Humidity"}
 Number Netatmo_Indoor_CO2             "Indoor Carbon dioxide [%d ppm]"  (Netatmo)  {netatmo="00:00:00:00:00:00#Co2"}
 Number Netatmo_Indoor_Pressure        "Indoor Pressure [%.2f mbar]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Pressure"}
 Number Netatmo_Indoor_Noise           "Indoor Noise [%d db]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Noise"}
@@ -93,13 +93,13 @@ Number Netatmo_Indoor_wifi            "Indoor Wifi status [%d / 4]"     (Netatmo
 Number Netatmo_Indoor_altitude        "Indoor Altitude [%f]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Altitude"}
 Number Netatmo_Indoor_latitude        "Indoor Latitude [%.6f]"          (Netatmo)  {netatmo="00:00:00:00:00:00#Latitude"}
 Number Netatmo_Indoor_longitude       "Indoor Longitude [%.6f]"         (Netatmo)  {netatmo="00:00:00:00:00:00#Longitude"}
-Number Netatmo_Outdoor_Temperature    "Outdoor Temperature [%.2f °C]"    (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Temperature"}
-Number Netatmo_Outdoor_Humidity       "Outdoor Humidity [%.2f %%]"       (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Humidity"}
+Number Netatmo_Outdoor_Temperature    "Outdoor Temperature [%.2f °C]"   (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Temperature"}
+Number Netatmo_Outdoor_Humidity       "Outdoor Humidity [%.2f %%]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Humidity"}
 Number Netatmo_Outdoor_Rfstatus       "Outdoor RF status [%d / 5]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Rfstatus"}
-Number Netatmo_Outdoor_Batteryvp      "Outdoor battery status [%d %%]"     (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Batteryvp"}
+Number Netatmo_Outdoor_Batteryvp      "Outdoor battery status [%d %%]"  (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Batteryvp"}
 Number Netatmo_Rain_Gauge             "Rain [%d mm]"                    (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rain"}
 Number Netatmo_Rain_Rfstatus          "Rain RF Status [%d / 5]"         (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rfstatus"}
-Number Netatmo_Rain_Batteryvp         "Rain battery status [%d %%]"        (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Batteryvp"}
+Number Netatmo_Rain_Batteryvp         "Rain battery status [%d %%]"     (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Batteryvp"}
 ```
 
 ## Example rules
