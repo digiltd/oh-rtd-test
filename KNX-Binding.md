@@ -18,6 +18,18 @@ For your convenience you can see the relevant section as follows:
     # (optional, if serialPort or connection type 'ROUTER' is specified)
     knx:ip=
 
+    # Local KNX Binding bus address.
+    # Use it, when two or more openHAB Instances are connected to the same KNX bus.
+    # (optional, defaults to 0.0.0)
+    #knx:busaddr=
+
+    # Ignore local KNX Events, prevents internal events coming from
+    # 'openHAB event bus' a second time to be sent back to the 'openHAB event bus'.
+    # Note: To send back events second time is a Bug, but for backward compatibility, the behavior is not changed.
+    # For new installations, its recommend to set "knx:ignorelocalevents=true"
+    # (optional, defaults to false)
+    #knx:ignorelocalevents=
+
     # KNX IP connection type. Could be either TUNNEL or ROUTER (optional, defaults to TUNNEL)
     # Note: If you cannot get the ROUTER mode working (even if it claims it is connected), 
     # use TUNNEL mode instead with setting both the ip of the KNX gateway and the localIp.
