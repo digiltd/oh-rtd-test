@@ -310,6 +310,8 @@ Here are some examples of valid binding configuration strings, as defined in the
     Switch Coffee_Kitchen_Switch "Coffee machine" (GF_Cellar) {zwave="18:command=switch_binary"} 
     Number Coffee_Kitchen_Power "Coffee machine power consumption [%.1f W]" (GF_Cellar,GF_Energy) { zwave="18:command=sensor_multilevel" }
     Number Coffee_Kitchen_Energy "Coffee machine total energy usage  [%.2f KWh]" (GF_Cellar) { zwave="18:command=meter" }
+
+More Examples:
     
     /* A six node power bar with integrated energy and power meter and different intervals. */
     
