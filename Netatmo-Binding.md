@@ -91,8 +91,8 @@ Number Netatmo_Indoor_Pressure        "Indoor Pressure [%.2f mbar]"     (Netatmo
 Number Netatmo_Indoor_Noise           "Indoor Noise [%d db]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Noise"}
 Number Netatmo_Indoor_wifi            "Indoor Wifi status [%d / 4]"     (Netatmo)  {netatmo="00:00:00:00:00:00#Wifistatus"}
 Number Netatmo_Indoor_altitude        "Indoor Altitude [%d]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Altitude"}
-Number Netatmo_Indoor_latitude        "Indoor Latitude [%d]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Latitude"}
-Number Netatmo_Indoor_longitude       "Indoor Longitude [%d]"           (Netatmo)  {netatmo="00:00:00:00:00:00#Longitude"}
+Number Netatmo_Indoor_latitude        "Indoor Latitude [%.6f]"            (Netatmo)  {netatmo="00:00:00:00:00:00#Latitude"}
+Number Netatmo_Indoor_longitude       "Indoor Longitude [%.6f]"           (Netatmo)  {netatmo="00:00:00:00:00:00#Longitude"}
 Number Netatmo_Outdoor_Temperature    "Outdoor Temperature [%.2f °C]"    (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Temperature"}
 Number Netatmo_Outdoor_Humidity       "Outdoor Humidity [%.2f %%]"       (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Humidity"}
 Number Netatmo_Outdoor_Rfstatus       "Outdoor RF status [%d / 5]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Rfstatus"}
