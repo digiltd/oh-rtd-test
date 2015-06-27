@@ -5,6 +5,7 @@ Interact directly with your Squeezebox devices from within rules and scripts. In
 Send voice notifications to your Squeezebox devices; 
 - `squeezeboxSpeak(String playerId, String message)`: Send an announcement to the specified player using the current volume
 - `squeezeboxSpeak(String playerId, String message, int volume)`: Send an announcement to the specified player at the specified volume
+- `squeezeboxSpeak(String playerId, String message, int volume, bool resumePlayback)`: Send an announcement to the specified player at the specified volume, if `resumePlayback=true` resume to actual playlist after finishing message.
 
 Play a URL on one of your Squeezebox devices (e.g. start a radio stream when you wake up in the morning);
 - `squeezeboxPlayUrl(String playerId, String url)`: Plays the URL on the specified player using the current volume
