@@ -5,20 +5,6 @@ Documentation of the HTTP binding Bundle
 The HTTP binding bundle is available as a separate (optional) download.
 If you want to let openHAB request an URL when special events occur or let it poll a given URL frequently, please place this bundle JAR file in the folder `${openhab_home}/addons` and add binding information to your configuration. See the following sections on how to do this. 
 
-## Configuration in openhab.cfg (optional)
-
-By default, the binding waits for HTTP responses for up to five seconds (5000 milliseconds).  If you need to change this timeout value, edit `openhab.cfg` and set `http:timeout` to the number of milliseconds to wait.  For example, to wait up to 20 seconds for responses, add this line to the `openhab.cfg`:
-```
-http:timeout=20000
-```
-
-By default, the binding checks once every second (1000 milliseconds) to see if any bound items should be retrieved.  If you need to change this refresh value, edit `openhab.cfg` and set `http:granularity` to the number of milliseconds to wait between checks.  For example, to only check once every five seconds, add this line to `openhab.cfg`:
-```
-http:granularity=5000
-```
-
-Additional information can be added to `openhab.cfg` to support caching of data retrieved over HTTP.  Please see the [Caching](#caching) section below for more information.
-
 ## Generic Item Binding Configuration
 
 In order to bind an item to a HTTP request, you need to provide configuration settings. The easiest way to do so is to add some binding information in your item file (in the folder configurations/items`). The syntax for the HTTP binding configuration string is explained here:
@@ -85,6 +71,16 @@ Then you put a file `getValue.js` in `$OPENHAB_DIR/configuration/transform/`
 The content of getValue.js is:
 
     JSON.parse(input).title;
+
+## Configuration in openhab.cfg (optional)
+
+By default, the binding waits for HTTP responses for up to five seconds (5000 milliseconds).  If you need to change this timeout value, edit `openhab.cfg` and set `http:timeout` to the number of milliseconds to wait.  For example, to wait up to 20 seconds for responses, add or uncomment this line in `openhab.cfg`:
+
+    http:timeout=20000
+
+By default, the binding checks once every second (1000 milliseconds) to see if any bound items should be retrieved.  If you need to change this refresh value, edit `openhab.cfg` and set `http:granularity` to the number of milliseconds to wait between checks.  For example, to only check once every five seconds, add or uncomment this line in `openhab.cfg`:
+
+    http:granularity=5000
 
 ## Caching
 
