@@ -65,8 +65,11 @@ Valid types are
 <tr><td>ENERGY_CURRENT_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
 </table>
 
+## Radiator Valve Polling 
 
-See below for a typical example configuration. Note the poll_time is in seconds 1800 seconds = 30 minutes in the example below. You also only need to set the poll time on one item per radiator (I recommend the current temperature as per below). A poll will actually update all values.
+This binding will receive updates from the Radiator Valves whenever they are sent. However if you want a consistent update then you can add a poll_time to send a poll message at regular intervals. 
+
+See below for a typical example configuration. Note the poll_time is in seconds 1800 seconds = 30 minutes in the example below. You only need to set the poll time on one item per radiator (I recommend the current temperature as per below). A poll will actually update all values.
 
 Examples, configure for your items:
 ================
