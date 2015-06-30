@@ -24,13 +24,13 @@ Binding file: org.openhab.binding.caldav-version.jar
 
 Used to execute commands through an event, triggered at the start or the end of an event.
 The event summary is free selectable. The event description must fullfill special syntax.
-Syntax is `<BEGIN|END>;<Item-Name>;<Command>`.
+Syntax is `<BEGIN|END>:<Item-Name>:<Command>`.
 Each item trigger must be a single line without linebreaks. Every line which starts with "BEGIN" will be executed at the begin of the event. Each line with an "END" will be executed at the end of the event. You can define multiple lines, which must not be ordered. For example:
-<pre>BEGIN;Heater_Livingroom;22
-BEGIN;Heater_Corridor;22
-END;Heater_Livingroom;16
-END;Heater_Corridor;16
-END;Notification_Dummy;Heizung heruntergefahren</pre>
+<pre>BEGIN:Heater_Livingroom:22
+BEGIN:Heater_Corridor:22
+END:Heater_Livingroom:16
+END:Heater_Corridor:16
+END:Notification_Dummy:Heizung heruntergefahren</pre>
 
 Additionaly you can define an item to listen to upcoming changes of an item (which will be triggered through an event). Two types are available the command which will be set and the trigger time.
 Syntax is `caldavCommand="itemName:<Item-Name to listen to> type:<VALUE|DATE>"`
