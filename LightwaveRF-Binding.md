@@ -1,0 +1,56 @@
+## Introduction
+
+This binding supports the LightwaveRF products using the LightwaveRF Wifi Link that is available as part of that range.
+
+## Binding Configuration
+
+First you need to configure the following values in the openhab.cfg file (in the folder '${openhab_home}/configurations'). The defaults should suffice unless you know what you are doing.
+
+    ################################### LightwaveRf Binding #####################################
+    #
+    # The IP Address of the LightwaveRf Wifi Link you can use the broadcast address (required)
+    lightwaveRf:ip=255.255.255.255
+    # The port to monitor for messages you shouldn't need to change this
+    lightwaveRf:receiveport=9760
+    # The port to send messages on, it will also be monitored for incoming messages 
+    # you shouldn't need to change this
+    lightwaveRf:sendport=9761
+    # For a new computer you will need to register it with the wifi link to be allowed to send messages
+    # setting this to true we will send a registration message on startup. You will need to confirm
+    # registration on the wifi link. There is no harm leaving this as true but you can set to false
+    # once you have registerd for the first time.
+    lightwaverf:registeronstartup=true
+    # Delay between sending messages in ms to avoid swapming Wifi Link
+    lightwaverf:senddelay=2000
+    # Timeout for OK Messages in ms, we will retry messages we don't receive an ok for in the timeout
+    lightwaverf:okTimeout=1000
+
+## Item Binding Configuration
+
+To configure the items you first need to add the devices using the LightwaveRF App on iPhone or Android. You can add switches, dimmers and radiator valves.
+
+Once you have done this you need to find out some identifiers to allow the devices to be added to Openhab. Light switches and dimmers will need a RoomId and a DeviceId. Radiator valves need a RoomId and a Serial Number.
+
+To do this sniff your network using something like wireshark whilst sending commands using the smartphone application. You should see messages like "100,!R1D3F1"
+
+This means that lightwave switch/dimmer roomId = "1" and device id = "1"
+
+For thermostats you will see a message like "100,!R1F*r" this means the room id = "1". There will then be a return message that looks like JSON with the following in it... "serial":"123DEF" this means the serial id = "123DEF".
+
+The LightwaveRF binding works on the concept of giving each item a type. This will determine the value that item is loaded with when an update is received.
+
+See below for a typical example configuration. Note the poll_time is in seconds 1800 seconds = 30 minutes in the example below. You also only need to set the poll time on one item per radiator (I recommend the current temperature as per below). A poll will actually update all values.
+
+Examples, configure for your items:
+================
+
+    Dimmer  Dimmer1 "Dimmer1 [%d %%]" (ALL) { lightwaverf="room=3,device=2,type=DIMMER" }
+    Switch  Switch2 "Switch2" (ALL)         { lightwaverf="room=3,device=3,type=SWITCH" }
+    
+    Number RadiatorCTemp "Radiator [%.1f C]"  { lightwaverf="room=4,serial=BF3B01,type=HEATING_CURRENT_TEMP,poll=1800" }
+    Number RadiatorSTemp "Radiator Set Temp [%.1f C]"  { lightwaverf="room=4,serial=BF3B01,type=HEATING_SET_TEMP" }
+    Number RadiatorBatt "Radiator Battery [%.2f]"     { lightwaverf="room=4,serial=BF3B01,type=HEATING_BATTERY" }
+    String RadiatorMode "Radiator [%s]"     { lightwaverf="room=4,serial=BF3B01,type=HEATING_MODE" }
+    DateTime RadiatorUpdated "Radiator Updated [%1$tT, %1$tF]"  { lightwaverf="room=4,serial=AF4A02,type=HEATING_UPDATETIME" }
+
+================
