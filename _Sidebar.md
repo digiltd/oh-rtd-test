@@ -90,6 +90,7 @@ Community
   * [[jointSPACE-Binding|jointSPACE-Binding]]
   * [[KNX Binding|KNX-Binding]]
   * [[Koubachi Binding|Koubachi-Binding]]
+  * [[LightwaveRF Binding|LightwaveRF-Binding]]
   * [[Leviton/HAI Omnilink Binding|Omnilink-Binding]]
   * [[Lg TV Binding|Lg-TV]]
   * [[Logitech Harmony Hub|Logitech-Harmony-Hub-Binding]]
