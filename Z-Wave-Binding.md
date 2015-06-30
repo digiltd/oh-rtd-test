@@ -48,7 +48,7 @@ First of all you need to introduce the port settings of your Z-Wave controller i
 Note that some controllers register themselves as a modem (/dev/ttyACM) on Linux. In this case it is necessary to add user "openhab" to the group "dialout". Else openHAB won't be able to access the controller.
 </td></tr>
 <tr><td>zwave:healtime</td><td>Sets the time of day when a network heal will be performed.</td></tr>
-<tr><td>zwave:pollingQueue</td><td>Sets the maximum number of frames in th polling queue at once. This avoids swamping the network with poll messages.</td></tr>
+<tr><td>zwave:pollingQueue</td><td>Sets the maximum number of frames in the polling queue at once. This avoids swamping the network with poll messages.</td></tr>
 <tr><td>zwave:aliveCheckPeriod</td><td>Sets the time (in milliseconds) between each node health check message. This is used to periodically check if a node is alive.</td></tr>
 <tr><td>zwave:softReset</td><td>Set to true to perform a soft reset on the controller during the heal, and when the binding starts. This can help solve some problems with the stick, but it can also cause some new controllers to lock up (eg the ZWave Plus controllers)</td></tr>
 <tr>
