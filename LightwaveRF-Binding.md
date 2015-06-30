@@ -29,7 +29,15 @@ First you need to configure the following values in the openhab.cfg file (in the
 
 To configure the items you first need to add the devices using the LightwaveRF App on iPhone or Android. You can add switches, dimmers and radiator valves.
 
-Once you have done this you need to find out some identifiers to allow the devices to be added to Openhab. Light switches and dimmers will need a RoomId and a DeviceId. Radiator valves need a RoomId and a Serial Number.
+Once you have done this you need to find out some identifiers to allow the devices to be added to Openhab as below. 
+
+<table>
+<tr><td><b>Device</b></td><td><b>Identifier Required</b></td></tr> 
+<tr><td>Light Switch</td><td>RoomId and DeviceId</td>
+<tr><td>Dimmer</td><td>RoomId and DeviceId</td>
+<tr><td>Radiator Valve</td><td>RoomId and Serial Number</td>
+<tr><td>Energy Monitor</td><td>Serial Number</td>
+</table>
 
 To do this sniff your network using something like wireshark whilst sending commands using the smartphone application. You should see messages like "100,!R1D3F1"
 
@@ -38,6 +46,25 @@ This means that lightwave switch/dimmer roomId = "1" and device id = "1"
 For thermostats you will see a message like "100,!R1F*r" this means the room id = "1". There will then be a return message that looks like JSON with the following in it... "serial":"123DEF" this means the serial id = "123DEF".
 
 The LightwaveRF binding works on the concept of giving each item a type. This will determine the value that item is loaded with when an update is received.
+
+Valid types are
+
+<table>
+<tr><td><b>LightwaveRF Type</b></td><td><b>OpenhabType/b></td><td><b>Read/Write</b></td><td><b>Devices</b></td><td><b>From Version</b></td></tr>
+<tr><td>DIMMER</td><td>Dimmer</td><td>Read</td><td>Dimmer</td><td>1.7.0</td>
+<tr><td>SWITCH</td><td>Switch</td><td>Read</td><td>Switch</td><td>1.7.0</td>
+<tr><td>UPDATETIME</td><td>DateTime</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_UPDATETIME in 1.7.0)</td>
+<tr><td>SIGNAL</td><td>Number</td><td>Read</td><td>Energy Monitor, Radiator Valves</td><td>1.8.0 (was called HEATING_SIGNAL in 1.7.0)</td>
+<tr><td>HEATING_CURRENT_TEMP</td><td>Number</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
+<tr><td>HEATING_BATTERY</td><td>Number</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
+<tr><td>HEATING_SET_TEMP</td><td>Number</td><td>Write</td><td>Radiator Valves</td><td>1.7.0</td>
+<tr><td>HEATING_MODE</td><td>String</td><td>Read</td><td>Radiator Valves</td><td>1.7.0</td>
+<tr><td>ENERGY_YESTERDAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
+<tr><td>ENERGY_TODAY_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
+<tr><td>ENERGY_MAX_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
+<tr><td>ENERGY_CURRENT_USAGE</td><td>Number</td><td>Read</td><td>Energy Monitor</td><td>1.8.0</td>
+</table>
+
 
 See below for a typical example configuration. Note the poll_time is in seconds 1800 seconds = 30 minutes in the example below. You also only need to set the poll time on one item per radiator (I recommend the current temperature as per below). A poll will actually update all values.
 
