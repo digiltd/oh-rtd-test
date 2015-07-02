@@ -21,14 +21,17 @@ netatmo:clientsecret=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI
 netatmo:refreshtoken=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDE
 ```
 ## Measurement Units
-Starting with 1.8, you can optionally set the unit system and/or pressure units. The unit systems options are either Metric (Celsius/meters/millimeters) or US (Fahrenheit/feet/inches). The  temperature (Celsius or Fahrenheit), rain (millimeter or inches) and altitude (meters or feet) are affected by this parameter. If not specified, openHAB defaults to Metric.
+Starting with 1.8, you can optionally set the unit system and/or pressure units. The unit systems options are either Metric (Celsius/meters/millimeters) or US (Fahrenheit/feet/inches) and is case insensitive. The  temperature (Celsius or Fahrenheit), rain (millimeter or inches) and altitude (meters or feet) are affected by this parameter. If not specified, openHAB defaults to Metric.
 
 ```
+netatmo:unitsystem=m
 netatmo:unitsystem=us
 ```
-The pressure unit is either mbar, inHg, or mmHg and is used for pressure. If not specified, openHAB defaults to mbar.
+The pressure unit is either mbar, inHg, or mmHg and is used for pressure, and is case insenstive. If not specified, openHAB defaults to mbar.
 ```
+netatmo:pressureunit=mbar
 netatmo:pressureunit=inHg
+netatmo:pressureunit=mmHg
 ```
 Prior to 1.8, openHAB returns values in Metric and mbar.
 
