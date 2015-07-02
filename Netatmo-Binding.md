@@ -20,6 +20,18 @@ netatmo:clientid=123456789012345678901234
 netatmo:clientsecret=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI
 netatmo:refreshtoken=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDE
 ```
+## Measurement Units
+Starting with 1.8, you can optionally set the unit system and/or pressure units. The unit systems options are either Metric (Celsius/meters/millimeters) or US (Fahrenheit/feet/inches). The  temperature (Celsius or Fahrenheit), rain (millimeter or inches) and altitude (meters or feet) are affected by this parameter. If not specified, openHAB defaults to Metric.
+
+```
+netatmo:unitsystem=us
+```
+The pressure unit is either mbar, inHg, or mmHg and is used for pressure. If not specified, openHAB defaults to mbar.
+```
+netatmo:pressureunit=inHg
+```
+Prior to 1.8, openHAB returns values in Metric and mbar.
+
 ## Configure items and rules
 
 The IDs for the modules can be extracted from the developer documentation on the netatmo site.
@@ -97,7 +109,7 @@ Number Netatmo_Outdoor_Temperature    "Outdoor Temperature [%.2f °C]"   (Netatm
 Number Netatmo_Outdoor_Humidity       "Outdoor Humidity [%.2f %%]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Humidity"}
 Number Netatmo_Outdoor_Rfstatus       "Outdoor RF status [%d / 5]"      (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Rfstatus"}
 Number Netatmo_Outdoor_Batteryvp      "Outdoor battery status [%d %%]"  (Netatmo)  {netatmo="00:00:00:00:00:00#02:00:00:00:00:00#Batteryvp"}
-Number Netatmo_Rain_Gauge             "Rain [%d mm]"                    (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rain"}
+Number Netatmo_Rain_Gauge             "Rain [%.02f mm]"                 (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rain"}
 Number Netatmo_Rain_Rfstatus          "Rain RF Status [%d / 5]"         (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Rfstatus"}
 Number Netatmo_Rain_Batteryvp         "Rain battery status [%d %%]"     (Netatmo)  {netatmo="00:00:00:00:00:00#05:00:00:00:00:00#Batteryvp"}
 ```
