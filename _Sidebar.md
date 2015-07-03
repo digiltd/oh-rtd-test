@@ -176,6 +176,7 @@ Community
   * [[Logging Persistence|Logging-Persistence]]
   * [[MongoDB Persistence|MongoDB-Persistence]]
   * [[MQTT Persistence|MQTT-Persistence]]
+  * [[My openHAB Persistence]]
   * [[MySQL Persistence|MySQL-Persistence]]
   * [[rrd4j Persistence|rrd4j-Persistence]]
   * [[Sen.Se Persistence|Sense-Persistence]]
