@@ -947,7 +947,7 @@ Number	Battery_Hallway_Motion	"Hallway motion battery [%s %%]"	<energy>	(F0_Hall
 ```
 Insteon:
 ```
-Number	Battery_Hallway_Motion	"Hallway motion battery [%s %%]"	<energy>	(F0_Hallway,Battery)		{ insteonplm="25.A8.C3:0x000049#data,field=battery_level" }
+Number	Battery_Hallway_Motion	"Hallway motion battery [%s %%]"	<energy>	(F0_Hallway,Battery)		{ insteonplm="25.A8.C3:0x00004A#data,field=battery_level" }
 ```
 
 The rule:
