@@ -945,6 +945,10 @@ All of my battery powered items have a `Number` entry in my .items files. The `N
 ```
 Number	Battery_Hallway_Motion	"Hallway motion battery [%s %%]"	<energy>	(F0_Hallway,Battery)		{ zwave="40:command=BATTERY" }
 ```
+Insteon:
+```
+Number	Battery_Hallway_Motion	"Hallway motion battery [%s %%]"	<energy>	(F0_Hallway,Battery)		{ insteonplm="25.A8.C3:0x000049#data,field=battery_level" }
+```
 
 The rule:
 
@@ -999,4 +1003,3 @@ items-File
 ```
 Number  cTemperature_Chart_Period   (gInitializeZero)
 ```
-
