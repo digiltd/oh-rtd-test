@@ -135,6 +135,7 @@ See the Github issue tracker for a [full change log](https://github.com/openhab/
 * [#2373](https://github.com/openhab/openhab/pull/2373) - fix wiki links (@SubOptimal)
 * [#2371](https://github.com/openhab/openhab/pull/2371) - Bug fix for KNX binding, Time update from ntp in March #2330 (@Snickermicker)
 * [#2368](https://github.com/openhab/openhab/pull/2368) - Add support for ecobee3 remote sensors + bug fixes (@watou)
+* [#2362](https://github.com/openhab/openhab/issues/2362) - Core-Rules: Execution context trashed in RuleEngine.executeRules, Thread Safety (@mrguessed)
 * [#2345](https://github.com/openhab/openhab/pull/2345) - Fix: Error on creating tables for DateTimeItems (@Dennis650)
 * [#2336](https://github.com/openhab/openhab/pull/2336) - Update setpoint.html (@sja)
 * [#2334](https://github.com/openhab/openhab/pull/2334) - Rfxcom itemstates (@juri8)
