@@ -1,4 +1,4 @@
-## [[MiOS Binding|MiOS-Binding]] Example
+## [[MiOS Binding|MiOS-Binding]] and [[MiOS Action|MiOS-Action]] Examples
 
 This document is intended to provide [[MiOS Binding|MiOS-Binding]] users with real-world example openHAB configurations.
 
