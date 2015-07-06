@@ -1,7 +1,6 @@
 **Note**: This Script-Engine comes with no forward compatibility guarantee. It is currently untested against openHAB2 and therefore it can happen that scripts need to be rewritten for openHAB2 compatibility.
 
 # Script-Engines
-**Since Version 1.7.0**
 
 This addon allows the usage of different scripting languages as basis for rules. It was tested with the Jython-Scripting-Runtime and all examples rely on this scripting language. Feel free to contribute to this wiki, if you are using another language like JRuby.
 
