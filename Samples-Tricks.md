@@ -400,6 +400,9 @@ OHUSER=openhab
 # Set OH-Path
 OHPATH=/opt/openhab
 
+# uncomment and set if necessary to obtain correct Codepage and language
+# export LC_ALL=de_DE.UTF-8
+
 case "$1" in
 
   start)
