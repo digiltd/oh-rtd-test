@@ -124,3 +124,6 @@ To solve any issues with any binding, increase the logging. For gcal, add these 
 ## Restrictions
 Since the 17th of November Google has introduced API 3.0 which needs a modified authentication procedure.
 If you want to use this binding, use the instruction given in the google groups thread: https://groups.google.com/forum/#!searchin/openhab/google/openhab/LbqKLEdlDCk/FUy-Q1oNTEEJ
+
+Also, see here for a step-by-step list to enable the Calendar again: 
+https://github.com/fmoor/gcal-fix-openhab#gcal-fix-openhab
