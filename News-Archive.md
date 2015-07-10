@@ -2,6 +2,12 @@
 
 # News Archive
 
+November 30, 2014 - The bugfix release 1.6.1 is now available! Read the [Release Notes](Release-Notes-1.6) for all included fixes.
+
+November 24, 2014 - A first [alpha release of openHAB 2.0](https://github.com/openhab/openhab2/releases) has been published - [read details here](http://kaikreuzer.blogspot.de/2014/11/openhab-16-and-20-alpha-release.html).
+
+November 23, 2014 - openHAB 1.6 has been released! Read the [Release Notes](Release-Notes-1.6) to learn more about the new features, enhancements and fixes!
+
 September 08, 2014 -- The bugfix release 1.5.1 is now available! See the [Release Notes](https://github.com/openhab/openhab/wiki/Release-Notes-1.5) for all included fixes.
 
 June 15, 2014 -- openHAB 1.5.0 has been released! Read the [Release Notes](https://github.com/openhab/openhab/wiki/Release-Notes-1.5) to learn more about the new features, enhancements and fixes!
