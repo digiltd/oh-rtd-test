@@ -14,13 +14,11 @@ _**Note:** This Binding is available in 1.7 and later releases._
 
 ## Introduction
 
-Ecobee Inc. of Toronto, Canada, sells a range of Wi-Fi enabled thermostats, principally in the Americas.  The EMS, EMS Si, Smart, Smart Si and ecobee3 models are supported by this binding, which communicates with the Ecobee API over a secure, RESTful API to Ecobee's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, changing the backlight intensity, and even sending textual messages to one or a group of thermostats, can be accomplished through this binding (and its accompanying action bundle, TBD).
+Ecobee Inc. of Toronto, Canada, sells a range of Wi-Fi enabled thermostats, principally in the Americas.  The EMS, EMS Si, Smart, Smart Si and ecobee3 models are supported by this binding, which communicates with the Ecobee API over a secure, RESTful API to Ecobee's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, changing the backlight intensity, and even sending textual messages to one or a group of thermostats, can be accomplished through this binding (and its accompanying action bundle available in 1.8, or before then [via CI builds](https://github.com/openhab/openhab/pull/2755) or [here](https://www.dropbox.com/sh/pcxh3uembjk1vsy/AABO98W7bltNzhtADA12mgfCa?dl=0)).
 
 In order to use this binding, you must have already registered your thermostat(s) with Ecobee, registered a new app as a [developer](https://www.ecobee.com/developers/), and then login to your [web portal](https://www.ecobee.com/).
 
 For installation of the binding, please see the Wiki page [Bindings](Bindings).
-
-The snapshot version of the binding can be downloaded, together with the rest of openHAB, from the [cloudbees](https://openhab.ci.cloudbees.com/job/openHAB/) page.
 
 ## Binding Configuration
 
