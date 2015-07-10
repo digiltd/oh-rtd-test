@@ -1,6 +1,8 @@
 This binding can be used to connect through the CalDAV Interface to calendars.
-
 First of all you need to add the org.openhab.io.caldav-version.jar to the addons folder.
+
+**Where can I download the file, it is not on cloudbees?**
+
 
 openhab.cfg
 * `caldavio:<calendar-id>:url=`
