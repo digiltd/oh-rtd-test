@@ -28,3 +28,5 @@ In openhab.cfg, change the folder scan interval to 240 seconds.
     folder:rules=240,rules
     folder:scripts=240,script
     folder:persistence=240,persist
+
+**Note** : Be careful, a change of this configuration parameter can lead to an error during files loading at Openhab startup. If you get a log as "Configuration model 'XXXX' is either empty or cannot be parsed correctly!" try to remodify these values.
