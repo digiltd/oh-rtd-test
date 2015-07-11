@@ -101,9 +101,9 @@ The ecobee3 sensors are known to report temperature or occupancy, and so you wou
 >Note that `occupancy` is computed (by Ecobee, not the binding) to mean presence within the last 30 minutes, not current occupancy.
 
 ```
-Number "Kitchen temperature [%.1f °F]" { ecobee="<[123456789#remoteSensors(Kitchen).capability(temperature).value]" }
-Number "Basement temperature [%.1f °F]" { ecobee="<[123456789#remoteSensors(Basement).capability(temperature).value]" }
-Switch "Bedroom occupancy [%s]" { ecobee="<[123456789#remoteSensors(Bedroom).capability(occupancy).value]" }
+Number KitchenTemp "Kitchen temperature [%.1f °F]" { ecobee="<[123456789#remoteSensors(Kitchen).capability(temperature).value]" }
+Number BasementTemp "Basement temperature [%.1f °F]" { ecobee="<[123456789#remoteSensors(Basement).capability(temperature).value]" }
+Switch BedroomOccu "Bedroom occupancy [%s]" { ecobee="<[123456789#remoteSensors(Bedroom).capability(occupancy).value]" }
 ```
 
 See the Example Binding Strings section below for more examples.
