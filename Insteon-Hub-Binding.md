@@ -1,5 +1,7 @@
 Documentation of the Insteon Hub binding bundle.
 
+Note: Starting with openHAB 1.8 you can also use the InsteonPLM binding to connect to your Insteon Hub. The InsteonPLM binding supports the new 2014 Hub, which the InsteonHub binding does not.
+
 ## Introduction
 
 For installation of the binding, please see Wiki page [[Bindings]].
