@@ -404,10 +404,6 @@ String TIMESTAMP_Nodo1_GF_Servizio "Timestamp Nodo 1 [%1$td.%1$tm.%1$tY %1$tk:%1
 }}}
 
 
-
-Sitemap Example for T31 (thermostat):
-
-
 == Download ==
 
 The Souliss binding has been included starting from openHAB 1.7. As alternative you can also download it directly from the Souliss project [[download page|https://github.com/souliss/souliss/wiki/Downloads]] page. 
