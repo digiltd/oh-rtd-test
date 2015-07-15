@@ -12,7 +12,7 @@ The package needs to be installed to addons like any other addon. But by default
 - Install jython to /opt/jython
 - customize start.sh to reference to the JYTHON-PATH:
     
-<code>    
+```
     #!/bin/sh
     
     cd `dirname $0`
@@ -49,7 +49,7 @@ The package needs to be installed to addons like any other addon. But by default
         -Djava.awt.headless=true \
         -cp $cp org.eclipse.equinox.launcher.Main $* \
         -console
-</code>
+```
 
 - symlink jython.jar into /opt/openhab/lib/ (mkdir /opt/openhab/lib; cd /opt/openhab/lib; ln -s /opt/jython/jython.jar .)  or add jython.jar to classpath in start-script
 
