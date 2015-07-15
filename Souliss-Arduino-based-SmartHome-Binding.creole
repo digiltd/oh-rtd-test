@@ -365,6 +365,25 @@ Contact C3 "BIT 4" (GF_Soggiorno, TechnicView_Node3) {souliss="T1A:3:5:3"}
 Color  RGB_Led_Strip_1 "RGB Led Strip 1" <slider> (GF_Soggiorno)  {souliss="T16:0:2", autoupdate=false}
 }}}
 
+{{{
+Switch SwitchAutoMode 	"T12" 		(GF_Soggiorno, TechnicView_Node3) {souliss="T12:3:0:switch", autoupdate="false"}
+Switch SwitchAutoMode_setup 	"Auto" 		(GF_Soggiorno, TechnicView_Node3) {souliss="T12:3:0:automode", autoupdate="false"}
+}}}
+
+{{{
+Number Temperature_GF_Soggiorno     "Temperature [%.1f °C]"    <temperature> (T31, TechnicView_Node0) {souliss="T31:1:0:measured"}
+Number Temperature_2F_Living_SP "Temp Set Point [%.1f °C]"     <temperature> (T31, TechnicView_Node0) {souliss="T31:1:0:setpoint"}
+Switch setasmeasured "Set as measured" <temperature> (T31, TechnicView_Node0) {souliss="T31:1:0:setasmeasured", autoupdate="false"}
+Switch heating_cooling "Heating Mode" (T31, TechnicView_Node0) {souliss="T31:1:0:heatingcooling", autoupdate="false"}
+Switch heating "Heating" <siren>  (T31, TechnicView_Node0) {souliss="T31:1:0:heating"}
+Switch cooling "Cooling" <siren> (T31, TechnicView_Node0) {souliss="T31:1:0:cooling"}
+Switch fan_off "Fan Off" (T31, TechnicView_Node0) {souliss="T31:1:0:fanoff", autoupdate="false"}
+Switch fan_low "Fan Low" (T31, TechnicView_Node0) {souliss="T31:1:0:fanlow", autoupdate="false"}
+Switch fan_med "Fan Med" (T31, TechnicView_Node0) {souliss="T31:1:0:fanmed", autoupdate="false"}
+Switch fan_high "Fan High" (T31, TechnicView_Node0) {souliss="T31:1:0:fanhigh", autoupdate="false"}
+Switch power "Power Off" (T31, TechnicView_Node0) {souliss="T31:1:0:power"}
+}}}
+
 === Service Typicals  ===
 
 In order to track the health and timestamps two service Typicals has been introduced: D98 (Health) e D99 (Timestamp), those are not defined in Souliss sketches and are only available on the binding.
@@ -383,6 +402,10 @@ Number HEALTH_Nodo1_GF_Servizio "Health Nodo 1 [%1d]" <keyring> (Diagnostic, Tec
 
 String TIMESTAMP_Nodo1_GF_Servizio "Timestamp Nodo 1 [%1$td.%1$tm.%1$tY %1$tk:%1$tM:%1$tS]" <keyring> (Diagnostic, TechnicView_Node0) {souliss="D99:0:999"}
 }}}
+
+
+
+Sitemap Example for T31 (thermostat):
 
 
 == Download ==
