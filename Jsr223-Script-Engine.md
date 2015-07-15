@@ -13,42 +13,42 @@ The package needs to be installed to addons like any other addon. But by default
 - customize start.sh to reference to the JYTHON-PATH:
     
 ```
-    #!/bin/sh
-    
-    cd `dirname $0`
-    
-    # set path to eclipse folder. If local folder, use '.'; otherwise, use /path/to/eclipse/
-    eclipsehome="server";
+#!/bin/sh
 
-    # set ports for HTTP(S) server
-    HTTP_PORT=8080
-    HTTPS_PORT=8443
+cd `dirname $0`
 
-    JYTHON_HOME="/opt/jython";
+# set path to eclipse folder. If local folder, use '.'; otherwise, use /path/to/eclipse/
+eclipsehome="server";
 
-    # get path to equinox jar inside $eclipsehome folder
-    cp=$(echo lib/*.jar | tr ' ' ':'):$(find $eclipsehome -name "org.eclipse.equinox.launcher_*.jar" | sort | tail -1);
-    echo $cp
-    echo Launching the openHAB runtime...
-    java \
-        -Dpython.home="$JYTHON_HOME" \
-        -Dosgi.clean=true \
-        -Declipse.ignoreApp=true \
-        -Dosgi.noShutdown=true  \
-        -Djetty.port=$HTTP_PORT  \
-        -Djetty.port.ssl=$HTTPS_PORT \
-        -Djetty.home=.  \
-        -Dlogback.configurationFile=configurations/logback.xml \
-        -Dfelix.fileinstall.dir=addons -Dfelix.fileinstall.filter=.*\\.jar \
-        -Djava.library.path=lib \
-        -Djava.security.auth.login.config=./etc/login.conf \
-        -Dorg.quartz.properties=./etc/quartz.properties \
-        -Dequinox.ds.block_timeout=240000 \
-        -Dequinox.scr.waitTimeOnBlock=60000 \
-        -Dfelix.fileinstall.active.level=4 \
-        -Djava.awt.headless=true \
-        -cp $cp org.eclipse.equinox.launcher.Main $* \
-        -console
+# set ports for HTTP(S) server
+HTTP_PORT=8080
+HTTPS_PORT=8443
+
+JYTHON_HOME="/opt/jython";
+
+# get path to equinox jar inside $eclipsehome folder
+cp=$(echo lib/*.jar | tr ' ' ':'):$(find $eclipsehome -name "org.eclipse.equinox.launcher_*.jar" | sort | tail -1);
+echo $cp
+echo Launching the openHAB runtime...
+java \
+    -Dpython.home="$JYTHON_HOME" \
+    -Dosgi.clean=true \
+    -Declipse.ignoreApp=true \
+    -Dosgi.noShutdown=true  \
+    -Djetty.port=$HTTP_PORT  \
+    -Djetty.port.ssl=$HTTPS_PORT \
+    -Djetty.home=.  \
+    -Dlogback.configurationFile=configurations/logback.xml \
+    -Dfelix.fileinstall.dir=addons -Dfelix.fileinstall.filter=.*\\.jar \
+    -Djava.library.path=lib \
+    -Djava.security.auth.login.config=./etc/login.conf \
+    -Dorg.quartz.properties=./etc/quartz.properties \
+    -Dequinox.ds.block_timeout=240000 \
+    -Dequinox.scr.waitTimeOnBlock=60000 \
+    -Dfelix.fileinstall.active.level=4 \
+    -Djava.awt.headless=true \
+    -cp $cp org.eclipse.equinox.launcher.Main $* \
+    -console
 ```
 
 - symlink jython.jar into /opt/openhab/lib/ (mkdir /opt/openhab/lib; cd /opt/openhab/lib; ln -s /opt/jython/jython.jar .)  or add jython.jar to classpath in start-script
