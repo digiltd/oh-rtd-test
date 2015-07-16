@@ -37,12 +37,18 @@ There are some configuration settings that you can set in the openhab.cfg file. 
 
 # DSC Alarm poll period.
 # Amount of time elapsed in minutes between poll commands sent to the DSC Alarm.
-# Valid values are 1-15 (Default = 1).
+# Valid values are 1-15 (default = 1).
 # Leave undefined if using default.
 #dscalarm:pollPeriod=
+
+# Suppress Acknowledgement Messages.
+# Set to 'true' (default = 'false') to suppress the display of Acknowledgement messages, such as
+#   the Command Acknowledge message after a poll command is sent.
+# Leave undefined if using default.
+#dscalarm:suppressAcknowledgementMsgs=true
 ```
 
-The primary setting will be the IP address of the EyezOn Envisalink 3/2DS interface or the serial port name of the DSC IT-100.  The *password*, *usercode*, *baud*, and *pollPeriod* settings are optional.  If not set, the binding will resort to the system defaults.
+The primary setting will be the IP address of the EyezOn Envisalink 3/2DS interface or the serial port name of the DSC IT-100.  The *password*, *usercode*, *baud*, *pollPeriod*, and *suppressAcknowledgementMsgs* settings are optional.  If not set, the binding will resort to the system defaults.
 
 ## Item Binding
 
@@ -79,6 +85,16 @@ The DSCAlarmItemType maps the binding to an openHAB item type.  Here are the sup
     <tr><td>panel_panic_key_alarm</td><td>Switch</td><td>A panic key alarm has happened.</td></tr>
     <tr><td>panel_aux_key_alarm</td><td>Switch</td><td>An auxiliary key alarm has happened.</td></tr>
     <tr><td>panel_aux_input_alarm</td><td>Switch</td><td>An auxiliary input alarm has happened.</td></tr>
+    <tr><td>panel_trouble_led</td><td>Switch</td><td>The panel trouble LED is on.</td></tr>
+    <tr><td>panel_service_required</td><td>Switch</td><td>Service is required on the panel.</td></tr>
+    <tr><td>panel_ac_trouble</td><td>Switch</td><td>The panel has lost AC power.</td></tr>
+    <tr><td>panel_telephone_trouble</td><td>Switch</td><td>Telephone line fault.</td></tr>
+    <tr><td>panel_ftc_trouble</td><td>Switch</td><td>Failure to communicate with monitoring station.</td></tr>
+    <tr><td>panel_zone_fault</td><td>Switch</td><td>There is a fault condition on a zone/sensor.</td></tr>
+    <tr><td>panel_zone_tamper</td><td>Switch</td><td>There is a tamper condition on a zone/sensor.</td></tr>
+    <tr><td>panel_time_low_battery</td><td>Switch</td><td>There is a low battery condition on a zone/sensor.</td></tr>
+    <tr><td>panel_time_loss</td><td>Switch</td><td>Loss of time on the panel.</td></tr>
+    <tr><td>panel_trouble_message</td><td>String</td><td>Displays any trouble messages the panel might send.</td></tr>
     <tr><td>partition_status</td><td>String</td><td>A partitions current status.</td></tr>
     <tr><td>partition_arm_mode</td><td>Number</td><td>A partitions current arm mode. The possible values are:
 <br/>
@@ -92,6 +108,7 @@ The DSCAlarmItemType maps the binding to an openHAB item type.  Here are the sup
     <tr><td>partition_entry_delay</td><td>Switch</td><td>A partition is in entry delay mode.</td></tr>
     <tr><td>partition_exit_delay</td><td>Switch</td><td>A partition is in exit delay mode.</td></tr>
     <tr><td>partition_in_alarm</td><td>Switch</td><td>A partition is in alarm.</td></tr>
+    <tr><td>partition_opening_closing_mode</td><td>String</td><td>Displays the opening/closing mode of a partition.</td></tr>
     <tr><td>zone_general_status</td><td>Contact</td><td>A zones general (open/closed) status.</td></tr>
     <tr><td>zone_alarm_status</td><td>String</td><td>A zones alarm status.</td></tr>
     <tr><td>zone_tamper_status</td><td>String</td><td>A zones tamper status.</td></tr>
@@ -166,6 +183,17 @@ Number PANEL_COMMAND "Panel Commands" (DSCAlarmPanel) {dscalarm="panel:panel_com
 String PANEL_MESSAGE "Panel Message: [%s]" <"shield-1"> (DSCAlarmPanel) {dscalarm="panel:panel_message"}
 String PANEL_SYSTEM_ERROR "Panel System Error: [%s]" <"shield-1"> (DSCAlarmPanel) {dscalarm="panel:panel_system_error"}
 
+Switch PANEL_TROUBLE_LED "Panel Trouble LED" <warning> (DSCAlarmPanel) {dscalarm="panel:panel_trouble_led"}
+Switch PANEL_SERVICE_REQUIRED <yellowLED> (DSCAlarmPanel) {dscalarm="panel:panel_service_required"}
+Switch PANEL_AC_TROUBLE <yellowLED> (DSCAlarmPanel) {dscalarm="panel:panel_ac_trouble"}
+Switch PANEL_TELEPHONE_TROUBLE <yellowLED> (DSCAlarmPanel) {dscalarm="panel:panel_telephone_trouble"}
+Switch PANEL_FTC_TROUBLE <yellowLED> (DSCAlarmPanel) {dscalarm="panel:panel_ftc_trouble"}
+Switch PANEL_ZONE_FAULT <yellowLED> (DSCAlarmPanel) {dscalarm="panel:panel_zone_fault"}
+Switch PANEL_ZONE_TAMPER <yellowLED> (DSCAlarmPanel) {dscalarm="panel:panel_zone_tamper"}
+Switch PANEL_ZONE_LOW_BATTERY <yellowLED> (DSCAlarmPanel) {dscalarm="panel:panel_zone_low_battery"}
+Switch PANEL_TIME_LOSS <yellowLED> (DSCAlarmPanel) {dscalarm="panel:panel_time_loss"}
+String PANEL_TROUBLE_MESSAGE "Panel Trouble Message: [%s]" <"shield-1"> (DSCAlarmPanel) {dscalarm="panel:panel_trouble_message"}
+
 DateTime PANEL_TIME "Panel Time [%1$tA, %1$tm/%1$td/%1$tY %1tT]" <calendar> (DSCAlarmPanel) {dscalarm="panel:panel_time"}
 Switch PANEL_TIME_STAMP (DSCAlarmPanel) {dscalarm="panel:panel_time_stamp"}
 Switch PANEL_TIME_BROADCAST (DSCAlarmPanel) {dscalarm="panel:panel_time_broadcast"}
@@ -183,6 +211,7 @@ Switch PARTITION1_ARMED (DSCAlarmPartitions) {dscalarm="partition:1:partition_ar
 Switch PARTITION1_ENTRY_DELAY (DSCAlarmPartitions) {dscalarm="partition:1:partition_entry_delay"}
 Switch PARTITION1_EXIT_DELAY (DSCAlarmPartitions) {dscalarm="partition:1:partition_exit_delay"}
 Switch PARTITION1_IN_ALARM (DSCAlarmPartitions) {dscalarm="partition:1:partition_in_alarm"}
+String PARTITION1_OPENING_CLOSING_MODE "Partition 1 Opening/Closing Mode: [%s]" (DSCAlarmPartitions) {dscalarm="partition:1:partition_opening_closing_mode"}
 
 /* DSC Alarm Zones Items */
 Contact ZONE1_GENERAL_STATUS "Tamper Switch" (DSCAlarmZones) {dscalarm="zone:1:1:zone_general_status"}
@@ -299,9 +328,22 @@ Frame label="Alarm System" {
 			Text item=PANEL_TIME {
 				Switch item=PANEL_TIME_STAMP label="Panel Time Stamp"
 				Switch item=PANEL_TIME_BROADCAST label="Panel Time Broadcast"
-			}
-		}
+            }
 
+			Text item=PANEL_SYSTEM_ERROR icon="MyImages/system-error"
+
+			Text item=PANEL_TROUBLE_LED label="Panel Trouble Condition" {
+				Text item=PANEL_TROUBLE_MESSAGE icon="shield-0"
+				Text item=PANEL_SERVICE_REQUIRED label="Service Required"
+				Text item=PANEL_AC_TROUBLE label="AC Trouble"
+				Text item=PANEL_TELEPHONE_TROUBLE label="Telephone Line Trouble"
+				Text item=PANEL_FTC_TROUBLE label="Failed to Communicate Trouble"
+				Text item=PANEL_ZONE_FAULT label="Zone Fault"
+				Text item=PANEL_ZONE_TAMPER label="Zone Tamper"
+				Text item=PANEL_ZONE_LOW_BATTERY label="Zone Low Battery"
+				Text item=PANEL_TIME_LOSS label="Panel Time Loss"					
+		    }
+        }
 		Frame label="Partitions" {
 				Text item=PARTITION1_STATUS icon="shield-1" {
 					Switch item=PARTITION1_ARM_MODE label="Partition 1 Arm Options" mappings=[0="Disarm", 1="Away", 2="Stay", 3="Zero", 4="W/Code"]
@@ -387,7 +429,7 @@ Frame label="Alarm System" {
 					Text item=ZONE15_FAULT_STATUS icon="MyImages/Status-warning"
 					Text item=ZONE15_TAMPER_STATUS icon="MyImages/Status-warning"
 				}
-			}
+		        }
 			Text item=ZONE25_GENERAL_STATUS {
 				Switch item=ZONE25_BYPASS_MODE icon="MyImages/Zone-Alarm" mappings=[0="Armed", 1="Bypassed"]
 				Frame label="Other Status:" {
