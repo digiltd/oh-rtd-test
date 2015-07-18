@@ -6,11 +6,11 @@ Documentation of the Yamahareceiver binding Bundle
 This binding connects openhab with varoius Yamaha Receivers.
 
 tested Receivers:
+* V473
 * V475
 * V477
-* V675
-* V473
 * V575
+* V675
 * V773
 * V775
 * RX-A2020
