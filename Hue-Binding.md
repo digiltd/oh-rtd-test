@@ -160,3 +160,32 @@ If you like dedicated Hue icons, please consider using those posted in the forum
 
     Switch Toggle_1	  "left bulb" 	<hue> 	(Switching)	{hue="1"}
  
+#### Indirectly use of LivingColors remote
+
+The LivingColors remote is only compatible to Philips branded bulbs. We can't control for e.g. Osram bulbs with this remote. However the Hue Bridge can control these bulbs, since it fully supports the underlying ZigBee protocol - I guess the LivingColor remote and Philips bulbs use some proprietary protocol to communicate with each other.
+
+I use one of my LivingColor remote's scene for a sunset-like ambience. The following rule basically listens for a certain hue value from one of my Philips bulbs (which can be controlled by the remote) and if these values match (=when I activated the sunset scene) it sends a command to the unsupported bulb. This turns on the light with a delay of several seconds, since OpenHAB polls the values from the bridge every few seconds and while the bridge itself is also just polling the values.
+
+	rule "LivingColorsRemoteGrab"
+		when
+			Item philipsColor1 received update
+		then
+			logInfo("RemoteGrab", "philipsColor1 was updated")
+			
+			if (philipsColor1.state instanceof HSBType) {
+				var HSBType currentState
+				currentState = philipsColor1.state
+
+				var DecimalType hue = currentState.getHue()
+				var PercentType sat = currentState.getSaturation()
+				var PercentType bright = currentState.getBrightness()
+				
+				// Check if new values match our scene's values pressed on LivingColors remote
+				if ( hue > 23 && hue < 25 && sat == 100 ) {
+					logInfo("RemoteGrab", "philipsColor1 was set to SUNSET")
+
+					// Send command to unsuppoted bulb
+					sendCommand(osramColor1, new HSBType(new DecimalType(37.5),new PercentType(100),new PercentType(100)))
+				}
+			}
+	end
