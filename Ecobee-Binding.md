@@ -468,6 +468,7 @@ In order to configure logging for this binding to be generated in a separate fil
 * For users of the Ecobee binding who have more than one thermostat that are managed under the same account at ecobee.com, sets of bound items were toggling between `Uninitialized` and their proper values. ([#2765](https://github.com/openhab/openhab/pull/2765))
 * For users who set `ecobee:tempscale=C` for Celsius temperature values, certain temperatures would cause `ArithmeticException` exceptions and the temperature values would come back as `Uninitialized`. ([#2793](https://github.com/openhab/openhab/pull/2793))
 * Expired auth tokens or tokens from a different app key would not clear from persistent store ([#2849](https://github.com/openhab/openhab/pull/2849))
+* Very rarely, some updates to DateTime items would attempt to echo back as changes to the Ecobee API, generating log errors ([#2942](https://github.com/openhab/openhab/pull/2942))
 
 ### OpenHAB 1.8.0
 
