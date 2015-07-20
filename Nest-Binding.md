@@ -7,9 +7,9 @@ _**Note:** This Binding is available in 1.7 and later releases._
 * [Item configuration](#item-configuration)
  * [Handling special characters](#handling-special-characters)
 * [Binding Examples](#binding-examples)
-* [Change Log](#change-log)
-* [Known Issues](#known-issues)
 * [Logging](#logging)
+* [Known Issues](#known-issues)
+* [Change Log](#change-log)
 
 ## Introduction
 
@@ -174,25 +174,6 @@ Number NestCondo_temp "Condo temperature [%.1f °F]" {nest="<[structures(Condo).
 
   ![sample](http://watou.github.io/images/nest-binding-example.jpg)
 
-
-## Change Log
-### OpenHAB 1.7.1
-
-* Added the property `hvac_state` that was [added to the Nest API in May 2015](https://developer.nest.com/documentation/cloud/release-notes).  Please note that if you created your Nest client before the addition of this property to the API, your client's permissions may be set to "Thermostat read/write v2," which does not have access to this new property.  To access it, you will have to edit your [client](https://developer.nest.com/clients) to update the permission to v3.  Click the little gear icon to edit your client, click the Change Permissions button, and generate a new `nest:pin_code` for your nest.com account to put into `openhab.cfg` to replace the older `nest:pin_code`.
-
-## Known Issues
-
-1. Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Prohibition 3 of the [Nest Developer Terms of Service](https://developer.nest.com/documentation/cloud/tos), and so is not implemented.
-2. The Nest API rounds humidity to 5%, degrees Fahrenheit to whole degrees, and degrees Celsius to 0.5 degrees, so your Nest app will likely show slightly different values from what is available from the API.
-3. There is currently a bug where attempting to update an Item with a binding configuration of this form will not work:
-```
-Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[structures(Condo).thermostats(Dining Room).target_temperature_f]"}
-```
-While this form should work:
-```
-Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining Room).target_temperature_f]"}
-```
-
 ## Logging
 
 In order to configure logging for this binding to be generated in a separate file add the following to your /configuration/logback.xml file;
@@ -215,3 +196,22 @@ In order to configure logging for this binding to be generated in a separate fil
    <appender-ref ref="NESTFILE" />
 </logger>
 ```
+
+## Known Issues
+
+1. Multiple instance support (allowing the binding to access multiple Nest accounts at once) conflicts with Prohibition 3 of the [Nest Developer Terms of Service](https://developer.nest.com/documentation/cloud/tos), and so is not implemented.
+2. The Nest API rounds humidity to 5%, degrees Fahrenheit to whole degrees, and degrees Celsius to 0.5 degrees, so your Nest app will likely show slightly different values from what is available from the API.
+3. There is currently a bug where attempting to update an Item with a binding configuration of this form will not work:
+```
+Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[structures(Condo).thermostats(Dining Room).target_temperature_f]"}
+```
+While this form should work:
+```
+Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining Room).target_temperature_f]"}
+```
+
+## Change Log
+### OpenHAB 1.7.1
+
+* Added the property `hvac_state` that was [added to the Nest API in May 2015](https://developer.nest.com/documentation/cloud/release-notes).  Please note that if you created your Nest client before the addition of this property to the API, your client's permissions may be set to "Thermostat read/write v2," which does not have access to this new property.  To access it, you will have to edit your [client](https://developer.nest.com/clients) to update the permission to v3.  Click the little gear icon to edit your client, click the Change Permissions button, and generate a new `nest:pin_code` for your nest.com account to put into `openhab.cfg` to replace the older `nest:pin_code`. ([#2659](https://github.com/openhab/openhab/pull/2659))
+* Very rarely, some updates to DateTime items would attempt to echo back as changes to the Nest API, generating log errors ([#2930](https://github.com/openhab/openhab/pull/2930))
