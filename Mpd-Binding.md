@@ -54,7 +54,7 @@ rule "concat"
 when
   Item CurrentTrack received update or
   Item CurrentArtist received update
-the
+then
   ConcatInfo.postUpdate(CurrentTrack.state.toString + " / " + CurrentArtist.state.toString)
 end
 ```
