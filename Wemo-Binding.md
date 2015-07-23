@@ -24,7 +24,7 @@ If not shure about the friendlyNames of your devices, take a look in your openha
 Examples, how to configure your items in your items file:
 
     Switch WallFanOffice   {wemo="WemoFanOffice"} 
-#Item Name and friendlyName don't have to be identical!
+    Item Name and friendlyName don't have to be identical!
 
 
 ## Item Binding Configuration (Version 1.8)
