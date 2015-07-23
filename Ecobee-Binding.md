@@ -472,4 +472,4 @@ In order to configure logging for this binding to be generated in a separate fil
 
 ### OpenHAB 1.8.0
 
-* Added an Action bundle that allows users to perform more complex actions, like setting holds for different durations to temperature setpoints or comfort settings, to send messages to the thermostat's display, to resume the normal program, create vacation events, etc.
+* Added an Action bundle that allows users to perform more complex actions, like setting holds for different durations to temperature setpoints or comfort settings, to send messages to the thermostat's display, to resume the normal program, create vacation events, etc. ([#2755](https://github.com/openhab/openhab/pull/2755))
