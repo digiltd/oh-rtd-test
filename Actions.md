@@ -33,6 +33,13 @@ Here is the list of available actions in the core runtime:
 - `logWarn(String loggerName, String logText, Object[args))`: Logs `logText` on level `WARN` using the openhab Logback configuration
 - `logError(String loggerName, String logText, Object[](]) args))`: Logs `logText` on level `ERROR` using the openhab Logback configuration
 
+  Note: Opened and immediately closed curly braces (`{}`) in `logText` are placeholders for `args[0]`, `args[1]`, etc.
+
+Example:
+- `logDebug("Garage", "GarageDoorStateChanged Starting. Garage_Door_Open.state: [{}]. Garage_Door_Closed.state: [{}].", Garage_Door_Open.state, Garage_Door_Closed.state);`
+
+ - Outputs `"GarageDoorStateChanged Starting. Garage_Door_Open.state: [true]. Garage_Door_Closed.state: [false]."` to a logger called "Garage". In this example, Garage_Door_Open and Garage_Door_Closed are String items with values of `true` and `false` respectively.
+
 **Other actions:**
 - `sendHttpGetRequest(String url)`: Send out a GET-HTTP request
 - `callScript(String scriptName)`: Calls a script which must be located in the configurations/scripts folder
