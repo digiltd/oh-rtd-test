@@ -2,6 +2,60 @@
 
 Please find below the _intermediary_ release notes of the 1.7 Release.
 
+### Version 1.7.1
+
+This is the second bugfix release of the 1.7 release. See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.7.1).
+
+### Updating the openHAB runtime 1.7.0 to 1.7.1
+
+Many of the fixes does not require to update the Runtime itself so it would suffice to simply replace the Binding jars in your Add-Ons folder. However, if you would like have one of these [issues in the runtime](https://github.com/openhab/openhab/issues?q=milestone%3A1.7.1+label%3Aruntime) fixed you will have to update the Runtime as well.
+
+####Enhancements:
+* [#2965](https://github.com/openhab/openhab/pull/2965) - bintray-upload-debs: add gpg signing (@theoweiss)
+* [#2852](https://github.com/openhab/openhab/pull/2852) - Optimized CCU metadata extraction and support for PARTY_* datapoint for device HM-CC-RT-DN (@gerrieg)
+* [#2834](https://github.com/openhab/openhab/pull/2834) - Add Log Info for GPIO binding (@Speederc)
+* [#2790](https://github.com/openhab/openhab/pull/2790) - added outputmode 51 for led dimmers like GE-UMV200 (@georgwiltschek)
+* [#2770](https://github.com/openhab/openhab/pull/2770) - Added optional Timestamp to message with OBIS 7, 0, 23, 1, 0 to fix #… (@Truxen)
+* [#2735](https://github.com/openhab/openhab/pull/2735) - Add Log Info for GPIO binding (@Speederc)
+* [#2713](https://github.com/openhab/openhab/pull/2713) - [Ecobee] Changed default polling to 3 minutes; added binding example. (@watou)
+* [#2701](https://github.com/openhab/openhab/pull/2701) - [MAX!Cul] Ensure that associations isn't null before checking if it is empty. (@cyclingengineer)
+* [#2667](https://github.com/openhab/openhab/pull/2667) - Update openhab_default.cfg (@fazioa)
+* [#2664](https://github.com/openhab/openhab/pull/2664) - update license-maven-plugin (@slawekjaranowski)
+* [#2659](https://github.com/openhab/openhab/pull/2659) - [Nest] Enh: Add hvac_state property to thermostat object (@watou)
+* [#2650](https://github.com/openhab/openhab/pull/2650) - Rfxcom: received command logging changed from info to debug level (@paulianttila)
+
+####Bugfixes:
+* [#2994](https://github.com/openhab/openhab/pull/2994) - Update copyright from 2014 to 2015 (@marcelerkel)
+* [#2983](https://github.com/openhab/openhab/pull/2983) - fix issue #2979 (wrong state logged if incompatible type stored in rrd) (@J-N-K)
+* [#2982](https://github.com/openhab/openhab/pull/2982) - eBUS Bugfix Update for 1.7.1 (@csowada)
+* [#2967](https://github.com/openhab/openhab/pull/2967) - fix for #1403 - makes Actions visible in Designer (@teichsta)
+* [#2962](https://github.com/openhab/openhab/pull/2962) - removed usage of static SimpleDateFormatter (@teichsta)
+* [#2949](https://github.com/openhab/openhab/pull/2949) - Add Panasonic TV to default configuration file (@dominicdesu)
+* [#2945](https://github.com/openhab/openhab/issues/2945) - DateTimeType isn't thread safe (@foxy82)
+* [#2942](https://github.com/openhab/openhab/pull/2942) - Ecobee-Binding: Suppress occasionally failing update echo cancellations. (@watou)
+* [#2933](https://github.com/openhab/openhab/pull/2933) - Fix for #2552. Allow the use of double quotes around state/commands in rules (@marcelerkel)
+* [#2930](https://github.com/openhab/openhab/pull/2930) - Nest-Binding: Suppress occasionally failing update echo cancellations. (@watou)
+* [#2926](https://github.com/openhab/openhab/pull/2926) - Fixed issues voor DSMR v2 and ACE4000 meters (@mvolaart)
+* [#2924](https://github.com/openhab/openhab/pull/2924) - Netatmo: 1.7.1 fix for issue #1820 (@robnielsen)
+* [#2922](https://github.com/openhab/openhab/pull/2922) - remove -Dorg.eclipse.swt.browser.DefaultType=mozilla startup parameter again (@teichsta)
+* [#2901](https://github.com/openhab/openhab/pull/2901) - [XBMC] Fixes properties like Player.Artist always being empty. (@marcelerkel)
+* [#2880](https://github.com/openhab/openhab/pull/2880) - Strip off the double quotes from the mapping command in case they exist. (@marcelerkel)
+* [#2878](https://github.com/openhab/openhab/pull/2878) - Error handling for cul network devices (@querdenker2k)
+* [#2870](https://github.com/openhab/openhab/pull/2870) - Fix state properties Plex binding latest PMS (@idserda)
+* [#2849](https://github.com/openhab/openhab/pull/2849) - Ecobee: two cases where tokens should be ignored or discarded. (@watou)
+* [#2840](https://github.com/openhab/openhab/pull/2840) - [Energenie] State response changed?  (@tinnerm)
+* [#2833](https://github.com/openhab/openhab/pull/2833) - Fix for #2732 - Saving group as string? But datatype is double!? (@lewie)
+* [#2831](https://github.com/openhab/openhab/pull/2831) - Mysql fix prepared statement for issue #2705 (@lewie)
+* [#2829](https://github.com/openhab/openhab/pull/2829) - Heatmiser update per Issue #2177 (@SkynetHome)
+* [#2815](https://github.com/openhab/openhab/pull/2815) - [http] False error logged when timeout or granularity given in openhab.cfg (@watou)
+* [#2796](https://github.com/openhab/openhab/pull/2796) - Fix for Freebox in bridge mode (issue 2789) (@lolodomo)
+* [#2794](https://github.com/openhab/openhab/pull/2794) - OneWireBinding: Fix issue with tempscale config property (@Dennis650)
+* [#2793](https://github.com/openhab/openhab/pull/2793) - Ecobee binding bug: BigDecimal needs precision/rounding when converting to/from Celsius (@watou)
+* [#2786](https://github.com/openhab/openhab/pull/2786) - Weather: Fixed ForecastIO summary and icon mapping (@gerrieg)
+* [#2783](https://github.com/openhab/openhab/pull/2783) - updated fornax mwe plugin to 3.5.1 and removed deprecated itemis repo (@teichsta)
+* [#2782](https://github.com/openhab/openhab/pull/2782) - bug fixes to make insteonplm binding more robust (@berndpfrommer)
+* [#2774](https://github.com/openhab/openhab/pull/2774) - added indication of input encoding for google tts service (@skazi0)
+
 ### Version 1.7.0
 
 See the Github issue tracker for a [full change log](https://github.com/openhab/openhab/issues?q=milestone%3A1.7.0).
