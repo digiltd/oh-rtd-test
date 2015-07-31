@@ -42,7 +42,7 @@ The indicated values are the default values used by either binding
 
 `tcp:addressmask=true` - Allow masks in ip:port addressing, e.g. 192.168.0.1:`**` etc
 
-`tcp:reconnectron=0 0 0 ** * ?` - Cron-like string to reconnect remote ends, e.g for unstable connection or remote ends
+`tcp:reconnectcron=0 0 0 ** * ?` - Cron-like string to reconnect remote ends, e.g for unstable connection or remote ends
 
 `tcp:retryinterval=5` - Interval between reconnection attempts when recovering from a communication error, in seconds
 
