@@ -49,7 +49,7 @@ A rule file is a text file with the following structure:
     [Rules]
 
 
-The ***Imports*** section contains import statement just like in Java. As in Java, they make the imported types available without having to use the fully qualified name for them. For further details, please see the [Xtend documentation for imports](http://www.eclipse.org/xtend/documentation.html#imports).
+The ***Imports*** section contains import statement just like in Java. As in Java, they make the imported types available without having to use the fully qualified name for them. For further details, please see the [Xtend documentation for imports](http://www.eclipse.org/xtend/documentation/202_xtend_classes_members.html#imports).
 
 Example:
 ```Xtend
