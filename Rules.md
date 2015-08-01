@@ -55,7 +55,7 @@ Example:
 ```Xtend
     import org.openhab.core.library.types.*
 ```
-The ***Variable Declarations*** section can be used to declare variables that should be accessible to all rules in this file. You can declare variables with or without initial values and modifiable or read-only. For further details, please see the [Xtend documentation for variable declarations](http://www.eclipse.org/xtend/documentation.html#variableDeclaration).
+The ***Variable Declarations*** section can be used to declare variables that should be accessible to all rules in this file. You can declare variables with or without initial values and modifiable or read-only. For further details, please see the [Xtend documentation for variable declarations](http://www.eclipse.org/xtend/documentation/203_xtend_expressions.html#variable-declaration).
 
 Example: 
 ```Xtend
