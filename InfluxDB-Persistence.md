@@ -5,6 +5,8 @@ Documentation of the InfluxDB Persistence Service
 This service allows you to persist and query states using the time series database 
 [InfluxDB](http://influxdb.org).
 
+The InfluxDB binding [does not support InfluxDB 0.9 yet](https://github.com/openhab/openhab/issues/2748).
+
 ## Features
 
 The InfluxDB persistence service persists item values using the the InfluxDB time series database.
