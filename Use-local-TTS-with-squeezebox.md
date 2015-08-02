@@ -1,7 +1,7 @@
 - [Introduction](Use-local-TTS-with-squeezebox#introduction)
 - [References](Use-local-TTS-with-squeezebox#references)
 
-**Page is under constructions.**
+**Page is under construction.**
 ***
 # Introduction
 The build in "Say" action of the squeezebox binding does provide a lot of convinience to realize TTS. It offers good voice quality, is platform independent and supports many languages. 
