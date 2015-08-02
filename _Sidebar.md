@@ -197,7 +197,9 @@ Samples
   * [[Nest Binding (new)|Nest-Binding-Example]]
   * [[Nest Thermostat|Sample-nest-thermostate]]
   * [[Rollershutter Bindings|Rollershutter-Bindings]]
-  * [[Squeezebox|SqueezeboxExample]]
+  * Squeezebox
+    * [[Select Radio-Stations|SqueezeboxExample]]
+    * [[Use local TTS instead of Google-Translator|SqueezeExampleLocalTTS]]
   * [[WAC Binding|Samples WAC Binding]]
   * [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
  * [[Item definitions|Samples-Item-Definitions]]
