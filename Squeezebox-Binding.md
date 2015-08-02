@@ -153,4 +153,4 @@ The is UTF-8 encoded. The URL calls the squeezebox server at port 9000 with this
 
 # Examples
 * [[Select Radio-Stations|SqueezeboxExample]]
-* [[Use local TTS instead of Google-Translator|SqueezeExampleLocalTTS]]
+* [[Use local TTS instead of Google-Translator|Use-local-TTS-with-squeezebox]]
