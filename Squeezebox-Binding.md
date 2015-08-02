@@ -151,5 +151,6 @@ Rule file:
 The is UTF-8 encoded. The URL calls the squeezebox server at port 9000 with this parameters: p1=upper display line, p2=lower display line, p3=duration of display, player= MAC address of player
 
 
-# Example Configuration
-[[Squeezebox example configuration|SqueezeboxExample]]
+# Examples
+* [[Select Radio-Stations|SqueezeboxExample]]
+* [[Use local TTS instead of Google-Translator|SqueezeExampleLocalTTS]]
