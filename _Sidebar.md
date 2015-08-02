@@ -199,7 +199,7 @@ Samples
   * [[Rollershutter Bindings|Rollershutter-Bindings]]
   * Squeezebox
     * [[Select Radio-Stations|SqueezeboxExample]]
-    * [[Use local TTS instead of Google-Translator|SqueezeExampleLocalTTS]]
+    * [[Use local TTS|SqueezeExampleLocalTTS]]
   * [[WAC Binding|Samples WAC Binding]]
   * [[WebSolarLog|Sample---integration-of-WebSolarLog-into-openhab]]
  * [[Item definitions|Samples-Item-Definitions]]
