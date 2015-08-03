@@ -1,3 +1,5 @@
+**NOTE: There has been some issues with connection to newer Samsung Air Conditioner (2014-), this might be because of a changed method of communciation with the devices, if you have problems please check out the issue on this: [2863](https://github.com/openhab/openhab/issues/2863)**
+
 Documentation of the Samsung Smart Air Conditioner Binding. This Binding should be compatible with Samsung Smart Air Conditioner models
 
 For installation of the binding, please see Wiki page [[Bindings]].
