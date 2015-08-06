@@ -2,7 +2,7 @@ Documentation of the Onkyo AV Receiver Binding
 
 ## Introduction
 
-Binding should be compatible with Onkyo AV receivers which support ISCP protocol over Ethernet (eISCP).
+Binding should be compatible with Onkyo AV receivers which support ISCP (Integra Serial Control Protocol) over Ethernet (eISCP).
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
