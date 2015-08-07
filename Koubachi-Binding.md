@@ -40,12 +40,19 @@ In order to bind an item to a Koubachi resource query you need to provide config
 
     koubachi="<device | plant>:<resourceId>:<propertyName>"
 
+You can also bind to the action types in the Koubachi API using the keyword "action" and then the action type.
+
+    koubachi="plant:<resourceId>:action:<actionType>"
+
+What actions can actually be performed on a specific plant depends on the type of Koubachi device used.
+
 Here are some examples for valid binding configuration strings:
 
     device:00066680190e:virtualBatteryLevel
     device:00066680190e:nextTransmission
     plant:129892:vdmMistLevel
     plant:129892:vdmWaterInstruction
+    plant:129892:action:mist.performed
 
 ### Valid property names are
 
@@ -87,6 +94,22 @@ Here are some examples for valid binding configuration strings:
 - vdmLightInstruction (String)
 - vdmLightLevel (Number)
 
+#### Plant actions
+
+- calibration.watered (Switch)
+- calibration.is_dry (Switch)
+- calibration.is_not_dry (Switch)
+- calibration.restarted (Switch)
+- water.performed (Switch)
+- mist.skipped (Switch)
+- mist.performed (Switch)
+- fertilize.skipped (Switch)
+- fertilize.performed (Switch)
+- put_into_light.performed (Switch)
+- put_into_shade.performed (Switch)
+- heat_plant.performed (Switch)
+- cool_plant.performed (Switch)
+
 As a result, your lines in the items file might look like as follows:
 
     DateTime	Device_00066680190e_AssociatedSince	"Assoc. since [%1$td.%1$tm.%1$tY %1$tT]"	<grass>	(Device_00066680190e)	{ koubachi="device:00066680190e:associatedSince" }
@@ -95,6 +118,7 @@ As a result, your lines in the items file might look like as follows:
     String		Hortensie_Name				"Name [%s]"					<grass>	(Hortensie)		{ koubachi="plant:129892:name" }	
     Number		Hortensie_Mist_Level			"Mist Level [%.2f]"				<grass>	(Hortensie)		{ koubachi="plant:129892:vdmMistLevel" }	
     Number		Hortensie_Water_Level			"Water Level [%.2f]"				<grass>	(Hortensie)		{ koubachi="plant:129892:vdmWaterLevel" }	
+    Switch		Hortensie_Fertilized			"Fertilization done"				<grass>	(Hortensie)		{ koubachi="plant:129892:action:fertilize.performed" }	
 
 ## Example Rules
 
