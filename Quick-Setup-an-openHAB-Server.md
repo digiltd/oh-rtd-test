@@ -10,7 +10,7 @@ For detailed instruction please visit the installation page for [Linux](https://
 
 Then continue with the [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime). 
 
-In terms of any questions please refere to the [google discussion group](https://groups.google.com/forum/#!forum/openhab).
+In terms of any questions please refer to the [google discussion group](https://groups.google.com/forum/#!forum/openhab).
 
 Have fun with openHAB!
 
