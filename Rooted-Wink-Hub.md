@@ -4,6 +4,7 @@ Goals :
 Local Control
 Consistency between actual state of the lights and app
 Maintain state after power failure for GE Link Bulbs
+
 Setup :
 Raspberry PI  with 8GB flash running openhab and asterisk - it was a http://www.raspberry-asterisk.org/ distro
 Wink hub
