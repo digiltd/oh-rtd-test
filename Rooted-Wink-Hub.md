@@ -6,11 +6,11 @@ Consistency between actual state of the lights and app
 Maintain state after power failure for GE Link Bulbs
 
 Setup :
-Raspberry PI  with 8GB flash running openhab and asterisk - it was a http://www.raspberry-asterisk.org/ distro
-Wink hub
-3 GE Links lights so far - will be adding more
-Nest 
-2 ZWave dimmers - added them to the Wink hub haven't finished the integration
+* Raspberry PI  with 8GB flash running openhab and asterisk - it was a http://www.raspberry-asterisk.org/ distort
+* Wink hub
+* 3 GE Links lights so far - will be adding more
+* Nest 
+* 2 ZWave dimmers - added them to the Wink hub haven't finished the integration
 Waiting on X-10 USB RF controller to integrate the existing X-10 network.
 
 I used a combination of approaches mainly from these two posts, many thanks to the original posters, since I have borrowed so many things then build up on them, I won't mention each idea.
@@ -84,4 +84,3 @@ The rule -
 			 executeCommandLine("/root/bin/wink.sh -u -m 6 -t 2 -v" + value.intValue)
 		 }
     end
-
