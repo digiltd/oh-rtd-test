@@ -25,7 +25,7 @@ Here is the list of available actions in the core runtime:
 - `playStream(String url)`: Plays the audio stream from the given url.
 - `say(String text)`: Says the given text through Text-to-speech
 - `say(String text, String voice)`: Text-to-speech with a given voice (depends on the TTS engine or voices installed in the OS)
-- `say(String text, String voice, String device)`: Text-to-speech with a given voice to the given output device (only supported on Mac OS)
+- `say(String text, String voice, String device)`: Text-to-speech with a given voice to the given output device (only supported on Mac OS). Available voices command: `say -v ?`. Available devices command: `say -a ?`
 
 **Logging:**
 - `logDebug(String loggerName, String logText, Object[args))`: Logs `logText` on level `DEBUG` using the openhab Logback configuration
