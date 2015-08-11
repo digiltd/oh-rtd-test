@@ -35,6 +35,8 @@ Here is the list of available actions in the core runtime:
 
   Note: Opened and immediately closed curly braces (`{}`) in `logText` are placeholders for `args[0]`, `args[1]`, etc.
 
+  Note2: Remember that if the name of your logger is "kitchen" you have to define it in logback.xml as `<logger name="org.openhab.model.script.kitchen" level="DEBUG"/>`
+
 Example:
 - `logDebug("Garage", "GarageDoorStateChanged Starting. Garage_Door_Open.state: [{}]. Garage_Door_Closed.state: [{}].", Garage_Door_Open.state, Garage_Door_Closed.state);`
 
