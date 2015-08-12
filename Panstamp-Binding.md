@@ -44,17 +44,17 @@ In order to bind an item to a Panstamp device, you need to provide configuration
     panstamp= "<Manufacturer ID>: <Product ID>: <Device ID Address>: <Register>: <Endpoint Name (as in DDF)>: <Endpoint Type>: <Openhab Item Type>: <Endpoint Unit of measurement>"
 
 where:
-- Manufacturer ID: refers to the Panstamp developer ID.<developer id="1" name="panStamp">
+- Manufacturer ID: refers to the Panstamp developer ID.(developer id="1" name="panStamp")
 
-- Product ID: refers to the Panstamp Product ID. e.g. <dev id="6" name="bininps" label="Binary/Counter input module"/>
+- Product ID: refers to the Panstamp Product ID. e.g. (dev id="6" name="bininps" label="Binary/Counter input module")
 
 - Device ID Address: refers to the standard Panstamp RF ID. e.g. 
 
-- Register: refers to the specific register value of the panstamp device. e.g <reg name="Binary states" id="12">
+- Register: refers to the specific register value of the panstamp device. e.g (reg name="Binary states" id="12")
 
-- Endpoint Name: refers to the Endpoint name as specified in the device definition file of the device type. e.g <endpoint name="Binary 1" type="bin" dir="inp">
+- Endpoint Name: refers to the Endpoint name as specified in the device definition file of the device type. e.g (endpoint name="Binary 1" type="bin" dir="inp")
 
-- Endpoint Type: refers to the Endpoint type as specified in the device definition file of the device type. e.g <endpoint name="Binary 1" type="bin" dir="inp">
+- Endpoint Type: refers to the Endpoint type as specified in the device definition file of the device type. e.g (endpoint name="Binary 1" type="bin" dir="inp")
 
 - Openhab Command Item Type: refers to the type of openhab item the endpoint will be bound to. 
 <table>
