@@ -56,8 +56,18 @@ where:
 
 - Endpoint Type: refers to the Endpoint type as specified in the device definition file of the device type. e.g <endpoint name="Binary 1" type="bin" dir="inp">
 
-- Openhab Item Type: refers to the type of openhab item the endpoint will be bound to. 
-
+- Openhab Command Item Type: refers to the type of openhab item the endpoint will be bound to. 
+<table>
+    <tr><td><b>Openhab Item Type</b></td><td><b>ValueSelector</b></td></tr>
+    <tr><td>OnOff </td><td>0</td></tr>
+    <tr><td>IncreaseDecrease</td><td>1</td></tr>
+    <tr><td>OpenClose</td><td>2</td></tr>
+    <tr><td>UpDown</td><td>3</td></tr>
+    <tr><td>StopMove</td><td>4</td></tr>
+    <tr><td>Percent</td><td>5</td></tr>
+    <tr><td>Decimal</td><td>6</td></tr>
+    <tr><td>String</td><td>7</td></tr>
+<table>
 - Endpoint Unit of measurement: refers to the specific unit of measurement the user is interested in as specified in the device definition file. e.g <unit name="V" factor="0.001" offset="0"/>
 
 Examples, how to configure your items:
