@@ -65,32 +65,27 @@ Examples, how to configure your items:
     Switch PanGatewayOpenClose        "Panstamp Port Switch"                                         (Panstamp)    { panstamp = "controller" }
 
     /* Temperature Sensor */
-    Number PanTempVoltage255   "Voltage (255)  [%.2f V]"       (PanTemp)        { panstamp = "1:1:255:11:Voltage:0:6:-" } //"Device ID Address:Register:Endpoint Name (as in DDF)"
-    Number PanTempTemp255      "Temperature (255) [%.1f C]"      (PanTemp)     { panstamp = "1:1:255:12:Temperature:0:6:-" }
-    //Number PanTempTemp       "Temperature  [%.1f C]"      (PanTemp)   { panstamp = "1:1:255:12:Temperature:0:6:C" }
+    Number PanTempVoltage    "Voltage  [%.2f V]"      (PanTemp)       { panstamp = "1:1:20:11:Voltage:0:6:-" }     //"Device ID Address:Register:Endpoint Name (as in DDF)"
+    Number PanTempTemp       "Temperature  [%.1f C]"      (PanTemp)   { panstamp = "1:1:20:12:Temperature:0:6:-" }
+    Number PanTempHumidity   "Humidity  [%d ]"       (PanTemp)  { panstamp = "1:1:20:12:Humidity:0:6:-" } 
     //Number PanTempTemp       "Temperature  [%.2f F]"      (PanTemp)   { panstamp = "1:1:255:12:Temperature:0:6:F" }
     //Number PanTempTemp       "Temperature  [%.2f K]"      (PanTemp)   { panstamp = "1:1:255:12:Temperature:0:6:K" }
-    Number PanTempHumidity255  "Humidity (255) [%d Percent]"       (PanTemp)    { panstamp = "1:1:255:12:Humidity:0:6:-" } 
-
-    Number PanTempVoltage20    "Voltage  [%.2f V]"      (PanTemp)       { panstamp = "1:1:20:11:Voltage:0:6:-" }     //"Device ID Address:Register:Endpoint Name (as in DDF)"
-    Number PanTempTemp20       "Temperature  [%.1f C]"      (PanTemp)   { panstamp = "1:1:20:12:Temperature:0:6:-" }
-    Number PanTempHumidity20   "Humidity  [%d ]"       (PanTemp)  { panstamp = "1:1:20:12:Humidity:0:6:-" } 
 
     //Panstsamp configuration - "Manufacturer ID: Product ID: Device ID Address: Register: Endpoint Name (as in DDF): Endpoint Type: Openhab Item Type"
     /* Binary Inputs */
     Number PaninputVoltage     "Voltage [%.1f mV]"  (PanBinIn)    { panstamp = "1:6:22:12:Voltage:0:6:-" }
-    String PaninputVoltage2    "Voltage2 [%s]"                   (PanBinIn)    { panstamp = "1:1:255:12:Voltage:0:7:-" }
     Switch PaninputSw1         "Input 1"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 0:1:0:-" }
-    //Contact PaninputSw2             "Input 2"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 1:1:2" }
     Switch PaninputSw2         "Input 2"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 1:1:0:-" }
-    //Rollershutter PaninputSw3       "Input 3"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 2:1:3" }
     Switch PaninputSw3         "Input 3"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 2:1:0:-" }
-    //Dimmer PaninputSw4       "Input 4"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 3:1:1" }
     Switch PaninputSw4         "Input 4"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 3:1:0:-" }
     Switch PaninputSw5         "Input 5"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 4:1:0:-" }
     Switch PaninputSw6         "Input 6"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 5:1:0:-" }
     Switch PaninputSw7         "Input 7"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 6:1:0:-" }
     Switch PaninputSw8         "Input 8"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 7:1:0:-" }
+    //Contact PaninputSw2             "Input 2"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 1:1:2" }
+    //Rollershutter PaninputSw3       "Input 3"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 2:1:3" }
+    //Dimmer PaninputSw4       "Input 4"                  (PanBinIn)    { panstamp = "1:6:22:12:Binary 3:1:1" }
+
                                                                                                         
     //Panstsamp configuration - "Manufacturer ID: Product ID: Device ID Address: Register: Endpoint Name (as in DDF)"
     /* Relay Output Board */
@@ -102,4 +97,3 @@ Examples, how to configure your items:
     Switch PanRelay6           "Output 6"           (PanBinOut)   { panstamp = "1:7:21:11:Binary 5:1:0:-" }
     Switch PanRelay7           "Output 7"           (PanBinOut)   { panstamp = "1:7:21:11:Binary 6:1:0:-" }
     Switch PanRelay8           "Output 8"           (PanBinOut)   { panstamp = "1:7:21:11:Binary 7:1:0:-" }
-
