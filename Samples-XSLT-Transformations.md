@@ -21,7 +21,7 @@ The binding has the syntax:
 
 where URL is the url where the relevant data can be retrieved, INTERVAL is the interval in milliseconds between two queries, and FILENAME is the name of the related transformation file.
 
-Don't forget the initial 'minus' symbol !!
+Don't forget the initial 'less than' symbol !!
 
 Here is an example:
 
