@@ -122,11 +122,28 @@ In general all interaction is done through the oh object. It has support for the
 * oh.restoreStates([Map<Item, State>] statesMap)
 
 ### ItemRegistry
-* ItemRegistry.getItem(itemName) 
+* ItemRegistry.getItem(itemName) or ir.getItem(itemName)
 * ItemRegistry.getItemByPattern(String name)
 * ItemRegistry.getItems()
 * ItemRegistry.getItems(String pattern)
 * ItemRegistry.isValidItemName(String itemName)
+
+### PersistenceExtensions
+* pe.persist(Item item [, String serviceName]) or PersistenceExtensions.persist(Item item)
+* pe.historicState(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.changedSince(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.updatedSince(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.maximumSince(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.minimumSince(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.averageSince(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.varianceSince(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.deviationSince(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.lastUpdate(Item item [, String serviceName])
+* pe.deltaSince(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.evolutionRate(Item item, AbstractInstant timestamp [, String serviceName])
+* pe.previousState(Item item)
+* pe.previousState(Item item, boolean skipEqual)
+* pe.previousState(Item item, boolean skipEqual [, String serviceName])
 
 ### Accessing actions
 To access the old known methods (all actions) the openhab interface supports getActions() and getAction(name_of_action_provider).
@@ -138,9 +155,9 @@ ping.checkVitality("google.com", 80, 100)
 ```
 
 ## Global variables/classes
+##### OpenHab classes
 * RuleSet
 * Rule
-* State
 * Command
 * ChangedEventTrigger
 * CommandEventTrigger
@@ -150,8 +167,33 @@ ping.checkVitality("google.com", 80, 100)
 * StartupTrigger
 * TimerTrigger
 * TriggerType
-* ItemRegistry <-- this allows direct access to items ( ItemRegistry.getItem(itemName) )
+* ItemRegistry (shortcut: "ir")
+* BusEvent (shortcut: "be") 
+* PersistenceExtensions (shortcut: "pe") 
 * oh
+* State
+
+##### OpenHab Type-classes
+* CallType
+* DateTimeType
+* DecimalType
+* HSBType
+* IncreaseDecreaseType
+* OnOffType
+* OpenClosedType
+* PercentType
+* PointType
+* StopMoveType
+* UpDownType
+* StringType
+
+##### Java classes
+* DateTime
+* StringUtils
+* URLEncoder
+* FileUtils
+* FilenameUtils
+* File 
 
 
 # Examples
@@ -190,6 +232,10 @@ Open-Window on temperature (uses string casts, item info can also directly be ob
             self.logger.info("event {}", event)
             if event.newState:
                 self.logger.info("Wintergarten_Temperatur changed to: {}", event.newState)
+				
+                //PersistenceExtensions
+                peExample = pe.historicState( ir.getItem("Wintergarten_Temperatur"), DateTime.now().minusDays(7))
+                self.logger.info("Wintergarten_Temperatur last Week: {}", peExample)
 
                 temp = float(str(event.newState))
                 self.checkConditions(temp)
