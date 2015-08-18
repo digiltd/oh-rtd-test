@@ -188,6 +188,7 @@ Yahoo Weather - forecast day after tomorrow
 ```
 
 Relay board from "Progetti HW SW" but a good example.
+
 XML file:
 ```xml
 <response>
