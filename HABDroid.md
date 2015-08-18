@@ -34,6 +34,11 @@ Android app supports 2 different color themes, HOLO.Dark (which is default black
 
 Android app supports disabling screen timeout timer while Android app is running. This is useful for those who use Android device as a wall control panel. This can be set through Settings menu.
 
+Fontsize in charts. To increase the size of the font in charts in the app you need to change the scale setting in the .cfg file.
+This should make the text readable in your phone:
+chart:scale=0.5
+
+
 **openHAB version support**
 
 Android app is compatible with openHAB version starting from 1.0.0.
