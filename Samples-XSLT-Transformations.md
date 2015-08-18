@@ -186,3 +186,45 @@ Yahoo Weather - forecast day after tomorrow
     
 </xsl:stylesheet>
 ```
+
+Relay board from "Progetti HW SW" but a good example.
+XML file:
+```xml
+<response>
+  <led0>1</led0>
+  <led1>1</led1>
+  <led2>1</led2>
+  <led3>1</led3>
+  <led4>0</led4>
+  <led5>0</led5>
+  <led6>0</led6>
+  <led7>0</led7>
+  <btn0>up</btn0>
+  <btn1>up</btn1>
+  <btn2>up</btn2>
+  <btn3>up</btn3>
+  <btn4>dn</btn4>
+  <btn5>up</btn5>
+  <btn6>up</btn6>
+  <btn7>up</btn7>
+</response>
+```
+Translation:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
+  <xsl:template match="/">
+     <xsl:apply-templates select="response/led1"/>
+   </xsl:template>
+   <xsl:template match="*">
+     <xsl:choose>
+        <xsl:when test="self::node()[node()=1]">ON</xsl:when>
+        <xsl:when test="self::node()[node()=0]">FALSE</xsl:when>
+        <xsl:when test="self::node()[node()='up']">UP</xsl:when>
+        <xsl:when test="self::node()[node()='dn']">DOWN</xsl:when>
+        <xsl:otherwise><xsl:value-of select="@service"/></xsl:otherwise>
+     </xsl:choose>
+  </xsl:template>
+</xsl:stylesheet>
+```
