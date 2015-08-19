@@ -187,7 +187,7 @@ Yahoo Weather - forecast day after tomorrow
 </xsl:stylesheet>
 ```
 
-Relay board from "Progetti HW SW" but a good example.
+[Relay board](http://www.progetti-hw-sw.it/relays_ethernet_board_eng.htm) from "Progetti HW SW" but a good example.
 
 XML file:
 ```xml
@@ -211,7 +211,7 @@ XML file:
 </response>
 ```
 Translation:
-```xml
+```xsl
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output indent="yes" method="xml" encoding="UTF-8" omit-xml-declaration="yes" />
