@@ -187,7 +187,7 @@ Yahoo Weather - forecast day after tomorrow
 </xsl:stylesheet>
 ```
 
-[Relay board](http://www.progetti-hw-sw.it/relays_ethernet_board_eng.htm) from "Progetti HW SW" but a good example.
+[Relay board](http://www.progetti-hw-sw.it/relays_ethernet_board_eng.htm) from "Progetti HW SW" but also a good example for XSLT transformation.
 
 XML file:
 ```xml
