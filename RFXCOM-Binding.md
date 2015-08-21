@@ -7,7 +7,7 @@ Binding should be compatible at least with RFXtrx433 USB 433.92MHz transceiver, 
 Supports RF 433 Mhz protocols like: HomeEasy, Cresta, X10, La Crosse, OWL, CoCo ([KlikAanKlikUit](http://www.klikaanklikuit.nl)), Oregon e.o. <br>
 See further information from http://www.rfxcom.com
 
-RFXCOM binding support currently TemperatureHumidity, Lighting1, Lighting2, Lighting5, Lighting6, Curtain1 & Thermostat1 packet types. 
+RFXCOM binding support currently Blinds1, Control, Current, Curtain1, Energy, Humidity, Interface, Lighting1, Lighting2, Lighting4, Lighting5, Lighting6, Factory, Interface, Rain, Rfy, Security1, TemperatureHumidity, Temperature, Thermostat1, Transmitter, Wind packet types. 
 
 For installation of the binding, please see Wiki page [[Bindings]].
 
@@ -39,7 +39,7 @@ In order to bind an item to RFXCOM device, you need to provide configuration set
     in:  rfxcom="<DeviceId:ValueSelector"
     out: rfxcom=">DeviceId:PacketType.SubType:ValueSelector"
 
-where `DeviceID` is a valid wireless device identifier.
+where `DeviceID` is a valid wireless device identifier in decimal (**not hexadecimal !**).
 
 - Lighting1 format: `SensorId.UnitCode`
     e.g. B.1, B.2 or B.0 for group functions
@@ -56,7 +56,7 @@ where `DeviceID` is a valid wireless device identifier.
 - Curtain1 format: `SensorId.UnitCode`
     e.g. P.1 see RFXCOM documentation
 
-- TemperatureHumidity format: `SensorId`
+- TemperatureHumidity, Current, Energy,... format: `SensorId`
     e.g. 2561
 
 Examples, how to configure your items:
@@ -95,6 +95,9 @@ Examples, how to configure your items:
     Number Owl_InstantAmps { rfxcom="<63689:InstantAmps"}
     Number Owl_TotalAmpHours { rfxcom="<63689:TotalAmpHours"  }
 
+    OWL CM113 Energy Monitor example
+    Number Owl_Amps { rfxcom="<35072:Channel2Amps" }
+
 
 `PacketType.SubType` specify packet and sub type information ...
 
@@ -128,6 +131,7 @@ Examples, how to configure your items:
   <tr><td>SECURITY1.X10_SECURITY_MOTION</td><td>working</td><td>Motion</td></tr>
   <tr><td>THERMOSTAT1</td><td>Digimax 210 working</td><td>Temperature, SetPoint, Contact</td></tr>
 
+  <tr><td>ENERGY.ELEC1</td><td>Owl CM113 Working</td><td>Channel1Amps, Channel2Amps, Channel3Amps</td></tr>
   <tr><td>ENERGY.ELEC2</td><td>Owl CM160 Working</td><td>InstantAmps, TotalAmpHours</td></tr>
   <tr><td>RFY.RFY</td><td>Working</td><td></td>
 
@@ -162,6 +166,9 @@ Examples, how to configure your items:
   <tr><td>Voltage</td><td>NumberItem</td><td></td></tr>
   <tr><td>InstantAmps</td><td>NumberItem</td><td></td></tr>
   <tr><td>TotalAmpHours</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Channel1Amps</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Channel2Amps</td><td>NumberItem</td><td></td></tr>
+  <tr><td>Channel3Amps</td><td>NumberItem</td><td></td></tr>
   <tr><td>Status</td><td>StringItem</td><td></td></tr>
   <tr><td>Mood</td><td>NumberItem</td><td></td></tr>
   <tr><td>Contact</td><td>ContactItem</td><td></td></tr>
