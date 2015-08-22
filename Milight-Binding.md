@@ -95,3 +95,50 @@ sitemap:
     Switch item=DiscoSpeed mappings=[DECREASE='-', INCREASE='+']
 
 Disco Mode for RGBW bulbs can only be stepped in one direction, so please use INCREASE command only for those.
+
+
+Example for Scenes:
+
+items:
+
+    Number Light_scene		"Scenes"
+    Color  Light_scene_ColorSelect "Scene Selector"   <colorwheel> (MiLight)	{ milight="bridge1;10;rgb" }
+
+
+sitemap:
+
+    Selection item=Light_scene mappings=[0="weiß", 1="rot", 2="gelb", 3="grün", 4="dunkelgrün", 5="cyan", 6="blau", 7="magenta"]
+    
+rules:
+[https://en.wikipedia.org/wiki/HSL_and_HSV](https://en.wikipedia.org/wiki/HSL_and_HSV)
+
+    rule "Light Scenes"
+    when
+	Item Light_scene received command 
+    then
+	if (receivedCommand==0) { 
+		sendCommand(Light_scene_ColorSelect, new HSBType(new DecimalType(0),new PercentType(0),new PercentType(100)))
+	}
+	if (receivedCommand==1) { 
+		sendCommand(Light_scene_ColorSelect, new HSBType(new DecimalType(0),new PercentType(100),new PercentType(100)))
+	}
+	if (receivedCommand==2) { 
+		sendCommand(Light_scene_ColorSelect, new HSBType(new DecimalType(60),new PercentType(100),new PercentType(100)))
+	}
+	if (receivedCommand==3) { 
+		sendCommand(Light_scene_ColorSelect, new HSBType(new DecimalType(120),new PercentType(100),new PercentType(100)))
+	}
+	if (receivedCommand==4) { 
+		sendCommand(Light_scene_ColorSelect, new HSBType(new DecimalType(120),new PercentType(100),new PercentType(50)))
+	}
+	if (receivedCommand==5) { 
+		sendCommand(Light_scene_ColorSelect, new HSBType(new DecimalType(180),new PercentType(100),new PercentType(100)))
+	}
+	if (receivedCommand==6) { 
+		sendCommand(Light_scene_ColorSelect, new HSBType(new DecimalType(240),new PercentType(100),new PercentType(100)))
+	}
+	if (receivedCommand==7) { 
+		sendCommand(Light_scene_ColorSelect, new HSBType(new DecimalType(300),new PercentType(100),new PercentType(100)))
+	}
+    end
+  
