@@ -1,5 +1,36 @@
 The page contains a number of examples for use with the [[Ecobee binding|Ecobee-Binding]] and [[action|Ecobee-Action]] bundles.
 
+### Setting hold to defined comfort setting
+Ecobee thermostats normally run based on a weekly schedule, but you can override the current program by setting a hold that controls the cool setpoint, the heat setpoint, and other options.  You can set a hold from a rule by calling the action `ecobeeSetHold`.  One of the parameters is a reference to a "climate" (also known as a comfort setting).  The default references for climates are `sleep`, `home`, and `away` (some models also have `wakeup`).  Below are the minimum elements for presenting a set of buttons that let you set a hold to one of these comfort settings, or resume the normal program.  The item `CurrentClimate` is only used for its reference to the specific thermostat(s) to target the action calls.
+
+Items:
+```
+String CurrentClimate "Current Climate [%s]" { ecobee="<[1234567890#program.currentClimateRef]" }
+String Comfort "Comfort [%s]" <temperature>
+```
+
+Sitemap:
+```
+...
+Switch item=Comfort label="Comfort Setting" mappings=[resume="Resume",home="Home",away="Away",sleep="Sleep",wakeup="Wake"]
+...
+```
+
+Rule:
+```
+rule EcobeeComfort
+when
+  Item Comfort received command
+then
+  logInfo("EcobeeComfort", "received command " + receivedCommand.toString)
+  if (receivedCommand.toString.equals("resume")) {
+    ecobeeResumeProgram(CurrentClimate, true)
+  } else {
+    ecobeeSetHold(CurrentClimate, null, null, receivedCommand.toString, null, null, null, null)
+  }
+end
+```
+
 ### Tracking last occupancy
 The ecobee3 thermostat can connect to a number of wireless remote sensors that measure occupancy and temperature.  The thermostat normally uses these to implement its "follow-me comfort" feature, where the thermostat is constantly adjusting its idea of the current ambient temperature based on an average of the temperatures of rooms that are currently occupied.
 
