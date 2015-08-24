@@ -52,7 +52,7 @@ Create a ``lib`` folder first for ``apt-get`` installations:
 
     $ sudo mkdir /usr/share/openhab/lib
 
-(If you run openHAB from one single folder, please find the path to ``lib`` yourself.)
+(If you run openHAB from one single folder, please find the path to ``lib`` yourself. Usually: [openhabfolder]/lib)
 
 Then copy the downloaded files to the new ``lib`` folder:
 
@@ -60,11 +60,11 @@ Then copy the downloaded files to the new ``lib`` folder:
 
 Remove temporary files:
 
-    $ rm -r ~/sugar-raspbian
+    $ rm -r ~/sigar-raspbian
 
 If you do not want to keep the .zip file, remove it, too.
 
-    $ rm ~/sugar-raspbian.zip
+    $ rm ~/sigar-raspbian.zip
 
 Done! Now install the binding and add your items.
 
