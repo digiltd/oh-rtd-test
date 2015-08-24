@@ -84,3 +84,85 @@ the correct address for you. So an example binding for the third FLS100 device i
 - {cul="iWFIV3"}
 Currently it is not possible to receive data from Intertechno remotes, but to keep my options open and because I'm lazy you have to
 specify the direction anyway.
+
+
+## Examples
+
+### openhab.cfg
+    fht:device=serial:/dev/ttyACM0
+    fs20:device=serial:/dev/ttyACM0
+    s300th:device=serial:/dev/ttyACM0
+
+### items:
+    Switch fs20Light "Light1" { fs20="DC6900" } 
+    Switch fs20KSE "Doorbell [%s]" { fs20="536200" } (FS20 KSE Funk-Klingelsignal-Erkennung)
+    Switch fs20Pira "Motion [%s]"  { fs20="A7A300" } (FS20 PIRA)
+
+
+    Number fhtRoom1Desired "Desired-Temp. [%.1f °C]" { fht="housecode=552D;datapoint=DESIRED_TEMP" }
+    Number fhtRoom1Measured "Measured Temp. [%.1f °C]" { fht="housecode=552D;datapoint=MEASURED_TEMP" }
+    Number fhtRoom1Valve "Valve [%.1f %%]" { fht="housecode=552D;address=00;datapoint=VALVE" }
+    Switch fhtRoom1Battery "Battery [%s]" { fht="housecode=552D;datapoint=BATTERY" }
+    Contact fhtRoom1Window "Window [MAP(en.map):%s]" { fht="housecode=52FB;address=7B;datapoint=WINDOW" }
+
+    Number S300Temp "Temperature [%.1f C]" {s300th="address=1;datapoint=TEMPERATURE"} 
+    Number S300Humi "Humidity [%.1f %%]" {s300th="address=1;datapoint=HUMIDITY"}
+
+
+### sitemap:
+    Frame {
+        Setpoint item=fhtRoom1Desired minValue=6 maxValue=30 step=0.5 
+        Text item=fhtRoom1Measured
+        Text item=fhtRoom1Valve	
+        Text item=fhtRoom1Battery
+        Text item=fhtRoom1Window
+    }
+
+
+### rules:
+
+#### timed light switch rule
+    
+    rule "timed_light_switch"
+    when 
+        Item fs20Light received update ON
+    then
+        createTimer(now.plusMinutes(5)) [|
+            sendCommand(fs20Light, OFF)
+        ]
+    end
+
+#### switch light on motion rule
+
+    rule fs20Pira_motion
+    when 
+        Item fs20Pira received update
+    then
+        sendCommand(fs20Light, ON)
+        createTimer(now.plusMinutes(10)) [|
+            sendCommand(fs20Light, OFF)
+        ]
+    end
+
+#### window open/close rule    
+
+    var Boolean tenMinTimerState
+    var Timer tenMinTimer
+
+    rule "window_closed_switch_light_on_for_10_min"
+    when
+        Item fhtRoom1Window changed from CLOSE to OPEN
+    then
+    var DateTime daystart = new DateTime((dawnStart.state as DateTimeType).calendar.timeInMillis)
+    var DateTime dayend = new DateTime((duskEnd.state as DateTimeType).calendar.timeInMillis)
+    val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
+    if ( isdark )
+    {
+        sendCommand(fs20Light, ON)
+        tenMinTimerState = true
+        tenMinTimer = createTimer(now.plusMinutes(10))[|
+            tenMinTimerState = false
+            sendCommand(fs20Light, OFF)
+        ]       
+    }
+    end
