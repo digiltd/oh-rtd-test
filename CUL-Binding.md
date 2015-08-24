@@ -98,7 +98,6 @@ specify the direction anyway.
     Switch fs20KSE "Doorbell [%s]" { fs20="536200" } (FS20 KSE Funk-Klingelsignal-Erkennung)
     Switch fs20Pira "Motion [%s]"  { fs20="A7A300" } (FS20 PIRA)
 
-
     Number fhtRoom1Desired "Desired-Temp. [%.1f °C]" { fht="housecode=552D;datapoint=DESIRED_TEMP" }
     Number fhtRoom1Measured "Measured Temp. [%.1f °C]" { fht="housecode=552D;datapoint=MEASURED_TEMP" }
     Number fhtRoom1Valve "Valve [%.1f %%]" { fht="housecode=552D;address=00;datapoint=VALVE" }
@@ -146,8 +145,8 @@ specify the direction anyway.
 
 #### window open/close rule    
 
-    var Boolean tenMinTimerState
-    var Timer tenMinTimer
+    var Timer tenMinTimer = null
+    var boolean tenMinTimerState = false
 
     rule "window_closed_switch_light_on_for_10_min"
     when
