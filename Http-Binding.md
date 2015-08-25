@@ -17,6 +17,7 @@ For the !OutBinding there are two special commands available:
 - '`*`' - which means the following URL is called regardless which command has been issued
 - 'CHANGED' - which means the following URL is called whenever the state of the given item changed
 
+:warning: It is currently not possible to send a message body, as one might do typically with the `POST` HTTP method. An alternative solution, in the case where the receiving web server requires a message body, might be to execute `curl ... -d <data>` using the [[exec binding|exec-Binding]].
 
 Here are some examples of valid binding configuration strings:
 
