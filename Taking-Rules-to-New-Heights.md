@@ -9,6 +9,8 @@ This example provides a scripted mechanism for managing a very large number of s
 
 By importing and using various Java libraries it is possible to create configurable maps for each light allowing things like motion detection timeout, and auto-on after dusk to be set per light (which can later be looked up or looped through in the script).
 
+Please note that rule must be reloaded manually each time the definition (*.items file) of the item used in the map changes. This is due to static reference to Item object which is no longer valid after the *.items file is reloaded.
+
 ### Items file
 ```xtend
     /* First you start out by defining 3 groups: one for the switches, one for the dimmers, and one for the motion sensors */
@@ -232,4 +234,3 @@ Lastly install the below rule as e.g. light_off.rule in the rules folder of your
     	lock.unlock()
     end
 ```
-
