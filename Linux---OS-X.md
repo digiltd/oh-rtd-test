@@ -93,12 +93,19 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   ```
 1. Configure your system as outlined here: [configuration](https://github.com/openhab/openhab/wiki/Configuring-the-openHAB-runtime).
 
+1. If you wish to use a USB zwave stick or other USB/serial device you will need to add the "openhab" users to the "dialout" group:
+
+  ```
+  sudo usermod -a -G dialout openhab
+  ```
+
 1. Test it
 
 Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should see your sitemap.
 
 ## Performance Tuning
 Once your system is stable and configured the way you want it, review [[Performance Tuning|Performance]]
+
 
 
 ## To Upgrade
