@@ -99,6 +99,8 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   sudo usermod -a -G dialout openhab
   ```
 
+and then reboot
+
 1. Test it
 
 Point your browser to `http://localhost:8080/openhab.app?sitemap=yourname` and you should see your sitemap.
