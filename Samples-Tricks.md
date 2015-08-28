@@ -1679,7 +1679,7 @@ https://github.com/chendo/lifx-http/issues/27#issuecomment-72760322
 
 Once you got the token, you can play around with the API web interface at https://api.lifx.com/
 
-Unfortunately the HTTP binding does not support sending http headers.
+Unfortunately the HTTP binding does not support sending http headers. (Note: this is no longer true -- you _can_ send HTTP headers with the HTTP binding in recent releases.  However, the following is still a useful example.)
 
 The only way to send the request is using the executeCommandLine command and the unix program curl.
 
