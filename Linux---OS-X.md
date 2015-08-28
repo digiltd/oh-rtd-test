@@ -99,7 +99,7 @@ openHAB is a Java application and is expected to run on all platforms where JVM 
   sudo usermod -a -G dialout openhab
   ```
 
-and then reboot
+  and then reboot.
 
 1. Test it
 
