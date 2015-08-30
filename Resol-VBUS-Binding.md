@@ -29,7 +29,7 @@ In order to bind an item to the device, you need to provide configuration settin
 
     resolvbus="name of the value"
 
-The **name of the value** depends on the device you're using and the values it supports. Please refer to this page to find the right values.
+The **name of the value** depends on the device you're using and the values it supports. Please refer to  [this](https://docs.google.com/spreadsheets/d/1XVnwCkOXvkV6IPSh28L8li9VxwtoqopdQsMvwaSMIJk/edit?usp=sharing) page to find the right values.
 
 
 A sample configuration could look like:
