@@ -9,19 +9,19 @@ For installation of the binding, please see Wiki page [[Bindings]].
 
 First of all you need to introduce your Resol Controller in the openhab.cfg file (in the folder '${openhab_home}/configurations'). Both versions (LAN and serial/USB) are supported.
 
-    ############################### Resol VBUS Binding ###################################`
-    #Either use serialport or host and port, depending on configuration`
-    #if the device is attached to a Resol VBUS LAN Interface provide IP and Port`
-    resolvbus:host=192.168.1.1`
-    resolvbus:port=7053`
-    #(optional) Password, if changed.`
-    #resolvbus:password=`
-    #if the device is attached to the serialport use this line`
-    #resolvbus:serialport=/dev/ttyUSB0`
-    # Updateinterval (optional, in seconds, defaults 1): How often should the values be updated`
-    resolvbus:updateinterval=10`
-    #(optional) the device id, if the binding doesn't detect the id itself`
-    #resolvbus:updateinterval=`
+    ############################### Resol VBUS Binding ###################################
+    #Either use serialport or host and port, depending on configuration
+    #if the device is attached to a Resol VBUS LAN Interface provide IP and Port
+    resolvbus:host=192.168.1.1
+    resolvbus:port=7053
+    #(optional) Password, if changed.
+    #resolvbus:password=
+    #if the device is attached to the serialport use this line
+    #resolvbus:serialport=/dev/ttyUSB0
+    # Updateinterval (optional, in seconds, defaults 1): How often should the values be updated
+    resolvbus:updateinterval=10
+    #(optional) the device id, if the binding doesn't detect the id itself
+    #resolvbus:updateinterval=
 
 # Item Binding Configuration
 
