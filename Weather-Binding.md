@@ -10,6 +10,8 @@ Currently supported weather providers:
 - [Hamweather](http://hamweather.com)
 - [Yahoo](https://weather.yahoo.com)
 
+**Important changes in 1.8**: The item token for layouts has been removed to make the binding openHab2 compatible (see Example tokens) and new example weather-data file in [download section](#download).
+
 ## Configuration
 ### openhab.cfg
 ```
@@ -261,12 +263,11 @@ Example map files for english and german are in the [download section](#download
 The binding provides a url to serve highly customizable html layouts for displaying weather data and icons. You have to add some folders/files to the openhab webapps folder:  
 ![](https://farm6.staticflickr.com/5602/14973200854_0b374490a5_o.png)
 
-The weather-data folder is the root, the images folder contains the different iconsets with 32 weather icons. In the layouts folder are the layout html files. You can add as many html layout files you want. You can use tokens to map weather data, items and more into the html layout.
+The weather-data folder is the root, the images folder contains the different iconsets with 32 weather icons. In the layouts folder are the layout html files. You can add as many html layout files you want. You can use tokens to map weather data into the html layout.
 
 **Tokens:**
-* Item: `${item:ITEM_NAME.[value|state|label|full]}`
-* Weather: `${weather:TYPE.PROPERTY}`
-* Forecast: `${forecast(DAY):TYPE.PROPERTY}`
+* Weather: `${weather:TYPE.PROPERTY(FORMATTER)}`
+* Forecast: `${forecast(DAY):TYPE.PROPERTY(FORMATTER)}`
 * LocationConfig: `${config:CONFIG_PROPERTY}`
 * RequestParameter: `${param:PARAMETER_NAME}`
 
@@ -280,16 +281,12 @@ ${config:longitude}
 // weather and forecast data directly from the weather objects
 ${weather:atmosphere.humidity}
 ${weather:temperature.current}
-${forecast(0):temperature.minMax}
+${weather:temperature.current(%.1f)}
+${weather:condition.observationTime(%1$td.%1$tm.%1$tY %1$tH:%1$™)}
+${forecast(0):temperature.minMax(%.0f)}
 
 // request parameter
 ${param:iconset}
-
-// item
-${item:Current_Temp.value}
-${item:Current_Temp.state}
-${item:Current_Temp.label}
-${item:Current_Temp.full}
 ```
 See `example.html` in the layouts folder. You can download the weather-data folder in the [download section](#download).
 
@@ -332,4 +329,5 @@ If you don't see these entries, check your item file.
 
 ### Download
 [weather-data](https://drive.google.com/file/d/0Bw7zjCgsXYnHWmV6cHRwWnhjSFU/view?usp=sharing) with icons and example layout file  
+[weather-data 1.8](https://drive.google.com/file/d/0Bw7zjCgsXYnHVU1RVk9RMUlzS1k/view?usp=sharing) with icons and example layout file **for openHab 1.8**  
 [map-files](https://drive.google.com/file/d/0Bw7zjCgsXYnHbnVIdkFGaVZIbHM/view?usp=sharing) with short condition text **for the commonId property** 
