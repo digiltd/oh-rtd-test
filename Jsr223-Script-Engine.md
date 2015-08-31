@@ -5,7 +5,7 @@
 This addon allows the usage of different scripting languages as basis for rules. It was tested with the Jython-Scripting-Runtime and all examples rely on this scripting language. Feel free to contribute to this wiki, if you are using another language like JRuby.
 
 ## Installation
-The package needs to be installed to addons like any other addon. But by default it does not come with any scripting language except the build-in Nashorn-Engine for JavaScript (\\*.js). Or use another scripting language like Jython (\\*.py). Put all your scripts in the [openhab]/scripts directory.
+The package needs to be installed to addons like any other addon. But by default it does not come with any scripting language except the build-in Nashorn-Engine for JavaScript (\*.js). Or use another scripting language like Jython (\*.py). Put all your scripts in the [openhab]/scripts directory.
 
 
 ### Jython-Installation
