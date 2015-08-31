@@ -385,6 +385,12 @@ These devices have been tested so far and confirmed as working:
 
 ## Troubleshooting
 
+### SHORT & LONG_PRESS events of push buttons do not occur on the event bus
+
+It seems buttons like the HM-PB-2-WM55 do just send these kind of events to the CCU if they are mentioned in a CCU program. A simple workaround to make them send these events is, to create a program (rule inside the CCU) that does just have a "When" part and no "Then" part, in this "When" part each channel needs to be mentioned at least once. 
+As the  HM-PB-2-WM55 for instance has two channels, it is enough to mention the SHORT_PRESS event of channel 1 & 2. The LONG_PRESS events will work automatically as they are part of the same channels.
+After the creation of this program, the button device will receive configuration data from the CCU which have to be accepted by pressing the config-button at the back of the device.
+
 ### INSTALL_TEST
 If a button is not working and you do not see any PRESS_LONG / SHORT in your log file (loglevel DEBUG), it could be because of enabled security. Try to disable security of your buttons in the HomeMatic Web GUI and try again. If you can't disable security try to use key INSTALL_TEST which gets updated to ON for each key press
 
