@@ -392,7 +392,7 @@ As the  HM-PB-2-WM55 for instance has two channels, it is enough to mention the 
 After the creation of this program, the button device will receive configuration data from the CCU which have to be accepted by pressing the config-button at the back of the device.
 
 ### INSTALL_TEST
-If a button is not working and you do not see any PRESS_LONG / SHORT in your log file (loglevel DEBUG), it could be because of enabled security. Try to disable security of your buttons in the HomeMatic Web GUI and try again. If you can't disable security try to use key INSTALL_TEST which gets updated to ON for each key press
+If a button is still not working and you do not see any PRESS_LONG / SHORT in your log file (loglevel DEBUG), it could be because of enabled security. Try to disable security of your buttons in the HomeMatic Web GUI and try again. If you can't disable security try to use key INSTALL_TEST which gets updated to ON for each key press
 
 ### No BinX signature / BadRequestException Binsystem.multicall
 
