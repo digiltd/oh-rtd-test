@@ -329,5 +329,5 @@ If you don't see these entries, check your item file.
 
 ### Download
 [weather-data](https://drive.google.com/file/d/0Bw7zjCgsXYnHWmV6cHRwWnhjSFU/view?usp=sharing) with icons and example layout file  
-[weather-data 1.8](https://drive.google.com/file/d/0Bw7zjCgsXYnHVU1RVk9RMUlzS1k/view?usp=sharing) with icons and example layout file **for openHab 1.8**  
+[weather-data 1.8](https://drive.google.com/file/d/0Bw7zjCgsXYnHQTlGcndMR19DSUk/view?usp=sharing) with icons and example layout file **for openHab 1.8**  
 [map-files](https://drive.google.com/file/d/0Bw7zjCgsXYnHbnVIdkFGaVZIbHM/view?usp=sharing) with short condition text **for the commonId property** 
