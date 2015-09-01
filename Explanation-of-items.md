@@ -50,11 +50,13 @@ The following item types are currently available (alphabetical order):
 
 <table>
   <tr><td><b>Itemtype</b></td><td><b>Description</b></td><td><b>Command Types</b></td></tr>
+  <tr><td>Call</td><td>Telephone call by origin and destination</td><td>Call</td></tr>
   <tr><td>Color</td><td>Color information (RGB)</td><td>OnOff, IncreaseDecrease, Percent, HSB</td></tr>
   <tr><td>Contact</td><td>Item storing status of e.g. door/window contacts</td><td>OpenClosed</td></tr>
   <tr><td>DateTime</td><td>Stores date and time (see NTP binding for details)</td><td></td></tr>
   <tr><td>Dimmer</td><td>Item carrying a percentage value for dimmers</td><td>OnOff, IncreaseDecrease, Percent</td></tr>
   <tr><td>Group</td><td>Item to nest other items / collect them in groups</td><td>-</td></tr>
+  <tr><td>Location</td><td>GPS related information by latitude, longitude and altitude</td><td>Point</td></tr>
   <tr><td>Number</td><td>Stores values in number format</td><td>Decimal</td></tr>
   <tr><td>Rollershutter</td><td>Typically used for blinds</td><td>UpDown, StopMove, Percent</td></tr>
   <tr><td>String</td><td>Stores texts</td><td>String</td></tr>
