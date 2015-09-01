@@ -112,15 +112,15 @@ In general all interaction is done through the oh object. It has support for the
 * oh.logError(logger_name, format, arg0,....) 
 
 ### BusEvent
-* oh.sendCommand([Item] item, [String] commandString)
-* oh.sendCommand([Item] item, [Numer] number)
-* oh.sendCommand([String] itemName, [String] commandString)
-* oh.sendCommand([Item] item, [Command] command)
-* oh.postUpdate([Item] item, [String] stateAsString)
-* oh.postUpdate([String] itemName, [String] stateAsString)
-* oh.postUpdate([String] itemName, [State] state)
-* oh.storeStates([Item[]] items)
-* oh.restoreStates([Map<Item, State>] statesMap)
+* be.sendCommand([Item] item, [String] commandString)
+* be.sendCommand([Item] item, [Numer] number)
+* be.sendCommand([String] itemName, [String] commandString)
+* be.sendCommand([Item] item, [Command] command)
+* be.postUpdate([Item] item, [String] stateAsString)
+* be.postUpdate([String] itemName, [String] stateAsString)
+* be.postUpdate([String] itemName, [State] state)
+* be.storeStates([Item[]] items)
+* be.restoreStates([Map<Item, State>] statesMap)
 
 ### ItemRegistry
 * ItemRegistry.getItem(itemName) or ir.getItem(itemName)
