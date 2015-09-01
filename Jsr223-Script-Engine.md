@@ -123,11 +123,11 @@ In general all interaction is done through the oh object. It has support for the
 * be.restoreStates([Map<Item, State>] statesMap)
 
 ### ItemRegistry
-* ItemRegistry.getItem(itemName) or ir.getItem(itemName)
-* ItemRegistry.getItemByPattern(String name)
-* ItemRegistry.getItems()
-* ItemRegistry.getItems(String pattern)
-* ItemRegistry.isValidItemName(String itemName)
+* ir.getItem(itemName) or ir.getItem(itemName)
+* ir.getItemByPattern(String name)
+* ir.getItems()
+* ir.getItems(String pattern)
+* ir.isValidItemName(String itemName)
 
 ### PersistenceExtensions
 * pe.persist(Item item [, String serviceName]) or PersistenceExtensions.persist(Item item)
