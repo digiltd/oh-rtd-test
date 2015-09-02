@@ -4,7 +4,7 @@ This is documentation of openHAB binding for Satel Integra Alarm System which al
 
 For installation of the binding, please see Wiki page [Bindings](Bindings).
 
-**NOTE:** INT-RS module is not supported yet.
+**NOTE:** INT-RS module is supported in version 1.8 of the binding.
 
 ## Binding Configuration
 
@@ -241,5 +241,6 @@ Although this binding allows you to configure disarming a partition and clearing
 ## TO DO
 
 * troubles support
-* support for INT-RS module
+* event list support
+* openHAB 2.0 support
 * support for automatic updates available in the newest firmware for INT-RS Plus and ETHM-1 Plus
