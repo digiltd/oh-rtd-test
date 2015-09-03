@@ -67,7 +67,8 @@ Number items can be used only if `object_number` is not given and the number spe
 <tr><td>partition</td><td>defines a partition</td></tr>
 <tr><td>output</td><td>defines an output</td></tr>
 <tr><td>doors</td><td>defines doors</td></tr>
-<tr><td>status</td><td>defines a status item</td></tr></table>
+<tr><td>status</td><td>defines a status item</td></tr>
+<tr><td>module</td><td>defines connection status item</td></tr></table>
 
 
 **Valid `state_type` values for "zone" objects:**
@@ -125,6 +126,13 @@ Number items can be used only if `object_number` is not given and the number spe
 <tr><td>date_time</td><td>DateTimeType or StringType command changes Integra date and time</td></tr></table>
 
 **NOTE:** Some of the values, like 'troubles' and 'intrx_present' don't work on my ETHM-1 Plus module.
+
+
+**Valid `state_type` values for "module" objects:**
+<table><tr><th>Type</th><th>Notes</th></tr>
+<tr><td>connected</td><td>status of connection to the module</td></tr>
+<tr><td>connected_since</td><td>date and time when current connection has been established</td></tr>
+<tr><td>connection_errors</td><td>number of consecutive connection errors; clears on successful connection</td></tr></table>
 
 
 **Valid options:**
@@ -199,31 +207,10 @@ end
 
 Connection status, item definition:
 ```
-DateTime AlarmDateTime "Current time [%1$tF %1$tR]" { satel="status:date_time" }
-Switch AlarmConnection "Connection status" <network>
+Switch AlarmConnection "Connection status" <network> { satel="module:connected" }
+DateTime AlarmConnSince "Connected since [%1$tF %1$tR]" { satel="module:connected_since" }
 ```
 
-Connection status rule, assuming refresh time is configured to less than 5 seconds:
-```
-var Timer satelTimer = null
-
-rule "Satel connection status"
-when
-    Item AlarmDateTime received update
-then
-    var org.joda.time.DateTime timeout = now.plusSeconds(5)
-   
-    AlarmConnection.postUpdate(ON)
-    if (satelTimer != null) {
-        satelTimer.reschedule(timeout)
-    } else {
-        satelTimer = createTimer(timeout) [|
-            AlarmConnection.postUpdate(OFF)
-            satelTimer = null
-        ]
-    }
-end
-```
 
 ## Security considerations
 
