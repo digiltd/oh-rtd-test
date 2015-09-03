@@ -218,6 +218,7 @@ By this, you automatically have the option to use long-polling, HTTP streaming o
 
 You can subscribe on the following resources:
 - a single item
+- all items (rest/items)
 - an item group
 - an item state
 - a single page of a sitemap
@@ -230,6 +231,8 @@ To tell the openHAB server that you want to suspend the response (i.e. use serve
 Moreover it's recommend to set a unique tracking Id for each client. 
     X-Atmosphere-tracking-id: unique id
 With the aid the of the tracking id openHAB is able to reduce the network load. openHAB will detect if the actual message is equal to the previous one and will supress double broadcasts. The tracking header is also neccessary if you want to receive page-label and page-icon updates on streaming connections (see below). 
+
+While registrating for changes to _all items_ you will receive every item update which occurs in the openHAB bus. Each response will look like a response from /rest/items/<Item-Name>. This method is designed for small devices, which does not have enough resources to create a websocket connection to every single item seperately.
 
 Please note: for sitemap ressources we have different types of answers.
 This depends on the connection type.
