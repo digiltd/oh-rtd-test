@@ -89,7 +89,7 @@ This add-on provides XMPP communication. Besides the action methods itself, it a
 
 Prowl lets you use push notifications on iOS devices (please check openhab.cfg for required configuration settings):
 - `pushNotification(String subject, String message)`: Pushes a Prowl Notification
-- `pushNotification(String subject, String message, int priority)`: Pushes a Prowl Notification with the given priority
+- `pushNotification(String apikey, String subject, String message, int priority)`: Pushes a Prowl Notification with the given priority
 
 **Twitter Action**
 
