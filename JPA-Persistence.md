@@ -58,10 +58,12 @@ jpa:password=     # the database username password for connection
 The binding will create one table "historic_item" where all item states are stored.
 The item state as such is stored as a string representation.
 
-## Adding other database drivers
+## Adding support for other JPA supported databases
 Other database drivers can be added by expanding the openhab classpath.
 Use the following classpath setup in start.sh / start_debug.sh of openhab:
 ```
 cp=$(echo lib/*.jar | tr ' ' ':'):$(find $eclipsehome -name "org.eclipse.equinox.launcher_*.jar" | sort | tail -1);
 ```
-This will added all .jar files in a folder "lib" in the root of openhab.
+This will add all .jar files in a folder "lib" in the root of openhab.
+All databases that are supported by JPA can be added.
+Define jpa:driver and jpa:url according to the database definitions.
