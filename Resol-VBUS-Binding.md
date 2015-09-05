@@ -21,7 +21,7 @@ First of all you need to introduce your Resol Controller in the openhab.cfg file
     # Updateinterval (optional, in seconds, defaults 1): How often should the values be updated
     resolvbus:updateinterval=10
     #(optional) the device id, if the binding doesn't detect the id itself
-    #resolvbus:updateinterval=
+    #resolvbus:deviceid=
 
 # Item Binding Configuration
 
