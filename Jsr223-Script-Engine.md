@@ -387,6 +387,53 @@ function randomIntFromInterval(min,max){
 function getRules(){return new RuleSet([ohExample, actionsTest]);}
 ```
 
+###Example in Groovy
+```
+import org.openhab.core.jsr223.internal.shared.*
+import org.openhab.core.items.Item
+import org.openhab.core.items.ItemRegistry
+import org.openhab.core.persistence.extensions.PersistenceExtensions
+import org.joda.time.DateTime
 
+Global.itemRegistry = this.ItemRegistry
+Global.pe = this.pe
 
+class Global {
+	static ItemRegistry itemRegistry
+	static Class pe
+}
+
+class GroovyTestRule implements Rule {
+	def logger = Openhab.getLogger('TestRule')
+
+	java.util.List<StartupTrigger> getEventTrigger() {
+		logger.debug('foo')
+		return [
+			new StartupTrigger()
+//			new ChangedEventTrigger("Foo", null, null)
+		]
+	}
+
+	void execute(Event event) {
+		logger.debug('Event received: ' + event.toString())
+		logger.debug('Actions: ' + Openhab.getActions())
+
+		Openhab.sendCommand("Bar", "5")
+
+		if(event.getItem() != null) {
+			logger.debug('Got Item: ' + event.getItem())
+			logger.debug('Trying to retrieve history state...')			
+			logger.debug(Globals.pe.averageSince(event.getItem(), DateTime.now().minusMinutes(30)))			
+		}
+		Item item = Global.itemRegistry.getItem('Bar')
+		logger.debug("averageSince(): " + Global.pe.averageSince(item, DateTime.now().minusMinutes(30)))
+		logger.debug("changedSince(): " + Global.pe.changedSince(item, DateTime.now().minusMinutes(2)))
+		logger.debug("maximumSince(): " + (Global.pe.maximumSince(item, DateTime.now().minusMinutes(30))).state)
+	}
+}
+
+RuleSet getRules() {
+	return new RuleSet(new GroovyTestRule())
+}
+```
 
