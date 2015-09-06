@@ -1,4 +1,4 @@
-OpenHab does not have native support (yet) for direct control of X10 Devices via a CM11A/CM17A Device. However there is a CLI tool provided by X-10 in both the Active Home Pro Software and the SDK (now a free download), this used with an exec binding makes for X-10 Control via OpenHAB on Windows.
+OpenHab does not have built-in support (yet) for direct control of X10 Devices via a CM11A/CM17A Device. However there is a CLI tool provided by X-10 in both the Active Home Pro Software and the SDK (now a free download), this used with an exec binding makes for X-10 Control via OpenHAB on Windows.
 
 The steps are relatively simple:
 * Install [Active Home X-10 SDK and Drivers](http://kbase.x10.com/wiki/Activehome_Pro_SDK) 
