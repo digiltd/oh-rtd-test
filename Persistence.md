@@ -136,7 +136,7 @@ Create `configurations/rules/refresh.rules` with following content. It runs a re
       reloadOnce = false
     end
 
-Create according refresh script `configurations/rules_refresh.sh` and make runnabled (`chmod +x rules_refresh.sh`):
+Create according refresh script `configurations/rules_refresh.sh` and make runnable (`chmod +x rules_refresh.sh`):
 
     # This script is called by openHAB after persistance service was started
     sleep 5
@@ -147,4 +147,4 @@ Create according refresh script `configurations/rules_refresh.sh` and make runna
       touch $f
     done 
 
-The script waits for 5 seconds, then touches file `demo.rules` which causes openHAB to reload the file. Other rules-files may be added on new lines.
+The script waits for 5 seconds, then touches all `*.rules` files (except `refresh.rules`) which causes openHAB to reload these files. Other rules-files may be added on new lines.
