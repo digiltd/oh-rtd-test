@@ -162,6 +162,8 @@ In many cases, only a subset of these parameters need to be specified/used, with
 
 The sections below describe the types of things that can be bound, in addition to the transformations that are permitted, and any default transformations that may be applied for you.
 
+A script has been written that will automatically generate a starting point for an items file dealing with MiOS devices - see [here](https://github.com/openhab/openhab/tree/master/bundles/binding/org.openhab.binding.mios/examples/scripts).
+
 [Back to Table of Contents](MiOS-Binding#configuration)
 
 ### Item : MiOS Device Binding - Values (Reading)
