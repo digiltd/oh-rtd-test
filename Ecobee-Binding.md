@@ -439,7 +439,7 @@ The mapping of the [sky numbers](https://www.ecobee.com/home/developer/api/docum
 
 ## Logging
 
-In order to configure logging for this binding to be generated in a separate file add the following to your /configuration/logback.xml file;
+To configure DEBUG logging for the Ecobee binding to be sent to a separate file, add the following to your logback.xml file:
 ```xml
 <appender name="ECOBEEFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
    <file>logs/ecobee.log</file>
