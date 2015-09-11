@@ -424,4 +424,5 @@ Our wiki [[here|https://github.com/souliss/souliss/wiki]]
 
 == Known Issues ==
 
-The latest release of the binding (included in openHAB 1.7) use the execute() method instead of threads to handle the background communication with the Souliss network, this method doesn't restart automatically after a change in the item or sitemap files. You need to restart manually openHAB to get it back working.
+The latest release of the binding (included in openHAB 1.7) use the execute() method instead of threads to handle the background communication with the Souliss network, this method doesn't restart automatically after a change in the item or sitemap files.
+This has been solved in the latest release of the binding, unfortunately this isn't yet included in the actual openHAB binaries, so you need to download and install manually the Souliss binding from the [Souliss Download](https://github.com/souliss/souliss/wiki/Downloads) page.
