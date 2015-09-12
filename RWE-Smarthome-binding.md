@@ -30,7 +30,7 @@ Simply enter the hostname or IP address of your RWE Smarthome Central (SHC) as w
 # General item binding configuration
 All items use the format `{rwe="id=<logical-device-id>,param=<parameter>"}`, where `<logical-device-id>` is a unique number for each logical device (e.g. `2951a048-1d21-5caf-d866-b63bc00280f4`) and `<param>` the desired parameter of the device.
 
-The following parameters are available:|||||||||||||
+The following parameters are available:
 
 | Property | Type | Description | 
 | :------------- |:-------------| :-----|
