@@ -10,11 +10,11 @@ The basic configuration is done in openhab.cfg and looks like this:
 ############################## RWE Smarthome Binding ##############################
 #
 # Hostname / IP address of the RWE Smarthome server
-rwesmarthome:host=
+rwesmarthome:host=192.168.0.2
  
 # Username / password of the RWE Smarthome server
-rwesmarthome:username=
-rwesmarthome:password=
+rwesmarthome:username=myuser
+rwesmarthome:password=mysecretpassword
  
 # The interval in seconds to check if the communication with the RWE Smarthome server is still alive.
 # If no message receives from the RWE Smarthome server, the binding restarts. (optional, default is 300)
