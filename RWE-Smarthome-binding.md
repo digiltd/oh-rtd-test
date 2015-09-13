@@ -30,6 +30,8 @@ Simply enter the hostname or IP address of your RWE Smarthome Central (SHC) as w
 # General item binding configuration
 All items use the format `{rwe="id=<logical-device-id>,param=<parameter>"}`, where `<logical-device-id>` is a unique number for each logical device (e.g. `2951a048-1d21-5caf-d866-b63bc00280f4`) and `<param>` the desired parameter of the device.
 
+As the id's are internal numbers and not visible in the RWE software, the binding **outputs a list of found devices including the supported parameters to the OpenHAB console/logfile**. For the ease of use and a quick startup, it even outputs an example item-config for each item, which can easily be copied into the *.items config file.
+
 The following parameters are available:
 
 | Property | Type | Description | 
@@ -44,30 +46,79 @@ The following parameters are available:
 |  dimmer | Dimmer | Dimmer |
 |  dimmerinverted | Dimmer | Dimmer with inverted values |
 |  rollershutter | Rollershutter | Rollershutter |
-|  rollershutterinverted | Rollershutter | Rollershutter with inverted values |
+|  rollershutterinverted | Rollershutter | Rollershutter with inverted values, recommended! |
 |  smokedetector | Switch | State of a smokedetector |
 |  alarm | Switch | Siren of a smokedetector |
 |  variable | Switch | Variable as defined in SHC |
 
 Supported (confirmed) devices and corresponding parameters are:
-* RWE SmartHome Bewegungsmelder innen (WMD): luminance only, movement only via variable, see (1)
+* RWE SmartHome Bewegungsmelder innen (WMD): luminance only, movement only via variable, see examples.
 * RWE SmartHome Heizkörperthermostat (RST): temperature, settemperature, operationmodeauto, humidity
 * RWE SmartHome Rauchmelder (WSD): smokedetector, alarm
 * RWE SmartHome Tür-/Fenstersensor (WDS): contact
 * RWE SmartHome Unterputz-Dimmer (ISD2): dimmer, dimmerinverted
 * RWE SmartHome Unterputz-Lichtschalter (ISS2): switch
 * RWE SmartHome Unterputz-Rollladensteuerung (ISR2): rollershutter, rollershutterinverted
-* RWE SmartHome Wandsender (WSC2): only indirect via variable, see (2)
+* RWE SmartHome Wandsender (WSC2): only indirect via variable, see examples.
 * RWE SmartHome Zwischenstecker (PSS): switch
 * RWE SmartHome Zwischenstecker aussen (PSSOz): switch
 
 Unconfirmed but probably supported devices and corresponding parameters are (please report and confirm, if you own one of the following devices and they are working):
-* RWE SmartHome Bewegungsmelder aussen (WMDO): luminance only, movement only via variable, see (1)
+* RWE SmartHome Bewegungsmelder aussen (WMDO): luminance only, movement only via variable, see examples
+* RWE SmartHome Fernbedienung (BRC8): only indirect via variable, see examples
 * RWE SmartHome Raumthermostat (WRT): temperature, settemperature, operationmodeauto, humidity
-* RWE SmartHome Unterputz-Sender (ISC2): only indirect via variable, see (2)
-
-(1) TODO
-(2) TODO
+* RWE SmartHome Unterputz-Sender (ISC2): only indirect via variable, see examples
 
 # Examples
-TODO
+Replace the example-id with the id's of your devices. You can find the id of your devices in the OpenHAB logfile or console when the RWE Smarthome binding starts.
+
+```
+Contact rweContact "Window livingroom [MAP(de.map):%s]" <contact> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=contact"}
+Number rweHumidity "Humidity livingroom [%.1f %%]" <temperature> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=humidity"}
+Number rweLuminance "Luminance corridor [%d %%]" <slider> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=luminance"}
+Number rweSettemp "Settemp living [%.1f °C]" <temperature> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=settemperature"}
+Number rweTemp "Temp living [%.1f °C]" <temperature> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=temperature"}
+Switch rweAlarm "Alarm corridor" <siren> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=alarm"}
+Switch rweSettempOpMode "Settemp living auto" <temperature> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=operationmodeauto"}
+Switch rweSmokeDetector "Smokedetector corridor" <fire> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=smokedetector"}
+Switch rweSwitch "Light corridor" <switch> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=switch"}
+Switch rweVariable "Variable TEST" <switch> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=variable"}
+Rollershutter rweRollershutter "Rollershutter living [%d %%]" <rollershutter> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=rollershutterinverted"}
+Dimmer rweDimmer "Light [%d %%]" <slider> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=dimmer"}
+```
+
+# Solutions/examples for not directly supported devices
+Some devices like a simple pushbutton (e.g. "Wandsender WSC2") or a motion detector are not sent over the interface and thus not directly reachable by the binding. However, there are workarounds based on variables and RWE profiles, which allow using even those devices with OpenHAB.
+
+The general idea is to exchange the state of a device via a variable. To do this, you have to create a variable in the RWE software and change the state of the variable by an RWE event profile. As the variable state is sent to OpenHAB, you can use an OpenHAB rule to react.
+
+**Note:** Because of the delay of the interface it is not recommended to use this solution for time critical applications like switching your lights on when you press the button next to the door. You should implement time critical rules directly in the RWE software and use OpenHAB for the more sophisticated things. ;)
+
+### Workarround for pushbuttons
+Works with the following devices:
+* RWE SmartHome Wandsender (WSC2)
+* RWE SmartHome Unterputz-Sender (ISC2)
+* RWE SmartHome Fernbedienung (BRC8)
+
+1. Create a variable for each button, e.g. "SwitchLivingBtn1" and so on.
+2. Create an event profile in the RWE software: if the upper button of the device is pushed, set variable "SwitchLivingBtn1" to ON for one second (activate the automatic switch-off after one second).
+3. Create an OpenHAB item for the variable: `Switch rweSwitchLivingBtn1 "Switch Btn1" <switch> {rwe="id=2951a048-1d21-5caf-d866-b63bc00280f4,param=variable"}` (use the id of your specific variable "SwitchLivingBtn1", which you can find in the openhab.log at startup of the binding.
+4. Create an OpenHAB rule to react:
+```
+rule "Toggle TV if button 1 is pressed"
+when
+	Item rweSwitchLivingBtn1 changed to ON
+then
+	if(TV.state == ON)
+		sendCommand(TV, OFF)
+	else
+		sendCommand(TV, ON)
+end	
+```
+
+### Workaround for motiondetectors
+Works with the following devices:
+* RWE SmartHome Bewegungsmelder innen (WMD)
+* RWE SmartHome Bewegungsmelder aussen (WMDO)
+
+The solution is mainly the same as for pushbuttons (see above). Simply set the auto-off-time in the RWE profile to a longer period, e.g. 1 minute. Now the variable is on, when a motion occurs until there is no motion any more for about a minute.
