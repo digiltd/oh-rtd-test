@@ -32,8 +32,12 @@ In order to use the Ecobee API, you must specify the `appkey` and `scope` that w
     # ecobee:refresh=180000
 
     # the temperature scale to use when sending or receiving temperatures
-    # defaults to Fahrenheit (F)
+    # optional, defaults to Fahrenheit (F)
     # ecobee:tempscale=C
+
+    # the time to wait for an API response (not available in 1.7.1 or previous, do not use)
+    # optional, defaults to 20000 (ms) (hardcoded to 10000 ms in 1.7.1 and previous)
+    # ecobee:timeout=30000
 
     # the private API key issued be Ecobee to use the API (replace with your own)
     ecobee:appkey=9T4huoUXlT5b5qNpEJvMssqTMgaNCFoV
@@ -473,3 +477,4 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 ### OpenHAB 1.8.0
 
 * Added an Action bundle that allows users to perform more complex actions, like setting holds for different durations to temperature setpoints or comfort settings, to send messages to the thermostat's display, to resume the normal program, create vacation events, etc. ([#2755](https://github.com/openhab/openhab/pull/2755))
+* Changed default HTTP request timeout from 10 seconds (10000) to 20 seconds (20000) due to frequent reports of repeated timeouts.  Also added optional `ecobee:timeout` parameter to openhab.cfg in case the user would like a longer or shorter HTTP request timeout. ([#3151](https://github.com/openhab/openhab/pull/3151))
