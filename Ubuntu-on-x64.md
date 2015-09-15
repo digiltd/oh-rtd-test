@@ -1,7 +1,6 @@
 ##Introduction
-Basicly a step by step guide to install [OpenHAB 1.7.1](www.openhab.org) on an Intel x86 machine using a few common bindings.
-The content is mostly copy&paste from the OpenHAB wiki:
-- https://github.com/openhab/openhab/wiki/Linux---OS-X (for basic installation)
+Basicly a step by step guide to install [OpenHAB 1.7.1](www.openhab.org) on an Intel x86 machine using a few common bindings. 
+The content is mostly copy & paste from other parts of the wiki.
 
 ## Operating System
 I've picked the LTS version for stability.
