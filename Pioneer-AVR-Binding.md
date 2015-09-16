@@ -107,16 +107,16 @@ These command are supported out of the box by the binding.
 
 * Home Media Gallery
     * HMG_NUMKEY _(accepts a number 0 - 9)_
-    * HMG_NUMKEY0
-    * HMG_NUMKEY1
-    * HMG_NUMKEY2
-    * HMG_NUMKEY3
-    * HMG_NUMKEY4
-    * HMG_NUMKEY5
-    * HMG_NUMKEY6
-    * HMG_NUMKEY7
-    * HMG_NUMKEY8
-    * HMG_NUMKEY9
+    * HMG_NUMKEY_0
+    * HMG_NUMKEY_1
+    * HMG_NUMKEY_2
+    * HMG_NUMKEY_3
+    * HMG_NUMKEY_4
+    * HMG_NUMKEY_5
+    * HMG_NUMKEY_6
+    * HMG_NUMKEY_7
+    * HMG_NUMKEY_8
+    * HMG_NUMKEY_9
     * HMG_PLAY
     * HMG_PAUSE
     * HMG_PREVIOUS
