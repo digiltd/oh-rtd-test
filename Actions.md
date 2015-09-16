@@ -43,7 +43,12 @@ Example:
  - Outputs `"GarageDoorStateChanged Starting. Garage_Door_Open.state: [true]. Garage_Door_Closed.state: [false]."` to a logger called "Garage". In this example, Garage_Door_Open and Garage_Door_Closed are String items with values of `true` and `false` respectively.
 
 **Other actions:**
-- `sendHttpGetRequest(String url)`: Send out a GET-HTTP request
+- `sendHttpGetRequest(String url)`: Send out a GET-HTTP request.
+- `sendHttpPutRequest(String url)`: Send out a PUT-HTTP request.
+- `sendHttpPutRequest(String url, String contentType, String content)`: Send out a PUT-HTTP request, with parameters.
+- `sendHttpPostRequest(String url)`: Send out a POST-HTTP request.
+- `sendHttpPostRequest(String url, String contentType, String content)`: Send out a POST-HTTP request, with parameters.
+- `sendHttpDeleteRequest(String url)`: Send out a DELETE-HTTP request.
 - `callScript(String scriptName)`: Calls a script which must be located in the configurations/scripts folder
 - `createTimer(AbstractInstant instant, Procedure procedure)`: Schedules a block of code (a closure) for future execution.
 - `executeCommandLine(String commandLine)`: Executes a command on the command line
