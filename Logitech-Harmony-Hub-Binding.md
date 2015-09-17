@@ -110,7 +110,7 @@ The following actions are supported in rules:
 
 Surround the activity name in quotes, for example:
 
-        harmonyStartActivity("PowerOff")
+	harmonyStartActivity("PowerOff")
 
 #### Other
  Under debug logging the IO bundle will print the list of devices, activities and the full JSON config for each hub.  This can be used to populate items.
