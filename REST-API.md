@@ -259,6 +259,8 @@ In addition, you _must_ specify the data type that you wish to receive, either j
 
 While registering for changes to _all items_ you will receive every item update which occurs in the openHAB bus. Each response will look like a response from /rest/items/<Item-Name>. This method is designed for small devices, which does not have enough resources to create a websocket connection to every single item separately. _NOTE: This does not seem to work as you can only subscribe to specific items, not groups._
 
+When streaming a connection, openHAB automatically times out the connection after 5 minutes, so you have to reconnect to continue to receive notifications.
+
 Please note: for sitemap resources we have different types of answers.
 This depends on the connection type.
 
