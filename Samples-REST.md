@@ -160,7 +160,7 @@ _Set state of an item_
         if req.status_code != requests.codes.ok:
             req.raise_for_status()     
 
-_Get state updates of an item_
+_Get state updates of an item (using long-polling)_
 
     def get_status(self, name):
         """ Request updates for any item in group NAME from OpenHAB.
@@ -214,3 +214,129 @@ _HTTP Header definitions_
         return {
                 "Authorization" : "Basic %s" %self.auth,
                 "Content-type": "text/plain"}
+
+_Get state updates of an item (using streaming) NOTE: this is a class method, not a stand alone example_
+
+    def get_status_stream(self, item):
+        """
+        Request updates for any item in item from OpenHAB.
+        streaming will not respond until item updates. Can also use 
+        Sitemap page id (eg /rest/sitemaps/name/0000) as long as it
+        contains items (not just groups of groups)
+        auto reconnects while parent.connected is true.
+        This is meant to be run as a thread
+        """
+        
+        connect = 0     #just keep track of number of disconnects/reconnects
+        
+        url = 'http://%s:%s%s'%(self.openhab_host,self.openhab_port, item)
+        payload = {'type': 'json'}
+        while self.parent.connected:
+            if connect == 0:
+                log.info("Starting streaming connection for %s" % url)
+            else:
+                log.info("Restarting (#%d) streaming connection after disconnect for %s" % (connect, url))
+            try:
+                req = requests.get(url, params=payload, timeout=(310.0, 310),   #timeout is (connect timeout, read timeout) note! read timeout is 310 as openhab timeout is 300
+                                headers=self.polling_header(), stream=True)
+                if req.status_code != requests.codes.ok:
+                    log.error("bad status code")
+                    req.raise_for_status()
+                    
+            except requests.exceptions.ReadTimeout, e: #see except UnboundLocalError: below for explanation of this
+                if not self.parent.connected:   # if we are not connected - time out and close thread, else retry connection.
+                    log.error("Read timeout, exit: %s" % e)
+                    break
+                    
+            except (requests.exceptions.HTTPError, requests.exceptions.ConnectTimeout, requests.exceptions.ConnectionError) as e:
+                log.error("Error, exit: %s" % e.message)
+                break
+            #log.debug("received response headers %s" % req.headers)
+            log.info("Data Received, streaming connection for %s" % url)
+            connect += 1
+            try:
+                while self.parent.connected:
+                    message = ''
+                    content = {}
+                    for char in req.iter_content():   #read content 1 character at a time
+                        try:
+                            if char:
+                                #log.debug(char)
+                                message += char
+                                content = json.loads(message)
+                                break
+                            
+                        except ValueError:      #keep reading until json.loads returns a value
+                            pass
+                    #log.debug(content)
+                    if len(content) == 0:
+                        raise requests.exceptions.ConnectTimeout("Streaming connection dropped")
+                        
+                    members = self.extract_content(content)        
+                    self.publish_list(members)
+            
+            except UnboundLocalError:   #needed because streaming on single item does not time out normally - so thread hangs.
+                pass
+            except (timeout, requests.exceptions.ConnectTimeout, requests.exceptions.ConnectionError) as e:
+                log.info("Socket/Read timeout: %s" % e.message)
+            except Exception, e:
+                log.error("Stream Unknown Error: %s, %s" % (e, e.message))
+                log.error("logging handled exception - see below")
+                log.exception(e)
+                
+        log.info("Disconnected, exiting streaming connection for %s" % url)
+        if item in self.streaming_threads:
+            del(self.streaming_threads[item])
+            log.debug("removed %s from streaming_threads" % item)
+
+    def polling_header(self):
+        """ Header for OpenHAB REST request - streaming """
+        
+        self.auth = base64.encodestring('%s:%s'
+                        %(self.username, self.password)
+                        ).replace('\n', '')
+        return {
+            #"Authorization" : "Basic %s" % self.auth,
+            "X-Atmosphere-Transport" : "streaming",
+            #"X-Atmosphere-tracking-id" : self.atmos_id,
+            "Accept" : "application/json"}
+
+    def basic_header(self):
+        """ Header for OpenHAB REST request - standard """
+        
+        self.auth = base64.encodestring('%s:%s'
+                        %(self.username, self.password)
+                        ).replace('\n', '')
+        return {
+                #"Authorization" : "Basic %s" %self.auth,
+                "Content-type": "text/plain"}
+                
+    def extract_content(self, content):
+        '''
+        extract the "members" or "items" from content, and make a list
+        '''
+        
+        # sitemap items have "id" and "widget" keys. "widget is a list of "item" dicts. no "type" key.
+        # items items have a "type" key which is something like "ColorItem", "DimmerItem" and so on, then "name" and "state". they are dicts
+        # items groups have a "type" "GroupItem", then "name" and "state" (of the group) "members" is a list of item dicts as above
+        
+        if "type" in content:                   #items response
+            if content["type"] == "GroupItem":
+                # At top level (for GroupItem), there is type, name, state, link and members list
+                members = content["members"]    #list of member items
+            elif content["type"] == "item":
+                members = content["item"]       #its a single item dict *not sure this is a thing* 
+            else:
+                members = content               #its a single item dict
+        elif "widget" in content:               #sitemap response
+            members = content["widget"]["item"] #widget is a list of items, (could be GroupItems) these are dicts
+        elif "item" in content:
+            members = content["item"]           #its a single item dict
+        else:
+            members = content                   #don't know...
+        #log.debug(members)
+        
+        if isinstance(members, dict):   #if it's a dict not a list
+            members = [members]         #make it a list (otherwise it's already a list of items...)
+            
+        return members
