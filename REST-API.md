@@ -2,6 +2,8 @@
 
 The REST API of openHAB serves different purposes. It can be used to integrate openHAB with other system as it allows read access to items and item states as well as status updates or the sending of commands for items. Furthermore, it gives access to the sitemaps, so that it is the interface to be used by remote user interfaces (e.g. fat clients or fully Javascript based web clients).
 
+The REST interface is very fast, so it is good for real time interaction with openHAB, especially from 3rd party user interfaces such as iRule, openremote or Home Remote (iOS app with apple watch and voice interface).
+
 The REST API furthermore supports server-push, so you can subscribe yourself on change notification for certain resources. Find more about the server-push features in the "Server-Push" section below.
 
 The uris of the REST API support different media types. This means that you can define the format of the response with an additional HTTP header like 
@@ -173,14 +175,14 @@ which returns a result like
 ```
 You can see that the sitemap information not only contains the static information that the user has provided in the sitemap file, but that it also holds derived data like icons and labels and dynamic group contents, where the groups structure is not explicitly defined in the sitemap.
 
-Single pages can be accessed by adding a page id (as given in the sitemap response):
+Single pages can be accessed by adding a page id (as given in the sitemap response) - NOTE: this is the page id, not the group name or name entry. In the example above the page id is 0000:
 
 ```
     http://localhost:8080/rest/sitemaps/demo/FF_Bath
 ```
 Media types: application/xml, application/json, application/x-javascript
 
-which returns the widgets contained in this page:
+which returns the widgets contained in this page - this happens to works as there is also a page id FF_Bath. In practice it depends on how your sitemap is defined, in many cases there is a sitemap page that corresponds to a group name, but we are getting the sitemap page id, not the group.:
 ```
     <page>
       <id>FF_Bath</id>
@@ -223,18 +225,37 @@ You can subscribe on the following resources:
 - an item state
 - a single page of a sitemap
 
+Whilst you can subscribe to these things, you do not get notifications on most of them. For example, when using streaming on items (/rest/items/item_name), you can only get responses from a single _item_ (nothing else works, and I've tried), or sitemap pages (/rest/sitemaps/name/page_id). You do not get notifications from all items, item groups, or item states.
+
+The behavior with sitemap pages is that you will only get notification on _items_ that change, in the form of a widget response. This means that if you subscribe to a sitemap page that does not have any items defined (such as a group of groups, or a frame containing only groups) you will not receive any notifications.
+
 Whenever the state of an item that is part of the resource changes, the resource will be returned just as on a regular request (i.e. exactly the same syntax). This is especially useful for sitemap pages as you can instantly refresh your UI whenever some state changes on the currently shown page.
 
-To tell the openHAB server that you want to suspend the response (i.e. use server-push), you have to add the following header to your HTTP request:
+To tell the openHAB server that you want to receive notifications (i.e. use server-push), you have to add the following header to your HTTP request:
     X-Atmosphere-Transport: websocket|long-polling|streaming
 
-Moreover it's recommend to set a unique tracking Id for each client. 
+Moreover it's recommend to set a unique tracking Id for each client (but read the _NOTE_). 
     X-Atmosphere-tracking-id: unique id
-With the aid the of the tracking id openHAB is able to reduce the network load. openHAB will detect if the actual message is equal to the previous one and will supress double broadcasts. The tracking header is also neccessary if you want to receive page-label and page-icon updates on streaming connections (see below). 
+With the aid the of the tracking id openHAB is able to reduce the network load. openHAB will detect if the actual message is equal to the previous one and will suppress double broadcasts (no I don't know what this means, but I'm leaving it in). The tracking header is also necessary if you want to receive page-label and page-icon updates on streaming connections (see below).
 
-While registrating for changes to _all items_ you will receive every item update which occurs in the openHAB bus. Each response will look like a response from /rest/items/<Item-Name>. This method is designed for small devices, which does not have enough resources to create a websocket connection to every single item seperately.
+_NOTE_: In practice this is much trickier than it sounds. You can subscribe to any sitemaps page that you want (as explained previously, items only works for _specific items_), but many sitemaps pages do not produce widget responses, in which case you will _only_ receive page-label and icon updates. This is a json example of a page update, on a subscription to a sitemaps page called "Lights", with tracking id enabled:
+```
+{"widget":{"widgetId":"Lights_18","type":"Slider","label":"Landing [44%]","icon":"slider-40","switchSupport":"true","sendFrequency":"0","item":{"type":"DimmerItem","name":"landingMain","state":"44","link":"http://192.168.100.119:80/rest/items/landingMain"}}}
 
-Please note: for sitemap ressources we have different types of answers.
+
+{"id":"Lights","title":"Lights","icon":"group","link":"http://192.168.100.119:80/rest/sitemaps/nicks/Lights","leaf":"false"}
+```
+
+Without the tracking id, you just get the "widget" entry. The tracking id can be any string (not just numbers), but "0" is a special case, it means "send me back a tracking id to use in the future", so if you use "0" as your tracking id, the first response will be a new tracking id. I would just use 1234 or some other random number.
+
+You can safely leave out the tracking id header entry altogether, streaming works fine without it.
+
+In addition, you _must_ specify the data type that you wish to receive, either json or xml (you _must_ include this in the headers - http://xxxxxxx?type=json/xml does not work):
+    Accept: application/json
+
+While registering for changes to _all items_ you will receive every item update which occurs in the openHAB bus. Each response will look like a response from /rest/items/<Item-Name>. This method is designed for small devices, which does not have enough resources to create a websocket connection to every single item separately. _NOTE:_ This does not seem to work as you can only subscribe to specific items, not groups.
+
+Please note: for sitemap resources we have different types of answers.
 This depends on the connection type.
 
 ### Polling Connections
@@ -243,14 +264,17 @@ This depends on the connection type.
 
 long-polling connections will always receive a complete page object. The answer is equal to normal REST api invocations as described above.
 
+This means that if you subscribe to a sitemap page, if anything changes on the page, you receive the entire page, and it is up to you to figure out what changed on it.
+
 ### Streaming Connections
 
 "X-Atmosphere-Transport: streaming" or
 "X-Atmosphere-Transport: websocket"
 should be set as HTTP Header.
+Also for websockets, in addition you need to include the normal HTTP websocket upgrade request headers.
 
-HTTP streaming or websocket connections receive only updated objects from the openHAB server. The received update could either be a widget and / or a page object. If the page label or icon is not changed you will only receive a widget object, but if a label or icon is changed on the page you will additionally receive a page object. 
-(For this feature the "X-Atmosphere-tracking-id" header is required)
+HTTP streaming or websocket connections receive only updated objects from the openHAB server. The received update could either be a widget or a page object. If the page label or icon is not changed you will only receive a widget object, but if a label or icon is changed on the page you will additionally receive a page object. 
+(For this feature the "X-Atmosphere-tracking-id" header is required).
 
 a widget response looks like
 ```
@@ -285,6 +309,8 @@ in case the page label or icon changes you will also receive something like this
     </page>
 ```
 That's all! The GreenT UI, the iOS client as well as HABDroid use this mechanism to update the pages.
+
+If you are accessing the REST interface from another client (such as a python script), you can use python requests as shown in the Examples Wiki (Note: the example shows long polling to get updates - I don't recommend this, streaming works better. I will try to update the examples), but this will block on responses, so each subscription should be run in it's own thread.
 
 Besides this, server-push can be very helpful for integration with other systems, if they are interested in state changes from openHAB - there is no need to do polling in such a case.
 
