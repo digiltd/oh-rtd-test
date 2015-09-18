@@ -232,10 +232,12 @@ The behavior with sitemap pages is that you will only get notification on _items
 Whenever the state of an item that is part of the resource changes, the resource will be returned just as on a regular request (i.e. exactly the same syntax). This is especially useful for sitemap pages as you can instantly refresh your UI whenever some state changes on the currently shown page.
 
 To tell the openHAB server that you want to receive notifications (i.e. use server-push), you have to add the following header to your HTTP request:
-`    X-Atmosphere-Transport: websocket|long-polling|streaming`
+
+```    X-Atmosphere-Transport: websocket|long-polling|streaming```
 
 Moreover it's recommend to set a unique tracking Id for each client (but read the **NOTE**). 
-`    X-Atmosphere-tracking-id: unique id`
+
+```    X-Atmosphere-tracking-id: unique id```
 
 With the aid the of the tracking id openHAB is able to reduce the network load. openHAB will detect if the actual message is equal to the previous one and will suppress double broadcasts (no I don't know what this means, but I'm leaving it in). The tracking header is also necessary if you want to receive page-label and page-icon updates on streaming connections (see below).
 
