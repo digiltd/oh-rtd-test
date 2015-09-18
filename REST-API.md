@@ -175,7 +175,7 @@ which returns a result like
 ```
 You can see that the sitemap information not only contains the static information that the user has provided in the sitemap file, but that it also holds derived data like icons and labels and dynamic group contents, where the groups structure is not explicitly defined in the sitemap.
 
-Single pages can be accessed by adding a page id (as given in the sitemap response) - NOTE: this is the page id, not the group name or name entry. In the example above the page id is 0000:
+Single pages can be accessed by adding a page id (as given in the sitemap response) - NOTE: this is the _page id_, not the group name or name entry. In the example above the page id is 0000:
 
 ```
     http://localhost:8080/rest/sitemaps/demo/FF_Bath
@@ -232,13 +232,14 @@ The behavior with sitemap pages is that you will only get notification on _items
 Whenever the state of an item that is part of the resource changes, the resource will be returned just as on a regular request (i.e. exactly the same syntax). This is especially useful for sitemap pages as you can instantly refresh your UI whenever some state changes on the currently shown page.
 
 To tell the openHAB server that you want to receive notifications (i.e. use server-push), you have to add the following header to your HTTP request:
-    X-Atmosphere-Transport: websocket|long-polling|streaming
+`    X-Atmosphere-Transport: websocket|long-polling|streaming`
 
-Moreover it's recommend to set a unique tracking Id for each client (but read the _NOTE_). 
-    X-Atmosphere-tracking-id: unique id
+Moreover it's recommend to set a unique tracking Id for each client (but read the **NOTE**). 
+`    X-Atmosphere-tracking-id: unique id`
+
 With the aid the of the tracking id openHAB is able to reduce the network load. openHAB will detect if the actual message is equal to the previous one and will suppress double broadcasts (no I don't know what this means, but I'm leaving it in). The tracking header is also necessary if you want to receive page-label and page-icon updates on streaming connections (see below).
 
-_NOTE_: In practice this is much trickier than it sounds. You can subscribe to any sitemaps page that you want (as explained previously, items only works for _specific items_), but many sitemaps pages do not produce widget responses, in which case you will _only_ receive page-label and icon updates. This is a json example of a page update, on a subscription to a sitemaps page called "Lights", with tracking id enabled:
+**NOTE:** In practice this is much trickier than it sounds. You can subscribe to any sitemaps page that you want (as explained previously, items only works for _specific items_), but many sitemaps pages do not produce widget responses, in which case you will _only_ receive page-label and icon updates. This is a json example of a page update, on a subscription to a sitemaps page called "Lights", with tracking id enabled:
 ```
 {"widget":{"widgetId":"Lights_18","type":"Slider","label":"Landing [44%]","icon":"slider-40","switchSupport":"true","sendFrequency":"0","item":{"type":"DimmerItem","name":"landingMain","state":"44","link":"http://192.168.100.119:80/rest/items/landingMain"}}}
 
@@ -246,14 +247,14 @@ _NOTE_: In practice this is much trickier than it sounds. You can subscribe to a
 {"id":"Lights","title":"Lights","icon":"group","link":"http://192.168.100.119:80/rest/sitemaps/nicks/Lights","leaf":"false"}
 ```
 
-Without the tracking id, you just get the "widget" entry. The tracking id can be any string (not just numbers), but "0" is a special case, it means "send me back a tracking id to use in the future", so if you use "0" as your tracking id, the first response will be a new tracking id. I would just use 1234 or some other random number.
+Without the tracking id, you just get the "widget" entry. The tracking id can be any string (not just numbers), but "0" is a special case, it means "send me back a tracking id to use in the future", so if you use "0" as your tracking id, the first response will be a new tracking id. I would just use "1234" or some other random number.
 
 You can safely leave out the tracking id header entry altogether, streaming works fine without it.
 
 In addition, you _must_ specify the data type that you wish to receive, either json or xml (you _must_ include this in the headers - http://xxxxxxx?type=json/xml does not work):
-    Accept: application/json
+`    Accept: application/json`
 
-While registering for changes to _all items_ you will receive every item update which occurs in the openHAB bus. Each response will look like a response from /rest/items/<Item-Name>. This method is designed for small devices, which does not have enough resources to create a websocket connection to every single item separately. _NOTE:_ This does not seem to work as you can only subscribe to specific items, not groups.
+While registering for changes to _all items_ you will receive every item update which occurs in the openHAB bus. Each response will look like a response from /rest/items/<Item-Name>. This method is designed for small devices, which does not have enough resources to create a websocket connection to every single item separately. _NOTE: This does not seem to work as you can only subscribe to specific items, not groups._
 
 Please note: for sitemap resources we have different types of answers.
 This depends on the connection type.
