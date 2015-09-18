@@ -254,7 +254,8 @@ Without the tracking id, you just get the "widget" entry. The tracking id can be
 You can safely leave out the tracking id header entry altogether, streaming works fine without it.
 
 In addition, you _must_ specify the data type that you wish to receive, either json or xml (you _must_ include this in the headers - http://xxxxxxx?type=json/xml does not work):
-`    Accept: application/json`
+
+```    Accept: application/json```
 
 While registering for changes to _all items_ you will receive every item update which occurs in the openHAB bus. Each response will look like a response from /rest/items/<Item-Name>. This method is designed for small devices, which does not have enough resources to create a websocket connection to every single item separately. _NOTE: This does not seem to work as you can only subscribe to specific items, not groups._
 
