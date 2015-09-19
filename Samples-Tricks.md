@@ -101,12 +101,12 @@ Create a new file in /etc/init.d/openhab using your preferred editor (e.g. nano)
 ### END INIT INFO
 
 # Author: Thomas Brettinger 
-    
+
 # Do NOT "set -e"
-    
+
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-    
+
 DESC="Open Home Automation Bus Daemon"
 NAME=openhab
 DAEMON=/usr/bin/java
@@ -118,26 +118,26 @@ HTTPSPORT=8443
 TELNETPORT=5555
 # be sure you are adopting the user to your local OH user 
 RUN_AS=ben
-    
+
 # get path to equinox jar inside $eclipsehome folder
 cp=$(find $ECLIPSEHOME/server -name "org.eclipse.equinox.launcher_*.jar" | sort | tail -1);
-    
+
 DAEMON_ARGS="-Dosgi.clean=true -Declipse.ignoreApp=true -Dosgi.noShutdown=true -Djetty.port=$HTTPPORT -Djetty.port.ssl=$HTTPSPORT -Djetty.home=$ECLIPSEHOME -Dlogback.configurationFile=$ECLIPSEHOME/configurations/logback.xml -Dfelix.fileinstall.dir=$ECLIPSEHOME/addons -Djava.library.path=$ECLIPSEHOME/lib -Djava.security.auth.login.config=$ECLIPSEHOME/etc/login.conf -Dorg.quartz.properties=$ECLIPSEHOME/etc/quartz.properties -Djava.awt.headless=true -jar $cp -console ${TELNETPORT}"
-    
+
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
-    
+
 # Read configuration variable file if it is present
 [ -r /etc/default/$NAME ] && . /etc/default/$NAME
-    
+
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh
-    
+
 # Define LSB log_* functions.
 # Depend on lsb-base (>= 3.2-14) to ensure that this file is present
 # and status_of_proc is working.
 . /lib/lsb/init-functions
-    
+
 #
 # Function that starts the daemon/service
 #
@@ -147,9 +147,9 @@ do_start()
     #   0 if daemon has been started
     #   1 if daemon was already running
     #   2 if daemon could not be started
-    start-stop-daemon --start --quiet --make-pidfile --pidfile $PIDFILE --chuid $RUN_AS --chdir $ECLIPSEHOME --exec MON --test > /dev/null \
+    start-stop-daemon --start --quiet --make-pidfile --pidfile $PIDFILE --chuid $RUN_AS --chdir $ECLIPSEHOME --exec $DAEMON --test > /dev/null \
         || return 1
-    start-stop-daemon --start --quiet --background --make-pidfile --pidfile $PIDFILE --chuid $RUN_AS --chdir $ECLIPSE --exec $DAEMON -- $DAEMON_ARGS \
+    start-stop-daemon --start --quiet --background --make-pidfile --pidfile $PIDFILE --chuid $RUN_AS --chdir $ECLIPSEHOME --exec $DAEMON -- $DAEMON_ARGS \
         || return 2
     # Add code here, if necessary, that waits for the process to be ready
     # to handle requests from services started subsequently which depend
