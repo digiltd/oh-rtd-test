@@ -1,5 +1,10 @@
 The page contains a number of examples for use with the [[Ecobee binding|Ecobee-Binding]] and [[action|Ecobee-Action]] bundles.
 
+## Table of Contents
+
+* [Setting hold to defined comfort setting](#setting-hold-to-defined-comfort-setting)
+* [Tracking last occupancy](#tracking-last-occupancy)
+
 ### Setting hold to defined comfort setting
 Ecobee thermostats normally run based on a weekly schedule, but you can override the current program by setting a hold that controls the cool setpoint, the heat setpoint, and other options.  You can set a hold from a rule by calling the action `ecobeeSetHold`.  One of the parameters is a reference to a "climate" (also known as a comfort setting).  The default references for climates are `sleep`, `home`, and `away` (some models also have `wakeup`).  Below are the minimum elements for presenting a set of buttons that let you set a hold to one of these comfort settings, or resume the normal program.  The item `CurrentClimate` is only used for its reference to the specific thermostat(s) to target the action calls.
 
