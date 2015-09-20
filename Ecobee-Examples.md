@@ -3,29 +3,35 @@ The page contains a number of examples for use with the [[Ecobee binding|Ecobee-
 ## Table of Contents
 
 * [Basic configuration](#basic-configuration)
-* [Setting hold to defined comfort setting](#setting-hold-to-defined-comfort-setting)
 * [Tracking last occupancy](#tracking-last-occupancy)
 
 ## Basic configuration
 
+The following items, sitemap and rules files show the actual temperature and humidity, the thermostat's current mode and scheduled comfort setting reference.  You can set a hold for a defined comfort setting (like sleep, away, home, custom ones as well), or resume the scheduled program from all holds.  If the thermostat is in "heat" or "cool" modes, a single temperature setpoint is given to adjust the desired temperature.  If the thermostat is in "auto" mode, two temperature setpoints are given to adjust both the heat and cool setpoints.
+
+The sitemap will also show sensor values for an ecobee3's remote sensors in the dining room, bedroom and living room.
+
 ### ecobee.items
 ```
-String hvacMode "hvacMode [%s]" { ecobee="=[123456789012#settings.hvacMode]" }
-String currentClimateRef "comf setting [%s]" { ecobee="<[123456789012#program.currentClimateRef]" }
-Number desired "desired [%.1f °F]"
-Number desiredHeat "desiredHeat [%.1f °F]" { ecobee="<[123456789012#runtime.desiredHeat]" }
-Number desiredCool "desiredCool [%.1f °F]" { ecobee="<[123456789012#runtime.desiredCool]" }
-DateTime lastModified "last conn [%1$tH:%1$tM:%1$tS]" { ecobee="<[123456789012#lastModified]" }
+DateTime lastModified "last mod [%1$tH:%1$tM:%1$tS]" { ecobee="<[123456789012#lastModified]" }
+Number actualTemperature "actual temp [%.1f °F]" { ecobee="<[123456789012#runtime.actualTemperature]" }
+Number actualHumidity "actual hum [%d %%]" { ecobee="<[123456789012#runtime.actualHumidity]" }
+String hvacMode "hvac mode [%s]"            { ecobee="=[123456789012#settings.hvacMode]" }
+String currentClimateRef "sched comf [%s]"  { ecobee="<[123456789012#program.currentClimateRef]" }
+String desiredComf "desired comf"           { autoupdate="false" }
+Number desiredTemp "desired temp [%.1f °F]"
+Number desiredHeat "desired heat [%.1f °F]" { ecobee="<[123456789012#runtime.desiredHeat]" }
+Number desiredCool "desired cool [%.1f °F]" { ecobee="<[123456789012#runtime.desiredCool]" }
 
-Number diningRoomTemperature "actualTemperature [%.1f °F]" { ecobee="<[123456789012#runtime.actualTemperature]" }
-Number diningRoomHumidity "actualHumidity [%d %%]" { ecobee="<[123456789012#runtime.actualHumidity]" }
-Switch diningRoomOccupancy "diningRoomOccupancy [%s]" { ecobee="<[123456789012#remoteSensors(Dining Room).capability(occupancy).value]" }
+Number diningRoomTemperature "dining rm temp [%.1f °F]" { ecobee="<[123456789012#remoteSensors(Dining Room).capability(temperature).value]" }
+Number diningRoomHumidity "dining rm hum [%d %%]" { ecobee="<[123456789012#remoteSensors(Dining Room).capability(humidity).value]" }
+Switch diningRoomOccupancy "dining rm occ [%s]" { ecobee="<[123456789012#remoteSensors(Dining Room).capability(occupancy).value]" }
 
-Number bedroomTemperature "bedroomTemperature [%.1f °F]" { ecobee="<[123456789012#remoteSensors(Bedroom).capability(temperature).value]" }
-Switch bedroomOccupancy "bedroomOccupancy [%s]" { ecobee="<[123456789012#remoteSensors(Bedroom).capability(occupancy).value]" }
+Number bedroomTemperature "bedroom temp [%.1f °F]" { ecobee="<[123456789012#remoteSensors(Bedroom).capability(temperature).value]" }
+Switch bedroomOccupancy "bedroom occ [%s]" { ecobee="<[123456789012#remoteSensors(Bedroom).capability(occupancy).value]" }
 
-Number livingRoomTemperature "livingRoomTemperature [%.1f °F]" { ecobee="<[123456789012#remoteSensors(Living Room).capability(temperature).value]" }
-Switch livingRoomOccupancy "livingRoomOccupancy [%s]" { ecobee="<[123456789012#remoteSensors(Living Room).capability(occupancy).value]" }
+Number livingRoomTemperature "living rm temp [%.1f °F]" { ecobee="<[123456789012#remoteSensors(Living Room).capability(temperature).value]" }
+Switch livingRoomOccupancy "living rm occ [%s]" { ecobee="<[123456789012#remoteSensors(Living Room).capability(occupancy).value]" }
 ```
 
 ### ecobee.sitemap
@@ -33,12 +39,15 @@ Switch livingRoomOccupancy "livingRoomOccupancy [%s]" { ecobee="<[123456789012#r
 sitemap nest label="Ecobee"
 {
   Frame label="Thermostat" {
-    Switch item=currentClimateRef label="Comfort Setting" mappings=[sleep=Sleep,wakeup=Wake,home=Home,away=Away,smart6=Gym,resume=Resume]
+    Text item=lastModified
+    Text item=actualTemperature
+    Text item=actualHumidity
     Switch item=hvacMode label="HVAC Mode" mappings=[heat=Heat,cool=Cool,auto=Auto,off=Off]
-    Setpoint item=desired label="Target [%.1f °F]" minValue="45" maxValue="70" step="1" visibility=[hvacMode==heat,hvacMode==cool]
+    Text item=currentClimateRef
+    Switch item=desiredComf mappings=[sleep=Sleep,wakeup=Wake,home=Home,away=Away,smart6=Gym,resume=Resume]
+    Setpoint item=desiredTemp label="Temp [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvacMode==heat,hvacMode==cool]
     Setpoint item=desiredHeat label="Heat [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvac_mode==auto]
     Setpoint item=desiredCool label="Cool [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvacMode==auto]
-    Text item=lastModified
   }
 
   Frame label="Dining Room Sensors" {
@@ -59,37 +68,57 @@ sitemap nest label="Ecobee"
 }
 ```
 
-[Table of Contents](#table-of-contents)
-## Setting hold to defined comfort setting
-Ecobee thermostats normally run based on a weekly schedule, but you can override the current program by setting a hold that controls the cool setpoint, the heat setpoint, and other options.  You can set a hold from a rule by calling the action `ecobeeSetHold`.  One of the parameters is a reference to a "climate" (also known as a comfort setting).  The default references for climates are `sleep`, `home`, and `away` (some models also have `wakeup`).  Below are the minimum elements for presenting a set of buttons that let you set a hold to one of these comfort settings, or resume the normal program.  The item `CurrentClimate` is only used for its reference to the specific thermostat(s) to target the action calls.
+### ecobee.rules
+```
+import org.openhab.core.library.types.*
 
-Items:
-```
-String CurrentClimate "Current Climate [%s]" { ecobee="<[1234567890#program.currentClimateRef]" }
-String Comfort "Comfort [%s]" <temperature>
-```
-
-Sitemap:
-```
-...
-Switch item=Comfort label="Comfort Setting" mappings=[resume="Resume",home="Home",away="Away",sleep="Sleep",wakeup="Wake"]
-...
-```
-
-Rule:
-```
-rule EcobeeComfort
+rule TempHold
 when
-  Item Comfort received command
+  Item desiredTemp received command
 then
-  logInfo("EcobeeComfort", "received command " + receivedCommand.toString)
+  switch (hvacMode.state.toString) {
+    case "heat" : desiredHeat.sendCommand(receivedCommand);
+    case "cool" : desiredCool.sendCommand(receivedCommand);
+    case "auto" ,
+    case "off"  : logWarn("TempHold", "in " + hvacMode.state.toString + " mode, single setpoint ignored");
+  }
+end
+
+rule HeatHold
+when
+  Item desiredHeat received command
+then
+  val DecimalType desiredHeatTemp = receivedCommand as DecimalType
+  val DecimalType desiredCoolTemp = desiredCool.state instanceof DecimalType ? desiredCool.state as DecimalType : newDecimalType(90)
+
+  ecobeeSetHold(desiredHeat, desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
+end
+
+rule CoolHold
+when 
+  Item desiredCool received command
+then
+  val DecimalType desiredCoolTemp = receivedCommand as DecimalType
+  val DecimalType desiredHeatTemp = desiredHeat.state instanceof DecimalType ? desiredHeat.state as DecimalType : new DecimalType(50)
+
+  ecobeeSetHold(desiredCool, desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
+end
+
+rule ComfortHold
+when
+  Item desiredComf received command
+then
   if (receivedCommand.toString.equals("resume")) {
-    ecobeeResumeProgram(CurrentClimate, true)
+    ecobeeResumeProgram(currentClimateRef, true)
   } else {
-    ecobeeSetHold(CurrentClimate, null, null, receivedCommand.toString, null, null, null, null)
+    ecobeeSetHold(currentClimateRef, null, null, receivedCommand.toString, null, null, null, null)
   }
 end
 ```
+### Notes
+
+1. Ecobee thermostats normally run based on a weekly schedule, but you can override the current program by setting a hold that controls the cool setpoint, the heat setpoint, and other options.  You can set a hold from a rule by calling the action `ecobeeSetHold`.  One of the parameters is a reference to a "climate" (also known as a comfort setting).  The default references for climates are `sleep`, `home`, and `away` (some models also have `wakeup`).
+
 [Table of Contents](#table-of-contents)
 
 ## Tracking last occupancy
