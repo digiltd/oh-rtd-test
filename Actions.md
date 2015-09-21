@@ -16,6 +16,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [Astro](#astro-actions)
   * [Ecobee](#ecobee-actions)
   * [Mail](#mail-actions)
+  * [[MiOS (Vera)|MiOS-Action]]
   * [NotifyMyAndroid](#notifymyandroid-actions)
   * [OpenWebIf](#openwebif-action)
   * [Prowl](#prowl-actions)
