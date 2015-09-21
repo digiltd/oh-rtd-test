@@ -358,7 +358,7 @@ See the [[Twitter Action]] page for more details.
 ### Weather Actions
 
 * `getHumidex(double temperature, int hygro)`: Compute the Humidex index given temperature in Celsius and hygrometry (relative percent).  Returns Humidex index value.
-* `getBeaufortIndex(double speed)`: Compute the [Beaufort scale](http://en.wikipedia.org/wiki/Beaufort_scale) for a given wind speed in m/s.  Returns the Beaufort Index between 0 and 12.  `transforms/beaufort.map`:
+* `getBeaufortIndex(double speed)`: Compute the [Beaufort scale](http://en.wikipedia.org/wiki/Beaufort_scale) for a given wind speed in m/s.  Returns the Beaufort Index between 0 and 12.  `transform/beaufort.map`:
 ```
 0=Calm
 1=Light air
