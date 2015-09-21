@@ -241,7 +241,7 @@ The following are valid action calls that can be made when the plugin is loaded.
 
 Interact directly with your Squeezebox devices from within rules and scripts. In order to use these actions you must also install the **org.openhab.io.squeezeserver** bundle and configure the 'squeeze' properties in openhab.cfg.
 
-See the [[Squeezebox Action]] section for more details.
+See the [[Squeezebox Action]] page for more details.
 
 [Table of Contents](#table-of-contents)
 
@@ -334,6 +334,8 @@ These action functions are available:
 Connect to Twitter through this action (please check openhab.cfg for required configuration settings):
 - `sendTweet(String message)`: Sends a Tweet via Twitter
 - `sendDirectMessage(String recipient, String message)`: Sends a direct Message via Twitter
+
+See the [[Twitter Action]] page for more details.
 
 [Table of Contents](#table-of-contents)
 
