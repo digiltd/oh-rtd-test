@@ -67,3 +67,9 @@ The Withings Binding uses a default application registration to request an OAuth
     withings-oauth:consumerKey="<your consumer key>"
     withings-oauth:consumerSecret="<your consumer secret>"
     withings-oauth:redirectUrl="<your redirect url>"
+
+## Bugstatus and Warning
+
+The binding fails to load using openhab V1.7.x.
+It seems that the binding is not supported anymore.
+See: https://groups.google.com/forum/#!searchin/openhab/withings/openhab/O8rqM7z9pro/UyhqSpTmY88J
