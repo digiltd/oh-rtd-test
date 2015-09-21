@@ -175,6 +175,7 @@ Community
   * [[InfluxDB Persistence|InfluxDB-Persistence]]
   * [[JPA Persistence|JPA-Persistence]]
   * [[Logging Persistence|Logging-Persistence]]
+  * [[mapdb Persistence|mapdb-Persistence]]
   * [[MongoDB Persistence|MongoDB-Persistence]]
   * [[MQTT Persistence|MQTT-Persistence]]
   * [[My openHAB Persistence]]
