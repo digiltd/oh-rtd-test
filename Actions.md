@@ -15,8 +15,11 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
 * [Add-on Actions](#add-on-actions)
   * [Astro](#astro-actions)
   * [Ecobee](#ecobee-actions)
+  * [[Harmony Hub|Logitech-Harmony-Hub-Binding#actions]]
+  * [[Homematic|Homematic-Binding#homematic-action]]
   * [Mail](#mail-actions)
   * [[MiOS (Vera)|MiOS-Action]]
+  * [MQTT](#mqtt-action)
   * [NotifyMyAndroid](#notifymyandroid-actions)
   * [OpenWebIf](#openwebif-action)
   * [Prowl](#prowl-actions)
@@ -24,8 +27,10 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [Squeezebox](#squeezebox-action)
   * [TinkerForge](#tinkerforge-actions)
   * [Twitter](#twitter-actions)
+  * [Weather](#weather-actions)
   * [XBMC](#xbmc-actions)
   * [XMPP](#xmpp-actions)
+  * [[xPL|xPL-Binding#xpl-action]]
 
 ## Core Actions
 
@@ -122,6 +127,8 @@ end
 
 ### Ecobee Actions
 
+_Available as of openHAB 1.8_
+
 The Ecobee Action bundle provides actions such as setting and clearing program holds, sending a text message to the thermostat's display, renaming a remote wireless sensor, and other functions that cannot be performed by setting object properties.  Read the [Ecobee function API documentation](https://www.ecobee.com/home/developer/api/documentation/v1/functions/using-functions.shtml) to be sure you know the rules for calling these actions.
 
 Parameters in _italics_ are optional, in which case each unused parameter must be replaced with `null`.  
@@ -144,6 +151,14 @@ Parameters in _italics_ are optional, in which case each unused parameter must b
 This add-on provides SMTP services (please check openhab.cfg for required configuration settings):
 - `sendMail(String to, String subject, String message)`: Sends an email via SMTP, ```to``` parameter can contain a semicolon separated list of email addresses.
 - `sendMail(String to, String subject, String message, String attachmentUrl)`: Sends an email with attachment via SMTP, ```to``` parameter can contain a semicolon separated list of email addresses.
+
+[Table of Contents](#table-of-contents)
+
+### MQTT Action
+
+_Available as of openHAB 1.8_
+
+* `publish(String brokerName, String topic, String message)`: Publish the message to topic using specified MQTT broker.
 
 [Table of Contents](#table-of-contents)
 
@@ -207,15 +222,15 @@ The pushover action allows you to notify mobile devices of a message using the P
 
 The following are configuration items for your openhab.cfg file. None of the options are required as you can specify required configuration items in the action call, but you must at least provide an _API Token_, _User/Group Key_ and a _Message_ in some manner before a message can be pushed.
 
-- `pushover:defaultTimeout - The timeout for the communication with the Pushover service.`
-- `pushover:defaultToken - Pushover API token to send to devices.`
-- `pushover:defaultUser - Pushover User or Group key to send to devices.`
-- `pushover:defaultTitle - Application title for the notification.`
-- `pushover:defaultPriority - Priority of the notification. Default is 0.`
-- `pushover:defaultUrl - A URL to send with the notification.`
-- `pushover:defaultUtlTitle - Title of the URL to send with the notification.`
-- `pushover:defaultRetry - When priority is 2, how often in seconds should messages be resent.` [Added 1.6+]
-- `pushover:defaultExpire - When priority is 2, how long to continue resending messages until acknowledged.`  [Added 1.6+]
+- `pushover:defaultTimeout` - The timeout for the communication with the Pushover service.
+- `pushover:defaultToken` - Pushover API token to send to devices.
+- `pushover:defaultUser` - Pushover User or Group key to send to devices.
+- `pushover:defaultTitle` - Application title for the notification.
+- `pushover:defaultPriority` - Priority of the notification. Default is 0.
+- `pushover:defaultUrl` - A URL to send with the notification.
+- `pushover:defaultUtlTitle` - Title of the URL to send with the notification.
+- `pushover:defaultRetry` - When priority is 2, how often in seconds should messages be resent. [Added 1.6+]
+- `pushover:defaultExpire` - When priority is 2, how long to continue resending messages until acknowledged.  [Added 1.6+]
 
 The following are valid action calls that can be made when the plugin is loaded. For specific information on each item, see the [Pushover API](https://pushover.net/api).
 
@@ -250,7 +265,7 @@ See the [[Squeezebox Action]] page for more details.
 The TinkerForge Action plugin provides direct interaction with some of the TinkerForge devices (since 1.7.0). The action depends on the TinkerForge binding. In order to use these actions you must install the TinkerForge Action bundle and the [TinkerForge Binding](https://github.com/openhab/openhab/wiki/Tinkerforge-Binding) and add at least a hosts configuration value for the binding in openhab.cfg.
 These action functions are available:
 
-1. tfClearLCD(String uid)
+1. `tfClearLCD(String uid)`
 
 	Clears the display of the LCD with the given uid.
 
@@ -263,7 +278,7 @@ These action functions are available:
          tfClearLCD("d4j")
   end
   ```
-1. tfServoSetposition(String uid, String num, String position, String velocity, String acceleration)
+1. `tfServoSetposition(String uid, String num, String position, String velocity, String acceleration)`
 
   Sets the position of a TinkerForge servo with the uid $uid and servo number to the position $position using the speed $speed and acceleration $acceleration.
 
@@ -280,7 +295,7 @@ These action functions are available:
       tfServoSetposition("6Crt5W", "servo0", "9000", "65535", "65535")
   end
 	```
-1. tfDCMotorSetspeed(String uid, String speed, String acceleration, String drivemode)
+1. `tfDCMotorSetspeed(String uid, String speed, String acceleration, String drivemode)`
 
   Sets the speed of a TinkerForge DC motor with the given uid to $speed using the acceleration $acceleration and the drivemode $drivemode.
 	* speed: value between -32767 - 32767
@@ -303,7 +318,7 @@ These action functions are available:
        tfDCMotorSetspeed("62Zduj", speed, acceleration, "break")
   end
 	```
-1. tfDCMotorSetspeed(String uid, Short speed, Integer acceleration, String drivemode)
+1. `tfDCMotorSetspeed(String uid, Short speed, Integer acceleration, String drivemode)`
 
   Sets the speed of a TinkerForge DC motor with the given uid to $speed using the acceleration $acceleration and the drivemode $drivemode.
   * speed: value between -32767 - 32767
@@ -336,6 +351,15 @@ Connect to Twitter through this action (please check openhab.cfg for required co
 - `sendDirectMessage(String recipient, String message)`: Sends a direct Message via Twitter
 
 See the [[Twitter Action]] page for more details.
+
+[Table of Contents](#table-of-contents)
+
+### Weather Actions
+
+* `getHumidex(double temperature, int hygro)`: Compute the Humidex index given temperature in Celsius and hygrometry (relative percent).  Returns Humidex index value.
+* `getBeaufortIndex(double speed)`: Compute the [Beaufort scale](http://en.wikipedia.org/wiki/Beaufort_scale) for a given wind speed in m/s.  Returns the Beaufort Index between 0 and 12.
+* `getSeaLevelPressure(double pressure, double temp, double altitude)`: Compute the [Sea Level Pressure](http://keisan.casio.com/exec/system/1224575267), given absolute pressure in hPa, temperature in Celsius, and altitude in meters.  Returns equivalent sea level pressure.
+* `getWindDirection(int degree)`: Transform an orientation angle (in degrees) to its cardinal string equivalent.  Returns string representing the direction.
 
 [Table of Contents](#table-of-contents)
 
