@@ -1,12 +1,20 @@
-You can persist your events and data in my.openHAB cloud. 
+**[my.openHAB.org](http://my.openhab.org) is a cloud service provided to you by openHAB and is well worth having a look at. After installing and registering, you can send Items and Events to the cloud where you can view them on the site.**
 
-First signup at [my.openhab.org](http://my.openhab.org) and follow the docs to install and setup.
+Whilst that is not the most exciting thing in the world, it does then allow you to have access to your openHAB installation outside of your network via the iOS and Android apps without having to open up your home network.
 
-Then configure a my.openHAB persistence a `myopenhab.persist` file, defining the policy to store your data.
+It also allows you to connect to IFTTT and all the hundreds of channels they offer. Including IFTTT's own very handy [Maker Channel](https://ifttt.com/maker). Which essentially gives you a REST API through IFTTT into OpenHAB. Again without having to set up the network and port forwarding yourself.
 
-You will then be able to see all items status changes in your event log and current item state in items section.
+### Installation and registration
 
-Example (for all items):
+First signup at [my.openhab.org](http://my.openhab.org) and follow the docs to install the binding, register and configure your setup.
+
+### Configuring the .persist file
+
+Create a file called `myopenhab.persist` in your persistence folder, and define the policy to store your data.
+
+The policy on the my.openHAB site
+
+The example on the my.openHAB site (for all items):
 
     Strategies {
         default = everyChange
@@ -15,15 +23,16 @@ Example (for all items):
         * : strategy = everyChange
     }
 
-**The example above will persist all your data, with every change, to my.openHAB cloud.**
 
-Currently (21 Sept 2015) there is no method to remove data or items from the my.openHAB cloud.
+> Be aware that above example will persist ALL your data, with every change, to my.openHAB cloud.
 
-(Though there are plans to add the option [https://community.openhab.org/t/cleaning-up-demo-items-from-myopenhab/1689](https://community.openhab.org/t/cleaning-up-demo-items-from-myopenhab/1689))
+> Currently (21 Sept 2015) there is no method to remove data or items from the my.openHAB cloud.
+
+> Though there are plans to add the option [https://community.openhab.org/t/cleaning-up-demo-items-from-myopenhab/1689](https://community.openhab.org/t/cleaning-up-demo-items-from-myopenhab/1689)
 
 This means if you change the name of an item, the old "item" will still appear on my.openHAB cloud and also appear in your IFTTT dropdown. Also, if you set up my.openHAB with the demo configuration still setup, all of those items will also appear.
 
-If you have a PIR or any type of sensor that sends constant updates to OpenHAB then those will also appear, and you probably don't need or want the thousands of updates logged to my.openHAB
+Any items such as a PIR or any type of sensor that sends constant updates to OpenHAB and will quickly clutter it up. So you probably don't need or want, the thousands of updates that will be logged to my.openHAB if you catchall.
 
 People starting out should be aware of this due to the immense experimenting and testing that comes with learning OpenHAB. You will quickly find that the item list will contain a whole load of items that you no longer need.
 
@@ -53,9 +62,11 @@ Items {
 
 ### IFTTT & other cloud based services
 
-Be aware that **Sending persistence data to my.openHAB is required** if you use any data-driven cloud functions, [IFTTT](https://ifttt.com) integration for example.
+Be aware that **Sending persistence data to my.openHAB is required** if you use any data-driven cloud functions, [IFTTT](https://ifttt.com) integration for example. 
 
 Meaning, if you want to control the brightness (or any item) using the OpenHAB IFTTT Channel, be sure that the item is in the gMyOpenHAB group, or it won't appear in the dropdown on IFTTT.
+
+It is also required by the apps when used outside your local network.
 
 
 [Official documentation](https://my.openhab.org/docs/persistence)
