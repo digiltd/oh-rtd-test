@@ -51,6 +51,7 @@ Light is turned on when there is motion detected (corMotion) and brightness is b
 
 ### How to create a rule, which only executes some code, if a value does not change for a certain period of time
 ```Xtend
+    import org.openhab.model.script.actions.Timer
     var Timer timer
     
     rule "do something if item state is 0 for more than 10 seconds"
