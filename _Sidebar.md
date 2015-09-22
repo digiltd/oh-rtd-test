@@ -120,6 +120,7 @@ Community
   * [[OpenSprinkler Binding|Open-Sprinkler]]
   * [[OSGi Configuration Admin Binding|Config-Admin-Binding]]
   * [[Panasonic TV Bindung|Panasonic-TV-Binding]]
+  * [[panStamp Binding|panStamp-Binding]]
   * [[Philips Hue Binding|Hue-Binding]]
   * [[Piface Binding|Piface-Binding]]
   * [[pilight Binding|pilight-Binding]]
