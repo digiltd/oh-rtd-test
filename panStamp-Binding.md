@@ -5,7 +5,7 @@ The panStamp binding enables openHAB to connect to a network of panStamp devices
 
 It is imperative that you understand the panStamp environment before trying to use this binding. If you do understand the panStamp ecosystem, this documentation should provide a straight forward guide to getting your panStamps to talk to openHAB. 
 
-For installation of the binding, please see Wiki page [Bindings].
+For installation of the binding, please see Wiki page [Bindings](https://github.com/openhab/openhab/wiki/Bindings).
 
 # Binding configuration 
 
@@ -67,7 +67,8 @@ panStamp item configurations are simple in large part because the panStamp syste
 
 This example defines an item connected to panStamp device 4, register 12, endpoint 'Temperature'. The product code for the device is 1/4 and the endpoint data is read as degrees Celsius.
 
-```Number Temperature_PS3 		"Temperature [%.1f °C]"	<temperature>	(Temperature, PanStamp) { 
+```
+Number Temperature_PS3 		"Temperature [%.1f °C]"	<temperature>	(Temperature, PanStamp) { 
 	panstamp="address=3,productCode=1/4,register=12,endpoint='Temperature'",unit=C }
 ```
 
@@ -79,5 +80,19 @@ Number Voltage_PS3 		"Voltage [%.2f V]"	<energy>	(Temperature, PanStamp) {
 
 In the above two examples, the temperature and voltage sensors are inputs. Values received from the network will be updated to the items. In the next example, we have a switch which toggles a relay driven by a panStamp:
 
+```
 Switch Button_PS4 "Porch Light"  {panstamp="address=4,productCode=1/7,register=11,endpoint='Binary 7'"}
 ```
+
+# Network configuration and debugging 
+
+The panStamp binding provides an optional feature to allow the user to configure or debug the panStamp network using a GUI tool while openHAB manages the network (and therefore owns the serial port). This option is enabled by providing the ```panstamp:debug.port``` configuration parameter. Doing this has the upside of being able to change panStamp configurations without stopping openHAB or without using a separate panStick. 
+
+The GUI tool can be found [here](https://github.com/GideonLeGrange/panstamp-tools).
+
+# References
+* panstamp-java library https://github.com/GideonLeGrange/panstamp-java
+* panStamp GUI tool: https://github.com/GideonLeGrange/panstamp-tools
+* panStamp commercial web site: http://panstamp.com 
+* panStamp community forum: http://panstamp.org
+ 
