@@ -65,7 +65,7 @@ panStamp item configurations are simple in large part because the panStamp syste
 
 ## Examples
 
-This example defines an item connected to panStamp device 4, register 12, endpoint 'Temperature'. The product code for the device is 1/4 and the endpoint data is read as degrees Celsius.
+This example defines an item connected to panStamp device 3, register 12, endpoint 'Temperature'. The product code for the device is 1/4 and the endpoint data is read as degrees Celsius.
 
 ```
 Number Temperature_PS3 		"Temperature [%.1f °C]"	<temperature>	(Temperature, PanStamp) { 
