@@ -278,11 +278,13 @@ If you don't include this, you'll see messages like:
 
 In the log. This means you haven't defined what kind of response is expected.
 
-_NOTE:_ With websockets, you can't include headers in the normal way (the Java API doesn't accept normal headers), you have to attach them as a querystring, so the url would look like:
+**NOTE:** With websockets, you can't include headers in the normal way (the Java API doesn't accept normal headers), you have to attach them as a querystring, so the url would look like:
 
-```    ws://192.168.100.119:8009/rest/sitemaps/nicks/Lights?Accept=application/json```
+`    ws://192.168.100.119:8009/rest/sitemaps/nicks/Lights?Accept=application/json`
+
 or
-```    http://192.168.100.119:8009/rest/sitemaps/nicks/Lights?Accept=application/json```
+
+`    http://192.168.100.119:8009/rest/sitemaps/nicks/Lights?Accept=application/json`
 
 Depending on what client you are using. I have this working without sending the X-Atmosphere-Transport: websocket header using python websockets-client.
 
@@ -306,7 +308,7 @@ This means that if you subscribe to a sitemap page, if anything changes on the p
 "X-Atmosphere-Transport: streaming" or
 "X-Atmosphere-Transport: websocket"
 should be set as HTTP Header.
-Also for websockets, in addition you need to include the normal HTTP websocket upgrade request headers. Most clients take care of this for you if you specify a websockets connection, but see the _NOTE_ above for the data type requirement.
+Also for websockets, in addition you need to include the normal HTTP websocket upgrade request headers. Most clients take care of this for you if you specify a websockets connection, but see the **NOTE** above for the data type requirement.
 
 HTTP streaming or websocket connections receive only updated objects from the openHAB server. The received update could either be a widget or a page object. If the page label or icon is not changed you will only receive a widget object, but if a label or icon is changed on the page you will additionally receive a page object. 
 (For this feature the "X-Atmosphere-tracking-id" header is required).
