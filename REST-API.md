@@ -272,6 +272,20 @@ In addition, you _must_ specify the data type that you wish to receive, either j
 
 ```    Accept: application/json```
 
+If you don't include this, you'll see messages like:
+
+```    15:38:26.773 WARN  o.a.cpr.DefaultBroadcaster[:533] - This message Entry{message=Temperature_Heru_Outdoor (Type=NumberItem, State=6.9), multipleAtmoResources=null, future=org.atmosphere.cpr.BroadcasterFuture@52b0a53d} will be lost```
+
+In the log. This means you haven't defined what kind of response is expected.
+
+_NOTE:_ With websockets, you can't include headers in the normal way (the Java API doesn't accept normal headers), you have to attach them as a querystring, so the url would look like:
+
+```    ws://192.168.100.119:8009/rest/sitemaps/nicks/Lights?Accept=application/json```
+or
+```    http://192.168.100.119:8009/rest/sitemaps/nicks/Lights?Accept=application/json```
+
+Depending on what client you are using. I have this working without sending the X-Atmosphere-Transport: websocket header using python websockets-client.
+
 While registering for changes to _all items_ you will receive every item update which occurs in the openHAB bus. Each response will look like a response from /rest/items/<Item-Name>. This method is designed for small devices, which does not have enough resources to create a websocket connection to every single item separately. _NOTE: This does not seem to work as you can only subscribe to specific items, not groups._
 
 When streaming a connection, openHAB automatically times out the connection after 5 minutes, so you have to reconnect to continue to receive notifications.
@@ -292,7 +306,7 @@ This means that if you subscribe to a sitemap page, if anything changes on the p
 "X-Atmosphere-Transport: streaming" or
 "X-Atmosphere-Transport: websocket"
 should be set as HTTP Header.
-Also for websockets, in addition you need to include the normal HTTP websocket upgrade request headers.
+Also for websockets, in addition you need to include the normal HTTP websocket upgrade request headers. Most clients take care of this for you if you specify a websockets connection, but see the _NOTE_ above for the data type requirement.
 
 HTTP streaming or websocket connections receive only updated objects from the openHAB server. The received update could either be a widget or a page object. If the page label or icon is not changed you will only receive a widget object, but if a label or icon is changed on the page you will additionally receive a page object. 
 (For this feature the "X-Atmosphere-tracking-id" header is required).
