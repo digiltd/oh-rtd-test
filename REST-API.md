@@ -30,6 +30,21 @@ The parameter `jsoncallback` is optional. If not provided, `callback` will be us
 See the following for code samples:
 https://github.com/openhab/openhab/wiki/Samples-REST
 
+## Logging In
+
+There are times where the security settings of openHAB requires entry of a username and password but the program making the REST call does not directly support a username and password. This can be handled by supplying the username and password as part of the url using the following pattern:
+
+```
+    http://username:password@host:port/rest
+```
+
+This also works with my.openhab.
+
+If your username or password contains non-alpha numeric characters you may have to escape those characters. For example, my.openhab uses your email address as the username so the "@" and "." may need to be escaped. See the following for a reference showing the escape codes for all characters:
+http://www.w3schools.com/tags/ref_urlencode.asp
+
+In the case of an email, the "@" should be replaced with "%40" and the "." replaced with "%2E".
+
 ## Details
 
 The entry url for the REST API is the following:
