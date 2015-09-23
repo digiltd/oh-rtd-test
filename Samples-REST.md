@@ -340,3 +340,56 @@ _Get state updates of an item (using streaming) NOTE: this is a class method, no
             members = [members]         #make it a list (otherwise it's already a list of items...)
             
         return members
+
+_Get state updates of an item/page (using websockets) you can decode the data in the same way as the above example_
+
+#!/usr/bin/env python
+
+import websocket    #need to run pip install websockets-client to get this module
+
+class WSClient():
+ 
+    def __init__(self):
+        websocket.enableTrace(False) #True for debugging
+       
+    def connect(self, url):
+        print("connecting to %s" % url)
+        
+        self.ws = websocket.WebSocketApp(url,
+        on_message = self.on_message,
+        on_error = self.on_error,
+        on_close = self.on_close)
+        self.ws.on_open = self.on_open
+        self.ws.run_forever()
+ 
+    def on_message(self, ws, message):
+        print("Received:")
+        print(message)
+ 
+    def on_error(self, ws, error):
+        print(error)
+ 
+    def on_close(self, ws):
+        print("connection closed")
+ 
+    def on_open(self, ws):
+        print("connected")
+        
+    def send(self, message):
+        print("Sending:")
+        self.ws.send(message)
+        
+    def close(self):
+        self.ws.close()
+ 
+if __name__ == "__main__":
+    try:
+        client = WSClient()
+        client.connect("ws://192.168.100.119:8009/rest/sitemaps/nicks/Lights?Accept=application/json")
+        #client.connect("ws://192.168.100.119:8009/rest/items/landingMain?Accept=application/json")
+        #client.connect("ws://192.168.100.119:8009/rest/items/sensortag1IRAmbientTemp?Accept=application/json")
+       
+    except (KeyboardInterrupt, SystemExit):
+        print("System exit Received - Exiting program")
+        client.close()
+        print(" **** Program Ended ****")
