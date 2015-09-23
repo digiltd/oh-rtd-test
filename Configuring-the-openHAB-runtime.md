@@ -89,12 +89,18 @@ If you change configuration files it will not be overwritten by updates or upgra
 
 ### Logging
 #### Configuration
-The runtime uses /etc/openhab/logback.xml.
-A template for debugging is provided through /etc/openhab/logback_debug.xml. You can change logback.xml
-to your needs.
+
+The runtime uses `/opt/openhab/configurations/logback.xml`
+
+A template for debugging is provided through `/opt/openhab/configurations/logback_debug.xml`
+
+You can change logback.xml to your needs.
+
 #### Log files
-The runtime log: /var/log/openhab/openhab.log
-Further log files are placed also into: /var/log/openhab/
+
+The runtime log: `/opt/openhab/logs/openhab.log`
+
+Further log files are placed also into: `/opt/openhab/logs/`
 
 ### Jetty
 /etc/openhab/jetty/etc/
