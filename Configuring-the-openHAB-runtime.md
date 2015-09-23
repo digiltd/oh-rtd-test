@@ -90,13 +90,30 @@ If you change configuration files it will not be overwritten by updates or upgra
 ### Logging
 #### Configuration
 
-The runtime uses `/opt/openhab/configurations/logback.xml`
 
-A template for debugging is provided through `/opt/openhab/configurations/logback_debug.xml`
+
+The runtime uses:
+
+##### apt-get installation
+
+`/etc/openhab/logback.xml` and `/etc/openhab/logback_debug.xml`
+
+##### manual installation
+
+`/opt/openhab/configurations/logback.xml` and `/opt/openhab/configurations/logback_debug.xml` 
+
+`logback_debug.xml` is used when you run openHAB in debug mode (start_debug.sh) and can be used as template. 
 
 You can change logback.xml to your needs.
 
 #### Log files
+
+##### apt-get installation
+
+The runtime log: /var/log/openhab/openhab.log
+Further log files are placed also into: /var/log/openhab/
+
+##### manual installation
 
 The runtime log: `/opt/openhab/logs/openhab.log`
 
