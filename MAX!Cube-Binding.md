@@ -120,6 +120,8 @@ To receive the valve position of a heating thermostat, the type for the desired 
 
 ![MAX! Binding Valve Position](https://dl.dropboxusercontent.com/u/7347332/web/max_valve.png)
 
+The value position is transmitted as rarely as the actual temperature. You may have to wait very long until something is displayed.
+
 **Battery State**
 
 The battery state of a device can be requested using the _battery_ type in the corresponding binding configuration. 
