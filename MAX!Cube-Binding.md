@@ -129,3 +129,11 @@ The battery state of a device can be requested using the _battery_ type in the c
 ![MAX! Binding Battery State](https://dl.dropboxusercontent.com/u/7347332/web/max_battery.png)
 
 String values returned by the binding are either _ok_ or _low_.
+
+**Mode**
+
+The operating mode can be requested using the _mode_ type in the corresponding binding configuration.
+
+    String Heating_Max_Valve_Mode "Thermostat Mode [%s]" (MyGroup) { maxcube="JEQ0336148:type=mode" }
+
+The mode is displayed as "AUTOMATIC" for example.
