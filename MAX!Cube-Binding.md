@@ -137,3 +137,29 @@ The operating mode can be requested using the _mode_ type in the corresponding b
     String Heating_Max_Valve_Mode "Thermostat Mode [%s]" (MyGroup) { maxcube="JEQ0336148:type=mode" }
 
 The mode is displayed as "AUTOMATIC" for example.
+
+## Logging
+
+If you want to have some insights, what actually happens it may be useful to print some log messages. Add the following to your logback.xml in the configuration directory:
+
+	<appender name="MAXCUBE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${openhab.logdir:-logs}/maxcube.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- weekly rollover and archiving -->
+			<fileNamePattern>${openhab.logdir:-logs}/maxcube-%d{yyyy-ww}.log.zip</fileNamePattern>
+			<!-- maximum number of archive files to keep -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%-30.30logger{36}] - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.openhab.binding.maxcube" level="DEBUG">
+		<appender-ref ref="MAXCUBE" />
+	</logger>
+
+This will print the log messages of this binding to a file called maxcube.log in the logging directory (usually /var/log/openhab).
+
+If you have a lot of devices the log is an alternative way to get the serial numbers of the devices. They are logged, when the openhab server is started.
+
+To log even more information, set the level of org.openhab.binding.maxcube from DEBUG to TRACE or ALL.
