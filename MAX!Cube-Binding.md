@@ -51,15 +51,21 @@ Please note that the MAX!Cube desktop software also keeps the connection open an
 
 In order to bind an generic item to the device, you need to provide MAX!Cube configuration settings in your item file (in the folder configurations/items) containing at least the serial number of the device you wish to control (not the serial of the cube).
 
-**How to get the serial number**: you can use the original MAX! software: edit the room, click on structure,  rename devices. There you'll see the names and serials.
+**How to get the serial number of a device**: you can use the original MAX! software: edit the room, click on structure,  rename devices. There you'll see the names and serials.
 
 The syntax of the binding configuration strings accepted is the following: 
 
     maxcube="<serialNumber>"
 
+### Shutter Contact
+
 The state of a shutter contact can be retrieved via the generic item binding. To display the shutter state, you need to use a Contact item.
 
     Contact Office_Window "Office Window [MAP(en.map):%s]" (MyGroup) { maxcube="JEQ0650337" }
+
+### Heating Thermostat or Wallmounted Thermostat
+
+**Display the Target Temperature**
 
 For a heating thermostat, an identical configuration will provide the setpoint temperature of the heating thermostat (4.5° corresponds to OFF shown on the thermostat display). To show the temperature setpoint you need to use a number item.
 
@@ -83,19 +89,7 @@ To apply this mapping you need to copy the [maxcube.map](https://dl.dropboxuserc
 
 Depending on the correpsonding device the MAX!Cube binding can be used to provide specific information about a device instead of the default information.
 
-To receive the valve position of a heating thermostat, the type for the desired information needs to be specified in the bonding configuration
-
-    Number Heating_Max_Valve "Thermostat Valve Position [%.1f %%]" (MyGroup) { maxcube="JEQ0336148:type=valve" }
-
-![MAX! Binding Valve Position](https://dl.dropboxusercontent.com/u/7347332/web/max_valve.png)
-
-The battery state of a device can be requested using the _battery_ type in the corresponding binding configuration. 
-
-    String Heating_Max_Valve "Thermostat Battery [%s]" (MyGroup) { maxcube="JEQ0336148:type=battery" }
-
-![MAX! Binding Battery State](https://dl.dropboxusercontent.com/u/7347332/web/max_battery.png)
-
-String values returned by the binding are either _ok_ or _low_.
+**Setting the Target Temperature**
 
 In order to be able to set a thermostat (and thus sending a temperature setting to an individual thermostat) use the Setpoint item in your sitemap configuration:
 
@@ -110,8 +104,28 @@ This SetPoint item will allow a user to set the thermostat with 0.5 degrees inte
         sendCommand (Heating_Max_Valve, 15 )
      end
 
-To receive the valve position of a heating thermostat, the type for the desired information needs to be specified in the bonding configuration
+To receive the valve position of a heating thermostat, the type for the desired information needs to be specified in the bonding configuration.
 
-per release 1.6 (currently found via the Jenkins/cloudbees snapshots) you can request the actual temperature for the WallThermostat. The actual temperature can also be requested from the heating Thermostats, however  is usually outdated for the radiator thermostats, since they only send it over when their valve position changes. For the Wall thermostats, the value is accurate, since those send updates every couple of minutes
+**Actual Temperature**
+
+Per release 1.6 you can request the actual temperature for the WallThermostat. The actual temperature can also be requested from the heating Thermostats, however is usually outdated for the radiator thermostats, since they only send it over when their valve position changes. For the Wall thermostats, the value is accurate, since those send updates every couple of minutes.
 
     Number Heating_Max_Temp "Thermostat Temperature  [%.1f °C]" (MyGroup) { maxcube="JEQ0336148:type=actual" }
+
+**Valve Position**
+
+To receive the valve position of a heating thermostat, the type for the desired information needs to be specified in the bonding configuration
+
+    Number Heating_Max_Valve "Thermostat Valve Position [%.1f %%]" (MyGroup) { maxcube="JEQ0336148:type=valve" }
+
+![MAX! Binding Valve Position](https://dl.dropboxusercontent.com/u/7347332/web/max_valve.png)
+
+**Battery State**
+
+The battery state of a device can be requested using the _battery_ type in the corresponding binding configuration. 
+
+    String Heating_Max_Valve "Thermostat Battery [%s]" (MyGroup) { maxcube="JEQ0336148:type=battery" }
+
+![MAX! Binding Battery State](https://dl.dropboxusercontent.com/u/7347332/web/max_battery.png)
+
+String values returned by the binding are either _ok_ or _low_.
