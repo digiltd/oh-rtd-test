@@ -15,6 +15,7 @@ tested Receivers:
 * V775
 * RX-A2020
 * RX-A810
+* HTR-4065
 
 please add sucessfully tested receivers!
 
