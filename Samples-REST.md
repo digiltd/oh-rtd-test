@@ -375,12 +375,8 @@ _Get state updates of an item/page (using websockets) you can decode the data in
         def on_open(self, ws):
             print("connected")
             
-        def send(self, message):
-            print("Sending:")
-            self.ws.send(message)
-            
-        def close(self):
-            self.ws.close()
+        def close(self, ws):
+            ws.close()
      
     if __name__ == "__main__":
         try:
