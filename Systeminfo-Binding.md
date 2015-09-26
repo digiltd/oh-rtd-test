@@ -211,7 +211,7 @@ Examples, how to configure your items:
 	Number eclipseRealMem2  "Real mem2 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:*eclipse" }
 	Number eclipseRealMem3  "Real mem3 [%.1f]"  (System)  { systeminfo="<ProcessCpuPercent:10000:eclipse*" }
 	Number eclipseRealMem4  "Real mem4 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:=eclipse" }
-	Number eclipseRealMem5  "Real mem5 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:#State.Name.eq=eclipse"
+	Number eclipseRealMem5  "Real mem5 [%.1f]"  (System) { systeminfo="<ProcessCpuPercent:10000:#State.Name.eq=eclipse" }
 
 Examples, how to configure your sitemap:
 
