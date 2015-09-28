@@ -43,4 +43,24 @@ Note: Via openHAB console a time update can be forced using ```update org.openha
 
 ## Example configurations
 
+### Simple Example 1
+This will use your system information to determine timezone and locale.
+
+openhab.cfg
+
+    ntp:hostname=0.us.pool.ntp.org
+
+Items:
+
+    DateTime	Date	"Date [%1$tA, %1$td.%1$tm.%1$tY]"	(Status)	{ ntp="" }
+
+Sitemap:
+
+    sitemap example
+    {
+        Text item=Date
+    }
+
+
+### Other Examples
 Example configurations can be found [here](https://code.google.com/p/openhab-samples/wiki/BindingConfig?ts=1370629305&updated=BindingConfig).
