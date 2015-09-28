@@ -33,7 +33,7 @@ All the configuration parameters are explained below:
 
 Parameter | Description | Required | Default 
 --------|-------------|----------|--------
-panstamp:serial.port |Serial to which modem is connected. This is platform dependent| yes | -
+panstamp:serial.port |Serial port to which modem is connected. This is platform dependent| yes | -
 panstamp:serial.speed|Serial port speed. Typically 38400, but can be adjusted to 9600 and 19200| no | 38400
 panstamp:network.channel|The frequency/channel on which the SWAP network operates|no|0
 panstamp:network.id|The network ID used by the SWAP network|no|0xb547
