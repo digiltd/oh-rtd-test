@@ -1,4 +1,11 @@
-Documentation of the Google Calendar IO-Bundle
+
+> Note that the current state of the binding in unclear. The documentation at the end refers to the Google API change in November 2014 and also links to repo describing how to implement a temp fix. However the binding included in the main distribution has not been updated.
+
+> There is an alternative binding using [CalDAV](https://github.com/openhab/openhab/wiki/CalDAV). 
+
+> An alternative method to schedule events is to setup the my.openHAB binding and use the openHAB/Google Calendar channels on IFTTT to trigger openHAB.
+
+# Documentation of the Google Calendar IO-Bundle
 
 ## Introduction
 
