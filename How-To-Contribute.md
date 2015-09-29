@@ -3,10 +3,10 @@
 
 As for almost all open-source projects, contributions to the project are always welcome! However if you are interested in doing a contribution - be it a simple bug report or a big chunk of code for a new feature - it is good practise to adhere to the following workflow:
 
-1. ask the [Google Group](https://groups.google.com/forum/#!forum/openhab) for a certain bug, behaviour, idea or missing feature
-1. discuss and refine the Requirement/Bug (if any) on the Group
+1. ask the [openHAB Community](https://community.openhab.org/) about a certain bug, behaviour, idea or missing feature.
+1. discuss and refine the Requirement/Bug (if any) with the Community.
 1. create an Issue in the [Github Issuetracker](https://github.com/openhab/openhab/issues) or contribute the necessary code changes through a [pull request](https://help.github.com/articles/creating-a-pull-request/) with reference to the discussion on the Group.
-1. keep track of the created Issue (even if it doesn't apply anymore, etc.)
+1. keep track of the created Issue (even if it doesn't apply anymore, etc.).
 
 ## A Note on openHAB 2 Compatibility
 
