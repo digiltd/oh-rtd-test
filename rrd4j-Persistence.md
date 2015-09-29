@@ -8,7 +8,7 @@ The rrd4j Persistence Service is based on a round-robin database, specifically i
 
 In contrast to a "normal" database such as db4o, a round-robin database does not grow in size - it has a fixed allocated size, which is used. This is accomplished by doing data compression, which means that the older the data is, the less values are available. So while you might have a value every minute for the last 24 hours, you might only have one every day for the last year.
 
-There are many possibilities in rrd4j to define how the data compression should work in detail. openHAB comes at the moment with a fixed setting which looks like this (see the [rrd4j tutorial for details](http://code.google.com/p/rrd4j/wiki/Tutorial):
+There are many possibilities in rrd4j to define how the data compression should work in detail. openHAB comes at the moment with a fixed setting which looks like this (see the [rrd4j tutorial for details](https://github.com/rrd4j/rrd4j/wiki/Tutorial):
 
     // for measurement values, we define archives that are suitable for charts
     rrdDef.setStep(60);
