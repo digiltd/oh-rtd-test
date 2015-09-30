@@ -54,6 +54,14 @@ java \
 
 - symlink jython.jar into /opt/openhab/lib/ (mkdir /opt/openhab/lib; cd /opt/openhab/lib; ln -s /opt/jython/jython.jar .)  or add jython.jar to classpath in start-script
 
+### Running jython scripts from within the IDE
+First install jython (in e.g. /opt/jython) as above, then:
+- In the IDE "Run Configurations" create your own custom runtime environment by right-clicking "openHAB Runtime" and copying it into "openHAB Runtime Custom"
+- In the "openHAB Runtime Custom", in the "Main" tab, add /opt/jython/jython.jar into the Boostrap entries.
+- In the "Arguments" tab, add -Dpython.home=/opt/jython at the beginning of the "VM arguments"
+- In the "Plug-ins" tab, verify that org.openhab.core.jsr223 has Auto-Start = true, and that "Start Level" is set larger than the default. So if the default Start Level is 4, you must set the Start Level of the jsr223 engine  to 5 to defer its start. **This step is crucially important to avoid null pointer exceptions and a broken system**.
+- Now you can start the customized runtime by clicking on the down arrow next to the green start button, and selecting "openHAB Runtime Custom"
+
 ## Scripts
 Each Script needs to be located in configurations/scripts with a correct script ending (".py", ".jy" for jython interpreter). Each Script can contain multiple rules.
 
