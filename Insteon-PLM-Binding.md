@@ -197,6 +197,13 @@ device:
 
     insteonplm="<insteon_address>:<product_key>#feature[,<parameter>=value, ...]>"
 
+For instance, the following lines would create two Number items referring to the same thermostat device, but to different features of it:
+
+<pre>
+Number  thermostatCoolPoint "cool point [%.1f °F]" { insteonplm="32.f4.22:F00.00.18#coolsetpoint" }
+Number  thermostatHeatPoint "heat point [%.1f °F]" { insteonplm="32.f4.22:F00.00.18#heatsetpoint" }
+</pre>
+
 The following lines in your insteonplm.items file would configure a
 light switch, a dimmer, a motion sensor, and a garage door opener with
 contact sensor, a front door lock, a button of a mini remote, a KeypadLinc 2487, and a 6-button keypad dimmer 2334-232:
@@ -265,27 +272,53 @@ Here are some examples for configuring X10 devices. Note that X10 switches/dimme
     Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
     Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
 
-Here are the recommended item and sitemap configurations for the Insteon Thermostat 2441TH:
+### Thermostats
+
+The thermostat (2441TH) is one of the most complex Insteon devices available.
 
 **Items**
 
-    Number  FF_Temperature     "Temperature [%d °F]"        { insteonplm="xx.xx.xx:F00.00.18#temperature" }
-    Number  FF_Humidity        "Humidity [%d %%]"           { insteonplm="xx.xx.xx:F00.00.18#humidity" }
-    Number  FF_Cool_SetPoint   "Cool SetPoint [%.1f °F]"    { insteonplm="xx.xx.xx:F00.00.18#coolsetpoint" }
-    Number  FF_Heat_SetPoint   "Heat SetPoint [%.1f °F]"    { insteonplm="xx.xx.xx:F00.00.18#heatsetpoint" }
-    Number  FF_Thermostat_FanMode       "Fan"               { insteonplm="xx.xx.xx:F00.00.18#fancontrol" }
-    Number  FF_Thermostat_OpMode        "Mode"              { insteonplm="xx.xx.xx:F00.00.18#modecontrol" }
-    Number  FF_Thermostat_MasterMode    "Master Mode"       { insteonplm="xx.xx.xx:F00.00.18#mastercontrol" }
+This is an example of what to put into your .items file:
+<pre>
+Number  thermostatCoolPoint "cool point [%.1f °F]" { insteonplm="32.f4.22:F00.00.18#coolsetpoint" }
+Number  thermostatHeatPoint "heat point [%.1f °F]" { insteonplm="32.f4.22:F00.00.18#heatsetpoint" }
+Number  thermostatSystemMode "system mode [%d]" { insteonplm="32.f4.22:F00.00.18#systemmode" }
+Number  thermostatFanMode "fan mode [%d]" { insteonplm="32.f4.22:F00.00.18#fanmode" }
+Number  thermostatIsHeating "is heating [%d]" { insteonplm="32.f4.22:F00.00.18#isheating"}
+Number  thermostatIsCooling "is cooling [%d]" { insteonplm="32.f4.22:F00.00.18#iscooling"}
+Number  thermostatTempFahren  "temperature [%.1f °F]" { insteonplm="32.f4.22:F00.00.18#tempfahrenheit" }
+Number  thermostatTempCelsius  "temperature [%.1f °C]" { insteonplm="32.f4.22:F00.00.18#tempcelsius" }
+Number  thermostatHumidity "humidity [%.0f %%]" { insteonplm="32.f4.22:F00.00.18#humidity" }
+</pre>
+Add this as well for some more exotic features:
+<pre>
+Number  thermostatACDelay "A/C delay [%d min]"  { insteonplm="32.f4.22:F00.00.18#acdelay" }
+Number  thermostatBacklight "backlight [%d sec]" { insteonplm="32.f4.22:F00.00.18#backlightduration" }
+Number  thermostatStage1 "A/C stage 1 time [%d min]" { insteonplm="32.f4.22:F00.00.18#stage1duration" }
+Number  thermostatHumidityHigh "humidity high [%d %%]" { insteonplm="32.f4.22:F00.00.18#humidityhigh" }
+Number  thermostatHumidityLow "humidity low [%d %%]"  { insteonplm="32.f4.22:F00.00.18#humiditylow" }
+</pre>
 
 **Sitemap**
 
-    Text item=FF_Temperature
-    Text item=FF_Humidity
-    Setpoint item=FF_Cool_SetPoint icon="temperature" minValue=63 maxValue=85 step=1
-    Setpoint item=FF_Heat_SetPoint icon="temperature"
-    Switch item=FF_Thermostat_OpMode label="Mode" mappings=[1="Cool", 2="Heat", 3="Auto"]
-    Switch item=FF_Thermostat_FanMode label="Fan" mappings=[1="Off", 2="On", 3="Auto"]
-    Switch item=FF_Thermostat_MasterMode mappings=[1="FF", 2="SF"]        
+For the thermostat to display in the GUI, add this to the sitemap file:
+
+<pre>
+Text   item=thermostatTempCelsius icon="temperature"
+Text   item=thermostatTempFahren icon="temperature"
+Text   item=thermostatHumidity
+Setpoint item=thermostatCoolPoint icon="temperature" minValue=63 maxValue=90 step=1
+Setpoint item=thermostatHeatPoint icon="temperature" minValue=50 maxValue=80 step=1
+Switch item=thermostatSystemMode  label="system mode" mappings=[ 0="OFF",  1="HEAT", 2="COOL", 3="AUTO", 4="PROGRAM"]
+Switch item=thermostatFanMode  label="fan mode" mappings=[ 0="AUTO",  1="ALWAYS ON"]
+Switch item=thermostatIsHeating  label="is heating" mappings=[ 0="OFF",  1="HEATING"]
+Switch item=thermostatIsCooling  label="is cooling" mappings=[ 0="OFF",  1="COOLING"]
+Setpoint item=thermostatACDelay  minValue=2 maxValue=20 step=1
+Setpoint item=thermostatBacklight  minValue=0 maxValue=100 step=1
+Setpoint item=thermostatHumidityHigh  minValue=0 maxValue=100 step=1
+Setpoint item=thermostatHumidityLow   minValue=0 maxValue=100 step=1
+Setpoint item=thermostatStage1  minValue=1 maxValue=60 step=1
+</pre>
 
 ## Insteon groups and how to enable buttons on the keypads
 When a button is pressed on a keypad button, a broadcast message is sent out on the Insteon network to all members of a pre-configured group. Let's say you press the keypad button A on a 2487S, it will send out a message to group 3. You first need to configure your modem to be a responder to that group. That can be simply done by pressing the keypad button and then holding the set button (for details see instructions), just as for any Insteon device. After this step, the binding will be notified whenever you press a keypad button, and you can configure a Switch item that will reflect its state. However, if the switch is flipped from within openHAB, the keypad button will not update its state. For that you need to configure the keypad button to be a responder to broadcast messages on a given Insteon group. Use the  [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) to get the button configured, such that the keypad button responds to modem broadcast messages on e.g modem group 2. Then add the parameter ``group=2`` to the binding config string (see example above). Now toggling the switch item will send out a broadcast message to group 2, which should toggle the keypad button. You need to configure each button into a different modem group to switch them separately.
