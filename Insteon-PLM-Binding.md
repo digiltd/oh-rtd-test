@@ -18,7 +18,7 @@ the Insteon network (like notifications about switches being toggled)
 are picked up by the modem and converted to openHAB status updates by
 the binding. The binding also supports sending and receiving of legacy X10 messages.
 
-OpenHAB is not a configuration tool! To configure and set up your devices, link the devices manually via the set buttons, or use the free [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) software.
+OpenHAB is not a configuration tool! To configure and set up your devices, link the devices manually via the set buttons, or use the free [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) software. The free HouseLinc software from Insteon can also be used for configuration, but it wipes the modem link database clean on its initial use, requiring to re-link the modem to all devices.
 
 ## Insteon devices
 
@@ -273,7 +273,9 @@ Here are some examples for configuring X10 devices. Note that X10 switches/dimme
 
 ### Thermostats
 
-The thermostat (2441TH) is one of the most complex Insteon devices available.
+The thermostat (2441TH) is one of the most complex Insteon devices available. It must first be properly linked to the modem using configuration software like [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal). The Insteon Terminal wiki describes in detail how to link the thermostat, and how to make it publish status update reports.
+
+When all is set and done the modem must be configured as a controller to group 0 (not sure why), and a responder to groups 1-5 such that it picks up when the thermostat switches on/off heating and cooling etc, and it must be a responder to special group 0xEF to get status update reports when measured values (temperature) change. Symmetrically, the thermostat must be a responder to group 0, and a controller for groups 1-5 and 0xEF. The linking process is not difficult but needs some persistence. Again, refer to the [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) documentation.
 
 **Items**
 
