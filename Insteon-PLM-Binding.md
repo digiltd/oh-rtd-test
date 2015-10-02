@@ -29,7 +29,7 @@ does not give a product key, so an arbitrary fake one of the format
 Fxx.xx.xx (or Xxx.xx.xx for X10 devices) is assigned by the binding.
 
 Finally, each Insteon device comes with a hard-coded Insteon *address*
-that can be found on a label on the device. This address should be
+of the format 'xx.xx.xx' that can be found on a label on the device. This address should be
 recorded for every device in the network, as it is a mandatory part of
 the binding configuration string. X10 devices are addressed with `houseCode.unitCode`, e.g. `A.2`.
 
@@ -177,8 +177,7 @@ beeps, and the light of the remote device (switch) goes off. Done.
 
 The binding does not support linking new devices on the fly, i.e. all
 devices must be linked with the modem *before* starting the InsteonPLM
-binding. Each device has an Insteon address of the format 'xx.xx.xx'
-which can usually be found on a label on the device.
+binding.
 
 1. Copy the binding (e.g. `openhab.binding.insteonplm-<version>.jar` into the `openhab/addons` folder
 2. Edit the relevant section in the openhab configuration file
