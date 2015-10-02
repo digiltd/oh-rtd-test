@@ -8,6 +8,9 @@ Adapt your openhab.cfg to your configuration:<BR>
 fritzbox:ip=`<IP adress of your fritzbox>`<BR>
 fritzbox:password=`<password of your fritzbox>`
 
+## Fritzbox with user mangement enabled
+fritzbox:user=`<user of fritzbox>` 
+
 ## Prepare your Fritzbox
 Enable Telnet ([Link](http://www.wehavemorefun.de/fritzbox/Starten_von_telnetd))<BR>
 Activate User Login: FRITZ!Box-Benutzer -> Anmeldung im Heimnetz -> Anmeldung mit dem FRITZ!Box-Kennwort
