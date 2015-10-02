@@ -1,3 +1,5 @@
+Note: this documentation is for OpenHAB v1.8. Documentation for OpenHAB 1.7 [can be found here](https://github.com/berndpfrommer/openhab/blob/insteonplm/bundles/binding/org.openhab.binding.insteonplm/src/main/docs/insteoplm_v1.7.md).
+
 ## Introduction
 
 Insteon is a home area networking technology developed primarily for
