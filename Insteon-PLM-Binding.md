@@ -291,13 +291,13 @@ Number  thermostatTempCelsius  "temperature [%.1f °C]" { insteonplm="32.f4.22:F
 Number  thermostatHumidity "humidity [%.0f %%]" { insteonplm="32.f4.22:F00.00.18#humidity" }
 </pre>
 Add this as well for some more exotic features:
-<pre>
-Number  thermostatACDelay "A/C delay [%d min]"  { insteonplm="32.f4.22:F00.00.18#acdelay" }
-Number  thermostatBacklight "backlight [%d sec]" { insteonplm="32.f4.22:F00.00.18#backlightduration" }
-Number  thermostatStage1 "A/C stage 1 time [%d min]" { insteonplm="32.f4.22:F00.00.18#stage1duration" }
-Number  thermostatHumidityHigh "humidity high [%d %%]" { insteonplm="32.f4.22:F00.00.18#humidityhigh" }
-Number  thermostatHumidityLow "humidity low [%d %%]"  { insteonplm="32.f4.22:F00.00.18#humiditylow" }
-</pre>
+
+    Number  thermostatACDelay "A/C delay [%d min]"  { insteonplm="32.f4.22:F00.00.18#acdelay" }
+    Number  thermostatBacklight "backlight [%d sec]" { insteonplm="32.f4.22:F00.00.18#backlightduration" }
+    Number  thermostatStage1 "A/C stage 1 time [%d min]" { insteonplm="32.f4.22:F00.00.18#stage1duration" }
+    Number  thermostatHumidityHigh "humidity high [%d %%]" { insteonplm="32.f4.22:F00.00.18#humidityhigh" }
+    Number  thermostatHumidityLow "humidity low [%d %%]"  { insteonplm="32.f4.22:F00.00.18#humiditylow" }
+
 
 **Sitemap**
 
