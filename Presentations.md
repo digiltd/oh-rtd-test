@@ -7,6 +7,8 @@ A couple of talks and other publications have been done about openHAB. Find the 
 
 ## Talks
 
+- Sept 16 2015 [Linux Home Automation using OpenHAB with Eli Ben-Shoshan](http://www.youtube.com/watch?v=GDfEO7vZy1g)
+
 - July 9, 2015 - 'Mach mit Eclipse SmartHome dein Zuhause intelligent!' and 'IoT und SmartHome: Ein Überblick' at [Java Forum Stuttgart](http://www.java-forum-stuttgart.de/de).
 
 - June 22, 2014 -- Spaceautomation with OpenHAB at [GPN14](https://entropia.de/GPN14) Conference in Karlsruhe (Germany). Download the [slides here](http://schinken.github.io/talks/2014-06-spaceautomation/#1) and/or [watch the recording](http://media.ccc.de/browse/conferences/gpn/gpn14/gpn14_-_5853_-_de_-_medientheater_-_201406221300_-_spaceautomatisierung_-_schinken.html)
