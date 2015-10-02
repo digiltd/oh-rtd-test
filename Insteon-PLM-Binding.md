@@ -16,7 +16,7 @@ the Insteon network (like notifications about switches being toggled)
 are picked up by the modem and converted to openHAB status updates by
 the binding. The binding also supports sending and receiving of legacy X10 messages.
 
-OpenHAB is not a configuration tool! To configure and set up your devices, use the free [HouseLinc software](https://www.insteon.com/houselinc) provided by Insteon or link the devices manually.
+OpenHAB is not a configuration tool! To configure and set up your devices, link the devices manually via the set buttons, or use the free [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) software.
 
 ## Insteon devices
 
@@ -287,7 +287,7 @@ Here are the recommended item and sitemap configurations for the Insteon Thermos
     Switch item=FF_Thermostat_MasterMode mappings=[1="FF", 2="SF"]        
 
 ## Insteon groups and how to enable buttons on the keypads
-When a button is pressed on a keypad button, a broadcast message is sent out on the Insteon network to all members of a pre-configured group. Let's say you press the keypad button A on a 2487S, it will send out a message to group 3. You first need to configure your modem to be a responder to that group. That can be simply done by pressing the keypad button and then holding the set button (for details see instructions), just as for any Insteon device. After this step, the binding will be notified whenever you press a keypad button, and you can configure a Switch item that will reflect its state. However, if the switch is flipped from within openHAB, the keypad button will not update its state. For that, include the keypad button into an Insteon group using the HouseLinc software, such that the keypad button responds to modem broadcast messages on e.g modem group 2. Then add the parameter ``group=2`` to the binding config string (see example above). Now toggling the switch item will send out a broadcast message to group 2, which should flip the switch. You need to configure each button into a different modem group to switch them separately.
+When a button is pressed on a keypad button, a broadcast message is sent out on the Insteon network to all members of a pre-configured group. Let's say you press the keypad button A on a 2487S, it will send out a message to group 3. You first need to configure your modem to be a responder to that group. That can be simply done by pressing the keypad button and then holding the set button (for details see instructions), just as for any Insteon device. After this step, the binding will be notified whenever you press a keypad button, and you can configure a Switch item that will reflect its state. However, if the switch is flipped from within openHAB, the keypad button will not update its state. For that you need to configure the keypad button to be a responder to broadcast messages on a given Insteon group. Use the  [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) to get the button configured, such that the keypad button responds to modem broadcast messages on e.g modem group 2. Then add the parameter ``group=2`` to the binding config string (see example above). Now toggling the switch item will send out a broadcast message to group 2, which should toggle the keypad button. You need to configure each button into a different modem group to switch them separately.
 
 ## Trouble shooting
 
@@ -356,12 +356,12 @@ If you cannot cobble together a suitable device feature out of existing handlers
 
 ### Adding new handlers (for developers experienced with Eclipse IDE)
 
-If all else fails there are the Java sources, in particular the classes MessageHandler.java (what to do with messages coming in from the Insteon network), PollHandler.java (how to form outbound messages for device polling), and CommandHandler.java (how to translate openhab commands to Insteon network messages). To that end you'll need to become a bonafide openHAB developer, and set up an openHAB Eclipse build environment, following the online instructions.
+If all else fails there are the Java sources, in particular the classes MessageHandler.java (what to do with messages coming in from the Insteon network), PollHandler.java (how to form outbound messages for device polling), and CommandHandler.java (how to translate openhab commands to Insteon network messages). To that end you'll need to become a bonafide openHAB developer, and set up an openHAB Eclipse build environment, following the online instructions. Before you write new handlers have a good look at the existing ones, they are quite flexible and configurable via parameters in `device_features.xml`.
 
 ## Known Limitations and Issues
 
 1. Devices cannot be linked to the modem while the binding is
 running. If new devices are linked, the binding must be restarted.
-2. Setting up Insteon groups and linking devices cannot be done from within openHAB. Use HouseLinc for that.
+2. Setting up Insteon groups and linking devices cannot be done from within openHAB. Use the [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) for that.
 3. Very rarely during binding startup, a message arrives at the modem while the initial read of the modem
 database happens. Somehow the modem then stops sending the remaining link records and the binding no longer is able to address the missing devices. The fix is to simply restart the binding.
