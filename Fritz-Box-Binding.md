@@ -9,7 +9,8 @@ fritzbox:ip=`<IP adress of your fritzbox>`<BR>
 fritzbox:password=`<password of your fritzbox>`
 
 ## Fritzbox with user mangement enabled
-fritzbox:user=`<user of fritzbox>` 
+fritzbox:user=`<user of your fritzbox>`<BR>
+It is a good practice to create an additional user for openhab. 
 
 ## Prepare your Fritzbox
 Enable Telnet ([Link](http://www.wehavemorefun.de/fritzbox/Starten_von_telnetd))<BR>
