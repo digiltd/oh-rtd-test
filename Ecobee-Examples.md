@@ -72,6 +72,18 @@ sitemap nest label="Ecobee"
 ```
 import org.openhab.core.library.types.*
 
+rule PopulateDesiredTemp
+when
+  Item desiredHeat changed OR
+  Item desiredCool changed
+then
+  if (hvacMode.state.toString == "heat" && desiredHeat.state instanceof DecimalType) {
+    desiredTemp.postUpdate(desiredHeat.state)
+  } else if (hvacMode.state.toString == "cool" && desiredCool.state instanceof DecimalType) {
+    desiredTemp.postUpdate(desiredCool.state)
+  }
+end
+
 rule TempHold
 when
   Item desiredTemp received command
