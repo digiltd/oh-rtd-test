@@ -153,6 +153,11 @@ And add for the Aeotec Z-Stick II
 ```
 SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{product}=="CP2102 USB to UART Bridge Controller", SYMLINK+="usb_zwave", GROUP="dialout", MODE="0666"
 ```
+or for the Aeotec Gen5 USB stick:
+```
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="0200", SYMLINK+="usb_zwave", GROUP="dialout", MODE="0666"
+```
+
 And for the DSMR cable
 ```
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{product}=="FT232R USB UART", SYMLINK+="usb_dsmr", GROUP="dialout", MODE="0666"
