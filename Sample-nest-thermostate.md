@@ -1,3 +1,5 @@
+> :warning: _Note:_ This how-to for Nest integration is superseded by the [[Nest Binding|Nest-Binding]].
+
 This is a sample implementation of a read-only integration of the Nest into Openhab.
 Here's the recipe:
 
