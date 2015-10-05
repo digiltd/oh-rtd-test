@@ -45,7 +45,7 @@ Ignores the power-on reset value (+85°C) of DS18B20 devices.
 
 # Type-modifiers
 
-Type-Modifiers can be optional configured to the items. The binding provides the following modfiers. For example: by using modifiers you can calibrate onewire temperature devices or invert the value of contacts and switches.
+Type-Modifiers can be optional configured to the items. They will be applied in the same order as the one of the description of the item. The binding provides the following modifiers. For example: by using modifiers you can calibrate onewire temperature devices or invert the value of contacts and switches.
 
 ### Number Items
 * "add=<value>" - the AddModifier adds a given value to a read-value on read. On write, the given value is subtracted of the value to write.
@@ -81,11 +81,11 @@ A special Binding is the binding of numeric one wire device propertis to openhab
 
 	Number OneWireTempSensor "Temp [%.1f °C]" {onewire="deviceId=28.67C6697351FF;propertyName=temperature;add=0.8;multiply=1.1;refreshinterval=10"}
 	
-This example uses the add and multiply modifier.
+This example uses the add and multiply modifier ("add" then "multiply").
 
 	Number OneWireTempSensor "Temp [%.1f °C]" {onewire="deviceId=28.67C6697351FF;propertyName=temperature;add=0.8;tukeyfilter;refreshinterval=10"}
 	
-This example uses the add modifier and the tukey filter.
+This example uses the add modifier and the tukey filter ("add" then "filter").
 
 ### Switch Item
 	
