@@ -104,7 +104,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2423A1</td><td>iMeter Solo Power Meter</td><td>F00.00.17</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2423A1</td><td>Thermostat 2441TH</td><td>F00.00.18</td><td></td><td>Daniel Campbell</td>
+<td>2423A1</td><td>Thermostat 2441TH</td><td>F00.00.18</td><td></td><td>Daniel Campbell, Bernd Pfrommer</td>
 </tr>
 <tr>
 <td>2457D2</td><td>LampLinc Dimmer</td><td>F00.00.19</td><td></td><td>Jonathan Huizingh</td>
@@ -150,6 +150,11 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 </tr>
 </table>
 
+## Insteon Groups and Scenes
+How do Insteon devices tell other devices on the network that their state has changed? They send out a broadcast message, labeled with a specific *group* number. All devices (called *responders*) that are configured to listen to this message will then go into a pre-defined state. For instance when light switch A is switched to "ON", it will send out a message to group #1, and all responders will react to it, e.g they may go into the "ON" position as well. Since more than one device can participate, the sending out of the broadcast message and the subsequent state change of the responders is referred to as "triggering a scene". At the device and PLM level, the concept of a "scene" does not exist, so you will find it notably absent in the binding code and this document. A scene is strictly a higher level concept, introduced to shield the user from the details of how the communication is implemented.
+
+Many Insteon devices send out messages on different group numbers, depending on what happens to them. A leak sensor may send out a message on group #1 when dry, and on group #2 when wet. The default group used for e.g. linking two light switches is usually group #1.
+
 ## Insteon binding process
 
 Before Insteon devices communicate with one another, they must be
@@ -172,6 +177,8 @@ should go off as well). Now do exactly the reverse: press and hold the
 "Set" button on the remote device until its light starts blinking,
 then press and hold the "Set" button on the modem until it double
 beeps, and the light of the remote device (switch) goes off. Done.
+
+For some of the more sophisticated devices the complete linking process can no longer be done with the set buttons, but requires software like e.g. [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal).
 
 ## Installation and Configuration
 
@@ -270,6 +277,19 @@ Here are some examples for configuring X10 devices. Note that X10 switches/dimme
     Switch x10Switch	"X10 switch" {insteonplm="A.1:X00.00.01#switch"}
     Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
     Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
+
+### Keypads
+
+The Insteon keypad devices typically control one main load and have a number of buttons that will send out group broadcast messages to trigger a scene. Each button will send out a message for a different group. Complicating matters further, the button numbering used internally by the device must be mapped to whatever labels are printed on the physical buttons of the device. Here is an example correspondence table:
+
+| Group | Button Number | 2487S Label |
+|-------|---------------|-------------|
+|  0x01 |        1      |   (Load)    |
+|  0x03 |        3      |     A       |
+|  0x04 |        4      |     B       |
+|  0x05 |        5      |     C       |
+|  0x06 |        6      |     D       |
+
 
 ### Thermostats
 
