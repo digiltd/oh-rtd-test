@@ -74,8 +74,8 @@ import org.openhab.core.library.types.*
 
 rule PopulateDesiredTemp
 when
-  Item desiredHeat changed OR
-  Item desiredCool changed
+  Item desiredHeat received update OR
+  Item desiredCool received update
 then
   if (hvacMode.state.toString == "heat" && desiredHeat.state instanceof DecimalType) {
     desiredTemp.postUpdate(desiredHeat.state)
