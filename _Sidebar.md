@@ -192,7 +192,10 @@
 * [[Yamahareceiver Binding|Yamahareceiver-Binding]]
 * [[Zibase Binding|Zibase-Binding]]
 * [[Z-Wave Binding|Z-Wave-Binding]]
-* [[Application Integration|Application-Integration]]
+
+***
+
+### [[Application Integration|Application-Integration]]
 * [[Asterisk|Asterisk-Integration]]
 * [[Google Calendar|GCal-Binding]]
 * [[Linux Media Players|Linux-Media-Players]]
@@ -203,7 +206,7 @@
 * [[Wink Hub (rooted) | Rooted Wink Hub]]
 * [[Wink Monitoring | https://github.com/JustinAiken/openhab_monitor]]
 
-***
+
 
 ## Misc
 
