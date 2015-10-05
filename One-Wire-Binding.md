@@ -45,7 +45,7 @@ Ignores the power-on reset value (+85°C) of DS18B20 devices.
 
 # Type-modifiers
 
-Type-Modifiers can be optional configured to the items. They will be applied in the same order as the one of the description of the item. The binding provides the following modifiers. For example: by using modifiers you can calibrate onewire temperature devices or invert the value of contacts and switches.
+Type-Modifiers can be optional configured to the items. They will be applied in the same order as the one in the description of the item. The binding provides the following modifiers. For example: by using modifiers you can calibrate onewire temperature devices or invert the value of contacts and switches.
 
 ### Number Items
 * "add=<value>" - the AddModifier adds a given value to a read-value on read. On write, the given value is subtracted of the value to write.
