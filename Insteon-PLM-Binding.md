@@ -280,7 +280,11 @@ Here are some examples for configuring X10 devices. Note that X10 switches/dimme
 
 ### Keypads
 
-The Insteon keypad devices typically control one main load and have a number of buttons that will send out group broadcast messages to trigger a scene. Each button will send out a message for a different group. Complicating matters further, the button numbering used internally by the device must be mapped to whatever labels are printed on the physical buttons of the device. Here is an example correspondence table:
+Before you attempt to configure the keypads, please familiarize yourself with the concept of an Insteon group.
+
+The Insteon keypad devices typically control one main load and have a number of buttons that will send out group broadcast messages to trigger a scene. If you just want to use the main load switch within openhab just link modem and device with the set buttons as usual, no complicated linking is necessary. But if you want to get the buttons to work, read on.
+
+Each button will send out a message for a different, predefined group. Complicating matters further, the button numbering used internally by the device must be mapped to whatever labels are printed on the physical buttons of the device. Here is an example correspondence table:
 
 | Group | Button Number | 2487S Label |
 |-------|---------------|-------------|
@@ -290,6 +294,38 @@ The Insteon keypad devices typically control one main load and have a number of 
 |  0x05 |        5      |     C       |
 |  0x06 |        6      |     D       |
 
+When e.g. the "A" button is pressed (that's button #3 internally) a broadcast message will be sent out to all responders configured to listen to Insteon group #3. This means you must configure the modem as a responder to group #3 (and #4,#5,#6) messages coming from your keypad. For instructions how to do this, check out the [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal). You can even do that with the set buttons (see instructions that come with the keypad).
+
+While capturing the messages that the buttons emit is pretty straight forward, controlling the buttons is  another matter. They cannot be simply toggled with a direct command to the device, but instead a broadcast message must be sent on a group number that the button has been programmed to listen to. This means you need to pick a set of unused groups that is globally unique (if you have multiple keypads, each one of them has to use different groups), one group for each button. The example configuration below uses groups 0xf3, 0xf4, 0xf5, and 0xf6. Then link the buttons such that they respond to those groups, and link the modem as a controller for them (see [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) documentation). In your items file you specify these groups with the "group=" parameters such that the binding knows what group number to put on the outgoing message.
+
+**Items**
+
+Here is a simple example, just using the load (main) switch:
+
+    Switch keypadSwitch    "main load" {insteonplm="xx.xx.xx:F00.00.14#loadswitch"}
+    Number keypadSwitchManualChange "main manual change" {insteonplm="xx.xx.xx:F00.00.14#loadswitchmanualchange"}
+    Switch keypadSwitchFastOnOff    "main fast on/off" {insteonplm="xx.xx.xx:F00.00.14#loadswitchfastonoff,related=xx.xx.xx"}
+
+Most people will not use the fast on/off features or the manual change feature, so you really only need the first line. To make the buttons available, add these lines to your items file:
+
+    Switch keypadSwitchA   "keypad button A"   {insteonplm="xx.xx.xx:F00.00.14#keypadbuttonA,group=0xf3"}
+    Switch keypadSwitchB   "keypad button B"   {insteonplm="xx.xx.xx:F00.00.14#keypadbuttonB,group=0xf4"}
+    Switch keypadSwitchC   "keypad button C"   {insteonplm="xx.xx.xx:F00.00.14#keypadbuttonC,group=0xf5"}
+    Switch keypadSwitchD   "keypad button D"   {insteonplm="xx.xx.xx:F00.00.14#keypadbuttonD,group=0xf6"}
+
+**Sitemap**
+
+The following sitemap will bring the items to life in the GUI:
+
+	Frame label="Keypad" {
+	      Switch item=keypadSwitch label="main"
+	      Switch item=keypadSwitchFastOnOff label="fast on/off"
+	      Switch item=keypadSwitchManualChange label="manual change" mappings=[ 0="DOWN", 1="STOP",  2="UP"]
+	      Switch item=keypadSwitchA label="button A"
+	      Switch item=keypadSwitchB label="button B"
+	      Switch item=keypadSwitchC label="button C"
+	      Switch item=keypadSwitchD label="button D"
+	}
 
 ### Thermostats
 
@@ -338,9 +374,6 @@ For the thermostat to display in the GUI, add this to the sitemap file:
     Setpoint item=thermostatHumidityHigh  minValue=0 maxValue=100 step=1
     Setpoint item=thermostatHumidityLow   minValue=0 maxValue=100 step=1
     Setpoint item=thermostatStage1  minValue=1 maxValue=60 step=1
-
-## Insteon groups and how to enable buttons on the keypads
-When a button is pressed on a keypad button, a broadcast message is sent out on the Insteon network to all members of a pre-configured group. Let's say you press the keypad button A on a 2487S, it will send out a message to group 3. You first need to configure your modem to be a responder to that group. That can be simply done by pressing the keypad button and then holding the set button (for details see instructions), just as for any Insteon device. After this step, the binding will be notified whenever you press a keypad button, and you can configure a Switch item that will reflect its state. However, if the switch is flipped from within openHAB, the keypad button will not update its state. For that you need to configure the keypad button to be a responder to broadcast messages on a given Insteon group. Use the  [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) to get the button configured, such that the keypad button responds to modem broadcast messages on e.g modem group 2. Then add the parameter ``group=2`` to the binding config string (see example above). Now toggling the switch item will send out a broadcast message to group 2, which should toggle the keypad button. You need to configure each button into a different modem group to switch them separately.
 
 ## Trouble shooting
 
