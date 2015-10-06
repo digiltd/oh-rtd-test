@@ -227,9 +227,6 @@ contact sensor, a front door lock, a button of a mini remote, a KeypadLinc 2487,
     Switch frontDoorLock "Front Door [MAP(lock.map):%s]" {insteonplm="xx.xx.xx:F00.00.09#switch"}
     Switch miniRemoteContactButton1	    "mini remote button 1" {insteonplm="2e.7c.9a:F00.00.02#buttonA"}
 
-    Switch keypadSwitch    "main load" {insteonplm="xx.xx.xx:F00.00.14#loadswitch"}
-    Switch keypadSwitchButtonA   "keypad switch button A"	{insteonplm="xx.xx.xx:F00.00.14#keypadbuttonA,group=2"}
-
     Dimmer keypadDimmer "dimmer" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer"}
     Switch keypadDimmerButtonA    "keypad dimmer button A"	{insteonplm="xx.xx.xx:F00.00.15#keypadbuttonA,group=2"}
     Dimmer dimmerWithMax "dimmer 2"   {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
