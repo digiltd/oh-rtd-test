@@ -31,7 +31,7 @@ Fxx.xx.xx (or Xxx.xx.xx for X10 devices) is assigned by the binding.
 Finally, each Insteon device comes with a hard-coded Insteon *address*
 of the format 'xx.xx.xx' that can be found on a label on the device. This address should be
 recorded for every device in the network, as it is a mandatory part of
-the binding configuration string. X10 devices are addressed with `houseCode.unitCode`, e.g. `A.2`.
+the binding configuration string.
 
 The following devices have been tested and should work out of the box:
 <table>
@@ -210,12 +210,30 @@ For instance, the following lines would create two Number items referring to the
     Number  thermostatHeatPoint "heat point [%.1f °F]" { insteonplm="32.f4.22:F00.00.18#heatsetpoint" }
 
 
-The following lines in your insteonplm.items file would configure a
-light switch, a dimmer, a motion sensor, and a garage door opener with
-contact sensor, a front door lock, a button of a mini remote, a KeypadLinc 2487, and a 6-button keypad dimmer 2334-232:
+### Simple light switches
 
-    Switch officeLight "office light" {insteonplm="24.02.dc:F00.00.02#switch"}
-    Dimmer kitchenChandelier "kitchen chandelier" {insteonplm="20.c4.43:F00.00.01#dimmer"}
+The following example shows how to configure a simple light switch (2477S) in the .items file:
+
+    Switch officeLight "office light" {insteonplm="xx.xx.xx:F00.00.02#switch"}
+
+
+### Simple dimmers
+
+Here is how to configure a simple dimmer (2477D) in the .items file:
+
+    Dimmer kitchenChandelier "kitchen chandelier" {insteonplm="xx.xx.xx:F00.00.01#dimmer"}
+
+Dimmers can be configured with a maximum level when turning a device on or setting a percentage level. If a maximum level is configured, openHAB will never set the level of the dimmer above the level specified. The below example sets a maximum level of 70% for dim 1 and 60% for dim 2:
+
+    Dimmer d1 "dimmer 1" {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
+    Dimmer d2 "dimmer 2" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer,dimmermax=60"}
+
+Setting a maximum level does not affect manual turning on or dimming a switch.
+
+
+### Miscellaneous devices:
+
+The following lines in your insteonplm.items file would configure a motion sensor, a garage door opener with contact sensor, a front door lock, and a button of a mini remote.
 
     Contact garageMotionSensor "motion sensor [MAP(contact.map):%s]" {insteonplm="27.8c.c3:0x00004A#contact"}
     Number garageMotionSensorBatteryLevel "motion sensor battery level [%.1f]" {insteonplm="27.8c.c3:0x00004A#data,field=battery_level"}
@@ -248,32 +266,7 @@ transforms directory and look like this:
 If you have a garage door opener, see the I/O Linc documentation for
 the meaning of the `momentary` keyword (not supported/needed for other devices).
 
-Dimmers can be configured with a maximum level when turning a device on or setting a percentage level. If a maximum level is configured, openHAB will never set the level of the dimmer above the level specified. The below example sets a maximum level of 70% for dim 1 and 60% for dim 2:
 
-    Dimmer d1 "dim 1" {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
-    Dimmer d2 "dim 2" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer,dimmermax=60"}
-
-Setting a maximum level does not affect manual turning on or dimming a switch.
-
-When an Insteon device changes its state because it is directly operated (for example by flipping a switch manually), it sends out a broadcast message to announce the state change, and the binding (if the PLM modem is properly linked as a responder) should update the corresponding openHAB items. Other linked devices however may also change their state in response, but those devices will *not* send out a broadcast message, and so openHAB will not learn about their state change until the next poll. One common scenario is e.g. a switch in a 3-way configuration, with one switch controlling the load, and the other switch being linked as a controller. In this scenario, the "related" keyword can be used to cause the binding to poll a related device whenever a state change occurs for another device. A typical example would be two dimmers (A and B) in a 3-way configuration:
-
-    Dimmer A "dimmer 1" {insteonplm="aa.bb.cc:F00.00.01#dimmer,related=dd.ee.ff"}
-    Dimmer B "dimmer 2" {insteonplm="dd.ee.ff:F00.00.01#dimmer,related=aa.bb.cc"}
-
-More than one device can be polled by separating them with "+" sign, e.g. "related=aa.bb.cc+xx.yy.zz" would poll both of these devices.
-
-The iMeter Solo reports both wattage and kilowatt hours, and is updated during the normal polling process of the devices. You can also manually update the current values from the device and reset the device. See the example below:
- 
-    Number iMeterWatts   "iMeter [%d watts]"  {insteonplm="xx.xx.xx:F00.00.17#meter,field=watts"}
-    Number iMeterKwh     "iMeter [%.04f kwh]" {insteonplm="xx.xx.xx:F00.00.17#meter,field=kwh"}
-    Switch iMeterUpdate  "iMeter Update"      {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=update"}
-    Switch iMeterReset   "iMeter Reset"       {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=reset"}
-
-Here are some examples for configuring X10 devices. Note that X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually.
-
-    Switch x10Switch	"X10 switch" {insteonplm="A.1:X00.00.01#switch"}
-    Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
-    Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
 
 ### Keypads
 
@@ -371,6 +364,33 @@ For the thermostat to display in the GUI, add this to the sitemap file:
     Setpoint item=thermostatHumidityHigh  minValue=0 maxValue=100 step=1
     Setpoint item=thermostatHumidityLow   minValue=0 maxValue=100 step=1
     Setpoint item=thermostatStage1  minValue=1 maxValue=60 step=1
+
+### Power Meters
+
+The iMeter Solo reports both wattage and kilowatt hours, and is updated during the normal polling process of the devices. You can also manually update the current values from the device and reset the device. See the example below:
+ 
+    Number iMeterWatts   "iMeter [%d watts]"  {insteonplm="xx.xx.xx:F00.00.17#meter,field=watts"}
+    Number iMeterKwh     "iMeter [%.04f kwh]" {insteonplm="xx.xx.xx:F00.00.17#meter,field=kwh"}
+    Switch iMeterUpdate  "iMeter Update"      {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=update"}
+    Switch iMeterReset   "iMeter Reset"       {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=reset"}
+
+### X10 devices
+
+Here are some examples for configuring X10 devices. Be aware that X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually. Further note that
+X10 devices are addressed with `houseCode.unitCode`, e.g. `A.2`.
+
+    Switch x10Switch	"X10 switch" {insteonplm="A.1:X00.00.01#switch"}
+    Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
+    Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
+
+## 3-way switch configurations and the "related" keyword
+
+When an Insteon device changes its state because it is directly operated (for example by flipping a switch manually), it sends out a broadcast message to announce the state change, and the binding (if the PLM modem is properly linked as a responder) should update the corresponding openHAB items. Other linked devices however may also change their state in response, but those devices will *not* send out a broadcast message, and so openHAB will not learn about their state change until the next poll. One common scenario is e.g. a switch in a 3-way configuration, with one switch controlling the load, and the other switch being linked as a controller. In this scenario, the "related" keyword can be used to cause the binding to poll a related device whenever a state change occurs for another device. A typical example would be two dimmers (A and B) in a 3-way configuration:
+
+    Dimmer A "dimmer 1" {insteonplm="aa.bb.cc:F00.00.01#dimmer,related=dd.ee.ff"}
+    Dimmer B "dimmer 2" {insteonplm="dd.ee.ff:F00.00.01#dimmer,related=aa.bb.cc"}
+
+More than one device can be polled by separating them with "+" sign, e.g. "related=aa.bb.cc+xx.yy.zz" would poll both of these devices. The implemenation of the *related* keyword is simple: if you add it to a feature, and that feature changes its state, then the *related* device will be polled to see if its state has updated.
 
 ## Trouble shooting
 
