@@ -116,6 +116,13 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2635-222</td><td>On/Off Module</td><td>F00.00.1B</td><td></td><td>Jonathan Huizingh</td>
 </tr>
 <tr>
+<td>2475F</td><td>FanLinc Module</td><td>F00.00.1C</td><td></td><td>Brian Tillman</td>
+</tr>
+<tr>
+<td>2456S3</td><td>ApplianceLinc</td><td>F00.00.1D</td><td></td><td></td>
+</tr>
+
+<tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
@@ -245,10 +252,6 @@ The following lines in your insteonplm.items file would configure a motion senso
     Switch frontDoorLock "Front Door [MAP(lock.map):%s]" {insteonplm="xx.xx.xx:F00.00.09#switch"}
     Switch miniRemoteContactButton1	    "mini remote button 1" {insteonplm="2e.7c.9a:F00.00.02#buttonA"}
 
-    Dimmer keypadDimmer "dimmer" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer"}
-    Switch keypadDimmerButtonA    "keypad dimmer button A"	{insteonplm="xx.xx.xx:F00.00.15#keypadbuttonA,group=2"}
-    Dimmer dimmerWithMax "dimmer 2"   {insteonplm="xx.xx.xx:F00.00.11#dimmer,dimmermax=70"}
-
 For the meaning of the ``group`` parameter, please see notes on groups and keypad buttons below.
 Note the use of a `MAP(contact.map)`, which should go into the
 transforms directory and look like this:
@@ -288,6 +291,9 @@ When e.g. the "A" button is pressed (that's button #3 internally) a broadcast me
 
 While capturing the messages that the buttons emit is pretty straight forward, controlling the buttons is  another matter. They cannot be simply toggled with a direct command to the device, but instead a broadcast message must be sent on a group number that the button has been programmed to listen to. This means you need to pick a set of unused groups that is globally unique (if you have multiple keypads, each one of them has to use different groups), one group for each button. The example configuration below uses groups 0xf3, 0xf4, 0xf5, and 0xf6. Then link the buttons such that they respond to those groups, and link the modem as a controller for them (see [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) documentation). In your items file you specify these groups with the "group=" parameters such that the binding knows what group number to put on the outgoing message.
 
+
+####Keypad switches
+
 **Items**
 
 Here is a simple example, just using the load (main) switch:
@@ -316,6 +322,21 @@ The following sitemap will bring the items to life in the GUI:
 	      Switch item=keypadSwitchC label="button C"
 	      Switch item=keypadSwitchD label="button D"
 	}
+
+####Keypad dimmers
+
+The keypad dimmers are like keypad switches, except that the main load is dimmable.
+
+**Items**
+
+    Dimmer keypadDimmer "dimmer" {insteonplm="xx.xx.xx:F00.00.15#loaddimmer"}
+    Switch keypadDimmerButtonA    "keypad dimmer button A [%d %%]"	{insteonplm="xx.xx.xx:F00.00.15#keypadbuttonA,group=0xf3"}
+
+**Sitemap**
+
+    Slider item=keypadDimmer switchSupport
+    Switch item=keypadDimmerButtonA label="buttonA"
+
 
 ### Thermostats
 
@@ -374,6 +395,21 @@ The iMeter Solo reports both wattage and kilowatt hours, and is updated during t
     Switch iMeterUpdate  "iMeter Update"      {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=update"}
     Switch iMeterReset   "iMeter Reset"       {insteonplm="xx.xx.xx:F00.00.17#meter,cmd=reset"}
 
+### Fan Controllers
+
+Here is an example configuration for a FanLinc module, which has a dimmable light and a variable speed fan:
+
+**Items**
+
+    Dimmer fanLincDimmer   "fanlinc dimmer [%d %%]" {insteonplm="xx.xx.xx:F00.00.1C#lightdimmer"}
+    Number fanLincFan      "fanlinc fan" {insteonplm="xx.xx.xx:F00.00.1C#fan"}
+
+**Sitemap**
+
+    Slider item=fanLincDimmer switchSupport
+    Switch item=fanLincFan label="fan speed" mappings=[ 0="OFF",  1="LOW", 2="MEDIUM", 3="HIGH"]
+
+
 ### X10 devices
 
 Here are some examples for configuring X10 devices. Be aware that X10 switches/dimmers send no status updates, i.e. openHAB will not learn about switches that are toggled manually. Further note that
@@ -382,6 +418,14 @@ X10 devices are addressed with `houseCode.unitCode`, e.g. `A.2`.
     Switch x10Switch	"X10 switch" {insteonplm="A.1:X00.00.01#switch"}
     Dimmer x10Dimmer	"X10 dimmer" {insteonplm="A.5:X00.00.02#dimmer"}
     Contact x10Motion	"X10 motion" {insteonplm="A.3:X00.00.03#contact"}
+
+## Direct sending of group broadcasts (triggering scenes)
+
+The binding can command the modem to send broadcasts to a given Insteon group. Since it is a broadcast message, the corresponding item does *not* take the address of any device, but of the modem itself:
+
+    Switch  broadcastOnOff "group on/off" { insteonplm="xx.xx.xx:0x000045#broadcastonoff,group=2"}
+
+where "xx.xx.xx" stands for the modem's insteon address. Flipping this switch to "ON" will cause the modem to send a broadcast message with group=2, and all devices that are configured to respond to it should react.
 
 ## 3-way switch configurations and the "related" keyword
 
