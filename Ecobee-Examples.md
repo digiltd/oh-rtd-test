@@ -36,7 +36,7 @@ Switch livingRoomOccupancy "living rm occ [%s]" { ecobee="<[123456789012#remoteS
 
 ### ecobee.sitemap
 ```
-sitemap nest label="Ecobee"
+sitemap ecobee label="Ecobee"
 {
   Frame label="Thermostat" {
     Text item=lastModified
@@ -46,7 +46,7 @@ sitemap nest label="Ecobee"
     Text item=currentClimateRef
     Switch item=desiredComf mappings=[sleep=Sleep,wakeup=Wake,home=Home,away=Away,smart6=Gym,resume=Resume]
     Setpoint item=desiredTemp label="Temp [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvacMode==heat,hvacMode==cool]
-    Setpoint item=desiredHeat label="Heat [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvac_mode==auto]
+    Setpoint item=desiredHeat label="Heat [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvacMode==auto]
     Setpoint item=desiredCool label="Cool [%.1f °F]" minValue="50" maxValue="80" step="1" visibility=[hvacMode==auto]
   }
 
