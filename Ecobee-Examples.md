@@ -72,14 +72,20 @@ sitemap ecobee label="Ecobee"
 ```
 import org.openhab.core.library.types.*
 
-rule PopulateDesiredTemp
+rule "Populate desiredTemp from desiredHeat"
 when
-  Item desiredHeat received update OR
-  Item desiredCool received update
+  Item desiredHeat received update
 then
   if (hvacMode.state.toString == "heat" && desiredHeat.state instanceof DecimalType) {
     desiredTemp.postUpdate(desiredHeat.state)
-  } else if (hvacMode.state.toString == "cool" && desiredCool.state instanceof DecimalType) {
+  }
+end
+
+rule "Populate desiredTemp from desiredCool"
+when
+  Item desiredCool received update
+then
+  if (hvacMode.state.toString == "cool" && desiredCool.state instanceof DecimalType) {
     desiredTemp.postUpdate(desiredCool.state)
   }
 end
@@ -100,18 +106,30 @@ rule HeatHold
 when
   Item desiredHeat received command
 then
+  logInfo("HeatHold", "Setting heat setpoint to " + receivedCommand.toString)
   val DecimalType desiredHeatTemp = receivedCommand as DecimalType
-  val DecimalType desiredCoolTemp = desiredCool.state instanceof DecimalType ? desiredCool.state as DecimalType : newDecimalType(90)
+  var DecimalType desiredCoolTemp
+  if (desiredCool.state instanceof DecimalType) {
+    desiredCoolTemp = desiredCool.state as DecimalType
+  } else {
+    desiredCoolTemp = new DecimalType(90)
+  }
 
   ecobeeSetHold(desiredHeat, desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
 end
 
 rule CoolHold
-when 
+when
   Item desiredCool received command
 then
+  logInfo("CoolHold", "Setting cool setpoint to " + receivedCommand.toString)
   val DecimalType desiredCoolTemp = receivedCommand as DecimalType
-  val DecimalType desiredHeatTemp = desiredHeat.state instanceof DecimalType ? desiredHeat.state as DecimalType : new DecimalType(50)
+  var DecimalType desiredHeatTemp
+  if (desiredHeat.state instanceof DecimalType) {
+    desiredHeatTemp = desiredHeat.state as DecimalType
+  } else {
+    desiredHeatTemp = new DecimalType(50)
+  }
 
   ecobeeSetHold(desiredCool, desiredCoolTemp, desiredHeatTemp, null, null, null, null, null)
 end
