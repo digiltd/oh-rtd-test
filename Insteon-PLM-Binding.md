@@ -248,8 +248,6 @@ The following lines in your insteonplm.items file would configure a motion senso
     Number garageMotionSensorBatteryLevel "motion sensor battery level [%.1f]" {insteonplm="27.8c.c3:0x00004A#data,field=battery_level"}
     Number garageMotionSensorLightLevel "motion sensor light level [%.1f]" {insteonplm="27.8c.c3:0x00004A#data,field=light_level"}
 
-    Switch garageDoorOpener "garage door opener" <garagedoor> {insteonplm="28.c3.f1:0x00001A#switch"}
-    Contact garageDoorContact "garage door contact [MAP(contact.map):%s]"    {insteonplm="28.c3.f1:0x00001A#contact"}
 
     Switch frontDoorLock "Front Door [MAP(lock.map):%s]" {insteonplm="xx.xx.xx:F00.00.09#switch"}
     Switch miniRemoteContactButton1	    "mini remote button 1" {insteonplm="2e.7c.9a:F00.00.02#buttonA"}
@@ -258,9 +256,6 @@ For the meaning of the ``group`` parameter, please see notes on groups and keypa
 Note the use of a `MAP(contact.map)`, which should go into the
 transforms directory and look like this:
 
-    OPEN=open
-    CLOSED=closed
-    -=unknown
 
 'MAP(lock.map)`, which should go into the transforms directory and look like this:
 
@@ -268,10 +263,26 @@ transforms directory and look like this:
     OFF=Unlock
     -=unknown
 
-If you have a garage door opener, see the I/O Linc documentation for
-the meaning of the `momentary` keyword (not supported/needed for other devices).
+### I/O Linc (garage door openers)
 
+The I/O Linc devices are really two devices in one: a relay and a contact. Link the modem both ways, as responder and controller using the set buttons as described in the instructions.
 
+Add this map into your transforms directory as "contact.map":
+    OPEN=open
+    CLOSED=closed
+    -=unknown
+
+and this into your .items file:
+
+    Switch garageDoorOpener "garage door opener" <garagedoor> {insteonplm="xx.xx.xx:0x00001A#switch" autoupdate="false"}
+    Contact garageDoorContact "garage door contact [MAP(contact.map):%s]"    {insteonplm="xx.xx.xx:0x00001A#contact"}
+
+To make it visible in the GUI, put this into your sitemap file:
+
+    Switch item=garageDoorOpener label="garage door opener" mappings=[ ON="OPEN/CLOSE"]
+    Text item=garageDoorContact
+
+For safety reasons, only close the garage door if you have visual contact to make sure there is no obstruction! The use of automated rules for closing garage doors is dangerous.
 
 ### Keypads
 
