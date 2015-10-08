@@ -36,125 +36,124 @@ the binding configuration string.
 The following devices have been tested and should work out of the box:
 <table>
 <tr>
-<td>Model</td><td>Description</td><td>Product Key</td><td>Comments</td><td>tested by</td>
+<td>Model</td><td>Description</td><td>Product Key</td><td>tested by</td>
 </tr>
 <tr>
-<td>2477D</td><td>SwitchLinc Dimmer</td><td>F00.00.01</td><td></td><td>Bernd Pfrommer</td>
+<td>2477D</td><td>SwitchLinc Dimmer</td><td>F00.00.01</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2477S</td><td>SwitchLinc Switch</td><td>F00.00.02</td><td></td><td>Bernd Pfrommer</td>
+<td>2477S</td><td>SwitchLinc Switch</td><td>F00.00.02</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td><td>Josenivaldo Benito</td>
+<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td></td><td>Patrick Giasson</td>
+<td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td>Patrick Giasson</td>
 </tr>
 <tr>
-<td>2456D3</td><td>LampLinc V2</td><td>F00.00.05</td><td></td><td>Patrick Giasson</td>
+<td>2456D3</td><td>LampLinc V2</td><td>F00.00.05</td><td>Patrick Giasson</td>
 </tr>
 <tr>
-<td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td></td><td>Josenivaldo Benito</td>
+<td>2442-222</td><td>Micro Dimmer</td><td>F00.00.06</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2453-222</td><td>DIN Rail On/Off</td><td>F00.00.07</td><td></td><td>Josenivaldo Benito</td>
+<td>2453-222</td><td>DIN Rail On/Off</td><td>F00.00.07</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2452-222</td><td>DIN Rail Dimmer</td><td>F00.00.08</td><td></td><td>Josenivaldo Benito</td>
+<td>2452-222</td><td>DIN Rail Dimmer</td><td>F00.00.08</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>
-</td><td>cdeadlock</td>
+<td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>cdeadlock</td>
 </tr>
 <tr>
-<td>2852-222</td><td>Leak Sensor</td><td>F00.00.0A</td><td></td><td>Kirk McCann</td>
+<td>2852-222</td><td>Leak Sensor</td><td>F00.00.0A</td><td>Kirk McCann</td>
 </tr>
 <tr>
-<td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td></td><td></td>
+<td>2672-422</td><td>LED Dimmer</td><td>F00.00.0B</td><td>???</td>
 </tr>
 <tr>
-<td>2476D</td><td>SwitchLinc Dimmer</td><td>F00.00.0C</td><td></td><td>LiberatorUSA</td>
+<td>2476D</td><td>SwitchLinc Dimmer</td><td>F00.00.0C</td><td>LiberatorUSA</td>
 </tr>
 <tr>
-<td>2634-222</td><td>On/Off Dual-Band Outdoor Module</td><td>F00.00.0D</td><td></td><td>LiberatorUSA</td>
+<td>2634-222</td><td>On/Off Dual-Band Outdoor Module</td><td>F00.00.0D</td><td>LiberatorUSA</td>
 </tr>
 <tr>
-<td>2342-2</td><td>Mini Remote</td><td>F00.00.10</td><td></td><td>Bernd Pfrommer</td>
+<td>2342-2</td><td>Mini Remote</td><td>F00.00.10</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2466D</td><td>ToggleLinc Dimmer</td><td>F00.00.11</td><td></td><td>Rob Nielsen</td>
+<td>2466D</td><td>ToggleLinc Dimmer</td><td>F00.00.11</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2466S</td><td>ToggleLinc Switch</td><td>F00.00.12</td><td></td><td>Rob Nielsen</td>
+<td>2466S</td><td>ToggleLinc Switch</td><td>F00.00.12</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2672-222</td><td>LED Bulb</td><td>F00.00.13</td><td></td><td>Rob Nielsen</td>
+<td>2672-222</td><td>LED Bulb</td><td>F00.00.13</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.14</td><td></td><td>Bernd Pfrommer</td>
+<td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.14</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer 6-Button</td><td>F00.00.15</td><td></td><td>Rob Nielsen</td>
+<td>2334-232</td><td>KeypadLink Dimmer 6-Button</td><td>F00.00.15</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer 8-Button</td><td>F00.00.16</td><td></td><td>Rob Nielsen</td>
+<td>2334-232</td><td>KeypadLink Dimmer 8-Button</td><td>F00.00.16</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2423A1</td><td>iMeter Solo Power Meter</td><td>F00.00.17</td><td></td><td>Rob Nielsen</td>
+<td>2423A1</td><td>iMeter Solo Power Meter</td><td>F00.00.17</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2423A1</td><td>Thermostat 2441TH</td><td>F00.00.18</td><td></td><td>Daniel Campbell, Bernd Pfrommer</td>
+<td>2423A1</td><td>Thermostat 2441TH</td><td>F00.00.18</td><td>Daniel Campbell, Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2457D2</td><td>LampLinc Dimmer</td><td>F00.00.19</td><td></td><td>Jonathan Huizingh</td>
+<td>2457D2</td><td>LampLinc Dimmer</td><td>F00.00.19</td><td>Jonathan Huizingh</td>
 </tr>
 <tr>
-<td>2475SDB</td><td>In-LineLinc Relay</td><td>F00.00.1A</td><td></td><td>Jim Howard</td>
+<td>2475SDB</td><td>In-LineLinc Relay</td><td>F00.00.1A</td><td>Jim Howard</td>
 </tr>
 <tr>
-<td>2635-222</td><td>On/Off Module</td><td>F00.00.1B</td><td></td><td>Jonathan Huizingh</td>
+<td>2635-222</td><td>On/Off Module</td><td>F00.00.1B</td><td>Jonathan Huizingh</td>
 </tr>
 <tr>
-<td>2475F</td><td>FanLinc Module</td><td>F00.00.1C</td><td></td><td>Brian Tillman</td>
+<td>2475F</td><td>FanLinc Module</td><td>F00.00.1C</td><td>Brian Tillman</td>
 </tr>
 <tr>
-<td>2456S3</td><td>ApplianceLinc</td><td>F00.00.1D</td><td></td><td></td>
+<td>2456S3</td><td>ApplianceLinc</td><td>F00.00.1D</td><td>???</td>
 </tr>
 <tr>
-<td>2674-222</td><td>LED Bulb (recessed)</td><td>F00.00.1E</td><td></td><td>Steve Bate</td>
+<td>2674-222</td><td>LED Bulb (recessed)</td><td>F00.00.1E</td><td>Steve Bate</td>
 </tr>
 <tr>
-<td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
+<td>2450</td><td>IO Link</td><td>0x00001A</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td></td><td>Patrick Giasson, Joe Barnum</td>
+<td>2486D</td><td>KeypadLinc Dimmer</td><td>0x000037</td><td>Patrick Giasson, Joe Barnum</td>
 </tr>
 <tr>
-<td>2484DWH8</td><td>KeypadLinc Countdown Timer</td><td>0x000041</td><td></td><td>Rob Nielsen</td>
+<td>2484DWH8</td><td>KeypadLinc Countdown Timer</td><td>0x000041</td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td></td><td>Bernd Pfrommer</td>
+<td>2413U</td><td>PowerLinc 2413U USB modem</td><td>0x000045</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2843-222</td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td></td><td>Josenivaldo Benito</td>
+<td>2843-222</td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td></td><td>Bernd Pfrommer</td>
+<td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2486DWH8</td><td>KeypadLinc Dimmer</td><td>0x000051</td><td></td><td>Chris Graham</td>
+<td>2486DWH8</td><td>KeypadLinc Dimmer</td><td>0x000051</td><td>Chris Graham</td>
 </tr>
 <tr>
-<td>2472D</td><td>OutletLincDimmer</td><td>0x000068</td><td></td><td>Chris Graham</td>
+<td>2472D</td><td>OutletLincDimmer</td><td>0x000068</td><td>Chris Graham</td>
 </tr>
 <tr>
-<td>X10 switch</td><td>generic X10 switch</td><td>X00.00.01</td><td></td><td>Bernd Pfrommer</td>
+<td>X10 switch</td><td>generic X10 switch</td><td>X00.00.01</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>X10 dimmer</td><td>generic X10 dimmer</td><td>X00.00.02</td><td></td><td>Bernd Pfrommer</td>
+<td>X10 dimmer</td><td>generic X10 dimmer</td><td>X00.00.02</td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>X10 motion</td><td>generic X10 motion sensor</td><td>X00.00.03</td><td></td><td>Bernd Pfrommer</td>
+<td>X10 motion</td><td>generic X10 motion sensor</td><td>X00.00.03</td><td>Bernd Pfrommer</td>
 </tr>
 </table>
 
