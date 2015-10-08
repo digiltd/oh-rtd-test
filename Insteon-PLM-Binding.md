@@ -121,7 +121,9 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <tr>
 <td>2456S3</td><td>ApplianceLinc</td><td>F00.00.1D</td><td></td><td></td>
 </tr>
-
+<tr>
+<td>2674-222</td><td>LED Bulb (recessed)</td><td>F00.00.1E</td><td></td><td>Steve Bate</td>
+</tr>
 <tr>
 <td>2450</td><td>IO Link</td><td>0x00001A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
