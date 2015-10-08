@@ -5,6 +5,16 @@
 
 ***Contacts:*** https://plus.google.com/u/0/+MihailPanayotovBG
 
+****
+
+### Be aware that GreenT has not been updated for a while.
+
+When attempting to use in Oct 2015 **GreenT would not load** at all in Chrome v45 on OSX (displays a popup saying "server not found"). Whilst it would load and give access to sitemaps **in Safari 9, there was no response from any of the buttons, sliders etc.** 
+
+If using another OS or older browsers you may have limited success. Please update this page if you are able to install and use correctly.
+
+****
+
 ## Introduction
 
 The GreenT UI is a web-app developed with Sencha 2.0 !JavaScript Framework. 
