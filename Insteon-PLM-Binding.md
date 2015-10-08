@@ -45,7 +45,7 @@ The following devices have been tested and should work out of the box:
 <td>2477S</td><td>SwitchLinc Switch</td><td>F00.00.02</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td>battery level available as #data,field=battery_level</td><td>Josenivaldo Benito</td>
+<td>2845-222</td><td>Hidden Door Sensor</td><td>F00.00.03</td><td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
 <td>2876S</td><td>ICON Switch</td><td>F00.00.04</td><td></td><td>Patrick Giasson</td>
@@ -64,7 +64,6 @@ The following devices have been tested and should work out of the box:
 </tr>
 <tr>
 <td>2458-A1</td><td>MorningLinc RF Lock Controller</td><td>F00.00.09</td><td>
-Read the instructions very carefully: Sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
 </td><td>cdeadlock</td>
 </tr>
 <tr>
@@ -92,13 +91,13 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2672-222</td><td>LED Bulb</td><td>F00.00.13</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.14</td><td>link scene buttons via modem groups</td><td>Bernd Pfrommer</td>
+<td>2487S</td><td>KeypadLinc On/Off 6-Button</td><td>F00.00.14</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer 6-Button</td><td>F00.00.15</td><td>link scene buttons via modem groups</td><td>Rob Nielsen</td>
+<td>2334-232</td><td>KeypadLink Dimmer 6-Button</td><td>F00.00.15</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
-<td>2334-232</td><td>KeypadLink Dimmer 8-Button</td><td>F00.00.16</td><td>link scene button via modem groups</td><td>Rob Nielsen</td>
+<td>2334-232</td><td>KeypadLink Dimmer 8-Button</td><td>F00.00.16</td><td></td><td>Rob Nielsen</td>
 </tr>
 <tr>
 <td>2423A1</td><td>iMeter Solo Power Meter</td><td>F00.00.17</td><td></td><td>Rob Nielsen</td>
@@ -140,7 +139,7 @@ Read the instructions very carefully: Sync with lock within 5 feet to avoid bad 
 <td>2843-222</td><td>Wireless Open/Close Sensor</td><td>0x000049</td><td></td><td>Josenivaldo Benito</td>
 </tr>
 <tr>
-<td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td>battery level available as #data,field=battery_level<br>light level available as #data,field=light_level</td><td>Bernd Pfrommer</td>
+<td>2842-222</td><td>Motion Sensor</td><td>0x00004A</td><td></td><td>Bernd Pfrommer</td>
 </tr>
 <tr>
 <td>2486DWH8</td><td>KeypadLinc Dimmer</td><td>0x000051</td><td></td><td>Chris Graham</td>
@@ -240,24 +239,54 @@ Dimmers can be configured with a maximum level when turning a device on or setti
 Setting a maximum level does not affect manual turning on or dimming a switch.
 
 
-### Miscellaneous devices:
+### Mini remotes
 
-The following lines in your insteonplm.items file would configure a motion sensor, a garage door opener with contact sensor, a front door lock, and a button of a mini remote.
+Link the mini remote to be a controller of the modem by using the set button. Link all buttons, one after the other. The 4-button mini remote sends out messages on groups 0x01 - 0x04, each corresponding to one button. The modem's link database (see [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal)) should look like this:
 
-    Contact garageMotionSensor "motion sensor [MAP(contact.map):%s]" {insteonplm="27.8c.c3:0x00004A#contact"}
-    Number garageMotionSensorBatteryLevel "motion sensor battery level [%.1f]" {insteonplm="27.8c.c3:0x00004A#data,field=battery_level"}
-    Number garageMotionSensorLightLevel "motion sensor light level [%.1f]" {insteonplm="27.8c.c3:0x00004A#data,field=light_level"}
+    0000 xx.xx.xx                       xx.xx.xx  RESP  10100010 group: 01 data: 02 2c 41
+    0000 xx.xx.xx                       xx.xx.xx  RESP  10100010 group: 02 data: 02 2c 41
+    0000 xx.xx.xx                       xx.xx.xx  RESP  10100010 group: 03 data: 02 2c 41
+    0000 xx.xx.xx                       xx.xx.xx  RESP  10100010 group: 04 data: 02 2c 41
 
+This goes into the items file:
 
-    Switch frontDoorLock "Front Door [MAP(lock.map):%s]" {insteonplm="xx.xx.xx:F00.00.09#switch"}
-    Switch miniRemoteContactButton1	    "mini remote button 1" {insteonplm="2e.7c.9a:F00.00.02#buttonA"}
+    Switch miniRemoteButtonA	    "mini remote button a" {insteonplm="2e.7c.9a:F00.00.10#buttonA", autoupdate="false"}
+    Switch miniRemoteButtonB	    "mini remote button b" {insteonplm="2e.7c.9a:F00.00.10#buttonB", autoupdate="false"}
+    Switch miniRemoteButtonC	    "mini remote button c" {insteonplm="2e.7c.9a:F00.00.10#buttonC", autoupdate="false"}
+    Switch miniRemoteButtonD	    "mini remote button d" {insteonplm="2e.7c.9a:F00.00.10#buttonD", autoupdate="false"}
 
-For the meaning of the ``group`` parameter, please see notes on groups and keypad buttons below.
-Note the use of a `MAP(contact.map)`, which should go into the
-transforms directory and look like this:
+This goes into the sitemap file:
 
+    Switch item=miniRemoteButtonA label="mini remote button a" mappings=[ OFF="Off", ON="On"]
+    Switch item=miniRemoteButtonB label="mini remote button b" mappings=[ OFF="Off", ON="On"]
+    Switch item=miniRemoteButtonC label="mini remote button c" mappings=[ OFF="Off", ON="On"]
+    Switch item=miniRemoteButtonD label="mini remote button d" mappings=[ OFF="Off", ON="On"]
 
-'MAP(lock.map)`, which should go into the transforms directory and look like this:
+The switches in the GUI just display the mini remote's most recent button presses. They are not operable because the PLM cannot trigger the mini remotes scenes.
+
+### Motion sensors
+
+Link such that the modem is a responder to the motion sensor. Create a contact.map file in the transforms directory as described elsewhere in this document. Then create entries in the .items file like this:
+
+    Contact motionSensor "motion sensor [MAP(contact.map):%s]" {insteonplm="xx.xx.xx:0x00004A#contact"}
+    Number motionSensorBatteryLevel "motion sensor battery level [%.1f]" {insteonplm="xx.xx.xx:0x00004A#data,field=battery_level"}
+    Number motionSensorLightLevel "motion sensor light level [%.1f]" {insteonplm="xx.xx.xx:0x00004A#data,field=light_level"}
+
+This will give you a contact, the battery level, and the light level. Note that battery and light level are only updated when either there is motion, or the sensor battery runs low.
+
+### Hidden door sensors
+
+See configuration for motion sensor. There is no light sensor, but "#data,field=battery_level" is available.
+
+### Locks
+
+Read the instructions very carefully: sync with lock within 5 feet to avoid bad connection, link twice for both ON and OFF functionality.
+
+Put something like this into your .items file:
+
+    Switch doorLock "Front Door [MAP(lock.map):%s]" {insteonplm="xx.xx.xx:F00.00.09#switch"}
+
+and create a file "lock.map" in the transforms directory with these entries: 
 
     ON=Lock
     OFF=Unlock
@@ -268,13 +297,14 @@ transforms directory and look like this:
 The I/O Linc devices are really two devices in one: a relay and a contact. Link the modem both ways, as responder and controller using the set buttons as described in the instructions.
 
 Add this map into your transforms directory as "contact.map":
+
     OPEN=open
     CLOSED=closed
     -=unknown
 
 and this into your .items file:
 
-    Switch garageDoorOpener "garage door opener" <garagedoor> {insteonplm="xx.xx.xx:0x00001A#switch" autoupdate="false"}
+    Switch garageDoorOpener "garage door opener" <garagedoor> {insteonplm="xx.xx.xx:0x00001A#switch", autoupdate="false"}
     Contact garageDoorContact "garage door contact [MAP(contact.map):%s]"    {insteonplm="xx.xx.xx:0x00001A#contact"}
 
 To make it visible in the GUI, put this into your sitemap file:
