@@ -1,6 +1,6 @@
 ## Generic JDBC Persistence Service
 
- - [headline5](JDBC-Persistence/headline5)
+ - [Database Table Schema](https://github.com/openhab/openhab/wiki/JDBC-Persistence#5-database-table-schema)
 
 ### 1. Introduction
 
