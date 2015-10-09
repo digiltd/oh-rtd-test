@@ -1,6 +1,6 @@
 ## Generic JDBC Persistence Service
 
- - [Database Table Schema](JDBC-Persistence#5-database-table-schema)
+ - [Database Table Schema](JDBC-Persistence/#5-database-table-schema)
 
 ### 1. Introduction
 
