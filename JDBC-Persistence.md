@@ -26,7 +26,7 @@ Currently the following databases are supported:
 
 General:
 - Writing/reading information to relational database systems.
-- Database Table Name Schema can be reconfigured after creation.
+- [Database Table Name Schema](JDBC-Persistence/#5-database-table-schema) can be reconfigured after creation.
 - Driver files do not increase the main JDBC Service Bundles file size. JDBC drivers are not compiled with into the bundle.
  
 For Developers:
@@ -206,7 +206,7 @@ jdbc:tableUseRealItemNames=true
 ### 5. Database Table Schema
 The service will create a mapping table to link each item to a table, and a separate table is generated for each item.
 The item data tables includes time and data values - the data type dependents on the OpenHab item type and allows the item state to be recovered back into openHAB in the same way it was stored.
-With this *per Item* layout, the scalability and easy maintenance of the database is ensured, even if large amounts of data must be managed.
+With this *per Item* layout, the scalability and easy maintenance of the database is ensured, even if large amounts of data must be managed. To rename existing Tables use Parameters *tableUseRealItemNames* and *tableIdDigitCount* in *JDBC Persistence Service* section of openhab.cfg
 
  
  
