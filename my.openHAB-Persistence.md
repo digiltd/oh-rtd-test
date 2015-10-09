@@ -1,5 +1,5 @@
 my.openHAB Persistence
-* [What is my.openHAB?](#what-is-my.openhab)
+* [What is my.openHAB?](#what-is-myopenhab)
 * [Installation and registration](#installation-and-registration)
 * [Selective persistence](#selective-persistence)
 * [Selectively adding specific items to my.openHAB](#selectively-adding-specific-items-to-myopenhab)
