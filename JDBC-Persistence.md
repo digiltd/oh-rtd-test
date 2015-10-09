@@ -1,6 +1,6 @@
 ## Generic JDBC Persistence Service
 
-* [Introduction](JDBC-Persistence/#introduction)
+* [Introduction](JDBC-Persistence/#Introduction)
 * [Database Table Schema](JDBC-Persistence/#Schema)
 
 
