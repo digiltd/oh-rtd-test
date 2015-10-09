@@ -1,7 +1,7 @@
 ## Generic JDBC Persistence Service
 
 * [Introduction](JDBC-Persistence/#introduction)
-* [Database Table Schema](JDBC-Persistence/#5. Database Table Schema)
+* [Database Table Schema](JDBC-Persistence/#Database-Table-Schema)
 
 
 ### 1. Introduction
@@ -203,6 +203,7 @@ jdbc:tableUseRealItemNames=true
 ```
 
 ### 5. Database Table Schema
+### Database-Table-Schema
 The service will create a mapping table to link each item to a table, and a separate table is generated for each item.
 The item data tables includes time and data values - the data type dependents on the OpenHab item type and allows the item state to be recovered back into openHAB in the same way it was stored.
 With this *per Item* layout, the scalability and easy maintenance of the database is ensured, even if large amounts of data must be managed.
