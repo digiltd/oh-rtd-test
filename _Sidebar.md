@@ -54,6 +54,9 @@
 ***
 
 ## Community
+
+[(link to openHAB forum)](https://community.openhab.org/)
+
 * [[Support|Support-options-for-openHAB]]
 * [[News Archive|News-Archive]]
 * [[Presentations]]
