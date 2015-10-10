@@ -1,6 +1,6 @@
 # Content
 
-* [Installation via **apt-get**](Linux---OS-X#aptitude)
+* [Installation via **apt-get**](#apt-get)
 * [**Manual installation** (alternatively - including openHAB Designer)](Linux---OS-X#manual-installation-alternative-approach)
 * [Yocto Layer](Linux---OS-X#yocto-layer)
 * [Via Chef](Linux---OS-X#via-chef)
