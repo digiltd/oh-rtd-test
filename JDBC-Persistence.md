@@ -3,6 +3,9 @@
  * [Introduction](#introduction)
  * [Features](#features)
  * [Installing JDBC Persistence](#installing-jdbc-persistence)
+   * [New Installation](#new-installation)
+   * [Migrating from MySQL Bundle](#migrating-from-mysql-bundle)
+   * [JDBC Driver Files](#jdbc-driver-files)
  * [Configuring JDBC Persistence](#configuring-jdbc-persistence)
  * [Database Table Schema](#database-table-schema)
 
@@ -45,7 +48,7 @@ Currently the following databases are supported and tested:
 persistence:default=jdbc
 ```
 
-#### Migrating from MySQL bundle
+#### Migrating from MySQL Bundle
 If you are migrating from the MySQL persistence bundle to the JDBC persistence bundle, follow these steps:
   1. For installation of this persistence bundle, please follow the same steps as if you would [install a binding](Bindings).
   1. Copy the database-specific driver JAR file (see below) to your `${openhab.home}/addons` directory. 
@@ -59,21 +62,19 @@ jdbc:tableUseRealItemNames=false
 jdbc:tableIdDigitCount=0
 ```
 
-### JDBC driver files
-
+#### JDBC Driver Files
 Database | Tested File | Repository
 ------------- | ------------- | -------------
-Derby | derby-10.11.1.1.jar | http://mvnrepository.com/artifact/org.apache.derby/derby
-H2 | h2-1.4.189.jar | http://mvnrepository.com/artifact/com.h2database/h2
-HSQLDB | hsqldb-2.3.3.jar | http://mvnrepository.com/artifact/org.hsqldb/hsqldb
-MariaDB | mariadb-java-client-1.2.0.jar | http://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
-MySQL | mysql-connector-java-5.1.36.jar | http://mvnrepository.com/artifact/mysql/mysql-connector-java
-PostgreSQL | postgresql-9.4-1201-jdbc41.jar | http://mvnrepository.com/artifact/org.postgresql/postgresql
-SQLite | sqlite-jdbc-3.8.11.1.jar | http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+Derby | derby-10.11.1.1.jar | [Maven](http://mvnrepository.com/artifact/org.apache.derby/derby)
+H2 | h2-1.4.189.jar | [Maven](http://mvnrepository.com/artifact/com.h2database/h2)
+HSQLDB | hsqldb-2.3.3.jar | [Maven](http://mvnrepository.com/artifact/org.hsqldb/hsqldb)
+MariaDB | mariadb-java-client-1.2.0.jar | [Maven](http://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client)
+MySQL | mysql-connector-java-5.1.36.jar | [Maven](http://mvnrepository.com/artifact/mysql/mysql-connector-java)
+PostgreSQL | postgresql-9.4-1201-jdbc41.jar | [Maven](http://mvnrepository.com/artifact/org.postgresql/postgresql)
+SQLite | sqlite-jdbc-3.8.11.1.jar | [Maven](http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc)
 
 ### Configuring JDBC Persistence
-
-Configure persistence service in **JDBC Persistence Service** section in `openhab.cfg`.
+You can configure the persistence service in **JDBC Persistence Service** section in `openhab.cfg`.
 
 #### Minimal Configuration
 ```
@@ -90,7 +91,7 @@ jdbc:password=test
 #
 ```
 
-#### Migration from MYSQL bundle to JDBC bundle
+#### Migration from MYSQL Bundle to JDBC Bundle
 ```
 ############################ JDBC Persistence Service ##################################
 #
@@ -114,7 +115,7 @@ jdbc:tableIdDigitCount=0
 
 ```
 
-#### Full configuration
+#### Full Configuration
 ```
 ############################ JDBC Persistence Service ##################################
 # I N S T A L L   J D B C   P E R S I S T E N C E   S E R V I C E 
