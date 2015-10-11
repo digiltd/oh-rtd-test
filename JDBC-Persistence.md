@@ -2,8 +2,8 @@
 
  * [Introduction](#introduction)
  * [Features](#features)
- * [Installation](#user-content-installation)
- * [Configuration](#user-content-configuration)
+ * [Installing JDBC Persistence](#installing-jdbc-persistence)
+ * [Configuring JDBC Persistence](#configuring-jdbc-persistence)
  * [Database Table Schema](#database-table-schema)
 
 ### Introduction
@@ -34,7 +34,7 @@ Currently the following databases are supported and tested:
 - Code duplication by similar services is prevented.
 - Integrating a new SQL and JDBC enabled database is fairly simple.
 
-### Installation
+### Installing JDBC Persistence
 
 #### New Installation
   1. For installation of this persistence bundle, please follow the same steps as if you would [install a binding](Bindings).
@@ -71,7 +71,7 @@ MySQL | mysql-connector-java-5.1.36.jar | http://mvnrepository.com/artifact/mysq
 PostgreSQL | postgresql-9.4-1201-jdbc41.jar | http://mvnrepository.com/artifact/org.postgresql/postgresql
 SQLite | sqlite-jdbc-3.8.11.1.jar | http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
 
-### Configuration
+### Configuring JDBC Persistence
 
 Configure persistence service in **JDBC Persistence Service** section in `openhab.cfg`.
 
