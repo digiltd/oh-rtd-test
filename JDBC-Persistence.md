@@ -2,8 +2,8 @@
 
  * [Introduction](#introduction)
  * [Features](#features)
- * [Installation](#installation)
- * [Configuration](#configuration)
+ * [Installation](#user-content-installation)
+ * [Configuration](#user-content-configuration)
  * [Database Table Schema](#database-table-schema)
 
 ### Introduction
