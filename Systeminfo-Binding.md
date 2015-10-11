@@ -30,7 +30,7 @@ The SystemInformation binding does not include SIGAR native libraries currently.
 
 ### ARM-based devices
 
-ARM-based devices, such as Raspberry PI require manual setup. See [discussion](https://groups.google.com/forum/#!searchin/openhab/systeminfo/openhab/18C7FYpxWTQ/BT_iGycwcKsJ).
+ARM-based devices, such as Raspberry PI, require manual setup. See [discussion](https://groups.google.com/forum/#!searchin/openhab/systeminfo/openhab/18C7FYpxWTQ/BT_iGycwcKsJ).
 
 There are 3 pre-compiled libraries:
 
@@ -38,7 +38,7 @@ There are 3 pre-compiled libraries:
 * [Cubian](https://groups.google.com/group/openhab/attach/ab7030271be23f05/sigar-cubian.zip?part=0.2)
 * [Odroid-U3](https://groups.google.com/group/openhab/attach/9a73ad8e7b990530/sigar-odroid-u3.zip?part=0.1)
 
-The instructions below help you to install the library. The example uses raspbian and an ``apt-get`` installation as an example, please modify to suit your needs.
+The instructions below help you to install the library. The example uses raspbian and an ``apt-get`` installation of openHAB as an example, please modify to suit your needs.
 
 Download raspbian library to your RPi:
 
