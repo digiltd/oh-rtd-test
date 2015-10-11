@@ -1,4 +1,4 @@
-The page contains a number of examples for use with the [[Ecobee binding|Ecobee-Binding]] and [[action|Ecobee-Action]] bundles.
+The page contains a number of examples for use with the [[Ecobee binding|Ecobee-Binding]] and [action](https://github.com/openhab/openhab/wiki/Actions#ecobee-actions) bundles.
 
 ## Table of Contents
 
