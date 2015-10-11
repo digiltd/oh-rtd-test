@@ -328,6 +328,7 @@ If you don't see these entries, check your item file.
 * As mentioned earlier, every weather provider sends different data and not all available binding properties are set. If you want to know which provider sends which properties to optimize your items, switch the binding to [DEBUG mode](#debugging-and-tracing). At every refresh the weather data is logged to the logfile.
 
 * important note if you're installing from a debian based distribution: openhab-addon-action-weather and openhab-addon-binding-weather are not compatible with each other and will silently fail (at least since 1.7.1). If you made sure your openhab.cfg and your items are fine but you still don't see any ```ProviderConfig``` lines you might wan't to check the installed openhab addons.
+
 ### Download
 [weather-data](https://drive.google.com/file/d/0Bw7zjCgsXYnHWmV6cHRwWnhjSFU/view?usp=sharing) with icons and example layout file  
 [weather-data 1.8](https://drive.google.com/file/d/0Bw7zjCgsXYnHQTlGcndMR19DSUk/view?usp=sharing) with icons and example layout file **for openHab 1.8**  
