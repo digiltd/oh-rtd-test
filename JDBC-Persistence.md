@@ -1,57 +1,67 @@
-## Generic JDBC Persistence Service
+### Table of Contents
 
- 1. [Introduction](JDBC-Persistence/#1-introduction)
- 2. [Features](JDBC-Persistence/#2-features)
- 3. [Installation](JDBC-Persistence/#3-installation)
- 4. [Configuration](JDBC-Persistence/#4-configuration)
- 5. [Database Table Schema](JDBC-Persistence/#5-database-table-schema)
+ * [Introduction](#introduction)
+ * [Features](#features)
+ * [Installation](#installation)
+ * [Configuration](#configuration)
+ * [Database Table Schema](#database-table-schema)
 
-### 1. Introduction
+### Introduction
 
-This service allows you to persist state updates using several databases. 
-The *JDBC Persistence Service* is designed for a maximum of scalability. It is designed to store very large amounts of data and still over the years not to lose its speed.
-The generic design allows developers relatively easy to integrate other databases.
-It can act as a a replacement for the [MySQL-Persistence](https://github.com/openhab/openhab/wiki/MySQL-Persistence).
+This service allows you to persist state updates using one of several different underlying database services. 
+The **JDBC Persistence Service** is designed for a maximum of scalability. It is designed to store very large amounts of data, and still over the years not lose its speed.
+The generic design makes it relatively easy for developers to integrate other databases that have JDBC drivers.
+It can act as a replacement for the [MySQL-Persistence](https://github.com/openhab/openhab/wiki/MySQL-Persistence) bundle (with additional configuration in `openhab.cfg`).
 
-Currently the following databases are supported:
- - derby
- - h2
- - hsqldb
- - mariadb
- - mysql
- - postgresql
- - Sqlite
+Currently the following databases are supported and tested:
+ - [Apache Derby](https://db.apache.org/derby/)
+ - [H2](http://www.h2database.com/)
+ - [HSQLDB](http://hsqldb.org/)
+ - [MariaDB](https://mariadb.org/)
+ - [MySQL](https://www.mysql.com/)
+ - [PostgreSQL](http://www.postgresql.org/)
+ - [SQLite](https://www.sqlite.org/)
 
-### 2. Features
+### Features
 
-General:
+*General:*
 - Writing/reading information to relational database systems.
-- [Database Table Name Schema](JDBC-Persistence/#5-database-table-schema) can be reconfigured after creation.
-- Driver files do not increase the main JDBC Service Bundles file size. JDBC drivers are not compiled with into the bundle.
+- [Database Table Name Schema](#database-table-schema) can be reconfigured after creation.
+- JDBC drivers are not contained within the bundle and must be downloaded and added separately to your `${openhab.home}/addons` directory.
  
-For Developers:
-- Clearly separated Source for the database-specific part of OpenHab logic.
-- Code duplication by similar services can be prevented.
-- To integrate a new (SQL/JDBC enabled) database is fairly simple.
+*For Developers:*
+- Clearly separated source files for the database-specific part of openHAB logic.
+- Code duplication by similar services is prevented.
+- Integrating a new SQL and JDBC enabled database is fairly simple.
 
+### Installation
 
-### 3. Installation
+#### New Installation
+  1. For installation of this persistence bundle, please follow the same steps as if you would [install a binding](Bindings).
+  1. Copy the database-specific driver JAR file (see below) to your `${openhab.home}/addons` directory. 
+  1. Place a persistence file called `jdbc.persist` into the `${openhab.home}/configuration/persistence` folder. This has the standard format as described in [[Persistence]].
+  1. In `openhab.cfg` change `persistence:default` parameter to `jdbc`:
+```
+persistence:default=jdbc
+```
 
-New Installation:
-  1. For installation of this persistence bundle please follow the same steps as if you would [install a binding](Bindings).
-  2. Copy the Database driver file to *${openhab.home}/addons* folder. 
-  3. Place a persistence file called *jdbc.persist* into the *${openhab.home}/configuration/persistence* folder. This has the standard format as described in [[Persistence]].
-  4. In openhab.cfg change *persistence: default* parameter from 'mysql' to 'jdbc'.
+#### Migrating from MySQL bundle
+If you are migrating from the MySQL persistence bundle to the JDBC persistence bundle, follow these steps:
+  1. For installation of this persistence bundle, please follow the same steps as if you would [install a binding](Bindings).
+  1. Copy the database-specific driver JAR file (see below) to your `${openhab.home}/addons` directory. 
+  1. Remove the MySQL persistence bundle from your `${openhab.home}/addons` directory.
+  1. In your `${openhab.home}/configurations/persistence` directory, rename your `mysql.persist` file to `jdbc.persist`.
+  1. In your `openhab.cfg` file, add or change these configuration items:
+```
+persistence:default=jdbc
+jdbc:tableNamePrefix=Item
+jdbc:tableUseRealItemNames=false
+jdbc:tableIdDigitCount=0
+```
 
-The JDBC bundle the tables schema, generated MYSQL bundle.
-If you migrate from MYSQL bundle to JDBC bundle additionally do:
-  1. Set *jdbc:tableNamePrefix=Item*
-  2. Set *jdbc:tableUseRealItemNames=false* or comment it.
-  3. Set *jdbc:tableIdDigitCount=0*
+### JDBC driver files
 
-JDBC driver files can be found here:
-
-DATABASE | TESTET FILE/VERSION | LINK
+Database | Tested File | Repository
 ------------- | ------------- | -------------
 Derby | derby-10.11.1.1.jar | http://mvnrepository.com/artifact/org.apache.derby/derby
 H2 | h2-1.4.189.jar | http://mvnrepository.com/artifact/com.h2database/h2
@@ -61,12 +71,11 @@ MySQL | mysql-connector-java-5.1.36.jar | http://mvnrepository.com/artifact/mysq
 PostgreSQL | postgresql-9.4-1201-jdbc41.jar | http://mvnrepository.com/artifact/org.postgresql/postgresql
 SQLite | sqlite-jdbc-3.8.11.1.jar | http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
 
-  
-### 4. Configuration
+### Configuration
 
-Configure persistence service in *JDBC Persistence Service* section in openhab.cfg.
+Configure persistence service in **JDBC Persistence Service** section in `openhab.cfg`.
 
-Minimal Configuration Parameters:
+#### Minimal Configuration
 ```
 ############################ JDBC Persistence Service ##################################
 #
@@ -81,8 +90,7 @@ jdbc:password=test
 #
 ```
 
-
-Migration Configuration from MYSQL bundle to JDBC bundle:
+#### Migration from MYSQL bundle to JDBC bundle
 ```
 ############################ JDBC Persistence Service ##################################
 #
@@ -106,7 +114,7 @@ jdbc:tableIdDigitCount=0
 
 ```
 
-Full configuration:
+#### Full configuration
 ```
 ############################ JDBC Persistence Service ##################################
 # I N S T A L L   J D B C   P E R S I S T E N C E   S E R V I C E 
@@ -203,10 +211,11 @@ jdbc:tableUseRealItemNames=true
 #jdbc:enableLogTime=true
 
 ```
-### 5. Database Table Schema
+
+### Database Table Schema
 The service will create a mapping table to link each item to a table, and a separate table is generated for each item.
-The item data tables includes time and data values - the data type dependents on the OpenHab item type and allows the item state to be recovered back into openHAB in the same way it was stored.
-With this *per Item* layout, the scalability and easy maintenance of the database is ensured, even if large amounts of data must be managed. To rename existing Tables use Parameters *tableUseRealItemNames* and *tableIdDigitCount* in *JDBC Persistence Service* section of openhab.cfg
+The item data tables include time and data values.  The SQL data type used depends on the openHAB item type, and allows the item state to be recovered back into openHAB in the same way it was stored.
+With this *per-item* layout, the scalability and easy maintenance of the database is ensured, even if large amounts of data must be managed. To rename existing tables, use the parameters `jdbc:tableUseRealItemNames` and `jdbc:tableIdDigitCount` in the **JDBC Persistence Service** section of `openhab.cfg`.
 
  
  
