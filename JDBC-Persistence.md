@@ -8,6 +8,8 @@
    * [JDBC Driver Files](#jdbc-driver-files)
  * [Configuring JDBC Persistence](#configuring-jdbc-persistence)
  * [Database Table Schema](#database-table-schema)
+ * [Number Precision](#number-precision)
+ * [Rounding results](#rounding-results)
 
 ### Introduction
 
@@ -218,5 +220,8 @@ The service will create a mapping table to link each item to a table, and a sepa
 The item data tables include time and data values.  The SQL data type used depends on the openHAB item type, and allows the item state to be recovered back into openHAB in the same way it was stored.
 With this *per-item* layout, the scalability and easy maintenance of the database is ensured, even if large amounts of data must be managed. To rename existing tables, use the parameters `jdbc:tableUseRealItemNames` and `jdbc:tableIdDigitCount` in the **JDBC Persistence Service** section of `openhab.cfg`.
 
- 
- 
+### Number Precision
+Default openHab number items are persisted with sql datatype `double`. Internally openHab uses `BigDecimal`. If better numerical precision is needed, for example set `jdbc:sqltype.NUMBER = DECIMAL(max digits, max decimals)`  in the **JDBC Persistence Service** section of `openhab.cfg`, then on java side the service works with `BigDecimal` without type conversion. If more come decimals as `max decimals` provides, this persisted value is rounded mathematically correct. The sql types `DECIMAL ` or  `NUMERIC` are precise, but to work with `DOUBLE` is faster.
+
+### Rounding results
+The results of database queries of number items are rounded to three decimal places by default. With `jdbc:numberDecimalcount` in the **JDBC Persistence Service** section of `openhab.cfg` decimals can be changed. Especially if sql types `DECIMAL ` or  `NUMERIC` are used for `jdbc:sqltype.NUMBER`, rounding can be disabled by setting `jdbc:numberDecimalcount=-1`. 
