@@ -181,6 +181,7 @@ ping.checkVitality("google.com", 80, 100)
 * PersistenceExtensions (shortcut: "pe") 
 * oh
 * State
+* HistoricItem
 
 ##### OpenHab Type-classes
 * CallType
@@ -195,6 +196,7 @@ ping.checkVitality("google.com", 80, 100)
 * StopMoveType
 * UpDownType
 * StringType
+* UndefType
 
 ##### Java classes
 * DateTime
