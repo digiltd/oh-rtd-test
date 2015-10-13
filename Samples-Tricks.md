@@ -264,7 +264,7 @@ Make the script executable and configure it to run on boot.
 
 Now whenever your Linux machine boots openHAB will be automatically started.
 
-Note: You may find that the script will not run on startup because it requires a parameter passed at the command line. Use the following to edit the rc.local.
+Note: You may find that the script will not run on startup because it requires a parameter passed at the command line. Use the following to edit the rc.local file.
 ```
 sudo nano /etc/rc.local
 ```
