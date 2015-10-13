@@ -264,6 +264,16 @@ Make the script executable and configure it to run on boot.
 
 Now whenever your Linux machine boots openHAB will be automatically started.
 
+Note: You may find that the script will not run on startup because it requires a parameter passed at the command line. Use the following to edit the rc.local.
+```
+sudo nano /etc/rc.local
+```
+Then add these lines anywhere above the exit 0
+```
+# start openhab
+/etc/init.d/openhab start
+```
+Save it and exit.  That should do it.
 
 ### How to configure openHAB as (Gentoo) openRC service
 
