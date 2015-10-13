@@ -44,7 +44,7 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 
 Stay up to date with rpi-update (https://github.com/Hexxeh/rpi-update/)
 
-###### tmpfs on SD card based devices
+##### tmpfs on SD card based devices
 [This article](http://knx-user-forum.de/forum/supportforen/openhab/25012-kontinuierliche-schreibaktivit%C3%A4ten-openhab) has tracked down the reason for the high I/O load you may experience when running openHAB on devices which use a SD card as storage media for the root (and /tmp) filesystem.
 Because the forum article is in german, here is a short summary:
 
