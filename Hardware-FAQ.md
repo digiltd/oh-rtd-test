@@ -44,6 +44,14 @@ Optionally, a complete JDK 7 or 8 for Linux ARM v6/v7 Hard Float ABI is availabl
 
 Stay up to date with rpi-update (https://github.com/Hexxeh/rpi-update/)
 
+###### tmpfs on SD card based devices
+[This article](http://knx-user-forum.de/forum/supportforen/openhab/25012-kontinuierliche-schreibaktivit%C3%A4ten-openhab) has tracked down the reason for the high I/O load you may experience when running openHAB on devices which use a SD card as storage media for the root (and /tmp) filesystem.
+Because the forum article is in german, here is a short summary:
+
+* The Apache Fileinstall Bundle is used to continuously check the $OPENHAB_HOME/addons folder in openHAB
+* The bundle writes nearly continously to _/tmp/fileinstall-..._
+* When uncommenting/setting **RAMTMP=yes** in _/etc/default/tmpfs_ these I/O operations will be RAM access rather than slow SD card I/O
+
 ##### Change GPU memory usage
 For headless, reduce memory down to 16, this can be done by using **raspi-config**
 
