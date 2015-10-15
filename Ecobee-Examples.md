@@ -94,11 +94,11 @@ rule TempHold
 when
   Item desiredTemp received command
 then
-  switch (hvacMode.state.toString) {
-    case "heat" : desiredHeat.sendCommand(receivedCommand);
-    case "cool" : desiredCool.sendCommand(receivedCommand);
+  switch hvacMode.state.toString {
+    case "heat" : desiredHeat.sendCommand(receivedCommand)
+    case "cool" : desiredCool.sendCommand(receivedCommand)
     case "auto" ,
-    case "off"  : logWarn("TempHold", "in " + hvacMode.state.toString + " mode, single setpoint ignored");
+    case "off"  : logWarn("TempHold", "in " + hvacMode.state.toString + " mode, single setpoint ignored")
   }
 end
 
