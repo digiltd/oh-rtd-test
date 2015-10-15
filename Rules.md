@@ -11,6 +11,7 @@ How to work with automation rules
     * [Time-based Triggers] (Rules#time-based-triggers)
     * [System-based Triggers] (Rules#system-based-triggers)
   * [Implicit Variables inside the Execution Block] (Rules#implicit-variables-inside-the-execution-block)
+  * [Using the same Variable name across separate rule files] (Rules#using-the-same-variable-name-across-separate-rule-files)
   * [Concurrency Guard] (Rules#concurrency-guard)
   * [Logging] (Rules#logging)
   * [Example] (Rules#example)
@@ -123,6 +124,16 @@ Besides the implicitly available variables for items and commands/states (see th
 
 - Every rule that has at least one command event trigger, will have the variable `receivedCommand` available, which can be used inside the execution block.
 - Every rule that has at least one status change event trigger, will have the variable `previousState` available, which can be used inside the execution block.
+
+## Using the same Variable name across separate rule files
+
+It is worth being aware that there "could" be issues (despite what the documentation says) when using the same variable name in separate rule files. 
+
+Taken from [1121](https://github.com/openhab/openhab/issues/1121) Developer Kai says:
+
+> The theory is: Variables are global to all rules within one rule file and they are NOT visible to rules in other files. So it should be fine to use the same name for variables in different files.
+> In practice, openHAB has afaik a bug regarding this and there actually ARE side effects if you use the same variable name across different files.
+> Note that this has been fixed in ESH (https://bugs.eclipse.org/bugs/show_bug.cgi?id=423532), so in openHAB 2.0, this problem should not exist anymore.
 
 ## Concurrency Guard
 If a rule triggers on UI events it may be necessary to guard against concurrency.
