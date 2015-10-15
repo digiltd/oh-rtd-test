@@ -14,7 +14,7 @@ _**Note:** This Binding is available in 1.7 and later releases._
 
 ## Introduction
 
-Ecobee Inc. of Toronto, Canada, sells a range of Wi-Fi enabled thermostats, principally in the Americas.  The EMS, EMS Si, Smart, Smart Si and ecobee3 models are supported by this binding, which communicates with the Ecobee API over a secure, RESTful API to Ecobee's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, changing the backlight intensity, and even sending textual messages to one or a group of thermostats, can be accomplished through this binding (and its accompanying action bundle available in 1.8, or before then [via CI builds](https://github.com/openhab/openhab/pull/2755) or [here](https://www.dropbox.com/sh/pcxh3uembjk1vsy/AABO98W7bltNzhtADA12mgfCa?dl=0)).
+Ecobee Inc. of Toronto, Canada, sells a range of Wi-Fi enabled thermostats, principally in the Americas.  The EMS, EMS Si, Smart, Smart Si and ecobee3 models are supported by this binding, which communicates with the [Ecobee API](https://www.ecobee.com/home/developer/api/documentation/v1/index.shtml) over a secure, RESTful API to Ecobee's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, changing the backlight intensity, and even sending textual messages to one or a group of thermostats, can be accomplished through this binding (and its accompanying action bundle available in 1.8, or before then [via CI builds](https://github.com/openhab/openhab/pull/2755) or [here](https://www.dropbox.com/sh/pcxh3uembjk1vsy/AABO98W7bltNzhtADA12mgfCa?dl=0)).
 
 In order to use this binding, you must have already registered your thermostat(s) with Ecobee, registered a new app as a [developer](https://www.ecobee.com/developers/), and then login to your [web portal](https://www.ecobee.com/).
 
@@ -371,6 +371,17 @@ Here are some examples of valid binding configuration strings, as you would defi
 
 	Number remoteSensors_Kitchen_capability_temperature "Kitchen temp. [%.1f °F]" (gRemoteSensors) { ecobee="<[123456789012#remoteSensors(Kitchen).capability(temperature).value]" }
 	Switch remoteSensors_Bedroom_capability_occupancy "Bedroom occu. [%s]"        (gRemoteSensors) { ecobee="<[123456789012#remoteSensors(Bedroom).capability(occupancy).value]" }
+	
+	Group gEvents (All)
+	
+	String firstEvent_type "First event type [%s]"                                (gEvents)       { ecobee="<[123456789012#events[0].type]" }
+	String firstEvent_name "First event name [%s]"                                (gEvents)       { ecobee="<[123456789012#events[0].name]" }
+	String firstEvent_climate "First event climate [%s]"                          (gEvents)       { ecobee="<[123456789012#events[0].holdClimateRef]" }
+
+	/* runningEvent.* is first event marked running, available as of openHAB 1.8 */
+	String runningEvent_type "Running event type [%s]"                            (gEvents)       { ecobee="<[123456789012#runningEvent.type]" }
+	String runningEvent_name "Running event name [%s]"                            (gEvents)       { ecobee="<[123456789012#runningEvent.name]" }
+	String runningEvent_climate "Running event climate [%s]"                      (gEvents)       { ecobee="<[123456789012#runningEvent.holdClimateRef]" }
 
 The mapping of [weather symbol numbers](https://www.ecobee.com/home/developer/api/documentation/v1/objects/WeatherForecast.shtml) to their meanings can be specified if you place the following in the file `configurations/transform/ecobeeWeatherSymbol.map`:
 
@@ -478,3 +489,4 @@ To configure DEBUG logging for the Ecobee binding to be sent to a separate file,
 
 * Added an Action bundle that allows users to perform more complex actions, like setting holds for different durations to temperature setpoints or comfort settings, to send messages to the thermostat's display, to resume the normal program, create vacation events, etc. ([#2755](https://github.com/openhab/openhab/pull/2755))
 * Changed default HTTP request timeout from 10 seconds (10000) to 20 seconds (20000) due to frequent reports of repeated timeouts.  Also added optional `ecobee:timeout` parameter to openhab.cfg in case the user would like a longer or shorter HTTP request timeout. ([#3151](https://github.com/openhab/openhab/pull/3151))
+* Added `runningEvent` binding config strings so that your items can see values for the currently running event (like a temperature, climate/comfort setting, vacation or QuickSave hold, etc.) ([#3298](https://github.com/openhab/openhab/pull/3298))
