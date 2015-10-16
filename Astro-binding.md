@@ -20,7 +20,7 @@ astro:interval=nnn
 **Important:** type and property are case sensitive! So enter the values exactly as shown.
 
 * **planet** `sun`
-    * **type** `rise, set, noon, night, morningNight, astroDawn, nauticDawn, civilDawn, astroDusk, nauticDusk, civilDusk, eveningNight, daylight`
+    * **type** `rise, set, noon, night, morningNight, astroDawn, nauticDawn, civilDawn, astroDusk, nauticDusk, civilDusk, eveningNight, daylight` ([Order of these types](https://github.com/openhab/openhab/wiki/Astro-Binding---Schedules))
         * **property** `start, end` (DateTime), `duration` (Number)
     * **type** `position`
         * **property** `azimuth, elevation` (Number)
