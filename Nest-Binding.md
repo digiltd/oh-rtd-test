@@ -13,7 +13,7 @@ _**Note:** This Binding is available in 1.7 and later releases._
 
 ## Introduction
 
-[Nest Labs](https://nest.com/) developed the Wi-Fi enabled Nest Learning Thermostat and the Nest Protect Smoke+CO detector.  These devices are supported by this binding, which communicates with the Nest API over a secure, RESTful API to Nest's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, monitoring and changing your "home/away" status, and monitoring your Nest Protects can be accomplished through this binding.
+[Nest Labs](https://nest.com/) developed the Wi-Fi enabled Nest Learning Thermostat, the Nest Protect Smoke+CO detector, and the Nest Cam.  These devices are supported by this binding, which communicates with the Nest API over a secure, RESTful API to Nest's servers. Monitoring ambient temperature and humidity, changing HVAC mode, changing heat or cool setpoints, monitoring and changing your "home/away" status, and monitoring your Nest Protects and Cams can be accomplished through this binding.
 
 >For installation of the binding JAR on your system, please see the Wiki page [Bindings](Bindings).
 
@@ -48,7 +48,7 @@ An optional _refresh interval_ setting may also be specified, via the `nest:refr
 
 ## Item configuration
 
-In order to bind an Item to a Nest Learning Thermostat's or Nest Protect's properties, you need to provide configuration settings. The easiest way to do so is to add some binding information in your Item file (in  `configurations/items/`). The syntax for the Nest binding configuration string is explained below.
+In order to bind an Item to a supported Nest product's properties, you need to provide configuration settings by adding some binding information in your .item file (in  `configurations/items/`). The syntax for the Nest binding configuration string is explained below.
 
 Nest bindings start with a `<`, `>` or `=`, to indicate if the Item receives values from the API (in binding), sends values to the API (out binding), or both (bidirectional binding), respectively.
 
@@ -90,12 +90,12 @@ When you update the device with one of the four possible valid strings, you will
 
 Below are some examples of valid binding configuration strings, as you would define in the your .items file.  The examples represent the current set of available properties, and for each property, the example shows if it is an in-binding only (read-only), an out-binding only (write-only), or a bidirectional (read/write) binding only.  Note, however, that if a read/write property is only authorized for read-only access in the client you authorized, an attempt to change its value will fail.
 
-In this example, there is a Nest structure called `Home`, a Thermostat called `Upstairs` and a Smoke/CO Sensor called `Master Bedroom`
+In this example, there is a Nest structure called `Home`, a Thermostat called `Upstairs`, a Smoke/CO Sensor called `Master Bedroom` and a Nest Cam called `Dining Room`.
 
 ```
 /* Nest binding Items */
 
-DateTime Nest_last_connection "Last Nest Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM]" {nest="<[last_connection]"}
+DateTime Nest_last_connection "Last Nest Connection [%1$tm/%1$td %1$tH:%1$tM]" {nest="<[last_connection]"}
 
 /* Structures - change Home to your structure's name */
 
@@ -138,7 +138,7 @@ DateTime NestTStatUpstairs_fan_timer_timeout "Fan Timer Timeout [%1$tm/%1$td/%1$
 String   NestTStatUpstairs_name_long "Name Long [%s]"                                    {nest="<[thermostats(Upstairs).name_long]"}
 Switch   NestTStatUpstairs_is_online "Is Online [%s]"                                    {nest="<[thermostats(Upstairs).is_online]"}
 DateTime NestTStatUpstairs_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[thermostats(Upstairs).last_connection]"}
-/* Added in OpenHAB 1.7.1: */
+/* Added in openHAB 1.7.1: */
 String   NestTStatUpstairs_hvac_state "HVAC State [%s]"                                  {nest="<[thermostats(Upstairs).hvac_state]"}
 
 /* Smoke+CO detectors - change Master Bedroom to your Smoke+CO detector's name */
@@ -158,6 +158,29 @@ String   NestSmokeMaster_ui_color_state "UI Color State [%s]"               {nes
 Switch   NestSmokeMaster_is_manual_test_active "Is Manual Test Active [%s]" {nest="<[smoke_co_alarms(Master Bedroom).is_manual_test_active]"}
 DateTime NestSmokeMaster_last_manual_test_time "Last Manual Test Time [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[smoke_co_alarms(Master Bedroom).last_manual_test_time]"}
 
+/* Nest Cams (available as of openHAB 1.8) -- changing Dining Room to your Cam's name */
+
+String NestCamDeviceId "CamDeviceId [%s]"                                   {nest="<[cameras(Dining Room).device_id]"}
+String NestCamSWVersion "CamSWVersion [%s]"                                 {nest="<[cameras(Dining Room).software_version]"}
+String NestCamName "CamName [%s]"                                           {nest="<[cameras(Dining Room).name]"}
+String NestCamNameLong "CamNameLong [%s]"                                   {nest="<[cameras(Dining Room).name_long]"}
+Switch NestCamIsOnline "CamIsOnline [%s]"                                   {nest="<[cameras(Dining Room).is_online]"}
+Switch NestCamIsStreaming "CamIsStreaming [%s]"                             {nest="=[cameras(Dining Room).is_streaming]"}
+Switch NestCamIsAudioInputEnabled "CamIsAudioInputEnabled [%s]"             {nest="<[cameras(Dining Room).is_audio_input_enabled]"}
+DateTime NestCamLastIsOnlineChange "CamLastIsOnlineChange [%1$tm/%1$td %1$tH:%1$tM]" {nest="<[cameras(Dining Room).last_is_online_change]"}
+Switch NestCamIsVideoHistoryEnabled "CamIsVideoHistoryEnable [%s]"          {nest="<[cameras(Dining Room).is_video_history_enabled]"}
+String NestCamWebUrl "CamWebUrl [%s]"                                       {nest="<[cameras(Dining Room).web_url]"}
+String NestCamAppUrl "CamAppUrl [%s]"                                       {nest="<[cameras(Dining Room).app_url]"}
+/* All last_event.* binding config strings require a Nest Aware with Video History subscription */
+Switch NestCamLastEventHasSound "CamLastEventHasSound [%s]"                 {nest="<[cameras(Dining Room).last_event.has_sound]"}
+Switch NestCamLastEventHasMotion "CamLastEventHasMotion [%s]"               {nest="<[cameras(Dining Room).last_event.has_motion]"}
+DateTime NestCamLastEventStartTime "CamLastEventStartTime [%1$tm/%1$td %1$tH:%1$tM]" {nest="<[cameras(Dining Room).last_event.start_time]"}
+DateTime NestCamLastEventEndTime "CamLastEventEndTime [%1$tm/%1$td %1$tH:%1$tM]" {nest="<[cameras(Dining Room).last_event.end_time]"}
+DateTime NestCamLastEventUrlsExpireTime "CamLastEventUrlsExpireTime [%1$tm/%1$td %1$tH:%1$tM]" {nest="<[cameras(Dining Room).last_event.urls_expire_time]"}
+String NestCamLastEventWebUrl "CamLastEventWebUrl [%s]"                     {nest="<[cameras(Dining Room).last_event.web_url]"}
+String NestCamLastEventAppUrl "CamLastEventAppUrl [%s]"                     {nest="<[cameras(Dining Room).last_event.app_url]"}
+String NestCamLastEventImageUrl "CamLastEventImageUrl [%s]"                 {nest="<[cameras(Dining Room).last_event.image_url]"}
+String NestCamLastEventAnimatedImageUrl "CamLastEventAnimatedImageUrl [%s]" {nest="<[cameras(Dining Room).last_event.animated_image_url]"}
 
 /* You can reference a device in a specific structure in the case that there are duplicate names 
  * in multiple structures. If you have duplicate-named thermostats or smoke+CO detectors in the
@@ -191,7 +214,7 @@ In order to configure logging for this binding to be generated in a separate fil
    </encoder>
 </appender>
     
-<!-- Choose level ERROR, WARN, INFO, DEBUG or TRACE for detailedlogging -->
+<!-- Choose level ERROR, WARN, INFO, DEBUG or TRACE for detailed logging -->
 <logger name="org.openhab.binding.nest" level="TRACE" additivity="false">
    <appender-ref ref="NESTFILE" />
 </logger>
@@ -211,7 +234,12 @@ Number NestCondo_temp "Condo Temperature [%.1f °F]" {nest="=[thermostats(Dining
 ```
 
 ## Change Log
-### OpenHAB 1.7.1
+### openHAB 1.7.1
 
 * Added the property `hvac_state` that was [added to the Nest API in May 2015](https://developer.nest.com/documentation/cloud/release-notes).  Please note that if you created your Nest client before the addition of this property to the API, your client's permissions may be set to "Thermostat read/write v2," which does not have access to this new property.  To access it, you will have to edit your [client](https://developer.nest.com/clients) to update the permission to v3.  Click the little gear icon to edit your client, click the Change Permissions button, and generate a new `nest:pin_code` for your nest.com account to put into `openhab.cfg` to replace the older `nest:pin_code`. ([#2659](https://github.com/openhab/openhab/pull/2659))
-* Very rarely, some updates to DateTime items would attempt to echo back as changes to the Nest API, generating log errors ([#2930](https://github.com/openhab/openhab/pull/2930))
+* Very rarely, some updates to DateTime items would attempt to echo back as changes to the Nest API, generating log errors. ([#2930](https://github.com/openhab/openhab/pull/2930))
+
+### openHAB 1.8.0
+
+* Added support for monitoring and turning on or off streaming from your Nest Cams. ([#3232](https://github.com/openhab/openhab/pull/3232))
+
