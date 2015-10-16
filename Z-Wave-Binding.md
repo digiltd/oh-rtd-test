@@ -240,6 +240,9 @@ DEVICE_ID<br/>
 DEVICE_TYPE<br/>
 LAST_UPDATE<br/>
 </td></tr>
+<tr><td>INDICATOR</td>
+<td>Show the state, or level of a device, usually through a button LED, or display on the actual device</td>
+<td>If you use the bit=n (n between 0 and 8) parameter then you can bind Switch Items to individual bits in the indicator value which can be used to turn on and off status LEDs on device buttons for instance.</td>
 </table>
 
 ## Parameters that can be added to any item
