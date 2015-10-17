@@ -1,5 +1,3 @@
-# DSC Alarm Action
-
 ## Introduction
 
 This bundle exposes openHAB Rule extensions to be used with the [DSC Alarm Binding](https://github.com/openhab/openhab/wiki/DSC-Alarm-Binding).
