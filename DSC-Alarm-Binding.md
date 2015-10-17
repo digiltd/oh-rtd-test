@@ -1,4 +1,5 @@
 This is an OpenHAB binding for a DSC PowerSeries Alarm System utilizing the EyezOn Envisalink 3/2DS interface or the DSC IT-100 RS-232 interface.
+
 ## Introduction
 
 The DSC PowerSeries Alarm System is a popular do-it-yourself home security system, which can be monitored and controlled remotely through a standard web-browser or mobile device.
@@ -448,6 +449,20 @@ Frame label="Alarm System" {
 
 ## Change Log
 
+### OpenHAB 1.6.0
+
+* Initial commit of the DSC Alarm Binding. ([#1334](https://github.com/openhab/openhab/pull/1334))
+
+### OpenHAB 1.7.0
+
+* Added several on/off switch items to help with rule creation.  Added a binding configuration option to adjust the polling period performed by the binding. ([#1763](https://github.com/openhab/openhab/pull/1763))
+* Features added include: renamed item 'panel_time_date' to 'panel_time'; added item 'panel_time_stamp' to allow the receiving of time stamped messages from the DSC Alarm system; added item 'panel_time_broadcast' to allow the reception of DSC Alarm system time broadcasts for display.  Fixes include: item 'panel_time_date' (renamed to 'panel_time') was not working at all; added several methods to binding class to eliminate extra 'for' loop in message receive thread; merged user code fix for the IT-100 serial interface from ([#2203](https://github.com/openhab/openhab/pull/2203)). ([#2320](https://github.com/openhab/openhab/pull/2320))
+
+
 ### OpenHAB 1.8.0
 
-* Added a DSC Alarm Action bundle that allows users to send DSC Alarm Commands directly to the alarm system. ([#3266](https://github.com/openhab/openhab/pull/3266))
+* Added several new item types to allow the display of trouble conditions on the DSC Alarm.  A new item added to show which opening/closing method was used.  Added a configuration option to allow the suppression of acknowledgement messages from the DSC Alarm system. ([#2893](https://github.com/openhab/openhab/pull/2893))
+* Added user code to user opening/closing messages. ([#2964](https://github.com/openhab/openhab/pull/2964))
+* Added a DSC Alarm Action bundle that allows users to send DSC Alarm Commands directly to the alarm system from a rule. ([#3266](https://github.com/openhab/openhab/pull/3266))
+
+
