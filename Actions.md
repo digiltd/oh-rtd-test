@@ -14,6 +14,7 @@ Since openHAB 1.3.0, not all actions are part of the core runtime distribution a
   * [Other](#other-actions)
 * [Add-on Actions](#add-on-actions)
   * [Astro](#astro-actions)
+  * [[DSC Alarm|DSC-Alarm-Action]]
   * [Ecobee](#ecobee-actions)
   * [[Harmony Hub|Logitech-Harmony-Hub-Binding#actions]]
   * [[Homematic|Homematic-Binding#homematic-action]]
