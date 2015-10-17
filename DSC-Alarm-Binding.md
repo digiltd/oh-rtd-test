@@ -456,7 +456,7 @@ Frame label="Alarm System" {
 ### OpenHAB 1.7.0
 
 * Added several on/off switch items to help with rule creation.  Added a binding configuration option to adjust the polling period performed by the binding. ([#1763](https://github.com/openhab/openhab/pull/1763))
-* Features added include: renamed item 'panel_time_date' to 'panel_time'; added item 'panel_time_stamp' to allow the receiving of time stamped messages from the DSC Alarm system; added item 'panel_time_broadcast' to allow the reception of DSC Alarm system time broadcasts for display.  Fixes include: item 'panel_time_date' (renamed to 'panel_time') was not working at all; added several methods to binding class to eliminate extra 'for' loop in message receive thread; merged user code fix for the IT-100 serial interface from ([#2203](https://github.com/openhab/openhab/pull/2203)). ([#2320](https://github.com/openhab/openhab/pull/2320))
+* Features added include: renamed item 'panel_time_date' to 'panel_time'; added item 'panel_time_stamp' to allow the receiving of time stamped messages from the DSC Alarm system; added item 'panel_time_broadcast' to allow the reception of DSC Alarm system time broadcasts for display.  Fixes include: item 'panel_time_date' (renamed to 'panel_time') was not working at all; added several methods to binding class to eliminate extra 'for' loop in message receive thread; included user code fix for the IT-100 serial interface from [#2203](https://github.com/openhab/openhab/pull/2203). ([#2320](https://github.com/openhab/openhab/pull/2320))
 
 
 ### OpenHAB 1.8.0
