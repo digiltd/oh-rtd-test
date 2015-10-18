@@ -1,6 +1,6 @@
-This is an OpenHAB binding for a DSC PowerSeries Alarm System utilizing the EyezOn Envisalink 3/2DS interface or the DSC IT-100 RS-232 interface.
-
 ## Introduction
+
+This is an OpenHAB binding for a DSC PowerSeries Alarm System utilizing the EyezOn Envisalink 3/2DS interface or the DSC IT-100 RS-232 interface.
 
 The DSC PowerSeries Alarm System is a popular do-it-yourself home security system, which can be monitored and controlled remotely through a standard web-browser or mobile device.
 
