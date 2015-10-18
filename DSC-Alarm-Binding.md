@@ -49,7 +49,7 @@ There are some configuration settings that you can set in the openhab.cfg file. 
 # Set to 'true' (default = 'false') to suppress the display of Acknowledgement messages, such as
 #   the Command Acknowledge message after a poll command is sent.
 # Leave undefined if using default.
-#dscalarm:suppressAcknowledgementMsgs=true
+#dscalarm:suppressAcknowledgementMsgs=
 ```
 
 The primary setting will be the IP address of the EyezOn Envisalink 3/2DS interface or the serial port name of the DSC IT-100.  The *password*, *usercode*, *baud*, *pollPeriod*, and *suppressAcknowledgementMsgs* settings are optional.  If not set, the binding will resort to the system defaults.
