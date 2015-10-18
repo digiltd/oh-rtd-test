@@ -19,7 +19,7 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 **Get the Beta code**
 
 1. Create a local clone of the dbadia openHAB repository by running "git clone https://github.com/dbadia/openhab" in a suitable folder.
-1. Change to the 1.6 branch by running "git checkout -b security-beta-test origin/security-beta-test"
+1. Change to the beta testing branch by running "git checkout -b security-beta-test origin/security-beta-test"
 1. Continue with step 2 at https://github.com/openhab/openhab/wiki/IDE-Setup 
 
 
