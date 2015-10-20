@@ -12,7 +12,7 @@ Many zwave devices communicate of a basic radio protocol which can be intercepte
 - Reports battery percentage
 
 **What it doesn't do (yet!)**  not a wishlist, just things that are necessary for the bare minimum functionality that aren't working yet
-- Update Lock status (when someone manually opens/closes)
+- Update Lock status - status updates but icon is (sometimes?) backwards
 - Trying to perform lock/unlock commands too quickly will result in failure.  Ideally some sort of message would appear preventing the user from doing this
 
 ##Instructions
