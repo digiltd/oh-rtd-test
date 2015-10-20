@@ -15,7 +15,7 @@ To access Withings data the user needs to authenticate via an OAuth 1.0 flow. Th
     # Execute 'withings:startAuthentication "<accountId>"' on OSGi console.
     #########################################################################################
 
-In order to start the authentication process the user needs to execute `withings:startAuthentication <accountId>` on the OSGi console. The binding will print the following lines to the console
+In order to start the authentication process the user needs to execute `withings:startAuthentication <accountId>` on the OSGi console whereas `accountId` is an arbitrary key also used in the `openhab.cfg` in order to differentiate between the different credentials per withings account. The binding will print the following lines to the console
 
     #########################################################################################
     # Withings Binding Setup: 
