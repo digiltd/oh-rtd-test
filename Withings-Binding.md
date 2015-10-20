@@ -62,13 +62,13 @@ By default the Withings data is requested every 60 minutes. The interval can be 
 
 ## Advanced OAuth Configuration
 
-The Withings Binding uses a default application registration to request an OAuth token. The application belongs to the binding developer. If the user wants to use his own application, the binding can be configured to use another OAuth consumer key and consumer secret. Please read the Withings documentation how to register an application (http://oauth.withings.com/en/partner/dashboard). After the application was created, Withings will generate a consumer key and secret. The redirect url must be configured, too. To change the OAuth parameters for the Withings binding the user can specify the following values in the '''openhab.cfg''' :
+The Withings Binding uses a default application registration to request an OAuth token. The application belongs to the binding developer. If the user wants to use his own application, the binding can be configured to use another OAuth consumer key and consumer secret. Please read the Withings documentation how to register an application (http://oauth.withings.com/en/partner/dashboard). After the application was created, Withings will generate a consumer key and secret. The redirect url must be configured, too. To change the OAuth parameters for the Withings binding the user can specify the following values in the `openhab.cfg` :
 
     withings-oauth:consumerKey="<your consumer key>"
     withings-oauth:consumerSecret="<your consumer secret>"
     withings-oauth:redirectUrl="<your redirect url>"
 
-Furthermore: if there were no values stored into openhab.cfg yet the Binding itself saves it's configuration into the file '''services/withings-oauth.cfg'''. Since this specific file is only meant to configure withings values no further prefix is needed. An example file look like:
+Furthermore: if there were no values stored into openhab.cfg yet the Binding itself saves it's configuration into the file `services/withings-oauth.cfg`. Since this specific file is only meant to configure withings values no further prefix is needed. An example file look like:
 
     thomas.token=74c0e77021ef5be1ec8dcb4dd88c1xckusadwe92f9541c86799dcbbfcb8fc8b236
     thomas.tokensecret=25f1098209xns511711b3287288f90740ff45532cef91658c5043db0b0e0c851c
@@ -78,7 +78,7 @@ Furthermore: if there were no values stored into openhab.cfg yet the Binding its
 
 ## Multiple accounts
 
-If one own multiple withings accounts these accounts must be configured specifically. In addition to the above mentioned '''openhab.cfg''' configuration, an '''accountId''' can be specified.
+If one own multiple withings accounts these accounts must be configured specifically. In addition to the above mentioned `openhab.cfg` configuration, an `accountId` can be specified.
 
     withings-oauth:thomas.token=74c0e77021ef5be1ec8dcb4dd88c1xckusadwe92f9541c86799dcbbfcb8fc8b236
     withings-oauth:thomas.tokensecret=25f1098209xns511711b3287288f90740ff45532cef91658c5043db0b0e0c851c
