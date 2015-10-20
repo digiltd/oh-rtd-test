@@ -12,19 +12,19 @@ To access Withings data the user needs to authenticate via an OAuth 1.0 flow. Th
 
     #########################################################################################
     # Withings Binding needs authentication.
-    # Execute 'withings:startAuthentication' on OSGi console.
+    # Execute 'withings:startAuthentication "<accountId>"' on OSGi console.
     #########################################################################################
 
-In order to start the authentication process the user needs to execute `withings:startAuthentication` on the OSGi console. The binding will print the following lines to the console
+In order to start the authentication process the user needs to execute `withings:startAuthentication <accountId>` on the OSGi console. The binding will print the following lines to the console
 
     #########################################################################################
     # Withings Binding Setup: 
     # 1. Open URL 'http://<auth-url>//' in your webbrowser
     # 2. Login, choose your user and allow openHAB to access your Withings data
-    # 3. Execute 'withings:finishAuthentication "<verifier>" "<user-id>" on OSGi console"
+    # 3. Execute 'withings:finishAuthentication "<accountId>" "<verifier>" "<user-id>"' on OSGi console
     #########################################################################################
 
-So the user needs to open the shown url in a web browser, login with his withings credentials, confirm that openHAB is allowed to access his data and at the end he is redirected to a page on github. There the user finds the command `withings:finishAuthentication "<verifier>" "<user-id>"` with filled parameters that is needed to finish the authentication. 
+So the user needs to open the shown url in a web browser, login with his withings credentials, confirm that openHAB is allowed to access his data and at the end he is redirected to a page on github. There the user finds the command `withings:finishAuthentication "<accountId>" "<verifier>" "<user-id>"` with filled parameters that is needed to finish the authentication. 
 
 The binding stores the OAuth tokens, so that the user does not need to login again. From this point the binding is successfully configured.
 
@@ -62,14 +62,26 @@ By default the Withings data is requested every 60 minutes. The interval can be 
 
 ## Advanced OAuth Configuration
 
-The Withings Binding uses a default application registration to request an OAuth token. The application belongs to the binding developer. If the user wants to use his own application, the binding can be configured to use another OAuth consumer key and consumer secret. Please read the Withings documentation how to register an application (http://oauth.withings.com/en/partner/dashboard). After the application was created, Withings will generate a consumer key and secret. The redirect url must be configured, too. To change the OAuth parameters for the Withings binding the user can specify the following values into the openhab config file :
+The Withings Binding uses a default application registration to request an OAuth token. The application belongs to the binding developer. If the user wants to use his own application, the binding can be configured to use another OAuth consumer key and consumer secret. Please read the Withings documentation how to register an application (http://oauth.withings.com/en/partner/dashboard). After the application was created, Withings will generate a consumer key and secret. The redirect url must be configured, too. To change the OAuth parameters for the Withings binding the user can specify the following values in the '''openhab.cfg''' :
 
     withings-oauth:consumerKey="<your consumer key>"
     withings-oauth:consumerSecret="<your consumer secret>"
     withings-oauth:redirectUrl="<your redirect url>"
 
-## Bugstatus and Warning
+Furthermore: if there were no values stored into openhab.cfg yet the Binding itself saves it's configuration into the file '''services/withings-oauth.cfg'''. Since this specific file is only meant to configure withings values no further prefix is needed. An example file look like:
 
-The binding fails to load using openhab V1.7.x.
-It seems that the binding is not supported anymore.
-See: https://groups.google.com/forum/#!searchin/openhab/withings/openhab/O8rqM7z9pro/UyhqSpTmY88J
+    thomas.token=74c0e77021ef5be1ec8dcb4dd88c1xckusadwe92f9541c86799dcbbfcb8fc8b236
+    thomas.tokensecret=25f1098209xns511711b3287288f90740ff45532cef91658c5043db0b0e0c851c
+    ...
+    peter.token=74c0e77021ef5be1ec8dcb4dd88c1xckusadwe92f9541c86799dcbbfcb8fc8b236
+    peter.tokensecret=25f1098209xns511711b3287288f90740ff45532cef91658c5043db0b0e0c851c
+
+## Multiple accounts
+
+If one own multiple withings accounts these accounts must be configured specifically. In addition to the above mentioned '''openhab.cfg''' configuration, an '''accountId''' can be specified.
+
+    withings-oauth:thomas.token=74c0e77021ef5be1ec8dcb4dd88c1xckusadwe92f9541c86799dcbbfcb8fc8b236
+    withings-oauth:thomas.tokensecret=25f1098209xns511711b3287288f90740ff45532cef91658c5043db0b0e0c851c
+    ...
+    withings-oauth:peter.token=74c0e77021ef5be1ec8dcb4dd88c1xckusadwe92f9541c86799dcbbfcb8fc8b236
+    withings-oauth:peter.tokensecret=25f1098209xns511711b3287288f90740ff45532cef91658c5043db0b0e0c851c
