@@ -1,10 +1,6 @@
 site_name: oh test
-pages:
-- Home: index.md
-- About: about.md
 theme: readthedocs
 
 markdown_extensions:
     - toc:
         permalink: 
-    - admonition:
