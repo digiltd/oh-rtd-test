@@ -6,4 +6,5 @@ theme: readthedocs
 
 markdown_extensions:
     - toc:
-        permalink: True
+        permalink: 
+    - admonition:
