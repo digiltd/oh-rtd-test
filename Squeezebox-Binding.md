@@ -21,6 +21,14 @@ First you need to let openHAB know where to find your Squeeze Server and each of
     [squeeze:server.cliport=9090]
     [squeeze:server.webport=9000]
     
+#### Incorrect info in config comments
+
+The openhab.cfg reads `squeeze:<serverId>.host=` and suggests that the <server> part is customisable.
+
+This is incorrect and it should be `server` for example 'squeeze:server.host=192.168.1.13' (not `serverId`, or your custom server name) 
+
+See example config and rules here [[SqueezeboxExample]] 
+ 
     # Squeezebox players/devices
     squeeze:<player-id>.id=<mac-address-of-player A:B:C:D:E:F>
 
